@@ -1,0 +1,62 @@
+module(name = "bazel_stm32", version="1.0")
+
+bazel_dep(name = "bazel_skylib", version = "1.8.2")
+bazel_dep(name = "rules_python", version = "1.7.0")
+bazel_dep(name = "platforms", version = "1.0.0")
+# -- bazel_dep definitions -- #
+
+git_repository = use_repo_rule("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+# -- use_repo_rule statements -- #
+
+git_repository(
+    name = "stm32cubeg4",
+    remote = "https://github.com/STMicroelectronics/STM32CubeG4.git",
+    commit = "1e6984e6cdeb9e5c01f5badbfd18e5cf4345d02f", # to get bazel to shut up
+    #tag = "v1.6.1",
+    recursive_init_submodules = True, # for certain stm32 cube libraries they use submodules
+    build_file = "//third_party:stm32cubeg4.BUILD",
+)
+# c8ede3e61aa2d47696e42edead53bcf3d8f3f2ae7e7a180ce001d19bbc397878
+#c20e6dd15bd2a90e19f28cadc703aeb26825d211
+# bazel_dep(name = "buildifier_prebuilt", version = "6.4.0")
+
+# http_archive(
+#     name = "bazel_arm_toolchains",
+#     url = "https://github.com/agoessling/bazel_arm_toolchains/archive/v0.1.1.zip",
+#     sha256 = "9b097099d1818a4a6a629918a7f6fd672a45ef8c32109cfe3375e97ee5087d86",
+#     strip_prefix = "bazel_arm_toolchains-0.1.1",
+# )
+
+bazel_dep(name = "toolchains_arm_gnu", version = "1.1.0")
+
+git_override(
+    module_name = "toolchains_arm_gnu",
+    remote = "https://github.com/hexdae/toolchains_arm_gnu",
+    commit = "76837cb143e98566008eab52e0003a49b6d18e7e", # Version 1.2 (trying to keep everything new)
+)
+
+# Configure the toolchain to use the standard ARM GCC
+arm_toolchain = use_extension("@toolchains_arm_gnu//:extensions.bzl", "arm_toolchain")
+arm_toolchain.arm_none_eabi()
+use_repo(arm_toolchain, "arm_none_eabi")
+
+register_toolchains(
+    "@arm_none_eabi//toolchain:all",
+)
+
+# Python setup 
+python = use_extension("@rules_python//python/extensions:python.bzl", "python")
+python.toolchain(
+    python_version = "3.11",
+)
+use_repo(python, "python_3_11")
+
+pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
+pip.parse(
+    hub_name = "pip",
+    python_version = "3.11",
+    requirements_lock = "//:requirements_lock.txt",
+)
+use_repo(pip, "pip")
+
+

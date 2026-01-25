@@ -1,0 +1,71 @@
+# Standard Build Options
+build -c opt
+build --incompatible_enable_cc_toolchain_resolution
+
+# Default C++ Standard and Warnings
+build --cxxopt="-std=c++17"
+build --copt="-Wall"
+build --copt="-Werror"
+build --copt="-fdiagnostics-color"
+build --copt="-fmax-errors=5"
+
+
+# Points to the local platform defined in bare_metal/BUILD
+build:m4 --platforms=//common:stm32_platform
+
+# Force Cortex-M4 with Hardware Floating Point
+build:m4 --copt=-mthumb
+build:m4 --copt=-mcpu=cortex-m4 # main diff from M7
+build:m4 --copt=-mfloat-abi=hard
+build:m4 --copt=-mfpu=fpv4-sp-d16 # main diff from M7
+
+# Must match the compiler architecture flags
+build:m4 --linkopt=-mthumb
+build:m4 --linkopt=-mcpu=cortex-m4 # main diff from M7
+build:m4 --linkopt=-mfloat-abi=hard
+build:m4 --linkopt=-mfpu=fpv4-sp-d16 # main diff from M7
+
+# we use startup.c
+build:m4 --linkopt="-nostartfiles"
+
+
+build:m4 --linkopt=--specs=nosys.specs
+
+# DEBUG & EXCEPTIONS
+build:m4 --copt="-g"
+# Disabling exceptions saves space and avoids linker errors with __exidx
+build:m4 --copt="-fno-exceptions"
+build:m4 --cxxopt="-fno-rtti"
+
+
+
+
+
+
+
+# Points to the local platform defined in bare_metal/BUILD
+build:m7 --platforms=//bare_metal:stm32_platform
+
+# Force Cortex-M7 (Thumb-2) with Hardware Floating Point
+build:m7 --copt=-mthumb
+build:m7 --copt=-mcpu=cortex-m7
+build:m7 --copt=-mfloat-abi=hard
+build:m7 --copt=-mfpu=fpv5-sp-d16
+
+# Must match the compiler architecture flags!
+build:m7 --linkopt=-mthumb
+build:m7 --linkopt=-mcpu=cortex-m7
+build:m7 --linkopt=-mfloat-abi=hard
+build:m7 --linkopt=-mfpu=fpv5-sp-d16
+
+# we use startup.c
+build:m7 --linkopt="-nostartfiles"
+
+
+build:m7 --linkopt=--specs=nosys.specs
+
+# DEBUG & EXCEPTIONS
+build:m7 --copt="-g"
+# Disabling exceptions saves space and avoids linker errors with __exidx
+build:m7 --copt="-fno-exceptions"
+build:m7 --cxxopt="-fno-rtti"

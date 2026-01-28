@@ -1,0 +1,57 @@
+name: OEM Monorepo CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+ # first we going to test firmwar
+  build-software:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    # Cache Bazel 
+    - name: Mount Bazel Cache
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cache/bazel
+        key: bazel-${{ runner.os }}-${{ hashFiles('MODULE.bazel.lock') }}
+        restore-keys: |
+          bazel-${{ runner.os }}-
+
+    # Build Host Tools (Python scripts, etc.)
+    - name: Build Host Tools
+      run: bazel build //tools/... 
+
+    # Test Host Tools
+    - name: Test Host Tools
+      run: bazel test //tools/...
+
+    # Build Firmware 
+    - name: Build STM32 Firmware
+      run: bazel build //vehicle/... --config=m4
+# kicad stuff
+  check-hardware:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    # We need Bazel here too to run the convert.py script
+    - name: Mount Bazel Cache
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/bazel
+        key: bazel-${{ runner.os }}-${{ hashFiles('MODULE.bazel.lock') }}
+    
+    # Run the "Implode" test
+    # This proves that the individual symbol files can be successfully 
+    # rebuilt into a valid KiCad library without errors.
+    - name: Verify Atomic Library Integrity
+      run: |
+        bazel run //tools/symbols:convert -- symbols2library \
+          --source $(pwd)/parts/schematic/oem \
+          --out $(pwd)/parts/schematic/ci_test_output.kicad_sym

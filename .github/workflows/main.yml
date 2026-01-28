@@ -23,9 +23,6 @@ jobs:
         restore-keys: |
           bazel-${{ runner.os }}-
 
-    # Build Host Tools (Python scripts, etc.)
-    - name: Build Host Tools
-      run: bazel build //tools/... 
 
     # Build Firmware 
     - name: Build STM32 Firmware

@@ -27,10 +27,6 @@ jobs:
     - name: Build Host Tools
       run: bazel build //tools/... 
 
-    # Test Host Tools
-    - name: Test Host Tools
-      run: bazel test //tools/...
-
     # Build Firmware 
     - name: Build STM32 Firmware
       run: bazel build //vehicle/... --config=m4

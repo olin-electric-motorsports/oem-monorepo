@@ -56,6 +56,11 @@
           "gap": 0.0,
           "via_gap": 0.0,
           "width": 0.0
+        },
+        {
+          "gap": 0.2032,
+          "via_gap": 0.2032,
+          "width": 0.2032
         }
       ],
       "drc_exclusions": [],
@@ -101,8 +106,8 @@
         "pth_inside_courtyard": "ignore",
         "shorting_items": "error",
         "silk_edge_clearance": "warning",
-        "silk_over_copper": "ignore",
-        "silk_overlap": "ignore",
+        "silk_over_copper": "warning",
+        "silk_overlap": "warning",
         "skew_out_of_range": "error",
         "solder_mask_bridge": "error",
         "starved_thermal": "error",
@@ -123,7 +128,7 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.15,
+        "min_clearance": 0.0,
         "min_connection": 0.0,
         "min_copper_edge_clearance": 0.5,
         "min_groove_width": 0.0,
@@ -133,12 +138,12 @@
         "min_microvia_drill": 0.1,
         "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
-        "min_text_height": 0.8,
+        "min_text_height": 1.5,
         "min_text_thickness": 0.08,
-        "min_through_hole_diameter": 0.3048,
-        "min_track_width": 0.15,
-        "min_via_annular_width": 0.1524,
-        "min_via_diameter": 0.6096,
+        "min_through_hole_diameter": 0.3,
+        "min_track_width": 0.0,
+        "min_via_annular_width": 0.1,
+        "min_via_diameter": 0.5,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
@@ -187,7 +192,11 @@
         }
       ],
       "track_widths": [
-        0.0
+        0.0,
+        0.2032,
+        0.4064,
+        0.635,
+        1.27
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -461,12 +470,10 @@
   },
   "libraries": {
     "pinned_footprint_libs": [],
-    "pinned_symbol_libs": [
-      "OEM"
-    ]
+    "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "braketemperature.kicad_pro",
+    "filename": "oem_project_template.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -509,7 +516,7 @@
       "svg": "",
       "vrml": ""
     },
-    "page_layout_descr_file": ""
+    "page_layout_descr_file": "kicad-embed://oem template.kicad_wks"
   },
   "schematic": {
     "annotate_start_num": 0,
@@ -612,7 +619,7 @@
       "version": 1
     },
     "net_format_name": "",
-    "page_layout_descr_file": "",
+    "page_layout_descr_file": "kicad-embed://oem template.kicad_wks",
     "plot_directory": "",
     "space_save_all_events": true,
     "spice_current_sheet_as_root": false,
@@ -626,7 +633,7 @@
   },
   "sheets": [
     [
-      "64f0c560-6e5b-4572-8def-d2f8f152c13e",
+      "ec5dd9e3-3092-4af4-bee1-94131d9ab7f8",
       "Root"
     ]
   ],

@@ -1,0 +1,136 @@
+(symbol "F"
+	(pin_numbers
+		(hide yes)
+	)
+	(pin_names
+		(offset 0)
+	)
+	(exclude_from_sim no)
+	(in_bom yes)
+	(on_board yes)
+	(property "Reference" "F"
+		(at 2.032 0 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Value" "F"
+		(at -1.905 0 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at -1.778 0 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(hide yes)
+		)
+	)
+	(property "Datasheet" "~"
+		(at 0 0 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(hide yes)
+		)
+	)
+	(property "Description" "Fuse"
+		(at 0 0 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(hide yes)
+		)
+	)
+	(property "ki_keywords" "fuse"
+		(at 0 0 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(hide yes)
+		)
+	)
+	(property "ki_fp_filters" "*Fuse*"
+		(at 0 0 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(hide yes)
+		)
+	)
+	(symbol "F_0_1"
+		(rectangle
+			(start -0.762 -2.54)
+			(end 0.762 2.54)
+			(stroke
+				(width 0.254)
+				(type default)
+			)
+			(fill
+				(type none)
+			)
+		)
+		(polyline
+			(pts
+				(xy 0 2.54) (xy 0 -2.54)
+			)
+			(stroke
+				(width 0)
+				(type default)
+			)
+			(fill
+				(type none)
+			)
+		)
+	)
+	(symbol "F_1_1"
+		(pin passive line
+			(at 0 3.81 270)
+			(length 1.27)
+			(name "~"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at 0 -3.81 90)
+			(length 1.27)
+			(name "~"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+	)
+	(embedded_fonts no)
+)

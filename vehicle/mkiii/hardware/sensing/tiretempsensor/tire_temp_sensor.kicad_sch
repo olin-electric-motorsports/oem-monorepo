@@ -1282,6 +1282,154 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "OEM:C_10uF_10V_0603"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_10uF_10V"
+				(at 0.635 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "OEM:C_0603_1608Metric"
+				(at 0.9652 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188D71A106KA73-01.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "CAP CER 10UF 10V X7T 0603"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MPN" "GRM188D71A106KA73D"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_10uF_10V_0603_0_1"
+				(polyline
+					(pts
+						(xy -2.032 0.762) (xy 2.032 0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_10uF_10V_0603_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OEM:C_1uF_50V_0603"
 			(pin_numbers
 				(hide yes)
@@ -1901,6 +2049,151 @@
 					(at 3.81 0 180)
 					(length 2.54)
 					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "OEM:F_500mA_8V_1206"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "F"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "F_500mA_8V"
+				(at -1.905 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "OEM:Fuse_1206_3216Metric"
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/191/1/ds-cp-0zcj-series.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "PTC RESET FUSE 8V 500MA 1206"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MPN" "0ZCJ0050FF2G"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "fuse"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "*Fuse*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "F_500mA_8V_1206_0_1"
+				(rectangle
+					(start -0.762 -2.54)
+					(end 0.762 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "F_500mA_8V_1206_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4176,10 +4469,22 @@
 		(uuid "303e1437-c77c-4841-9f4f-ee5d25f32ac7")
 	)
 	(junction
+		(at 24.13 54.61)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3d52a5da-186d-41bf-aad3-c247c56e3e07")
+	)
+	(junction
 		(at 124.46 160.02)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4d06c205-b03f-44fb-b01e-0d7d6058e4cb")
+	)
+	(junction
+		(at 24.13 57.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5ae3da9c-a0db-490a-9cf4-483499b77a6d")
 	)
 	(junction
 		(at 125.73 60.96)
@@ -4188,22 +4493,28 @@
 		(uuid "5f9902b8-f7dd-45c6-bdce-f4661e9c3a91")
 	)
 	(junction
-		(at 22.86 29.21)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6e6d3c1b-e9f6-4a17-a16e-d376551a042b")
-	)
-	(junction
 		(at 125.73 86.36)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6f8d7a42-b895-4c41-b12f-0d9ff0b69a01")
 	)
 	(junction
+		(at 25.4 11.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7472c09a-75ac-4ed8-860a-21995aa80258")
+	)
+	(junction
 		(at 105.41 72.39)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7a8546dd-1b5e-4682-9148-427d0ebe0c34")
+	)
+	(junction
+		(at 11.43 29.21)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7d7cd0e1-68e0-4870-a0fd-b727bf2fc85a")
 	)
 	(junction
 		(at 22.86 34.29)
@@ -4242,16 +4553,22 @@
 		(uuid "adf1111c-7abd-4080-9121-ecb311526cbc")
 	)
 	(junction
+		(at 8.89 29.21)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b20cfba6-fe1b-44d3-b09c-1386f8608c87")
+	)
+	(junction
+		(at 25.4 13.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b99045ca-5fcd-4bce-89ba-21c035adb18d")
+	)
+	(junction
 		(at 95.25 53.34)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cb379857-bda4-46d0-91af-b887ee217c05")
-	)
-	(junction
-		(at 25.4 21.59)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "dc33194e-acfe-4c8e-b907-7c527fe5a902")
 	)
 	(junction
 		(at 80.01 53.34)
@@ -4284,6 +4601,10 @@
 		(uuid "11049693-edc2-49a2-bb33-9446262c32d9")
 	)
 	(no_connect
+		(at 77.47 33.02)
+		(uuid "1d7e89c7-4235-472b-900a-6dec99ed8436")
+	)
+	(no_connect
 		(at 196.85 81.28)
 		(uuid "228fef78-658c-4437-9e4b-184c28a5295e")
 	)
@@ -4308,12 +4629,28 @@
 		(uuid "3c84d080-f838-4f0b-a5c7-da61484e4338")
 	)
 	(no_connect
+		(at 62.23 46.99)
+		(uuid "481549b7-88ca-4cc5-9a08-3ce25515f7e4")
+	)
+	(no_connect
+		(at 62.23 26.67)
+		(uuid "48898809-2287-4cef-8e8a-a8585ac78574")
+	)
+	(no_connect
 		(at 196.85 96.52)
 		(uuid "4cb35c92-35fe-4388-8400-123e8a6fdb2e")
 	)
 	(no_connect
 		(at 196.85 78.74)
 		(uuid "5acdd287-cf23-47ea-aae8-063d2e758d70")
+	)
+	(no_connect
+		(at 62.23 77.47)
+		(uuid "685d89a6-326d-4230-90ea-907de662703f")
+	)
+	(no_connect
+		(at 26.67 49.53)
+		(uuid "715000da-dc80-4063-98b6-3eab67093e46")
 	)
 	(no_connect
 		(at 196.85 111.76)
@@ -4324,12 +4661,40 @@
 		(uuid "77004d0d-a8b8-4109-ad69-17f4e83d5929")
 	)
 	(no_connect
+		(at 62.23 72.39)
+		(uuid "7a217007-0f22-4453-8303-d644b34565e5")
+	)
+	(no_connect
 		(at 196.85 93.98)
 		(uuid "82a28ab1-01af-4d96-8a33-08f2a3900752")
 	)
 	(no_connect
+		(at 26.67 44.45)
+		(uuid "8312001c-3bcd-44a9-8946-9e52fd37b979")
+	)
+	(no_connect
+		(at 26.67 72.39)
+		(uuid "8607536b-a593-446c-800e-3a9b3509d529")
+	)
+	(no_connect
+		(at 62.23 57.15)
+		(uuid "8e33509b-fc67-40f4-834b-9524d280899f")
+	)
+	(no_connect
+		(at 62.23 36.83)
+		(uuid "9549e723-8f27-42b4-af1c-38b2134dc6c8")
+	)
+	(no_connect
+		(at 26.67 74.93)
+		(uuid "95634ed2-9374-440e-a940-0ca8983fd712")
+	)
+	(no_connect
 		(at 62.23 49.53)
 		(uuid "98202088-0627-4cea-976b-82eccb1d91d8")
+	)
+	(no_connect
+		(at 62.23 52.07)
+		(uuid "9f62f229-bdd0-42db-9eb8-0769f5f9e9d9")
 	)
 	(no_connect
 		(at 196.85 119.38)
@@ -4356,12 +4721,28 @@
 		(uuid "c18d386a-b39c-4c1d-a815-918e4ec0c8b9")
 	)
 	(no_connect
+		(at 62.23 62.23)
+		(uuid "d317193e-0060-42cd-953a-3e09c6f103a1")
+	)
+	(no_connect
 		(at 62.23 39.37)
 		(uuid "d3fcb30b-3349-4a53-a919-eacee9500e82")
 	)
 	(no_connect
 		(at 26.67 24.13)
 		(uuid "d5869dc2-3062-4481-852f-a94b5e81339b")
+	)
+	(no_connect
+		(at 26.67 46.99)
+		(uuid "d663ff7b-35c2-44ca-8b87-fad2d0f57494")
+	)
+	(no_connect
+		(at 62.23 31.75)
+		(uuid "e4593648-0f1d-4f0b-80dc-1faa9f3c671b")
+	)
+	(no_connect
+		(at 62.23 41.91)
+		(uuid "e6133f05-91fd-468b-ae8c-991c2c489b22")
 	)
 	(no_connect
 		(at 196.85 114.3)
@@ -4399,6 +4780,16 @@
 	)
 	(wire
 		(pts
+			(xy 11.43 29.21) (xy 13.97 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "01304609-01fe-4a86-af99-6c911a2ce09d")
+	)
+	(wire
+		(pts
 			(xy 171.45 31.75) (xy 171.45 35.56)
 		)
 		(stroke
@@ -4406,16 +4797,6 @@
 			(type default)
 		)
 		(uuid "016a5d08-a163-4aaa-a204-8315f174c37d")
-	)
-	(wire
-		(pts
-			(xy 22.86 74.93) (xy 26.67 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0309033a-adad-4fef-a16a-b2af8f189d9f")
 	)
 	(polyline
 		(pts
@@ -4456,6 +4837,26 @@
 			(type default)
 		)
 		(uuid "0635e5bd-3cb2-4613-b1af-9f73f8c12fea")
+	)
+	(wire
+		(pts
+			(xy 25.4 13.97) (xy 25.4 15.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06f67b82-c632-48d3-9d00-9f547545be97")
+	)
+	(wire
+		(pts
+			(xy 25.4 22.86) (xy 25.4 26.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0a6c788d-8e92-4765-bc48-c881640d0845")
 	)
 	(wire
 		(pts
@@ -4527,16 +4928,6 @@
 		)
 		(uuid "13fe12e0-13e6-4331-a56e-1745f234faf9")
 	)
-	(wire
-		(pts
-			(xy 22.86 29.21) (xy 26.67 29.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "14338666-5aa1-43c5-966f-5d909fced2b4")
-	)
 	(polyline
 		(pts
 			(xy 30.48 118.11) (xy 77.47 118.11)
@@ -4607,6 +4998,16 @@
 		)
 		(uuid "1f5211d9-35b6-432c-ae69-10edd9e8d0a4")
 	)
+	(wire
+		(pts
+			(xy 8.89 26.67) (xy 8.89 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "20db94a0-4f07-4538-a36a-66131416718b")
+	)
 	(polyline
 		(pts
 			(xy 201.93 154.94) (xy 248.92 154.94)
@@ -4626,6 +5027,16 @@
 			(type default)
 		)
 		(uuid "2423c8f4-d5e6-4ae8-b5b8-db574825a69a")
+	)
+	(wire
+		(pts
+			(xy 25.4 11.43) (xy 25.4 13.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "25daed08-8d0a-4eea-b3ab-a27b1c7e2105")
 	)
 	(polyline
 		(pts
@@ -4768,16 +5179,6 @@
 		)
 		(uuid "4fc91e90-529e-453e-8d86-dd0ac6c26f96")
 	)
-	(wire
-		(pts
-			(xy 22.86 72.39) (xy 26.67 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "50d71080-3897-4d45-84ea-8de09cf69d0b")
-	)
 	(polyline
 		(pts
 			(xy 13.97 92.71) (xy 54.61 92.71)
@@ -4891,16 +5292,6 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 49.53) (xy 26.67 49.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "637f6922-9682-4c0c-b386-565dd904ac30")
-	)
-	(wire
-		(pts
 			(xy 223.52 116.84) (xy 209.55 116.84)
 		)
 		(stroke
@@ -4941,16 +5332,6 @@
 	)
 	(wire
 		(pts
-			(xy 25.4 21.59) (xy 25.4 26.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "72e7a985-8720-4955-bc63-b2969e674903")
-	)
-	(wire
-		(pts
 			(xy 140.97 11.43) (xy 140.97 13.97)
 		)
 		(stroke
@@ -4958,16 +5339,6 @@
 			(type default)
 		)
 		(uuid "7a3607c0-67bb-4d54-9cf5-0547dcb2c8f0")
-	)
-	(wire
-		(pts
-			(xy 22.86 44.45) (xy 26.67 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7aac9c89-d478-4159-98a6-d271c0ec5a80")
 	)
 	(wire
 		(pts
@@ -5091,6 +5462,16 @@
 	)
 	(wire
 		(pts
+			(xy 5.08 29.21) (xy 8.89 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8cf86b45-2f90-4445-ac34-0465419c07a2")
+	)
+	(wire
+		(pts
 			(xy 105.41 83.82) (xy 105.41 82.55)
 		)
 		(stroke
@@ -5118,16 +5499,6 @@
 			(type default)
 		)
 		(uuid "902715fc-5027-4509-bf7a-203c106a4317")
-	)
-	(wire
-		(pts
-			(xy 19.05 29.21) (xy 22.86 29.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "906dc854-0e01-4450-ba5e-96a9e0c50661")
 	)
 	(polyline
 		(pts
@@ -5221,13 +5592,13 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 46.99) (xy 26.67 46.99)
+			(xy 8.89 29.21) (xy 11.43 29.21)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a282e5a1-7ae5-427e-9768-c61ed35e3107")
+		(uuid "a51ae0ba-699d-435b-853d-98dffe327e43")
 	)
 	(wire
 		(pts
@@ -5362,6 +5733,16 @@
 	)
 	(wire
 		(pts
+			(xy 24.13 57.15) (xy 26.67 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b83e8073-d28a-43b7-bdb3-95baa3a80ccd")
+	)
+	(wire
+		(pts
 			(xy 123.19 60.96) (xy 125.73 60.96)
 		)
 		(stroke
@@ -5402,7 +5783,7 @@
 	)
 	(wire
 		(pts
-			(xy 21.59 54.61) (xy 26.67 54.61)
+			(xy 17.78 54.61) (xy 24.13 54.61)
 		)
 		(stroke
 			(width 0)
@@ -5452,13 +5833,23 @@
 	)
 	(wire
 		(pts
-			(xy 21.59 57.15) (xy 26.67 57.15)
+			(xy 17.78 57.15) (xy 24.13 57.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "c8fb3ed5-4c45-4d23-a24d-258c3dd7abf9")
+	)
+	(wire
+		(pts
+			(xy 24.13 54.61) (xy 26.67 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cad28e77-ff4d-413b-a7a5-8d2c57139bdc")
 	)
 	(polyline
 		(pts
@@ -5539,6 +5930,16 @@
 			(type default)
 		)
 		(uuid "d8261b6c-cd94-465a-9fd6-104a5b8bb2ee")
+	)
+	(wire
+		(pts
+			(xy 25.4 8.89) (xy 25.4 11.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d9b67556-6b36-43b4-97e5-eae4f1fb095a")
 	)
 	(wire
 		(pts
@@ -5651,6 +6052,16 @@
 		)
 		(uuid "f26e2315-da08-48e6-9616-20838a2b026b")
 	)
+	(wire
+		(pts
+			(xy 21.59 29.21) (xy 26.67 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f5d8e617-3425-439c-b099-24f9770f7284")
+	)
 	(polyline
 		(pts
 			(xy 13.97 92.71) (xy 13.97 116.84)
@@ -5732,56 +6143,6 @@
 		)
 		(uuid "fc4bfcc3-8abe-48ae-862d-e2211830cb34")
 	)
-	(label "GND"
-		(at 62.23 36.83 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "05d15e6d-e22b-4095-adde-235f4d7d291e")
-	)
-	(label "GND"
-		(at 22.86 46.99 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "09dace0a-aa71-4502-8650-d4a87d4c672e")
-	)
-	(label "GND"
-		(at 62.23 57.15 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0a723d46-fd38-42a4-94b1-39184cd6c1cb")
-	)
-	(label "GND"
-		(at 22.86 44.45 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0f4e1e43-365a-4e82-a161-98cc3b432553")
-	)
-	(label "GND"
-		(at 62.23 62.23 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "16d08d9d-a091-4d45-8228-e7cc378a17ba")
-	)
 	(label "I2C1_SCL"
 		(at 210.82 95.25 0)
 		(effects
@@ -5802,16 +6163,6 @@
 		)
 		(uuid "3700a262-d7fe-4ee2-ba94-a71379e7c045")
 	)
-	(label "GND"
-		(at 22.86 49.53 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "38bc0797-1aec-4512-a66b-e98891d17104")
-	)
 	(label "SWCLK"
 		(at 196.85 63.5 0)
 		(effects
@@ -5831,16 +6182,6 @@
 			(justify left bottom)
 		)
 		(uuid "3f19306b-2063-4d9d-b51f-b074a13c4800")
-	)
-	(label "GND"
-		(at 62.23 31.75 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "490303ac-1867-42b2-a9c6-c529c7501124")
 	)
 	(label "Debug LED"
 		(at 140.97 11.43 180)
@@ -5882,16 +6223,6 @@
 		)
 		(uuid "5a0b4ebe-0435-415d-9252-facf6d3b9009")
 	)
-	(label "GND"
-		(at 62.23 41.91 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "651a97a3-2236-4cef-aa91-4b19a7755b57")
-	)
 	(label "CAN_RX"
 		(at 196.85 68.58 0)
 		(effects
@@ -5913,7 +6244,7 @@
 		(uuid "6afd81a5-e98c-432b-8130-9b81a1564b9f")
 	)
 	(label "CAN_-"
-		(at 21.59 57.15 0)
+		(at 17.78 57.15 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5942,16 +6273,6 @@
 		)
 		(uuid "720e81b8-872c-4f1c-95c4-f143c2b79b69")
 	)
-	(label "GND"
-		(at 22.86 72.39 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "75988f37-913d-4e48-8395-c029b7561924")
-	)
 	(label "CAN_TX"
 		(at 77.47 160.02 0)
 		(effects
@@ -5961,36 +6282,6 @@
 			(justify left bottom)
 		)
 		(uuid "7c0170e7-832a-4ecb-9337-f7884a0b07bd")
-	)
-	(label "GND"
-		(at 62.23 72.39 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "812d900d-211c-426d-90ec-4fd01f25135e")
-	)
-	(label "GND"
-		(at 62.23 26.67 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "81e97e62-04c5-458b-99e5-516af13b8366")
-	)
-	(label "GND"
-		(at 62.23 77.47 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "82da9435-94f7-4a74-937c-0f092879af1d")
 	)
 	(label "CAN_+"
 		(at 130.81 160.02 0)
@@ -6032,16 +6323,6 @@
 		)
 		(uuid "9be8e68d-554d-407e-91cb-dd75c5c07f8e")
 	)
-	(label "GND"
-		(at 22.86 74.93 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9f79e409-9260-40fb-b7f4-9c333a2e5e37")
-	)
 	(label "CAN_-"
 		(at 130.81 167.64 0)
 		(effects
@@ -6051,26 +6332,6 @@
 			(justify left bottom)
 		)
 		(uuid "a7209060-44e9-41f3-a716-b521c48ec816")
-	)
-	(label "GND"
-		(at 62.23 52.07 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a8445fdb-6185-499a-8386-6782c1d5ef68")
-	)
-	(label "GND"
-		(at 62.23 46.99 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "afed07ca-e592-4b3a-8dba-3ffaff536caf")
 	)
 	(label "IR sensor SCL"
 		(at 62.23 24.13 0)
@@ -6143,7 +6404,7 @@
 		(uuid "dc4a4694-8fd5-4f0c-bda6-d70cf546516a")
 	)
 	(label "CAN_+"
-		(at 21.59 54.61 0)
+		(at 17.78 54.61 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6625,6 +6886,72 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 11.43 36.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "186c88fb-ccd4-479e-bc7b-07c0ffdaaa23")
+		(property "Reference" "#PWR023"
+			(at 11.43 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 11.43 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 11.43 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 11.43 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 11.43 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1c591084-1143-4670-9851-a0d05e2b6062")
+		)
+		(instances
+			(project ""
+				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
+					(reference "#PWR023")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 95.25 63.5 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6902,7 +7229,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 19.05 29.21 0)
+		(at 5.08 29.21 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6911,7 +7238,7 @@
 		(fields_autoplaced yes)
 		(uuid "32bf8b45-fbac-419c-9412-fa70eee4fd7e")
 		(property "Reference" "#PWR09"
-			(at 19.05 33.02 0)
+			(at 5.08 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6920,7 +7247,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 19.05 24.13 0)
+			(at 5.08 24.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6928,7 +7255,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 19.05 29.21 0)
+			(at 5.08 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6937,7 +7264,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 19.05 29.21 0)
+			(at 5.08 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6946,7 +7273,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 19.05 29.21 0)
+			(at 5.08 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7323,6 +7650,85 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:C_10uF_10V_0603")
+		(at 11.43 33.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3f0705e2-8193-4370-a11d-1a26598947b7")
+		(property "Reference" "C8"
+			(at 15.24 31.7499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_10uF_10V"
+			(at 15.24 34.2899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:C_0603_1608Metric"
+			(at 12.3952 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188D71A106KA73-01.pdf"
+			(at 11.43 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 10UF 10V X7T 0603"
+			(at 11.43 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM188D71A106KA73D"
+			(at 11.43 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cfceb52c-56cf-4819-a860-8023f12d2b5b")
+		)
+		(pin "2"
+			(uuid "16d8cfee-e229-4be7-afd5-f519faf94b15")
+		)
+		(instances
+			(project ""
+				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
+					(reference "C8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:X_16MHz_18pF_SMD")
 		(at 223.52 138.43 0)
 		(mirror y)
@@ -7539,7 +7945,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 25.4 21.59 0)
+		(at 25.4 8.89 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7548,7 +7954,7 @@
 		(fields_autoplaced yes)
 		(uuid "56be1e4b-91e1-4c39-abcd-1e23b90cc563")
 		(property "Reference" "#PWR022"
-			(at 25.4 25.4 0)
+			(at 25.4 12.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7557,7 +7963,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 25.4 16.51 0)
+			(at 25.4 3.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7565,7 +7971,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 25.4 21.59 0)
+			(at 25.4 8.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7574,7 +7980,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 25.4 21.59 0)
+			(at 25.4 8.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7583,7 +7989,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 25.4 21.59 0)
+			(at 25.4 8.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7980,6 +8386,81 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 24.13 53.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7310b350-1118-4aea-b14f-981337ba276c")
+		(property "Reference" "TP5"
+			(at 26.67 49.5299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 25.654 55.626 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 24.13 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 24.13 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 24.13 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 24.13 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "673490df-5ebb-4cf0-a3fa-1e87ac392f79")
+		)
+		(instances
+			(project "Tire Temp Sensor"
+				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
+					(reference "TP5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 223.52 146.05 0)
 		(unit 1)
@@ -8106,6 +8587,81 @@
 			(project ""
 				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
 					(reference "#PWR021")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 24.13 58.42 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7a870a53-097d-4482-b99e-7589249b4807")
+		(property "Reference" "TP4"
+			(at 21.59 62.2301 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 22.606 56.134 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 24.13 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 24.13 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 24.13 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 24.13 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1878736a-f5ea-44d2-a89b-9ccd3f52dbe0")
+		)
+		(instances
+			(project "Tire Temp Sensor"
+				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
+					(reference "TP4")
 					(unit 1)
 				)
 			)
@@ -8373,8 +8929,151 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 33.02 13.97 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "855eacf2-6dd9-4c49-a891-374aa767bf62")
+		(property "Reference" "#PWR031"
+			(at 39.37 13.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 38.1 13.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 33.02 13.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 33.02 13.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 33.02 13.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "19574bc1-481f-4307-8cb4-a9443bdf5756")
+		)
+		(instances
+			(project "Tire Temp Sensor"
+				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
+					(reference "#PWR031")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:F_500mA_8V_1206")
+		(at 17.78 29.21 90)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "88273e0b-b946-4939-944d-6dd786e2a82e")
+		(property "Reference" "F3"
+			(at 17.78 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "F_500mA_8V"
+			(at 17.78 25.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:Fuse_1206_3216Metric"
+			(at 17.78 27.432 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/191/1/ds-cp-0zcj-series.pdf"
+			(at 17.78 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "PTC RESET FUSE 8V 500MA 1206"
+			(at 17.78 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0ZCJ0050FF2G"
+			(at 17.78 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7ff27f36-3a8f-4d69-a138-63633242ba1c")
+		)
+		(pin "2"
+			(uuid "185d5eed-52d2-4703-8f7f-63a8c393b3fa")
+		)
+		(instances
+			(project "Tire Temp Sensor"
+				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
+					(reference "F3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:TP_Hook_SMD")
-		(at 22.86 27.94 0)
+		(at 8.89 25.4 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8382,7 +9081,7 @@
 		(dnp no)
 		(uuid "8c5c4822-3343-46f1-beb4-da829b4165c0")
 		(property "Reference" "TP1"
-			(at 25.4 24.1299 0)
+			(at 11.43 21.5899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8391,7 +9090,7 @@
 			)
 		)
 		(property "Value" "TP_SMD"
-			(at 24.384 30.226 0)
+			(at 10.414 27.686 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8400,7 +9099,7 @@
 			)
 		)
 		(property "Footprint" "OEM:TP_Hook_SMD"
-			(at 22.86 31.75 0)
+			(at 8.89 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8409,7 +9108,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
-			(at 22.86 27.94 0)
+			(at 8.89 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8418,7 +9117,7 @@
 			)
 		)
 		(property "Description" "Test Point SMD Hook"
-			(at 22.86 27.94 0)
+			(at 8.89 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8427,7 +9126,7 @@
 			)
 		)
 		(property "MPN" "5019"
-			(at 22.86 27.94 0)
+			(at 8.89 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8521,6 +9220,85 @@
 			(project "Tire Temp Sensor"
 				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
 					(reference "R6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_10uF_10V_0603")
+		(at 29.21 13.97 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9d949d7f-3cb8-4da9-a73d-e2515938d457")
+		(property "Reference" "C9"
+			(at 27.9399 10.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_10uF_10V"
+			(at 30.4799 10.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:C_0603_1608Metric"
+			(at 33.02 13.0048 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188D71A106KA73-01.pdf"
+			(at 29.21 13.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 10UF 10V X7T 0603"
+			(at 29.21 13.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "GRM188D71A106KA73D"
+			(at 29.21 13.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "57d46ff0-0ff0-4ca2-9100-fd98ac17a2f6")
+		)
+		(pin "2"
+			(uuid "dad08b37-d6bf-4176-bb57-bd63fd1e2eb5")
+		)
+		(instances
+			(project "Tire Temp Sensor"
+				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
+					(reference "C9")
 					(unit 1)
 				)
 			)
@@ -8990,7 +9768,7 @@
 	)
 	(symbol
 		(lib_id "OEM:TP_Hook_SMD")
-		(at 24.13 21.59 90)
+		(at 24.13 11.43 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8998,7 +9776,7 @@
 		(dnp no)
 		(uuid "c02d8d70-a4e9-47a8-b947-5615f148a599")
 		(property "Reference" "TP3"
-			(at 20.3199 19.05 0)
+			(at 20.3199 8.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9007,7 +9785,7 @@
 			)
 		)
 		(property "Value" "TP_SMD"
-			(at 26.416 20.066 0)
+			(at 26.416 9.906 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9016,7 +9794,7 @@
 			)
 		)
 		(property "Footprint" "OEM:TP_Hook_SMD"
-			(at 27.94 21.59 0)
+			(at 27.94 11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9025,7 +9803,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
-			(at 24.13 21.59 0)
+			(at 24.13 11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9034,7 +9812,7 @@
 			)
 		)
 		(property "Description" "Test Point SMD Hook"
-			(at 24.13 21.59 0)
+			(at 24.13 11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9043,7 +9821,7 @@
 			)
 		)
 		(property "MPN" "5019"
-			(at 24.13 21.59 0)
+			(at 24.13 11.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9567,6 +10345,85 @@
 			(project "Tire Temp Sensor"
 				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
 					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:F_500mA_8V_1206")
+		(at 25.4 19.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "db4ef994-602e-445c-9647-2ae99843e05a")
+		(property "Reference" "F1"
+			(at 27.94 17.7799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "F_500mA_8V"
+			(at 27.94 20.3199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:Fuse_1206_3216Metric"
+			(at 23.622 19.05 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/191/1/ds-cp-0zcj-series.pdf"
+			(at 25.4 19.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "PTC RESET FUSE 8V 500MA 1206"
+			(at 25.4 19.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0ZCJ0050FF2G"
+			(at 25.4 19.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fb58ff1e-9361-4bb0-881e-702b7b96701d")
+		)
+		(pin "2"
+			(uuid "c98b39ad-aa23-42ce-aef8-c30566179cb3")
+		)
+		(instances
+			(project ""
+				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
+					(reference "F1")
 					(unit 1)
 				)
 			)

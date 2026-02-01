@@ -4,6 +4,12 @@
 	(generator_version "9.0")
 	(uuid "ec5dd9e3-3092-4af4-bee1-94131d9ab7f8")
 	(paper "A4")
+	(title_block
+		(title "Brake Temperature Sensor")
+		(date "2026-01-31")
+		(rev "1.0")
+		(comment 1 "Matthew Townsend")
+	)
 	(lib_symbols
 		(symbol "OEM:C_0.1uF_16V_0603"
 			(pin_numbers
@@ -3882,6 +3888,17 @@
 		)
 		(uuid "a7248272-8744-42b1-a3d7-ef96c684823f")
 	)
+	(text "Sensor Information:\nMPN: INFKL-800\nManufacturer: texense\nDatasheet: https://www.sens4speed.com/images/produit/pdf/5cb488734e0b3643109036.pdf\n\nPinout:\nRed		5V		Supplied by Motherboard\nWhite	Signal	IR Output Pin (input to PCB)\nBlack	0V		Supplied by Motherboard"
+		(exclude_from_sim no)
+		(at 19.812 173.482 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "ad70284c-c162-4b5e-a6e4-5b32d79e92ac")
+	)
 	(text "Layout Note: Each 0.1 uF capacitor\ncorresponds to one VDD pin."
 		(exclude_from_sim no)
 		(at 23.622 46.99 0)
@@ -3898,18 +3915,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "051088c1-e5cb-44dd-b050-e54eecdea64c")
-	)
-	(junction
-		(at 143.51 57.15)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0c6d894f-7283-4074-bd9c-fa94e1c1e9f9")
-	)
-	(junction
-		(at 24.13 92.71)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "14ccdf52-99ec-4d61-aaca-610be91ceefd")
 	)
 	(junction
 		(at 189.23 76.2)
@@ -4573,16 +4578,6 @@
 	)
 	(wire
 		(pts
-			(xy 24.13 91.44) (xy 24.13 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "67661ed7-0fc8-4e77-a8d7-f9056feb33fe")
-	)
-	(wire
-		(pts
 			(xy 50.8 118.11) (xy 63.5 118.11)
 		)
 		(stroke
@@ -4590,16 +4585,6 @@
 			(type default)
 		)
 		(uuid "68b2f9a8-7fdc-4ba9-aded-44347be116c4")
-	)
-	(wire
-		(pts
-			(xy 135.89 57.15) (xy 143.51 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6f25f594-b075-4232-843d-83e3dd754b92")
 	)
 	(wire
 		(pts

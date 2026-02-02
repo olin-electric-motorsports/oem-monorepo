@@ -6,10 +6,12 @@
 	(paper "A")
 	(title_block
 		(title "BMS Core")
-		(date "2022-12-03")
+		(date "2026-02-01")
 		(rev "1")
 		(company "Olin Electric Motorsports")
-		(comment 2 "Melissa Kazazic")
+		(comment 1 "Akil Pugalenthi")
+		(comment 2 "Jacob Likins")
+		(comment 3 "Melissa Kazazic")
 	)
 	(lib_symbols
 		(symbol "+5V_1"
@@ -6291,7 +6293,7 @@
 	)
 	(text "BMS Core:\nIts main function is to talk with the rest of\nthe BMS and open the Shutdown circuit if\nanything goes wrong."
 		(exclude_from_sim no)
-		(at 265.176 185.42 0)
+		(at 238.506 184.15 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8697,7 +8699,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "074bbb65-7737-4859-916f-9fbd75115c14")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0117"
 			(at 135.89 120.65 0)
 			(effects
 				(font
@@ -8747,7 +8749,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0117")
 					(unit 1)
 				)
 			)
@@ -8764,7 +8766,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0fd10f7d-3c56-49a5-9f60-c417dedd1024")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0101"
 			(at 74.93 157.48 0)
 			(effects
 				(font
@@ -8814,7 +8816,7 @@
 		(instances
 			(project ""
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0101")
 					(unit 1)
 				)
 			)
@@ -8829,7 +8831,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1528a307-b598-4de4-9b4c-a61fabc30b5f")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0106"
 			(at 119.38 130.81 0)
 			(effects
 				(font
@@ -8879,7 +8881,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0106")
 					(unit 1)
 				)
 			)
@@ -8976,7 +8978,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1cb3878d-609c-4bb7-8bc2-a2eacd02be2f")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0108"
 			(at 27.94 74.93 0)
 			(effects
 				(font
@@ -9026,7 +9028,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0108")
 					(unit 1)
 				)
 			)
@@ -9171,7 +9173,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "21485422-ac1f-4bf3-9802-1f963c9b9602")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0109"
 			(at 21.59 74.93 0)
 			(effects
 				(font
@@ -9221,7 +9223,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0109")
 					(unit 1)
 				)
 			)
@@ -9236,7 +9238,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2ea3bfd4-ac69-473d-bd88-4b8238e66c2b")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0123"
 			(at 186.69 162.56 0)
 			(effects
 				(font
@@ -9286,7 +9288,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0123")
 					(unit 1)
 				)
 			)
@@ -9573,7 +9575,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3ba7c044-87f5-4800-b30b-93119c320601")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0118"
 			(at 127 50.8 0)
 			(effects
 				(font
@@ -9623,7 +9625,7 @@
 		(instances
 			(project ""
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0118")
 					(unit 1)
 				)
 			)
@@ -9638,7 +9640,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "42ace459-8086-47a3-a851-d5010048db64")
-		(property "Reference" "#FLG?"
+		(property "Reference" "#FLG0102"
 			(at 245.11 150.495 0)
 			(effects
 				(font
@@ -9688,7 +9690,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#FLG?")
+					(reference "#FLG0102")
 					(unit 1)
 				)
 			)
@@ -10041,7 +10043,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4a2abda3-50cd-4c81-b3c9-e8f9b1251f77")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0112"
 			(at 17.78 104.14 0)
 			(effects
 				(font
@@ -10091,7 +10093,7 @@
 		(instances
 			(project ""
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0112")
 					(unit 1)
 				)
 			)
@@ -10106,7 +10108,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4b5c8a2d-9a15-4493-b90c-3326264f41ed")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0110"
 			(at 33.02 49.53 0)
 			(effects
 				(font
@@ -10156,7 +10158,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0110")
 					(unit 1)
 				)
 			)
@@ -10380,7 +10382,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5294e869-6418-4276-aec5-4038c686cacd")
-		(property "Reference" "#FLG?"
+		(property "Reference" "#FLG0101"
 			(at 252.73 153.035 0)
 			(effects
 				(font
@@ -10430,7 +10432,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#FLG?")
+					(reference "#FLG0101")
 					(unit 1)
 				)
 			)
@@ -10445,7 +10447,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "55001be2-fb55-4fca-81ed-f907ace10adb")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0107"
 			(at 129.54 130.81 0)
 			(effects
 				(font
@@ -10495,7 +10497,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0107")
 					(unit 1)
 				)
 			)
@@ -10510,7 +10512,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5dd27ee4-774b-4ed2-8e53-0ad033cced15")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0121"
 			(at 173.99 91.44 0)
 			(effects
 				(font
@@ -10560,7 +10562,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0121")
 					(unit 1)
 				)
 			)
@@ -10770,7 +10772,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "62053afb-26bd-43c7-92af-38004ffebf4c")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0124"
 			(at 186.69 153.67 0)
 			(effects
 				(font
@@ -10820,7 +10822,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0124")
 					(unit 1)
 				)
 			)
@@ -11176,7 +11178,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6b5a6398-21ff-4a3c-b167-ec0314c11368")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0120"
 			(at 218.44 93.98 0)
 			(effects
 				(font
@@ -11226,7 +11228,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0120")
 					(unit 1)
 				)
 			)
@@ -11339,7 +11341,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6ca49b03-671c-44e5-a5f5-8c8c8e7cb004")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0113"
 			(at 17.78 39.37 0)
 			(effects
 				(font
@@ -11389,7 +11391,7 @@
 		(instances
 			(project ""
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0113")
 					(unit 1)
 				)
 			)
@@ -11404,7 +11406,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "782f75c7-4846-45fe-8cfd-5ffa61f1f6b8")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0125"
 			(at 186.69 144.78 0)
 			(effects
 				(font
@@ -11454,7 +11456,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0125")
 					(unit 1)
 				)
 			)
@@ -11626,7 +11628,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "86354976-24dd-4b08-8574-8a44d8e2fd23")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0127"
 			(at 252.73 152.4 0)
 			(effects
 				(font
@@ -11676,7 +11678,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0127")
 					(unit 1)
 				)
 			)
@@ -11900,7 +11902,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9b8fb612-ea23-4080-9d3d-ddc62117ddad")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0111"
 			(at 25.4 49.53 0)
 			(effects
 				(font
@@ -11950,7 +11952,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0111")
 					(unit 1)
 				)
 			)
@@ -12043,7 +12045,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9f670361-30ae-44ed-bf9c-6489995f3ca6")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0105"
 			(at 124.46 127 0)
 			(effects
 				(font
@@ -12093,7 +12095,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0105")
 					(unit 1)
 				)
 			)
@@ -12108,7 +12110,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b25aa9fc-0001-4088-89d9-3ba379b5bd1a")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0122"
 			(at 163.83 92.71 0)
 			(effects
 				(font
@@ -12158,7 +12160,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0122")
 					(unit 1)
 				)
 			)
@@ -12173,7 +12175,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b6f41a68-d894-47fb-9b34-7892cfd78245")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0114"
 			(at 21.59 60.96 0)
 			(effects
 				(font
@@ -12223,7 +12225,7 @@
 		(instances
 			(project ""
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0114")
 					(unit 1)
 				)
 			)
@@ -12240,7 +12242,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b8e7099b-313a-49d9-9576-314eeb7c604e")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0103"
 			(at 81.28 182.88 0)
 			(effects
 				(font
@@ -12290,7 +12292,7 @@
 		(instances
 			(project ""
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0103")
 					(unit 1)
 				)
 			)
@@ -12858,7 +12860,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "dc1631fd-189f-46e5-b8cf-847787d67597")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0128"
 			(at 245.11 162.56 0)
 			(effects
 				(font
@@ -12908,7 +12910,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0128")
 					(unit 1)
 				)
 			)
@@ -12925,7 +12927,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e3c7dbee-73dc-493b-aa0e-99fa4ba6d80f")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0119"
 			(at 38.1 59.69 0)
 			(effects
 				(font
@@ -12975,7 +12977,7 @@
 		(instances
 			(project ""
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0119")
 					(unit 1)
 				)
 			)
@@ -12992,7 +12994,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e8ba565e-70e5-48d0-a7e2-474e5d43dbc5")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0102"
 			(at 116.84 182.88 0)
 			(effects
 				(font
@@ -13042,7 +13044,7 @@
 		(instances
 			(project ""
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0102")
 					(unit 1)
 				)
 			)
@@ -13346,7 +13348,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f470f52d-fce9-4fd1-8593-a01c1777962c")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0116"
 			(at 39.37 119.38 0)
 			(effects
 				(font
@@ -13396,7 +13398,7 @@
 		(instances
 			(project ""
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0116")
 					(unit 1)
 				)
 			)
@@ -13487,7 +13489,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f5b70096-0842-427d-8ba9-140606bc6813")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0126"
 			(at 205.74 74.93 0)
 			(effects
 				(font
@@ -13537,7 +13539,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0126")
 					(unit 1)
 				)
 			)
@@ -13552,7 +13554,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f8227784-7f00-401b-8b29-c134fbf63b3d")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0115"
 			(at 17.78 49.53 0)
 			(effects
 				(font
@@ -13602,7 +13604,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0115")
 					(unit 1)
 				)
 			)
@@ -13777,7 +13779,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f895c0ec-501f-433e-9ec2-623acdc8bd7e")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0104"
 			(at 74.93 171.45 0)
 			(effects
 				(font
@@ -13827,7 +13829,7 @@
 		(instances
 			(project ""
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5"
-					(reference "#PWR?")
+					(reference "#PWR0104")
 					(unit 1)
 				)
 			)
@@ -14122,4 +14124,154 @@
 		)
 	)
 	(embedded_fonts no)
+	(embedded_files
+		(file
+			(name "oem template.kicad_wks")
+			(type worksheet)
+			(data |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
+				TA==|
+			)
+			(checksum "3E725232106D05BF07B282AEA5FE7E4B")
+		)
+	)
 )

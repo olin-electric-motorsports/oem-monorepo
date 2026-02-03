@@ -4556,12 +4556,6 @@
 		(uuid "9ca7f23c-a6f0-49ad-af52-f7cc1404b48a")
 	)
 	(junction
-		(at 24.13 45.72)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a6486508-a5fe-42bc-8c6f-644875ec6a69")
-	)
-	(junction
 		(at 204.47 138.43)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4977,16 +4971,6 @@
 	)
 	(wire
 		(pts
-			(xy 24.13 45.72) (xy 29.21 45.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "17ddbef2-97b8-4c38-a745-361d974f7aef")
-	)
-	(wire
-		(pts
 			(xy 115.57 160.02) (xy 115.57 176.53)
 		)
 		(stroke
@@ -5164,6 +5148,16 @@
 			(type default)
 		)
 		(uuid "418b98e5-0536-45c4-80db-8f51d3c79201")
+	)
+	(wire
+		(pts
+			(xy 30.48 57.15) (xy 30.48 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "431015a8-7ced-49da-8e3f-6babbe109c43")
 	)
 	(wire
 		(pts
@@ -5730,16 +5724,6 @@
 	)
 	(wire
 		(pts
-			(xy 19.05 45.72) (xy 24.13 45.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a51ae0ba-699d-435b-853d-98dffe327e43")
-	)
-	(wire
-		(pts
 			(xy 212.09 58.42) (xy 219.71 58.42)
 		)
 		(stroke
@@ -5750,7 +5734,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 50.8) (xy 33.02 50.8)
+			(xy 29.21 57.15) (xy 30.48 57.15)
 		)
 		(stroke
 			(width 0)
@@ -5808,6 +5792,16 @@
 			(color 5 0 255 1)
 		)
 		(uuid "acdc13c5-89d2-4440-873e-e58ca39d0164")
+	)
+	(wire
+		(pts
+			(xy 19.05 45.72) (xy 29.21 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad34f75a-ce56-49ca-ad81-84c32abf99c8")
 	)
 	(wire
 		(pts
@@ -6169,6 +6163,16 @@
 			(type default)
 		)
 		(uuid "e3d7a6cb-20d9-460f-936f-c5f8560b30a9")
+	)
+	(wire
+		(pts
+			(xy 30.48 50.8) (xy 33.02 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e7261662-aad3-42d8-bcb5-6c6c13732a6d")
 	)
 	(wire
 		(pts
@@ -7084,7 +7088,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 24.13 53.34 0)
+		(at 19.05 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7093,7 +7097,7 @@
 		(fields_autoplaced yes)
 		(uuid "186c88fb-ccd4-479e-bc7b-07c0ffdaaa23")
 		(property "Reference" "#PWR023"
-			(at 24.13 59.69 0)
+			(at 19.05 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7102,7 +7106,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 24.13 58.42 0)
+			(at 19.05 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7110,7 +7114,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 24.13 53.34 0)
+			(at 19.05 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7119,7 +7123,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 24.13 53.34 0)
+			(at 19.05 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7128,7 +7132,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 24.13 53.34 0)
+			(at 19.05 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7281,7 +7285,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 31.75 50.8 270)
+		(at 29.21 57.15 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7289,7 +7293,7 @@
 		(dnp no)
 		(uuid "1e29893d-f403-437f-bc57-17b9e997f8df")
 		(property "Reference" "#PWR02"
-			(at 25.4 50.8 0)
+			(at 29.21 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7298,7 +7302,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 26.67 50.8 0)
+			(at 29.21 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7306,7 +7310,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 31.75 50.8 0)
+			(at 29.21 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7315,7 +7319,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 31.75 50.8 0)
+			(at 29.21 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7324,7 +7328,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 31.75 50.8 0)
+			(at 29.21 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7847,16 +7851,15 @@
 	)
 	(symbol
 		(lib_id "OEM:C_10uF_10V_0603")
-		(at 24.13 49.53 0)
+		(at 19.05 49.53 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "3f0705e2-8193-4370-a11d-1a26598947b7")
 		(property "Reference" "C8"
-			(at 27.94 48.2599 0)
+			(at 19.558 51.562 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7865,7 +7868,7 @@
 			)
 		)
 		(property "Value" "C_10uF_10V"
-			(at 27.94 50.7999 0)
+			(at 18.796 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7874,7 +7877,7 @@
 			)
 		)
 		(property "Footprint" "OEM:C_0603_1608Metric"
-			(at 25.0952 53.34 0)
+			(at 20.0152 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7883,7 +7886,7 @@
 			)
 		)
 		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188D71A106KA73-01.pdf"
-			(at 24.13 49.53 0)
+			(at 19.05 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7892,7 +7895,7 @@
 			)
 		)
 		(property "Description" "CAP CER 10UF 10V X7T 0603"
-			(at 24.13 49.53 0)
+			(at 19.05 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7901,7 +7904,7 @@
 			)
 		)
 		(property "MPN" "GRM188D71A106KA73D"
-			(at 24.13 49.53 0)
+			(at 19.05 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9497,7 +9500,7 @@
 		(dnp no)
 		(uuid "88273e0b-b946-4939-944d-6dd786e2a82e")
 		(property "Reference" "F3"
-			(at 33.02 39.37 90)
+			(at 32.258 47.752 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9505,7 +9508,7 @@
 			)
 		)
 		(property "Value" "F_500mA_8V"
-			(at 33.02 41.91 90)
+			(at 40.132 47.752 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9725,10 +9728,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "9d949d7f-3cb8-4da9-a73d-e2515938d457")
 		(property "Reference" "C9"
-			(at 38.0999 27.94 0)
+			(at 41.148 26.416 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9737,7 +9739,7 @@
 			)
 		)
 		(property "Value" "C_10uF_10V"
-			(at 40.6399 27.94 0)
+			(at 47.498 28.194 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10268,7 +10270,7 @@
 		(dnp no)
 		(uuid "c02d8d70-a4e9-47a8-b947-5615f148a599")
 		(property "Reference" "TP3"
-			(at 27.9399 29.21 0)
+			(at 25.654 29.464 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10277,7 +10279,7 @@
 			)
 		)
 		(property "Value" "TP_SMD"
-			(at 34.036 30.226 0)
+			(at 26.924 31.496 90)
 			(effects
 				(font
 					(size 1.27 1.27)

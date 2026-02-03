@@ -2660,12 +2660,6 @@
 		(uuid "a90ef491-6c54-47f4-8f4d-15f657163d9b")
 	)
 	(junction
-		(at 50.8 76.2)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b57eeeaf-4218-4a10-b524-ff32df44eb3b")
-	)
-	(junction
 		(at 223.52 67.31)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2863,7 +2857,7 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 73.66) (xy 50.8 76.2)
+			(xy 50.8 66.04) (xy 50.8 76.2)
 		)
 		(stroke
 			(width 0)
@@ -3363,16 +3357,6 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 76.2) (xy 50.8 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9372d458-18db-47a9-81e6-c82f32b94001")
-	)
-	(wire
-		(pts
 			(xy 21.59 110.49) (xy 21.59 107.95)
 		)
 		(stroke
@@ -3763,16 +3747,6 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 85.09) (xy 50.8 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e92b66db-a150-4250-b8ec-3e951d82aa35")
-	)
-	(wire
-		(pts
 			(xy 166.37 97.79) (xy 166.37 101.6)
 		)
 		(stroke
@@ -3995,7 +3969,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "01d011cd-fdc5-49f6-88e9-de46c6ed6669")
-		(property "Reference" "#PWR0145"
+		(property "Reference" "#PWR?"
 			(at 166.37 97.79 0)
 			(effects
 				(font
@@ -4045,7 +4019,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0145")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -4316,136 +4290,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:10KR")
-		(at 50.8 69.85 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0bae5bea-da2f-48c3-aa17-8475756250a7")
-		(property "Reference" "R13"
-			(at 56.0578 69.85 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "R_10K"
-			(at 53.7464 69.85 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OEM:R_0603"
-			(at 49.022 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.bourns.com/data/global/pdfs/CRS.pdf"
-			(at 52.832 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 50.8 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MFN" "DK"
-			(at 50.8 69.85 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "CRS0805-FX-1002ELFCT-ND"
-			(at 50.8 69.85 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "DKPN" "RMCF0603FT10K0TR-ND"
-			(at 50.8 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" "0603"
-			(at 50.8 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "NewDesigns" "YES"
-			(at 50.8 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Stocked" "Reel"
-			(at 50.8 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Style" "SMD"
-			(at 50.8 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "421f5353-338b-4121-be06-f48a9b32a766")
-		)
-		(pin "2"
-			(uuid "88d2de73-e509-4127-820b-ef9c67de9e42")
-		)
-		(instances
-			(project "bms_core"
-				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "R13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+5V")
 		(at 40.64 52.07 0)
 		(unit 1)
@@ -4454,7 +4298,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0db82082-8f90-4852-aeed-09fafad8a801")
-		(property "Reference" "#PWR0155"
+		(property "Reference" "#PWR?"
 			(at 40.64 55.88 0)
 			(effects
 				(font
@@ -4504,7 +4348,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0155")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -4649,7 +4493,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "17197ee2-16c4-4a66-a29c-bb4636a5ae0c")
-		(property "Reference" "#PWR0153"
+		(property "Reference" "#PWR?"
 			(at 36.83 100.33 0)
 			(effects
 				(font
@@ -4699,7 +4543,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0153")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -4985,7 +4829,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "265649d1-ebe9-491d-9af8-c0b0e5832b62")
-		(property "Reference" "#PWR0144"
+		(property "Reference" "#PWR?"
 			(at 74.93 93.98 0)
 			(effects
 				(font
@@ -5035,7 +4879,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0144")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -5182,7 +5026,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "351ad054-2131-4b2c-a5a2-f23496380d3d")
-		(property "Reference" "#PWR0152"
+		(property "Reference" "#PWR?"
 			(at 36.83 127 0)
 			(effects
 				(font
@@ -5232,7 +5076,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0152")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -5377,7 +5221,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3cdbdaee-9d99-43fe-a505-e9907f3ac182")
-		(property "Reference" "#PWR0140"
+		(property "Reference" "#PWR?"
 			(at 88.9 76.2 0)
 			(effects
 				(font
@@ -5427,7 +5271,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0140")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -6233,138 +6077,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:10KR")
-		(at 50.8 81.28 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4b1f0dc5-0814-4ec4-bef3-cb02c6506a30")
-		(property "Reference" "R14"
-			(at 55.88 82.55 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "R_10K"
-			(at 53.34 83.82 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "OEM:R_0603"
-			(at 52.578 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.bourns.com/data/global/pdfs/CRS.pdf"
-			(at 48.768 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 50.8 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MFN" "DK"
-			(at 50.8 81.28 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "CRS0805-FX-1002ELFCT-ND"
-			(at 50.8 81.28 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-				(hide yes)
-			)
-		)
-		(property "DKPN" "RMCF0603FT10K0TR-ND"
-			(at 50.8 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" "0603"
-			(at 50.8 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "NewDesigns" "YES"
-			(at 50.8 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Stocked" "Reel"
-			(at 50.8 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Style" "SMD"
-			(at 50.8 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "56e6fb68-b941-48bd-9ad5-8b3ed09a7c40")
-		)
-		(pin "2"
-			(uuid "8044c80c-36ff-4792-b355-7652f81d3d65")
-		)
-		(instances
-			(project "bms_core"
-				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "R14")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OEM:0u1F")
 		(at 176.53 97.79 90)
 		(unit 1)
@@ -6637,7 +6349,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5d94a214-e4ea-4e35-b3a3-46be213e07ba")
-		(property "Reference" "#PWR0151"
+		(property "Reference" "#PWR?"
 			(at 21.59 129.54 0)
 			(effects
 				(font
@@ -6687,7 +6399,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0151")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -6964,7 +6676,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6fff3125-8ffd-485e-ab9e-71c8e35c0bb7")
-		(property "Reference" "#PWR0157"
+		(property "Reference" "#PWR?"
 			(at 138.43 105.41 0)
 			(effects
 				(font
@@ -7014,72 +6726,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0157")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 50.8 86.36 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "73aaf727-5009-40f2-9457-784381fc152a")
-		(property "Reference" "#PWR0143"
-			(at 50.8 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 54.61 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 50.8 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 50.8 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 50.8 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "97027433-5ff4-4789-bfa8-3080e4802474")
-		)
-		(instances
-			(project "bms_core"
-				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0143")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -7094,7 +6741,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "73c39197-baf2-4e77-a737-8fbdd39d5dff")
-		(property "Reference" "#PWR0156"
+		(property "Reference" "#PWR?"
 			(at 138.43 128.27 0)
 			(effects
 				(font
@@ -7144,7 +6791,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0156")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -7291,7 +6938,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7aab0e64-14c6-41a4-8a38-ed8a7315a766")
-		(property "Reference" "#PWR0158"
+		(property "Reference" "#PWR?"
 			(at 182.88 107.95 0)
 			(effects
 				(font
@@ -7341,7 +6988,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0158")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -7356,7 +7003,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7d491687-d9b4-4a9a-98b3-c4ade9c4369f")
-		(property "Reference" "#PWR0150"
+		(property "Reference" "#PWR?"
 			(at 158.75 43.18 0)
 			(effects
 				(font
@@ -7406,7 +7053,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0150")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -7421,7 +7068,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8200b2af-f1e3-445a-8d59-ff45ceea4744")
-		(property "Reference" "#PWR0138"
+		(property "Reference" "#PWR?"
 			(at 223.52 68.58 0)
 			(effects
 				(font
@@ -7471,7 +7118,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0138")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -7486,7 +7133,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "85568828-6b76-4207-82d6-055785c788cd")
-		(property "Reference" "#PWR0148"
+		(property "Reference" "#PWR?"
 			(at 118.11 43.18 0)
 			(effects
 				(font
@@ -7536,7 +7183,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0148")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -7693,7 +7340,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "903cfefa-2a6f-4d1f-b2cd-20013f9fa03f")
-		(property "Reference" "#PWR0159"
+		(property "Reference" "#PWR?"
 			(at 166.37 125.73 0)
 			(effects
 				(font
@@ -7743,7 +7390,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0159")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -7888,7 +7535,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9925ed44-640a-48c3-9235-85f8eda1d9ad")
-		(property "Reference" "#PWR0154"
+		(property "Reference" "#PWR?"
 			(at 21.59 101.6 0)
 			(effects
 				(font
@@ -7938,7 +7585,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0154")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -7953,7 +7600,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9e262e3d-41cc-430b-8135-67b59ae5496f")
-		(property "Reference" "#PWR0149"
+		(property "Reference" "#PWR?"
 			(at 118.11 71.12 0)
 			(effects
 				(font
@@ -8003,7 +7650,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0149")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -8018,7 +7665,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a52f56b8-f064-4455-89b6-62b04da5f202")
-		(property "Reference" "#PWR0147"
+		(property "Reference" "#PWR?"
 			(at 158.75 71.12 0)
 			(effects
 				(font
@@ -8068,7 +7715,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0147")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -8083,7 +7730,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a74133d0-fb3a-4295-9e61-adc98259fe92")
-		(property "Reference" "#PWR0141"
+		(property "Reference" "#PWR?"
 			(at 74.93 66.04 0)
 			(effects
 				(font
@@ -8133,7 +7780,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0141")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -8148,7 +7795,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b1fd4cb4-a3dd-49a0-9693-8afbb825ea0a")
-		(property "Reference" "#PWR0139"
+		(property "Reference" "#PWR?"
 			(at 236.22 76.2 0)
 			(effects
 				(font
@@ -8198,7 +7845,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0139")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -8885,7 +8532,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d7ae5770-0aa4-49e0-a3c8-073b8f63aabe")
-		(property "Reference" "#PWR0146"
+		(property "Reference" "#PWR?"
 			(at 168.91 53.34 0)
 			(effects
 				(font
@@ -8935,7 +8582,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0146")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -8950,7 +8597,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "edfdcca1-f78b-4107-95ea-458dad70efef")
-		(property "Reference" "#PWR0137"
+		(property "Reference" "#PWR?"
 			(at 223.52 93.98 0)
 			(effects
 				(font
@@ -9000,7 +8647,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0137")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -9275,7 +8922,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f60f81d4-51ef-4c5b-b1d6-bcb27dcc0c33")
-		(property "Reference" "#PWR0142"
+		(property "Reference" "#PWR?"
 			(at 50.8 110.49 0)
 			(effects
 				(font
@@ -9325,7 +8972,7 @@
 		(instances
 			(project "bms_core"
 				(path "/19b2a9f9-0be6-4bde-80c5-cbc5126d55d5/be343294-bfee-4d49-a85a-b58a37467bda"
-					(reference "#PWR0142")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)

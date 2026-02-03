@@ -899,6 +899,198 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "OEM:D_LED_Red_0805"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "D_Red_LED"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "OEM:D_0805_2012Metric"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/catalog/specsheets/Lite-On-LTST-C171KRKT.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "LED RED CLEAR SMD"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" "1=K 2=A"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MPN" "LTST-C171KRKT"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "LED diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "D_LED_Red_0805_0_1"
+				(polyline
+					(pts
+						(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -1.27) (xy -1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "D_LED_Red_0805_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OEM:F_500mA_8V_1206"
 			(pin_numbers
 				(hide yes)
@@ -2226,6 +2418,139 @@
 				)
 			)
 			(symbol "R_120_0.1W_0603_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "OEM:R_1k_0.1W_0603"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R_1k"
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "OEM:R_0603_1608Metric"
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ3GEYJ102V)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "RES SMD 1K OHM 5% 1/10W 0603"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MPN" "RMCF0603FT1K00 (or ERJ-3GEYJ102V)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_1k_0.1W_0603_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1k_0.1W_0603_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 1.27)
@@ -3858,6 +4183,18 @@
 			(embedded_fonts no)
 		)
 	)
+	(rectangle
+		(start 80.01 16.51)
+		(end 220.345 47.625)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid f0d30242-0b6b-4f25-a8a8-754df7518a77)
+	)
 	(text "Power Supply Configuration\n(sec. 5.1.6 in datasheet)"
 		(exclude_from_sim no)
 		(at 38.608 41.402 0)
@@ -3917,10 +4254,22 @@
 		(uuid "051088c1-e5cb-44dd-b050-e54eecdea64c")
 	)
 	(junction
+		(at 196.85 139.7)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "134bc0c0-a70c-4e4a-a5da-8109e4f20ef7")
+	)
+	(junction
 		(at 189.23 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "224b1437-9d66-4dd0-a197-e80bdbb3cedf")
+	)
+	(junction
+		(at 205.74 99.06)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "28dbf7aa-b477-44e9-909e-073cd9f93d4c")
 	)
 	(junction
 		(at 257.81 66.04)
@@ -4019,6 +4368,12 @@
 		(uuid "df4901ba-2ce7-4ad1-a5d2-9facb894c74f")
 	)
 	(junction
+		(at 205.74 96.52)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e8c1621a-870e-4fe6-bf85-7f9414ff2524")
+	)
+	(junction
 		(at 182.88 110.49)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4049,20 +4404,12 @@
 		(uuid "1cb34c20-ecd4-48cd-ae25-7d639926f32c")
 	)
 	(no_connect
-		(at 143.51 90.17)
-		(uuid "21e6c9bb-b5d2-4117-9788-cd42afcc7bea")
-	)
-	(no_connect
 		(at 218.44 88.9)
 		(uuid "25fb82ab-4a09-4fee-a60a-a75ae717fc89")
 	)
 	(no_connect
 		(at 254 78.74)
 		(uuid "29be7a46-78b5-431b-a9ed-558d96ca30f2")
-	)
-	(no_connect
-		(at 143.51 100.33)
-		(uuid "2b49a5fa-12a7-41fc-80a0-f1b9460477b2")
 	)
 	(no_connect
 		(at 254 68.58)
@@ -4228,6 +4575,16 @@
 	)
 	(wire
 		(pts
+			(xy 31.75 118.11) (xy 40.64 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "055f4a42-966c-4f58-b970-cebf509bf054")
+	)
+	(wire
+		(pts
 			(xy 199.39 111.76) (xy 199.39 96.52)
 		)
 		(stroke
@@ -4318,7 +4675,7 @@
 	)
 	(wire
 		(pts
-			(xy 200.66 99.06) (xy 218.44 99.06)
+			(xy 200.66 99.06) (xy 205.74 99.06)
 		)
 		(stroke
 			(width 0)
@@ -4458,7 +4815,7 @@
 	)
 	(wire
 		(pts
-			(xy 199.39 96.52) (xy 218.44 96.52)
+			(xy 199.39 96.52) (xy 205.74 96.52)
 		)
 		(stroke
 			(width 0)
@@ -4475,6 +4832,16 @@
 			(type default)
 		)
 		(uuid "4b26be63-a866-4073-bd50-b2217c4bbd5a")
+	)
+	(wire
+		(pts
+			(xy 31.75 109.22) (xy 31.75 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4bd93f27-b6dc-4db3-856a-daa455973e4d")
 	)
 	(wire
 		(pts
@@ -4638,7 +5005,17 @@
 	)
 	(wire
 		(pts
-			(xy 196.85 132.08) (xy 196.85 142.24)
+			(xy 196.85 139.7) (xy 196.85 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a084070-95d0-4352-9d94-0ef1b78de70c")
+	)
+	(wire
+		(pts
+			(xy 196.85 132.08) (xy 196.85 139.7)
 		)
 		(stroke
 			(width 0)
@@ -4765,6 +5142,16 @@
 			(type default)
 		)
 		(uuid "a2a63c4a-ef9f-4e34-a967-b5dbd3d35323")
+	)
+	(wire
+		(pts
+			(xy 143.51 97.79) (xy 143.51 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a6a1db6a-4548-4fe4-974b-ce50f865266d")
 	)
 	(wire
 		(pts
@@ -4978,6 +5365,36 @@
 	)
 	(wire
 		(pts
+			(xy 40.64 125.73) (xy 40.64 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d32f52bc-bab7-4f51-b7e4-c337c5bc5490")
+	)
+	(wire
+		(pts
+			(xy 205.74 96.52) (xy 218.44 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d3a57eaf-76c3-4abb-814f-3286b2073484")
+	)
+	(wire
+		(pts
+			(xy 205.74 99.06) (xy 218.44 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d5cf416a-b4f3-49b6-a29e-8f5c4be1239c")
+	)
+	(wire
+		(pts
 			(xy 147.32 62.23) (xy 147.32 63.5)
 		)
 		(stroke
@@ -5068,6 +5485,16 @@
 	)
 	(wire
 		(pts
+			(xy 140.97 97.79) (xy 143.51 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9f641b5-77d1-4665-8b05-d1c0e4e594c8")
+	)
+	(wire
+		(pts
 			(xy 144.78 69.85) (xy 144.78 71.12)
 		)
 		(stroke
@@ -5146,6 +5573,16 @@
 		)
 		(uuid "fe5b559e-e466-4cf5-b6a2-9e03bef56bf2")
 	)
+	(label "NRST LED"
+		(at 171.45 21.59 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "12adff60-0aff-48e2-996d-03e1d0b640a8")
+	)
 	(label "NRST"
 		(at 167.64 58.42 0)
 		(effects
@@ -5166,6 +5603,16 @@
 		)
 		(uuid "1da1f829-970a-4d55-bd0f-2cb5ec4c5ea3")
 	)
+	(label "Heartbeat LED"
+		(at 127 25.4 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "34d54a8a-c7b0-4dac-9bd6-cf929a9f2b67")
+	)
 	(label "IR Output - PA0"
 		(at 143.51 74.93 0)
 		(effects
@@ -5185,6 +5632,16 @@
 			(justify right bottom)
 		)
 		(uuid "5bca0442-55c4-411c-b26d-885c9dc1ddda")
+	)
+	(label "NRST LED"
+		(at 40.64 125.73 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "65e91c7d-f4e2-4ae1-8e66-53192cbbed77")
 	)
 	(label "SWDIO"
 		(at 40.64 118.11 180)
@@ -5236,6 +5693,26 @@
 		)
 		(uuid "767c510d-788a-4389-b45b-df4f34a4a180")
 	)
+	(label "Heartbeat LED"
+		(at 140.97 97.79 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7e6acdc3-39f4-410a-a9b4-c5145ef15cbe")
+	)
+	(label "SWDIO LED"
+		(at 31.75 109.22 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9038ebbb-251a-471c-8baf-ae3e5e1fab15")
+	)
 	(label "CAN_RX"
 		(at 157.48 107.95 180)
 		(effects
@@ -5255,6 +5732,36 @@
 			(justify right bottom)
 		)
 		(uuid "bd4f4759-35af-4fb6-938f-c7fef4639812")
+	)
+	(label "Debug LED"
+		(at 143.51 90.17 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cf38e8ab-3713-4cef-8043-efd391874441")
+	)
+	(label "Debug LED"
+		(at 146.05 24.13 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d93f2125-7436-4ab0-adc0-7cf09fa953db")
+	)
+	(label "SWDIO LED"
+		(at 190.5 20.32 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "dbbc62bb-3dcc-43de-aa7a-7834b7ee308b")
 	)
 	(label "SWDIO"
 		(at 151.13 60.96 0)
@@ -5327,6 +5834,85 @@
 			(project "braketemperature"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "#PWR02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_1k_0.1W_0603")
+		(at 190.5 24.13 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "055f9326-0622-4fbe-b939-06d48fdb92a1")
+		(property "Reference" "R7"
+			(at 193.04 22.8599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_1k"
+			(at 193.04 25.3999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 188.722 24.13 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ3GEYJ102V)"
+			(at 190.5 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES SMD 1K OHM 5% 1/10W 0603"
+			(at 190.5 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603FT1K00 (or ERJ-3GEYJ102V)"
+			(at 190.5 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "12a5d0c3-f38a-447a-a836-fe7c544ee774")
+		)
+		(pin "1"
+			(uuid "238ecc79-9afd-4140-8da1-68ef54e5f87a")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "R7")
 					(unit 1)
 				)
 			)
@@ -5492,6 +6078,94 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:D_LED_Red_0805")
+		(at 86.36 36.83 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "16f10a38-e61e-4fd0-bb3c-62017a3b5221")
+		(property "Reference" "D1"
+			(at 90.17 37.1474 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "D_Red_LED"
+			(at 90.17 39.6874 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "OEM:D_0805_2012Metric"
+			(at 86.36 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/Lite-On-LTST-C171KRKT.pdf"
+			(at 86.36 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "LED RED CLEAR SMD"
+			(at 86.36 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 86.36 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTST-C171KRKT"
+			(at 86.36 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "74d92e90-79c3-4f09-913f-1728ad25f5d9")
+		)
+		(pin "2"
+			(uuid "96b9a1c3-e051-4205-90c8-f97f911e5d1f")
+		)
+		(instances
+			(project ""
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "D1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 250.19 46.99 0)
 		(unit 1)
@@ -5552,6 +6226,82 @@
 			(project "braketemperature"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 198.12 139.7 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1a8d1a48-f73c-4467-915d-b153fb5405b8")
+		(property "Reference" "TP6"
+			(at 203.2 138.4299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 203.2 140.9699 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 194.31 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 198.12 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 198.12 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 198.12 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a1870913-d658-4a97-9f26-0bbfdea2d0fa")
+		)
+		(instances
+			(project ""
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "TP6")
 					(unit 1)
 				)
 			)
@@ -5895,6 +6645,72 @@
 			(project "braketemperature"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "C6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 106.68 39.37 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3aad7959-4d97-4f74-aff7-0e57c66dfd23")
+		(property "Reference" "#PWR019"
+			(at 106.68 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 106.68 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 106.68 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 106.68 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f0ff464b-074b-457f-9c0c-40f78bb8b8bc")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "#PWR019")
 					(unit 1)
 				)
 			)
@@ -6274,6 +7090,85 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:R_1k_0.1W_0603")
+		(at 86.36 29.21 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4a5def1a-1ddd-49fd-bc5f-77e8c56434b0")
+		(property "Reference" "R2"
+			(at 88.9 27.9399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_1k"
+			(at 88.9 30.4799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 84.582 29.21 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ3GEYJ102V)"
+			(at 86.36 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES SMD 1K OHM 5% 1/10W 0603"
+			(at 86.36 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603FT1K00 (or ERJ-3GEYJ102V)"
+			(at 86.36 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "e82ed026-3c1e-4867-a523-0eb25690f3e3")
+		)
+		(pin "1"
+			(uuid "a1e150cf-8875-48b1-8b99-58b27b6f91f5")
+		)
+		(instances
+			(project ""
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:C_0.1uF_16V_0603")
 		(at 154.94 114.3 0)
 		(unit 1)
@@ -6503,6 +7398,138 @@
 			(project "braketemperature"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "C7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 146.05 39.37 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5bfea666-82d0-4eb2-9750-be24113db055")
+		(property "Reference" "#PWR020"
+			(at 146.05 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 146.05 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 146.05 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 146.05 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 146.05 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d3f3aa99-9617-4d10-8b9e-f94100517f06")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "#PWR020")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 106.68 24.13 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "61096303-f052-4e22-b337-a66a95df8503")
+		(property "Reference" "#PWR018"
+			(at 106.68 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 106.68 19.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 106.68 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 106.68 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "11863389-d89d-4d08-a575-47b77164afa3")
+		)
+		(instances
+			(project ""
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -6785,6 +7812,283 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 171.45 36.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "769ef3e1-f0a3-4131-90cd-cad14f040afe")
+		(property "Reference" "#PWR022"
+			(at 171.45 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 171.45 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 171.45 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 171.45 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 171.45 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e03e5e9d-96df-4cfc-a4b9-0e38be0c0c5d")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "#PWR022")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 127 40.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "76c156c6-2be5-49d1-b5ce-0086187c8ce9")
+		(property "Reference" "#PWR021"
+			(at 127 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 127 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 127 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 127 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 127 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d57a69bb-fb39-4d0f-aa08-a3924892418e")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "#PWR021")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 86.36 25.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "779024e6-0db1-43c7-aacf-f53056a7ca24")
+		(property "Reference" "#PWR011"
+			(at 86.36 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 86.36 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 86.36 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 86.36 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 86.36 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "253ebf5a-4238-475e-9886-717a71f94ef3")
+		)
+		(instances
+			(project ""
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "#PWR011")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_1k_0.1W_0603")
+		(at 106.68 27.94 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7c847b07-a5a6-4c2b-9dad-dc6b4c6b0acd")
+		(property "Reference" "R3"
+			(at 109.22 26.6699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_1k"
+			(at 109.22 29.2099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 104.902 27.94 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ3GEYJ102V)"
+			(at 106.68 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES SMD 1K OHM 5% 1/10W 0603"
+			(at 106.68 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603FT1K00 (or ERJ-3GEYJ102V)"
+			(at 106.68 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "7844e4dd-f8cb-436a-afac-91818873c00b")
+		)
+		(pin "1"
+			(uuid "c41d36e0-5956-44c8-8153-57bda8aaf15e")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3V3")
 		(at 24.13 57.15 0)
 		(unit 1)
@@ -6851,6 +8155,94 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:D_LED_Red_0805")
+		(at 127 36.83 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7f2ec79c-d59b-4801-96bd-fa00323bf5a6")
+		(property "Reference" "D3"
+			(at 130.81 37.1474 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "D_Red_LED"
+			(at 130.81 39.6874 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "OEM:D_0805_2012Metric"
+			(at 127 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/Lite-On-LTST-C171KRKT.pdf"
+			(at 127 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "LED RED CLEAR SMD"
+			(at 127 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 127 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTST-C171KRKT"
+			(at 127 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5e5826d4-f893-460c-a575-6c78e289f6bd")
+		)
+		(pin "2"
+			(uuid "70335b27-7d54-4a14-a755-d9a58d25343e")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3V3")
 		(at 185.42 74.93 0)
 		(unit 1)
@@ -6911,6 +8303,85 @@
 			(project "braketemperature"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "#PWR016")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_1k_0.1W_0603")
+		(at 171.45 25.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "84e04a82-0393-4032-8dcd-708b98801d6d")
+		(property "Reference" "R6"
+			(at 173.99 24.1299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_1k"
+			(at 173.99 26.6699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 169.672 25.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ3GEYJ102V)"
+			(at 171.45 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES SMD 1K OHM 5% 1/10W 0603"
+			(at 171.45 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603FT1K00 (or ERJ-3GEYJ102V)"
+			(at 171.45 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "4dc7f1d5-4a22-4640-a750-13b961cc1ea9")
+		)
+		(pin "1"
+			(uuid "7235619c-f315-474b-a782-b68c2fc41b05")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "R6")
 					(unit 1)
 				)
 			)
@@ -7050,6 +8521,94 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:D_LED_Red_0805")
+		(at 146.05 35.56 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9a4c54c5-8380-4752-9aff-c189cdfdf816")
+		(property "Reference" "D4"
+			(at 149.86 35.8774 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "D_Red_LED"
+			(at 149.86 38.4174 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "OEM:D_0805_2012Metric"
+			(at 146.05 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/Lite-On-LTST-C171KRKT.pdf"
+			(at 146.05 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "LED RED CLEAR SMD"
+			(at 146.05 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 146.05 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTST-C171KRKT"
+			(at 146.05 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "72f833cd-3c32-4195-b689-1722e646c1be")
+		)
+		(pin "2"
+			(uuid "5ad0c6e4-73ba-41fc-9ea7-71d50cdf8500")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "D4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 184.15 57.15 0)
 		(unit 1)
@@ -7109,6 +8668,85 @@
 			(project "braketemperature"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "#PWR010")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_1k_0.1W_0603")
+		(at 127 29.21 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9f2fd41e-7893-4817-be03-d10952024a61")
+		(property "Reference" "R4"
+			(at 129.54 27.9399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_1k"
+			(at 129.54 30.4799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 125.222 29.21 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ3GEYJ102V)"
+			(at 127 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES SMD 1K OHM 5% 1/10W 0603"
+			(at 127 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603FT1K00 (or ERJ-3GEYJ102V)"
+			(at 127 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "f8813b40-0fd9-440f-9a7a-d1e65d954220")
+		)
+		(pin "1"
+			(uuid "40ef705d-9c3a-49ee-a83e-15e80e9f3802")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "R4")
 					(unit 1)
 				)
 			)
@@ -7308,6 +8946,72 @@
 			(project "braketemperature"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 190.5 35.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ad759dc6-17ca-4883-9621-c50e4fe8358d")
+		(property "Reference" "#PWR023"
+			(at 190.5 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 190.5 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 190.5 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 190.5 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 190.5 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1097fa37-15c7-4698-93c4-f6d151a32a63")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -7574,6 +9278,94 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:D_LED_Red_0805")
+		(at 190.5 31.75 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b6027ecd-e6ec-4492-8add-b4ff86b5df14")
+		(property "Reference" "D6"
+			(at 194.31 32.0674 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "D_Red_LED"
+			(at 194.31 34.6074 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "OEM:D_0805_2012Metric"
+			(at 190.5 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/Lite-On-LTST-C171KRKT.pdf"
+			(at 190.5 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "LED RED CLEAR SMD"
+			(at 190.5 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 190.5 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTST-C171KRKT"
+			(at 190.5 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8ce2c98d-85c9-4e8a-9756-08fd1746df99")
+		)
+		(pin "2"
+			(uuid "fcaf8c70-b4c2-4c87-9cfa-fbab422c35b9")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "D6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:TP_Hook_SMD")
 		(at 189.23 77.47 180)
 		(unit 1)
@@ -7709,6 +9501,85 @@
 			(project "braketemperature"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "#PWR0101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_1k_0.1W_0603")
+		(at 146.05 27.94 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b9d95e70-ae46-4c32-8adb-9729290f21e5")
+		(property "Reference" "R5"
+			(at 148.59 26.6699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_1k"
+			(at 148.59 29.2099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 144.272 27.94 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ3GEYJ102V)"
+			(at 146.05 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES SMD 1K OHM 5% 1/10W 0603"
+			(at 146.05 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603FT1K00 (or ERJ-3GEYJ102V)"
+			(at 146.05 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "ee4020db-166f-4508-82da-d2a85674feb0")
+		)
+		(pin "1"
+			(uuid "0e7a9d11-8710-4879-b03d-e9079c77b45c")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "R5")
 					(unit 1)
 				)
 			)
@@ -7931,6 +9802,170 @@
 			(project "braketemperature"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 205.74 100.33 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c324607c-2fd8-44c3-8fba-6800c2900597")
+		(property "Reference" "TP5"
+			(at 208.28 101.5999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 208.28 104.1399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 205.74 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 205.74 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 205.74 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 205.74 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d71b44ed-e134-4c41-90e8-9eeb97018903")
+		)
+		(instances
+			(project ""
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "TP5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:D_LED_Red_0805")
+		(at 106.68 35.56 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c6669825-e062-47a0-a4b7-0fd5b127e474")
+		(property "Reference" "D2"
+			(at 110.49 35.8774 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "D_Red_LED"
+			(at 110.49 38.4174 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "OEM:D_0805_2012Metric"
+			(at 106.68 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/Lite-On-LTST-C171KRKT.pdf"
+			(at 106.68 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "LED RED CLEAR SMD"
+			(at 106.68 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 106.68 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTST-C171KRKT"
+			(at 106.68 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "455e80f6-eee8-41dd-9c5b-d1ec02394fb0")
+		)
+		(pin "2"
+			(uuid "6917a7f5-cdc9-41c0-8bc1-e76bd4bc03c8")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "D2")
 					(unit 1)
 				)
 			)
@@ -8319,6 +10354,72 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 86.36 40.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "da7091a2-80a7-4fef-9900-3888e352e817")
+		(property "Reference" "#PWR017"
+			(at 86.36 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 86.36 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 86.36 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 86.36 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 86.36 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ebdaa18e-0601-4e49-a922-162a3382878a")
+		)
+		(instances
+			(project ""
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 154.94 118.11 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8540,6 +10641,94 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:D_LED_Red_0805")
+		(at 171.45 33.02 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e1e4e2c4-256b-4454-a9d0-05379c69f31b")
+		(property "Reference" "D5"
+			(at 175.26 33.3374 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "D_Red_LED"
+			(at 175.26 35.8774 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "OEM:D_0805_2012Metric"
+			(at 171.45 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/Lite-On-LTST-C171KRKT.pdf"
+			(at 171.45 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "LED RED CLEAR SMD"
+			(at 171.45 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 171.45 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTST-C171KRKT"
+			(at 171.45 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "19dac72f-5ec7-4fb0-9b4a-8dbd34bb18bd")
+		)
+		(pin "2"
+			(uuid "94b89b4a-578a-491e-a4da-7aa1bfeb064e")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "D5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:TP_Hook_SMD")
 		(at 191.77 60.96 270)
 		(unit 1)
@@ -8610,6 +10799,82 @@
 			(project "braketemperature"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "TP2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 205.74 95.25 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f01f1c86-1def-46da-9db1-b11b3e077931")
+		(property "Reference" "TP4"
+			(at 208.28 91.4399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 208.28 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 205.74 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 205.74 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 205.74 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 205.74 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3ac57112-7270-4836-bc1b-d859432ee036")
+		)
+		(instances
+			(project ""
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "TP4")
 					(unit 1)
 				)
 			)

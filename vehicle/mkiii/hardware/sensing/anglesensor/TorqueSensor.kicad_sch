@@ -2736,6 +2736,107 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "OEM:TP_Hook_SMD"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TP"
+				(at 0 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TP_SMD"
+				(at 1.27 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "OEM:TP_Hook_SMD"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Test Point SMD Hook"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MPN" "5019"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Test Point SMD Hook"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TP_Hook_SMD_1_1"
+				(circle
+					(center 0 2.54)
+					(radius 1.27)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin input line
+					(at 0 -1.27 90)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OEM:U_MCU_STM32G441KBT6_32-LQFP"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -4281,22 +4382,22 @@
 		(uuid "118cabf6-7555-44af-a9e0-5380505a67a1")
 	)
 	(junction
+		(at 182.88 21.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "14317d2a-6ab3-4183-8e9c-145ebaee9920")
+	)
+	(junction
 		(at 227.33 142.24)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "18d6af75-2556-43cc-a99f-6f0b206694df")
 	)
 	(junction
-		(at 199.39 21.59)
+		(at 52.07 24.13)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "2037c330-28f8-4d99-9472-39be9f47d409")
-	)
-	(junction
-		(at 236.22 31.75)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2778ea74-fb90-43c2-ab3c-fa13866146f8")
+		(uuid "2deee263-b18a-414c-b53e-b876e48c2275")
 	)
 	(junction
 		(at 87.63 44.45)
@@ -4323,6 +4424,12 @@
 		(uuid "4be4ac3a-7792-4e01-953d-3857d5f94f89")
 	)
 	(junction
+		(at 278.13 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4c89bf7b-b925-4137-a32c-5d86184e797e")
+	)
+	(junction
 		(at 160.02 110.49)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4335,10 +4442,34 @@
 		(uuid "66e35ac8-7693-46ad-8320-78b6a9d46249")
 	)
 	(junction
+		(at 270.51 154.94)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "68d7ebba-7e0a-4baa-ae4e-dcbfa8f6ec77")
+	)
+	(junction
+		(at 237.49 31.75)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "894efec9-8550-49ab-9a7e-3a3d56a26377")
+	)
+	(junction
+		(at 231.14 24.13)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "965f0b6b-88ba-4c17-af97-9e9c1907fb5e")
+	)
+	(junction
 		(at 71.12 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9ed06c85-de82-4ae2-a5d1-d66d384a5124")
+	)
+	(junction
+		(at 236.22 31.75)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b89ae73f-c9fb-47ba-a1b6-7820a991abc3")
 	)
 	(junction
 		(at 74.93 46.99)
@@ -4357,6 +4488,18 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cd71e97d-d6bd-4129-8c22-c93c1fe75311")
+	)
+	(junction
+		(at 200.66 21.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cdff51fc-8180-4622-be7f-2be54d8f4b94")
+	)
+	(junction
+		(at 173.99 21.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cf024f4f-229f-41fa-817f-22cf657546b9")
 	)
 	(junction
 		(at 86.36 33.02)
@@ -4552,6 +4695,16 @@
 	)
 	(wire
 		(pts
+			(xy 234.95 81.28) (xy 234.95 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "075f511e-31aa-47c9-baee-795184f93594")
+	)
+	(wire
+		(pts
 			(xy 187.96 105.41) (xy 177.8 105.41)
 		)
 		(stroke
@@ -4612,7 +4765,7 @@
 	)
 	(wire
 		(pts
-			(xy 236.22 31.75) (xy 236.22 33.02)
+			(xy 237.49 31.75) (xy 237.49 36.83)
 		)
 		(stroke
 			(width 0)
@@ -4622,7 +4775,7 @@
 	)
 	(wire
 		(pts
-			(xy 229.87 24.13) (xy 241.3 24.13)
+			(xy 229.87 24.13) (xy 231.14 24.13)
 		)
 		(stroke
 			(width 0)
@@ -4672,13 +4825,23 @@
 	)
 	(wire
 		(pts
-			(xy 278.13 139.7) (xy 278.13 154.94)
+			(xy 200.66 29.21) (xy 200.66 31.75)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3e359d52-3f43-43f9-be7e-0f77026d819c")
+		(uuid "3858afbf-425a-4f09-8e3d-cd0fc7177fa6")
+	)
+	(wire
+		(pts
+			(xy 270.51 154.94) (xy 270.51 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f1646cb-8304-4294-ae52-a974d67e99f7")
 	)
 	(wire
 		(pts
@@ -4709,6 +4872,16 @@
 			(type default)
 		)
 		(uuid "462b54c9-0e3a-45d8-9673-d4eed9a6b3fe")
+	)
+	(wire
+		(pts
+			(xy 278.13 139.7) (xy 278.13 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5417e59e-c116-48af-b652-5c1f470b6e6f")
 	)
 	(wire
 		(pts
@@ -4759,16 +4932,6 @@
 			(type default)
 		)
 		(uuid "608157a8-2a00-4791-a9bd-8be63edb6c44")
-	)
-	(wire
-		(pts
-			(xy 236.22 31.75) (xy 241.3 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6469a3a6-5c09-4071-bf19-a2400b415d9d")
 	)
 	(wire
 		(pts
@@ -4862,7 +5025,7 @@
 	)
 	(wire
 		(pts
-			(xy 270.51 154.94) (xy 270.51 142.24)
+			(xy 270.51 142.24) (xy 270.51 154.94)
 		)
 		(stroke
 			(width 0)
@@ -4872,7 +5035,7 @@
 	)
 	(wire
 		(pts
-			(xy 194.31 21.59) (xy 199.39 21.59)
+			(xy 166.37 21.59) (xy 173.99 21.59)
 		)
 		(stroke
 			(width 0)
@@ -4899,6 +5062,16 @@
 			(type default)
 		)
 		(uuid "8d375512-3d01-42a7-be36-9529d4693f83")
+	)
+	(wire
+		(pts
+			(xy 224.79 33.02) (xy 231.14 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8dd42091-e906-4e2e-861b-0ca4aad6c0db")
 	)
 	(wire
 		(pts
@@ -4929,6 +5102,16 @@
 			(type default)
 		)
 		(uuid "9334db61-3922-4316-8c8b-d09b42b27e6c")
+	)
+	(wire
+		(pts
+			(xy 224.79 40.64) (xy 224.79 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "93d4105f-81de-4595-b717-b4fa68eb1018")
 	)
 	(wire
 		(pts
@@ -4972,7 +5155,7 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 21.59) (xy 241.3 21.59)
+			(xy 196.85 21.59) (xy 200.66 21.59)
 		)
 		(stroke
 			(width 0)
@@ -4992,13 +5175,53 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 46.99) (xy 74.93 46.99)
+			(xy 52.07 24.13) (xy 52.07 30.48)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a0b2a832-1914-4443-b6af-db7d42d9f4c7")
+		(uuid "9bdfa056-6418-4576-b233-a24835c01993")
+	)
+	(wire
+		(pts
+			(xy 278.13 152.4) (xy 278.13 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ef5de6a-8874-4d43-bf0d-77408b8ce7e3")
+	)
+	(wire
+		(pts
+			(xy 213.36 71.12) (xy 213.36 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9fd067a0-a726-486e-9026-6e1ccbc399c9")
+	)
+	(wire
+		(pts
+			(xy 231.14 24.13) (xy 241.3 24.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a2631f97-5bd0-4c06-a9cc-e825c950bdd6")
+	)
+	(wire
+		(pts
+			(xy 237.49 31.75) (xy 241.3 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a7c2df51-685e-4684-a377-214997dcb59a")
 	)
 	(wire
 		(pts
@@ -5012,13 +5235,13 @@
 	)
 	(wire
 		(pts
-			(xy 199.39 21.59) (xy 208.28 21.59)
+			(xy 231.14 33.02) (xy 231.14 31.75)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "afc36848-e3b2-4f0c-a260-941b9c5de894")
+		(uuid "b5d8b7c6-c784-41bb-acc7-6f9e6801f5a2")
 	)
 	(wire
 		(pts
@@ -5029,6 +5252,36 @@
 			(type default)
 		)
 		(uuid "b6092afc-3211-4931-82d8-9e8d94f9163d")
+	)
+	(wire
+		(pts
+			(xy 200.66 21.59) (xy 241.3 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd6f9558-7050-417b-b19b-3d80bc8b3da1")
+	)
+	(wire
+		(pts
+			(xy 234.95 31.75) (xy 236.22 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c04054ae-0a86-48a6-9013-80f77e9980d7")
+	)
+	(wire
+		(pts
+			(xy 52.07 21.59) (xy 52.07 24.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6b1bc2e-867f-45d3-af08-03cfaef52da3")
 	)
 	(wire
 		(pts
@@ -5052,6 +5305,26 @@
 	)
 	(wire
 		(pts
+			(xy 173.99 21.59) (xy 182.88 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d3a5ebfb-ad18-4290-b008-f3cbfcd54fb0")
+	)
+	(wire
+		(pts
+			(xy 54.61 46.99) (xy 74.93 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d5ed05df-bccd-4c10-a377-9d482116b858")
+	)
+	(wire
+		(pts
 			(xy 224.79 142.24) (xy 227.33 142.24)
 		)
 		(stroke
@@ -5059,6 +5332,16 @@
 			(type default)
 		)
 		(uuid "d6c10a9d-f1d0-4b7f-a045-1f832a2f724b")
+	)
+	(wire
+		(pts
+			(xy 182.88 21.59) (xy 189.23 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "df797928-e5c7-4854-bbcd-7e6c71fe71fa")
 	)
 	(wire
 		(pts
@@ -5079,6 +5362,26 @@
 			(type default)
 		)
 		(uuid "e084500c-253e-4197-ac8b-ba444bd78b9f")
+	)
+	(wire
+		(pts
+			(xy 200.66 39.37) (xy 200.66 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e20866d5-b9a0-47a1-9c21-009753264533")
+	)
+	(wire
+		(pts
+			(xy 213.36 81.28) (xy 234.95 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e6dbbeee-3d72-49d9-a4bb-c40d2d466ddc")
 	)
 	(wire
 		(pts
@@ -5119,6 +5422,16 @@
 			(type default)
 		)
 		(uuid "f4bff152-5fce-4532-9d99-6284e74b6a66")
+	)
+	(wire
+		(pts
+			(xy 236.22 31.75) (xy 237.49 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fdf44db3-0a87-40b1-a0b2-64fe514b4077")
 	)
 	(label "NRST"
 		(at 176.53 31.75 0)
@@ -5311,7 +5624,7 @@
 		(uuid "b4094d8b-1157-4c90-86ad-109b0e3431a2")
 	)
 	(label "CAN_-"
-		(at 270.51 154.94 180)
+		(at 270.51 160.02 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5321,7 +5634,7 @@
 		(uuid "c6808ae9-8309-489c-be70-a7bc89e7943c")
 	)
 	(label "CAN_+"
-		(at 278.13 154.94 0)
+		(at 278.13 160.02 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5816,6 +6129,82 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 213.36 69.85 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1ef0c424-965c-4dcb-adb8-94bd6542af43")
+		(property "Reference" "TP3"
+			(at 215.9 66.0399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 215.9 68.5799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 213.36 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 213.36 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 213.36 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 213.36 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f989a68a-f1e7-4a8f-92ef-d079ca4e39ae")
+		)
+		(instances
+			(project ""
+				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
+					(reference "TP3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 54.61 54.61 0)
 		(unit 1)
@@ -5876,6 +6265,85 @@
 			(project ""
 				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
 					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_1k_0.1W_0603")
+		(at 224.79 36.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "237e0fcd-1fbb-433c-8a02-9e517ba003f0")
+		(property "Reference" "R1"
+			(at 227.33 35.5599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_1k"
+			(at 227.33 38.0999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 223.012 36.83 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ3GEYJ102V)"
+			(at 224.79 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES SMD 1K OHM 5% 1/10W 0603"
+			(at 224.79 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603FT1K00 (or ERJ-3GEYJ102V)"
+			(at 224.79 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "a0073f96-bb13-47e4-b45d-f53b54f60610")
+		)
+		(pin "1"
+			(uuid "68327e38-3d52-42ef-8237-87a298eff6e8")
+		)
+		(instances
+			(project "TorqueSensor"
+				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
+					(reference "R1")
 					(unit 1)
 				)
 			)
@@ -6040,6 +6508,82 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 173.99 20.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "30f15b37-b104-4e6a-872c-f6bb8568df67")
+		(property "Reference" "TP4"
+			(at 176.53 16.5099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 176.53 19.0499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 173.99 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 173.99 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 173.99 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 173.99 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7728f059-b09f-4b2d-85f4-a77728545bd5")
+		)
+		(instances
+			(project "TorqueSensor"
+				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
+					(reference "TP4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:U_MCU_STM32G441KBT6_32-LQFP")
 		(at 123.19 72.39 0)
 		(unit 1)
@@ -6192,6 +6736,94 @@
 			(project ""
 				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
 					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:D_LED_White_0805")
+		(at 200.66 25.4 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3d26f0d9-c1b7-437b-b9be-b16538844ed7")
+		(property "Reference" "D4"
+			(at 204.47 25.7174 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "LED_WHITE"
+			(at 204.47 28.2574 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "OEM:D_0805_2012Metric"
+			(at 200.66 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.qt-brightek.com/datasheet/QBLP631_series.pdf"
+			(at 200.66 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "LED WHITE DIFFUSED 0805 SMD"
+			(at 200.66 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 200.66 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "QBLP631-IW"
+			(at 200.66 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "cf060cb6-33d8-4b84-a6b4-5611e1658a5e")
+		)
+		(pin "1"
+			(uuid "7731bd17-0dea-4e0c-b118-9aac905b6639")
+		)
+		(instances
+			(project "TorqueSensor"
+				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
+					(reference "D4")
 					(unit 1)
 				)
 			)
@@ -6556,6 +7188,80 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 276.86 152.4 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "53260606-566f-4729-a92d-d359fdaea895")
+		(property "Reference" "TP2"
+			(at 274.32 146.05 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 274.32 148.59 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 280.67 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 276.86 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 276.86 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 276.86 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d6b54f51-49eb-4b9a-aacb-c101b9f48589")
+		)
+		(instances
+			(project "TorqueSensor"
+				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
+					(reference "TP2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:C_1uF_50V_0603")
 		(at 74.93 53.34 0)
 		(unit 1)
@@ -6715,7 +7421,7 @@
 	)
 	(symbol
 		(lib_id "OEM:R_120_0.1W_0603")
-		(at 274.32 154.94 90)
+		(at 274.32 160.02 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6724,7 +7430,7 @@
 		(fields_autoplaced yes)
 		(uuid "584bc519-3b06-4787-9941-077ebde974d8")
 		(property "Reference" "R2"
-			(at 274.32 148.59 90)
+			(at 274.32 153.67 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6732,7 +7438,7 @@
 			)
 		)
 		(property "Value" "R_120"
-			(at 274.32 151.13 90)
+			(at 274.32 156.21 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6740,7 +7446,7 @@
 			)
 		)
 		(property "Footprint" "OEM:R_0603_1608Metric"
-			(at 274.32 156.718 90)
+			(at 274.32 161.798 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6749,7 +7455,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/508/1/PYu-RC_Group_51_RoHS_L_12.pdf"
-			(at 274.32 154.94 0)
+			(at 274.32 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6758,7 +7464,7 @@
 			)
 		)
 		(property "Description" "RES 120 OHM 1% 1/10W 0603"
-			(at 274.32 154.94 0)
+			(at 274.32 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6767,7 +7473,7 @@
 			)
 		)
 		(property "MPN" "RC0603FR-13120RL"
-			(at 274.32 154.94 0)
+			(at 274.32 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6792,7 +7498,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 199.39 29.21 0)
+		(at 182.88 29.21 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6801,7 +7507,7 @@
 		(fields_autoplaced yes)
 		(uuid "5c2f9160-9094-4937-9981-3c35db1ba45b")
 		(property "Reference" "#PWR?"
-			(at 199.39 35.56 0)
+			(at 182.88 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6810,7 +7516,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 199.39 34.29 0)
+			(at 182.88 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6818,7 +7524,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 199.39 29.21 0)
+			(at 182.88 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6827,7 +7533,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 199.39 29.21 0)
+			(at 182.88 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6836,7 +7542,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 199.39 29.21 0)
+			(at 182.88 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7605,8 +8311,87 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:R_1k_0.1W_0603")
+		(at 200.66 35.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "915f672c-8a41-4b1d-80d6-d7703cc37b3d")
+		(property "Reference" "R5"
+			(at 203.2 34.2899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_1k"
+			(at 203.2 36.8299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 198.882 35.56 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ3GEYJ102V)"
+			(at 200.66 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES SMD 1K OHM 5% 1/10W 0603"
+			(at 200.66 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603FT1K00 (or ERJ-3GEYJ102V)"
+			(at 200.66 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "efdda6f5-6ddd-4673-a99e-0c405651bbe9")
+		)
+		(pin "1"
+			(uuid "40048825-0a22-4352-86b8-695d6fe8c46d")
+		)
+		(instances
+			(project "TorqueSensor"
+				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
+					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
-		(at 194.31 21.59 0)
+		(at 166.37 21.59 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7615,7 +8400,7 @@
 		(fields_autoplaced yes)
 		(uuid "95302891-2b6f-4c7d-b271-9224dd672d8f")
 		(property "Reference" "#PWR?"
-			(at 194.31 25.4 0)
+			(at 166.37 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7624,7 +8409,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 194.31 16.51 0)
+			(at 166.37 16.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7632,7 +8417,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 194.31 21.59 0)
+			(at 166.37 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7641,7 +8426,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 194.31 21.59 0)
+			(at 166.37 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7650,7 +8435,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 194.31 21.59 0)
+			(at 166.37 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7742,6 +8527,94 @@
 			(project ""
 				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
 					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:D_LED_White_0805")
+		(at 231.14 27.94 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "98b036ec-a15c-429d-92c1-93152727c07d")
+		(property "Reference" "D3"
+			(at 234.95 28.2574 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "LED_WHITE"
+			(at 234.95 30.7974 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "OEM:D_0805_2012Metric"
+			(at 231.14 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.qt-brightek.com/datasheet/QBLP631_series.pdf"
+			(at 231.14 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "LED WHITE DIFFUSED 0805 SMD"
+			(at 231.14 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 231.14 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "QBLP631-IW"
+			(at 231.14 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "ec1a746a-e9de-4a79-975b-0029586f46a4")
+		)
+		(pin "1"
+			(uuid "fd66544e-6bb3-47ec-8955-0e1e17b60b4e")
+		)
+		(instances
+			(project "TorqueSensor"
+				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
+					(reference "D3")
 					(unit 1)
 				)
 			)
@@ -8037,6 +8910,82 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 53.34 24.13 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a67351b0-7fb2-43e5-89a0-5f309126745d")
+		(property "Reference" "TP5"
+			(at 58.42 22.8599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 58.42 25.3999 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 49.53 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 53.34 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 53.34 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 53.34 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "71ea764e-4e0c-4556-aa5d-2185372f3b6e")
+		)
+		(instances
+			(project "TorqueSensor"
+				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
+					(reference "TP5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 195.58 118.11 0)
 		(unit 1)
@@ -8104,7 +9053,7 @@
 	)
 	(symbol
 		(lib_id "OEM:C_10uF_10V_0603")
-		(at 199.39 25.4 0)
+		(at 182.88 25.4 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8113,7 +9062,7 @@
 		(fields_autoplaced yes)
 		(uuid "a7c3879b-061e-450c-9360-3cb0977f3f53")
 		(property "Reference" "C11"
-			(at 203.2 24.1299 0)
+			(at 186.69 24.1299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8122,7 +9071,7 @@
 			)
 		)
 		(property "Value" "C_10uF_10V"
-			(at 203.2 26.6699 0)
+			(at 186.69 26.6699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8131,7 +9080,7 @@
 			)
 		)
 		(property "Footprint" "OEM:C_0603_1608Metric"
-			(at 200.3552 29.21 0)
+			(at 183.8452 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8140,7 +9089,7 @@
 			)
 		)
 		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188D71A106KA73-01.pdf"
-			(at 199.39 25.4 0)
+			(at 182.88 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8149,7 +9098,7 @@
 			)
 		)
 		(property "Description" "CAP CER 10UF 10V X7T 0603"
-			(at 199.39 25.4 0)
+			(at 182.88 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8158,7 +9107,7 @@
 			)
 		)
 		(property "MPN" "GRM188D71A106KA73D"
-			(at 199.39 25.4 0)
+			(at 182.88 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8183,7 +9132,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 52.07 30.48 0)
+		(at 52.07 21.59 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8192,7 +9141,7 @@
 		(fields_autoplaced yes)
 		(uuid "a86b4cfa-9f71-4855-9c3b-d5b77ee5f544")
 		(property "Reference" "#PWR?"
-			(at 52.07 34.29 0)
+			(at 52.07 25.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8201,7 +9150,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 52.07 25.4 0)
+			(at 52.07 16.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8209,7 +9158,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 52.07 30.48 0)
+			(at 52.07 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8218,7 +9167,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 52.07 30.48 0)
+			(at 52.07 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8227,7 +9176,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 52.07 30.48 0)
+			(at 52.07 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8347,6 +9296,80 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 269.24 154.94 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bbb30f37-8f55-43d1-9e9c-ad4abb22869f")
+		(property "Reference" "TP1"
+			(at 266.7 148.59 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 266.7 151.13 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 273.05 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 269.24 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 269.24 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 269.24 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f3d03c43-0a68-44a0-8766-0a76d944d3fd")
+		)
+		(instances
+			(project "TorqueSensor"
+				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
+					(reference "TP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 213.36 31.75 0)
 		(unit 1)
@@ -8405,6 +9428,71 @@
 		)
 		(instances
 			(project ""
+				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 200.66 40.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "cb110a72-d572-4b0f-9f6f-a3d825066354")
+		(property "Reference" "#PWR?"
+			(at 200.66 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 200.66 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 200.66 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 200.66 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 200.66 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e30cf12a-a260-4920-910e-27b50239574e")
+		)
+		(instances
+			(project "TorqueSensor"
 				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
 					(reference "#PWR?")
 					(unit 1)
@@ -8727,7 +9815,7 @@
 	)
 	(symbol
 		(lib_id "OEM:F_500mA_16V_1210")
-		(at 212.09 21.59 90)
+		(at 193.04 21.59 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8736,7 +9824,7 @@
 		(fields_autoplaced yes)
 		(uuid "d5763656-4ea0-44dd-bc93-788a0091eeb0")
 		(property "Reference" "F2"
-			(at 212.09 15.24 90)
+			(at 193.04 15.24 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8745,7 +9833,7 @@
 			)
 		)
 		(property "Value" "F_500mA_16V"
-			(at 212.09 17.78 90)
+			(at 193.04 17.78 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8754,7 +9842,7 @@
 			)
 		)
 		(property "Footprint" "OEM:Fuse_1210_3225Metric"
-			(at 212.09 23.368 90)
+			(at 193.04 23.368 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8763,7 +9851,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/191/1/ds-cp-0zch-series.pdf"
-			(at 212.09 21.59 0)
+			(at 193.04 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8772,7 +9860,7 @@
 			)
 		)
 		(property "Description" "PTC RESET FUSE 16V 500MA 1210"
-			(at 212.09 21.59 0)
+			(at 193.04 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8781,7 +9869,7 @@
 			)
 		)
 		(property "MPN" "0ZCH0050FF2G"
-			(at 212.09 21.59 0)
+			(at 193.04 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8872,15 +9960,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 236.22 33.02 0)
+		(at 224.79 41.91 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "f1458e08-cfa8-4703-9fd7-a0effa02242e")
+		(uuid "ebf0623c-2024-4119-9d48-332687cd1367")
 		(property "Reference" "#PWR?"
-			(at 236.22 39.37 0)
+			(at 224.79 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8889,7 +9977,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 236.22 38.1 0)
+			(at 224.79 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8897,7 +9985,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 236.22 33.02 0)
+			(at 224.79 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8906,7 +9994,72 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 236.22 33.02 0)
+			(at 224.79 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 224.79 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "13c82417-f22e-4b59-95b4-6be4ca911187")
+		)
+		(instances
+			(project "TorqueSensor"
+				(path "/afc2e511-4171-4390-9362-e28d822c2da0"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 237.49 36.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f1458e08-cfa8-4703-9fd7-a0effa02242e")
+		(property "Reference" "#PWR?"
+			(at 237.49 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 237.49 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 237.49 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 237.49 36.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8915,7 +10068,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 236.22 33.02 0)
+			(at 237.49 36.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)

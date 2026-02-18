@@ -3,7 +3,7 @@ from cantools.database.can import Database as CANDatabase
 import argparse
 
 # from yaml_handler import YamlParser
-from utils import get_rx_messages
+from utils.parse_dbc import get_rx_messages
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import os
 

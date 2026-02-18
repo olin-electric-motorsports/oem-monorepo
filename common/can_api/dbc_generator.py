@@ -1,7 +1,7 @@
 import argparse
 from cantools.database.can import Database as CANDatabase, Node
 from cantools.database import dump_file
-from yaml_handler import YamlParser
+from utils.yaml_handler import YamlParser
 
 __version__ = "2021.12.28"
 

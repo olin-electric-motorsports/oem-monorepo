@@ -1,19 +1,28 @@
-#ifndef THROTTLE_H
-#define THROTTLE_H
+#include "example.h"
+#include <stdbool.h>
 
-#include "stm32g4xx_hal.h"
+volatile bool is_heart_beating = true;
 
-#define PA1_GPIO_Port   GPIOA
-#define PA1_Pin         GPIO_PIN_1
-
-// Function Prototypes
 static void GpioInit(void) {
-  __HAL_RCC_GPIOF_CLK_ENABLE();
+  // 1. Enable GPIO Clocks
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOF_CLK_ENABLE(); // Likely unnecessary unless using HSE on Port F
 
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-  // Uses PA1_... from throttle.h
+  /* --- Configure PA0 (Interrupt Input) --- */
+  GPIO_InitStruct.Pin = PA0_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(PA0_GPIO_Port, &GPIO_InitStruct);
+
+  // CRITICAL FIX: Enable NVIC for PA0 (EXTI Line 0)
+  // Refer to UM2570 Section 3.11.2 GPIOs -> EXTI Mode
+  HAL_NVIC_SetPriority(EXTI0_IRQn, 2, 0); // Set priority (adjust as needed)
+  HAL_NVIC_EnableIRQ(EXTI0_IRQn);         // Enable the Interrupt
+
+  /* --- Configure PA1 (Output) --- */
+  // Good Practice: Set level BEFORE configuring as output to prevent glitches
   HAL_GPIO_WritePin(PA1_GPIO_Port, PA1_Pin, GPIO_PIN_RESET);
 
   GPIO_InitStruct.Pin = PA1_Pin;
@@ -22,7 +31,6 @@ static void GpioInit(void) {
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(PA1_GPIO_Port, &GPIO_InitStruct);
 }
-
 
 void ErrorHandler(void) { // this will only happen if error on board
   __disable_irq();
@@ -63,9 +71,38 @@ void SystemClockConfig(void) { // if you are messing with this please consult so
   }
 }
 
-void SysTick_Handler(void) {
+void SysTick_Handler(void)
+{
   HAL_IncTick();
+  HAL_SYSTICK_IRQHandler();
 }
 
+void EXTI0_IRQHandler(void)
+{
+    // Tell the HAL library to handle the interrupt logic
+    // It will clear the flag and call the callback function below
+    HAL_GPIO_EXTI_IRQHandler(PA0_Pin);
+}
 
-#endif // THROTTLE_H
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+    is_heart_beating = !is_heart_beating;
+}
+
+int main(void) {
+  HAL_Init();
+  SystemClockConfig();
+  GpioInit();
+  
+  while (1) {
+    if (is_heart_beating){
+      HAL_GPIO_TogglePin(PA1_GPIO_Port, PA1_Pin);
+      HAL_Delay(500);
+    } else {
+      HAL_GPIO_WritePin(PA1_GPIO_Port, PA1_Pin, GPIO_PIN_RESET);
+      HAL_Delay(100);
+    }
+  }
+  return 0;
+}
+

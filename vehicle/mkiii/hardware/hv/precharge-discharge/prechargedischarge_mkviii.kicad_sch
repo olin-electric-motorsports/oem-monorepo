@@ -11529,6 +11529,16 @@
 		)
 		(uuid "aa1a5ca5-2115-4fd3-912e-0f06a3b2f1c8")
 	)
+	(text "all zones on one side\n2mm form each other\nsolid pads for zones\nmake wires on relay be more far apart"
+		(exclude_from_sim no)
+		(at 53.086 315.976 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ac154c73-a744-46ed-96ee-07af7be10f56")
+	)
 	(text "Precharge Relay\n"
 		(exclude_from_sim no)
 		(at 17.78 17.272 0)
@@ -11603,7 +11613,7 @@
 		(uuid "287b96ae-506b-42dd-93cd-a2de3b59fde2")
 	)
 	(junction
-		(at 168.91 114.3)
+		(at 161.29 114.3)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2dbe196a-71f5-4556-9ba2-4c917b362efd")
@@ -11663,13 +11673,19 @@
 		(uuid "52247231-7880-4db6-a4cd-ec6f0662f0d6")
 	)
 	(junction
+		(at 76.2 35.56)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "54d4bee6-970e-4869-a0fb-434511ecf7ed")
+	)
+	(junction
 		(at 424.18 142.24)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5f333b42-60e5-4513-8c28-e7472866b94b")
 	)
 	(junction
-		(at 176.53 114.3)
+		(at 168.91 114.3)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "698beec6-9ec9-4bf5-83b4-520ef4969e98")
@@ -11751,6 +11767,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a3640aad-2eca-4295-8e3d-d030b0ff9ce5")
+	)
+	(junction
+		(at 54.61 24.13)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a3793f50-e4f9-473c-a369-325c5109c78b")
 	)
 	(junction
 		(at 166.37 172.72)
@@ -11867,47 +11889,47 @@
 		(uuid "fee47f34-abcf-4172-9603-44aa13cc373c")
 	)
 	(no_connect
-		(at 256.54 54.61)
+		(at 265.43 53.34)
 		(uuid "03b3a796-143b-43d6-bf62-c7c3917fe36a")
 	)
 	(no_connect
-		(at 220.98 31.75)
+		(at 229.87 30.48)
 		(uuid "05eec354-dbcc-4144-a0ba-47a2877bbd9e")
 	)
 	(no_connect
-		(at 256.54 62.23)
+		(at 265.43 60.96)
 		(uuid "08f35fa3-0cb7-4082-9f81-f140e3ee939e")
 	)
 	(no_connect
-		(at 256.54 59.69)
+		(at 265.43 58.42)
 		(uuid "0c905296-7b9f-45ae-bf33-acea31c8600d")
 	)
 	(no_connect
-		(at 256.54 77.47)
+		(at 265.43 76.2)
 		(uuid "0f303490-65a9-4bda-a391-1c487af737e8")
 	)
 	(no_connect
-		(at 220.98 54.61)
+		(at 229.87 53.34)
 		(uuid "146eaf22-9e41-429c-a3ab-fcaea426d7fe")
 	)
 	(no_connect
-		(at 220.98 80.01)
+		(at 229.87 78.74)
 		(uuid "14ab0d5d-4089-4cc5-a702-68a6f53ae0eb")
 	)
 	(no_connect
-		(at 220.98 82.55)
+		(at 229.87 81.28)
 		(uuid "1b24bdcc-d316-400a-b0a1-976ab23e498e")
 	)
 	(no_connect
-		(at 256.54 44.45)
+		(at 265.43 43.18)
 		(uuid "20861130-4f7b-47e7-b9f6-10b5a88d51d4")
 	)
 	(no_connect
-		(at 256.54 69.85)
+		(at 265.43 68.58)
 		(uuid "255dd63b-dd21-4460-a8ab-18c6ade5be0b")
 	)
 	(no_connect
-		(at 256.54 85.09)
+		(at 265.43 83.82)
 		(uuid "261741ab-b4a5-4879-bac6-156d08835ad8")
 	)
 	(no_connect
@@ -11915,19 +11937,19 @@
 		(uuid "2d2dd242-b0e5-41b0-a3a8-b0ce4bebe428")
 	)
 	(no_connect
-		(at 256.54 41.91)
+		(at 265.43 40.64)
 		(uuid "359954e1-ba5b-4c4c-8c4b-da30c262fe2f")
 	)
 	(no_connect
-		(at 256.54 64.77)
+		(at 265.43 63.5)
 		(uuid "39e32405-2519-469b-8665-0413701965b8")
 	)
 	(no_connect
-		(at 220.98 57.15)
+		(at 229.87 55.88)
 		(uuid "5bf1ca96-a83d-40f8-bec4-ec609b032413")
 	)
 	(no_connect
-		(at 220.98 34.29)
+		(at 229.87 33.02)
 		(uuid "7a6b9d84-d470-4cf6-a12a-3d453c3bac9a")
 	)
 	(no_connect
@@ -11935,23 +11957,23 @@
 		(uuid "7c7aeb64-a26d-42ea-a439-cca5fa3cbc3d")
 	)
 	(no_connect
-		(at 220.98 52.07)
+		(at 229.87 50.8)
 		(uuid "7f93bcd2-64bf-4675-927c-7f57a573729e")
 	)
 	(no_connect
-		(at 256.54 34.29)
+		(at 265.43 33.02)
 		(uuid "84085af4-b6d8-484e-8ae1-d5db8be5daf5")
 	)
 	(no_connect
-		(at 220.98 62.23)
+		(at 229.87 60.96)
 		(uuid "89a10994-f7e5-4733-b26a-22fc1fac32c1")
 	)
 	(no_connect
-		(at 256.54 74.93)
+		(at 265.43 73.66)
 		(uuid "90379abf-63fc-48c7-b1cc-7e4c07bff45f")
 	)
 	(no_connect
-		(at 220.98 64.77)
+		(at 229.87 63.5)
 		(uuid "912e5af2-b2b9-49a9-96dc-30d86c6e7e8a")
 	)
 	(no_connect
@@ -11959,27 +11981,27 @@
 		(uuid "988c9951-eec8-4417-b0e9-9201ced45588")
 	)
 	(no_connect
-		(at 256.54 36.83)
+		(at 265.43 35.56)
 		(uuid "99c91810-2afe-4dc7-a2bb-d77e3f3471a0")
 	)
 	(no_connect
-		(at 256.54 57.15)
+		(at 265.43 55.88)
 		(uuid "a88e986d-0b52-4a10-b4d5-6678b5ca7375")
 	)
 	(no_connect
-		(at 256.54 67.31)
+		(at 265.43 66.04)
 		(uuid "af0787ed-3b45-40e1-9828-612be2c857e4")
 	)
 	(no_connect
-		(at 256.54 39.37)
+		(at 265.43 38.1)
 		(uuid "b1fc864d-a670-4f02-b2c2-b891dd29bd87")
 	)
 	(no_connect
-		(at 256.54 31.75)
+		(at 265.43 30.48)
 		(uuid "bf74434c-d04b-424f-a142-ffa6956e566a")
 	)
 	(no_connect
-		(at 256.54 72.39)
+		(at 265.43 71.12)
 		(uuid "c1975127-f813-45eb-adb1-f2c935946263")
 	)
 	(no_connect
@@ -11987,7 +12009,7 @@
 		(uuid "e0ea53c5-d94b-4256-9e4a-253450965fc2")
 	)
 	(no_connect
-		(at 256.54 80.01)
+		(at 265.43 78.74)
 		(uuid "e6bb0287-ec44-46a9-9e73-76ae30a71268")
 	)
 	(no_connect
@@ -11995,7 +12017,7 @@
 		(uuid "f8b33363-4e17-4cab-a255-d197a89ad6e0")
 	)
 	(no_connect
-		(at 256.54 82.55)
+		(at 265.43 81.28)
 		(uuid "fcc87ea5-c0fe-4599-9e67-dfd06588fcef")
 	)
 	(wire
@@ -12010,7 +12032,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 72.39) (xy 220.98 74.93)
+			(xy 229.87 71.12) (xy 229.87 73.66)
 		)
 		(stroke
 			(width 0)
@@ -12080,6 +12102,16 @@
 	)
 	(wire
 		(pts
+			(xy 54.61 24.13) (xy 62.23 24.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0cc69de1-a4d7-4fcb-ae0c-dae62ecc5182")
+	)
+	(wire
+		(pts
 			(xy 50.8 157.48) (xy 53.34 157.48)
 		)
 		(stroke
@@ -12127,6 +12159,16 @@
 			(type default)
 		)
 		(uuid "0f8683d7-cc2c-49d2-88f0-a0bd039897fd")
+	)
+	(wire
+		(pts
+			(xy 76.2 25.4) (xy 76.2 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "11569fb1-d7f8-4913-bb6c-d855a7e373e6")
 	)
 	(wire
 		(pts
@@ -12187,6 +12229,16 @@
 			(type default)
 		)
 		(uuid "14f54739-c34a-488a-8d0b-058bbe28d413")
+	)
+	(wire
+		(pts
+			(xy 76.2 35.56) (xy 64.77 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "16078ff3-5ec0-4b0a-8b2b-9cecb4c51e1b")
 	)
 	(wire
 		(pts
@@ -12390,6 +12442,16 @@
 	)
 	(wire
 		(pts
+			(xy 62.23 24.13) (xy 62.23 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3007d606-a2e1-44bc-8101-588ce1ed504d")
+	)
+	(wire
+		(pts
 			(xy 87.63 27.94) (xy 54.61 27.94)
 		)
 		(stroke
@@ -12437,6 +12499,16 @@
 			(type default)
 		)
 		(uuid "37a082dc-becf-4c5b-ab78-82ba988d2860")
+	)
+	(wire
+		(pts
+			(xy 77.47 35.56) (xy 77.47 20.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "39132ef5-9f48-499b-8af8-0baf2f622104")
 	)
 	(wire
 		(pts
@@ -12620,7 +12692,7 @@
 	)
 	(wire
 		(pts
-			(xy 176.53 114.3) (xy 179.07 114.3)
+			(xy 168.91 114.3) (xy 179.07 114.3)
 		)
 		(stroke
 			(width 0)
@@ -12970,6 +13042,16 @@
 	)
 	(wire
 		(pts
+			(xy 77.47 35.56) (xy 76.2 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6b4885dc-2d53-4afe-a565-ccf81b49e8fd")
+	)
+	(wire
+		(pts
 			(xy 165.1 96.52) (xy 180.34 96.52)
 		)
 		(stroke
@@ -13210,7 +13292,7 @@
 	)
 	(wire
 		(pts
-			(xy 217.17 36.83) (xy 217.17 30.48)
+			(xy 226.06 35.56) (xy 226.06 29.21)
 		)
 		(stroke
 			(width 0)
@@ -13280,7 +13362,7 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 110.49) (xy 168.91 114.3)
+			(xy 161.29 110.49) (xy 161.29 114.3)
 		)
 		(stroke
 			(width 0)
@@ -13400,6 +13482,16 @@
 	)
 	(wire
 		(pts
+			(xy 77.47 20.32) (xy 57.15 20.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "995bdda7-6d67-4259-ab44-74073b868d18")
+	)
+	(wire
+		(pts
 			(xy 52.07 165.1) (xy 52.07 176.53)
 		)
 		(stroke
@@ -13440,7 +13532,17 @@
 	)
 	(wire
 		(pts
-			(xy 176.53 110.49) (xy 176.53 114.3)
+			(xy 49.53 20.32) (xy 49.53 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ccefd33-545c-43db-a3bc-701e894b2403")
+	)
+	(wire
+		(pts
+			(xy 168.91 110.49) (xy 168.91 114.3)
 		)
 		(stroke
 			(width 0)
@@ -13467,6 +13569,16 @@
 			(type default)
 		)
 		(uuid "9e404223-b84e-45d3-afdc-741db354cd08")
+	)
+	(wire
+		(pts
+			(xy 69.85 25.4) (xy 76.2 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9f68b911-1cd1-4dbd-93e1-3de52176bfb0")
 	)
 	(wire
 		(pts
@@ -13980,7 +14092,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 36.83) (xy 217.17 36.83)
+			(xy 229.87 35.56) (xy 226.06 35.56)
 		)
 		(stroke
 			(width 0)
@@ -13990,7 +14102,7 @@
 	)
 	(wire
 		(pts
-			(xy 161.29 114.3) (xy 168.91 114.3)
+			(xy 153.67 114.3) (xy 161.29 114.3)
 		)
 		(stroke
 			(width 0)
@@ -14349,7 +14461,7 @@
 		(uuid "ffc09a06-be75-45c4-bdd7-43969d2a09e3")
 	)
 	(label "PRECHARGE_LSD"
-		(at 256.54 49.53 0)
+		(at 265.43 48.26 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -14359,7 +14471,7 @@
 		(uuid "06ce214a-fece-47d4-814c-66ed092cb3d4")
 	)
 	(label "PRECHARGE_DONE_N"
-		(at 64.77 35.56 0)
+		(at 77.47 35.56 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -14509,7 +14621,7 @@
 		(uuid "586f0e4f-c386-4166-b994-8f7fa3b4f91b")
 	)
 	(label "FINAL_SHUTDOWN"
-		(at 220.98 72.39 180)
+		(at 229.87 71.12 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -14569,7 +14681,7 @@
 		(uuid "70cac44a-6f00-47f9-b47c-b04fb835bf15")
 	)
 	(label "GND"
-		(at 256.54 46.99 0)
+		(at 265.43 45.72 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -14599,7 +14711,7 @@
 		(uuid "7582e4ee-acc1-40ea-98c9-b03db28f3268")
 	)
 	(label "GND"
-		(at 220.98 41.91 180)
+		(at 229.87 40.64 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -14629,7 +14741,7 @@
 		(uuid "8434f0f6-ca6e-496c-b832-b17f381423c5")
 	)
 	(label "PRECHARGE_LSD_2"
-		(at 161.29 114.3 180)
+		(at 153.67 114.3 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -14689,7 +14801,7 @@
 		(uuid "907de68e-c104-4016-8811-06e0e0033815")
 	)
 	(label "5V"
-		(at 217.17 30.48 180)
+		(at 226.06 29.21 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -14879,7 +14991,7 @@
 		(uuid "bd0d41df-9ad3-4edd-9487-9a06501b563f")
 	)
 	(label "GND"
-		(at 220.98 44.45 180)
+		(at 229.87 43.18 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -14899,7 +15011,7 @@
 		(uuid "cf7b5e75-2f62-46c6-a149-2719197a9bff")
 	)
 	(label "GND"
-		(at 256.54 52.07 0)
+		(at 265.43 50.8 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17321,6 +17433,137 @@
 			(project ""
 				(path "/96f56455-bf31-456c-8371-5b3706690d23"
 					(reference "R13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_10K")
+		(at 66.04 25.4 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "31e9a176-64af-40cb-aa55-05059dab157d")
+		(property "Reference" "R33"
+			(at 66.04 19.1205 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "R_10k"
+			(at 66.04 21.6605 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 66.04 27.178 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+			(at 66.04 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor 10K ohm 0603 1/10W 1%"
+			(at 66.04 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603FT10K0"
+			(at 66.04 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFN" "Stackpole Electronics"
+			(at 66.04 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DKPN" "RMCF0603FT10K0TR-ND"
+			(at 66.04 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Package" "0603"
+			(at 66.04 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "NewDesigns" "YES"
+			(at 66.04 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Stocked" "Reel"
+			(at 66.04 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Style" "SMD"
+			(at 66.04 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "46d3cab3-8ba3-449a-8abe-59f854b72070")
+		)
+		(pin "1"
+			(uuid "5d94dbbb-a8de-44dd-8266-641a5b9ac97d")
+		)
+		(instances
+			(project "prechargedischarge_mkviii"
+				(path "/96f56455-bf31-456c-8371-5b3706690d23"
+					(reference "R33")
 					(unit 1)
 				)
 			)
@@ -21641,7 +21884,7 @@
 	)
 	(symbol
 		(lib_id "OEM:R_100k_0.1W_0603")
-		(at 172.72 114.3 270)
+		(at 165.1 114.3 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -21650,7 +21893,7 @@
 		(fields_autoplaced yes)
 		(uuid "a034cfe2-5490-443a-97b1-dc4f19d26751")
 		(property "Reference" "R31"
-			(at 172.72 107.95 90)
+			(at 165.1 107.95 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21658,17 +21901,17 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "R_100k"
-			(at 172.72 110.49 90)
+		(property "Value" "R_71.5k"
+			(at 165.1 110.49 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
+				(justify bottom)
 			)
 		)
 		(property "Footprint" "OEM:R_0603_1608Metric"
-			(at 172.72 112.522 90)
+			(at 165.1 112.522 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21677,7 +21920,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
-			(at 172.72 114.3 0)
+			(at 165.1 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21686,7 +21929,7 @@
 			)
 		)
 		(property "Description" "RES 100K OHM 1% 1/10W 0603"
-			(at 172.72 114.3 0)
+			(at 165.1 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21695,7 +21938,7 @@
 			)
 		)
 		(property "MPN" "RMCF0603FT100K"
-			(at 172.72 114.3 0)
+			(at 165.1 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22687,7 +22930,7 @@
 				)
 			)
 		)
-		(property "Value" "1 kΩ"
+		(property "Value" "330Ω"
 			(at 386.08 124.46 90)
 			(effects
 				(font
@@ -22818,7 +23061,7 @@
 	)
 	(symbol
 		(lib_id "OEM:CONN_pcie_x1")
-		(at 238.76 55.88 0)
+		(at 247.65 54.61 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -22826,7 +23069,7 @@
 		(dnp no)
 		(uuid "b7b55dfa-1d8f-4bd5-ba07-e05b04bb0e58")
 		(property "Reference" "J3"
-			(at 238.76 25.4 0)
+			(at 247.65 24.13 0)
 			(do_not_autoplace yes)
 			(effects
 				(font
@@ -22835,7 +23078,7 @@
 			)
 		)
 		(property "Value" "CONN_pcie_x1"
-			(at 238.76 27.94 0)
+			(at 247.65 26.67 0)
 			(do_not_autoplace yes)
 			(effects
 				(font
@@ -22844,7 +23087,7 @@
 			)
 		)
 		(property "Footprint" "OEM:pcie_x1"
-			(at 238.76 20.32 0)
+			(at 247.65 19.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22853,7 +23096,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7F4-1773442-7%7F0308%7Fpdf%7FEnglish%7FENG_DS_4-1773442-7_0308.pdf%7F2-1761465-1"
-			(at 240.03 22.86 0)
+			(at 248.92 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22862,7 +23105,7 @@
 			)
 		)
 		(property "Description" "Interface used to connect daugterboards to Mk.VII's motherboards"
-			(at 238.76 55.88 0)
+			(at 247.65 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23458,7 +23701,7 @@
 	)
 	(symbol
 		(lib_id "Diode:1N4148W")
-		(at 172.72 110.49 0)
+		(at 165.1 110.49 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -23467,7 +23710,7 @@
 		(fields_autoplaced yes)
 		(uuid "c10d61fe-0ed1-425c-ba58-5326bea340f4")
 		(property "Reference" "D11"
-			(at 172.72 104.14 0)
+			(at 165.1 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23475,7 +23718,7 @@
 			)
 		)
 		(property "Value" "1N4148W"
-			(at 172.72 106.68 0)
+			(at 165.1 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23483,7 +23726,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_SOD-123"
-			(at 172.72 114.935 0)
+			(at 165.1 114.935 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23492,7 +23735,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/85748/1n4148w.pdf"
-			(at 172.72 110.49 0)
+			(at 165.1 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23501,7 +23744,7 @@
 			)
 		)
 		(property "Description" "75V 0.15A Fast Switching Diode, SOD-123"
-			(at 172.72 110.49 0)
+			(at 165.1 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23510,7 +23753,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 172.72 110.49 0)
+			(at 165.1 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23519,7 +23762,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 172.72 110.49 0)
+			(at 165.1 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23683,10 +23926,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "c867cd9f-6d08-41ef-8b92-958014de0be9")
 		(property "Reference" "R12"
-			(at 176.53 111.7601 0)
+			(at 168.91 111.7601 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23694,7 +23936,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1MR"
+		(property "Value" "270kR"
 			(at 176.53 109.2201 0)
 			(effects
 				(font
@@ -25399,6 +25641,137 @@
 			(project "precharge_discharge"
 				(path "/96f56455-bf31-456c-8371-5b3706690d23"
 					(reference "R4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_10K")
+		(at 53.34 20.32 270)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f4304cb0-44c5-48bb-ac94-b6bfe48e1dfd")
+		(property "Reference" "R29"
+			(at 53.34 14.0405 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "R_4.7M"
+			(at 53.34 16.5805 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 53.34 22.098 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+			(at 53.34 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor 10K ohm 0603 1/10W 1%"
+			(at 53.34 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "RMCF0603FT10K0"
+			(at 53.34 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFN" "Stackpole Electronics"
+			(at 53.34 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DKPN" "RMCF0603FT10K0TR-ND"
+			(at 53.34 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Package" "0603"
+			(at 53.34 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "NewDesigns" "YES"
+			(at 53.34 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Stocked" "Reel"
+			(at 53.34 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Style" "SMD"
+			(at 53.34 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "f7ee15dd-f0a2-4523-b3dc-8f2e59f7d121")
+		)
+		(pin "1"
+			(uuid "620cd8b8-076f-4d99-89fc-9d5eaa023c9c")
+		)
+		(instances
+			(project "prechargedischarge_mkviii"
+				(path "/96f56455-bf31-456c-8371-5b3706690d23"
+					(reference "R29")
 					(unit 1)
 				)
 			)

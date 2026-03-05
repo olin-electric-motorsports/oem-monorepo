@@ -11519,6 +11519,16 @@
 		)
 		(uuid "75a599c7-4927-4c69-9f27-5f973a8fc2bc")
 	)
+	(text "Only populate if signal is noisy\n(capacitor C17)\n"
+		(exclude_from_sim no)
+		(at 286.258 25.908 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "7b952098-fe2b-41a0-a211-21e02d68af84")
+	)
 	(text "Precharge\n"
 		(exclude_from_sim no)
 		(at 136.906 179.324 0)
@@ -11528,16 +11538,6 @@
 			)
 		)
 		(uuid "aa1a5ca5-2115-4fd3-912e-0f06a3b2f1c8")
-	)
-	(text "all zones on one side\n2mm form each other\nsolid pads for zones\nmake wires on relay be more far apart"
-		(exclude_from_sim no)
-		(at 53.086 315.976 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "ac154c73-a744-46ed-96ee-07af7be10f56")
 	)
 	(text "Precharge Relay\n"
 		(exclude_from_sim no)
@@ -11799,10 +11799,22 @@
 		(uuid "aaf5c6c2-79fb-4968-a8f2-d0c392b41aa4")
 	)
 	(junction
+		(at 447.04 185.42)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b1a2331b-7af8-4ef2-816f-5d52293aaf92")
+	)
+	(junction
 		(at 52.07 97.79)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b3228862-c54d-43b6-83ab-78427e255ccf")
+	)
+	(junction
+		(at 447.04 165.1)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b4e7b1b8-a5c0-47af-ae1d-12ba9ae8cf05")
 	)
 	(junction
 		(at 187.96 241.3)
@@ -11845,6 +11857,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d385aff8-a8b6-4763-ab51-6acc78d5bda5")
+	)
+	(junction
+		(at 276.86 48.26)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d4052ef2-eb8c-4b3c-b6cd-14b58692f3c6")
 	)
 	(junction
 		(at 90.17 88.9)
@@ -12029,6 +12047,16 @@
 			(type default)
 		)
 		(uuid "07688768-171e-4146-84ab-e618327c434a")
+	)
+	(wire
+		(pts
+			(xy 514.35 97.79) (xy 514.35 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0817d5a1-5c39-469a-b253-428bc42857fa")
 	)
 	(wire
 		(pts
@@ -12682,6 +12710,16 @@
 	)
 	(wire
 		(pts
+			(xy 276.86 48.26) (xy 265.43 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "459c8c2a-5a79-4787-86ef-615f1f3fd696")
+	)
+	(wire
+		(pts
 			(xy 34.29 60.96) (xy 34.29 83.82)
 		)
 		(stroke
@@ -12762,6 +12800,16 @@
 	)
 	(wire
 		(pts
+			(xy 514.35 109.22) (xy 514.35 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4dd2bc84-532e-48e4-8132-739badabdc28")
+	)
+	(wire
+		(pts
 			(xy 165.1 104.14) (xy 162.56 104.14)
 		)
 		(stroke
@@ -12809,6 +12857,16 @@
 			(type default)
 		)
 		(uuid "548bc32a-15c1-4d75-81fb-bc7a3b76c5c3")
+	)
+	(wire
+		(pts
+			(xy 499.11 171.45) (xy 499.11 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "568cb053-1335-4439-b90f-498c664c118a")
 	)
 	(wire
 		(pts
@@ -13292,6 +13350,16 @@
 	)
 	(wire
 		(pts
+			(xy 499.11 185.42) (xy 499.11 179.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8960f4ac-f92c-4138-8013-373c02784fe2")
+	)
+	(wire
+		(pts
 			(xy 226.06 35.56) (xy 226.06 29.21)
 		)
 		(stroke
@@ -13402,6 +13470,16 @@
 	)
 	(wire
 		(pts
+			(xy 283.21 36.83) (xy 276.86 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9325b3ae-11c9-41d8-bb76-a8de8873aa5b")
+	)
+	(wire
+		(pts
 			(xy 74.295 231.775) (xy 76.2 231.775)
 		)
 		(stroke
@@ -13419,6 +13497,16 @@
 			(type default)
 		)
 		(uuid "93cbbfee-4707-432f-ad2f-5fe9f6c53180")
+	)
+	(wire
+		(pts
+			(xy 276.86 36.83) (xy 276.86 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "93d57fd4-3b83-4fd7-a1f7-e75802ce2c75")
 	)
 	(polyline
 		(pts
@@ -13459,6 +13547,16 @@
 			(type default)
 		)
 		(uuid "96b842ae-555c-4241-8a0f-6bca62ead1f9")
+	)
+	(wire
+		(pts
+			(xy 499.11 165.1) (xy 447.04 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "97a4eda6-7d69-463d-b484-7f4ebbb3ff3c")
 	)
 	(wire
 		(pts
@@ -13912,6 +14010,16 @@
 	)
 	(wire
 		(pts
+			(xy 283.21 48.26) (xy 276.86 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bf40f369-b376-4e91-9204-c093a13450cc")
+	)
+	(wire
+		(pts
 			(xy 74.295 229.235) (xy 74.295 231.775)
 		)
 		(stroke
@@ -14002,6 +14110,16 @@
 	)
 	(wire
 		(pts
+			(xy 481.33 97.79) (xy 514.35 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cb014ad1-77bc-4491-9e6f-360ea9f7a004")
+	)
+	(wire
+		(pts
 			(xy 179.07 78.74) (xy 182.88 78.74)
 		)
 		(stroke
@@ -14069,6 +14187,16 @@
 			(type default)
 		)
 		(uuid "d2788ad6-c9d9-4e1e-b7fc-19a6f6d753e1")
+	)
+	(wire
+		(pts
+			(xy 447.04 185.42) (xy 499.11 185.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d46ed372-5c82-492c-ad2d-8da6c41a0b97")
 	)
 	(wire
 		(pts
@@ -14312,6 +14440,16 @@
 	)
 	(wire
 		(pts
+			(xy 481.33 113.03) (xy 514.35 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eed31bac-86dd-47e7-a329-b13f4ac7d336")
+	)
+	(wire
+		(pts
 			(xy 312.166 58.166) (xy 312.166 58.42)
 		)
 		(stroke
@@ -14470,6 +14608,16 @@
 		)
 		(uuid "06ce214a-fece-47d4-814c-66ed092cb3d4")
 	)
+	(label "DONE_ISO_N"
+		(at 471.17 102.87 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "084795a8-d228-42f1-b8ab-8808c2de4ecd")
+	)
 	(label "PRECHARGE_DONE_N"
 		(at 77.47 35.56 0)
 		(effects
@@ -14479,6 +14627,16 @@
 			(justify left bottom)
 		)
 		(uuid "09e6c1ee-1cf2-4e93-bb49-866551a4aecf")
+	)
+	(label "PRECHARGE_LSD"
+		(at 436.88 175.26 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0c602393-dc41-4b2c-9fd0-03e7d79aaf55")
 	)
 	(label "+5V_TS_FUSED"
 		(at 213.36 241.3 0)
@@ -14499,6 +14657,16 @@
 			(justify left bottom)
 		)
 		(uuid "1a0e1c70-8c7a-4a3e-ada9-5f960058a51e")
+	)
+	(label "PRECHARGE_LSD_N"
+		(at 464.82 175.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1ff04602-12c7-4b00-8ce0-b0bf848a6ae0")
 	)
 	(label "DONE_ISO_N"
 		(at 375.92 176.53 0)
@@ -14560,6 +14728,16 @@
 		)
 		(uuid "39124f53-faee-44e1-a0e9-056234ea8dcc")
 	)
+	(label "5V"
+		(at 481.33 97.79 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3d4ddc86-c09a-421b-8b10-1c21e32b27a2")
+	)
 	(label "PRECHARGE_LSD"
 		(at 481.33 52.07 180)
 		(effects
@@ -14599,6 +14777,16 @@
 			(justify right bottom)
 		)
 		(uuid "4587a8f4-3a06-4a47-ab05-af4d539e15d5")
+	)
+	(label "DONE_ISO_SET"
+		(at 346.71 60.96 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "46d6dd3f-d54b-425c-abbb-bb932b65f24d")
 	)
 	(label "DONE_ISO"
 		(at 347.98 176.53 180)
@@ -14690,16 +14878,6 @@
 		)
 		(uuid "72165978-3f2f-4b4f-9a86-041da9465863")
 	)
-	(label "DONE_ISO_N"
-		(at 308.61 57.15 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "725513e5-139f-47e8-b748-a6c9fd23ad5c")
-	)
 	(label "V_PACK_SENSE"
 		(at 139.7 36.83 270)
 		(effects
@@ -14719,6 +14897,16 @@
 			(justify right bottom)
 		)
 		(uuid "7b8cb47b-e932-48f0-b146-b6eed236ce1e")
+	)
+	(label "PRECHARGE_LSD_N"
+		(at 308.61 57.15 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7dd7feb2-330c-441b-bfc9-84b581c22d2a")
 	)
 	(label "PRECHARGE_DONE_N"
 		(at 379.73 130.81 180)
@@ -14830,6 +15018,16 @@
 		)
 		(uuid "969ee0ff-b1f1-4352-8135-fc1b0abc6a16")
 	)
+	(label "GND"
+		(at 481.33 113.03 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "96a562d8-a38a-4921-9db1-98e6e89b23d3")
+	)
 	(label "HV_BAT+"
 		(at 116.84 80.01 0)
 		(effects
@@ -14849,6 +15047,16 @@
 			(justify left bottom)
 		)
 		(uuid "9cc9c0e0-7bc9-45c3-8bba-44322e9b68da")
+	)
+	(label "DONE_ISO_SET"
+		(at 488.95 105.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9df9e550-77d8-41ee-a16a-a91e732876f9")
 	)
 	(label "HV_TS+"
 		(at 135.89 170.18 180)
@@ -14970,16 +15178,6 @@
 		)
 		(uuid "b692fbdf-c710-486d-9da5-0ab417be9e14")
 	)
-	(label "PRECHARGE_LSD"
-		(at 346.71 60.96 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "b94ed147-7d13-417c-93f1-c022b3f676a9")
-	)
 	(label "GND"
 		(at 482.6 91.44 180)
 		(effects
@@ -15049,6 +15247,16 @@
 			(justify right bottom)
 		)
 		(uuid "e58adecb-924b-43a1-8ba6-90340366d029")
+	)
+	(label "PRECHARGE_LSD"
+		(at 471.17 107.95 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e909d48a-8c80-4092-978e-fbf72d7e9571")
 	)
 	(label "PRECHARGE_LSD_2"
 		(at 499.11 49.53 0)
@@ -17371,6 +17579,73 @@
 		)
 	)
 	(symbol
+		(lib_name "GND_2")
+		(lib_id "power:GND")
+		(at 447.04 185.42 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2ba746a4-5847-4269-93eb-d16eaa1c4135")
+		(property "Reference" "#PWR?"
+			(at 447.04 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 447.04 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 447.04 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 447.04 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 447.04 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6611a444-71c1-4eca-a471-99ffeb8ce245")
+		)
+		(instances
+			(project "prechargedischarge_mkviii"
+				(path "/96f56455-bf31-456c-8371-5b3706690d23"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 130.81 20.32 270)
 		(unit 1)
@@ -17843,6 +18118,74 @@
 	)
 	(symbol
 		(lib_id "Device:R")
+		(at 287.02 48.26 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3773fe75-b5c9-48db-bfd5-432e66abb993")
+		(property "Reference" "R34"
+			(at 287.02 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100 kΩ"
+			(at 287.02 44.45 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 287.02 46.482 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 287.02 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 287.02 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "8cc9624a-bb83-4398-955e-f86ddd51e89b")
+		)
+		(pin "1"
+			(uuid "a50bfb76-3a77-4209-acb7-3c84877cfd66")
+		)
+		(instances
+			(project "prechargedischarge_mkviii"
+				(path "/96f56455-bf31-456c-8371-5b3706690d23"
+					(reference "R34")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
 		(at 135.89 36.83 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -17904,6 +18247,74 @@
 			(project "prechargedischarge_mkviii"
 				(path "/96f56455-bf31-456c-8371-5b3706690d23"
 					(reference "R19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "GND_2")
+		(lib_id "power:GND")
+		(at 290.83 48.26 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "391d474a-f525-4476-abe6-55d1b21bdd04")
+		(property "Reference" "#PWR?"
+			(at 297.18 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 294.64 48.2599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 290.83 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 290.83 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 290.83 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2229e749-1963-4d74-9733-89a2e60c29df")
+		)
+		(instances
+			(project "prechargedischarge_mkviii"
+				(path "/96f56455-bf31-456c-8371-5b3706690d23"
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -18041,6 +18452,214 @@
 			(project ""
 				(path "/96f56455-bf31-456c-8371-5b3706690d23"
 					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "74xGxx:74LVC1GU04DRL")
+		(at 447.04 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4105d53d-5730-4273-a917-cb7a3953f767")
+		(property "Reference" "U9"
+			(at 468.63 168.8398 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "74LVC1GU04DRL"
+			(at 468.63 171.3798 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-553"
+			(at 447.04 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/sn74lvc1gu04.pdf"
+			(at 443.23 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Single Inverter Gate, SOT-553"
+			(at 447.04 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "1b218fea-59b4-4733-a212-a9bb2ccf733b")
+		)
+		(pin "2"
+			(uuid "4a7ea1f5-cf47-462c-81f1-f64045ea2d5a")
+		)
+		(pin "1"
+			(uuid "45e05dd3-36ed-4e4d-b8f5-1ddeaf5c33fd")
+		)
+		(pin "4"
+			(uuid "9292072c-673f-4226-85ca-f95c9ace3b58")
+		)
+		(pin "3"
+			(uuid "d833380d-e083-4141-bd5d-2cb706344373")
+		)
+		(instances
+			(project "prechargedischarge_mkviii"
+				(path "/96f56455-bf31-456c-8371-5b3706690d23"
+					(reference "U9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_0.1uF")
+		(at 287.02 36.83 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "43106d0c-a5e7-44e6-9772-23d0a52a974a")
+		(property "Reference" "C17"
+			(at 287.02 29.21 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "C_10nF"
+			(at 287.02 31.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:C_0603_1608Metric"
+			(at 283.21 37.7952 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "${OEM_DIR}/parts/datasheets/samsung_CL10B104KB8NNWC.pdf"
+			(at 287.02 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor 0.1uF 50V X7R 0603"
+			(at 287.02 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL10B104KB8NNWC"
+			(at 287.02 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFN" "Samsung Electro-Mechanics"
+			(at 287.02 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "DKPN" "1276-1935-2-ND"
+			(at 287.02 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Package" "0603"
+			(at 287.02 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Stocked" "Reel"
+			(at 287.02 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "NewDesigns" "YES"
+			(at 287.02 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Style" "SMD"
+			(at 287.02 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "95ba71f8-e9f0-440c-8a6b-847b059acd35")
+		)
+		(pin "1"
+			(uuid "9d14463f-d0f2-46a5-84cd-9592806639bd")
+		)
+		(instances
+			(project "prechargedischarge_mkviii"
+				(path "/96f56455-bf31-456c-8371-5b3706690d23"
+					(reference "C17")
 					(unit 1)
 				)
 			)
@@ -18379,6 +18998,76 @@
 			(project "precharge_discharge"
 				(path "/96f56455-bf31-456c-8371-5b3706690d23"
 					(reference "D4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 499.11 175.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4fbd8f00-22a7-40db-8ac7-e22646854ed2")
+		(property "Reference" "C15"
+			(at 502.92 173.9899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1 µF"
+			(at 502.92 176.5299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 500.0752 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 499.11 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 499.11 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "74feb001-44b2-43fe-b548-fe27a29fd70c")
+		)
+		(pin "1"
+			(uuid "d1660708-d054-4971-b401-2af7d95261f0")
+		)
+		(instances
+			(project "prechargedischarge_mkviii"
+				(path "/96f56455-bf31-456c-8371-5b3706690d23"
+					(reference "C15")
 					(unit 1)
 				)
 			)
@@ -21145,6 +21834,74 @@
 		)
 	)
 	(symbol
+		(lib_name "GND_2")
+		(lib_id "power:GND")
+		(at 290.83 36.83 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "87568f63-3a53-44cd-a14a-6f661016b454")
+		(property "Reference" "#PWR?"
+			(at 297.18 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 294.64 36.8299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 290.83 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 290.83 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 290.83 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9a57f9a8-6074-46f1-a1d7-bddb5b51ca6b")
+		)
+		(instances
+			(project "prechargedischarge_mkviii"
+				(path "/96f56455-bf31-456c-8371-5b3706690d23"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:LED_WHITE")
 		(at 182.88 254 0)
 		(unit 1)
@@ -22086,6 +22843,76 @@
 			(project "precharge_discharge"
 				(path "/96f56455-bf31-456c-8371-5b3706690d23"
 					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 514.35 105.41 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a177d8df-6ce4-4ff9-93f2-84d35fa5ac19")
+		(property "Reference" "C16"
+			(at 510.54 104.1399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1 µF"
+			(at 510.54 106.6799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 513.3848 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 514.35 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 514.35 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "78ef34e2-c425-4e0d-b41d-5611cf81e26d")
+		)
+		(pin "1"
+			(uuid "eeb79b5a-9b4b-443a-93f4-86bc9659c395")
+		)
+		(instances
+			(project "prechargedischarge_mkviii"
+				(path "/96f56455-bf31-456c-8371-5b3706690d23"
+					(reference "C16")
 					(unit 1)
 				)
 			)
@@ -23054,6 +23881,94 @@
 			(project ""
 				(path "/96f56455-bf31-456c-8371-5b3706690d23"
 					(reference "C11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:U_AND-Gate_SN74LVC1G08DBVR_SOT23-5new")
+		(at 481.33 105.41 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b7b0283f-0fc7-42ea-87a0-55a997a2f2f9")
+		(property "Reference" "U10"
+			(at 496.57 98.9898 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SN74LVC1G08DBVR"
+			(at 496.57 101.5298 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:SOT-23-5"
+			(at 481.33 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/gpn/sn74lvc1g08"
+			(at 481.33 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "IC GATE AND 1CH 2-INP SOT23-5"
+			(at 481.33 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "SN74LVC1G08DBVR"
+			(at 481.33 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "c5ed5b67-7996-4c71-af5b-ea47f7b3ceb8")
+		)
+		(pin "5"
+			(uuid "1e973496-5c79-406a-8713-521b02eea99d")
+		)
+		(pin "1"
+			(uuid "27e99314-0d71-423a-bcef-5600ab85dfbe")
+		)
+		(pin "4"
+			(uuid "6254e2ee-0e75-40e6-a177-b2a25124253f")
+		)
+		(pin "2"
+			(uuid "fcf04f59-c7ec-4188-bac6-13e26f9dfe88")
+		)
+		(instances
+			(project "prechargedischarge_mkviii"
+				(path "/96f56455-bf31-456c-8371-5b3706690d23"
+					(reference "U10")
 					(unit 1)
 				)
 			)
@@ -25365,6 +26280,73 @@
 			(project "prechargedischarge_mkviii"
 				(path "/96f56455-bf31-456c-8371-5b3706690d23"
 					(reference "R36")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "+5V_1")
+		(lib_id "power:+5V")
+		(at 447.04 165.1 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ec301421-1ffc-468e-988b-f3526351d248")
+		(property "Reference" "#PWR?"
+			(at 447.04 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 447.04 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 447.04 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 447.04 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 447.04 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "556a0056-5b5b-481d-9e99-84cce7c0d96e")
+		)
+		(instances
+			(project "prechargedischarge_mkviii"
+				(path "/96f56455-bf31-456c-8371-5b3706690d23"
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)

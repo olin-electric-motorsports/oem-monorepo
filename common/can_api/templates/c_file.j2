@@ -11,11 +11,24 @@
 FDCAN_HandleTypeDef hfdcan1; 
 
 /*
- * Create an empty struct for each message
+ * Create an empty cantools struct for each message to be received
  */
 {% for message in rx_messages %}
 
 struct can_tools_{{ message.name|lower }}_t {{ message.name|lower }};
+
+{% endfor %}
+
+/*
+ * Create an empty cantools struct and TX header for each message to be transmitted
+ */
+{% for message in tx_messages %}
+
+FDCAN_TxHeaderTypeDef sTxHeader_{{ message.name|lower }};
+// volatile qualifier is used, as the value of this struct may change outside
+// of the standard program flow. Prevents compiler optimizations that could
+// break code.
+volatile struct can_tools_{{ message.name|lower }}_t {{ message.name|lower }}; 
 
 {% endfor %}
 
@@ -68,13 +81,32 @@ void config_rx_filters(void) {
 }
 
 /*
+ * Configure TX headers
+ */
+void config_tx_headers(void){
+    {% for message in tx_messages %}
+
+    sTxHeader_{{ message.name|lower }}.Identifier = {{ message.frame_id }};
+    sTxHeader_{{ message.name|lower }}.IdType = FDCAN_STANDARD_ID;
+    sTxHeader_{{ message.name|lower }}.TxFrameType = FDCAN_DATA_FRAME;
+    sTxHeader_{{ message.name|lower }}.DataLength = FDCAN_DLC_BYTES_{{ message.length }};
+    sTxHeader_{{ message.name|lower }}.ErrorStateIndicator = FDCAN_ESI_ACTIVE;
+    sTxHeader_{{ message.name|lower }}.BitRateSwitch = FDCAN_BRS_OFF;
+    sTxHeader_{{ message.name|lower }}.FDFormat = FDCAN_CLASSIC_CAN;
+    sTxHeader_{{ message.name|lower }}.TxEventFifoControl = FDCAN_NO_TX_EVENTS; // We do not use the TX events feature
+    sTxHeader_{{ message.name|lower }}.MessageMarker = 0; // Ignored because of FDCAN_NO_TX_EVENTS
+
+    {% endfor %}
+}
+
+/*
  * Initialize the FDCAN1 module.
  */
 void can_init_{{ node.name }}(void) {
     can_config();
     HAL_FDCAN_Init(&hfdcan1);
     config_rx_filters();
-    {# TODO: call tx setup #}
+    config_tx_headers();
     HAL_FDCAN_Start(&hfdcan1);
 }
 
@@ -101,48 +133,30 @@ int can_poll_receive_all(void) {
     return 0;
 }
 
-{#
-Temporarily not implementing this function. As I understand it, this function
-is redundant with can_poll_receive_, but the polling method is superior for 
-our team's application. - Jacob Keller 3/7/2026
-
-int can_receive_{{ message.name|lower }}(void) {
-    //TODO
-}
-#}
-
-
-
-
 /*
  * Transmit messages
  */
 {% for message in tx_messages %}
-uint8_t {{ message.name|lower }}_data[{{ message.length }}] = {0};
-
-can_frame_t {{ message.name|lower }}_msg = {
-    .id = {{ message.frame_id }},
-    .mob = 0,
-    .data = {{ message.name|lower }}_data,
-    .dlc = {{ message.length }},
-};
-
-volatile struct can_tools_{{ message.name|lower }}_t {{ message.name|lower }} = {0};
 
 void can_send_{{ message.name|lower }}(void) {
-    ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
-        // We can be sure here that the CAN data struct won't change here
+    uint8_t TxData[8] = {0};
 
+    // We protect the following in an 'atomic' block to prevent data from changing mid-pack
+    uint32_t primask_bit = __get_PRIMASK(); // Get current interrupt state
+    __disable_irq(); // Disable interrupts
+    // CRITICAL SECTION BEGIN
         can_tools_{{ message.name|lower }}_pack(
-            {{ message.name|lower }}_data,
+            TxData,
             // We can safely discard the volatile qualifier because we are in an
             // ATOMIC block, so the value will not be changed in an ISR
             (const struct can_tools_{{ message.name|lower }}_t*) &{{ message.name|lower }},
             {{ message.length }}
         );
-    }
+    // CRITICAL SECTION END
+    __set_PRIMASK(primask_bit); // Set interrupts back to prior state
 
-    can_send(&{{ message.name|lower }}_msg);
+
+    HAL_FDCAN_AddMessageToTxFifoQ (&hfdcan1, &sTxHeader_{{ message.name|lower }}, TxData);
 }
 
 {% endfor %}

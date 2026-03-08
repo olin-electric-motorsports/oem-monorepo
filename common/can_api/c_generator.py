@@ -19,13 +19,9 @@ def main():
     parser.add_argument(
         "-o", "--output_dir", default=".", help="Output directory (default is `.`)"
     )
-
     parser.add_argument("-y", "--yaml", required=True, help="YAML file for the node")
-
     parser.add_argument("-d", "--dbc", required=True, help="Input dbc file")
-
     parser.add_argument("-c", "--c-file", required=True, help="Input dbc file")
-
     parser.add_argument("-H", "--h-file", required=True, help="Input dbc file")
 
     args = parser.parse_args()
@@ -39,42 +35,39 @@ def main():
     # Get the Node that we want
     node = db.get_node_by_name(yaml_data["name"])
 
-    # Filter messages to get only the ones our Node sends
     tx_messages = []
+    rx_messages = []
     choices = []
-    for message in yaml_data["publish"]:
-        msg = db.get_message_by_name(message["name"])
-        tx_messages.append(msg)
 
-        if "signals" in message.keys():
-            for sig in message["signals"]:
-                if sig["unit"]["type"] == "enum":
-                    choices.append(
-                        {
-                            "name": sig["name"],
-                            "values": sig["unit"]["values"],
-                        }
-                    )
-    rx_messages = None
-    mobs = None
-    masks = None
+    # Identify the messages this node publishes and their corresponding enums
+    if "publish" in yaml_data.keys():
+        for message in yaml_data["publish"]:
+            msg = db.get_message_by_name(message["name"])
+            tx_messages.append(msg)
 
+            if "signals" in message.keys():
+                for sig in message["signals"]:
+                    if sig["unit"]["type"] == "enum":
+                        choices.append(
+                            {
+                                "name": sig["name"],
+                                "values": sig["unit"]["values"],
+                            }
+                        )
+
+    # Identify the messages this node subscribes to and their corresponding enums
     if "subscribe" in yaml_data.keys():
-        rx_messages, mobs, masks = get_rx_messages(yaml_data["subscribe"], db.messages)
+        rx_messages = get_rx_messages(yaml_data["subscribe"], db.messages)
 
         for msg in rx_messages:
             for sig in msg.signals:
                 if sig.choices:
-                    if len(sig.choices) > 2:
-                        choices.append(
-                            {
-                                "name": sig.name,
-                                "values": list(sig.choices.values()),
-                            }
-                        )
-    else:
-        rx_messages = []
-        mobs = {}
+                    choices.append(
+                        {
+                            "name": sig.name,
+                            "values": list(sig.choices.values()),
+                        }
+                    )
 
     # Create the Jinja2 environment that contains the template info
     env = Environment(
@@ -96,8 +89,6 @@ def main():
             node=node,
             tx_messages=tx_messages,
             rx_messages=rx_messages,
-            masks=masks,
-            mobs=mobs,
             header_file="can_api.h",
         )
 

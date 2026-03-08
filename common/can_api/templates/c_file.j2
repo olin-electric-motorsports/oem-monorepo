@@ -33,9 +33,11 @@ volatile struct can_tools_{{ message.name|lower }}_t {{ message.name|lower }};
 {% endfor %}
 
 /*
- * Configure the FDCAN1 initialization struct.
+ * @brief Configure the FDCAN1 initialization struct.
+ *
+ * Set the options for how we want the CAN peripheral to behave.
  */
-void can_config(void){
+static void can_config(void){
     hfdcan1.Instance = FDCAN1; // Use FDCAN1
     hfdcan1.Init.ClockDivider = FDCAN_CLOCK_DIV1; // Divide kernel clock by 1 (no divider)
     hfdcan1.Init.FrameFormat = FDCAN_FRAME_CLASSIC; // Use Classic CAN frame standard
@@ -57,14 +59,17 @@ void can_config(void){
 }
 
 /*
- * Configure RX filters
+ * @brief Configure RX filters
  *
- * For each message:
- * - Configure reception (RX) filters. Defines which message IDs we care about 
- * and should recieve
- * - Apply configured filter to CAN peripheral
+ * For each message, first configure the reception (RX) filters to defines 
+ * which message IDs we care about and should recieve. Then apply configured
+ * filter to CAN peripheral.
+ *
+ * @returns 0 for success, 1 for error
  */
-void config_rx_filters(void) {
+static HAL_StatusTypeDef config_rx_filters(void) {
+    HAL_StatusTypeDef status = HAL_OK;
+
     {% for message in rx_messages %}
 
     // Filter config for: {{ message.name|lower }}
@@ -75,15 +80,24 @@ void config_rx_filters(void) {
     sFilterConfig_{{ message.name|lower }}.FilterConfig = FDCAN_FILTER_TO_RXFIFO0; // Store message in Rx FIFO 0 if filter matches
     sFilterConfig_{{ message.name|lower }}.FilterID1 = {{ message.frame_id }}; // Message ID
     sFilterConfig_{{ message.name|lower }}.FilterID2 = 0x7FF; // Bitmask set to all 1s -> only accept exact ID match
-    HAL_FDCAN_ConfigFilter(&hfdcan1, &sFilterConfig_{{ message.name|lower }});
+    status = HAL_FDCAN_ConfigFilter(&hfdcan1, &sFilterConfig_{{ message.name|lower }});
+    if (status != HAL_OK) {
+        // Filter config failed, exit loop
+        return status;
+    }
 
     {% endfor %}
+
+    return status;
 }
 
 /*
- * Configure TX headers
+ * @brief Configure TX headers
+ *
+ * The TX header is the supporting information for each CAN message we hope to
+ * send, but does not include actual data.
  */
-void config_tx_headers(void){
+static void config_tx_headers(void){
     {% for message in tx_messages %}
 
     sTxHeader_{{ message.name|lower }}.Identifier = {{ message.frame_id }};
@@ -102,12 +116,22 @@ void config_tx_headers(void){
 /*
  * Initialize the FDCAN1 module.
  */
-void can_init_{{ node.name }}(void) {
+int can_init_{{ node.name }}(void) {
     can_config();
-    HAL_FDCAN_Init(&hfdcan1);
-    config_rx_filters();
+    if (HAL_FDCAN_Init(&hfdcan1) != HAL_OK) {
+        // Init failed
+        return 1;
+    }
+    if (config_rx_filters() != HAL_OK){
+        // RX filter config failed
+        return 1;
+    }
     config_tx_headers();
-    HAL_FDCAN_Start(&hfdcan1);
+    if (HAL_FDCAN_Start(&hfdcan1) != HAL_OK){
+        // Start failed
+        return 1;
+    }
+    return 0;
 }
 
 /*
@@ -124,10 +148,22 @@ int can_poll_receive_all(void) {
             switch (RxHeader.Identifier) {
                 {% for message in rx_messages %}
                 case {{ message.frame_id }}:
+                    {
+                    // We protect the following in an 'atomic' block to prevent data from changing while unpacking
+                    uint32_t primask_bit = __get_PRIMASK(); // Get current interrupt state
+                    __disable_irq(); // Disable interrupts
+                    // CRITICAL SECTION BEGIN
                     can_tools_{{ message.name|lower }}_unpack(&{{ message.name|lower }}, RxData, (uint8_t)RxHeader.DataLength);
+                    // CRITICAL SECTION END
+                    __set_PRIMASK(primask_bit); // Set interrupts back to prior state
+                    }
                     break;
+                    
                 {% endfor %}
             }
+        } else {
+            // Failed to get message
+            return 1;
         }
     }
     return 0;
@@ -138,10 +174,10 @@ int can_poll_receive_all(void) {
  */
 {% for message in tx_messages %}
 
-void can_send_{{ message.name|lower }}(void) {
+int can_send_{{ message.name|lower }}(void) {
     uint8_t TxData[8] = {0};
 
-    // We protect the following in an 'atomic' block to prevent data from changing mid-pack
+    // We protect the following in an 'atomic' block to prevent data from changing while packing
     uint32_t primask_bit = __get_PRIMASK(); // Get current interrupt state
     __disable_irq(); // Disable interrupts
     // CRITICAL SECTION BEGIN
@@ -156,7 +192,11 @@ void can_send_{{ message.name|lower }}(void) {
     __set_PRIMASK(primask_bit); // Set interrupts back to prior state
 
 
-    HAL_FDCAN_AddMessageToTxFifoQ (&hfdcan1, &sTxHeader_{{ message.name|lower }}, TxData);
+    if (HAL_FDCAN_AddMessageToTxFifoQ (&hfdcan1, &sTxHeader_{{ message.name|lower }}, TxData) == HAL_OK) {
+        return 0;
+    } else {
+        return 1;
+    }
 }
 
 {% endfor %}

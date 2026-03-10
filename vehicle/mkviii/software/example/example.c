@@ -1,6 +1,7 @@
-#include "throttle.h"
+#include "example.h"
 
 static void GpioInit(void);
+void SystemClockConfig(void);
 
 int main(void) {
   HAL_Init();

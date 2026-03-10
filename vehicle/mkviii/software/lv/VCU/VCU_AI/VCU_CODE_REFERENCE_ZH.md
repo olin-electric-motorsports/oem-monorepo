@@ -1,10 +1,100 @@
 # VCU `vcu.h` / `vcu.c` 代码详解（HAL 初学者版）
 
-本文档覆盖以下两个文件的全部关键元素：
-- `vehicle/mkvii/software/lv/vcu/vcu.h`
-- `vehicle/mkvii/software/lv/vcu/vcu.c`
+本文档覆盖以下文件的关键元素（当前仓库路径）：
+- `vehicle/mkviii/software/lv/VCU/vcu.h`
+- `vehicle/mkviii/software/lv/VCU/vcu.c`
+- `vehicle/mkviii/software/lv/VCU/main.h`
+- `vehicle/mkviii/software/lv/VCU/vcu_hal_compat.c`
+- `vehicle/mkviii/software/lv/VCU/vcu_app.c`
+- `vehicle/mkviii/software/lv/VCU/vcu_config.h`
 
 目标：逐项说明每个变量（类型、用途）、每个结构体（字段类型与用途）、每个函数（功能、输入、输出、返回值、副作用）。
+
+---
+
+## 0. 先看总览：每个文件是干什么的，主循环在哪
+
+如果你第一次看这个目录，建议先把它理解成三层：
+
+- 核心控制层：
+  - `vcu.h`
+  - `vcu.c`
+- 平台适配/集成层：
+  - `main.h`
+  - `vcu_hal_compat.c`
+  - `vcu_config.h`
+  - `vcu_app.c`
+- 构建/协议/文档层：
+  - `BUILD`
+  - `vcu.yml`
+  - `CAN_REFACTOR_NOTES.md`
+  - `VCU_CODE_REFERENCE_ZH.md`
+
+### 0.1 每个文件的用途
+
+| 文件 | 作用 | 你应该怎么理解它 |
+|---|---|---|
+| `BUILD` | Bazel 构建入口 | 决定 `vcu.elf` 怎么编出来。 |
+| `vcu.h` | VCU 公共接口头文件 | 定义结构体、故障位、回调、外部 API。 |
+| `vcu.c` | VCU 核心控制逻辑 | 真正处理油门、刹车、BSPD、故障、扭矩计算。 |
+| `main.h` | 最小 HAL 兼容头 | 给 `vcu.c` 提供 `HAL_*` 风格类型和函数声明。 |
+| `vcu_hal_compat.c` | 最小 HAL 兼容实现 | 实现 `HAL_ADC_*`、`HAL_GPIO_*`、`HAL_IWDG_Refresh`。 |
+| `vcu_config.h` | 编译期配置常量 | 放 ADC 通道号、APPS 标定上下限等常量。 |
+| `vcu_app.c` | 应用层集成入口 | 负责把 `vcu.c` 接起来，构造硬件映射、注册回调、跑主循环。 |
+| `vcu.yml` | CAN 协议描述 | 定义 VCU 想收什么消息、发什么消息。 |
+| `CAN_REFACTOR_NOTES.md` | 设计说明文档 | 解释为什么 CAN 逻辑被拆出核心，为什么用 hooks。 |
+| `VCU_CODE_REFERENCE_ZH.md` | 中文代码参考 | 解释这个目录里代码和设计怎么配合。 |
+
+### 0.2 主循环在哪
+
+当前这个目录里，程序入口和主循环在：
+
+- `vehicle/mkviii/software/lv/VCU/vcu_app.c`
+- 具体函数：`int main(void)`
+
+主循环结构非常简单：
+
+1. 在 `main()` 里先组装 `vcu_hw_s`、`vcu_calib_s`、`vcu_hooks_s`
+2. 调用 `vcu_init(&hw, &calib, &hooks)` 初始化核心
+3. 进入 `for (;;)` 无限循环
+4. 每次循环：
+   - 调 `vcu_request_1ms_tick()`
+   - 每 10 次循环调一次 `vcu_request_10ms_tick()`
+   - 调 `vcu_main_loop_iteration()`
+
+也就是说：
+
+- `vcu_app.c` 里的 `main()` 是“应用主循环”
+- `vcu.c` 里的 `vcu_main_loop_iteration()` 是“VCU 核心调度入口”
+
+可以这样分工理解：
+
+- `main()` 负责“什么时候跑”
+- `vcu_main_loop_iteration()` 负责“这一轮具体干什么”
+- `vcu_step_1ms()` 负责 1ms 控制逻辑
+- `vcu_step_10ms()` 负责 10ms 心跳/状态发布逻辑
+
+### 0.3 如果只想先看最关键的 4 个文件
+
+建议阅读顺序：
+
+1. `vcu_app.c`
+   - 先找到程序入口和主循环
+2. `vcu.h`
+   - 看清楚有哪些结构体和外部接口
+3. `vcu.c`
+   - 看核心状态机和控制逻辑
+4. `main.h` / `vcu_hal_compat.c`
+   - 最后再看 HAL 兼容层怎么把核心跑起来
+
+---
+
+## 0.4 当前仓库状态说明（2026-02）
+
+- 旧版 `libs/*`、`projects/btldr/*`、`can_api.h` 在当前仓库不可用，VCU 已改为本地最小 HAL 兼容层与最小 app 集成。
+- `vcu.c` / `vcu.h` 的核心控制逻辑保持不变；适配层在 `main.h`、`vcu_hal_compat.c`、`vcu_app.c`。
+- 当前 `vcu_app.c` 中 CAN 发布、ADC 实采样为占位实现（stub），目的是先打通编译链。
+- 当前可用构建命令：`bazel build --config=m4 //vehicle/mkviii/software/lv/VCU:vcu.elf`。
 
 ---
 
@@ -549,3 +639,396 @@
 2. GPIO 的 `active_state/closed_state` 必须和硬件电平一致；否则逻辑会全反。
 3. `vcu_request_1ms` / `vcu_request_10ms` 建议在定时中断里置位，`vcu_main_loop_iteration` 在主循环持续调用。
 4. `vcu_step_1ms` 返回 `HAL_ERROR` 不一定代表系统停机，当前实现主要用于提示 ADC 采样路径有错误。
+
+---
+
+## 8. `vehicle/mkviii/software/lv/VCU/` 目录全文件详解
+
+这一节按“目录里的每一个文件”来解释，重点说明：
+- 这个文件负责什么。
+- 它和其他文件怎么配合。
+- 当前版本里哪些内容是正式逻辑，哪些是临时适配/stub。
+
+### 8.1 `BUILD`
+
+文件路径：
+- `vehicle/mkviii/software/lv/VCU/BUILD`
+
+职责：
+- 定义 Bazel 构建目标。
+- 告诉 Bazel 需要把哪些源码编进 `vcu.elf`。
+
+当前内容含义：
+- `load("//common:macros.bzl", "stm32_firmware")`
+  - 说明当前 VCU 固件使用仓库里通用的 `stm32_firmware` 宏，而不是旧仓库里的 `cc_firmware`。
+- `exports_files(["vcu.yml"])`
+  - 把 `vcu.yml` 暴露给其他 Bazel 规则使用。
+- `stm32_firmware(name = "vcu.elf", srcs = [...])`
+  - 定义最终可构建目标 `//vehicle/mkviii/software/lv/VCU:vcu.elf`。
+  - `srcs` 中列出的文件会作为这个固件的一部分参与编译。
+
+它和其他文件的关系：
+- 这是所有 C 源码进入编译链的入口。
+- 如果 `BUILD` 写错，Bazel 连编译都进不去。
+
+当前版本的重要变化：
+- 已去掉旧版不存在的 `cc_firmware` / `can_api_files` 宏依赖。
+- 现在的 `BUILD` 目标已经能成功构建出 ELF。
+
+### 8.2 `CAN_REFACTOR_NOTES.md`
+
+文件路径：
+- `vehicle/mkviii/software/lv/VCU/CAN_REFACTOR_NOTES.md`
+
+职责：
+- 解释这套 VCU 设计在 CAN 架构上相对旧版本做了什么重构。
+- 它更像“设计说明”或“重构动机文档”，不是源码 API 文档。
+
+主要内容：
+- 为什么把 CAN 发送/接收从 `vcu.c` 核心逻辑中抽离出去。
+- 为什么改成 `vcu_hooks_s` 回调模型。
+- 为什么把控制循环分成 `1 ms` 和 `10 ms` 两条路径。
+- 为什么状态/debug 发布不应直接硬编码在控制核心里。
+
+阅读价值：
+- 适合想理解“为什么这样设计”的人。
+- 不适合拿来直接查函数签名或结构体字段，这部分应该看 `vcu.h` 和本文档前半部分。
+
+当前状态：
+- 这份文档仍保留较多旧命名（例如 `MKVII`、旧目录示例）。
+- 它在“设计思想”层面仍然有参考价值，但路径和集成示例不完全反映当前仓库现状。
+
+### 8.3 `VCU_CODE_REFERENCE_ZH.md`
+
+文件路径：
+- `vehicle/mkviii/software/lv/VCU/VCU_CODE_REFERENCE_ZH.md`
+
+职责：
+- 这是中文代码参考文档。
+- 目标是把 `VCU` 模块的结构体、状态机、接口、关键实现讲清楚。
+
+主要内容：
+- `vcu.h` 的类型、枚举、结构体。
+- `vcu.c` 的静态变量、辅助函数、主控制流程。
+- HAL 初学者映射说明。
+
+当前状态：
+- 现在已经补充了当前仓库状态说明。
+- 本节新增了目录全文件解释，目的是让文档覆盖整个目录，而不只覆盖 `vcu.h/vcu.c`。
+
+### 8.4 `main.h`
+
+文件路径：
+- `vehicle/mkviii/software/lv/VCU/main.h`
+
+职责：
+- 提供 VCU 核心所依赖的最小 HAL 兼容类型和函数声明。
+- 它相当于“本地轻量 HAL 适配头”。
+
+为什么需要它：
+- 当前仓库已经没有旧版 `libs/adc/api.h` 等依赖。
+- 但 `vcu.c` 仍然需要一些通用抽象，例如：
+  - `HAL_StatusTypeDef`
+  - `GPIO_PinState`
+  - `ADC_HandleTypeDef`
+  - `GPIO_TypeDef`
+  - `HAL_ADC_*`
+  - `HAL_GPIO_*`
+
+关键类型解释：
+- `HAL_StatusTypeDef`
+  - 只有 `HAL_OK` 和 `HAL_ERROR` 两种返回值。
+  - 用于统一表示 HAL 风格函数是否成功。
+- `GPIO_PinState`
+  - 表示数字引脚电平，`GPIO_PIN_RESET` / `GPIO_PIN_SET`。
+- `GPIO_TypeDef`
+  - 当前不是 STM32 官方 HAL 的真实 GPIO 寄存器结构。
+  - 这里只保留了 `input_state` 和 `output_state` 两个 `uint16_t` 字段，足够给 VCU 逻辑读写逻辑电平。
+- `ADC_HandleTypeDef`
+  - 当前也不是 STM32 官方 HAL 的完整 ADC 句柄。
+  - 只保留 `channel`、`sample`、`started` 三个字段。
+  - 这足够支撑 `vcu_read_adc_once()` 的调用链。
+- `IWDG_HandleTypeDef`
+  - 当前是占位结构体，仅用于让接口签名成立。
+
+它和其他文件的关系：
+- `vcu.h` 通过 `#include "main.h"` 拿到这些基础类型。
+- `vcu_hal_compat.c` 提供这里声明的函数实现。
+
+当前状态判断：
+- 这是“为了保持核心逻辑可编译”的最小定义，不是最终硬件层实现。
+- 如果后面要真正对接 STM32 HAL，可以把这里换成真实 HAL 头，或继续保留此文件做二次封装。
+
+### 8.5 `vcu.h`
+
+文件路径：
+- `vehicle/mkviii/software/lv/VCU/vcu.h`
+
+职责：
+- VCU 模块的公共接口头文件。
+- 定义所有外部可见的数据结构、故障位、模式枚举、回调接口、对外 API。
+
+这个文件解决什么问题：
+- 让调用者知道如何初始化 VCU。
+- 让平台层知道该提供什么硬件映射和回调。
+- 让调试层知道可以读取哪些运行状态。
+
+内容结构：
+- 常量：`VCU_PERMILLE_MAX`
+- 枚举：`vcu_mode_e`、`vcu_fault_bit_e`
+- 输入结构：`vcu_can_inputs_s`、`vcu_adc_samples_s`
+- 硬件映射：`vcu_hw_s`
+- 标定：`vcu_calib_s`
+- 运行状态：`vcu_state_s`
+- 回调接口：`vcu_hooks_s`
+- 外部 API：
+  - `vcu_load_default_calibration`
+  - `vcu_init`
+  - `vcu_request_1ms_tick`
+  - `vcu_request_10ms_tick`
+  - `vcu_set_can_inputs`
+  - `vcu_clear_latched_faults`
+  - `vcu_step_1ms`
+  - `vcu_step_10ms`
+  - `vcu_main_loop_iteration`
+  - `vcu_get_state`
+
+它和其他文件的关系：
+- `vcu.c` 是这个头文件的实现。
+- `vcu_app.c` 是这个头文件的典型使用者。
+
+### 8.6 `vcu.c`
+
+文件路径：
+- `vehicle/mkviii/software/lv/VCU/vcu.c`
+
+职责：
+- 这是 VCU 的控制核心。
+- 所有和油门、刹车、BSPD、故障锁存、扭矩计算、状态发布节奏相关的核心逻辑都在这里。
+
+它内部大致分 6 层：
+1. 基础辅助函数  
+   - 例如最小值、绝对差、GPIO 逻辑封装、饱和计数。
+2. 采样与归一化  
+   - ADC/GPIO 读取。
+   - 原始值映射到 `0..1000` 千分比。
+   - IIR 滤波。
+3. 故障管理  
+   - 越界、传感器不一致、刹车油门冲突、BSPD 条件、回路开路。
+4. 扭矩与使能决策  
+   - `ready_to_drive`、故障位、踏板值共同决定扭矩命令。
+5. 输出执行  
+   - 心跳灯、故障灯、逆变器使能 GPIO。
+6. 调度入口  
+   - `vcu_step_1ms`
+   - `vcu_step_10ms`
+   - `vcu_main_loop_iteration`
+
+这个文件的核心思想：
+- 让“控制逻辑”独立于具体硬件和具体 CAN 协议。
+- 硬件和通讯只通过 `vcu_hw_s`、`vcu_hooks_s` 与它交互。
+
+当前状态判断：
+- `vcu.c` 是当前目录里最“正式”的部分，逻辑完整度最高。
+- 这部分不是 stub，而是真正的核心业务逻辑。
+
+### 8.7 `vcu.yml`
+
+文件路径：
+- `vehicle/mkviii/software/lv/VCU/vcu.yml`
+
+职责：
+- 定义 VCU 节点的 CAN 消息收发语义。
+- 它不是 C 代码，而是协议描述文件。
+
+主要分为两部分：
+- `subscribe`
+  - 当前订阅 `dashboard`
+  - 说明 VCU 需要从仪表/上位节点接收控制输入
+- `publish`
+  - 发布 `M192_Command_Message`
+  - 发布 `throttle`
+  - 发布 `throttle_debug`
+  - 发布 `bspd`
+
+具体信号含义：
+- `throttle`
+  - 油门状态、左右踏板位置、惯性回路状态、心跳
+- `throttle_debug`
+  - 原始 ADC、越界状态、不一致状态、刹车油门冲突状态
+- `bspd`
+  - 刹车压力、滤波刹车压力、BSPD 回路状态、心跳、制动门限、5kW 状态
+
+它和 `vcu_app.c` 的关系：
+- 旧设计里，`vcu_app.c` 可以通过生成的 `can_api.h` 直接访问这些消息结构体并发送。
+- 当前仓库里该自动生成链路不在，所以 `vcu.yml` 目前更多是“协议意图说明”。
+
+当前状态判断：
+- 这份 YAML 仍然很重要，因为它定义了未来恢复 CAN 对接时的消息边界。
+- 但当前成功编译的 `vcu.elf` 并没有真正使用它生成代码。
+
+### 8.8 `vcu_app.c`
+
+文件路径：
+- `vehicle/mkviii/software/lv/VCU/vcu_app.c`
+
+职责：
+- 提供一个最小的应用层入口，把 `vcu.c` 的核心逻辑“接起来”。
+- 这是“集成层”，不是控制核心。
+
+当前版本做了什么：
+- 创建若干本地 `ADC_HandleTypeDef` 和 `GPIO_TypeDef` 实例。
+- 组装 `vcu_hw_s`。
+- 加载默认标定并覆写 APPS 相关标定值。
+- 注册回调 `vcu_hooks_s`。
+- 调用 `vcu_init(...)` 初始化核心。
+- 在无限循环中周期性触发：
+  - `vcu_request_1ms_tick()`
+  - 每 10 次循环触发一次 `vcu_request_10ms_tick()`
+  - `vcu_main_loop_iteration()`
+
+当前版本没做什么：
+- 没有真实 ADC 采样。
+- 没有真实 CAN 收发。
+- 没有 bootloader 服务。
+- 没有真实中断/定时器。
+
+关键回调的当前行为：
+- `vcu_read_adc_samples_hook`
+  - 返回全 0 的占位传感器值。
+  - 所有 `*_valid` 设为 `true`，表示“接口上看起来是有效样本”。
+- `vcu_read_can_inputs_hook`
+  - 强制 `ready_to_drive = false`。
+  - 这样系统默认不会出扭矩，更安全。
+- `vcu_publish_inverter_command_hook`
+  - 当前为空实现。
+- `vcu_publish_state_hook`
+  - 当前为空实现。
+
+为什么这样改：
+- 因为旧仓库里的 `libs/*`、`can_api.h`、`btldr` 都不在了。
+- 如果继续硬连旧接口，整个目标无法编译。
+- 所以当前 `vcu_app.c` 的目标是“先给核心逻辑提供一个可运行的壳”。
+
+后续真正上车/上板需要做的事：
+- 把 ADC 采样改成真实外设数据。
+- 把 CAN 输入和输出接到你现在仓库的 CAN 栈。
+- 把 1ms / 10ms tick 改成真实定时中断或 RTOS 定时任务。
+
+### 8.9 `vcu_config.h`
+
+文件路径：
+- `vehicle/mkviii/software/lv/VCU/vcu_config.h`
+
+职责：
+- 提供 VCU app 集成时用到的编译期常量。
+
+当前包含内容：
+- `VCU_MOTOR_ANTICLOCKWISE`
+- 各 ADC 通道号：
+  - `VCU_APPS1_ADC_CHANNEL`
+  - `VCU_APPS2_ADC_CHANNEL`
+  - `VCU_BRAKE_PRESSURE_ADC_CHANNEL`
+  - `VCU_BRAKE_PRESSURE_FILTERED_ADC_CHANNEL`
+- APPS 标定上下限：
+  - `VCU_APPS1_MIN_COUNTS`
+  - `VCU_APPS1_MAX_COUNTS`
+  - `VCU_APPS2_MIN_COUNTS`
+  - `VCU_APPS2_MAX_COUNTS`
+
+为什么现在内容变少了：
+- 旧版本这里还会放 GPIO 定义、timer 配置、AVR 相关枚举。
+- 当前仓库没有那些旧基础库，所以 `vcu_config.h` 被缩减成“纯常量头文件”。
+
+它和 `vcu_app.c` 的关系：
+- `vcu_app.c` 用这里的常量初始化 ADC 句柄和标定值。
+
+### 8.10 `vcu_hal_compat.c`
+
+文件路径：
+- `vehicle/mkviii/software/lv/VCU/vcu_hal_compat.c`
+
+职责：
+- 实现 `main.h` 中声明的最小 HAL 兼容函数。
+- 它的作用是让 `vcu.c` 继续通过 `HAL_*` 风格接口工作，而不依赖原来的外设库。
+
+当前实现的函数：
+- `HAL_ADC_Start`
+- `HAL_ADC_PollForConversion`
+- `HAL_ADC_GetValue`
+- `HAL_ADC_Stop`
+- `HAL_GPIO_ReadPin`
+- `HAL_GPIO_WritePin`
+- `HAL_IWDG_Refresh`
+
+当前实现特点：
+- `HAL_ADC_Start`
+  - 只把 `started` 置为 `true`，不触发真实 ADC 外设。
+- `HAL_ADC_GetValue`
+  - 直接返回 `ADC_HandleTypeDef.sample`。
+- `HAL_GPIO_ReadPin`
+  - 从 `GPIO_TypeDef.input_state` 按位读取。
+- `HAL_GPIO_WritePin`
+  - 修改 `GPIO_TypeDef.output_state` 的位。
+- `HAL_IWDG_Refresh`
+  - 直接返回成功，不做真实看门狗操作。
+
+这说明什么：
+- 当前 HAL 兼容层本质上是“软件仿真接口”。
+- 目标不是驱动真实 MCU 外设，而是给核心控制逻辑提供一个稳定、可编译、可测试的运行环境。
+
+### 8.11 当前目录中文件之间的依赖关系
+
+可以把目录看成三层：
+
+第一层：核心控制层
+- `vcu.h`
+- `vcu.c`
+
+第二层：本地适配层
+- `main.h`
+- `vcu_hal_compat.c`
+- `vcu_config.h`
+- `vcu_app.c`
+
+第三层：构建与文档协议层
+- `BUILD`
+- `vcu.yml`
+- `CAN_REFACTOR_NOTES.md`
+- `VCU_CODE_REFERENCE_ZH.md`
+
+依赖方向：
+- `BUILD` 把全部源文件组织成 `vcu.elf`
+- `vcu_app.c` 使用 `vcu.h` 和 `vcu_config.h`
+- `vcu.c` 使用 `vcu.h`
+- `vcu.h` 依赖 `main.h`
+- `vcu_hal_compat.c` 实现 `main.h` 声明的 HAL 函数
+- `vcu.yml` 描述未来/设计中的 CAN 边界
+- 两个 `.md` 文件负责解释设计与代码
+
+### 8.12 哪些文件是“核心逻辑”，哪些是“临时适配”
+
+核心逻辑文件：
+- `vcu.h`
+- `vcu.c`
+
+偏平台集成文件：
+- `vcu_app.c`
+- `vcu_config.h`
+- `main.h`
+- `vcu_hal_compat.c`
+
+构建/协议/文档文件：
+- `BUILD`
+- `vcu.yml`
+- `CAN_REFACTOR_NOTES.md`
+- `VCU_CODE_REFERENCE_ZH.md`
+
+当前明显带有临时 stub 性质的文件：
+- `vcu_app.c`
+- `main.h`
+- `vcu_hal_compat.c`
+
+原因：
+- 这三个文件是为了摆脱旧仓库的 `libs/*` 依赖而重建的最小运行壳。
+- 它们现在足够支持编译和核心逻辑联调，但还不是最终板级实现。

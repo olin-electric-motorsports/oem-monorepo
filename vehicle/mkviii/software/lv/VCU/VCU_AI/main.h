@@ -1,7 +1,5 @@
-#ifndef VEHICLE_MKVII_SOFTWARE_LV_VCU_MAIN_H_
-#define VEHICLE_MKVII_SOFTWARE_LV_VCU_MAIN_H_
-
-#include "libs/adc/api.h"
+#ifndef VEHICLE_MKVIII_SOFTWARE_LV_VCU_MAIN_H_
+#define VEHICLE_MKVIII_SOFTWARE_LV_VCU_MAIN_H_
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -17,12 +15,12 @@ typedef enum {
 } GPIO_PinState;
 
 typedef struct {
-    uint8_t port_reg;
-    uint8_t pin_reg;
+    uint16_t input_state;
+    uint16_t output_state;
 } GPIO_TypeDef;
 
 typedef struct {
-    adc_pin_e channel;
+    uint8_t channel;
     uint16_t sample;
     bool started;
 } ADC_HandleTypeDef;
@@ -41,4 +39,4 @@ void HAL_GPIO_WritePin(GPIO_TypeDef* port, uint16_t pin, GPIO_PinState state);
 
 HAL_StatusTypeDef HAL_IWDG_Refresh(IWDG_HandleTypeDef* hiwdg);
 
-#endif /* VEHICLE_MKVII_SOFTWARE_LV_VCU_MAIN_H_ */
+#endif /* VEHICLE_MKVIII_SOFTWARE_LV_VCU_MAIN_H_ */

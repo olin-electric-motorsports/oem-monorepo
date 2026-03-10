@@ -152,7 +152,7 @@ static uint16_t vcu_scale_counts_to_permille(uint16_t raw,
     return (uint16_t)scaled;
 }
 
-/* First-order IIR filter implemented with shift arithmetic for deterministic cost. */
+/* First-order Infinite Inpulse Response (IIR) filter implemented with shift arithmetic for deterministic cost. */
 static uint16_t vcu_iir_filter_permille(uint16_t previous, uint16_t sample, uint8_t shift) {
     int32_t filtered = previous;
 

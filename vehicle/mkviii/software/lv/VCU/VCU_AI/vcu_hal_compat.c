@@ -1,13 +1,12 @@
 #include "vehicle/mkviii/software/lv/VCU/main.h"
 
-#include <avr/io.h>
+#include <stddef.h>
 
 HAL_StatusTypeDef HAL_ADC_Start(ADC_HandleTypeDef* hadc) {
     if (hadc == NULL) {
         return HAL_ERROR;
     }
 
-    hadc->sample = adc_read(hadc->channel);
     hadc->started = true;
     return HAL_OK;
 }
@@ -40,7 +39,7 @@ GPIO_PinState HAL_GPIO_ReadPin(GPIO_TypeDef* port, uint16_t pin) {
         return GPIO_PIN_RESET;
     }
 
-    return (_SFR_IO8(port->pin_reg) & (uint8_t)pin) != 0u ? GPIO_PIN_SET : GPIO_PIN_RESET;
+    return (port->input_state & pin) != 0u ? GPIO_PIN_SET : GPIO_PIN_RESET;
 }
 
 void HAL_GPIO_WritePin(GPIO_TypeDef* port, uint16_t pin, GPIO_PinState state) {
@@ -49,10 +48,11 @@ void HAL_GPIO_WritePin(GPIO_TypeDef* port, uint16_t pin, GPIO_PinState state) {
     }
 
     if (state == GPIO_PIN_SET) {
-        _SFR_IO8(port->port_reg) |= (uint8_t)pin;
-    } else {
-        _SFR_IO8(port->port_reg) &= (uint8_t)~pin;
+        port->output_state |= pin;
+        return;
     }
+
+    port->output_state &= (uint16_t)~pin;
 }
 
 HAL_StatusTypeDef HAL_IWDG_Refresh(IWDG_HandleTypeDef* hiwdg) {

@@ -4,6 +4,11 @@
 	(generator_version "9.0")
 	(uuid "ec5dd9e3-3092-4af4-bee1-94131d9ab7f8")
 	(paper "A3")
+	(title_block
+		(title "Roadkill Harness (LV Only)")
+		(rev "1")
+		(comment 1 "Jack Goode")
+	)
 	(lib_symbols
 		(symbol "+5V_7"
 			(power)
@@ -4758,6 +4763,107 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "OEM:TP_Hook_SMD"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TP"
+				(at 0 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TP_SMD"
+				(at 1.27 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "OEM:TP_Hook_SMD"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Test Point SMD Hook"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MPN" "5019"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Test Point SMD Hook"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TP_Hook_SMD_1_1"
+				(circle
+					(center 0 2.54)
+					(radius 1.27)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin input line
+					(at 0 -1.27 90)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OEM:U_MCU_STM32G441KBT6_32-LQFP"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -5953,7 +6059,7 @@
 	)
 	(rectangle
 		(start 17.78 19.05)
-		(end 95.25 120.65)
+		(end 95.25 128.27)
 		(stroke
 			(width 0)
 			(type default)
@@ -6283,10 +6389,22 @@
 		(uuid "c8d33025-8234-48b4-b28b-974662cabbdd")
 	)
 	(junction
+		(at 259.08 195.58)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e5dc8f89-fb29-467a-8892-2fc747e5ffd1")
+	)
+	(junction
 		(at 247.65 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e91b9b92-8a78-40fe-881e-8d1a33192bbb")
+	)
+	(junction
+		(at 259.08 185.42)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ee7fb628-fad9-4afe-9771-ceb7dba9d0f6")
 	)
 	(junction
 		(at 34.29 88.9)
@@ -6357,10 +6475,6 @@
 		(uuid "5637ec2f-89e0-46be-a95b-8105b7c5de98")
 	)
 	(no_connect
-		(at 69.85 62.23)
-		(uuid "5aa1e84c-0d23-470b-804b-ce741559c623")
-	)
-	(no_connect
 		(at 33.02 186.69)
 		(uuid "5ae1b130-0124-4c6d-aaa2-e9dd05421c0c")
 	)
@@ -6371,10 +6485,6 @@
 	(no_connect
 		(at 69.85 46.99)
 		(uuid "693b736a-2ffa-4476-a4e1-5212751337ef")
-	)
-	(no_connect
-		(at 69.85 67.31)
-		(uuid "6b3a2c85-7332-4813-9c12-f09b8ceabaf5")
 	)
 	(no_connect
 		(at 68.58 189.23)
@@ -6716,6 +6826,26 @@
 	)
 	(wire
 		(pts
+			(xy 259.08 185.42) (xy 270.51 185.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1ecfbf5e-e8d2-45bc-a33a-1f75214315d1")
+	)
+	(wire
+		(pts
+			(xy 311.15 187.96) (xy 308.61 187.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1fe0cfcc-8724-4668-ac9f-0f54765ea441")
+	)
+	(wire
+		(pts
 			(xy 199.39 133.35) (xy 207.01 133.35)
 		)
 		(stroke
@@ -6733,16 +6863,6 @@
 			(type default)
 		)
 		(uuid "2356654a-8b53-48cf-a3d3-5ec84e47642d")
-	)
-	(wire
-		(pts
-			(xy 256.54 198.12) (xy 256.54 195.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "250ad893-a636-421e-bac3-96713d766c9b")
 	)
 	(wire
 		(pts
@@ -6793,6 +6913,16 @@
 			(type default)
 		)
 		(uuid "2b310683-d968-4b63-bfce-b302f6754a05")
+	)
+	(wire
+		(pts
+			(xy 259.08 193.04) (xy 259.08 195.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2f9ffb3b-2068-41ba-8337-33bc50fce201")
 	)
 	(wire
 		(pts
@@ -7026,6 +7156,16 @@
 	)
 	(wire
 		(pts
+			(xy 264.16 190.5) (xy 264.16 195.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "52fef609-dd66-4f9b-840f-6e793b0cd234")
+	)
+	(wire
+		(pts
 			(xy 147.32 180.34) (xy 148.59 180.34)
 		)
 		(stroke
@@ -7056,7 +7196,7 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 198.12) (xy 264.16 198.12)
+			(xy 256.54 195.58) (xy 259.08 195.58)
 		)
 		(stroke
 			(width 0)
@@ -7286,7 +7426,7 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 185.42) (xy 267.97 185.42)
+			(xy 256.54 185.42) (xy 259.08 185.42)
 		)
 		(stroke
 			(width 0)
@@ -7306,7 +7446,7 @@
 	)
 	(wire
 		(pts
-			(xy 264.16 190.5) (xy 267.97 190.5)
+			(xy 264.16 190.5) (xy 270.51 190.5)
 		)
 		(stroke
 			(width 0)
@@ -7656,6 +7796,16 @@
 	)
 	(wire
 		(pts
+			(xy 259.08 195.58) (xy 264.16 195.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ac820950-8915-41fc-96b2-84b030bb635d")
+	)
+	(wire
+		(pts
 			(xy 209.55 54.61) (xy 191.77 54.61)
 		)
 		(stroke
@@ -7766,7 +7916,7 @@
 	)
 	(wire
 		(pts
-			(xy 267.97 185.42) (xy 267.97 187.96)
+			(xy 270.51 185.42) (xy 270.51 187.96)
 		)
 		(stroke
 			(width 0)
@@ -7986,6 +8136,16 @@
 	)
 	(wire
 		(pts
+			(xy 311.15 179.07) (xy 308.61 179.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e8720b1c-2e0b-4737-a7f0-454e0987db4f")
+	)
+	(wire
+		(pts
 			(xy 106.68 69.85) (xy 106.68 82.55)
 		)
 		(stroke
@@ -8103,6 +8263,16 @@
 			(type default)
 		)
 		(uuid "f586ac1b-e0ea-4f54-a02f-22227bbf848d")
+	)
+	(wire
+		(pts
+			(xy 311.15 198.12) (xy 308.61 198.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f751d82f-f8da-4373-92ef-b68bb3e8d6fc")
 	)
 	(wire
 		(pts
@@ -8434,6 +8604,36 @@
 		)
 		(uuid "73b2b5a6-eaae-42bf-bcef-6f3b52acf5c3")
 	)
+	(label "THROTTLE_POWER_L"
+		(at 69.85 62.23 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "75640464-7251-43e0-8791-c8ce797145fd")
+	)
+	(label "THROTTLE_POWER_R"
+		(at 38.1 123.19 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "75f8e67b-cc25-453c-aa26-976ff7b46856")
+	)
+	(label "CAN_+"
+		(at 308.61 161.29 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7a60332c-d405-46b9-97a4-10c2e8a3e90a")
+	)
 	(label "NRST"
 		(at 191.77 26.67 0)
 		(effects
@@ -8664,6 +8864,16 @@
 		)
 		(uuid "aede70dc-e10d-472e-9d10-28b8bb2771d2")
 	)
+	(label "THROTTLE_POWER_R"
+		(at 69.85 67.31 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b0a01aba-ebc9-43ad-ab60-44c8a2027713")
+	)
 	(label "RTD_BUZZER_LOW_SIDE"
 		(at 185.42 177.8 180)
 		(effects
@@ -8694,6 +8904,26 @@
 		)
 		(uuid "c1a2b902-1caa-469a-b3c5-e66e7e036a68")
 	)
+	(label "CAN_-"
+		(at 308.61 170.18 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c3bcf751-0098-4574-9f32-c17e2c144b1e")
+	)
+	(label "THROTTLE_POWER_L"
+		(at 58.42 123.19 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c4d55666-aecb-4238-9006-e9ff54730064")
+	)
 	(label "BACKUP_LED"
 		(at 114.3 180.34 0)
 		(effects
@@ -8715,7 +8945,7 @@
 		(uuid "da5fa343-574b-46c6-93a2-033b95852cc8")
 	)
 	(label "CAN_+"
-		(at 267.97 185.42 0)
+		(at 270.51 185.42 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -9936,6 +10166,80 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 307.34 170.18 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2372f827-c634-4bba-b7b9-7c6af88b8ade")
+		(property "Reference" "TP6"
+			(at 304.8 163.83 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 304.8 166.37 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 311.15 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 307.34 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 307.34 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 307.34 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a13b3562-3e78-4edf-bef3-64b0d6428c9b")
+		)
+		(instances
+			(project "rkh"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "TP6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 30.48 52.07 0)
 		(unit 1)
@@ -10766,6 +11070,80 @@
 			(project "rkh"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 307.34 179.07 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "46d04ab1-6053-4337-9c63-6e3a99dff021")
+		(property "Reference" "TP7"
+			(at 304.8 172.72 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 304.8 175.26 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 311.15 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 307.34 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 307.34 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 307.34 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2c798d4a-5e5f-43c8-9e27-ff6976324300")
+		)
+		(instances
+			(project "rkh"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "TP7")
 					(unit 1)
 				)
 			)
@@ -11854,6 +12232,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 311.15 179.07 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "760b961b-66af-42a3-9a29-da4c4b866c2f")
+		(property "Reference" "#PWR029"
+			(at 311.15 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 311.15 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 311.15 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 311.15 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 311.15 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d094de44-7594-41ff-bf69-92bf367dc8d7")
+		)
+		(instances
+			(project ""
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "#PWR029")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:J_Programming_Pin_Header")
 		(at 270.51 90.17 0)
 		(unit 1)
@@ -12034,6 +12478,80 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 307.34 187.96 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "78765fef-59dd-451f-b42d-769978b70f95")
+		(property "Reference" "TP8"
+			(at 304.8 181.61 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 304.8 184.15 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 311.15 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 307.34 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 307.34 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 307.34 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8b0b7d70-1635-4446-8a3d-42b3f9d17dc6")
+		)
+		(instances
+			(project "rkh"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "TP8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
 		(at 113.03 52.07 0)
 		(unit 1)
@@ -12179,6 +12697,72 @@
 			(project "rkh"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "R4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 311.15 198.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "80eae855-1eed-4bb7-bbf1-a3aa7c38dac9")
+		(property "Reference" "#PWR032"
+			(at 311.15 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 311.15 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 311.15 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 311.15 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 311.15 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "12104929-fe29-4da5-b97c-8cb1caaaa690")
+		)
+		(instances
+			(project ""
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "#PWR032")
 					(unit 1)
 				)
 			)
@@ -12404,6 +12988,71 @@
 			(project "rkh"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "TP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 311.15 187.96 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "85772592-059b-47b8-98ee-f84e84020af7")
+		(property "Reference" "#PWR030"
+			(at 311.15 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 311.15 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 311.15 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 311.15 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 311.15 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b6e5b0d4-50c2-411e-8c5f-4ad4b42a2e94")
+		)
+		(instances
+			(project "rkh"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
@@ -12828,6 +13477,80 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 307.34 161.29 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8ba6271b-9a98-45b3-825b-cffd6e82e41a")
+		(property "Reference" "TP5"
+			(at 304.8 154.94 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 304.8 157.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 311.15 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 307.34 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 307.34 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 307.34 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "160376a4-0033-43de-9163-13fb4950e034")
+		)
+		(instances
+			(project ""
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "TP5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 247.65 55.88 0)
 		(unit 1)
@@ -13027,6 +13750,72 @@
 			(project "rkh"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "C13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 331.47 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8fadcbe1-6206-46d9-b2ca-769b7c2101a6")
+		(property "Reference" "#PWR026"
+			(at 331.47 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 331.47 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 331.47 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 331.47 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 331.47 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2675eee6-2db6-4de3-9d07-946cfc108844")
+		)
+		(instances
+			(project ""
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "#PWR026")
 					(unit 1)
 				)
 			)
@@ -14496,7 +15285,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x02_Pin")
-		(at 273.05 190.5 180)
+		(at 275.59 190.5 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14504,7 +15293,7 @@
 		(dnp no)
 		(uuid "b2b0f3eb-e3f5-483f-bb81-471aece05372")
 		(property "Reference" "J8"
-			(at 277.368 189.992 0)
+			(at 279.908 189.992 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14512,7 +15301,7 @@
 			)
 		)
 		(property "Value" "Conn_01x02_Pin"
-			(at 281.686 187.452 0)
+			(at 284.226 187.452 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14520,7 +15309,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 273.05 190.5 0)
+			(at 275.59 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14529,7 +15318,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 273.05 190.5 0)
+			(at 275.59 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14538,7 +15327,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated"
-			(at 273.05 190.5 0)
+			(at 275.59 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14547,7 +15336,7 @@
 			)
 		)
 		(property "PurchasingLink" ""
-			(at 273.05 190.5 0)
+			(at 275.59 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16228,6 +17017,137 @@
 		)
 	)
 	(symbol
+		(lib_name "TWO_WIRE_SCREW_TERMINAL_1")
+		(lib_id "691412320002:TWO_WIRE_SCREW_TERMINAL")
+		(at 331.47 109.22 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d6038511-d822-4af3-9d5f-5101e6cf7e00")
+		(property "Reference" "J9"
+			(at 325.628 104.394 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TWO_WIRE_SCREW_TERMINAL"
+			(at 324.612 105.664 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:wire_terminal_delete_asap"
+			(at 314.96 14.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1507/1/tad05.pdf"
+			(at 314.96 -85.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "WR-TBL Terminal block - Screwless Push IN - THT MRT24P3.81/2V01GR Serie 4123 - 3,81mm pitch - Modular THT - Grey - 45 cable entry Screwless Push In 13.2mm height - 02p"
+			(at 359.41 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" ""
+			(at 314.96 -285.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "710-691412320002"
+			(at 314.96 -385.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/691412320002?qs=lBTPRtX1sU8RrNs89OcR%252BA%3D%3D"
+			(at 314.96 -485.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Wurth Elektronik"
+			(at 314.96 -585.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "691412320002"
+			(at 314.96 -685.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "PurchasingLink" ""
+			(at 331.47 109.22 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9b217249-9941-4e8f-aebf-a99cc28a68f5")
+		)
+		(pin "2"
+			(uuid "f3f47c90-5282-4bc2-9b7e-4fc16e201f16")
+		)
+		(instances
+			(project "rkh"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "J9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 73.66 100.33 270)
 		(unit 1)
@@ -16448,6 +17368,72 @@
 			(project "rkh"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "R21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 311.15 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "dc415758-2d7c-473b-b6cb-3c16592d7b04")
+		(property "Reference" "#PWR025"
+			(at 311.15 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 309.88 114.554 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 311.15 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 311.15 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 311.15 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ce1394cd-5feb-4627-8021-09bf8694b9cf")
+		)
+		(instances
+			(project "rkh"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -17028,7 +18014,7 @@
 	)
 	(symbol
 		(lib_id "OEM:R_120_DNP")
-		(at 264.16 194.31 0)
+		(at 259.08 189.23 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -17037,7 +18023,7 @@
 		(fields_autoplaced yes)
 		(uuid "e64b956d-0ffc-498b-a197-2f0376265357")
 		(property "Reference" "R10"
-			(at 266.7 193.0399 0)
+			(at 261.62 187.9599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17046,7 +18032,7 @@
 			)
 		)
 		(property "Value" "R_120"
-			(at 266.7 195.5799 0)
+			(at 261.62 190.4999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17055,7 +18041,7 @@
 			)
 		)
 		(property "Footprint" "OEM:R_0603"
-			(at 262.382 194.31 90)
+			(at 257.302 189.23 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17064,7 +18050,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf"
-			(at 264.16 194.31 0)
+			(at 259.08 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17073,7 +18059,7 @@
 			)
 		)
 		(property "Description" "Resistor 120 ohm 0603 1/10W 1%"
-			(at 264.16 194.31 0)
+			(at 259.08 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17082,7 +18068,7 @@
 			)
 		)
 		(property "MPN" "RC0603FR-13120RL"
-			(at 264.16 194.31 0)
+			(at 259.08 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17091,7 +18077,7 @@
 			)
 		)
 		(property "MFN" "Yageo"
-			(at 264.16 194.31 0)
+			(at 259.08 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17100,7 +18086,7 @@
 			)
 		)
 		(property "DKPN" "13-RC0603FR-13120RLDKR-ND"
-			(at 264.16 194.31 0)
+			(at 259.08 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17109,7 +18095,7 @@
 			)
 		)
 		(property "Package" "0603"
-			(at 264.16 194.31 0)
+			(at 259.08 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17118,7 +18104,7 @@
 			)
 		)
 		(property "NewDesigns" "YES"
-			(at 264.16 194.31 0)
+			(at 259.08 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17127,7 +18113,7 @@
 			)
 		)
 		(property "Stocked" "Digi-Reel"
-			(at 264.16 194.31 0)
+			(at 259.08 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17136,7 +18122,7 @@
 			)
 		)
 		(property "Style" "SMD"
-			(at 264.16 194.31 0)
+			(at 259.08 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17145,7 +18131,7 @@
 			)
 		)
 		(property "PurchasingLink" ""
-			(at 264.16 194.31 0)
+			(at 259.08 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17667,6 +18653,80 @@
 			(project "rkh"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 307.34 198.12 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "efa3b28b-bff2-4653-8edc-b9254a0699bb")
+		(property "Reference" "TP9"
+			(at 304.8 191.77 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 304.8 194.31 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 311.15 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 307.34 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 307.34 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "5019"
+			(at 307.34 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5681f15e-2789-4abb-ad63-0c7aba4cd9f7")
+		)
+		(instances
+			(project "rkh"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "TP9")
 					(unit 1)
 				)
 			)
@@ -18482,6 +19542,137 @@
 			(project "rkh"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "R11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "TWO_WIRE_SCREW_TERMINAL_1")
+		(lib_id "691412320002:TWO_WIRE_SCREW_TERMINAL")
+		(at 38.1 123.19 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fd540e3f-3304-4ecc-86d5-f4c5fa8a6fe7")
+		(property "Reference" "J6"
+			(at 55.1814 119.38 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TWO_WIRE_SCREW_TERMINAL"
+			(at 33.782 127.254 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:wire_terminal_delete_asap"
+			(at 54.61 218.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1507/1/tad05.pdf"
+			(at 54.61 318.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "WR-TBL Terminal block - Screwless Push IN - THT MRT24P3.81/2V01GR Serie 4123 - 3,81mm pitch - Modular THT - Grey - 45 cable entry Screwless Push In 13.2mm height - 02p"
+			(at 10.16 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" ""
+			(at 54.61 518.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "710-691412320002"
+			(at 54.61 618.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/691412320002?qs=lBTPRtX1sU8RrNs89OcR%252BA%3D%3D"
+			(at 54.61 718.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Wurth Elektronik"
+			(at 54.61 818.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "691412320002"
+			(at 54.61 918.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "PurchasingLink" ""
+			(at 38.1 123.19 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8ac1ff86-21af-4749-91d9-f8889b515eaf")
+		)
+		(pin "2"
+			(uuid "b460bcc9-7202-44a9-a32e-12b791ce9170")
+		)
+		(instances
+			(project "rkh"
+				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
+					(reference "J6")
 					(unit 1)
 				)
 			)

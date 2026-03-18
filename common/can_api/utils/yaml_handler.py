@@ -1,5 +1,6 @@
 """
 Author: Hwei-Shin Harriman, Jack Greenberg
+Updated by: Jacob Likins 
 Olin Electric Motorsports
 
 Functionality to process mini-YAML files, autogenerate mini-YAMLS with ID
@@ -8,6 +9,7 @@ assignments and RX messages definitions, and create DBCs
 import yaml
 import math
 from cantools.database.can import Message as CANMessage, Signal as MessageSignal, Node
+from cantools.database.conversion import BaseConversion
 
 # ----------- DEFAULTS and CONSTANTS -----------
 VALID_PRIORITIES = ["LO", "MED", "HI"]
@@ -111,15 +113,18 @@ class YamlParser:
             else:
                 raise Exception("Unknown type: {}".format(sig_type))
 
-            s = MessageSignal(
-                name,
-                int(start),
-                int(length),
+            s = MessageSignal( # updated for cantools 36.0.0, see https://cantools.readthedocs.io/en/latest/index.html
+                name=name,
+                start=int(start),
+                length=int(length),
                 is_signed=is_signed,
-                scale=scale,
-                offset=offset,
                 unit=unit,
-                choices=choices,
+                conversion=BaseConversion.factory(
+                    scale=scale,
+                    offset=offset,
+                    choices=choices,
+                    is_float=False
+                )
             )
 
             signals.append(s)

@@ -9,3 +9,7 @@ stm32_firmware(
         # "interrupts.c", 
     ],
 )
+
+exports_files([
+    "throttle.yml",
+])

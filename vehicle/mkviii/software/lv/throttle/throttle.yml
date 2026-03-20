@@ -1,10 +1,4 @@
 name: throttle
-subscribe:
-  # Transmit MOB is 0
-  - name: bspd
-    mob: 1
-  - name: dashboard
-    mob: 2
 publish:
   - name: M192_Command_Message
   - name: throttle

@@ -19,6 +19,7 @@ dbc_gen(
         "//vehicle/mkviii/software/lv/bspd:bspd.yml",
         # "//vehicle/mkvii/software/lv/dashboard:dashboard.yml",
         "//vehicle/mkviii/software/lv/throttle:throttle.yml",
+        "//vehicle/mkviii/software/sensing/sus_ex:sus_ex.yml",
         
         # "//vehicle/mkvii/software/integration/charging:charger.yml",
         # "//vehicle/mkvii/software/integration/pdu:pdu.yml",

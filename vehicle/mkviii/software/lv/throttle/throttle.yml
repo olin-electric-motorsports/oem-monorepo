@@ -33,23 +33,30 @@ publish:
           offset: 0
           scale: 100/255
       - name: ss_is
-        slice: 41 + 1
+        slice: 40 + 1     # Byte 5, bit 0
         unit:
           type: bool
           values:
             t: CLOSED
             f: OPEN
       - name: heartbeat
-        slice: 42 + 1
+        slice: 41 + 1     # Byte 5, bit 1
         unit:
           type: bool
           values:
             t: lub
             f: DUB
       - name: test_counter
-        slice: 43 + 8     # Start at bit 43, take up 8 bits
+        slice: 48 + 8     # Byte 6 (perfectly aligned)
         unit:
-          type: uint8_t   # Matches your C variable type!
-          name: 'ticks'   # The unit label that will print on the screen
+          type: uint8_t   
+          name: 'ticks'   
+          offset: 0
+          scale: 1
+      - name: test_counter_bspd
+        slice: 56 + 8     # Byte 7 (perfectly aligned)
+        unit:
+          type: uint8_t
+          name: 'rx_ticks'
           offset: 0
           scale: 1

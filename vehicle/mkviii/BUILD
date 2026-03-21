@@ -2,7 +2,7 @@ load("//common/can_api:can_defs.bzl", "dbc_gen")
 
 # Generates DBC
 dbc_gen(
-    name = "mkviii.dbc",
+    name = "mkviii",
     srcs = [
     	#"//projects/can_print:can_print.yml",
     	
@@ -16,7 +16,7 @@ dbc_gen(
         # "//vehicle/mkvii/software/air_control:air.yml",
         # "//vehicle/mkvii/software/bms:bms.yml",
         
-        # "//vehicle/mkvii/software/lv/bspd:bspd.yml",
+        "//vehicle/mkviii/software/lv/bspd:bspd.yml",
         # "//vehicle/mkvii/software/lv/dashboard:dashboard.yml",
         "//vehicle/mkviii/software/lv/throttle:throttle.yml",
         

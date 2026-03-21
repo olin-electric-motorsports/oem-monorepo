@@ -28,6 +28,10 @@ class YamlParser:
         with open(yml, "r") as f:
             self.data = yaml.load(f, Loader=yaml.FullLoader)
 
+        # little debug tool for just in case (and I needed it when installing this)
+        if not self.data or "name" not in self.data:
+            raise ValueError(f"\n\nCRITICAL YAML ERROR \nThe file '{yml}' is completely empty or missing the 'name:' key!\n\n")
+        
         self.name = self.data["name"]
         self.messages = self._parse_messages()
 

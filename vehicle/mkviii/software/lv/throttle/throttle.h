@@ -6,6 +6,25 @@
 #define PA1_GPIO_Port   GPIOA
 #define PA1_Pin         GPIO_PIN_1
 
+
+void HAL_FDCAN_MspInit(FDCAN_HandleTypeDef *hfdcan) {
+    if (hfdcan->Instance == FDCAN1) {
+        // Enable clocks for FDCAN1 and GPIOA
+        __HAL_RCC_FDCAN_CLK_ENABLE();
+        __HAL_RCC_GPIOA_CLK_ENABLE();
+
+        // Configure PA11 (RX) and PA12 (TX) for Alternate Function 9 (FDCAN1)
+        GPIO_InitTypeDef GPIO_InitStruct = {0};
+        GPIO_InitStruct.Pin = GPIO_PIN_11 | GPIO_PIN_12;
+        GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+        GPIO_InitStruct.Pull = GPIO_NOPULL;
+        GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+        GPIO_InitStruct.Alternate = GPIO_AF9_FDCAN1;
+        HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+    }
+}
+
+
 // Function Prototypes
 static void GpioInit(void) {
   __HAL_RCC_GPIOF_CLK_ENABLE();

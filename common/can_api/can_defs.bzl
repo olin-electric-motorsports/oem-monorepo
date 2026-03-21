@@ -4,7 +4,7 @@ def dbc_gen(name, srcs):
         name = name,
         srcs = srcs,
         outs = [
-            name,
+            name + ".dbc",
         ],
         tools = [
             "//common/can_api:dbc_generator",
@@ -15,7 +15,7 @@ def dbc_gen(name, srcs):
 
 def can_api_files(name, yaml, dbc, deps = []):
     
-    # 1. Generate the base C files using standard cantools
+    # Generate the base C files using cantools
     native.genrule(
         name = name + "_cantools_gen",
         srcs = [dbc],
@@ -26,7 +26,7 @@ def can_api_files(name, yaml, dbc, deps = []):
         tools = [
             "//common/can_api:cantools_cli",
         ],
-        # $(@D) ensures the files drop in the exact output folder Bazel expects
+        
         cmd = "$(location //common/can_api:cantools_cli) generate_c_source --database-name can_tools --output-directory $(@D) $(location " + dbc + ")",
     )
 
@@ -67,6 +67,7 @@ def can_api_files(name, yaml, dbc, deps = []):
             "can_api.h",
             "can_tools.h",
         ],
+        includes = ["."], # makes sure everything is findable with the files
         deps = deps,
         visibility = ["//visibility:public"],
     )

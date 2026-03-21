@@ -1,6 +1,8 @@
 name: throttle
+subscribe:
+  - name: bspd
+    mob: 1
 publish:
-  - name: M192_Command_Message
   - name: throttle
     id: 0xC
     freq_hz: 100
@@ -44,49 +46,10 @@ publish:
           values:
             t: lub
             f: DUB
-  - name: throttle_debug
-    id: 0x6C0
-    freq_hz: 100
-    signals:
-      - name: throttle_l_raw
-        slice: 0 + 16
+      - name: test_counter
+        slice: 43 + 8     # Start at bit 43, take up 8 bits
         unit:
-          type: int16_t
-          name: ''
+          type: uint8_t   # Matches your C variable type!
+          name: 'ticks'   # The unit label that will print on the screen
           offset: 0
           scale: 1
-      - name: throttle_r_raw
-        slice: 16 + 16
-        unit:
-          type: int16_t
-          name: ''
-          offset: 0
-          scale: 1
-      - name: throttle_l_out_of_range
-        slice: 32 + 1
-        unit:
-          type: bool
-          values:
-            t: OUT_OF_RANGE
-            f: IN_RANGE
-      - name: throttle_r_out_of_range
-        slice: 33 + 1
-        unit:
-          type: bool
-          values:
-            t: OUT_OF_RANGE
-            f: IN_RANGE
-      - name: throttle_deviation
-        slice: 34 + 1
-        unit:
-          type: bool
-          values:
-            t: DEVIATE
-            f: NO_DEVIATE
-      - name: throttle_brake_implaus
-        slice: 35 + 1
-        unit:
-          type: bool
-          values:
-            t: BRAKE_IMPLAUS
-            f: NO_BRAKE_IMPLAUS

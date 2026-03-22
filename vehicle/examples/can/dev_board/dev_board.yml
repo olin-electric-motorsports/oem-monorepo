@@ -1,12 +1,13 @@
-name: throttle
-subscribe:
-  - name: bspd
-    mob: 1
+name: dev_board
+# subscribe:
+  # - name: bspd # since I have this here, I have to have this YAML file connected to the main DBC file
+  #   mob: 1
 publish:
-  - name: throttle
-    id: 0xC
+  - name: dev_board
+    id: 0xC # this is the same ID as the VCU so be careful when testing
     freq_hz: 100
-    signals:
+    signals: # The first five signals was actually used on 
+    # the throttle but for this example we only use the last two signals. 
       - name: throttle_status
         slice: 0 + 8
         unit:

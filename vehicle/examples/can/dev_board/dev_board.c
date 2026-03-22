@@ -2,6 +2,7 @@
 #include "can_api.h"
 
 static void GpioInit(void);
+void SystemClockConfig(void);
 
 int main(void) {
     HAL_Init();

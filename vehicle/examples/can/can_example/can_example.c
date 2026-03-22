@@ -1,12 +1,13 @@
 #include "can_example.h"
 #include "can_api.h"
 
-static void GpioInit(void);
+// static void GpioInit(void);
+void SystemClockConfig(void);
 
 int main(void) {
     HAL_Init();
     SystemClockConfig();
-    GpioInit(); 
+    // GpioInit(); 
 
 
     // Check Initialization
@@ -21,7 +22,7 @@ int main(void) {
 
         recieved_data_from_DEV_board = dev_board.test_counter; // This struct is from CAN
 
-        can_example.dummysignal = recieved_data_from_DEV_board; // This struct is what we will send out via CAN, we are just setting it to the value we got from the dev board for testing
+        can_example.dummy_signal = recieved_data_from_DEV_board; // This struct is what we will send out via CAN, we are just setting it to the value we got from the dev board for testing
         
         if (can_send_can_example() == 0) { // this sends out the CAN message with the updated data in can_example struct
             // You can also just call the function to send data too. 

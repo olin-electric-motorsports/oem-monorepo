@@ -1,7 +1,7 @@
 load("//common/can_api:can_defs.bzl", "dbc_gen")
 
 # Generates DBC
-dbc_gen(
+dbc_gen( 
     name = "mkviii",
     srcs = [
     	#"//projects/can_print:can_print.yml",
@@ -16,10 +16,10 @@ dbc_gen(
         # "//vehicle/mkvii/software/air_control:air.yml",
         # "//vehicle/mkvii/software/bms:bms.yml",
         
-        "//vehicle/mkviii/software/lv/bspd:bspd.yml",
-        # "//vehicle/mkvii/software/lv/dashboard:dashboard.yml",
-        "//vehicle/mkviii/software/lv/throttle:throttle.yml",
-        "//vehicle/mkviii/software/sensing/sus_ex:sus_ex.yml",
+        # "//vehicle/mkviii/software/lv/bspd:bspd.yml",
+        # # "//vehicle/mkvii/software/lv/dashboard:dashboard.yml",
+        # "//vehicle/mkviii/software/lv/throttle:throttle.yml",
+        # "//vehicle/mkviii/software/sensing/sus_ex:sus_ex.yml",
         
         # "//vehicle/mkvii/software/integration/charging:charger.yml",
         # "//vehicle/mkvii/software/integration/pdu:pdu.yml",
@@ -29,3 +29,5 @@ dbc_gen(
         # "//vehicle/mkvii/software/sensing/sus_strain:sus_strain.yml",
     ],
 )
+
+# You can find the DBC file in bazel-bin/vehicle/mkvii/mkviii.dbc

@@ -2,14 +2,7 @@ load("@rules_python//python:defs.bzl", "py_binary")
 load("@pip//:requirements.bzl", "requirement")
 load("@rules_python//python/entry_points:py_console_script_binary.bzl", "py_console_script_binary")
 
-# # This just defines yaml handler so bazel can see it
-# py_library(
-#     name = "yaml_handler",
-#     srcs = [
-#         "utils/yaml_handler.py",
-#     ],
-#     visibility = ["//visibility:public"],
-# )
+
 
 # generates DBC files from YAML files using cantools
 py_binary(

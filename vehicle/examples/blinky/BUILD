@@ -1,10 +1,11 @@
 load("//common:macros.bzl", "stm32_firmware")
 
 stm32_firmware(
-    name = "example.elf",
+    name = "blinky.elf",
     srcs = [
-        "example.c",
-        "example.h",
+        "blinky.c",
+        "blinky_config.c",
+        "blinky.h",
         # If you have interrupts specific to example, add them here:
         # "interrupts.c", 
     ],

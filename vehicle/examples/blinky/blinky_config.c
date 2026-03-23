@@ -1,13 +1,7 @@
-#ifndef EXAMPLE_H
-#define EXAMPLE_H
+#include "blinky.h"
 
-#include "stm32g4xx_hal.h"
-
-#define PA1_GPIO_Port   GPIOA
-#define PA1_Pin         GPIO_PIN_1
-
-// Function Prototypes
-static void GpioInit(void) {
+// Function Implementations
+void GpioInit(void) {
   __HAL_RCC_GPIOF_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
@@ -23,11 +17,6 @@ static void GpioInit(void) {
   HAL_GPIO_Init(PA1_GPIO_Port, &GPIO_InitStruct);
 }
 
-
-
 void SysTick_Handler(void) {
   HAL_IncTick();
 }
-
-
-#endif // EXAMPLE_H

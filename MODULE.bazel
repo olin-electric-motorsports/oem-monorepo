@@ -44,6 +44,8 @@ register_toolchains(
     "@arm_none_eabi//toolchain:all",
 )
 
+
+
 # Python setup 
 python = use_extension("@rules_python//python/extensions:python.bzl", "python")
 python.toolchain(

@@ -31,4 +31,4 @@ platform(
     ],
 )
 
-exports_files(["flash.sh", "debug.sh"])
+exports_files(["flash.sh", "debug.sh", "setup_chip.sh"])

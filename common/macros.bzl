@@ -44,3 +44,9 @@ def stm32_firmware(name, srcs = [], deps = []):
         args = ["$(location :%s)" % name],
         data = [":" + name],
     )
+
+    start_target_name = name.replace(".elf", "") + "_initialize"
+    native.sh_binary(
+        name = start_target_name,
+        srcs = ["//common:setup_chip.sh"],
+    )

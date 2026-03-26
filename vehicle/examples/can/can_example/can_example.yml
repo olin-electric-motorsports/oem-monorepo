@@ -1,0 +1,16 @@
+name: can_example
+subscribe:
+  - name: dev_board # this is the name of the message we want to subscribe to, it has to match the name in the throttle.yml file
+publish:
+  - name: can_example
+    id: 0x490 # this is the same ID as the left suspension strain message so be careful when testing
+    freq_hz: 100
+    signals:
+      - name: dummy_signal
+        slice: 0 + 64
+        unit:
+          type: uint64_t
+          name: 'signal from dev board'
+          offset: 0
+          scale: 1
+  

@@ -1,0 +1,166 @@
+(symbol "U_5V-DC-DC_PQME1-S5-S5-M-TR_SMD"
+	(exclude_from_sim no)
+	(in_bom yes)
+	(on_board yes)
+	(property "Reference" "U"
+		(at 10.16 10.16 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+	)
+	(property "Value" "PQME1-S5-S5-M-TR"
+		(at 10.16 7.62 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+	)
+	(property "Footprint" "OEM:U_5V-DC-DC_PQME1-S5-S5-M-TR_SMD"
+		(at 10.16 -92.38 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+			(hide yes)
+		)
+	)
+	(property "Datasheet" "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets_SAMA/bb0e25b0ca95112beefc0ac4fc7cc05b.pdf"
+		(at 10.16 -192.38 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+			(hide yes)
+		)
+	)
+	(property "Description" "DC DC CONVERTER 5V 750MW"
+		(at -13.97 2.54 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(hide yes)
+		)
+	)
+	(property "MPN" "PQME1-S5-S5-M-TR"
+		(at 10.16 -792.38 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+			(hide yes)
+		)
+	)
+	(symbol "U_5V-DC-DC_PQME1-S5-S5-M-TR_SMD_1_1"
+		(rectangle
+			(start -8.89 5.08)
+			(end 8.89 -5.08)
+			(stroke
+				(width 0.254)
+				(type default)
+			)
+			(fill
+				(type background)
+			)
+		)
+		(pin passive line
+			(at -13.97 2.54 0)
+			(length 5.08)
+			(name "GND"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at -13.97 0 0)
+			(length 5.08)
+			(name "VIN"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at -13.97 -2.54 0)
+			(length 5.08)
+			(name "0V"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "4"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin no_connect line
+			(at 13.97 2.54 180)
+			(length 5.08)
+			(name "NC"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "8"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at 13.97 0 180)
+			(length 5.08)
+			(name "+VOUT"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "5"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+	)
+	(embedded_fonts no)
+)

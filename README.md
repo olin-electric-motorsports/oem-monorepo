@@ -15,24 +15,29 @@ important steps for collaborating with teammates.
 ### Prerequisites
 Download the following
    - [Bazel](https://bazel.build/install) (Bazelisk is recommended but not needed)
-   - OpenOCD: 
+   - OpenOCD:
 
 for Ubuntu/Linux:
 ```Shell
 sudo apt install openocd
 ```
+for Windows (choose one):
+```Shell
+choco install openocd
+```
+or download from https://openocd.org and add to your PATH.
 
 Once you have those downloaded and installed, you should be able to build and flash the firmware.
 
 Now we need to set up some of the KiCad Git filters (a set of rules that remove temp files that cause clutter):
 ```shell
 cd oem-monorepo/
-./scripts/startup/install_kicad_git_filters.sh
+python scripts/startup/install_kicad_git_filters.py
 ```
 You'll also want to have the KiCad Git Hooks to generate our symbol libraries. These hooks run every time you push or pull and allow multiple users to add symbols/footprints to our KiCAD library.
 
 ```shell
-./scripts/startup/install_kicad_git_hooks.sh
+python scripts/startup/install_kicad_git_hooks.py
 ```
 ### Testing to see if things are installed
 

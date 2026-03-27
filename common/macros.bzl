@@ -1,7 +1,17 @@
 def stm32_firmware(name, srcs = [], deps = []):
     """
     Macro to define an STM32G4 firmware binary.
-    
+
+    Creates a cc_binary target for the ELF. Flash, debug, and initialize
+    are handled by invoking the Python scripts in common/ directly — Bazel's
+    py_binary cannot resolve a Python toolchain for the bare-metal target
+    platform required by --config=m4.
+
+    After building, use the companion scripts:
+        python common/flash.py      bazel-bin/<pkg>/<name>
+        python common/debug.py      bazel-bin/<pkg>/<name>
+        python common/setup_chip.py
+
     Args:
         name: The name of the output binary (e.g., "throttle.elf")
         srcs: Source files (main.c, .h files, etc.)
@@ -13,9 +23,9 @@ def stm32_firmware(name, srcs = [], deps = []):
         deps = deps + [
             "//common:stm32g4_core",  # Links startup code & HAL config
         ],
-        additional_linker_inputs = ["//common:linker_script"], 
+        additional_linker_inputs = ["//common:linker_script"],
         linkopts = [
-            "-T $(execpath //common:linker_script)", 
+            "-T $(execpath //common:linker_script)",
             "-Wl,--no-warn-rwx-segments",
             "-Wl,-Map=output.map",
         ],
@@ -23,30 +33,4 @@ def stm32_firmware(name, srcs = [], deps = []):
             "-Wall",
             # "-Werror",  # Optional: Fails build on warnings
         ],
-    )
-
-    flash_target_name = name.replace(".elf", "") + "_flash"
-    
-    native.sh_binary(
-        name = flash_target_name,
-        srcs = ["//common:flash.sh"],
-        # Automatically pass the location of the compiled ELF to the script
-        args = ["$(location :%s)" % name],
-        # Tell Bazel that this script needs the ELF file to exist
-        data = [":" + name],
-    )
-
-    
-    debug_target_name = name.replace(".elf", "") + "_debug"
-    native.sh_binary(
-        name = debug_target_name,
-        srcs = ["//common:debug.sh"],
-        args = ["$(location :%s)" % name],
-        data = [":" + name],
-    )
-
-    start_target_name = name.replace(".elf", "") + "_initialize"
-    native.sh_binary(
-        name = start_target_name,
-        srcs = ["//common:setup_chip.sh"],
     )

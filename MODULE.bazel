@@ -47,14 +47,15 @@ register_toolchains(
 # Python setup 
 python = use_extension("@rules_python//python/extensions:python.bzl", "python")
 python.toolchain(
-    python_version = "3.11",
+    python_version = "3.12",
+    is_default = True,
 )
-use_repo(python, "python_3_11")
+use_repo(python, "python_3_12")
 
 pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
 pip.parse(
     hub_name = "pip",
-    python_version = "3.11",
+    python_version = "3.12",
     requirements_lock = "//:requirements_lock.txt",
 )
 use_repo(pip, "pip")

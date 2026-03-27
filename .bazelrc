@@ -43,8 +43,8 @@ build:m4 --cxxopt="-fno-rtti"
 
 
 
-# Points to the local platform defined in bare_metal/BUILD
-build:m7 --platforms=//bare_metal:stm32_platform
+# Points to the local platform defined in common/BUILD
+build:m7 --platforms=//common:stm32_platform
 
 # Force Cortex-M7 (Thumb-2) with Hardware Floating Point
 build:m7 --copt=-mthumb

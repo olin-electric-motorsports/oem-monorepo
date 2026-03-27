@@ -1,0 +1,617 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: INV BMS VCU can_print air_control bms bspd dashboard throttle charger pdu wheel_speed sus_travel sus_strain
+
+
+BO_ 256 Measurement: 8 Vector__XXX
+ SG_ Voltage : 39|32@0- (1.5258789063e-05,0) [0|0] "V" Vector__XXX
+ SG_ Current : 7|32@0- (1.5258789063e-05,0) [0|0] "A" Vector__XXX
+
+BO_ 1024 Status: 4 Vector__XXX
+ SG_ OverVoltage : 8|1@0+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ OverPower : 9|1@0+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ Logging : 10|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VoltageGain : 3|4@0+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ CurrentGain : 7|4@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2023 Reserved1: 8 Vector__XXX
+
+BO_ 2031 Reserved2: 8 Vector__XXX
+
+BO_ 1050 IVT_Msg_Result_Wh: 6 IVT_Mod
+ SG_ IVT_Result_Wh : 23|32@0- (1,0) [-2147483648|2147483647] "Wh"  Host
+ SG_ IVT_MsgCount_Result_Wh : 11|4@0+ (1,0) [0|0] ""  Host
+ SG_ IVT_Result_Wh_OCS : 12|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_Wh_Channel_Error : 13|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_Wh_Measurement_Error : 14|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_Wh_System_Error : 15|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_ID_Result_Wh : 7|8@0+ (1,0) [7|7] ""  Host
+
+BO_ 1049 IVT_Msg_Result_As: 6 IVT_Mod
+ SG_ IVT_Result_As : 23|32@0- (1,0) [-21474836478|2147483647] "As"  Host
+ SG_ IVT_MsgCount_Result_As : 11|4@0+ (1,0) [0|0] ""  Host
+ SG_ IVT_Result_As_OCS : 12|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_As_Channel_Error : 13|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_As_Measurement_Error : 14|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_As_System_Error : 15|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_ID_Result_As : 7|8@0+ (1,0) [6|6] ""  Host
+
+BO_ 1048 IVT_Msg_Result_W: 6 IVT_Mod
+ SG_ IVT_Result_W : 23|32@0- (1,0) [-2147483648|2147483647] "W"  Host
+ SG_ IVT_MsgCount_Result_W : 11|4@0+ (1,0) [0|0] ""  Host
+ SG_ IVT_Result_W_OCS : 12|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_W_Channel_Error : 13|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_W_Measurement_Error : 14|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_W_System_Error : 15|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_ID_Result_W : 7|8@0+ (1,0) [5|5] ""  Host
+
+BO_ 1047 IVT_Msg_Result_T: 6 IVT_Mod
+ SG_ IVT_Result_T : 23|32@0- (0.1,0) [-2147483648|2147483647] "\B0C"  Host
+ SG_ IVT_MsgCount_Result_T : 11|4@0+ (1,0) [0|0] ""  Host
+ SG_ IVT_Result_T_OCS : 12|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_T_Channel_Error : 13|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_T_Measurement_Error : 14|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_T_System_Error : 15|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_ID_Result_T : 7|8@0+ (1,0) [4|4] ""  Host
+
+BO_ 1046 IVT_Msg_Result_U3: 6 IVT_Mod
+ SG_ IVT_Result_U3 : 23|32@0- (0.001,0) [-2147483648|2147483647] "V"  Host
+ SG_ IVT_MsgCount_Result_U3 : 11|4@0+ (1,0) [0|0] ""  Host
+ SG_ IVT_Result_U3_OCS : 12|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_U3_Channel_Error : 13|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_U3_Measurement_Error : 14|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_U3_System_Error : 15|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_ID_Result_U3 : 7|8@0+ (1,0) [3|3] ""  Host
+
+BO_ 1045 IVT_Msg_Result_U2: 6 IVT_Mod
+ SG_ IVT_Result_U2 : 23|32@0- (0.001,0) [-2147483648|2147483647] "V"  Host
+ SG_ IVT_MsgCount_Result_U2 : 11|4@0+ (1,0) [0|0] ""  Host
+ SG_ IVT_Result_U2_OCS : 12|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_U2_Channel_Error : 13|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_U2_Measurement_Error : 14|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_U2_System_Error : 15|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_ID_Result_U2 : 7|8@0+ (1,0) [2|2] ""  Host
+
+BO_ 1044 IVT_Msg_Result_U1: 6 IVT_Mod
+ SG_ IVT_Result_U1 : 23|32@0- (0.001,0) [-2147483648|2147483647] "V"  Host
+ SG_ IVT_MsgCount_Result_U1 : 11|4@0+ (1,0) [0|0] ""  Host
+ SG_ IVT_Result_U1_OCS : 12|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_U1_Channel_Error : 13|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_U1_Measurement_Error : 14|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_U1_System_Error : 15|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_ID_Result_U1 : 7|8@0+ (1,0) [1|1] ""  Host
+
+BO_ 1043 IVT_Msg_Result_I: 6 IVT_Mod
+ SG_ IVT_Result_I : 23|32@0- (0.001,0) [-2147483648|2147483647] "A"  Host
+ SG_ IVT_MsgCount_Result_I : 11|4@0+ (1,0) [0|0] ""  Host
+ SG_ IVT_Result_I_OCS : 12|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_I_Channel_Error : 13|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_I_Measurement_Error : 14|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_Result_I_System_Error : 15|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ IVT_ID_Result_I : 7|8@0+ (1,0) [0|0] ""  Host
+
+BO_ 1056 lpms_cu2_a: 8 IVT_Mod
+ SG_ lpms_roll : 48|16@1- (0.00573,0) [-180|180] "deg" Vector__XXX
+ SG_ lpms_gyro_z : 32|16@1- (0.001,0) [-2000|2000] "deg/s" Vector__XXX
+ SG_ lpms_gyro_y : 16|16@1- (0.001,0) [-2000|2000] "deg/s" Vector__XXX
+ SG_ lpms_gyro_x : 0|16@1- (0.001,0) [-2000|2000] "deg/s" Vector__XXX
+
+BO_ 1057 lpms_cu2_b: 8 IVT_Mod
+ SG_ lpms_accel_y : 48|16@1- (0.001,0) [-8|8] "g" Vector__XXX
+ SG_ lpms_accel_x : 32|16@1- (0.001,0) [-8|8] "g" Vector__XXX
+ SG_ lpms_yaw : 16|16@1- (0.00573,0) [-180|180] "deg" Vector__XXX
+ SG_ lpms_pitch : 0|16@1- (0.00573,0) [-180|180] "deg" Vector__XXX
+
+BO_ 1058 lpms_cu2_c: 8 IVT_Mod
+ SG_ lpms_mag_z : 48|16@1- (0.01,0) [-8|8] "uT" Vector__XXX
+ SG_ lpms_mag_y : 32|16@1- (0.01,0) [-8|8] "uT" Vector__XXX
+ SG_ lpms_mag_x : 16|16@1- (0.01,0) [-8|8] "uT" Vector__XXX
+ SG_ lpms_accel_z : 0|16@1- (0.001,0) [-8|8] "g" Vector__XXX
+
+BO_ 1059 lpms_cu2_d: 8 IVT_Mod
+ SG_ lpms_q3 : 48|16@1- (0.0001,0) [-1|1] "" Vector__XXX
+ SG_ lpms_q2 : 32|16@1- (0.0001,0) [-1|1] "" Vector__XXX
+ SG_ lpms_q1 : 16|16@1- (0.0001,0) [-1|1] "" Vector__XXX
+ SG_ lpms_q0 : 0|16@1- (0.0001,0) [-1|1] "" Vector__XXX
+
+BO_ 1186 gps_coords: 8 canGPS_V2
+ SG_ longitude : 32|32@1- (1e-07,0) [-180|180] "deg" Vector__XXX
+ SG_ latitude : 0|32@1- (1e-07,0) [-90|90] "deg" Vector__XXX
+
+BO_ 173 M173_Modulation_And_Flux_Info: 8 INV
+ SG_ Iq_Command : 48|16@1- (0.1,0) [-3276.8|3276.7] "current:A" Vector__XXX
+ SG_ Id_Command : 32|16@1- (0.1,0) [-3276.8|3276.7] "current:A" Vector__XXX
+ SG_ Flux_Weakening_Output : 16|16@1- (0.1,0) [-3276.8|3276.7] "current:A" Vector__XXX
+ SG_ Modulation_Index : 0|16@1- (0.0001,0) [-3.2768|3.2767] "" Vector__XXX
+
+BO_ 172 M172_Torque_And_Timer_Info: 8 INV
+ SG_ Power_On_Timer : 32|32@1+ (0.003,0) [0|12884800] "time:second" Vector__XXX
+ SG_ Torque_Feedback : 16|16@1- (0.1,0) [-3276.8|3276.7] "torque:N.m" Vector__XXX
+ SG_ Commanded_Torque : 0|16@1- (0.1,0) [-3276.8|3276.7] "torque:N.m" Vector__XXX
+
+BO_ 194 M194_Read_Write_Param_Response: 8 INV
+ SG_ Parameter_Response_Data : 32|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ Parameter_Response_Write_OK : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Parameter_Response_Addr : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 193 M193_Read_Write_Param_Command: 8 VCU
+ SG_ Parameter_Data : 32|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ Parameter_RW_Command : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Parameter_Address : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 192 M192_Command_Message: 8 VCU
+ SG_ Torque_Limit_Command : 48|16@1- (0.1,0) [-3276.8|3276.7] "torque:N.m" Vector__XXX
+ SG_ Rolling_Counter : 44|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Speed_Mode_Enable : 42|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Inverter_Discharge : 41|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Inverter_Enable : 40|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Direction_Command : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Speed_Command : 16|16@1- (1,0) [-32768|32767] "angular_speed:rpm" Vector__XXX
+ SG_ Torque_Command : 0|16@1- (0.1,0) [-3276.8|3276.7] "torque:N.m" Vector__XXX
+
+BO_ 171 M171_Fault_Codes: 8 INV
+ SG_ Run_Fault_Hi : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ Run_Fault_Lo : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ Post_Fault_Hi : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ Post_Fault_Lo : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 170 M170_Internal_States: 8 INV
+ SG_ Limit_Stall_Burst_Model : 63|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Limit_Coolant_Derating : 62|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Low_Speed_Limiting : 61|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Limit_Hot_Spot : 60|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Limit_Max_Speed : 59|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ BMS_Limiting_Motor_Torque : 58|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ BMS_Active : 57|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Direction_Command : 56|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Inverter_Enable_Lockout : 55|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Key_Switch_Start_Status : 54|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ BMS_Limiting_Regen_Torque : 50|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Burst_Model_Mode : 49|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Inverter_Enable_State : 48|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Rolling_Counter : 44|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ Inverter_Command_Mode : 40|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Inverter_Discharge_State : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ Self_Sensing_Assist_Enable : 33|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Inverter_Run_Mode : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Relay_6_Status : 29|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Relay_5_Status : 28|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Relay_4_Status : 27|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Relay_3_Status : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Relay_2_Status : 25|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Relay_1_Status : 24|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Inverter_State : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ PWM_Frequency : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ VSM_State : 0|8@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 169 M169_Internal_Voltages: 8 INV
+ SG_ Ref_Voltage_12_0 : 48|16@1- (0.01,0) [-327.68|327.67] "voltage:V" Vector__XXX
+ SG_ Ref_Voltage_5_0 : 32|16@1- (0.01,0) [-327.68|327.67] "voltage:V" Vector__XXX
+ SG_ Ref_Voltage_2_5 : 16|16@1- (0.01,0) [-327.68|327.67] "voltage:V" Vector__XXX
+ SG_ Ref_Voltage_1_5 : 0|16@1- (0.01,0) [-327.68|327.67] "voltage:V" Vector__XXX
+
+BO_ 168 M168_Flux_ID_IQ_Info: 8 INV
+ SG_ Iq : 48|16@1- (0.1,0) [-3276.8|3276.7] "current:A" Vector__XXX
+ SG_ Id : 32|16@1- (0.1,0) [-3276.8|3276.7] "current:A" Vector__XXX
+ SG_ Vq_ff : 16|16@1- (0.1,0) [-3276.7|3276.7] "voltage:V" Vector__XXX
+ SG_ Vd_ff : 0|16@1- (0.1,0) [-3276.7|3276.7] "voltage:V" Vector__XXX
+
+BO_ 167 M167_Voltage_Info: 8 INV
+ SG_ VBC_Vq_Voltage : 48|16@1- (0.1,0) [-3276.8|3276.7] "voltage:V" Vector__XXX
+ SG_ VAB_Vd_Voltage : 32|16@1- (0.1,0) [-3276.8|3276.7] "voltage:V" Vector__XXX
+ SG_ Output_Voltage : 16|16@1- (0.1,0) [-3276.8|3276.7] "voltage:V" Vector__XXX
+ SG_ DC_Bus_Voltage : 0|16@1- (0.1,0) [-3276.8|3276.7] "voltage:V" Vector__XXX
+
+BO_ 166 M166_Current_Info: 8 INV
+ SG_ DC_Bus_Current : 48|16@1- (0.1,0) [-3276.8|3276.7] "current:A" Vector__XXX
+ SG_ Phase_C_Current : 32|16@1- (0.1,0) [-3276.8|3276.7] "current:A" Vector__XXX
+ SG_ Phase_B_Current : 16|16@1- (0.1,0) [-3276.8|3276.7] "current:A" Vector__XXX
+ SG_ Phase_A_Current : 0|16@1- (0.1,0) [-3276.8|3276.7] "current:A" Vector__XXX
+
+BO_ 165 M165_Motor_Position_Info: 8 INV
+ SG_ Delta_Resolver_Filtered : 48|16@1- (0.1,0) [-3276.8|3276.7] "angle:deg" Vector__XXX
+ SG_ Electrical_Output_Frequency : 32|16@1- (0.1,0) [-3276.8|3276.7] "frequency:Hz" Vector__XXX
+ SG_ Motor_Speed : 16|16@1- (1,0) [-32768|32767] "angular_speed:rpm" Vector__XXX
+ SG_ Motor_Angle_Electrical : 0|16@1+ (0.1,0) [0|6553.5] "angle:deg" Vector__XXX
+
+BO_ 164 M164_Digital_Input_Status: 8 INV
+ SG_ Digital_Input_8 : 56|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Digital_Input_7 : 48|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Digital_Input_6 : 40|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Digital_Input_5 : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Digital_Input_4 : 24|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Digital_Input_3 : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Digital_Input_2 : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Digital_Input_1 : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 163 M163_Analog_Input_Voltages: 8 INV
+ SG_ Analog_Input_6 : 52|10@1+ (0.01,0) [0|10.23] "voltage:V" Vector__XXX
+ SG_ Analog_Input_5 : 42|10@1+ (0.01,0) [0|10.23] "voltage:V" Vector__XXX
+ SG_ Analog_Input_4 : 32|10@1+ (0.01,0) [0|10.23] "voltage:V" Vector__XXX
+ SG_ Analog_Input_3 : 20|10@1+ (0.01,0) [0|10.23] "voltage:V" Vector__XXX
+ SG_ Analog_Input_2 : 10|10@1+ (0.01,0) [0|10.23] "voltage:V" Vector__XXX
+ SG_ Analog_Input_1 : 0|10@1+ (0.01,0) [0|10.23] "voltage:V" Vector__XXX
+
+BO_ 162 M162_Temperature_Set_3: 8 INV
+ SG_ Torque_Shudder : 48|16@1- (0.1,0) [-3276.8|3276.7] "torque:N.m" Vector__XXX
+ SG_ Motor_Temp : 32|16@1- (0.1,0) [-3276.8|3276.7] "temperature:C" Vector__XXX
+ SG_ Hot_Spot_Temp : 16|16@1- (0.1,0) [-3276.8|3276.7] "temperature:C" Vector__XXX
+ SG_ Coolant_Temp : 0|16@1- (0.1,0) [-3276.8|3276.7] "temperature:C" Vector__XXX
+
+BO_ 161 M161_Temperature_Set_2: 8 INV
+ SG_ Stall_Burst_Model_Temp : 48|16@1- (0.1,0) [-3276.8|3276.7] "temperature:C" Vector__XXX
+ SG_ RTD2_Temperature : 32|16@1- (0.1,0) [-3276.8|3276.7] "temperature:C" Vector__XXX
+ SG_ RTD1_Temperature : 16|16@1- (0.1,0) [-3276.8|3276.7] "temperature:C" Vector__XXX
+ SG_ Control_Board_Temp : 0|16@1- (0.1,0) [-3276.8|3276.7] "temperature:C" Vector__XXX
+
+BO_ 160 M160_Temperature_Set_1: 8 INV
+ SG_ Gate_Driver_Board_Temp : 48|16@1- (0.1,0) [-3276.8|3276.7] "temperature:C" Vector__XXX
+ SG_ Module_C_Temp : 32|16@1- (0.1,0) [-3276.8|3276.7] "temperature:C" Vector__XXX
+ SG_ Module_B_Temp : 16|16@1- (0.1,0) [-3276.8|3276.7] "temperature:C" Vector__XXX
+ SG_ Module_A_Temp : 0|16@1- (0.1,0) [-3276.8|3276.7] "temperature:C" Vector__XXX
+
+BO_ 174 M174_Firmware_Info: 8 INV
+ SG_ DateCode_YYYY : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ DateCode_MMDD : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ SW_Version : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ Project_Code_EEP_Ver : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 175 M175_Diag_Data_Message: 8 INV
+ SG_ Diag_Run_Faults_Hi m5 : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ Diag_Vqs_Cmd m4 : 48|16@1- (0.1,0) [-1000|1000] "voltage:V" Vector__XXX
+ SG_ Diag_FW_Output m3 : 48|16@1- (0.1,0) [-2000|2000] "current:A" Vector__XXX
+ SG_ Diag_Iq_cmd m2 : 48|16@1- (0.1,0) [-2000|2000] "current:A" Vector__XXX
+ SG_ Diag_Ib m1 : 48|16@1- (0.1,0) [-2000|2000] "current:A" Vector__XXX
+ SG_ Diag_Sin_Used m0 : 48|16@1- (1,0) [-5|5] "voltage:V" Vector__XXX
+ SG_ Diag_Run_Faults_Lo m5 : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ Diag_Vd_Cmd m4 : 32|16@1- (0.1,0) [-1000|1000] "voltage:V" Vector__XXX
+ SG_ Diag_Mod_Index m3 : 32|16@1- (0.0001,0) [0|2] "" Vector__XXX
+ SG_ Diag_Vdc m2 : 32|16@1- (0.1,0) [0|1000] "voltage:V" Vector__XXX
+ SG_ Diag_Ia m1 : 32|16@1- (0.1,0) [-2000|2000] "current:A" Vector__XXX
+ SG_ Diag_Gamma_Observer m0 : 32|16@1- (0.1,0) [0|360] "angle:deg" Vector__XXX
+ SG_ Diag_PWM_Freq m5 : 16|16@1+ (1,0) [0|24] "frequency:kHz" Vector__XXX
+ SG_ Diag_Vq_Cmd m4 : 16|16@1- (0.1,0) [-1000|1000] "voltage:V" Vector__XXX
+ SG_ Diag_Id_cmd m3 : 16|16@1- (0.1,0) [-2000|2000] "current:A" Vector__XXX
+ SG_ Diag_Ic m2 : 16|16@1- (0.1,0) [-2000|2000] "current:A" Vector__XXX
+ SG_ Diag_Cos_Used m1 : 16|16@1- (1,0) [-5|5] "voltage:V" Vector__XXX
+ SG_ Diag_Gamma_Resolver m0 : 16|16@1- (0.1,0) [0|360] "angle:deg" Vector__XXX
+ SG_ Diag_Segment M : 8|8@1+ (1,0) [0|5] "" Vector__XXX
+ SG_ Diag_Record : 0|8@1+ (1,0) [0|160] "" Vector__XXX
+
+BO_ 514 BMS_Current_Limit: 8 BMS
+ SG_ BMS_Max_Charge_Current : 16|16@1+ (1,0) [0|1000] "current:A" Vector__XXX
+ SG_ BMS_Max_Discharge_Current : 0|16@1+ (1,0) [0|1000] "current:A" Vector__XXX
+
+BO_ 176 M176_Fast_Info: 8 INV
+ SG_ Fast_DC_Bus_Voltage : 48|16@1- (0.1,0) [-3276.8|3276.7] "voltage:V" Vector__XXX
+ SG_ Fast_Motor_Speed : 32|16@1- (1,0) [-32768|32767] "angular_speed:rpm" Vector__XXX
+ SG_ Fast_Torque_Feedback : 16|16@1- (0.1,0) [-3276.8|3276.7] "torque:N.m" Vector__XXX
+ SG_ Fast_Torque_Command : 0|16@1- (0.1,0) [-3276.8|32767.7] "torque:N.m" Vector__XXX
+
+BO_ 177 M177_Torque_Capability: 8 INV
+ SG_ Torque_Capability_Regen : 16|16@1- (0.1,0) [-3276.8|0] "torque:N.m" Vector__XXX
+ SG_ Torque_Capability_Motor : 0|16@1- (0.1,0) [0|3276.7] "torque:N.m" Vector__XXX
+
+BO_ 2047 can_print: 8 can_print
+ SG_ can_print : 0|64@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 13 air_control_critical: 4 air_control
+ SG_ imd_status : 25|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ ss_emeter : 24|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ ss_bms : 23|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ ss_hvd : 22|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ ss_tsmp : 21|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ ss_mpc : 20|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ ss_imd : 19|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ ss_tsms : 18|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ air_n_status : 17|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ air_p_status : 16|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ air_state : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ air_fault : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 128 charging_cmd: 5 bms
+ SG_ enable_charging : 32|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ target_current : 16|16@1+ (1,0) [0|0] "Amps" Vector__XXX
+ SG_ target_voltage : 0|16@1+ (1,0) [0|0] "Volts" Vector__XXX
+
+BO_ 16 bms_core: 7 bms
+ SG_ charger_connected : 51|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ overcurrent_detect : 50|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ bspd_current_sense : 49|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ current_limiting_enabled : 48|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ regen_enabled : 47|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ cell_balancing_status : 46|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ pack_current : 34|12@1- (0.01,0) [0|0] "A" Vector__XXX
+ SG_ pack_voltage : 18|16@1+ (0.0256,0) [0|0] "V" Vector__XXX
+ SG_ bms_fault_code : 2|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ bms_state : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 17 bms_sense: 8 bms
+ SG_ current_vout : 48|16@1+ (0.0048828125,0) [0|0] "V" Vector__XXX
+ SG_ current_vref : 32|16@1+ (0.0048828125,0) [0|0] "V" Vector__XXX
+ SG_ max_temperature : 16|16@1+ (0.0001,0) [0|0] "V" Vector__XXX
+ SG_ min_temperature : 0|16@1+ (0.0001,0) [0|0] "V" Vector__XXX
+
+BO_ 1296 bms_metrics: 7 bms
+ SG_ temperature_pec_error_count : 48|8@1+ (1,0) [0|0] "errors" Vector__XXX
+ SG_ voltage_pec_error_count : 40|8@1+ (1,0) [0|0] "errors" Vector__XXX
+ SG_ i2c_channel : 38|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ i2c_error_count : 30|8@1+ (1,0) [0|0] "errors" Vector__XXX
+ SG_ da_status_2 : 22|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ da_status_1 : 6|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ csc_mia : 0|6@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1297 bms_debug: 8 bms
+ SG_ charger_communication : 60|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ charger_starting_state : 59|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ charger_input_voltage : 58|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ charger_temperature_protection : 57|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ charger_hardware_fault : 56|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ dbg_4 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ dbg_3 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ dbg_2 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ internal_die_temp : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1025 bms_voltage: 8 bms
+ SG_ voltage_3 : 48|16@1+ (0.0001,0) [0|0] "volts" Vector__XXX
+ SG_ voltage_2 : 32|16@1+ (0.0001,0) [0|0] "volts" Vector__XXX
+ SG_ voltage_1 : 16|16@1+ (0.0001,0) [0|0] "volts" Vector__XXX
+ SG_ cell : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ic : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1026 bms_temperature: 6 bms
+ SG_ temperature_2 : 32|16@1+ (0.0001,0) [0|0] "volts" Vector__XXX
+ SG_ temperature_1 : 16|16@1+ (0.0001,0) [0|0] "volts" Vector__XXX
+ SG_ channel : 8|5@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ mux_chips : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ic : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1027 bms_cooling: 5 bms
+ SG_ previous_temp : 24|16@1+ (0.0001,0) [0|0] "degC" Vector__XXX
+ SG_ current_temp : 8|16@1+ (0.0001,0) [0|0] "degC" Vector__XXX
+ SG_ duty_cycle : 0|8@1+ (1,0) [0|0] "percent" Vector__XXX
+
+BO_ 1028 bms_mux: 8 bms
+ SG_ segment5_ack : 56|8@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ segment4_ack : 48|8@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ segment3_ack : 40|8@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ segment2_ack : 32|8@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ segment1_ack : 24|8@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ segment0_ack : 16|8@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ num_mux : 8|8@1+ (1,0) [0|0] "num_mux" Vector__XXX
+ SG_ num_da : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 11 bspd: 7 bspd
+ SG_ bspd_5kw : 51|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ brake_gate : 50|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ heartbeat : 49|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ ss_bspd : 48|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ opamp_timer_rc_circuit_status : 32|16@1+ (0.154296875,0) [0|0] "Capacitor Saturation % in 0.5 s" Vector__XXX
+ SG_ brake_pressure_filtered : 16|16@1+ (0.030517578125,-1.25) [0|0] "PSI" Vector__XXX
+ SG_ brake_pressure : 0|16@1+ (0.030517578125,-1.25) [0|0] "PSI" Vector__XXX
+
+BO_ 15 dashboard: 1 dashboard
+ SG_ bots_ss : 3|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ driver_estop_ss : 2|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ start_button_state : 1|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ ready_to_drive : 0|1@1+ (1,0) [0|0] "bool" Vector__XXX
+
+BO_ 12 throttle: 6 throttle
+ SG_ heartbeat : 42|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ ss_is : 41|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ throttle_r_pos : 24|16@1- (0.39215686274509803,0) [0|0] "%" Vector__XXX
+ SG_ throttle_l_pos : 8|16@1- (0.39215686274509803,0) [0|0] "%" Vector__XXX
+ SG_ throttle_status : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1728 throttle_debug: 5 throttle
+ SG_ throttle_brake_implaus : 35|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ throttle_deviation : 34|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ throttle_r_out_of_range : 33|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ throttle_l_out_of_range : 32|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ throttle_r_raw : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ throttle_l_raw : 0|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 129 charging_fbk: 5 charger
+ SG_ communication_state : 36|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ starting_state : 35|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ input_voltage : 34|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ temperature_protection : 33|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ hardware_fault : 32|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ charging_current : 16|16@1+ (0.1,0) [0|0] "Amps" Vector__XXX
+ SG_ charging_voltage : 0|16@1+ (1,0) [0|0] "Volts" Vector__XXX
+
+BO_ 1344 pdu_currents: 6 pdu
+ SG_ pdu_x10 : 40|8@1+ (1,0) [0|0] "Reading" Vector__XXX
+ SG_ shutdown_x10 : 32|8@1+ (1,0) [0|0] "Reading" Vector__XXX
+ SG_ lv_mobo_x10 : 24|8@1+ (1,0) [0|0] "Reading" Vector__XXX
+ SG_ motor_controller_x10 : 16|8@1+ (1,0) [0|0] "Reading" Vector__XXX
+ SG_ service_section_x10 : 8|8@1+ (1,0) [0|0] "Reading" Vector__XXX
+ SG_ cooling_x10 : 0|8@1+ (1,0) [0|0] "Reading" Vector__XXX
+
+BO_ 1349 pdu_test: 2 pdu
+ SG_ pdu_adc_raw : 0|16@1+ (1,0) [0|0] "Reading" Vector__XXX
+
+BO_ 1136 wheel_speed: 5 wheel_speed
+ SG_ heartbeat : 32|1@1+ (1,0) [0|0] "bool" Vector__XXX
+ SG_ wheel_speed_r : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ wheel_speed_l : 0|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 1152 sus_travel: 4 sus_travel
+ SG_ sus_travel_r : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ sus_travel_l : 0|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 1168 sus_strain_l: 8 sus_strain
+ SG_ sus_strain : 0|64@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1169 sus_strain_r: 8 sus_strain
+ SG_ sus_strain : 0|64@1+ (1,0) [0|0] "" Vector__XXX
+
+
+
+
+CM_ SG_ 1024 OverPower "";
+CM_ BO_ 2023 "This CAN id is used for communication between the energy meter and the download tool.";
+CM_ BO_ 2031 "This CAN id is used for communication between the energy meter and the download tool.";
+CM_ BO_ 194 "To write a parameter use message 0x0C1 with byte #2 set to 1 (write). 
+To read a parameter use message 0x0C1 with byte #2 to set 0 (read). ";
+CM_ BO_ 193 "To write a parameter use message 0x0C1 with byte #2 set to 1 (write). 
+To read a parameter use message 0x0C1 with byte #2 to set 0 (read). ";
+CM_ SG_ 193 Parameter_Data "Data to be written.  All data is 16 bits and is contained in bytes 4 and 5.";
+CM_ SG_ 193 Parameter_RW_Command "0=Read, 1=Write";
+CM_ SG_ 193 Parameter_Address "Address of parameter to be written or read.";
+CM_ BO_ 192 "The command message is used to transmit data to the controller. This message is sent from a user supplied external controller to the PMxxx controller.";
+CM_ SG_ 192 Torque_Limit_Command "Torque Limit, set to 0 to keep default";
+CM_ SG_ 192 Rolling_Counter "Rolling Counter sent to inverter.  If used increment count with each message sent.  Otherwise can be set to 0.";
+CM_ SG_ 192 Speed_Mode_Enable "0 = No change to mode, 1 = change to speed mode from torque mode";
+CM_ SG_ 192 Inverter_Discharge "0=Discharge Disable,1=Discharge Enable";
+CM_ SG_ 192 Inverter_Enable "0=Inverter OFF, 1 = Inverter ON";
+CM_ SG_ 192 Direction_Command "0=Reverse, 1=Forward.  Forward is positive motor speed.";
+CM_ SG_ 192 Speed_Command "Speed command used when in speed mode";
+CM_ SG_ 192 Torque_Command "Torque command when in torque mode";
+CM_ BO_ 163 "";
+CM_ BO_ 514 "Sent by BMS";
+CM_ SG_ 514 BMS_Max_Charge_Current "Maximum charge current from BMS";
+CM_ SG_ 514 BMS_Max_Discharge_Current "Maximum discharge current from BMS";
+CM_ BO_ 176 "To enable fast message set CAN ACTIVE MSGS HI WORD to 0xFFFE.  Setting to default value of 0xFFFF will disable the fast message.";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 100000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_ "GenMsgCycleTime" BO_ 173 10;
+BA_ "GenMsgCycleTime" BO_ 172 10;
+BA_ "GenMsgCycleTime" BO_ 192 10;
+BA_ "GenMsgCycleTime" BO_ 171 10;
+BA_ "GenMsgCycleTime" BO_ 170 10;
+BA_ "GenMsgCycleTime" BO_ 169 100;
+BA_ "GenMsgCycleTime" BO_ 168 10;
+BA_ "GenMsgCycleTime" BO_ 167 10;
+BA_ "GenMsgCycleTime" BO_ 166 10;
+BA_ "GenMsgCycleTime" BO_ 165 10;
+BA_ "GenMsgCycleTime" BO_ 164 10;
+BA_ "GenMsgCycleTime" BO_ 163 10;
+BA_ "GenMsgCycleTime" BO_ 162 100;
+BA_ "GenMsgCycleTime" BO_ 161 100;
+BA_ "GenMsgCycleTime" BO_ 160 100;
+BA_ "GenMsgCycleTime" BO_ 174 100;
+BA_ "GenMsgCycleTime" BO_ 175 10;
+BA_ "GenMsgCycleTime" BO_ 176 3;
+BA_ "GenMsgCycleTime" BO_ 177 10;
+BA_ "GenMsgCycleTime" BO_ 2047 10.0;
+BA_ "GenMsgCycleTime" BO_ 13 1.0;
+BA_ "GenMsgCycleTime" BO_ 128 10.0;
+BA_ "GenMsgCycleTime" BO_ 16 10.0;
+BA_ "GenMsgCycleTime" BO_ 17 10.0;
+BA_ "GenMsgCycleTime" BO_ 1296 10.0;
+BA_ "GenMsgCycleTime" BO_ 1297 10.0;
+BA_ "GenMsgCycleTime" BO_ 1025 250.0;
+BA_ "GenMsgCycleTime" BO_ 1026 250.0;
+BA_ "GenMsgCycleTime" BO_ 1027 250.0;
+BA_ "GenMsgCycleTime" BO_ 1028 250.0;
+BA_ "GenMsgCycleTime" BO_ 11 10.0;
+BA_ "GenMsgCycleTime" BO_ 15 10.0;
+BA_ "GenMsgCycleTime" BO_ 12 10.0;
+BA_ "GenMsgCycleTime" BO_ 1728 10.0;
+BA_ "GenMsgCycleTime" BO_ 129 1000.0;
+BA_ "GenMsgCycleTime" BO_ 1344 10.0;
+BA_ "GenMsgCycleTime" BO_ 1349 10.0;
+BA_ "GenMsgCycleTime" BO_ 1136 10.0;
+BA_ "GenMsgCycleTime" BO_ 1152 10.0;
+BA_ "GenMsgCycleTime" BO_ 1168 10.0;
+BA_ "GenMsgCycleTime" BO_ 1169 10.0;
+VAL_ 1024 Logging 0 "x1" 1 "x2" 2 "x4" 3 "x8" 4 "x16" 5 "x32" ;
+VAL_ 1024 CurrentGain 0 "x1" 1 "x2" 2 "x4" 3 "x8" 4 "x16" 5 "x32" ;
+VAL_ 192 Inverter_Discharge 0 "Discharge Disable" 1 "Discharge Enable (if EEPROM parameter is set)" ;
+VAL_ 192 Inverter_Enable 0 "Turn the inverter OFF" 1 "Turn the Inverter ON" ;
+VAL_ 192 Direction_Command 0 "CW" 1 "CCW" ;
+VAL_ 13 imd_status 0 "IMD NOT OK" 1 "IMD OK" ;
+VAL_ 13 ss_emeter 0 "OPEN" 1 "CLOSED" ;
+VAL_ 13 ss_bms 0 "OPEN" 1 "CLOSED" ;
+VAL_ 13 ss_hvd 0 "OPEN" 1 "CLOSED" ;
+VAL_ 13 ss_tsmp 0 "OPEN" 1 "CLOSED" ;
+VAL_ 13 ss_mpc 0 "OPEN" 1 "CLOSED" ;
+VAL_ 13 ss_imd 0 "OPEN" 1 "CLOSED" ;
+VAL_ 13 ss_tsms 0 "OPEN" 1 "CLOSED" ;
+VAL_ 13 air_n_status 0 "OPEN" 1 "CLOSED" ;
+VAL_ 13 air_p_status 0 "OPEN" 1 "CLOSED" ;
+VAL_ 13 air_state 0 "INIT" 1 "IDLE" 2 "SHUTDOWN_CIRCUIT_CLOSED" 3 "PRECHARGE" 4 "TS_ACTIVE" 5 "DISCHARGE" 6 "FAULT" ;
+VAL_ 13 air_fault 0 "NONE" 1 "AIR_N_WELD" 2 "AIR_P_WELD" 3 "BOTH_AIRS_WELD" 4 "PRECHARGE_FAIL" 5 "DISCHARGE_FAIL" 6 "PRECHARGE_FAIL_RELAY_WELDED" 7 "CAN_ERROR" 8 "CAN_BMS_TIMEOUT" 9 "CAN_GMETER_TIMEOUT" 10 "SHUTDOWN_IMPLAUSIBILITY" 11 "TRACTIVE_VOLTAGE" 12 "BMS_VOLTAGE" 13 "IMD_STATUS" ;
+VAL_ 128 enable_charging 0 "Charging Disabled" 1 "Charging Enabled" ;
+VAL_ 16 charger_connected 0 "Disconnected" 1 "Connected" ;
+VAL_ 16 overcurrent_detect 0 "No over-current detected" 1 "Over-current detected" ;
+VAL_ 16 bspd_current_sense 0 "No current sensed" 1 "Current sensed" ;
+VAL_ 16 current_limiting_enabled 0 "Current limiting disabled" 1 "Current limiting enabled" ;
+VAL_ 16 regen_enabled 0 "Regenerative braking disabled" 1 "Regenerative braking enabled" ;
+VAL_ 16 cell_balancing_status 0 "Cell balancing disabled" 1 "Cell balancing enabled" ;
+VAL_ 16 bms_state 0 "ACTIVE" 1 "CHARGING" 2 "FAULT" ;
+VAL_ 1296 i2c_channel 0 "CHANNEL_0" 1 "CHANNEL_1" 2 "CHANNEL_2" 3 "CHANNEL_3" ;
+VAL_ 1297 charger_communication 0 "Normal" 1 "FAULT" ;
+VAL_ 1297 charger_starting_state 0 "True" 1 "False" ;
+VAL_ 1297 charger_input_voltage 0 "Normal" 1 "FAULT" ;
+VAL_ 1297 charger_temperature_protection 0 "Normal" 1 "FAULT" ;
+VAL_ 1297 charger_hardware_fault 0 "Normal" 1 "FAULT" ;
+VAL_ 1025 cell 0 "REG_A" 1 "REG_B" 2 "REG_C" 3 "REG_D" 4 "REG_E" 5 "REG_F" ;
+VAL_ 1026 mux_chips 0 "MUX_CHIPS_12" 1 "MUX_CHIPS_34" 2 "NO_MUX" 3 "BOO" ;
+VAL_ 1028 segment5_ack 0 "NACK" 1 "ACK" ;
+VAL_ 1028 segment4_ack 0 "NACK" 1 "ACK" ;
+VAL_ 1028 segment3_ack 0 "NACK" 1 "ACK" ;
+VAL_ 1028 segment2_ack 0 "NACK" 1 "ACK" ;
+VAL_ 1028 segment1_ack 0 "NACK" 1 "ACK" ;
+VAL_ 1028 segment0_ack 0 "NACK" 1 "ACK" ;
+VAL_ 1028 num_da 0 "0" 1 "1" 2 "2" 3 "3" ;
+VAL_ 11 bspd_5kw 0 "BSPD Power Under 5kW" 1 "BSPD Power Over 5kW" ;
+VAL_ 11 brake_gate 0 "Brake Light OFF" 1 "Brake Light ON" ;
+VAL_ 11 heartbeat 0 "DUB" 1 "lub" ;
+VAL_ 11 ss_bspd 0 "OPEN" 1 "CLOSED" ;
+VAL_ 15 bots_ss 0 "OPENED" 1 "CLOSED" ;
+VAL_ 15 driver_estop_ss 0 "OPENED" 1 "CLOSED" ;
+VAL_ 15 start_button_state 0 "NOT PRESSED" 1 "PRESSED" ;
+VAL_ 15 ready_to_drive 0 "NOT READY TO DRIVE" 1 "READY TO DRIVE" ;
+VAL_ 12 heartbeat 0 "DUB" 1 "lub" ;
+VAL_ 12 ss_is 0 "OPEN" 1 "CLOSED" ;
+VAL_ 12 throttle_status 0 "THROTTLE_IDLE" 1 "THROTTLE_RUN" 2 "THROTTLE_L_OUT_OF_RANGE" 3 "THROTTLE_R_OUT_OF_RANGE" 4 "THROTTLE_POSITION_IMPLAUSIBILITY" 5 "THROTTLE_BRAKE_PRESSED" ;
+VAL_ 1728 throttle_brake_implaus 0 "NO_BRAKE_IMPLAUS" 1 "BRAKE_IMPLAUS" ;
+VAL_ 1728 throttle_deviation 0 "NO_DEVIATE" 1 "DEVIATE" ;
+VAL_ 1728 throttle_r_out_of_range 0 "IN_RANGE" 1 "OUT_OF_RANGE" ;
+VAL_ 1728 throttle_l_out_of_range 0 "IN_RANGE" 1 "OUT_OF_RANGE" ;
+VAL_ 129 communication_state 0 "Normal" 1 "FAULT" ;
+VAL_ 129 starting_state 0 "Normal" 1 "False" ;
+VAL_ 129 input_voltage 0 "Normal" 1 "FAULT" ;
+VAL_ 129 temperature_protection 0 "Normal" 1 "ENABLED" ;
+VAL_ 129 hardware_fault 0 "Normal" 1 "FAULT" ;
+VAL_ 1136 heartbeat 0 "DUB" 1 "lub" ;
+
+
+

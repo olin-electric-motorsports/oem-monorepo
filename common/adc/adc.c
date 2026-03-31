@@ -5,7 +5,7 @@ static void (*interrupt_callback)(void) = NULL;
 /*
  * Internal helper for configuring single channel ADC
  */
-static HAL_StatusTypeDef adc_configure_pin(ADC_HandleTypeDef *hadc, dc_pin_e pin) {
+static HAL_StatusTypeDef adc_configure_pin(ADC_HandleTypeDef *hadc, adc_pin_e pin) {
     ADC_ChannelConfTypeDef sConfig = {0};
 
     sConfig.Channel = (uint32_t)pin;
@@ -20,10 +20,9 @@ static HAL_StatusTypeDef adc_configure_pin(ADC_HandleTypeDef *hadc, dc_pin_e pin
 
 
 /*
- * Runs self-calibration, must be before ADC is enabled
- *
+ * Runs self-calibration, must be before ADC conversion is enabled
  */
-HAL_StatusTypeDef adc_init(ADC_HandleTypeDef *hadc, adc_pin_e pin) {
+HAL_StatusTypeDef adc_init(ADC_HandleTypeDef *hadc) {
     if (HAL_ADCEx_Calibration_Start(hadc, ADC_SINGLE_ENDED) != HAL_OK) {
         return HAL_ERROR;
     }
@@ -44,13 +43,14 @@ HAL_StatusTypeDef adc_start_convert(ADC_HandleTypeDef *hadc, adc_pin_e pin) {
 }
 
 
-
 /*
  * Poll for completion, returns poll status
  */
 HAL_StatusTypeDef adc_poll_complete(ADC_HandleTypeDef *hadc, uint16_t *result) {
     HAL_StatusTypeDef poll_status = HAL_ADC_PollForConversion(hadc, 100);
-    *result = (uint16_t)HAL_ADC_GetValue(hadc);
+    if (poll_status == HAL_OK) {
+        *result = (uint16_t)HAL_ADC_GetValue(hadc);
+    }
     HAL_ADC_Stop(hadc);
     return poll_status;
 }
@@ -60,6 +60,7 @@ HAL_StatusTypeDef adc_poll_complete(ADC_HandleTypeDef *hadc, uint16_t *result) {
  */
 void adc_read_results(ADC_HandleTypeDef *hadc, uint16_t *result) {
     *result = (uint16_t)HAL_ADC_GetValue(hadc);
+    HAL_ADC_Stop_IT(hadc);
 }
 
 /*
@@ -75,7 +76,6 @@ void adc_interrupt_enable(ADC_HandleTypeDef *hadc, adc_pin_e pin, void (*callbac
 
 /*
  * HAL callback 
- *
  */
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
     if (interrupt_callback != NULL) {
@@ -90,11 +90,11 @@ uint16_t adc_read(ADC_HandleTypeDef *hadc, adc_pin_e pin) {
     uint16_t result = 0;
 
     if (adc_start_convert(hadc, pin) != HAL_OK) {
-        return 0;
+        return -1;
     }
 
     if (adc_poll_complete(hadc, &result) != HAL_OK) {
-        return 0;
+        return -1;
     }
     
     HAL_ADC_Stop(hadc);

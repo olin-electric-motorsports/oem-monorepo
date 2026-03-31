@@ -1,19 +1,11 @@
 #include "common/adc/adc.h"
 
-static ADC_HandleTypeDef *adc_handle = NULL;
 static void (*interrupt_callback)(void) = NULL;
-
-/*
- * Initialize ADC handle
- */
-void adc_init(ADC_HandleTypeDef *hadc) {
-    adc_handle = hadc;
-}
 
 /*
  * Internal helper for configuring single channel ADC
  */
-static HAL_StatusTypeDef adc_configure_pin(adc_pin_e pin) {
+static HAL_StatusTypeDef adc_configure_pin(ADC_HandleTypeDef *hadc, dc_pin_e pin) {
     ADC_ChannelConfTypeDef sConfig = {0};
 
     sConfig.Channel = (uint32_t)pin;
@@ -23,7 +15,7 @@ static HAL_StatusTypeDef adc_configure_pin(adc_pin_e pin) {
     sConfig.OffsetNumber = ADC_OFFSET_NONE;
     sConfig.Offset = 0;
 
-    return HAL_ADC_ConfigChannel(adc_handle, &sConfig);
+    return HAL_ADC_ConfigChannel(hadc, &sConfig);
 }
 
 

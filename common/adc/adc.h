@@ -35,7 +35,7 @@ typedef enum {
  * Returns (HAL_StatusTypeDef)
  * - HAL status code 
  */
-HAL_StatusTypeDef adc_init(ADC_HandleTypeDef *hadc)
+HAL_StatusTypeDef adc_init(ADC_HandleTypeDef *hadc);
 
 /*
  * adc_start_convert
@@ -49,7 +49,7 @@ HAL_StatusTypeDef adc_init(ADC_HandleTypeDef *hadc)
  * Returns (HAL_StatusTypeDef)
  * - HAL status code 
  */
-HAL_StatusTypeDef adc_start_convert(ADC_HandleTypeDef *hadc, adc_pin_e pin)
+HAL_StatusTypeDef adc_start_convert(ADC_HandleTypeDef *hadc, adc_pin_e pin);
 
 /*
  * adc_poll_complete
@@ -64,7 +64,7 @@ HAL_StatusTypeDef adc_start_convert(ADC_HandleTypeDef *hadc, adc_pin_e pin)
  * Returns (HAL_StatusTypeDef)
  * - HAL status code 
  */
-HAL_StatusTypeDef adc_poll_complete(ADC_HandleTypeDef *hadc, uint16_t *result)
+HAL_StatusTypeDef adc_poll_complete(ADC_HandleTypeDef *hadc, uint32_t *result);
 
 /*
  * adc_read_results
@@ -78,7 +78,7 @@ HAL_StatusTypeDef adc_poll_complete(ADC_HandleTypeDef *hadc, uint16_t *result)
  *
  * Returns (void)
  */
-void adc_read_results(ADC_HandleTypeDef *hadc, uint16_t *result)
+void adc_read_results(ADC_HandleTypeDef *hadc, uint32_t *result);
 
 /*
  * adc_interrupt_enable
@@ -93,7 +93,7 @@ void adc_read_results(ADC_HandleTypeDef *hadc, uint16_t *result)
  *
  * Returns (void)
  */
-void adc_interrupt_enable(ADC_HandleTypeDef *hadc, adc_pin_e pin, void (*callback)(void))
+HAL_StatusTypeDef adc_interrupt_enable(ADC_HandleTypeDef *hadc, adc_pin_e pin, void (*callback)(void));
 
 /*
  * adc_read
@@ -111,4 +111,4 @@ void adc_interrupt_enable(ADC_HandleTypeDef *hadc, adc_pin_e pin, void (*callbac
  * Returns (uint16_t)
  *   - Value of the ADC conversion
  */
-uint16_t adc_read(ADC_HandleTypeDef *hadc, adc_pin_e pin)
+uint32_t adc_read(ADC_HandleTypeDef *hadc, adc_pin_e pin);

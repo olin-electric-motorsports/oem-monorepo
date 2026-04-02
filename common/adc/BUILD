@@ -1,7 +1,7 @@
 cc_library(
     name = "hdrs",
     hdrs = [
-        "api.h",
+        "adc.h",
     ],
     visibility = ["//visibility:private"],
 )
@@ -19,5 +19,6 @@ cc_library(
     visibility = ["//visibility:public"],
     deps = [
         ":hdrs",
+        "//third_party:stm32cubeg4", # Link to the target defined above
     ],
 )

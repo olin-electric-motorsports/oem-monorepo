@@ -23,11 +23,38 @@ typedef enum {
     ADC_PB0_IN15 = ADC_CHANNEL_15,  /* ADC1 only */
 } adc_pin_e;
 
+
+typedef struct {
+    uint32_t rank;
+    uint32_t sampling_time;
+    uint32_t single_diff;
+    uint32_t offset_number;
+    uint32_t offset;
+    uint32_t offset_sign;        
+    uint32_t offset_saturation;
+} adc_pin_config_t;
+
+
+/*
+ * adc_configure_pin
+ *
+ * Configures ADC pin from a struct
+ *
+ * Parameters
+ * - (ADC_HandleTypeDef *) hadc: Pointer to ADC handle
+ * - (adc_pin_e) pin: The ADC pin to use
+ * - (adc_pin_config_t *): Struct with pin config parameters
+ *
+ * Returns (HAL_StatusTypeDef)
+ * - HAL status code 
+ */
+HAL_StatusTypeDef adc_configure_pin(ADC_HandleTypeDef *hadc, adc_pin_e pin, adc_pin_config_t *config);
+
+
 /*
  * adc_init
  *
- * Initializes ADC peripheral (1 or 2) using the handle. Must be called 
- * before ADC conversion is enabled.
+ * Initializes ADC peripheral (1 or 2). 
  *
  * Parameters
  * - (ADC_HandleTypeDef *) hadc: Pointer to ADC handle
@@ -38,18 +65,38 @@ typedef enum {
 HAL_StatusTypeDef adc_init(ADC_HandleTypeDef *hadc);
 
 /*
- * adc_start_convert
+ * adc_calibrate
  *
- * Begins ADC conversion with given ADC
+ * Calibrates input mode of ADC peripheral (1 or 2) to support
+ * either a single or differential analog signal. This should only be
+ * called once before adc_start_convert
  *
  * Parameters
- *   - (ADC_HandleTypeDef *) hadc: Pointer to ADC handle
- *   - (adc_pin_e) pin: The ADC pin to use
+ * - (ADC_HandleTypeDef *) hadc: Pointer to ADC handle
+ * - (uint32_t) input_mode: Type of ADC input
+ *       - pass input as ADC_SINGLE_ENDED or ADC_DIFFERENTIAL_ENDED
  *
  * Returns (HAL_StatusTypeDef)
  * - HAL status code 
  */
-HAL_StatusTypeDef adc_start_convert(ADC_HandleTypeDef *hadc, adc_pin_e pin);
+HAL_StatusTypeDef adc_calibrate(ADC_HandleTypeDef *hadc, uint32_t input_mode);
+
+/*
+ * adc_start_convert
+ *
+ * Begins ADC conversion with given ADC pin. 
+ *
+ * Note: This automatically configures the pin before starting conversion,
+ *
+ * Parameters
+ *   - (ADC_HandleTypeDef *) hadc: Pointer to ADC handle
+ *   - (adc_pin_e) pin: The ADC pin to use
+ *   - (adc_pin_config_t *): Struct with pin config parameters
+ *
+ * Returns (HAL_StatusTypeDef)
+ * - HAL status code 
+ */
+HAL_StatusTypeDef adc_start_convert(ADC_HandleTypeDef *hadc, adc_pin_e pin, adc_pin_config_t *config);
 
 /*
  * adc_poll_complete
@@ -59,56 +106,10 @@ HAL_StatusTypeDef adc_start_convert(ADC_HandleTypeDef *hadc, adc_pin_e pin);
  *
  * Parameters
  *   - (ADC_HandleTypeDef *) hadc: Pointer to ADC handle
- *   - (uint16_t *) result: Pointer to where the value will be stored
+ *   - (uint32_t *) result: Pointer to where the value will be stored
+ *   - (uint32_t) timeout: Polling timeout, in milliseconds
  *
  * Returns (HAL_StatusTypeDef)
  * - HAL status code 
  */
-HAL_StatusTypeDef adc_poll_complete(ADC_HandleTypeDef *hadc, uint32_t *result);
-
-/*
- * adc_read_results
- *
- * Reads the value of the ADC register. Used as an alternative to
- * adc_poll_complete when using interrupts.
- *
- * Parameters
- *   - (ADC_HandleTypeDef *) hadc: Pointer to ADC handle
- *   - (uint16_t *) result: Pointer to where the value will be stored
- *
- * Returns (void)
- */
-void adc_read_results(ADC_HandleTypeDef *hadc, uint32_t *result);
-
-/*
- * adc_interrupt_enable
- *
- * Enables interrupt when ADC data is complete and registers a callback function
- * to be called in HAL Complete Callback (HAL_ADC_ConvCpltCallback).
- *
- * Parameters:
- *   - (ADC_HandleTypeDef *) hadc: Pointer to ADC handle
- *   - (adc_pin_e) pin: The ADC pin to use
- *   - (function ptr) callback: Function to be called upon end of ADC conversion
- *
- * Returns (void)
- */
-HAL_StatusTypeDef adc_interrupt_enable(ADC_HandleTypeDef *hadc, adc_pin_e pin, void (*callback)(void));
-
-/*
- * adc_read
- *
- * Function to read an ADC value. Wraps other functions and is provided as a
- * convenience.
- *
- * WARNING: This function is blocking and won't return until the conversion is
- * completed or timed out.
- *
- * Parameters:
- *   - (ADC_HandleTypeDef *) hadc: Pointer to ADC handle
- *   - (adc_pin_e) pin: The ADC pin to use
- *
- * Returns (uint16_t)
- *   - Value of the ADC conversion
- */
-uint32_t adc_read(ADC_HandleTypeDef *hadc, adc_pin_e pin);
+HAL_StatusTypeDef adc_poll_complete(ADC_HandleTypeDef *hadc, uint32_t *result, uint32_t timeout);

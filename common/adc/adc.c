@@ -1,45 +1,46 @@
 #include "common/adc/adc.h"
 
-static void (*interrupt_callback)(void) = NULL;
 
 /*
- * Internal helper for configuring single channel ADC
+ * Configure an ADC pin 
  */
-static HAL_StatusTypeDef adc_configure_pin(ADC_HandleTypeDef *hadc, adc_pin_e pin) {
+HAL_StatusTypeDef adc_configure_pin(ADC_HandleTypeDef *hadc, adc_pin_e pin, adc_pin_config_t *config) {
     ADC_ChannelConfTypeDef sConfig = {0};
 
     sConfig.Channel = (uint32_t)pin;
-    sConfig.Rank = ADC_REGULAR_RANK_1;
-    sConfig.SamplingTime = ADC_SAMPLETIME_247CYCLES_5; // adjust as needed
-    sConfig.SingleDiff = ADC_SINGLE_ENDED;
-    sConfig.OffsetNumber = ADC_OFFSET_NONE;
-    sConfig.Offset = 0;
+    sConfig.Rank = config->rank;
+    sConfig.SamplingTime = config->sampling_time;
+    sConfig.SingleDiff = config->single_diff;
+    sConfig.OffsetNumber = config->offset_number;
+    sConfig.Offset = config->offset;
+    sConfig.OffsetSign = config->offset_sign;
+    sConfig.OffsetSaturation = config->offset_saturation;
 
     return HAL_ADC_ConfigChannel(hadc, &sConfig);
 }
 
 
 /*
- * Runs self-calibration, must be before ADC conversion is enabled
+ * Initialize ADC peripheral
  */
 HAL_StatusTypeDef adc_init(ADC_HandleTypeDef *hadc) {
-    if (HAL_ADC_Init(hadc) != HAL_OK) {  
-        return HAL_ERROR;
-    }
-    if (HAL_ADCEx_Calibration_Start(hadc, ADC_SINGLE_ENDED) != HAL_OK) {
-        return HAL_ERROR;
-    }
-    return HAL_OK;
+    return HAL_ADC_Init(hadc);
 }
 
 
 /*
- * Begins ADC conversion with given pin
- *
- * Currently configures pin too but this could be moved to init
+ * Calibrate the peripheral input mode as either single or differential ended
  */
-HAL_StatusTypeDef adc_start_convert(ADC_HandleTypeDef *hadc, adc_pin_e pin) {
-    if (adc_configure_pin(hadc, pin) != HAL_OK) {
+HAL_StatusTypeDef adc_calibrate(ADC_HandleTypeDef *hadc, uint32_t input_mode) {
+    return HAL_ADCEx_Calibration_Start(hadc, input_mode);
+}
+
+
+/*
+ * Begin ADC conversion with given pin
+ */
+HAL_StatusTypeDef adc_start_convert(ADC_HandleTypeDef *hadc, adc_pin_e pin, adc_pin_config_t *config) {
+    if (adc_configure_pin(hadc, pin, config) != HAL_OK) {
         return HAL_ERROR;
     }
     return HAL_ADC_Start(hadc);
@@ -47,58 +48,13 @@ HAL_StatusTypeDef adc_start_convert(ADC_HandleTypeDef *hadc, adc_pin_e pin) {
 
 
 /*
- * Poll for completion, returns poll status
+ * Poll for completion, return poll status
  */
-HAL_StatusTypeDef adc_poll_complete(ADC_HandleTypeDef *hadc, uint32_t *result) {
-    HAL_StatusTypeDef poll_status = HAL_ADC_PollForConversion(hadc, 1000);
+HAL_StatusTypeDef adc_poll_complete(ADC_HandleTypeDef *hadc, uint32_t *result, uint32_t timeout) {
+    HAL_StatusTypeDef poll_status = HAL_ADC_PollForConversion(hadc, timeout);
     if (poll_status == HAL_OK) {
         *result = (uint32_t)HAL_ADC_GetValue(hadc);
     }
     HAL_ADC_Stop(hadc);
     return poll_status;
-}
-
-/*
- * Read result (used in interrupt mode)
- */
-void adc_read_results(ADC_HandleTypeDef *hadc, uint32_t *result) {
-    *result = (uint32_t)HAL_ADC_GetValue(hadc);
-    HAL_ADC_Stop_IT(hadc);
-}
-
-/*
- * Configures pin in interrupt mode
- */
-HAL_StatusTypeDef adc_interrupt_enable(ADC_HandleTypeDef *hadc, adc_pin_e pin, void (*callback)(void)) {
-    interrupt_callback = callback;
-    if (adc_configure_pin(hadc, pin) != HAL_OK) {
-        return HAL_ERROR;
-    }
-    return HAL_ADC_Start_IT(hadc);
-}
-
-/*
- * HAL callback 
- */
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
-    if (interrupt_callback != NULL) {
-        interrupt_callback();
-    }
-}
-
-/*
- * Blocking read
- */
-uint32_t adc_read(ADC_HandleTypeDef *hadc, adc_pin_e pin) {
-    uint32_t result = 0;
-
-    if (adc_start_convert(hadc, pin) != HAL_OK) {
-        return 0;
-    }
-
-    if (adc_poll_complete(hadc, &result) != HAL_OK) {
-        return 0;
-    }
-    
-    return result;
 }

@@ -1,5 +1,5 @@
-#include "vehicle/examples/adc/adc_example.h"
-#include "common/adc/adc.h"
+#include "adc_example.h"
+
 
 /* 
 * GPIO Setup 

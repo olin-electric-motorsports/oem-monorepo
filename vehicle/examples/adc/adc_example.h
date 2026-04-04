@@ -2,12 +2,10 @@
 #include "stm32g4xx_hal.h"
 #include "common/adc/adc.h"
 
+
 /*
 * GPIO macros
 */
-#define ANALOG_TEST_INPUT_GPIO_PORT   GPIOA
-#define ANALOG_TEST_INPUT_PIN         GPIO_PIN_4
-#define ANALOG_TEST_INPUT_CHANNEL     ADC_PA4_IN4
 
 #define BLINKY_LED_GPIO_PORT          GPIOA
 #define BLINKY_LED_PIN                GPIO_PIN_1
@@ -19,8 +17,7 @@
 * Function prototypes - config
 */
 void GpioInit(void);
-void AdcInit(void);
-
+extern oem_adc_config_t throttle_sensor;
 /*
 * Function prototypes - main
 */

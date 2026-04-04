@@ -1,60 +1,79 @@
-#include "common/adc/adc.h"
+#include "adc.h"
+#include <stdbool.h>
 
+// Global handles for both hardware ADCs
+static ADC_HandleTypeDef hadc1 = {.Instance = ADC1};
+static ADC_HandleTypeDef hadc2 = {.Instance = ADC2};
+static bool is_adc1_calibrated = false;
+static bool is_adc2_calibrated = false;
 
-/*
- * Configure an ADC pin 
- */
-HAL_StatusTypeDef adc_configure_pin(ADC_HandleTypeDef *hadc, adc_pin_e pin, adc_pin_config_t *config) {
+static void enable_clocks(GPIO_TypeDef* port, ADC_TypeDef* adc) {
+    // STM32G4 uses a shared clock bus for both ADC1 and ADC2
+    if (adc == ADC1 || adc == ADC2) __HAL_RCC_ADC12_CLK_ENABLE(); 
+    
+    if (port == GPIOA) __HAL_RCC_GPIOA_CLK_ENABLE();
+    else if (port == GPIOB) __HAL_RCC_GPIOB_CLK_ENABLE();
+    else if (port == GPIOC) __HAL_RCC_GPIOC_CLK_ENABLE();
+}
+
+void oem_adc_init(oem_adc_config_t* config) {
+    enable_clocks(config->port, config->adc_instance);
+
+    // Put the pin in Analog Mode
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+    GPIO_InitStruct.Pin = config->pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(config->port, &GPIO_InitStruct);
+
+    // Boot up ADC1 if requested
+    if (config->adc_instance == ADC1 && !is_adc1_calibrated) {
+        hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+        hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+        hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+        hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+        HAL_ADC_Init(&hadc1);
+        HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
+        is_adc1_calibrated = true;
+    }
+    
+    // Boot up ADC2 if requested
+    if (config->adc_instance == ADC2 && !is_adc2_calibrated) {
+        hadc2.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+        hadc2.Init.Resolution = ADC_RESOLUTION_12B;
+        hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+        hadc2.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+        HAL_ADC_Init(&hadc2);
+        HAL_ADCEx_Calibration_Start(&hadc2, ADC_SINGLE_ENDED);
+        is_adc2_calibrated = true;
+    }
+}
+
+uint16_t oem_adc_read(oem_adc_config_t* config) {
+    // Figure out which hardware engine to talk to based on the struct
+    ADC_HandleTypeDef* active_hadc;
+    if (config->adc_instance == ADC1) active_hadc = &hadc1;
+    else if (config->adc_instance == ADC2) active_hadc = &hadc2;
+    else return 0; 
+
+    // Configure (based off of example code)
     ADC_ChannelConfTypeDef sConfig = {0};
+    sConfig.Channel = config->channel;
+    sConfig.Rank = ADC_REGULAR_RANK_1;
+    sConfig.SamplingTime = config->sample_time;
+    sConfig.SingleDiff = ADC_SINGLE_ENDED;
+    
+    HAL_ADC_ConfigChannel(active_hadc, &sConfig);
 
-    sConfig.Channel = (uint32_t)pin;
-    sConfig.Rank = config->rank;
-    sConfig.SamplingTime = config->sampling_time;
-    sConfig.SingleDiff = config->single_diff;
-    sConfig.OffsetNumber = config->offset_number;
-    sConfig.Offset = config->offset;
-    sConfig.OffsetSign = config->offset_sign;
-    sConfig.OffsetSaturation = config->offset_saturation;
-
-    return HAL_ADC_ConfigChannel(hadc, &sConfig);
-}
-
-
-/*
- * Initialize ADC peripheral
- */
-HAL_StatusTypeDef adc_init(ADC_HandleTypeDef *hadc) {
-    return HAL_ADC_Init(hadc);
-}
-
-
-/*
- * Calibrate the peripheral input mode as either single or differential ended
- */
-HAL_StatusTypeDef adc_calibrate(ADC_HandleTypeDef *hadc, uint32_t input_mode) {
-    return HAL_ADCEx_Calibration_Start(hadc, input_mode);
-}
-
-
-/*
- * Begin ADC conversion with given pin
- */
-HAL_StatusTypeDef adc_start_convert(ADC_HandleTypeDef *hadc, adc_pin_e pin, adc_pin_config_t *config) {
-    if (adc_configure_pin(hadc, pin, config) != HAL_OK) {
-        return HAL_ERROR;
+    // Take the reading
+    HAL_ADC_Start(active_hadc);
+    if (HAL_ADC_PollForConversion(active_hadc, 5) == HAL_OK) {
+        return HAL_ADC_GetValue(active_hadc);
     }
-    return HAL_ADC_Start(hadc);
+    
+    return 0;
 }
 
 
-/*
- * Poll for completion, return poll status
- */
-HAL_StatusTypeDef adc_poll_complete(ADC_HandleTypeDef *hadc, uint32_t *result, uint32_t timeout) {
-    HAL_StatusTypeDef poll_status = HAL_ADC_PollForConversion(hadc, timeout);
-    if (poll_status == HAL_OK) {
-        *result = (uint32_t)HAL_ADC_GetValue(hadc);
-    }
-    HAL_ADC_Stop(hadc);
-    return poll_status;
-}
+
+

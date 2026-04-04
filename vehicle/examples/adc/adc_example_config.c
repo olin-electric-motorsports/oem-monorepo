@@ -4,22 +4,12 @@
 /* 
 * GPIO Setup 
 *
-* Setting up pin PA3 as an anaolog input
+* Setting up pin PA4 as an anaolog input
 */
 void GpioInit(void) {
   __HAL_RCC_GPIOF_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE(); // Enable clock for GPIO port A
   
-
-  // Analog test input pin
-  HAL_GPIO_WritePin(ANALOG_TEST_INPUT_GPIO_PORT, ANALOG_TEST_INPUT_PIN, GPIO_PIN_RESET); // Clear pin
-  GPIO_InitTypeDef GPIO_InitStruct_Analog_Input = {
-    .Pin = ANALOG_TEST_INPUT_PIN,
-    .Mode = GPIO_MODE_ANALOG,
-    .Pull = GPIO_NOPULL,
-    .Speed = GPIO_SPEED_FREQ_LOW,
-  };
-  HAL_GPIO_Init(ANALOG_TEST_INPUT_GPIO_PORT, &GPIO_InitStruct_Analog_Input);
 
   // Blinky LED pin
   HAL_GPIO_WritePin(BLINKY_LED_GPIO_PORT, BLINKY_LED_PIN, GPIO_PIN_RESET); // Clear pin
@@ -32,62 +22,29 @@ void GpioInit(void) {
   HAL_GPIO_Init(BLINKY_LED_GPIO_PORT, &GPIO_InitStruct_Blinky_LED);
 }
 
-
-/* 
-* ADC Setup 
-*
-* - Setup clock for ADC
-* - Create the config and handle structs for the ADC1 peripheral
-* - Create config for PA3
-*/
-void AdcInit() {
-  // Clock setup for ADC1 and ADC2
-  __HAL_RCC_ADC12_CLK_ENABLE(); 
-
-  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC12;
-  PeriphClkInit.Adc12ClockSelection = RCC_ADC12CLKSOURCE_PLL;
-
-  HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit);
-
-  // initialize peripheral and calibrate to single ended input
-  adc_init(&hadc1);
-  adc_calibrate(&hadc1, ADC_SINGLE_ENDED);
-}
-
-
-ADC_HandleTypeDef hadc1 = {
-  .Instance = ADC1, // hadc1 is the ADC1 handle
-  .Init =  {
-    .ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV1, 
-    .Resolution = ADC_RESOLUTION_12B, 
-    .DataAlign = ADC_DATAALIGN_RIGHT,
-    .GainCompensation = 0,
-    .ScanConvMode = ADC_SCAN_DISABLE,
-    .EOCSelection = ADC_EOC_SINGLE_CONV,
-    .LowPowerAutoWait = DISABLE,
-    .ContinuousConvMode = DISABLE,
-    .NbrOfConversion = 1,
-    .DiscontinuousConvMode = DISABLE,
-    .ExternalTrigConv = ADC_SOFTWARE_START,
-    .ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE,
-    .DMAContinuousRequests = DISABLE,
-    .Overrun = ADC_OVR_DATA_PRESERVED,
-    .OversamplingMode = DISABLE,
-  }
+// notice this is outside of GPIO init because it also sets up the ADC peripheral, not just the pin
+oem_adc_config_t throttle_sensor = {
+    .adc_instance = ADC2, // either ADC1 or ADC2
+    .port = GPIOA,  // GPIO port for the pin
+    .pin = GPIO_PIN_4, // pin number
+    .channel = ADC_CHANNEL_17, // ADC channel corresponding to the pin (check datasheet)
+    .sample_time = ADC_SAMPLETIME_47CYCLES_5 //  sampling time (experiment with this for better results)
 };
 
+/*So what is hidden in this function that is in the lib
 
-adc_pin_config_t PA3_config = {
-  .rank = ADC_REGULAR_RANK_1,
-  .sampling_time = ADC_SAMPLETIME_247CYCLES_5,
-  .single_diff = ADC_SINGLE_ENDED,
-  .offset_number = ADC_OFFSET_NONE,
-  .offset = 0,
-  .offset_sign = 0,
-  .offset_saturation = 0, 
-};
+- Clock management for the ADC peripheral and GPIO port
+- Setting the GPIO pin to analog mode
+- ADC Resolution (12-bit)
+- the Clock Prescaler
+- Data Alignment (Right-aligned)
+- Trigger Mode (Software start)
+- Silicon Calibration. STM32 made a function for this
+- the hardware routing logic, wheiter we talk to ADC1 or ADC2, since they are separate hardware engines
 
+This is more as an FYI than anything else, but the ADC peripheral is pretty complicated and has a lot of 
+configuration options that can be tweaked for better performance 
+*/ 
 
 
 

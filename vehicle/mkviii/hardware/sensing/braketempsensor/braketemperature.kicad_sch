@@ -3831,7 +3831,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "power:+3V3"
+		(symbol "power:+3.3V"
 			(power)
 			(pin_numbers
 				(hide yes)
@@ -3852,7 +3852,7 @@
 					(hide yes)
 				)
 			)
-			(property "Value" "+3V3"
+			(property "Value" "+3.3V"
 				(at 0 3.556 0)
 				(effects
 					(font
@@ -3878,7 +3878,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(property "Description" "Power symbol creates a global label with name \"+3.3V\""
 				(at 0 0 0)
 				(effects
 					(font
@@ -3896,7 +3896,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "+3V3_0_1"
+			(symbol "+3.3V_0_1"
 				(polyline
 					(pts
 						(xy -0.762 1.27) (xy 0 2.54)
@@ -3934,7 +3934,7 @@
 					)
 				)
 			)
-			(symbol "+3V3_1_1"
+			(symbol "+3.3V_1_1"
 				(pin power_in line
 					(at 0 0 90)
 					(length 0)
@@ -6157,6 +6157,7 @@
 			(uuid "96b9a1c3-e051-4205-90c8-f97f911e5d1f")
 		)
 		(instances
+			(project "rkh"
 			(project ""
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "D1")
@@ -6299,6 +6300,7 @@
 			(uuid "a1870913-d658-4a97-9f26-0bbfdea2d0fa")
 		)
 		(instances
+			(project "rkh"
 			(project ""
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "TP6")
@@ -9875,6 +9877,7 @@
 			(uuid "d71b44ed-e134-4c41-90e8-9eeb97018903")
 		)
 		(instances
+			(project "rkh"
 			(project ""
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "TP5")
@@ -10410,6 +10413,7 @@
 			(uuid "ebdaa18e-0601-4e49-a922-162a3382878a")
 		)
 		(instances
+			(project "rkh"
 			(project ""
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "#PWR?")
@@ -10796,6 +10800,7 @@
 			(uuid "81e71672-e861-4162-ad7d-fe8f1f0ec504")
 		)
 		(instances
+			(project "rkh"
 			(project "braketemperature"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "TP2")
@@ -10820,7 +10825,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Value" "TP_SMD"
@@ -10829,7 +10833,6 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" "OEM:TP_Hook_SMD"
@@ -10872,7 +10875,7 @@
 			(uuid "3ac57112-7270-4836-bc1b-d859432ee036")
 		)
 		(instances
-			(project ""
+			(project "rkh"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "TP4")
 					(unit 1)
@@ -10938,6 +10941,7 @@
 			(uuid "f3eb4b75-2f9d-4a0d-b3f2-6f8d32477d75")
 		)
 		(instances
+			(project "rkh"
 			(project "braketemperature"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8"
 					(reference "#PWR?")

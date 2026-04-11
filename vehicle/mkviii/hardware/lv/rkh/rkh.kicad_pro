@@ -38,8 +38,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 3.4,
-          "width": 1.85
+          "height": 0.95,
+          "width": 0.8
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -144,7 +144,7 @@
         "min_track_width": 0.0,
         "min_via_annular_width": 0.1,
         "min_via_diameter": 0.5,
-        "solder_mask_to_copper_clearance": 0.0,
+        "solder_mask_to_copper_clearance": 0.005,
         "use_height_for_length_calcs": true
       },
       "teardrop_options": [
@@ -473,7 +473,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "roadkill_send_to_henry.kicad_pro",
+    "filename": "rkh.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -654,6 +654,36 @@
           "label": "#",
           "name": "${ITEM_NUMBER}",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer_Name",
+          "name": "Manufacturer_Name",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Mouser Part Number",
+          "name": "Mouser Part Number",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Mouser Price/Stock",
+          "name": "Mouser Price/Stock",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Height",
+          "name": "Height",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer_Part_Number",
+          "name": "Manufacturer_Part_Number",
+          "show": false
         }
       ],
       "filter_string": "",
@@ -709,15 +739,7 @@
       "Root"
     ],
     [
-      "cbf2ea2e-b072-44fd-be7c-e78c16d647d9",
-      "CAN Transceiver"
-    ],
-    [
-      "76bc03ac-5b34-456f-bc81-14b5371c74af",
-      "Jumper Cable"
-    ],
-    [
-      "b8222749-8fd4-4681-a7ea-dba414db73ac",
+      "4d9b6de3-7422-4143-a719-ff18afdecb85",
       "3V_buck_converter"
     ]
   ],

@@ -67,22 +67,29 @@ There should be a lot of green becasue it all worked first try
  specific targets, you can use:
 
 ```Shell
-bazel build --config=m4 //mkiii/software/lv/throttle:throttle.elf
+bazel build --config=m4 //vehicle/examples/blinky:blinky.elf
 ```
-This creates the .elf file inside the `bazel-bin` directory.
+This creates the .elf file inside the `bazel-bin` directory. Not super useful
+
+#### To initialize new chips:
+specific target using ST-Link run:
+```Shell
+bazel run --config=m4 //vehicle/examples/blinky:blinky_initialize
+```
+This is for freshly bought chips, the boot pin needs to be configured. You only need to run this once on a chip and after that you never need to run it again.
 
 #### To flash:
 specific target using ST-Link run:
 ```Shell
-bazel run --config=m4 //mkiii/software/lv/throttle:throttle_flash
+bazel run --config=m4 //vehicle/examples/blinky:blinky_flash
 ```
 
 #### To debug:
 using OpenOCD's debugging tool run:
 ```Shell
-bazel run -c dbg --config=m4 //mkiii/software/lv/throttle:throttle_debug
+bazel run -c dbg --config=m4 //vehicle/examples/blinky:blinky_debug
 ```
-v
+
 ## Basic debugging with OpenOCD
 
 OpenOCD and GDB are the primary tools and can be used together for debugging STM32 applications. OpenOCD provides the interface to the hardware, while GDB is used to inspect and control the execution of the program.

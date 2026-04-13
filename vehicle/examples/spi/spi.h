@@ -12,13 +12,13 @@ void SysTick_Handler(void);
 void SystemClockConfig(void);
 
 
-void Spi_Init(void);
+void oem_spi_init(void);
 
 // Pulls the CS pin (PA15) LOW 
-void Spi_Select(void);
+void oem_spi_select(void);
 
 // Pulls the CS pin (PA15) HIGH 
-void Spi_Deselect(void);
+void oem_spi_deselect(void);
 
 
-int Spi_TransmitReceive(uint8_t *txData, uint8_t *rxData, uint16_t size);
+int oem_spi_transmit_receive(uint8_t *txData, uint8_t *rxData, uint16_t size);

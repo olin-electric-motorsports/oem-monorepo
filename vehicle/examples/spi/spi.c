@@ -1,29 +1,30 @@
-/*
-This file is specifically meant for the STM32G441 dev board that was created and can be found in mkviii/hardware/example
-*/
-
-#include "spi.h"
+#include "spi_example.h"
 
 int main(void) {
-  HAL_Init();
-  SystemClockConfig();
-  GpioInit();
+    HAL_Init();
+    SystemClockConfig();
 
-  while (1) {
-    // 1. Initialize once at startup
-  Spi_Init(); 
+    // Initialize once at startup
+    oem_spi_init(&bms_spi); 
 
-  // 2. Prepare your data
-  uint8_t tx_buffer[2] = {0x80, 0x00}; // Example: Read from register 0x00
-  uint8_t rx_buffer[2] = {0};          // To hold the response
+    uint8_t tx_buffer[2] = {0x80, 0x00}; 
+    uint8_t rx_buffer[2] = {0};          
+    uint16_t size = 1; // We want to read 1 byte, but we send 2 bytes 
 
-  // 3. Execute the transaction
-  Spi_Select();                                         // Pull PA15 Low
-  Spi_TransmitReceive(tx_buffer, rx_buffer, 2);         // Clock out 2 bytes
-  Spi_Deselect();                                       // Pull PA15 High
+    while (1) {
+        // the transaction 
+        oem_spi_select(&bms_spi);
 
-  // The sensor's response is now sitting in rx_buffer[1] !
-  }
-  return 0;
+        // configure, transmit, receive, size
+        oem_spi_transmit_receive(&bms_spi, tx_buffer, rx_buffer, size); 
+
+        // Deselect the device after the transaction
+        oem_spi_deselect(&bms_spi);
+
+        // The response is now sitting in rx_buffer[1]
+        
+        HAL_Delay(10);
+    }
+    
+    return 0;
 }
-

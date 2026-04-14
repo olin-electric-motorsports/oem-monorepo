@@ -55,23 +55,38 @@ WEAK_ALIAS(SVC_Handler);
 WEAK_ALIAS(DebugMon_Handler);
 WEAK_ALIAS(PendSV_Handler);
 WEAK_ALIAS(SysTick_Handler);
+WEAK_ALIAS(TIM2_IRQHandler);
+WEAK_ALIAS(TIM1_BRK_TIM15_IRQHandler);
+WEAK_ALIAS(TIM1_UP_TIM16_IRQHandler);
 
 // Vector Table
 __attribute__((section(".isr_vector")))
 void (* const g_pfnVectors[])(void) = {
     (void (*)(void))&_estack,
-    Reset_Handler,
-    NMI_Handler,
-    HardFault_Handler,
-    MemManage_Handler,
-    BusFault_Handler,
-    UsageFault_Handler,
-    0, 0, 0, 0,
-    SVC_Handler,
-    DebugMon_Handler,
-    0,
-    PendSV_Handler,
-    SysTick_Handler,
+    Reset_Handler,                    // -15
+    NMI_Handler,                      // -14
+    HardFault_Handler,                // -13
+    MemManage_Handler,                // -12
+    BusFault_Handler,                 // -11
+    UsageFault_Handler,               // -10
+    0, 0, 0, 0,                       // -9 to -6 reserved
+    SVC_Handler,                      // -5
+    DebugMon_Handler,                 // -4
+    0,                                // -3 reserved
+    PendSV_Handler,                   // -2
+    SysTick_Handler,                  // -1
+
+    // External interrupts (IRQ0+)
+    0, 0,                             // IRQ0: WWDG, IRQ1: PVD
+    0, 0, 0, 0, 0,                    // IRQ2-6
+    0, 0, 0, 0, 0,                    // IRQ7-11
+    0, 0, 0, 0,                       // IRQ12-15
+    0, 0, 0, 0, 0,                    // IRQ16-20
+    0, 0, 0, 0,                       // IRQ21-24
+    TIM1_BRK_TIM15_IRQHandler,        // IRQ25 - FIRES ON ANY TIM15 ANY EVENT OR TIM1 BREAK
+    TIM1_UP_TIM16_IRQHandler,         // IRQ26 - FIRES ON ANY TIM16 ANY EVENT OR TIM1 BREAK
+    0, 0,                             // IRQ27-28
+    TIM2_IRQHandler,                  // IRQ29
 };
 
 void ErrorHandler(void) { // this will only happen if error on board

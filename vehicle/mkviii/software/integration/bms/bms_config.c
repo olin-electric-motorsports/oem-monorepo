@@ -33,12 +33,42 @@ void GpioInit(void){
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     // configure port B outputs
-    // Error LED (PB0), CSC_Comms (PB1), Heartbeat (PB2), ISO_CS (PB3) 
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3, GPIO_PIN_RESET);
-    GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3;
+    // Error LED (PB0), CSC_Comms (PB1), Heartbeat (PB2)
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2, GPIO_PIN_RESET);
+    GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    // 04/13/26
+    // port B spi
+    // ISO_CS (PB3) - Needs to start HIGH
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, GPIO_PIN_SET); // start high so communitation accidentally doesnt start b4 ready
+    GPIO_InitStruct.Pin = GPIO_PIN_3;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    // port B spi peripheral pins
+    // handles clock and data lines
+    // ISO_SCK (PB3), ISO_MISO (PB4), ISO_MOSI (PB5)
+    // must be GPIO_MODE_AF_PP for the SPI hardware to work 
+    GPIO_InitStruct.Pin = GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP; // gives control to spi not manual code?
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH; // from spi.c
+    GPIO_InitStruct.Alternate = GPIO_AF5_SPI1; // standard AF for SPI1 on STM32G4 from spi.c
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 }
+
+
+// Based on schematic: ISO_CS is PB3, SPI1 is on Port B 
+oem_spi_config_t bms_spi = {
+    .spi_instance = SPI1, 
+    .cs_port = GPIOB,               // ISO_CS is on Port B 
+    .cs_pin = GPIO_PIN_3,           // Pin PB3 
+    .baud_prescaler = SPI_BAUDRATEPRESCALER_64 
+};
 
 // ADC CONFIGURATION
 

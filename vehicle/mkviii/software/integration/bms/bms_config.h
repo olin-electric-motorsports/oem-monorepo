@@ -61,6 +61,10 @@ extern adc_pin_e PRE_DIS_TEMP_2;
 extern adc_pin_e PRE_DIS_TEMP_3;
 extern adc_pin_e CURRENT_SENSE_VOUT;
 
+// 04/13/26
+//SPI Peripheral Configuration
+extern oem_spi_config_t bms_spi;
+
 void timer0_isr(void);
 extern timer_cfg_s timer0_cfg;
 extern timer_cfg_s timer1_cfg;

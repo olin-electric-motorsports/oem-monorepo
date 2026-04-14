@@ -7,8 +7,8 @@
 #define VCU_SS_IS_GPIO_PIN (GPIO_PIN_14)            // Port B Input
 #define VCU_HEARTBEAT_LED_GPIO_PIN (GPIO_PIN_6)     // Port B Output
 #define VCU_ERROR_LED_GPIO_PIN (GPIO_PIN_15)        // Port B Output
-#define VCU_APPS1_ADC_CHANNEL (ADC_CHANNEL_1) // PA0 or ADC1_IN1?
-#define VCU_APPS2_ADC_CHANNEL (ADC_CHANNEL_2) // PA1 or ADC1_IN2?
+#define VCU_THROTTLE_L_ADC_CHANNEL (ADC_CHANNEL_1)
+#define VCU_THROTTLE_R_ADC_CHANNEL (ADC_CHANNEL_2)
 
 // implausibility constants according to rule T.4.2
 #define IMPLAUSIBILITY_TIME_LIMIT 100
@@ -61,3 +61,5 @@ Last calibrated 04-24-2025 for MKVII
  */
 #define SET_TORQUE_REQUEST(torque) \
     (m192_command_message.torque_command = (torque))
+    
+#define HEARTBEAT_TOGGLE_MS 1000

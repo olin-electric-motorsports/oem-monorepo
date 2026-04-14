@@ -1,23 +1,3 @@
-/* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file    adc.h
-  * @brief   This file contains all the function prototypes for
-  *          the adc.c file
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2026 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
-/* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __ADC_H__
 #define __ADC_H__
 
@@ -25,27 +5,31 @@
 extern "C" {
 #endif
 
-/* Includes ------------------------------------------------------------------*/
 #include "vcu.h"
+#include "vcu_config.h"
+#include "stm32g441xx.h"
+#include "stm32g4xx_hal_adc.h"
+#include "stm32g4xx_hal_adc_ex.h"
 
-/* USER CODE BEGIN Includes */
 
-/* USER CODE END Includes */
+/*
+ * Maps pin to ADC channel only (ADC handle specifies the peripheral)
+ */
+typedef enum {
+    ADC_PA0_IN1  = ADC_CHANNEL_1,   /* ADC1 or ADC2 */
+    ADC_PA1_IN2  = ADC_CHANNEL_2,   /* ADC1 or ADC2 */
+    ADC_PA2_IN3  = ADC_CHANNEL_3,   /* ADC1 only */
+    ADC_PA3_IN4  = ADC_CHANNEL_4,   /* ADC1 only */
+    ADC_PA4_IN17 = ADC_CHANNEL_17,  /* ADC2 only */
+    ADC_PA5_IN13 = ADC_CHANNEL_13,  /* ADC2 only */
+    ADC_PA6_IN3  = ADC_CHANNEL_3,   /* ADC2 only — same channel as PA2 on ADC1 */
+    ADC_PA7_IN4  = ADC_CHANNEL_4,   /* ADC2 only — same channel as PA3 on ADC1 */
+    ADC_PB0_IN15 = ADC_CHANNEL_15,  /* ADC1 only */
+} adc_pin_e;
+
+HAL_StatusTypeDef vcu_adc_init(void);
 
 extern ADC_HandleTypeDef hadc1;
-
-extern ADC_HandleTypeDef hadc2;
-
-/* USER CODE BEGIN Private defines */
-
-/* USER CODE END Private defines */
-
-void ADC1_Init(void);
-void ADC2_Init(void);
-
-/* USER CODE BEGIN Prototypes */
-
-/* USER CODE END Prototypes */
 
 #ifdef __cplusplus
 }

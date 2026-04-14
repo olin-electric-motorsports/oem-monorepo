@@ -1,7 +1,3 @@
-// #include "libs/adc/api.h"
-// #include "libs/gpio/api.h"
-// #include "libs/gpio/pin_defs.h"
-// #include "libs/timer/api.h"
 #ifndef VCU_H
 #define VCU_H
 
@@ -16,16 +12,6 @@ typedef enum {
     VCU_MODE_FAULT,
     VCU_MODE_RUN,
 } vcu_mode_e;
-
-// // all possible throttle states
-// enum State {
-//     THROTTLE_IDLE,
-//     THROTTLE_RUN,
-//     THROTTLE_L_OUT_OF_RANGE,
-//     THROTTLE_R_OUT_OF_RANGE,
-//     THROTTLE_POSITION_IMPLAUSIBILITY,
-//     THROTTLE_BRAKE_PRESSED
-// };
 
 /*
  * Fault bits stored in vcu_state_s::fault_bits.
@@ -46,24 +32,69 @@ typedef enum {
  * HAL handles are provided by board/app initialization and passed into vcu_init().
  */
 typedef struct {
-    ADC_HandleTypeDef* hadc_apps1;
-    ADC_HandleTypeDef* hadc_apps2;
+    ADC_HandleTypeDef* hadc_throttle_l;
+    uint16_t throttle_l_channel; // Variable type verification required
 
-    GPIO_PinState ss_inertia_closed_state;
-    GPIO_PinState indicator_led_active_state;
-    GPIO_PinState heartbeat_led_active_state;
+    ADC_HandleTypeDef* hadc_throttle_r;
+    uint16_t throttle_r_channel; // Variable type verification required
+    
+    GPIO_TypeDef* ss_is_port;
+    uint16_t ss_is_pin;
+    GPIO_PinState ss_is_closed_state;
+
+    GPIO_TypeDef* heartbeat_led_port;
+    uint16_t heartbeat_led_pin;
+
+    GPIO_TypeDef* error_led_port;
+    uint16_t error_led_pin;
+} vcu_hw_s;
+
+
+/*
+ * Full runtime state of the VCU core.
+ * This struct is both internal state and the payload for debug/status publish hooks.
+ */
+typedef struct {
+    int16_t throttle_l_raw;
+    int16_t throttle_r_raw;
+
+    int16_t throttle_l_scaled;
+    int16_t throttle_r_scaled;
+
+    bool throttle_range_invalid;
+    bool throttle_l_out_of_range;
+    bool throttle_r_out_of_range;
+    bool throttles_mismatch;
+    bool throttle_implaus_latched;
+
+    int16_t torque_command;
+    bool heartbeat;
+    uint16_t heartbeat_elapsed_ms;
+
+    uint16_t throttle_implaus_timer_ms;
+
+    uint32_t fault_bits;
+    uint32_t blocking_fault_bits;
+    vcu_mode_e mode;
+    uint16_t inverter_command_publish_elapsed_ms;
 } vcu_state_s;
+
+extern vcu_state_s s_state;
+extern vcu_hw_s s_hw;
+
 
 // PA0 or ADC1_IN1?
 
 
 /* Configure the system clock */
-void SystemClock_Config(void);
-
 void ErrorHandler(void);
-
-void SystemClockConfig(void);
-
 void SysTick_Handler(void);
+void SystemClockConfig(void);
+HAL_StatusTypeDef vcu_init(void);
+HAL_StatusTypeDef vcu_step_1ms(void);
+HAL_StatusTypeDef vcu_step_10ms(void);
+
+#define Error_Handler ErrorHandler
+#define SystemClock_Config SystemClockConfig
 
 #endif // VCU_H

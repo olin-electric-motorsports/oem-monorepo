@@ -131,4 +131,4 @@ fi
 EOF
 chmod +x "$HOOKS_DIR/pre-push"
 
-echo "Hooks installed with Rebase Safety check."
+echo "Git Hooks installed"

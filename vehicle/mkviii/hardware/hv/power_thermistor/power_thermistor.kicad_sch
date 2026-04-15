@@ -389,6 +389,18 @@
 		(color 0 0 0 0)
 		(uuid "36362cf3-491e-459f-b626-7bb6f344b88f")
 	)
+	(junction
+		(at 59.69 139.7)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9b832348-b845-4182-8f34-b221af8e37b1")
+	)
+	(junction
+		(at 80.01 137.16)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e4741eff-ad57-475b-a424-850d1d1b3041")
+	)
 	(no_connect
 		(at 59.69 151.13)
 		(uuid "14624384-0f55-470f-8446-3c574a54c588")
@@ -418,6 +430,16 @@
 			(type default)
 		)
 		(uuid "199c4fbd-bbb8-482c-bfea-7e4694f87aeb")
+	)
+	(wire
+		(pts
+			(xy 59.69 139.7) (xy 86.36 139.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1f367405-ba6c-4a5e-b3d6-0ee174aaf3a6")
 	)
 	(wire
 		(pts
@@ -471,7 +493,7 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 132.08) (xy 59.69 146.05)
+			(xy 59.69 132.08) (xy 59.69 139.7)
 		)
 		(stroke
 			(width 0)
@@ -491,13 +513,33 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 146.05) (xy 80.01 135.89)
+			(xy 80.01 146.05) (xy 80.01 137.16)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "b0a94826-766b-4f9f-9d82-ac53a1fceb8e")
+	)
+	(wire
+		(pts
+			(xy 59.69 139.7) (xy 59.69 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c09f1b62-7a2e-486a-9922-49c1790536a1")
+	)
+	(wire
+		(pts
+			(xy 80.01 137.16) (xy 80.01 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c0bcfb08-33bd-4740-839b-822911b02938")
 	)
 	(wire
 		(pts
@@ -518,6 +560,16 @@
 			(type default)
 		)
 		(uuid "ce5d716a-a34f-4658-87a5-c54a3540402d")
+	)
+	(wire
+		(pts
+			(xy 80.01 137.16) (xy 86.36 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d05ec6c0-b73f-4beb-9ec5-62d169aacc26")
 	)
 	(wire
 		(pts
@@ -770,6 +822,88 @@
 			(project "power_thermistor"
 				(path "/9871410e-0b94-49cd-ba7d-079975b9e567"
 					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:J_Molex_Header_01x02_VT")
+		(at 91.44 138.43 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a06cd3ae-cdce-431e-9763-eeafc48741fe")
+		(property "Reference" "J6"
+			(at 95.25 137.1599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "J_Molex_Header_01x02_VT"
+			(at 95.25 139.6999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:J_Molex_Header_01x02_VT - 43045-02YY_121314"
+			(at 107.95 233.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.molex.com/pdm_docs/sd/430450612_sd.pdf"
+			(at 107.95 333.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "CONN HEADER VERT 2POS"
+			(at 82.55 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "43045-0212"
+			(at 107.95 933.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "033a5e54-41af-459b-808a-c2ffae722acc")
+		)
+		(pin "1"
+			(uuid "27052f86-9aef-4ae2-8254-5d6eb1a72b5d")
+		)
+		(instances
+			(project "power_thermistor"
+				(path "/9871410e-0b94-49cd-ba7d-079975b9e567"
+					(reference "J6")
 					(unit 1)
 				)
 			)

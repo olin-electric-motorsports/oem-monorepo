@@ -1,5 +1,11 @@
 #include "gpio.h"
 
+static void gpio_init(GPIO_TypeDef* port,
+                      uint16_t pin,
+                      uint32_t mode,
+                      uint32_t pull,
+                      uint32_t speed);
+
 HAL_StatusTypeDef vcu_gpio_init(void)
 {
   /* GPIO Ports Clock Enable */

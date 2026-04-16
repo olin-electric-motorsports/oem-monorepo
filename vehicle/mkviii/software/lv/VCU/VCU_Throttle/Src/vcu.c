@@ -50,17 +50,10 @@ HAL_StatusTypeDef vcu_step_1ms(void) {
 
 static void vcu_read_inputs_1ms(void) {
     // Read raw data from potentiometers
-    int16_t throttle_l_raw = adc_read(s_hw.hadc_throttle_l, s_hw.throttle_l_channel);
+    int16_t throttle_l_raw = (int16_t)oem_adc_read(s_hw.hadc_throttle_l);
     s_state.throttle_l_raw = throttle_l_raw;
-    int16_t throttle_r_raw = adc_read(s_hw.hadc_throttle_r, s_hw.throttle_r_channel);
+    int16_t throttle_r_raw = (int16_t)oem_adc_read(s_hw.hadc_throttle_r);
     s_state.throttle_r_raw = throttle_r_raw;
-
-    // Scale the raw data
-    int16_t range_l = THROTTLE_L_MAX_COUNTS - THROTTLE_L_MIN_COUNTS;
-    int16_t range_r = THROTTLE_R_MAX_COUNTS - THROTTLE_R_MIN_COUNTS;
-    // Make those variables be constants in the future
-    int32_t throttle_l_scaled = ((int32_t)(throttle_l_raw >> 2) - THROTTLE_L_MIN_COUNTS) * MAX_THROTTLE_POS;
-    int32_t throttle_r_scaled = ((int32_t)(throttle_r_raw >> 2) - THROTTLE_R_MIN_COUNTS) * MAX_THROTTLE_POS;
 
     int16_t raw_l = (int16_t)(throttle_l_raw >> 2);
     int16_t raw_r = (int16_t)(throttle_r_raw >> 2);
@@ -71,6 +64,8 @@ static void vcu_read_inputs_1ms(void) {
     if (range_l <= 0 || range_r <= 0){
         s_state.throttle_range_invalid = true;
         Error_Handler();
+    } else {
+        s_state.throttle_range_invalid = false;
     }
 
     int32_t scaled_l = (int32_t)(raw_l - THROTTLE_L_MIN_COUNTS) * MAX_THROTTLE_POS;
@@ -89,21 +84,21 @@ static void vcu_read_inputs_1ms(void) {
     }
 
     // Check if out of range
-    if (throttle_l_scaled > MAX_THROTTLE_POS) {
-        throttle_l_scaled = MAX_THROTTLE_POS;
+    if (scaled_l > MAX_THROTTLE_POS) {
+        scaled_l = MAX_THROTTLE_POS;
         s_state.throttle_l_out_of_range = true;
-    } else if (throttle_l_scaled < MIN_THROTTLE_POS) {
-        throttle_l_scaled = MIN_THROTTLE_POS;
+    } else if (scaled_l < MIN_THROTTLE_POS) {
+        scaled_l = MIN_THROTTLE_POS;
         s_state.throttle_l_out_of_range = true;
     } else {
         s_state.throttle_l_out_of_range = false;
     }
 
-    if (throttle_r_scaled > MAX_THROTTLE_POS) {
-        throttle_r_scaled = MAX_THROTTLE_POS;
+    if (scaled_r > MAX_THROTTLE_POS) {
+        scaled_r = MAX_THROTTLE_POS;
         s_state.throttle_r_out_of_range = true;
-    } else if (throttle_r_scaled < MIN_THROTTLE_POS) {
-        throttle_r_scaled = MIN_THROTTLE_POS;
+    } else if (scaled_r < MIN_THROTTLE_POS) {
+        scaled_r = MIN_THROTTLE_POS;
         s_state.throttle_r_out_of_range = true;
     } else {
         s_state.throttle_r_out_of_range = false;
@@ -113,7 +108,7 @@ static void vcu_read_inputs_1ms(void) {
     s_state.throttle_r_scaled = scaled_r;
 
     // Check if mismatch
-    int16_t throttle_diff = vcu_abs_diff_16(throttle_l_scaled, throttle_r_scaled);
+    int16_t throttle_diff = vcu_abs_diff_16((int16_t)scaled_l, (int16_t)scaled_r);
     s_state.throttles_mismatch = throttle_diff > APPS_IMPLAUSIBILITY_DEVIATION_THRESHOLD;
 }
 
@@ -193,8 +188,7 @@ HAL_StatusTypeDef vcu_init(void) {
 
     if (s_hw.hadc_throttle_l == NULL || s_hw.hadc_throttle_r == NULL
         || s_hw.ss_is_port == NULL || s_hw.error_led_port == NULL
-        || s_hw.heartbeat_led_port == NULL || s_hw.throttle_l_channel == 0u
-        || s_hw.throttle_r_channel == 0u || s_hw.ss_is_pin == 0u
+        || s_hw.heartbeat_led_port == NULL || s_hw.ss_is_pin == 0u
         || s_hw.error_led_pin == 0u || s_hw.heartbeat_led_pin == 0u) {
         s_state.mode = VCU_MODE_FAULT;
         return HAL_ERROR;

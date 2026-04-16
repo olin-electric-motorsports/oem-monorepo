@@ -1,6 +1,7 @@
 #ifndef VCU_H
 #define VCU_H
 
+#include "common/adc/adc.h"
 #include "stm32g4xx_hal.h"
 #include <stdbool.h>
 #include <stdint.h>
@@ -32,11 +33,8 @@ typedef enum {
  * HAL handles are provided by board/app initialization and passed into vcu_init().
  */
 typedef struct {
-    ADC_HandleTypeDef* hadc_throttle_l;
-    uint16_t throttle_l_channel; // Variable type verification required
-
-    ADC_HandleTypeDef* hadc_throttle_r;
-    uint16_t throttle_r_channel; // Variable type verification required
+    oem_adc_config_t* hadc_throttle_l;
+    oem_adc_config_t* hadc_throttle_r;
     
     GPIO_TypeDef* ss_is_port;
     uint16_t ss_is_pin;

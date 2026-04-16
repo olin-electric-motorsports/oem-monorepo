@@ -5,9 +5,9 @@
 extern "C" {
 #endif
 
-#include "vcu.h"
-#include "vcu_config.h"
+#include "common/adc/adc.h"
 #include "stm32g441xx.h"
+#include "stm32g4xx_hal.h"
 #include "stm32g4xx_hal_adc.h"
 #include "stm32g4xx_hal_adc_ex.h"
 
@@ -28,8 +28,6 @@ typedef enum {
 } adc_pin_e;
 
 HAL_StatusTypeDef vcu_adc_init(void);
-
-extern ADC_HandleTypeDef hadc1;
 
 #ifdef __cplusplus
 }

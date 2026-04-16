@@ -1,20 +1,29 @@
 #include "adc.h"
+#include "vcu.h"
 
-ADC_HandleTypeDef hadc1;
+static oem_adc_config_t s_throttle_l_adc = {
+  .adc_instance = VCU_THROTTLE_ADC_INSTANCE,
+  .port = VCU_THROTTLE_L_ADC_PORT,
+  .pin = VCU_THROTTLE_L_ADC_PIN,
+  .channel = VCU_THROTTLE_L_ADC_CHANNEL,
+  .sample_time = VCU_THROTTLE_ADC_SAMPLE_TIME,
+};
+
+static oem_adc_config_t s_throttle_r_adc = {
+  .adc_instance = VCU_THROTTLE_ADC_INSTANCE,
+  .port = VCU_THROTTLE_R_ADC_PORT,
+  .pin = VCU_THROTTLE_R_ADC_PIN,
+  .channel = VCU_THROTTLE_R_ADC_CHANNEL,
+  .sample_time = VCU_THROTTLE_ADC_SAMPLE_TIME,
+};
 
 HAL_StatusTypeDef vcu_adc_init(void)
 {
-  // How to initialize hadc1?
+  oem_adc_init(&s_throttle_l_adc);
+  oem_adc_init(&s_throttle_r_adc);
 
-  if (adc_init(&hadc1) != HAL_OK){
-    return HAL_ERROR;
-  }
-
-  s_hw.hadc_throttle_l = &hadc1;
-  s_hw.throttle_l_channel = VCU_THROTTLE_L_ADC_CHANNEL;
-
-  s_hw.hadc_throttle_r = &hadc1;
-  s_hw.throttle_r_channel = VCU_THROTTLE_R_ADC_CHANNEL;
+  s_hw.hadc_throttle_l = &s_throttle_l_adc;
+  s_hw.hadc_throttle_r = &s_throttle_r_adc;
 
   return HAL_OK;
 }

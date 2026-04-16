@@ -6,9 +6,9 @@
 	(paper "A4")
 	(title_block
 		(title "Power-Thermistor")
-		(date "2026-02-02")
-		(rev "2")
-		(comment 1 "Revised by Liam Fries")
+		(date "2026-04-15")
+		(rev "2.1")
+		(comment 1 "Revised by Liam Fries + Jacob Likins")
 		(comment 2 "Jake Hamilton")
 	)
 	(lib_symbols
@@ -317,6 +317,130 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "OEM:J_Wurth_Redcube"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "J_Redcube"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "OEM:Wurth-7461115"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.we-online.com/components/products/datasheet/7461115.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "TERM REDCUBE 25PIN PCB RA"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MPN" "7461115"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "J_Wurth_Redcube_1_1"
+				(polyline
+					(pts
+						(xy -1.27 0) (xy -0.508 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -0.508)
+					(mid -0.5058 0)
+					(end 0 0.508)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "formula:200mA_Fuse"
 			(pin_names
 				(offset 1.016)
@@ -593,7 +717,7 @@
 		(at 73.66 69.85)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "a0e6de08-b6a5-468f-b84f-253b723b732f")
+		(uuid "c25de76a-ed82-4f8a-bf6d-95d5d371cec6")
 	)
 	(bus_entry
 		(at 200.66 39.37)
@@ -2449,6 +2573,80 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:J_Wurth_Redcube")
+		(at 236.22 33.02 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "281bf8b3-5e13-4f13-9244-223ae43322d3")
+		(property "Reference" "J23"
+			(at 236.855 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "J_Redcube"
+			(at 236.855 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:Wurth-7461115"
+			(at 236.22 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/7461115.pdf"
+			(at 236.22 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "TERM REDCUBE 25PIN PCB RA"
+			(at 236.22 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "7461115"
+			(at 236.22 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "72d1ced5-aa3e-4269-b6a4-e001c7ec2ec0")
+		)
+		(instances
+			(project "power_thermistor"
+				(path "/9871410e-0b94-49cd-ba7d-079975b9e567/527cbe40-fc1c-43ac-87b7-ccac5898a8e8"
+					(reference "J23")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:J_Battery_Cell_Spot_Weld")
 		(at 73.66 49.53 90)
 		(unit 1)
@@ -4041,70 +4239,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:J_Battery_Cell_Spot_Weld")
-		(at 73.66 69.85 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "84329331-d525-44c0-8ac8-01cc1861adce")
-		(property "Reference" "J20"
-			(at 73.66 99.568 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Battery Cell Spot Weld"
-			(at 73.914 85.852 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OEM:J_Bond_Pad_4p"
-			(at 68.58 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 68.58 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Battery Cell Spot Weld"
-			(at 73.66 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c7d75583-92c7-460d-86e6-0dfce583e23a")
-		)
-		(instances
-			(project "power_thermistor"
-				(path "/9871410e-0b94-49cd-ba7d-079975b9e567/527cbe40-fc1c-43ac-87b7-ccac5898a8e8"
-					(reference "J20")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Jumper:SolderJumper_2_Bridged")
 		(at 111.76 57.15 0)
 		(unit 1)
@@ -4867,7 +5001,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a940ca06-4198-402e-954c-0e875a7b0f99")
-		(property "Reference" "#PWR?"
+		(property "Reference" "#PWR0133"
 			(at 265.43 41.91 0)
 			(effects
 				(font
@@ -4917,7 +5051,7 @@
 		(instances
 			(project "power_thermistor"
 				(path "/9871410e-0b94-49cd-ba7d-079975b9e567/527cbe40-fc1c-43ac-87b7-ccac5898a8e8"
-					(reference "#PWR?")
+					(reference "#PWR0133")
 					(unit 1)
 				)
 			)
@@ -5977,70 +6111,6 @@
 	)
 	(symbol
 		(lib_id "OEM:J_Battery_Cell_Spot_Weld")
-		(at 241.3 33.02 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e4f181b5-7a69-4a28-9115-edaf39c73311")
-		(property "Reference" "J23"
-			(at 211.582 33.02 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Battery Cell Spot Weld"
-			(at 225.298 33.274 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OEM:J_Bond_Pad_4p"
-			(at 241.3 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 241.3 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Battery Cell Spot Weld"
-			(at 241.3 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "662f2650-945c-4552-867d-d91c9d76036f")
-		)
-		(instances
-			(project "power_thermistor"
-				(path "/9871410e-0b94-49cd-ba7d-079975b9e567/527cbe40-fc1c-43ac-87b7-ccac5898a8e8"
-					(reference "J23")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:J_Battery_Cell_Spot_Weld")
 		(at 73.66 57.15 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6205,6 +6275,82 @@
 			(project "power_thermistor"
 				(path "/9871410e-0b94-49cd-ba7d-079975b9e567/527cbe40-fc1c-43ac-87b7-ccac5898a8e8"
 					(reference "F1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:J_Wurth_Redcube")
+		(at 73.66 74.93 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fe20c75e-214d-411c-986b-f251fcf38b38")
+		(property "Reference" "J20"
+			(at 74.93 73.0249 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "J_Redcube"
+			(at 74.93 75.5649 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:Wurth-7461115"
+			(at 73.66 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/7461115.pdf"
+			(at 73.66 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "TERM REDCUBE 25PIN PCB RA"
+			(at 73.66 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "7461115"
+			(at 73.66 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a6304e2c-5524-4083-8fdd-debe9231d383")
+		)
+		(instances
+			(project "power_thermistor"
+				(path "/9871410e-0b94-49cd-ba7d-079975b9e567/527cbe40-fc1c-43ac-87b7-ccac5898a8e8"
+					(reference "J20")
 					(unit 1)
 				)
 			)

@@ -21,11 +21,7 @@ typedef enum {
  */
 typedef enum {
     VCU_FAULT_NONE = 0u,
-    VCU_FAULT_APPS1_OUT_OF_RANGE = (1u << 0),
-    VCU_FAULT_APPS2_OUT_OF_RANGE = (1u << 1),
-    VCU_FAULT_APPS_MISMATCH = (1u << 2),
-    VCU_FAULT_APPS_TIMEOUT_LATCHED = (1u << 3),
-    VCU_FAULT_INERTIA_SWITCH_OPEN = (1u << 4),
+    VCU_FAULT_BSPD_POWER_LATCHED = (1u << 5)
 } vcu_fault_bit_e;
 
 /*
@@ -33,17 +29,33 @@ typedef enum {
  * HAL handles are provided by board/app initialization and passed into vcu_init().
  */
 typedef struct {
-    oem_adc_config_t* hadc_throttle_l;
-    oem_adc_config_t* hadc_throttle_r;
-    
-    GPIO_TypeDef* ss_is_port;
-    uint16_t ss_is_pin;
+    GPIO_TypeDef* brake_ll_led_port;
+    uint16_t brake_ll_led_pin;
+
+    GPIO_TypeDef* motor_5kw_led_port;
+    uint16_t motor_5kw_led_pin;
 
     GPIO_TypeDef* heartbeat_led_port;
     uint16_t heartbeat_led_pin;
 
     GPIO_TypeDef* error_led_port;
     uint16_t error_led_pin;
+
+    GPIO_TypeDef* bspd_ll_port;
+    uint16_t bspd_ll_pin;
+
+    GPIO_TypeDef* brakelight_ll_port;
+    uint16_t brakelight_ll_pin;
+
+    GPIO_TypeDef* motor_current_sense_port;
+    uint16_t motor_current_sense_pin;
+
+    GPIO_TypeDef* bspd_shutdown_sense_port;
+    uint16_t bspd_shutdown_sense_pin;
+
+    oem_adc_config_t* hadc_brake_press_sense;
+    oem_adc_config_t* hadc_brake_press_sense_ftr;
+    oem_adc_config_t* hadc_rc_timer_status;
 } vcu_hw_s;
 
 
@@ -52,23 +64,17 @@ typedef struct {
  * This struct is both internal state and the payload for debug/status publish hooks.
  */
 typedef struct {
-    int16_t throttle_l_raw;
-    int16_t throttle_r_raw;
+    uint16_t brake_press_sense;
+    uint16_t brake_press_sense_ftr;
+    uint16_t rc_timer_status;
 
-    int16_t throttle_l_scaled;
-    int16_t throttle_r_scaled;
+    bool brake_gate;
+    bool bspd_5kw;
+    bool ss_bspd;
+    bool bspd_latched;
 
-    bool throttle_range_invalid;
-    bool throttle_l_out_of_range;
-    bool throttle_r_out_of_range;
-    bool throttles_mismatch;
-    bool throttle_implaus_latched;
-
-    int16_t torque_command;
     bool heartbeat;
     uint16_t heartbeat_elapsed_ms;
-
-    uint16_t throttle_implaus_timer_ms;
 
     uint32_t fault_bits;
     uint32_t blocking_fault_bits;

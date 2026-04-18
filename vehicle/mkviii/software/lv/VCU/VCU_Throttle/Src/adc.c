@@ -2,7 +2,7 @@
 #include "vcu.h"
 
 static oem_adc_config_t s_throttle_l_adc = {
-  .adc_instance = VCU_THROTTLE_ADC_INSTANCE,
+  .adc_instance = VCU_THROTTLE_L_ADC_INSTANCE,
   .port = VCU_THROTTLE_L_ADC_PORT,
   .pin = VCU_THROTTLE_L_ADC_PIN,
   .channel = VCU_THROTTLE_L_ADC_CHANNEL,
@@ -10,7 +10,7 @@ static oem_adc_config_t s_throttle_l_adc = {
 };
 
 static oem_adc_config_t s_throttle_r_adc = {
-  .adc_instance = VCU_THROTTLE_ADC_INSTANCE,
+  .adc_instance = VCU_THROTTLE_R_ADC_INSTANCE,
   .port = VCU_THROTTLE_R_ADC_PORT,
   .pin = VCU_THROTTLE_R_ADC_PIN,
   .channel = VCU_THROTTLE_R_ADC_CHANNEL,

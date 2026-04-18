@@ -49,100 +49,22 @@ HAL_StatusTypeDef vcu_step_1ms(void) {
 }
 
 static void vcu_read_inputs_1ms(void) {
-    // Read raw data from potentiometers
-    // Are we still using int16 instead of uint16
-    int16_t throttle_l_raw = (int16_t)oem_adc_read(s_hw.hadc_throttle_l);
-    s_state.throttle_l_raw = throttle_l_raw;
-    int16_t throttle_r_raw = (int16_t)oem_adc_read(s_hw.hadc_throttle_r);
-    s_state.throttle_r_raw = throttle_r_raw;
+    s_state.brake_press_sense = oem_adc_read(s_hw.hadc_brake_press_sense);
+    s_state.brake_press_sense_ftr = oem_adc_read(s_hw.hadc_brake_press_sense_ftr);
+    s_state.rc_timer_status = oem_adc_read(s_hw.hadc_rc_timer_status);
+    
+    s_state.brake_gate = !!HAL_GPIO_ReadPin(s_hw.brakelight_ll_port, s_hw.brakelight_ll_pin);
+    s_state.bspd_5kw = !!HAL_GPIO_ReadPin(s_hw.motor_current_sense_port, s_hw.motor_current_sense_pin);
 
-    int16_t raw_l = (int16_t)(throttle_l_raw >> 2);
-    int16_t raw_r = (int16_t)(throttle_r_raw >> 2);
-
-    int16_t range_l = THROTTLE_L_MAX_COUNTS - THROTTLE_L_MIN_COUNTS;
-    int16_t range_r = THROTTLE_R_MAX_COUNTS - THROTTLE_R_MIN_COUNTS;
-
-    if (range_l <= 0 || range_r <= 0){
-        s_state.throttle_range_invalid = true;
-        Error_Handler();
-    } else {
-        s_state.throttle_range_invalid = false;
-    }
-
-    int32_t scaled_l = (int32_t)(raw_l - THROTTLE_L_MIN_COUNTS) * MAX_THROTTLE_POS;
-    int32_t scaled_r = (int32_t)(raw_r - THROTTLE_R_MIN_COUNTS) * MAX_THROTTLE_POS;
-
-    if (scaled_l < 0) {
-        scaled_l = -(int32_t)((-scaled_l + range_l - 1) / range_l);
-    } else {
-        scaled_l = scaled_l / range_l;
-    }
-
-    if (scaled_r < 0) {
-        scaled_r = -(int32_t)((-scaled_r + range_r - 1) / range_r);
-    } else {
-        scaled_r = scaled_r / range_r;
-    }
-
-    // Check if out of range
-    if (scaled_l > MAX_THROTTLE_POS) {
-        scaled_l = MAX_THROTTLE_POS;
-        s_state.throttle_l_out_of_range = true;
-    } else if (scaled_l < MIN_THROTTLE_POS) {
-        scaled_l = MIN_THROTTLE_POS;
-        s_state.throttle_l_out_of_range = true;
-    } else {
-        s_state.throttle_l_out_of_range = false;
-    }
-
-    if (scaled_r > MAX_THROTTLE_POS) {
-        scaled_r = MAX_THROTTLE_POS;
-        s_state.throttle_r_out_of_range = true;
-    } else if (scaled_r < MIN_THROTTLE_POS) {
-        scaled_r = MIN_THROTTLE_POS;
-        s_state.throttle_r_out_of_range = true;
-    } else {
-        s_state.throttle_r_out_of_range = false;
-    }
-
-    s_state.throttle_l_scaled = scaled_l;
-    s_state.throttle_r_scaled = scaled_r;
-
-    // Check if mismatch
-    int16_t throttle_diff = vcu_abs_diff_16((int16_t)scaled_l, (int16_t)scaled_r);
-    s_state.throttles_mismatch = throttle_diff > APPS_IMPLAUSIBILITY_DEVIATION_THRESHOLD;
+    s_state.ss_bspd = !HAL_GPIO_ReadPin(s_hw.bspd_shutdown_sense_port, s_hw.bspd_shutdown_sense_pin);
+    s_state.bspd_latched = !HAL_GPIO_ReadPin(s_hw.bspd_ll_port, s_hw.bspd_ll_pin);
 }
 
 static void vcu_update_fault_manager_1ms() {
     uint32_t fault_bits = VCU_FAULT_NONE;
-    bool throttle_implausible_now = false;
-
-    throttle_implausible_now = 
-        s_state.throttle_l_out_of_range || 
-        s_state.throttle_r_out_of_range || 
-        s_state.throttles_mismatch;
-
-    if (s_state.throttle_l_out_of_range) {
-        fault_bits |= VCU_FAULT_APPS1_OUT_OF_RANGE;
-    }
-    if (s_state.throttle_r_out_of_range) {
-        fault_bits |= VCU_FAULT_APPS2_OUT_OF_RANGE;
-    }
-    if (s_state.throttles_mismatch) {
-        fault_bits |= VCU_FAULT_APPS_MISMATCH;
-    }
-
-    if (throttle_implausible_now) {
-        s_state.throttle_implaus_timer_ms++;
-        if (s_state.throttle_implaus_timer_ms >= IMPLAUSIBILITY_TIME_LIMIT) {
-            s_state.throttle_implaus_latched = true;
-        }
-    } else {
-        s_state.throttle_implaus_timer_ms = 0;
-    }
-
-    if (s_state.throttle_implaus_latched) {
-        fault_bits |= VCU_FAULT_APPS_TIMEOUT_LATCHED;
+    
+    if (s_state.bspd_latched) {
+        fault_bits |= VCU_FAULT_BSPD_POWER_LATCHED;
     }
 
     s_state.fault_bits = fault_bits;
@@ -152,7 +74,7 @@ static void vcu_update_fault_manager_1ms() {
 static void vcu_apply_outputs(void){
     if (s_state.fault_bits != 0u) {
         HAL_GPIO_WritePin(s_hw.error_led_port, s_hw.error_led_pin, GPIO_PIN_SET);
-        Error_Handler();
+        // Error_Handler();
     } else {
         HAL_GPIO_WritePin(s_hw.error_led_port, s_hw.error_led_pin, GPIO_PIN_RESET);
     }
@@ -161,6 +83,18 @@ static void vcu_apply_outputs(void){
         HAL_GPIO_WritePin(s_hw.heartbeat_led_port, s_hw.heartbeat_led_pin, GPIO_PIN_SET);
     } else {
         HAL_GPIO_WritePin(s_hw.heartbeat_led_port, s_hw.heartbeat_led_pin, GPIO_PIN_RESET);
+    }
+
+    if (s_state.brake_gate) {
+        HAL_GPIO_WritePin(s_hw.brake_ll_led_port, s_hw.brake_ll_led_pin, GPIO_PIN_SET);
+    } else {
+        HAL_GPIO_WritePin(s_hw.brake_ll_led_port, s_hw.brake_ll_led_pin, GPIO_PIN_RESET);
+    }
+
+    if (s_state.bspd_5kw) {
+        HAL_GPIO_WritePin(s_hw.motor_5kw_led_port, s_hw.motor_5kw_led_pin, GPIO_PIN_SET);
+    } else {
+        HAL_GPIO_WritePin(s_hw.motor_5kw_led_port, s_hw.motor_5kw_led_pin, GPIO_PIN_RESET);
     }
 }
 
@@ -187,10 +121,16 @@ HAL_StatusTypeDef vcu_step_10ms(void) {
 HAL_StatusTypeDef vcu_init(void) {
     s_state = (vcu_state_s){0};
 
-    if (s_hw.hadc_throttle_l == NULL || s_hw.hadc_throttle_r == NULL
-        || s_hw.ss_is_port == NULL || s_hw.error_led_port == NULL
-        || s_hw.heartbeat_led_port == NULL || s_hw.ss_is_pin == 0u
-        || s_hw.error_led_pin == 0u || s_hw.heartbeat_led_pin == 0u) {
+    if (s_hw.hadc_brake_press_sense == NULL || s_hw.hadc_brake_press_sense_ftr == NULL
+        || s_hw.hadc_rc_timer_status == NULL || s_hw.brake_ll_led_port == NULL
+        || s_hw.moter_5kw_led_port == NULL || s_hw.error_led_port == NULL
+        || s_hw.heartbeat_led_port == NULL || s_hw.bspd_ll_port == NULL
+        || s_hw.brakelight_ll_port == NULL || s_hw.motor_current_sense_port == NULL
+        || s_hw.bspd_shutdown_sense_port == NULL || s_hw.brake_ll_led_pin == 0u
+        || s_hw.moter_5kw_led_pin == 0u || s_hw.error_led_pin == 0u
+        || s_hw.heartbeat_led_pin == 0u || s_hw.bspd_ll_pin == 0u
+        || s_hw.brakelight_ll_pin == 0u || s_hw.motor_current_sense_pin == 0u
+        || s_hw.bspd_shutdown_sense_pin == 0u) {
         s_state.mode = VCU_MODE_FAULT;
         return HAL_ERROR;
     }
@@ -198,11 +138,8 @@ HAL_StatusTypeDef vcu_init(void) {
     s_state.mode = VCU_MODE_NOT_READY;
     s_state.fault_bits = VCU_FAULT_NONE;
     s_state.blocking_fault_bits = VCU_FAULT_NONE;
-    s_state.torque_command = 0;
     s_state.heartbeat = false;
     s_state.heartbeat_elapsed_ms = 0u;
-    s_state.throttle_implaus_timer_ms = 0u;
-    s_state.throttle_implaus_latched = false;
     s_state.inverter_command_publish_elapsed_ms = 0u;
 
     vcu_apply_outputs();

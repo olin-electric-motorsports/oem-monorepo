@@ -1,8 +1,11 @@
 #include "bms_config.h"
 
-#include "libs/adc/api.h"
-#include "libs/gpio/api.h"
-#include "libs/gpio/pin_defs.h"
+#include "common/adc/api.h"
+#include "common/gpio/api.h"
+
+// #include "libs/adc/api.h"
+// #include "libs/gpio/api.h"
+// #include "libs/gpio/pin_defs.h"
 
 /*
  * PIN DEFINITIONS
@@ -16,10 +19,9 @@ void GpioInit(void){
     // generic structure
     GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-    // configure port A outputs
-    // FAN_PWM (PA0), BMS_RELAY_DRIVE (PA8) 
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0 | GPIO_PIN_8, GPIO_PIN_RESET);
-    GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_8;
+
+    HAL_GPIO_WritePin(GPIOA, FAN_PWM_PIN | BMS_RELAY_DRIVE_PIN | HEARTBEAT_PIN, GPIO_PIN_RESET);
+    GPIO_InitStruct.Pin = FAN_PWM_PIN | BMS_RELAY_DRIVE_PIN | HEARTBEAT_PIN;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP; 
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -27,37 +29,34 @@ void GpioInit(void){
 
     // configure port A inputs
     // BSPD_CURRENT_THRESH (PA9) 
-    GPIO_InitStruct.Pin = GPIO_PIN_9;
-    GPIO_InitStruct.Mode = GPIO_MODE_INPUT_PP; // PP?!?!?!?
-    GPIO_InitStruct.Pull = GPIO_PULLUP;      // pull up?!?!?
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+    GPIO_InitStruct.Pin = BSPD_CURRENT_THRESH_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT; 
+    GPIO_InitStruct.Pull = GPIO_PULLUP; 
+    HAL_GPIO_Init(BSPD_CURRENT_THRESH_PORT, &GPIO_InitStruct);
 
-    // configure port B outputs
-    // Error LED (PB0), CSC_Comms (PB1), Heartbeat (PB2)
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2, GPIO_PIN_RESET);
-    GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2;
+    // port B outputs
+    HAL_GPIO_WritePin(GPIOB, ERROR_LED_PIN | CSC_COMMS_PIN, GPIO_PIN_RESET);
+    GPIO_InitStruct.Pin = ERROR_LED_PIN | CSC_COMMS_PIN;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
+    
     // 04/13/26
     // port B spi
     // ISO_CS (PB3) - Needs to start HIGH
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, GPIO_PIN_SET); // start high so communitation accidentally doesnt start b4 ready
-    GPIO_InitStruct.Pin = GPIO_PIN_3;
+    HAL_GPIO_WritePin(ISO_CS_PORT, ISO_CS_PIN, GPIO_PIN_SET); 
+    GPIO_InitStruct.Pin = ISO_CS_PIN;
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+    HAL_GPIO_Init(ISO_CS_PORT, &GPIO_InitStruct);
 
     // port B spi peripheral pins
     // handles clock and data lines
     // ISO_SCK (PB3), ISO_MISO (PB4), ISO_MOSI (PB5)
     // must be GPIO_MODE_AF_PP for the SPI hardware to work 
-    GPIO_InitStruct.Pin = GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP; // gives control to spi not manual code?
+    GPIO_InitStruct.Pin = ISO_SCK_PIN | ISO_MISO_PIN | ISO_MOSI_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP; 
     GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH; // from spi.c
-    GPIO_InitStruct.Alternate = GPIO_AF5_SPI1; // standard AF for SPI1 on STM32G4 from spi.c
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH; 
+    GPIO_InitStruct.Alternate = GPIO_AF5_SPI1; 
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 }
 
@@ -65,8 +64,8 @@ void GpioInit(void){
 // Based on schematic: ISO_CS is PB3, SPI1 is on Port B 
 oem_spi_config_t bms_spi = {
     .spi_instance = SPI1, 
-    .cs_port = GPIOB,               // ISO_CS is on Port B 
-    .cs_pin = GPIO_PIN_3,           // Pin PB3 
+    .cs_port = ISO_CS_PORT,               
+    .cs_pin = ISO_CS_PIN,           
     .baud_prescaler = SPI_BAUDRATEPRESCALER_64 
 };
 
@@ -75,28 +74,29 @@ oem_spi_config_t bms_spi = {
 // Pre-charge/Discharge temp readings are on PA1 (ADC1_IN2) and PA2 (ADC1_IN3) 
 oem_adc_config_t pre_dis_temp_1 = {
     .adc_instance = ADC1,
-    .port = GPIOA,
-    .pin = GPIO_PIN_1,
+    .port = PRE_DIS_TEMP_1_PORT,
+    .pin = PRE_DIS_TEMP_1_PIN,
     .channel = ADC_CHANNEL_2,
     .sample_time = ADC_SAMPLETIME_47CYCLES_5
 };
 
 oem_adc_config_t pre_dis_temp_2 = {
     .adc_instance = ADC1,
-    .port = GPIOA,
-    .pin = GPIO_PIN_2,
+    .port = PRE_DIS_TEMP_2_PORT,
+    .pin = PRE_DIS_TEMP_2_PIN,
     .channel = ADC_CHANNEL_3,
     .sample_time = ADC_SAMPLETIME_47CYCLES_5
 };
 
-// VOUT_CURRENT_SENSE is on PA5 (ADC2_IN13) 
 oem_adc_config_t current_sense_vout = {
     .adc_instance = ADC2,
-    .port = GPIOA,
-    .pin = GPIO_PIN_5,
+    .port = VOUT_CURRENT_SENSE_PORT,
+    .pin = VOUT_CURRENT_SENSE_PIN,
     .channel = ADC_CHANNEL_13,
     .sample_time = ADC_SAMPLETIME_47CYCLES_5
 };
+
+cell_data_s cell_data = {0};
 
 // new SPI different SPI ?!?!?!
 

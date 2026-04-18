@@ -17,9 +17,14 @@ stm32_firmware(
         "bms.c",
         "bms_config.c",
         "bms.h",
+        "bms_config.h",
         # If you have interrupts specific to example, add them here:
         # "interrupts.c", 
     ],
+    # deps = [
+    #     "//vehicle/common/ltc6811:ltc6811",
+        
+    # ],
 )
 
 # exports_files([

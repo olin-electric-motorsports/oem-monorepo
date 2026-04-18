@@ -10,19 +10,17 @@
 #define PB7_GPIO_Port   GPIOB
 #define PB7_Pin         GPIO_PIN_7
 
+#define PA4_GPIO_Port   GPIOA
+#define PA4_Pin         GPIO_PIN_4
+
 void SystemClockConfig();
 
 // Function Prototypes
 void GpioInit(void);
 void SysTick_Handler(void);
 void SystemClockConfig(void);
-// #ifndef RKH_H
-// #define RKH_H
 
-// #include "stm32g4xx_hal.h"
 
-// #define PB6_GPIO_Port   GPIOB
-// #define PB6_Pin         GPIO_PIN_6
 
 
 // // Function Prototypes

@@ -1,6 +1,8 @@
 #pragma once
 #include "stm32g4xx_hal.h"
 
+#include "common/spi/spi.h"
+
 #define PA1_GPIO_Port   GPIOA
 #define PA1_Pin         GPIO_PIN_1
 
@@ -12,13 +14,4 @@ void SysTick_Handler(void);
 void SystemClockConfig(void);
 
 
-void oem_spi_init(void);
-
-// Pulls the CS pin (PA15) LOW 
-void oem_spi_select(void);
-
-// Pulls the CS pin (PA15) HIGH 
-void oem_spi_deselect(void);
-
-
-int oem_spi_transmit_receive(uint8_t *txData, uint8_t *rxData, uint16_t size);
+extern oem_spi_config_t bms_spi;

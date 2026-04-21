@@ -1,4 +1,5 @@
 #include "spi.h"
+#include <stdbool.h>
 
 // HAL handles for SPI
 static SPI_HandleTypeDef hspi1;
@@ -23,7 +24,7 @@ void oem_spi_init(oem_spi_config_t* config) {
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
     HAL_GPIO_Init(config->cs_port, &GPIO_InitStruct);
 
-    // (PB3=SCK, PB4=MISO, PB5=MOSI)
+    // PB3=SCK, PB4=MISO, PB5=MOSI
     GPIO_InitStruct.Pin = GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_5;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP; 
     GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -59,10 +60,10 @@ void oem_spi_deselect(oem_spi_config_t* config) {
 }
 
 int oem_spi_transmit_receive(oem_spi_config_t* config, uint8_t *txData, uint8_t *rxData, uint16_t size) {
-    // Determine which hardware engine to use
+    // Determine which hardware to use
     SPI_HandleTypeDef* active_hspi;
     if (config->spi_instance == SPI1) active_hspi = &hspi1;
-    else return -1; // Add SPI2 later if needed!
+    else return -1; // Add SPI2 later 
 
     HAL_StatusTypeDef status = HAL_SPI_TransmitReceive(active_hspi, txData, rxData, size, 100);
     return (status == HAL_OK) ? 0 : -1;

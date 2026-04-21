@@ -1,4 +1,4 @@
-#include "spi_example.h"
+#include "spi.h"
 
 // Single Source of Truth for the hardware routing
 oem_spi_config_t bms_spi = {

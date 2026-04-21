@@ -1,4 +1,5 @@
-#include "spi_example.h"
+#include "spi.h"
+#include <stdbool.h>
 
 int main(void) {
     HAL_Init();
@@ -9,7 +10,7 @@ int main(void) {
 
     uint8_t tx_buffer[2] = {0x80, 0x00}; 
     uint8_t rx_buffer[2] = {0};          
-    uint16_t size = 1; // We want to read 1 byte, but we send 2 bytes 
+    uint16_t size = 2; // We want to read 1 byte, but we send 2 bytes 
 
     while (1) {
         // the transaction 

@@ -5,6 +5,7 @@
 #include "bms.h"
 #include "bms_config.h" //added to access SPI 04/18/26
 #include "common/spi/api.h"
+#include <string.h>
 
 int main(void) {
     // 1. Reset of all peripherals, Initializes the Flash interface and the Systick.
@@ -15,6 +16,8 @@ int main(void) {
 
     // 3. Initialize the Heartbeat GPIO pin
     GpioInit();
+    //initialize stm32 timer
+    TimerInit();
 
     // 4. Initialize SPI 04/18/26
     oem_spi_init(&bms_spi);

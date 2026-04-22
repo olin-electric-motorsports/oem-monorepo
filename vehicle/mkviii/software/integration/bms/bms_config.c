@@ -1,7 +1,8 @@
 #include "bms_config.h"
+#include "stm32g4xx_hal_tim.h"
 
-#include "common/adc/api.h"
-#include "common/gpio/api.h"
+TIM_HandleTypeDef htim2;  // Replacement for Timer 0
+TIM_HandleTypeDef htim15; // Replacement for Timer 1 (PWM)
 
 // #include "libs/adc/api.h"
 // #include "libs/gpio/api.h"
@@ -58,6 +59,51 @@ void GpioInit(void){
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH; 
     GPIO_InitStruct.Alternate = GPIO_AF5_SPI1; 
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+}
+
+// timer initialization
+void TimerInit(void) {
+    // --- Timer 2: 10ms Main Loop ---
+    __HAL_RCC_TIM2_CLK_ENABLE();
+
+    htim2.Instance = TIM2;
+    htim2.Init.Prescaler = 15999;           // Clock is 16MHz / 16000 = 1kHz
+    htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+    htim2.Init.Period = 9;                  // 1kHz / 10 = 100Hz (10ms period)
+    htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+    htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+    HAL_TIM_Base_Init(&htim2);
+    
+    // Setup Interrupts for Timer 2
+    HAL_NVIC_SetPriority(TIM2_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(TIM2_IRQn);
+    HAL_TIM_Base_Start_IT(&htim2);
+
+    // --- Timer 15: Fan PWM (Replacement for Timer 1) ---
+    __HAL_RCC_TIM15_CLK_ENABLE();
+
+    htim15.Instance = TIM15;
+    htim15.Init.Prescaler = 0; 
+    htim15.Init.CounterMode = TIM_COUNTERMODE_UP;
+    htim15.Init.Period = 1023;             // 10-bit resolution (0-1023)
+    htim15.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+    HAL_TIM_PWM_Init(&htim15);
+}
+
+// interupt handlers
+void SysTick_Handler(void) {
+    HAL_IncTick(); // Critical for HAL_Delay() to work!
+}
+
+void TIM2_IRQHandler(void) {
+    HAL_TIM_IRQHandler(&htim2);
+}
+
+// callback is called every 10ms by the Timer 2 IRQ
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+    if (htim->Instance == TIM2) {
+        // main safety logic here
+    }
 }
 
 
@@ -165,36 +211,3 @@ cell_data_s cell_data = {0};
 //     .clock_rate = F_OSC_DIV_4,
 //     .cs_pin = &SPI_CS,
 // };
-
-
-
-
-// BLINKY CODE :3
-// #include "bms.h"
-
-// // Function Implementations
-// void GpioInit(void) {
-//     // 1. Enable GPIO Clocks
-//     //  enable Port A because the Heartbeat (PA7) is on Port A
-//     __HAL_RCC_GPIOA_CLK_ENABLE();
-
-//     GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-//     // 2. Initialize Heartbeat Pin
-//     // Ensure the pin starts in a known state (Low/Reset)
-//     HAL_GPIO_WritePin(HEARTBEAT_GPIO_Port, HEARTBEAT_Pin, GPIO_PIN_RESET);
-
-//     GPIO_InitStruct.Pin = HEARTBEAT_Pin;
-//     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;   // Standard Push-Pull Output
-//     GPIO_InitStruct.Pull = GPIO_NOPULL;           // No internal pull-up/down
-//     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;  // Low speed is fine for a blinker
-    
-//     // Apply settings to the hardware
-//     HAL_GPIO_Init(HEARTBEAT_GPIO_Port, &GPIO_InitStruct);
-// }
-
-// void SysTick_Handler(void) {
-//     // This increments the global tick counter every 1ms
-//     // This is required for HAL_Delay() to work
-//     HAL_IncTick();
-// }

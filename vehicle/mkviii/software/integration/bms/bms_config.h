@@ -1,16 +1,14 @@
 #pragma once
 
-// #include "common/adc/api.h"
-// #include "common/gpio/api.h"
-// #include "common/gpio/pin_defs.h"
-// #include "common/spi/api.h"
-// #include "common/timer/api.h"
-// #include "vehicle/common/ltc6811/ltc681x.h"
+#include <stdbool.h>       // For bool, true, false
+#include <stdint.h>        // For uint8_t, int16_t, etc.
+#include "stm32g4xx_hal.h" // The master STM32 HAL header
 
 #include "common/adc/adc.h"
-#include "common/gpio/adc.h"
+#include "common/gpio/api.h"
 #include "common/spi/api.h"
 #include "common/timer/api.h"
+
 #include "vehicle/common/ltc6811/ltc681x.h"
 
 // Pin Defs
@@ -40,6 +38,11 @@
 #define ISO_SCK_PIN              GPIO_PIN_13 // Schematic says SCK is PB13
 #define ISO_MISO_PIN             GPIO_PIN_14 // Schematic says MISO is PB14
 #define ISO_MOSI_PIN             GPIO_PIN_15 // Schematic says MOSI is PB15
+
+extern TIM_HandleTypeDef htim2;  // Timer 0 replacement
+extern TIM_HandleTypeDef htim15; // Timer 1 replacement (PWM)
+
+void TimerInit(void); // Function prototype to set them up
 
 /*
  * Macros
@@ -108,10 +111,10 @@ extern oem_adc_config_t pre_dis_temp_1;      // Mapped to PA1
 extern oem_adc_config_t pre_dis_temp_2;      // Mapped to PA2
 extern oem_adc_config_t current_sense_vout; // Mapped to PA5
 
-void timer0_isr(void);
-extern timer_cfg_s timer0_cfg;
-extern timer_cfg_s timer1_cfg;
-extern spi_cfg_s spi_cfg;
+// void timer0_isr(void);
+// extern timer_cfg_s timer0_cfg;
+// extern timer_cfg_s timer1_cfg;
+// extern spi_cfg_s spi_cfg;
 
 // A little bit of a hacky, truncated version of the cell_asic
 // struct defined by the LTC681X library

@@ -58,9 +58,13 @@
     Library for LTC6811-1 Multicell Battery Monitor
 */
 
+// #include "ltc6811.h"
+// #include "ltc681x.h"
+// #include <stdint.h>
+
 #include "ltc6811.h"
-#include "ltc681x.h"
-#include <stdint.h>
+#include "common/spi/api.h"
+#include "common/gpio/api.h"
 
 /* Initialize the Register limits */
 void LTC6811_init_reg_limits(

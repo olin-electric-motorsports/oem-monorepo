@@ -1,47 +1,17 @@
 #include "charger.h"
-#include "charger_config.h"
 
 #include <string.h>
 
 charger_msg_t chgMsg = {0};
-
 volatile bool send_can = false;
-volatile int flag = 0;
-volatile bool display_target_voltage = true;
-volatile bool display_target_current = false;
-volatile bool display_text_debug = false;
-volatile bool display_text = true;
 
 static uint8_t ten_ms_counter = 0;
+static uint8_t lcd_counter = 0;
 static uint8_t charger_timeout = 0;
 
-void timer0_isr(void) {
-    send_can = true;
-}
-
-void timer2_isr(void) {
-    flag = 1;
-
-    if (display_target_voltage) {
-        if (display_text) {
-            display_text = false;
-        } else {
-            display_text = true;
-            display_target_voltage = false;
-            display_target_current = true;
-        }
-    } else if (display_target_current) {
-        if (display_text) {
-            if (display_text_debug) {
-                display_text = false;
-            }
-            display_text_debug = true;
-        } else {
-            display_text_debug = false;
-            display_text = true;
-            display_target_current = false;
-            display_target_voltage = true;
-        }
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+    if (htim->Instance == CHARGER_MAIN_TIM_INSTANCE) {
+        send_can = true;
     }
 }
 
@@ -50,67 +20,160 @@ void charger_can_init(void) {
     MCP25625_init(&charger_CAN_converter);
 }
 
-void spi_bus_init(void) {
-    oem_spi_init(&display_spi);
+void lcd_spi_init(void) {
+    oem_spi_init(&lcd_spi);
 }
 
-void max7221_write(uint8_t address, uint8_t data) {
-    oem_spi_select(&display_spi);
-    oem_spi_transmit(&display_spi, &address, LENGTH_ADDRESS_SPI);
-    oem_spi_transmit(&display_spi, &data, LENGTH_DATA_SPI);
-    oem_spi_deselect(&display_spi);
+void lcd_write_command(uint8_t command) {
+    HAL_GPIO_WritePin(LCD_DC_GPIO_Port, LCD_DC_Pin, GPIO_PIN_RESET);
+    oem_spi_select(&lcd_spi);
+    oem_spi_transmit(&lcd_spi, &command, 1);
+    oem_spi_deselect(&lcd_spi);
 }
 
-void max7221_init(void) {
-    HAL_GPIO_WritePin(MAX7221_CS_PORT, MAX7221_CS_PIN, GPIO_PIN_SET);
+void lcd_write_data8(uint8_t data) {
+    HAL_GPIO_WritePin(LCD_DC_GPIO_Port, LCD_DC_Pin, GPIO_PIN_SET);
+    oem_spi_select(&lcd_spi);
+    oem_spi_transmit(&lcd_spi, &data, 1);
+    oem_spi_deselect(&lcd_spi);
+}
+
+void lcd_write_data_buffer(const uint8_t *data, uint16_t size) {
+    HAL_GPIO_WritePin(LCD_DC_GPIO_Port, LCD_DC_Pin, GPIO_PIN_SET);
+    oem_spi_select(&lcd_spi);
+    oem_spi_transmit(&lcd_spi, (uint8_t *)data, size);
+    oem_spi_deselect(&lcd_spi);
+}
+
+void lcd_reset(void) {
+    HAL_GPIO_WritePin(LCD_RST_GPIO_Port, LCD_RST_Pin, GPIO_PIN_SET);
+    HAL_Delay(5);
+    HAL_GPIO_WritePin(LCD_RST_GPIO_Port, LCD_RST_Pin, GPIO_PIN_RESET);
     HAL_Delay(20);
-    HAL_GPIO_WritePin(MAX7221_CS_PORT, MAX7221_CS_PIN, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(LCD_RST_GPIO_Port, LCD_RST_Pin, GPIO_PIN_SET);
+    HAL_Delay(120);
+}
+
+void lcd_set_addr_window(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
+    uint8_t data[4];
+
+    lcd_write_command(LCD_CMD_CASET);
+    data[0] = (uint8_t)(x0 >> 8);
+    data[1] = (uint8_t)(x0 & 0xFF);
+    data[2] = (uint8_t)(x1 >> 8);
+    data[3] = (uint8_t)(x1 & 0xFF);
+    lcd_write_data_buffer(data, 4);
+
+    lcd_write_command(LCD_CMD_RASET);
+    data[0] = (uint8_t)(y0 >> 8);
+    data[1] = (uint8_t)(y0 & 0xFF);
+    data[2] = (uint8_t)(y1 >> 8);
+    data[3] = (uint8_t)(y1 & 0xFF);
+    lcd_write_data_buffer(data, 4);
+
+    lcd_write_command(LCD_CMD_RAMWR);
+}
+
+void lcd_fill_screen(uint16_t color) {
+    uint8_t pixel[2];
+    uint32_t count = LCD_WIDTH * LCD_HEIGHT;
+
+    pixel[0] = (uint8_t)(color >> 8);
+    pixel[1] = (uint8_t)(color & 0xFF);
+
+    lcd_set_addr_window(0, 0, LCD_WIDTH - 1, LCD_HEIGHT - 1);
+
+    HAL_GPIO_WritePin(LCD_DC_GPIO_Port, LCD_DC_Pin, GPIO_PIN_SET);
+    oem_spi_select(&lcd_spi);
+    while (count--) {
+        oem_spi_transmit(&lcd_spi, pixel, 2);
+    }
+    oem_spi_deselect(&lcd_spi);
+}
+
+void lcd_init(void) {
+    lcd_reset();
+
+    lcd_write_command(LCD_CMD_SLPOUT);
+    HAL_Delay(100);
+
+    lcd_write_command(LCD_CMD_MADCTL);
+    lcd_write_data8(0x80);
+
+    /*
+     * RGB565 write mode
+     */
+    lcd_write_command(LCD_CMD_COLMOD);
+    lcd_write_data8(0x55);
+
+    lcd_write_command(LCD_CMD_INVON);
+
+    lcd_write_command(LCD_CMD_PORCTRL);
+    lcd_write_data8(0x0C);
+    lcd_write_data8(0x0C);
+    lcd_write_data8(0x00);
+    lcd_write_data8(0x33);
+    lcd_write_data8(0x33);
+
+    lcd_write_command(LCD_CMD_GCTRL);
+    lcd_write_data8(0x35);
+
+    lcd_write_command(LCD_CMD_VCOMS);
+    lcd_write_data8(0x2B);
+
+    lcd_write_command(LCD_CMD_LCMCTRL);
+    lcd_write_data8(0x2C);
+
+    lcd_write_command(LCD_CMD_VDVVRHEN);
+    lcd_write_data8(0x01);
+    lcd_write_data8(0xFF);
+
+    lcd_write_command(LCD_CMD_VRHS);
+    lcd_write_data8(0x11);
+
+    lcd_write_command(LCD_CMD_VDVS);
+    lcd_write_data8(0x20);
+
+    lcd_write_command(LCD_CMD_FRCTRL2);
+    lcd_write_data8(0x0F);
+
+    lcd_write_command(LCD_CMD_PWCTRL1);
+    lcd_write_data8(0xA4);
+    lcd_write_data8(0xA1);
+
+    lcd_write_command(LCD_CMD_DISPON);
     HAL_Delay(20);
-    HAL_GPIO_WritePin(MAX7221_CS_PORT, MAX7221_CS_PIN, GPIO_PIN_SET);
-    HAL_Delay(20);
 
-    max7221_write(DISPLAY_TEST, DISPLAY_TEST_ON);
-    HAL_Delay(500);
-    max7221_write(DISPLAY_TEST, 0x00);
-
-    max7221_write(SHUTDOWN, SHUTDOWN_OFF);
-    max7221_write(DECODE, DECODE_4_DIGITS);
-    max7221_write(SCAN_LIMIT, SCAN_4_DIGITS);
-    max7221_write(INTENSITY, SET_MIN_BRIGHTNESS);
+    lcd_fill_screen(LCD_COLOR_BLACK);
 }
 
-void display_voltage_on_seven_segment(float voltage) {
-    uint16_t voltage_int = (uint16_t)(voltage);
+void lcd_show_status(void) {
+    if (charger_timeout >= 100 ||
+        charging_fbk.hardware_fault ||
+        charging_fbk.temperature_protection ||
+        charging_fbk.input_voltage ||
+        charging_fbk.starting_state ||
+        charging_fbk.communication_state) {
+        lcd_fill_screen(LCD_COLOR_RED);
+        return;
+    }
 
-    uint8_t ones = voltage_int % 10;
-    uint8_t tens = (voltage_int / 10) % 10;
-    uint8_t hundreds = (voltage_int / 100) % 10;
-    uint8_t thousands = (voltage_int / 1000) % 10;
+    if (bms_core.pack_voltage >= (TARGET_PACK_VOLTAGE_V - 5.0f)) {
+        lcd_fill_screen(LCD_COLOR_YELLOW);
+        return;
+    }
 
-    max7221_write(0x01, thousands);
-    max7221_write(0x02, hundreds);
-    max7221_write(0x03, tens);
-    max7221_write(0x04, ones);
-}
-
-void display_pack_on_seven_segment(void) {
-    max7221_write(0x01, 15);
-    max7221_write(0x02, 15);
-    max7221_write(0x03, 14);
-    max7221_write(0x04, 10);
-}
-
-void display_volt_on_seven_segment(void) {
-    max7221_write(0x01, 15);
-    max7221_write(0x02, 15);
-    max7221_write(0x03, 13);
-    max7221_write(0x04, 10);
+    if (charging_cmd.enable) {
+        lcd_fill_screen(LCD_COLOR_GREEN);
+    } else {
+        lcd_fill_screen(LCD_COLOR_BLUE);
+    }
 }
 
 void spi_send_charger(void) {
     uint8_t bytes[8] = {0};
 
-    HAL_GPIO_TogglePin(LED2_PORT, LED2_PIN);
+    HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
 
     bytes[0] = (uint8_t)(((uint16_t)(charging_cmd.max_voltage * 10.0f)) >> 8);
     bytes[1] = (uint8_t)((uint16_t)(charging_cmd.max_voltage * 10.0f));
@@ -122,16 +185,10 @@ void spi_send_charger(void) {
 }
 
 void spi_receive_charger(void) {
-}
-
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-    if (htim->Instance == TIM2) {
-        timer0_isr();
-    }
-
-    if (htim->Instance == TIM15) {
-        timer2_isr();
-    }
+    /*
+     * Placeholder until STM32 MCP25625 RX helpers are finished
+     */
+    chgMsg.valid = false;
 }
 
 int main(void) {
@@ -140,10 +197,9 @@ int main(void) {
     GpioInit();
     TimerInit();
 
-    spi_bus_init();
-    max7221_init();
-
+    lcd_spi_init();
     charger_can_init();
+    lcd_init();
 
     can_init_charger();
 
@@ -153,41 +209,33 @@ int main(void) {
     can_receive_bms_core();
 
     while (1) {
-        if (display_target_voltage) {
-            if (display_text) {
-                display_pack_on_seven_segment();
+        if (!send_can) {
+            continue;
+        }
+
+        send_can = false;
+
+        if (can_poll_receive_bms_core() == 0) {
+            HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+            can_receive_bms_core();
+        }
+
+        if (can_poll_receive_charging_cmd() == 0) {
+            can_receive_charging_cmd();
+            charger_timeout = 0;
+        } else {
+            if (charger_timeout < 100) {
+                charger_timeout++;
             } else {
-                display_voltage_on_seven_segment(bms_core.pack_voltage);
-            }
-        } else if (display_target_current) {
-            if (display_text) {
-                display_volt_on_seven_segment();
-            } else {
-                display_voltage_on_seven_segment(TARGET_PACK_VOLTAGE);
+                charging_cmd.max_voltage = 0;
+                charging_cmd.max_current = 0;
+                charging_cmd.enable = 0;
             }
         }
 
-        if (send_can) {
-            if (can_poll_receive_bms_core() == 0) {
-                HAL_GPIO_WritePin(LED1_PORT, LED1_PIN, GPIO_PIN_SET);
-                can_receive_bms_core();
-            }
+        spi_receive_charger();
 
-            if (can_poll_receive_charging_cmd() == 0) {
-                can_receive_charging_cmd();
-                charger_timeout = 0;
-            } else {
-                if (charger_timeout < 100) {
-                    charger_timeout++;
-                } else {
-                    charging_cmd.max_voltage = 0;
-                    charging_cmd.max_current = 0;
-                    charging_cmd.enable = 0;
-                }
-            }
-
-            spi_receive_charger();
-
+        if (!chgMsg.valid) {
             charging_fbk.charging_voltage = 0;
             charging_fbk.charging_current = 0;
             charging_fbk.hardware_fault = 0;
@@ -195,16 +243,20 @@ int main(void) {
             charging_fbk.input_voltage = 0;
             charging_fbk.starting_state = 0;
             charging_fbk.communication_state = 0;
+        }
 
-            can_send_charging_fbk();
+        can_send_charging_fbk();
 
-            ten_ms_counter++;
-            if (ten_ms_counter == 100) {
-                spi_send_charger();
-                ten_ms_counter = 0;
-            }
+        ten_ms_counter++;
+        if (ten_ms_counter >= 10) {
+            spi_send_charger();
+            ten_ms_counter = 0;
+        }
 
-            send_can = false;
+        lcd_counter++;
+        if (lcd_counter >= 25) {
+            lcd_show_status();
+            lcd_counter = 0;
         }
     }
 

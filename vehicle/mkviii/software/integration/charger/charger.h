@@ -4,9 +4,11 @@
 #include <stdint.h>
 #include "stm32g4xx_hal.h"
 
-#include "common/gpio/api.h"
+/*
 #include "common/spi/api.h"
+
 #include "third_party/MCP25625/MCP25625.h"
+*/
 
 /*
  * =========================
@@ -164,8 +166,11 @@ typedef struct {
 
 extern TIM_HandleTypeDef htim2;
 
+/*
 extern oem_spi_config_t lcd_spi;
 extern oem_spi_config_t charger_spi;
+*/
+
 extern MCP25625 charger_CAN_converter;
 
 extern charger_msg_t chgMsg;

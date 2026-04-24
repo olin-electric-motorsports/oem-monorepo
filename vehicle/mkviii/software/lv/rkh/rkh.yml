@@ -1,17 +1,35 @@
 name: rkh
 subscribe:
-publish:
-  name: message_1
-  id: 0x490 
-  freq_hz: 100
-  signals:
-    - name: dummy_signal
-      slice: 0 + 64 # start_bit + length_of_message
-      unit:
-        type: uint64_t
-        name: 'signal from dev board'
-        offset: 0
-        scale: 1
+  - name: bspd
+  - name: motor_current_sense
+  - name: throttle_l_pos
+  - name: throttle_r_pos 
+  - name: vcu_brake_implaus # should "vcu" be capitalized?
+# publish:
+#   name: rkh_dummy
+#   id: 0x490 
+#   freq_hz: 100
+#   signals:
+#     - name: dummy_signal
+#       slice: 0 + 64 # start_bit + length_of_message
+#       unit:
+#         type: uint64_t
+#         name: 'signal from dev board'
+#         offset: 0
+#         scale: 1
+# publish:
+#   name: bspd_5kw
+#   id: 0x490 
+#   freq_hz: 100
+#   signals:
+#     - name: dummy_signal
+#       slice: 0 + 64 # start_bit + length_of_message
+#       unit:
+#         type: uint64_t
+#         name: 'signal from dev board'
+#         offset: 0
+#         scale: 1
+  
 
 
   # this message has three signals

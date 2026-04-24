@@ -1,6 +1,6 @@
 #pragma once
 #include "stm32g4xx_hal.h"
-#include "can_api_h"
+#include "can_api.h"
 
 #define PB5_GPIO_Port   GPIOB
 #define PB5_Pin         GPIO_PIN_5
@@ -16,7 +16,9 @@
 
 void SystemClockConfig();
 
-// Function Prototypes
+// Function Prototypes - declares inputs and outputs of function
 void GpioInit(void);
 void SysTick_Handler(void);
 void SystemClockConfig(void);
+ // header file for c language
+ // 

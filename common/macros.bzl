@@ -12,6 +12,7 @@ def stm32_firmware(name, srcs = [], deps = []):
         srcs = srcs,
         deps = deps + [
             "//common:stm32g4_core",  # Links startup code & HAL config
+            "//common/adc:adc"
         ],
         additional_linker_inputs = ["//common:linker_script"], 
         linkopts = [
@@ -43,4 +44,10 @@ def stm32_firmware(name, srcs = [], deps = []):
         srcs = ["//common:debug.sh"],
         args = ["$(location :%s)" % name],
         data = [":" + name],
+    )
+
+    start_target_name = name.replace(".elf", "") + "_initialize"
+    native.sh_binary(
+        name = start_target_name,
+        srcs = ["//common:setup_chip.sh"],
     )

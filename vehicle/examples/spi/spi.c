@@ -1,57 +1,51 @@
-#include "spi.h"
-#include <stdbool.h>
+#include "stm32g4xx_hal.h"
+#include "common/spi/spi.h"                 
+#include "vehicle/common/adbms1818/ADBMS1818.h" 
 
-void adbms1818_wakeup(void) {
-    uint8_t dummy_tx[1] = {0xFF};
-    uint8_t dummy_rx[1] = {0};
-    
-    // Tap 1: Wakes the isoSPI transceiver
-    oem_spi_select(&bms_spi);
-    oem_spi_transmit_receive(&bms_spi, dummy_tx, dummy_rx, 1);
-    oem_spi_deselect(&bms_spi);
-    
-    HAL_Delay(2); // Wait for the receiver to power up
-    
-    // Tap 2: Wakes the internal digital core
-    oem_spi_select(&bms_spi);
-    oem_spi_transmit_receive(&bms_spi, dummy_tx, dummy_rx, 1);
-    oem_spi_deselect(&bms_spi);
-    
-    HAL_Delay(3); // Give the core time to boot
-}
+
+extern oem_spi_config_t bms_spi;
+
+#define TOTAL_IC 1
+cell_asic bms_ic[TOTAL_IC];
+
 
 int main(void) {
     HAL_Init();
-    SystemClockConfig();
-    
-    // FIXED: Added &bms_spi
+    //SystemClockConfig();
     oem_spi_init(&bms_spi); 
 
-    // RDCVA Command: 0x00 0x04. Pre-calculated PEC15: 0x07 0xC2
-    uint8_t cmd_tx[4] = {0x00, 0x04, 0x07, 0xC2}; 
-    uint8_t cmd_rx[4] = {0}; 
-    
-    // We expect 8 bytes back: 6 bytes of voltage data (3 cells * 2 bytes) + 2 bytes of PEC
-    // We send 0xFF to keep the clock ticking while we listen
-    uint8_t data_tx[8] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}; 
-    uint8_t data_rx[8] = {0}; 
+        
+    ADBMS1818_init_cfg(TOTAL_IC, bms_ic);
+    ADBMS1818_init_reg_limits(TOTAL_IC, bms_ic);
+
+    // Turn the internal voltage reference ON
+    ADBMS1818_set_cfgr_refon(0, bms_ic, true); 
+
+    // Wake the daisy chain and push the configuration to the hardware
+    wakeup_sleep(TOTAL_IC);
+    ADBMS1818_wrcfg(TOTAL_IC, bms_ic);
+    ADBMS1818_wrcfgb(TOTAL_IC, bms_ic);
 
     while (1) {
-        adbms1818_wakeup();
+        wakeup_sleep(TOTAL_IC);
 
-        oem_spi_select(&bms_spi);
-        
-        // 1. Send the command (This uses cmd_tx and cmd_rx!)
-        oem_spi_transmit_receive(&bms_spi, cmd_tx, cmd_rx, 4);
-        
-        // 2. Read the data and trap the status
-        volatile int status = oem_spi_transmit_receive(&bms_spi, data_tx, data_rx, 8);
-        
-        oem_spi_deselect(&bms_spi);
+        ADBMS1818_adcv(MD_7KHZ_3KHZ, DCP_DISABLED, CELL_CH_ALL);
 
-        // Mute the compiler warnings for our debug variables
-        (void)status; 
-        (void)data_rx[0]; 
+        
+        ADBMS1818_pollAdc();
+
+        wakeup_idle(TOTAL_IC);
+
+        // ADBMS1818
+        int8_t pec_error = ADBMS1818_rdcv(0, TOTAL_IC, bms_ic);
+
+        if (pec_error == 0) {
+            volatile uint16_t cell_1 = bms_ic[0].cells.c_codes[0];
+            volatile uint16_t cell_18 = bms_ic[0].cells.c_codes[17];
+            
+            (void)cell_1; 
+            (void)cell_18;
+        }
 
         HAL_Delay(100); 
     }

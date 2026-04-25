@@ -1,5 +1,5 @@
 /*!
-  ltc681x hardware library
+  ADBMS181x hardware library
 @verbatim
   This library contains all of the hardware dependant functions used by the bms
   code
@@ -41,47 +41,48 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 Copyright 2017 Linear Technology Corp. (LTC)
 */
 #include "bms_hardware.h"
-
-#include <avr/io.h>
-#include <util/delay.h>
-
-#include "libs/gpio/api.h"
-#include "libs/spi/api.h"
-
-#include <stdint.h>
-#include <stdlib.h>
+#include "common/spi/spi.h"
+#include "stm32g4xx_hal.h"
 #include <string.h>
 
-/*
- * Writes an array of bytes out of the SPI port
- */
-void spi_write_array(uint8_t len, uint8_t* data) {
-    uint8_t _read[len];
-    spi_transceive(data, _read, len);
-    (void)_read;
+// Pull the hardware config from spi_config.c
+extern oem_spi_config_t bms_spi;
+
+void cs_low(uint8_t pin) {
+    oem_spi_select(&bms_spi);
 }
 
-/*
- * Writes and read a set number of bytes using the SPI port.
- */
+void cs_high(uint8_t pin) {
+    oem_spi_deselect(&bms_spi);
+}
 
-void spi_write_read(
-    uint8_t tx_Data[], // array of data to be written on SPI port
-    uint8_t tx_len, // length of the tx data arry
-    uint8_t*
-        rx_data, // Input: array that will store the data read by the SPI port
-    uint8_t rx_len // Option: number of bytes to be read from the SPI port
-) {
-    uint8_t tx_read[tx_len];
-    memset(tx_read, 0xff, tx_len);
-    spi_transceive(tx_Data, tx_read, tx_len);
-    uint8_t rx_send[rx_len];
-    memset(rx_send, 0, rx_len);
-    spi_transceive(rx_send, rx_data, rx_len);
+void delay_u(uint16_t micro) {
+    HAL_Delay((micro / 1000) + 1); // might need to double check this, kinda long
+}
+
+void delay_m(uint16_t milli) {
+    HAL_Delay(milli);
+}
+
+void spi_write_array(uint8_t len, uint8_t data[]) {
+    // Variable length array for the dummy rx buffer
+    uint8_t dummy_rx[len]; 
+    oem_spi_transmit_receive(&bms_spi, data, dummy_rx, len);
+}
+
+void spi_write_read(uint8_t tx_Data[], uint8_t tx_len, uint8_t *rx_data, uint8_t rx_len) {
+    // Send the command
+    uint8_t dummy_rx_cmd[tx_len];
+    oem_spi_transmit_receive(&bms_spi, tx_Data, dummy_rx_cmd, tx_len);
+    
+    // Read the response 
+    uint8_t dummy_tx_data[rx_len];
+    memset(dummy_tx_data, 0xFF, rx_len);
+    oem_spi_transmit_receive(&bms_spi, dummy_tx_data, rx_data, rx_len);
 }
 
 uint8_t spi_read_byte(uint8_t tx_dat) {
-    uint8_t data;
-    spi_transceive(&tx_dat, &data, 1);
-    return data;
+    uint8_t rx_data;
+    oem_spi_transmit_receive(&bms_spi, &tx_dat, &rx_data, 1);
+    return rx_data;
 }

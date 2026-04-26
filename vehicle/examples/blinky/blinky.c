@@ -6,7 +6,7 @@ This file is specifically meant for the STM32G441 dev board that was created and
 
 int main(void) {
   HAL_Init();
-  //SystemClockConfig();
+  SystemClockConfig();
   GpioInit();
 
   while (1) {

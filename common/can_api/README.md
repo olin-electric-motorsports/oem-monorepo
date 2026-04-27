@@ -4,8 +4,11 @@ The purpose of this project is to automatically generate C code that abstracts
 CAN-bus interaction for STM32G4 microcontrollers.
 
 Further documentation:
+
 [Video: Using CAN API](https://youtu.be/b5lodbnx-aE)
+
 [Video: CAN API Library Explanation - COMING SOON]()
+
 [Whiteboard Software Diagram](https://miro.com/app/board/uXjVGDeQbGc=/?share_link_id=659340441364) 
 
 ## Context
@@ -95,6 +98,7 @@ to provide some additional information. For each message, we must specify:
     - unit: *Each unit must have a type. Depending on this type, each unit might also need values, name, offset, and scale. See note on signal types below* 
 
 **Signal Types**
+
 The CAN API supports the following possible types: enum, int8_t, int16_t, uint8_t, uint16_t, and bool.
 
 Integer types include a name, scale, and offset field:

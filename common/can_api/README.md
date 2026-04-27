@@ -3,6 +3,11 @@
 The purpose of this project is to automatically generate C code that abstracts
 CAN-bus interaction for STM32G4 microcontrollers.
 
+Further documentation:
+[Video: Using CAN API](https://youtu.be/b5lodbnx-aE)
+[Video: CAN API Library Explanation - COMING SOON]()
+[Whiteboard Software Diagram](https://miro.com/app/board/uXjVGDeQbGc=/?share_link_id=659340441364) 
+
 ## Context
 
 Before 2021, OEM used a basic CAN API implementation that enabled sending and 
@@ -45,7 +50,7 @@ backend of the project uses an external library called
 
 # Usage
 
-Using the CAN API requires 3 steps:
+Using the CAN API in your own project requires 3 steps:
 1. YAML Setup
 2. Bazel Integration
 3. Firmware Implementation
@@ -88,6 +93,37 @@ to provide some additional information. For each message, we must specify:
     - name: *name of the signal*
     - slice: *(start bit) + (length). Defines the position within the message of each signal. Total range is 0 to 64 bits in Classic CAN*
     - unit: *Each unit must have a type. Depending on this type, each unit might also need values, name, offset, and scale. See note on signal types below* 
+
+**Signal Types**
+The CAN API supports the following possible types: enum, int8_t, int16_t, uint8_t, uint16_t, and bool.
+
+Integer types include a name, scale, and offset field:
+```yaml
+unit:
+  type: uint8_t
+  name: "%"
+  offset: 0
+  scale: 100 / 4096
+```
+
+enum types include values:
+```yaml
+unit:
+  type: enum
+  values:
+    - NO_FAULT
+    - FAULT_EXAMPLE_1
+    - FAULT_EXAMPLE_2
+```
+
+bool types include a true and false value:
+```yaml
+unit:
+  type: bool  # Bool is used for any value where it is either 0 or 1
+  values:
+    t: Relay open  # String to display when value is true
+    f: Relay closed  # When value is false
+```
 
 As an example, we will take the following row from the MKV CAN Address Space:
 
@@ -227,7 +263,7 @@ together into a single DBC.
 Now that we have our CAN API created, we can test to make sure that it works:
 
 ```shell
-$ bazel build //vehicle/mkviii/software/bms:can_api
+$ bazel build --config=m4 //vehicle/mkviii/software/bms:bms_can_api
 ```
 
 If this builds successfully, then the CAN API generation is working.

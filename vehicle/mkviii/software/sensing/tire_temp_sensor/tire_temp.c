@@ -171,8 +171,8 @@ int main(void)
             can_tx[1] = (uint8_t)avg;
             can_tx[2] = (uint8_t)(max - avg); // thermal gradient
             can_tx[3] = overheat; // status flags
-            can_tx[4] = (hotspot_index >> 8) & 0xFF;
-            can_tx[5] = hotspot_index & 0xFF;
+            can_tx[4] = (hotspot_index >> 8) & 0xFF;//upper byte    
+            can_tx[5] = hotspot_index & 0xFF;//lower byte
         }
 
         HAL_GPIO_TogglePin(HEARTBEAT_LED_PORT, HEARTBEAT_LED_PIN);

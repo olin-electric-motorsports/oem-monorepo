@@ -123,11 +123,11 @@ HAL_StatusTypeDef vcu_init(void) {
 
     if (s_hw.hadc_brake_press_sense == NULL || s_hw.hadc_brake_press_sense_ftr == NULL
         || s_hw.hadc_rc_timer_status == NULL || s_hw.brake_ll_led_port == NULL
-        || s_hw.moter_5kw_led_port == NULL || s_hw.error_led_port == NULL
+        || s_hw.motor_5kw_led_port == NULL || s_hw.error_led_port == NULL
         || s_hw.heartbeat_led_port == NULL || s_hw.bspd_ll_port == NULL
         || s_hw.brakelight_ll_port == NULL || s_hw.motor_current_sense_port == NULL
         || s_hw.bspd_shutdown_sense_port == NULL || s_hw.brake_ll_led_pin == 0u
-        || s_hw.moter_5kw_led_pin == 0u || s_hw.error_led_pin == 0u
+        || s_hw.motor_5kw_led_pin == 0u || s_hw.error_led_pin == 0u
         || s_hw.heartbeat_led_pin == 0u || s_hw.bspd_ll_pin == 0u
         || s_hw.brakelight_ll_pin == 0u || s_hw.motor_current_sense_pin == 0u
         || s_hw.bspd_shutdown_sense_pin == 0u) {
@@ -165,10 +165,17 @@ int main(void) {
     }
     // FDCAN1_Init(); // Temporarily disabled
 
+    // HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
+    // HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+
     while (true) {
+
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
         if (s_tick_1ms) {
             s_tick_1ms = false;
             vcu_step_1ms();
+            // HAL_GPIO_WritePin(s_hw.error_led_port, s_hw.error_led_pin, GPIO_PIN_SET);
+
         }
 
         if (s_tick_10ms) {

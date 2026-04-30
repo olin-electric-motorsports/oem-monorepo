@@ -64,7 +64,6 @@ static void vcu_read_inputs_1ms(void) {
 
     if (range_l <= 0 || range_r <= 0){
         s_state.throttle_range_invalid = true;
-        Error_Handler();
     } else {
         s_state.throttle_range_invalid = false;
     }
@@ -152,7 +151,6 @@ static void vcu_update_fault_manager_1ms() {
 static void vcu_apply_outputs(void){
     if (s_state.fault_bits != 0u) {
         HAL_GPIO_WritePin(s_hw.error_led_port, s_hw.error_led_pin, GPIO_PIN_SET);
-        Error_Handler();
     } else {
         HAL_GPIO_WritePin(s_hw.error_led_port, s_hw.error_led_pin, GPIO_PIN_RESET);
     }

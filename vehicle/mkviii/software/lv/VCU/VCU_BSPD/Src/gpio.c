@@ -68,6 +68,9 @@ HAL_StatusTypeDef vcu_gpio_init(void)
   s_hw.bspd_ll_port = VCU_BSPD_LL_GPIO_PORT;
   s_hw.bspd_ll_pin = VCU_BSPD_LL_GPIO_PIN;
 
+  // gpio_init(GPIOA, GPIO_PIN_5, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_SPEED_FREQ_LOW);
+  // gpio_init(GPIOB, GPIO_PIN_7, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_SPEED_FREQ_LOW);
+
   /*Configure BRAKELIGHT_LL*/
   gpio_init(
     VCU_BRAKELIGHT_LL_GPIO_PORT,
@@ -100,7 +103,7 @@ HAL_StatusTypeDef vcu_gpio_init(void)
   );
   s_hw.bspd_shutdown_sense_port = VCU_BSPD_SHUTDOWN_SENSE_GPIO_PORT;
   s_hw.bspd_shutdown_sense_pin = VCU_BSPD_SHUTDOWN_SENSE_GPIO_PIN;
-  
+
   return HAL_OK;
 }
 

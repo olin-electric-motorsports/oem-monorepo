@@ -18,7 +18,7 @@
 #define VCU_THROTTLE_ADC_SAMPLE_TIME (ADC_SAMPLETIME_47CYCLES_5)
 
 // implausibility constants according to rule T.4.2
-#define IMPLAUSIBILITY_TIME_LIMIT 100
+#define IMPLAUSIBILITY_TIME_LIMIT 10
 
 #define TORQUE_REQUEST_SCALE (1)
 
@@ -52,16 +52,16 @@ buffer here to make sure we don't request torque when small deviations
 in potentiometer happen and we aren't pressing pedal
 */
 
-#define THROTTLE_BUFFER (5)
+#define THROTTLE_BUFFER (10)
 
 /*
 Minimum and maximum ADC counts representing 0% and 100% pedal travel
-Last calibrated 04-24-2025 for MKVII
+Last calibrated 04-18-2026 for MKVIII 
 */
-#define THROTTLE_R_MIN_COUNTS (int16_t)((20 + THROTTLE_BUFFER) >> 2)
-#define THROTTLE_R_MAX_COUNTS (int16_t)((667 - THROTTLE_BUFFER) >> 2)
-#define THROTTLE_L_MIN_COUNTS (int16_t)((30 + THROTTLE_BUFFER) >> 2)
-#define THROTTLE_L_MAX_COUNTS (int16_t)((1023 - THROTTLE_BUFFER) >> 2)
+#define THROTTLE_L_MIN_COUNTS (int16_t)((36 + THROTTLE_BUFFER) >> 2)
+#define THROTTLE_L_MAX_COUNTS (int16_t)((1990 - THROTTLE_BUFFER) >> 2)
+#define THROTTLE_R_MIN_COUNTS (int16_t)((7 + THROTTLE_BUFFER) >> 2)
+#define THROTTLE_R_MAX_COUNTS (int16_t)((3383 - THROTTLE_BUFFER) >> 2)
 
 /*
  * Sets the torque request in the motor controller command message
@@ -69,4 +69,4 @@ Last calibrated 04-24-2025 for MKVII
 #define SET_TORQUE_REQUEST(torque) \
     (m192_command_message.torque_command = (torque))
     
-#define HEARTBEAT_TOGGLE_MS 1000
+#define HEARTBEAT_TOGGLE_MS 500

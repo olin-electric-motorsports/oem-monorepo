@@ -6161,7 +6161,492 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
+<<<<<<<< HEAD:vehicle/mkviii/hardware/sensing/braketempsensor/braketemperature.kicad_sch
+		(uuid "012a9245-4cf5-436d-a329-a7236542619d")
+		(property "Reference" "#PWR?"
+			(at 194.31 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 196.85 66.0399 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 200.66 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 200.66 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 200.66 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f21ca528-5f0e-4edd-8adb-faa9aed08bcd")
+		)
+		(instances
+			(project ""
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:X_16MHz_18pF_SMD")
+		(at 191.77 127 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "085c62e7-289f-47eb-805b-760f18550423")
+		(property "Reference" "Y1"
+			(at 203.2 120.5798 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "X_16MHz_18pF"
+			(at 203.2 123.1198 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:FA238160000MBC0 (X_16MHz_18pF_SMD - FA-238_16.0000MB-C0)"
+			(at 191.77 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/97/1/FA-238_en.pdf"
+			(at 191.77 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CRYSTAL 16.0000MHZ 18PF SMD"
+			(at 191.77 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "FA-238 16.0000MB-C0"
+			(at 191.77 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5407438c-890c-40e6-a1f4-ca30b9ce5f31")
+		)
+		(pin "4"
+			(uuid "32fe5ef1-975c-4c6a-9e72-91e27909ef9d")
+		)
+		(pin "3"
+			(uuid "aa23356f-00d8-4410-afba-b7723d3a521f")
+		)
+		(pin "2"
+			(uuid "f25edc5d-cf6d-4aa4-8226-2a6074f70fc7")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "Y1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 200.66 58.42 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "22cc9a20-2a0e-4861-8c8e-d333b3c93298")
+		(property "Reference" "#PWR?"
+			(at 204.47 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 196.85 58.4199 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 200.66 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 200.66 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 200.66 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "61e28c3c-bb59-4754-9831-2282adaa244b")
+		)
+		(instances
+			(project ""
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 24.13 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "23914fee-b976-410f-a053-1cf6fe2954a1")
+		(property "Reference" "#PWR?"
+			(at 24.13 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 24.13 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 24.13 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 24.13 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 24.13 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "48bd61bb-6720-4891-b483-b3f0cfd0b1f9")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 40.64 57.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "25f81a09-b000-47f9-8e19-45a250b21865")
+		(property "Reference" "#PWR?"
+			(at 40.64 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 40.64 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 40.64 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 40.64 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 40.64 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d4106617-2f3d-46d6-8ea2-9c6bd92f2a10")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 43.18 82.55 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2c5a3e4e-3464-44d2-a845-f824936a87e2")
+		(property "Reference" "#PWR?"
+			(at 43.18 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 43.18 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 43.18 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 43.18 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 43.18 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1cfa4051-3410-46a6-b195-0f1fb93177e7")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 24.13 57.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "39493265-bedb-4292-8a0a-50d828e74219")
+		(property "Reference" "#PWR?"
+			(at 24.13 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 24.13 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 24.13 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 24.13 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 24.13 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "747699ef-9f88-4e12-a568-7af573f68a6b")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_4.7uF_25V_0603")
+		(at 57.15 52.07 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "39e03c9e-61b3-484a-98c9-ea6165de4461")
+========
 		(uuid "0b676225-85a7-405f-a22d-b9524e5850a0")
+>>>>>>>> ab23aa8c4c29053c8ec1368e8c1b3a6d29eff4a0:vehicle/mkviii/hardware/sensing/tiretempsensor/tiretempsensor.kicad_sch
 		(property "Reference" "C6"
 			(at 240.03 142.2399 0)
 			(effects
@@ -10187,9 +10672,15 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
+<<<<<<<< HEAD:vehicle/mkviii/hardware/sensing/braketempsensor/braketemperature.kicad_sch
+		(uuid "44ad6bc7-3a39-4ede-96aa-00c64e47514a")
+		(property "Reference" "#PWR?"
+			(at 191.77 139.7 0)
+========
 		(uuid "f1877f42-b84a-472c-9991-dcd92eeadd37")
 		(property "Reference" "#PWR?"
 			(at 271.78 105.41 0)
+>>>>>>>> ab23aa8c4c29053c8ec1368e8c1b3a6d29eff4a0:vehicle/mkviii/hardware/sensing/tiretempsensor/tiretempsensor.kicad_sch
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10236,8 +10727,79 @@
 			(uuid "6462bd7f-1871-4c14-8b85-fd28b37fcd53")
 		)
 		(instances
+<<<<<<<< HEAD:vehicle/mkviii/hardware/sensing/braketempsensor/braketemperature.kicad_sch
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 204.47 137.16 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "453ad6eb-f8c8-4f5f-a76f-d0074747b466")
+		(property "Reference" "#PWR?"
+			(at 204.47 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 204.47 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 204.47 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 204.47 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 204.47 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9898f2e0-663f-47b4-9ea7-dd73c1ac6fd9")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+========
 			(project ""
 				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
+>>>>>>>> ab23aa8c4c29053c8ec1368e8c1b3a6d29eff4a0:vehicle/mkviii/hardware/sensing/tiretempsensor/tiretempsensor.kicad_sch
 					(reference "#PWR?")
 					(unit 1)
 				)
@@ -10316,8 +10878,569 @@
 		)
 		(instances
 			(project ""
+<<<<<<<< HEAD:vehicle/mkviii/hardware/sensing/braketempsensor/braketemperature.kicad_sch
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_0.1uF_16V_0603")
+		(at 171.45 52.07 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "518047b2-eb37-4c42-b673-2e401d1ad8ea")
+		(property "Reference" "C7"
+			(at 175.26 50.7999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_0.1uF"
+			(at 175.26 53.3399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:C_0603_1608Metric"
+			(at 172.4152 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
+			(at 171.45 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
+			(at 171.45 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "C0603C104Z4VACTU"
+			(at 171.45 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f5f7cf24-50ec-487c-b61f-8241bc8872e4")
+		)
+		(pin "2"
+			(uuid "2d14cb06-2edd-4181-a7e8-b0780ee66d41")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "C7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 27.94 102.87 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "61635737-b035-45c8-aa45-c3dd642cd798")
+		(property "Reference" "#PWR?"
+			(at 27.94 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 27.94 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 27.94 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 27.94 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 27.94 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4d40ff4f-5619-4fc0-8fca-225187cfa77d")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_30pF_50V_0603")
+		(at 204.47 132.08 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "61f63d53-170d-4f26-84c2-8cfed3e32cdc")
+		(property "Reference" "C9"
+			(at 208.28 130.8099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_30pF"
+			(at 208.28 133.3499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:C_0603_1608Metric"
+			(at 205.4352 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-CML.PDF"
+			(at 204.47 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 30PF 50V C0G/NP0 0603"
+			(at 204.47 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CML0603C0G300JT50V"
+			(at 204.47 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0417fedf-803f-47df-9810-a031326e554d")
+		)
+		(pin "2"
+			(uuid "b84070ac-1abc-4fe7-a05f-c13e2a669beb")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 171.45 57.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "63f07fa1-d229-419f-8e4a-033bd2e0ef05")
+		(property "Reference" "#PWR?"
+			(at 171.45 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 171.45 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 171.45 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 171.45 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 171.45 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "64bd62cc-0301-4b4e-9964-6861f173a50c")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 24.13 45.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7ef7a6f0-fe1f-41a2-b9e2-b9516d0b1e7b")
+		(property "Reference" "#PWR?"
+			(at 24.13 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 24.13 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 24.13 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 24.13 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 24.13 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cd11a945-e82f-4f39-adf4-47f8ab01c7f5")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 165.1 76.2 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "893dd853-4a53-4750-9a83-cd8f327bdd9b")
+		(property "Reference" "#PWR?"
+			(at 158.75 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 161.29 76.1999 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 165.1 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 165.1 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 165.1 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "654f8e47-95e1-49a2-be82-22fc79551cfd")
+		)
+		(instances
+			(project ""
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 63.5 114.3 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "913bf5a7-636f-485c-b507-7a6431f6f764")
+		(property "Reference" "#PWR?"
+			(at 63.5 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 63.5 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 63.5 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 63.5 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 63.5 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "eed1376b-a4e1-4a0e-843e-e19b8e2da008")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 187.96 73.66 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a468b6ae-6bf7-4b14-82ca-ae2f2d8e0874")
+		(property "Reference" "#PWR?"
+			(at 194.31 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 191.77 73.6599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 187.96 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 187.96 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 187.96 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "61817132-429e-47db-8a78-61a401f2e3f3")
+		)
+		(instances
+			(project ""
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+========
 				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
 					(reference "C11")
+>>>>>>>> ab23aa8c4c29053c8ec1368e8c1b3a6d29eff4a0:vehicle/mkviii/hardware/sensing/tiretempsensor/tiretempsensor.kicad_sch
 					(unit 1)
 				)
 			)
@@ -10332,9 +11455,15 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
+<<<<<<<< HEAD:vehicle/mkviii/hardware/sensing/braketempsensor/braketemperature.kicad_sch
+		(uuid "a73d60ac-b810-4f43-b43d-53ee9575418d")
+		(property "Reference" "#PWR?"
+			(at 204.47 60.96 0)
+========
 		(uuid "f4a039b4-f82f-41ac-9f16-cb4caf330244")
 		(property "Reference" "#PWR?"
 			(at 80.01 45.72 0)
+>>>>>>>> ab23aa8c4c29053c8ec1368e8c1b3a6d29eff4a0:vehicle/mkviii/hardware/sensing/tiretempsensor/tiretempsensor.kicad_sch
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10382,7 +11511,11 @@
 		)
 		(instances
 			(project ""
+<<<<<<<< HEAD:vehicle/mkviii/hardware/sensing/braketempsensor/braketemperature.kicad_sch
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+========
 				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
+>>>>>>>> ab23aa8c4c29053c8ec1368e8c1b3a6d29eff4a0:vehicle/mkviii/hardware/sensing/tiretempsensor/tiretempsensor.kicad_sch
 					(reference "#PWR?")
 					(unit 1)
 				)
@@ -10397,10 +11530,16 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+<<<<<<<< HEAD:vehicle/mkviii/hardware/sensing/braketempsensor/braketemperature.kicad_sch
+		(uuid "a755a917-75b1-4297-933c-af21f0606274")
+		(property "Reference" "#PWR?"
+			(at 196.85 137.16 0)
+========
 		(fields_autoplaced yes)
 		(uuid "fa9d9ab2-b292-4ceb-aa94-c8f48d9a05f6")
 		(property "Reference" "#PWR?"
 			(at 26.67 113.03 0)
+>>>>>>>> ab23aa8c4c29053c8ec1368e8c1b3a6d29eff4a0:vehicle/mkviii/hardware/sensing/tiretempsensor/tiretempsensor.kicad_sch
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10447,8 +11586,13 @@
 			(uuid "e7f3695f-cd46-4e2e-afdb-b5e35671d8bf")
 		)
 		(instances
+<<<<<<<< HEAD:vehicle/mkviii/hardware/sensing/braketempsensor/braketemperature.kicad_sch
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+========
 			(project "Tire Temp Sensor"
 				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
+>>>>>>>> ab23aa8c4c29053c8ec1368e8c1b3a6d29eff4a0:vehicle/mkviii/hardware/sensing/tiretempsensor/tiretempsensor.kicad_sch
 					(reference "#PWR?")
 					(unit 1)
 				)
@@ -10517,8 +11661,319 @@
 				(hide yes)
 			)
 		)
+<<<<<<<< HEAD:vehicle/mkviii/hardware/sensing/braketempsensor/braketemperature.kicad_sch
+		(pin "1"
+			(uuid "27aada5b-ad42-4e57-bf57-43edd0c05bee")
+		)
+		(pin "2"
+			(uuid "cdc8ea40-88ec-482e-a529-6d0841ab4c0e")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:J_PCIe_x1")
+		(at 218.44 80.01 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b28ddb23-4e1a-4b98-86c0-5a20104f0393")
+		(property "Reference" "J1"
+			(at 218.44 49.53 0)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "J_PCIe_x1"
+			(at 218.44 52.07 0)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:J_PCIe_x1_Key"
+			(at 218.44 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7F4-1773442-7%7F0308%7Fpdf%7FEnglish%7FENG_DS_4-1773442-7_0308.pdf%7F2-1761465-1"
+			(at 219.71 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Interface used to connect daugterboards to motherboards"
+			(at 218.44 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "2-1761465-1"
+			(at 218.44 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "A12"
+			(uuid "d0f06f88-002d-4273-8c77-0e9cc6c60a10")
+		)
+		(pin "B16"
+			(uuid "942b479f-f0e3-4d13-a6c3-2c7d59c9c636")
+		)
+		(pin "B2"
+			(uuid "c22a913b-8edf-44e6-ab90-dc07b0129a3b")
+		)
+		(pin "B1"
+			(uuid "595cf222-07de-4c12-98f8-eaf7adce7542")
+		)
+		(pin "B4"
+			(uuid "b84e6c36-84c7-492a-87c6-79037ef184e3")
+		)
+		(pin "A5"
+			(uuid "f57d5d89-32c8-4a12-9a32-2e0c84b99917")
+		)
+		(pin "B8"
+			(uuid "05c90e1d-68f5-4dae-aa9a-356361fc8756")
+		)
+		(pin "B5"
+			(uuid "71275462-defc-4e7a-9777-6e64f0f0a328")
+		)
+		(pin "A1"
+			(uuid "bbcde5ab-5a5d-46bf-bb89-20f1e2da5879")
+		)
+		(pin "A7"
+			(uuid "3f48af72-de7a-4726-a9fe-9b850729f1cf")
+		)
+		(pin "B12"
+			(uuid "cd289b18-0383-4a58-8dbf-ff5cbc49f9e2")
+		)
+		(pin "A11"
+			(uuid "339653a2-6e47-4c85-9ae2-7894d99d2e88")
+		)
+		(pin "B14"
+			(uuid "669c63d3-c35f-4667-aed5-52db0b497353")
+		)
+		(pin "A15"
+			(uuid "40e9ce07-4f87-4e97-a364-fb59745cb782")
+		)
+		(pin "A8"
+			(uuid "4d4bdacf-68e3-4177-b2e3-1bf4e504f993")
+		)
+		(pin "B15"
+			(uuid "8b6e7e79-51f8-4fa0-9d87-0195bd78c888")
+		)
+		(pin "A9"
+			(uuid "3fabb627-ade2-4ae2-93f4-68d514260f09")
+		)
+		(pin "B9"
+			(uuid "3e808bd7-c152-4949-bfcc-98a46ed2540e")
+		)
+		(pin "B13"
+			(uuid "80c45e5b-6b3a-442d-8ff3-86b453b99018")
+		)
+		(pin "A16"
+			(uuid "40a0df65-035b-45c6-a6c6-88c30f2a6b8a")
+		)
+		(pin "A17"
+			(uuid "3f94f003-9fbf-49a5-a6a7-ab61d46950b1")
+		)
+		(pin "A3"
+			(uuid "e8cd47fc-1908-472f-b9f3-b9aa1393a77e")
+		)
+		(pin "B7"
+			(uuid "4c4b855a-e4aa-419d-82f5-8252a34eeb2c")
+		)
+		(pin "A13"
+			(uuid "c288833c-1003-43a2-b71d-9bf5a42ad4f6")
+		)
+		(pin "B10"
+			(uuid "f7b4d8d3-09a5-4609-a4af-66bb15f2268a")
+		)
+		(pin "B3"
+			(uuid "4f7f9540-740d-4bf3-a468-489f504a0922")
+		)
+		(pin "A18"
+			(uuid "a77565d0-af52-4af4-981f-e956f425f880")
+		)
+		(pin "B17"
+			(uuid "08b048ee-052c-402d-9b45-8c5fe32640d7")
+		)
+		(pin "A2"
+			(uuid "93688fe5-003d-4af2-adc8-efe3b57b39a2")
+		)
+		(pin "A6"
+			(uuid "4a2a9739-9a0d-49bf-9fb0-ef488efc5e49")
+		)
+		(pin "A10"
+			(uuid "70a22c1a-7826-4030-8a06-ca5d992e97ff")
+		)
+		(pin "B6"
+			(uuid "29a9a45f-53a9-4950-9b1a-1ae37233212d")
+		)
+		(pin "A4"
+			(uuid "a9fe1745-6545-487b-818d-f029e3a56ad8")
+		)
+		(pin "A14"
+			(uuid "68d92adc-54c9-4049-a49b-b6aa225b32aa")
+		)
+		(pin "B11"
+			(uuid "d3c82ab2-43b8-49a8-b41d-a0843c84e5ca")
+		)
+		(pin "B18"
+			(uuid "98fb1bb6-6526-4d41-9c94-63907bf07911")
+		)
+		(instances
+			(project ""
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 71.12 62.23 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b8bf76e3-8e5a-4bc4-8858-4c8e9638a68f")
+		(property "Reference" "#PWR?"
+			(at 71.12 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 71.12 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 71.12 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 71.12 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ca520ad6-15b0-4e87-a5b7-d59fa76d8834")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:J_Programming_Pin_Header")
+		(at 44.45 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bb056a08-ae8e-4ba0-9136-2b2058e1846a")
+		(property "Reference" "J2"
+			(at 45.72 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "J_Programming_Pin_Header"
+			(at 45.72 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:J_Programming_Pin_Header_Keyed"
+			(at 44.45 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 44.45 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Programming Pin Header for the STM32G441KBT6 and STM32G474RExx Chips (OEM Standard Configuration v1.0)"
+			(at 44.45 109.22 0)
+========
 		(property "MPN" "LTST-C171TBKT"
 			(at 171.45 39.37 0)
+>>>>>>>> ab23aa8c4c29053c8ec1368e8c1b3a6d29eff4a0:vehicle/mkviii/hardware/sensing/tiretempsensor/tiretempsensor.kicad_sch
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10533,9 +11988,819 @@
 			(uuid "684dd339-1da7-4292-93b9-cf167ac84e9c")
 		)
 		(instances
+<<<<<<<< HEAD:vehicle/mkviii/hardware/sensing/braketempsensor/braketemperature.kicad_sch
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:U_MCU_STM32G441KBT6_32-LQFP")
+		(at 107.95 86.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d0d667c8-c528-4356-ae5b-14675988ffb4")
+		(property "Reference" "U2"
+			(at 107.95 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "STM32G441KBT6"
+			(at 107.95 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:LQFP-32_7x7mm_P0.8mm"
+			(at 107.95 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.st.com/resource/en/datasheet/stm32g441kb.pdf"
+			(at 109.474 78.486 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "OEM STM32G441KBT6 Standard Configuration - v1.0 (07-25-2025)"
+			(at 107.95 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "18"
+			(uuid "bfb7bb7b-1207-4bc8-a7c8-3731a0783f94")
+		)
+		(pin "11"
+			(uuid "63e9a3e2-b6c2-4f6b-a4ff-7e763a8ce004")
+		)
+		(pin "30"
+			(uuid "7e20fbd9-add3-4332-b936-7ceecbe26d0f")
+		)
+		(pin "27"
+			(uuid "2164cfe2-151d-4224-8b38-26b1b8f31ee7")
+		)
+		(pin "26"
+			(uuid "d4b26cb8-512e-4fa3-842d-d17570769fb1")
+		)
+		(pin "7"
+			(uuid "32b90018-56b5-4e86-85cd-5ea8eb171ca0")
+		)
+		(pin "24"
+			(uuid "b3275ed5-cdf0-4ded-8838-cce4b6822a18")
+		)
+		(pin "5"
+			(uuid "091be642-9293-4d60-bc17-1ec2aca55d0b")
+		)
+		(pin "20"
+			(uuid "ae99389d-3be5-4a4c-80ad-44f8d6b8f047")
+		)
+		(pin "21"
+			(uuid "fd154d03-5832-4fb0-a3fa-d662f8488cd1")
+		)
+		(pin "4"
+			(uuid "567f9b52-ce3d-409a-9d14-0f4522f9902c")
+		)
+		(pin "14"
+			(uuid "b2553242-9cde-4a82-98a7-3ed1d9c8b072")
+		)
+		(pin "3"
+			(uuid "6c70de11-883f-4845-b516-0538f0883f56")
+		)
+		(pin "13"
+			(uuid "57797b7e-1e96-4952-9e5c-542130562f4a")
+		)
+		(pin "28"
+			(uuid "69def2b2-d842-4d70-850c-1feff20bd429")
+		)
+		(pin "22"
+			(uuid "2e862fc0-ab48-4851-b967-dabaf04d07f8")
+		)
+		(pin "25"
+			(uuid "33a22731-be09-430b-bf4a-ce9032dc5af5")
+		)
+		(pin "10"
+			(uuid "161b654a-e7c7-4c86-9db0-d5390a2bf2a0")
+		)
+		(pin "6"
+			(uuid "4fc56e35-2363-43f3-88fc-1fb0bab8d30a")
+		)
+		(pin "9"
+			(uuid "3723c3f4-6465-456a-8c97-43aebce6a06c")
+		)
+		(pin "23"
+			(uuid "ce23e75e-758b-44fd-b563-5c87554a9477")
+		)
+		(pin "31"
+			(uuid "89608429-e4b9-4ae3-b71b-cec61ccef716")
+		)
+		(pin "12"
+			(uuid "d3ed0928-833e-4063-94e6-9709a35d702c")
+		)
+		(pin "2"
+			(uuid "a4041923-63b3-4f59-be94-52b91629a9d1")
+		)
+		(pin "19"
+			(uuid "36d63019-921a-4af8-a68e-356e435ef7a9")
+		)
+		(pin "29"
+			(uuid "54b16b51-fb19-432b-91e7-7c438b7416db")
+		)
+		(pin "32"
+			(uuid "e57e8a9a-acdd-4a41-b7de-8ff078a28e98")
+		)
+		(pin "16"
+			(uuid "66ac1f97-e8d6-4f72-ad6b-5fbfe59512ca")
+		)
+		(pin "15"
+			(uuid "6567399e-3697-4ea5-8138-cd2a3cedd05d")
+		)
+		(pin "17"
+			(uuid "8eafe57b-b403-4273-92f3-e581998c53fb")
+		)
+		(pin "1"
+			(uuid "605a3d13-98cd-4efb-98a1-d9327b1621fb")
+		)
+		(pin "8"
+			(uuid "7472977b-2fc2-420a-8aef-6891a5160fc3")
+		)
+		(instances
+			(project ""
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_1uF_25V_0603")
+		(at 43.18 77.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d369adfa-dd04-484d-ac5b-69ac92566fa9")
+		(property "Reference" "C5"
+			(at 46.99 76.1999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_1uF"
+			(at 46.99 78.7399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:C_0603_1608Metric"
+			(at 44.1452 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/3644/CL10B105KA8NNNC_spec.pdf"
+			(at 43.18 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 1UF 25V X7R 0603"
+			(at 43.18 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL10B105KA8NNNC"
+			(at 43.18 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "5e7de7a4-7525-45b5-bb10-83920cbe5464")
+		)
+		(pin "1"
+			(uuid "70616cb3-acbb-4046-8ada-28bed22a02fc")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "C5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 24.13 82.55 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d79f728b-ae17-49e5-9ac1-ce7b79cb1153")
+		(property "Reference" "#PWR?"
+			(at 24.13 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 24.13 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 24.13 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 24.13 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 24.13 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "33edbc0f-f34b-47a4-9b82-64a124c34931")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 162.56 91.44 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "db350597-2423-440a-830f-1666a8f041ce")
+		(property "Reference" "#PWR?"
+			(at 162.56 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 162.56 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 162.56 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 162.56 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 162.56 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c82a804e-f7f2-43a5-8b6a-d22da0b8831f")
+		)
+		(instances
+			(project ""
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_10nF_50V_0603")
+		(at 24.13 77.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dbd94496-3a2a-45f8-a6a3-3c6627379b5f")
+		(property "Reference" "C3"
+			(at 27.94 76.1999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_10nF"
+			(at 27.94 78.7399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:C_0603_1608Metric"
+			(at 25.0952 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/609/CL10B103KB8NNNC_Spec.pdf"
+			(at 24.13 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 10000PF 50V X7R 0603"
+			(at 24.13 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CL10B103KB8NNNC"
+			(at 24.13 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "18ad84a7-1d86-47a7-a40e-7126739b7f6d")
+		)
+		(pin "2"
+			(uuid "8e94ec5b-b242-4318-bf2e-2da1225fd0ef")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_0.1uF_16V_0603")
+		(at 24.13 52.07 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "de11697a-fbad-4e57-ba9e-95dc2aa05f0e")
+		(property "Reference" "C2"
+			(at 27.94 50.7999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_0.1uF"
+			(at 27.94 53.3399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:C_0603_1608Metric"
+			(at 25.0952 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
+			(at 24.13 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
+			(at 24.13 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "C0603C104Z4VACTU"
+			(at 24.13 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "51cb7a1f-5eed-46ab-9aa7-d22158d067a0")
+		)
+		(pin "2"
+			(uuid "7e068c1d-bfe2-442e-920c-e92ed3d44cdc")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "C2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 179.07 137.16 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f0faa01c-db74-4b7d-8d06-e1dbf9327a40")
+		(property "Reference" "#PWR?"
+			(at 179.07 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 179.07 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 179.07 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 179.07 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 179.07 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f3eb4b75-2f9d-4a0d-b3f2-6f8d32477d75")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 57.15 57.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f2026b14-a74e-4d20-bc41-7ce5f018e5e8")
+		(property "Reference" "#PWR?"
+			(at 57.15 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 57.15 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 57.15 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 57.15 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 57.15 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a400d498-c302-4004-a1f5-7c375d93362f")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_30pF_50V_0603")
+		(at 179.07 132.08 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f87500ea-bdb2-44e6-a232-822c5a02e321")
+		(property "Reference" "C8"
+			(at 182.88 130.8099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_30pF"
+			(at 182.88 133.3499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:C_0603_1608Metric"
+			(at 180.0352 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-CML.PDF"
+			(at 179.07 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 30PF 50V C0G/NP0 0603"
+			(at 179.07 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CML0603C0G300JT50V"
+			(at 179.07 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "579695da-19dc-4ecf-9d9d-62b0c8f996e9")
+		)
+		(pin "2"
+			(uuid "dc0f9a4e-c02e-4e0b-97e5-4956f3b9136b")
+		)
+		(instances
+			(project "braketemperature"
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "C8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 161.29 78.74 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f8c2c102-6c6c-412d-ab7b-5fc8fc8f8f0f")
+		(property "Reference" "#PWR?"
+			(at 165.1 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 157.48 78.7399 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 161.29 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 161.29 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 161.29 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1ab87de5-5a22-482c-8d1b-c880956a9d96")
+		)
+		(instances
+			(project ""
+				(path "/64f0c560-6e5b-4572-8def-d2f8f152c13e"
+					(reference "#PWR?")
+========
 			(project "Tire Temp Sensor"
 				(path "/0dc65556-fe10-4935-88ff-c6cd5b31d76a"
 					(reference "D3")
+>>>>>>>> ab23aa8c4c29053c8ec1368e8c1b3a6d29eff4a0:vehicle/mkviii/hardware/sensing/tiretempsensor/tiretempsensor.kicad_sch
 					(unit 1)
 				)
 			)

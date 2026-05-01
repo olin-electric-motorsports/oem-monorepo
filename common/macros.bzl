@@ -12,6 +12,7 @@ def stm32_firmware(name, srcs = [], deps = []):
         srcs = srcs,
         deps = deps + [
             "//common:stm32g4_core",  # Links startup code & HAL config
+            "//common/adc:adc"
         ],
         additional_linker_inputs = ["//common:linker_script"], 
         linkopts = [

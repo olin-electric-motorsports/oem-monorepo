@@ -8,6 +8,8 @@ static void gpio_init(GPIO_TypeDef* port,
 
 HAL_StatusTypeDef vcu_gpio_init(void)
 {
+  // 
+
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOF_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
@@ -57,7 +59,7 @@ HAL_StatusTypeDef vcu_gpio_init(void)
   s_hw.heartbeat_led_port = VCU_HEARTBEAT_LED_GPIO_PORT;
   s_hw.heartbeat_led_pin = VCU_HEARTBEAT_LED_GPIO_PIN;
 
-  /*Configure BSPD_LL*/
+    /*Configure BSPD_LL*/
   gpio_init(
     VCU_BSPD_LL_GPIO_PORT,
     VCU_BSPD_LL_GPIO_PIN, 
@@ -67,9 +69,6 @@ HAL_StatusTypeDef vcu_gpio_init(void)
   );
   s_hw.bspd_ll_port = VCU_BSPD_LL_GPIO_PORT;
   s_hw.bspd_ll_pin = VCU_BSPD_LL_GPIO_PIN;
-
-  // gpio_init(GPIOA, GPIO_PIN_5, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_SPEED_FREQ_LOW);
-  // gpio_init(GPIOB, GPIO_PIN_7, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_SPEED_FREQ_LOW);
 
   /*Configure BRAKELIGHT_LL*/
   gpio_init(
@@ -104,6 +103,17 @@ HAL_StatusTypeDef vcu_gpio_init(void)
   s_hw.bspd_shutdown_sense_port = VCU_BSPD_SHUTDOWN_SENSE_GPIO_PORT;
   s_hw.bspd_shutdown_sense_pin = VCU_BSPD_SHUTDOWN_SENSE_GPIO_PIN;
 
+  /*Configure SS_IS*/
+  gpio_init(
+    VCU_SS_IS_GPIO_PORT,
+    VCU_SS_IS_GPIO_PIN,
+    GPIO_MODE_INPUT,
+    GPIO_NOPULL,
+    GPIO_SPEED_FREQ_LOW
+  );
+  s_hw.ss_is_port = VCU_SS_IS_GPIO_PORT;
+  s_hw.ss_is_pin = VCU_SS_IS_GPIO_PIN;
+  
   return HAL_OK;
 }
 

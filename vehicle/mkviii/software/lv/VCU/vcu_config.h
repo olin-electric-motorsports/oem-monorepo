@@ -108,10 +108,5 @@ Last calibrated 04-18-2026 for MKVIII
 #define THROTTLE_L_MAX_COUNTS (int16_t)((1990 - THROTTLE_BUFFER) >> 2)
 #define THROTTLE_R_MIN_COUNTS (int16_t)((7 + THROTTLE_BUFFER) >> 2)
 #define THROTTLE_R_MAX_COUNTS (int16_t)((3383 - THROTTLE_BUFFER) >> 2)
-/*
- * Sets the torque request in the motor controller command message
- */
-#define SET_TORQUE_REQUEST(torque) \
-    (m192_command_message.torque_command = (torque))
     
 #define HEARTBEAT_TOGGLE_MS 500

@@ -11,6 +11,7 @@ typedef enum {
     VCU_MODE_INIT = 0,
     VCU_MODE_NOT_READY,
     VCU_MODE_FAULT,
+    VCU_MODE_BRAKING,
     VCU_MODE_RUN,
 } vcu_mode_e;
 
@@ -93,6 +94,9 @@ typedef struct {
     bool throttle_implaus_latched;
     bool brake_throttle_implaus_latched;
 
+    uint16_t throttle_implaus_timer_ms;
+    int16_t torque_command;
+
     // BSPD
     uint16_t brake_press_sense;
     uint16_t brake_press_sense_ftr;
@@ -105,24 +109,17 @@ typedef struct {
     bool bspd_latched;
 
     // Shared
-    uint16_t throttle_implaus_timer_ms;
-    int16_t torque_command;
-
     bool heartbeat;
     uint16_t heartbeat_elapsed_ms;
 
-    uint32_t fault_bits;
-    uint32_t blocking_fault_bits;
+    uint16_t fault_bits;
+    uint16_t blocking_fault_bits;
     vcu_mode_e mode;
     uint16_t inverter_command_publish_elapsed_ms;
 } vcu_state_s;
 
 extern vcu_state_s s_state;
 extern vcu_hw_s s_hw;
-
-
-// PA0 or ADC1_IN1?
-
 
 /* Configure the system clock */
 void ErrorHandler(void);

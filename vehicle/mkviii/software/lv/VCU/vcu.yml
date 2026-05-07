@@ -1,0 +1,139 @@
+name: vcu
+  # TODO: Subscribe dashboard
+publish:
+  # Motor controller command message defined in vehicle/common/motor_controller/cm200dx.dbc.
+  - name: M192_Command_Message
+
+  # TODO: Replace temporary VCU-local IDs 0x700-0x702 with the finalized MKVIII CAN map.
+  - name: vcu_throttle_state
+    id: 0x700
+    freq_hz: 100
+    signals:
+      - name: throttle_l_raw
+        slice: 0 + 16
+        unit:
+          type: uint16_t
+          name: counts
+          offset: 0
+          scale: 1
+      - name: throttle_r_raw
+        slice: 16 + 16
+        unit:
+          type: uint16_t
+          name: counts
+          offset: 0
+          scale: 1
+      - name: throttle_l_scaled
+        slice: 32 + 8
+        unit:
+          type: uint8_t
+          name: '%'
+          offset: 0
+          scale: 100/255
+      - name: throttle_r_scaled
+        slice: 40 + 8
+        unit:
+          type: uint8_t
+          name: '%'
+          offset: 0
+          scale: 100/255
+      - name: throttle_range_invalid
+        slice: 48 + 1
+        unit:
+          type: bool
+          values:
+            t: INVALID
+            f: VALID
+      - name: throttle_implaus_timer_ms
+        slice: 49 + 10
+        unit:
+          type: uint16_t
+          name: ms
+          offset: 0
+          scale: 1
+
+  - name: vcu_bspd_state
+    id: 0x701
+    freq_hz: 100
+    signals:
+      - name: brake_press_sense
+        slice: 0 + 16
+        unit:
+          type: uint16_t
+          name: PSI
+          offset: -1.25
+          scale: 25 * (5 / 4096)
+      - name: brake_press_sense_filtered
+        slice: 16 + 16
+        unit:
+          type: uint16_t
+          name: PSI
+          offset: -1.25
+          scale: 25 * (5 / 4096)
+      - name: rc_timer_status
+        slice: 32 + 16
+        unit:
+          type: uint16_t
+          name: counts
+          offset: 0
+          scale: 20 * (5 / 1024) * 1.58
+      - name: brake_gate
+        slice: 48 + 1
+        unit:
+          type: bool
+          values:
+            t: Brake Light ON
+            f: Brake Light OFF
+      - name: bspd_5kw
+        slice: 49 + 1
+        unit:
+          type: bool
+          values:
+            t: BSPD Power Over 5kW
+            f: BSPD Power Under 5kW
+
+  - name: vcu_status
+    id: 0x702
+    freq_hz: 100
+    signals:
+      # fault_bits mapping:
+      #   bit 0: VCU_FAULT_APPS1_OUT_OF_RANGE
+      #   bit 1: VCU_FAULT_APPS2_OUT_OF_RANGE
+      #   bit 2: VCU_FAULT_APPS_MISMATCH
+      #   bit 3: VCU_FAULT_APPS_TIMEOUT_LATCHED
+      #   bit 4: VCU_FAULT_INERTIA_SWITCH_OPEN
+      #   bit 5: VCU_FAULT_BSPD_POWER_LATCHED
+      #   bit 6: VCU_FAULT_BRAKE_THROTTLE_IMPLAUS
+      #   bit 7: VCU_FAULT_SHUTDOWN_BSPD_OPEN
+      - name: fault_bits_lo
+        slice: 0 + 16
+        unit:
+          type: uint16_t
+          name: bitmask
+          offset: 0
+          scale: 1
+      - name: fault_bits_hi
+        slice: 16 + 16
+        unit:
+          type: uint16_t
+          name: bitmask
+          offset: 0
+          scale: 1
+      # blocking_fault_bits is omitted because it currently mirrors fault_bits.
+      - name: mode
+        slice: 32 + 3
+        unit:
+          type: enum
+          values:
+            - INIT
+            - NOT_READY
+            - FAULT
+            - BRAKING
+            - RUN
+      - name: heartbeat
+        slice: 35 + 1
+        unit:
+          type: bool
+          values:
+            t: ON
+            f: OFF

@@ -2,7 +2,7 @@
 #include "vcu_config.h"
 #include "gpio.h"
 #include "adc.h"
-#include "fdcan.h"
+#include "can_api.h"
 #include "stm32g441xx.h"
 #include "stm32g4xx_hal_adc.h"
 #include "stm32g4xx_hal_rcc.h"
@@ -22,6 +22,7 @@ static void vcu_read_shutdown_chain_1ms(void);
 static void vcu_update_fault_manager_1ms(void);
 static void vcu_check_brake_throttle_implaus_1ms(void);
 static void vcu_apply_outputs(void);
+static void vcu_send_can_10ms(void);
 static int16_t vcu_abs_diff_16(int16_t a, int16_t b);
 static int16_t vcu_min_16(int16_t a, int16_t b);
 
@@ -50,7 +51,6 @@ HAL_StatusTypeDef vcu_step_1ms(void) {
     vcu_check_brake_throttle_implaus_1ms();
     vcu_update_fault_manager_1ms();
     vcu_apply_outputs();
-    // update torque command
     return HAL_OK;
 }
 
@@ -58,6 +58,9 @@ static void vcu_read_inputs_1ms(void) {
     vcu_read_bspd_1ms();
     vcu_read_throttle_1ms();
     vcu_read_shutdown_chain_1ms();
+
+    // Read message from CAN
+    can_poll_receive_all(); 
 }
 
 static void vcu_read_bspd_1ms(void) {
@@ -194,8 +197,22 @@ static void vcu_update_fault_manager_1ms() {
         fault_bits |= VCU_FAULT_BRAKE_THROTTLE_IMPLAUS;
     }
 
+    // Update fault bits
     s_state.fault_bits = fault_bits;
     s_state.blocking_fault_bits = fault_bits;
+
+    // Update VCU mode
+    if (s_state.fault_bits != 0u) {
+        s_state.mode = VCU_MODE_FAULT;
+    // TODO: Dashboard CAN subscription required
+    // } else if (!dashboard.ready_to_drive) {
+    //     s_state.mode = VCU_MODE_NOT_READY;
+    //     s_state.torque_command = 0;
+    } else if (s_state.brake_gate) {
+        s_state.mode = VCU_MODE_BRAKING;
+    } else {
+        s_state.mode = VCU_MODE_RUN;
+    }
 }
 
 static void vcu_check_brake_throttle_implaus_1ms(void) {
@@ -213,6 +230,24 @@ static void vcu_check_brake_throttle_implaus_1ms(void) {
 }
 
 static void vcu_apply_outputs(void){
+    if (s_state.mode != VCU_MODE_RUN) {
+        s_state.torque_command = 0;
+    } else {
+        int16_t torque_raw = vcu_min_16(s_state.throttle_l_scaled, s_state.throttle_r_scaled) * TORQUE_REQUEST_SCALE;
+
+        //Prevent motor whining while idle
+        if (torque_raw < 20) {
+            s_state.torque_command = 0;
+        }else if (torque_raw > 2300) {
+            s_state.torque_command = 2540;
+        } else {
+            s_state.torque_command = torque_raw;
+        }
+
+    }
+
+
+    // Update LEDs
     if (s_state.fault_bits != 0u) {
         HAL_GPIO_WritePin(s_hw.error_led_port, s_hw.error_led_pin, GPIO_PIN_SET);
     } else {
@@ -249,8 +284,43 @@ HAL_StatusTypeDef vcu_step_10ms(void) {
         s_state.heartbeat = false;
         s_state.heartbeat_elapsed_ms = 0u;
     }
+
+    vcu_send_can_10ms();
     
     return HAL_OK;
+}
+
+static void vcu_send_can_10ms(void) {
+    vcu_throttle_state.throttle_l_raw = (uint16_t)s_state.throttle_l_raw;
+    vcu_throttle_state.throttle_r_raw = (uint16_t)s_state.throttle_r_raw;
+    vcu_throttle_state.throttle_l_scaled = (uint8_t)s_state.throttle_l_scaled;
+    vcu_throttle_state.throttle_r_scaled = (uint8_t)s_state.throttle_r_scaled;
+    vcu_throttle_state.throttle_range_invalid =
+        s_state.throttle_range_invalid ? 1u : 0u;
+    vcu_throttle_state.throttle_implaus_timer_ms =
+        s_state.throttle_implaus_timer_ms;
+
+    vcu_bspd_state.brake_press_sense = s_state.brake_press_sense;
+    vcu_bspd_state.brake_press_sense_filtered = s_state.brake_press_sense_ftr;
+    vcu_bspd_state.rc_timer_status = s_state.rc_timer_status;
+    vcu_bspd_state.brake_gate = s_state.brake_gate ? 1u : 0u;
+    vcu_bspd_state.bspd_5kw = s_state.bspd_5kw ? 1u : 0u;
+
+    vcu_status.fault_bits_lo = s_state.fault_bits;
+    vcu_status.fault_bits_hi = 0u;
+    vcu_status.mode = (uint8_t)s_state.mode;
+    vcu_status.heartbeat = s_state.heartbeat ? 1u : 0u;
+
+    /*
+    * Sets the torque request in the motor controller command message
+    */
+    m192_command_message.torque_command = s_state.torque_command;
+
+    // Send Message to CAN
+    can_send_vcu_throttle_state();
+    can_send_vcu_bspd_state();
+    can_send_vcu_status();
+    can_send_m192_command_message();
 }
 
 
@@ -297,8 +367,21 @@ HAL_StatusTypeDef vcu_init(void) {
     s_state.brake_throttle_implaus_latched = false;
 
     s_state.inverter_command_publish_elapsed_ms = 0u;
-
+    
     vcu_apply_outputs();
+
+    can_poll_receive_all(); 
+    /*
+     * This feature is added so that the inverter cannot be accidentally enabled
+     * when first powered up. This feature requires that before sending out an
+     * Inverter Enable command, the user must send out an Inverter Disable
+     * command. Once the inverter sees a Disable command, the lockout is removed
+     * and controller can receive the Inverter Enable command
+     */
+    can_send_m192_command_message();
+
+    m192_command_message.direction_command = MOTOR_ANTICLOCKWISE;
+
     return HAL_OK;
 }
 
@@ -316,10 +399,12 @@ int main(void) {
     if (vcu_adc_init() != HAL_OK) {
         Error_Handler();
     }
+    if (can_init_vcu() != HAL_OK) {
+        Error_Handler();
+    }
     if (vcu_init() != HAL_OK) {
         Error_Handler();
     }
-    // FDCAN1_Init(); // Temporarily disabled
 
     while (true) {
         if (s_tick_1ms) {

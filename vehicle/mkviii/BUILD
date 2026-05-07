@@ -12,6 +12,8 @@ dbc_gen(
 
         "//vehicle/common/gps:gps.dbc",
         "//vehicle/common/motor_controller:cm200dx.dbc",
+
+        "//vehicle/mkviii/software/lv/VCU:vcu.yml"
         
         # "//vehicle/mkvii/software/air_control:air.yml",
         # "//vehicle/mkvii/software/bms:bms.yml",

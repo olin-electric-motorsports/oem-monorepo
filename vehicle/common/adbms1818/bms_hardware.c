@@ -54,17 +54,19 @@ extern oem_spi_config_t bms_spi;
 
 void cs_low(uint8_t pin) {
     oem_spi_select(&bms_spi);
+    delay_u(2);
 }
 
 void cs_high(uint8_t pin) {
     oem_spi_deselect(&bms_spi);
+    delay_u(2);
 }
 
 //microsecond delay based on CPU cycles cause HAL doesn't have this
 void delay_u(uint16_t micro) {
     // Calculate cycles needed (Clock speed / 1 million gives cycles per microsecond)
     // Divide by 4 because the while loop takes roughly 4 instructions per iteration
-    uint32_t delay_cycles = (SystemCoreClock / 1000000) * micro / 4;
+    volatile uint32_t delay_cycles = (SystemCoreClock / 1000000) * micro / 4;
     
     while (delay_cycles--) {
         __NOP(); // No-operation
@@ -77,12 +79,13 @@ void delay_m(uint16_t milli) {
 
 void spi_write_array(uint8_t len, uint8_t data[]) {
     if (len > 0) {
-        uint8_t dummy_rx[len]; 
+        uint8_t dummy_rx[32]; 
         oem_spi_transmit_receive(&bms_spi, data, dummy_rx, len);
     }
 }
 
 void spi_write_read(uint8_t tx_Data[], uint8_t tx_len, uint8_t *rx_data, uint8_t rx_len) {
+    __disable_irq();
     // end the command 
     if (tx_len > 0) {
         uint8_t dummy_rx_cmd[tx_len];
@@ -95,6 +98,7 @@ void spi_write_read(uint8_t tx_Data[], uint8_t tx_len, uint8_t *rx_data, uint8_t
         memset(dummy_tx_data, 0xFF, rx_len);
         oem_spi_transmit_receive(&bms_spi, dummy_tx_data, rx_data, rx_len);
     }
+    __enable_irq();
 }
 
 uint8_t spi_read_byte(uint8_t tx_dat) {

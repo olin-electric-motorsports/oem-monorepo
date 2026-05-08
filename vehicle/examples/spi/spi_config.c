@@ -8,6 +8,8 @@ oem_spi_config_t bms_spi = {
     .baud_prescaler = SPI_BAUDRATEPRESCALER_256 // Adjust as needed for your sensor's max SPI speed
 };
 
+void SystemClockConfig(void);
+
 void SysTick_Handler(void) {
   HAL_IncTick();
 }

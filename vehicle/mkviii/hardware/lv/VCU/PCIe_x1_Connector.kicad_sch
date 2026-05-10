@@ -1309,6 +1309,139 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "OEM:R_0_0.1W_0603"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R_0"
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "OEM:R_0603_1608Metric"
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "RES 0 OHM JUMPER 1/10W 0603"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "MPN" "RMCF0603ZT0R00"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_0_0.1W_0603_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_0_0.1W_0603_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OEM:R_10k_0.1W_0603"
 			(pin_numbers
 				(hide yes)
@@ -2534,12 +2667,6 @@
 		(uuid "b9fde50d-0ddb-408e-8288-737b6acc7ad0")
 	)
 	(junction
-		(at 218.44 86.36)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c9ac271d-65ac-4ed6-bd47-7dde0ef9efd1")
-	)
-	(junction
 		(at 190.5 96.52)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3040,16 +3167,6 @@
 			(type default)
 		)
 		(uuid "4629d7ab-2d18-427e-8c54-daa5d183a220")
-	)
-	(wire
-		(pts
-			(xy 218.44 86.36) (xy 218.44 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "464f3f10-d726-45ec-b2cf-e88ce9e123dc")
 	)
 	(wire
 		(pts
@@ -5536,85 +5653,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_10k_0.1W_0603")
-		(at 218.44 91.44 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "554cfb5f-c2be-4b18-ad2c-ee73b76b3e5d")
-		(property "Reference" "R15"
-			(at 220.98 90.1699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "R_10k"
-			(at 220.98 92.7099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
-			(at 216.662 91.44 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
-			(at 218.44 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "RES 10K OHM 1% 1/10W 0603"
-			(at 218.44 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "RMCF0603FT10K0"
-			(at 218.44 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "26b96a78-e6b8-4b73-8a79-cc45ac947091")
-		)
-		(pin "1"
-			(uuid "c67d4f2e-689d-4772-887e-4f5730dc12ab")
-		)
-		(instances
-			(project "VCU"
-				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8/f5075997-e0a3-4d84-b3da-8739948f4d50"
-					(reference "R15")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OEM:C_10uF_10V_0603")
 		(at 132.08 64.77 0)
 		(unit 1)
@@ -5831,72 +5869,6 @@
 			(project "VCU"
 				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8/f5075997-e0a3-4d84-b3da-8739948f4d50"
 					(reference "R16")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 218.44 95.25 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "79bc6ff1-3fcc-4a56-874e-df54b52af609")
-		(property "Reference" "#PWR?"
-			(at 218.44 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 218.44 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 218.44 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 218.44 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 218.44 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3f821706-675d-4c32-8a2a-1aebb0c2c7b0")
-		)
-		(instances
-			(project "VCU"
-				(path "/ec5dd9e3-3092-4af4-bee1-94131d9ab7f8/f5075997-e0a3-4d84-b3da-8739948f4d50"
-					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -6428,7 +6400,7 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_5.1k_0.1W_0603")
+		(lib_id "OEM:R_0_0.1W_0603")
 		(at 218.44 81.28 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6437,16 +6409,15 @@
 		(dnp no)
 		(uuid "a0b844fb-f4fd-4e36-87e7-ab6d7cc2be9e")
 		(property "Reference" "R14"
-			(at 220.98 80.0099 0)
+			(at 223.012 82.296 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "R_5.1k"
-			(at 224.282 82.55 0)
+		(property "Value" "R_0"
+			(at 223.012 80.264 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6462,7 +6433,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/40/1/cr-a-as.pdf"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
 			(at 218.44 81.28 0)
 			(effects
 				(font
@@ -6471,7 +6442,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RESA-AS 0603 5K1 1% 1/10W TC100"
+		(property "Description" "RES 0 OHM JUMPER 1/10W 0603"
 			(at 218.44 81.28 0)
 			(effects
 				(font
@@ -6480,7 +6451,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "CR0603AFX-5101EAS"
+		(property "MPN" "RMCF0603ZT0R00"
 			(at 218.44 81.28 0)
 			(effects
 				(font

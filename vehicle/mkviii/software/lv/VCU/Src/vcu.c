@@ -1,3 +1,11 @@
+/*
+ * MKVIII VCU runtime.
+ *
+ * The fast 1 ms path samples hardware inputs, evaluates plausibility and
+ * shutdown-chain faults, selects the VCU mode, and applies local outputs. The
+ * 10 ms path maintains slower status outputs such as heartbeat and CAN frames.
+ */
+
 #include "vcu.h"
 #include "vcu_config.h"
 #include "gpio.h"
@@ -9,23 +17,36 @@
 #include "stm32g4xx_hal_pwr_ex.h"
 #include "stm32g4xx_hal_flash.h"
 
+/* Global runtime state published through CAN and used by each control task. */
 vcu_state_s s_state = {0};
+/* Hardware mapping populated by GPIO/ADC initialization before vcu_init(). */
 vcu_hw_s s_hw = {0};
 
+/* Scheduler flags set by SysTick_Handler and consumed by the main loop. */
 static volatile bool s_tick_1ms = false;
 static volatile bool s_tick_10ms = false;
 
+/* Input sampling and state update helpers for the fast control loop. */
 static void vcu_read_inputs_1ms(void);
 static void vcu_read_bspd_1ms(void);
 static void vcu_read_throttle_1ms(void);
 static void vcu_read_shutdown_chain_1ms(void);
 static void vcu_update_fault_manager_1ms(void);
 static void vcu_check_brake_throttle_implaus_1ms(void);
+/* Output and communication helpers that consume the already-updated state. */
 static void vcu_apply_outputs(void);
 static void vcu_send_can_10ms(void);
+/* Small arithmetic helpers kept local to avoid depending on lib helpers. */
 static int16_t vcu_abs_diff_16(int16_t a, int16_t b);
 static int16_t vcu_min_16(int16_t a, int16_t b);
 
+/*
+ * System tick interrupt hook.
+ *
+ * HAL timekeeping runs every millisecond. The VCU also derives a 10 ms flag
+ * from this interrupt so the main loop can execute both periodic tasks without
+ * doing control work directly inside the interrupt context.
+ */
 void SysTick_Handler(void) {
     static uint8_t tick_10ms_div = 0;
 
@@ -46,6 +67,13 @@ void SysTick_Handler(void) {
     debugging purposes
     Returns an int16_t representing pedal travel
 */
+/*
+ * Run one fast VCU control iteration.
+ *
+ * This function is intended to be called from the foreground loop whenever the
+ * 1 ms scheduler flag is set. It leaves all externally visible results in
+ * s_state and on the configured GPIO outputs.
+ */
 HAL_StatusTypeDef vcu_step_1ms(void) {
     vcu_read_inputs_1ms();
     vcu_check_brake_throttle_implaus_1ms();
@@ -54,6 +82,12 @@ HAL_StatusTypeDef vcu_step_1ms(void) {
     return HAL_OK;
 }
 
+/*
+ * Sample every input source needed by the fast control path.
+ *
+ * ADC and GPIO data are copied into s_state first, then the CAN receive queue
+ * is drained so any subscribed status can be incorporated by later logic.
+ */
 static void vcu_read_inputs_1ms(void) {
     vcu_read_bspd_1ms();
     vcu_read_throttle_1ms();
@@ -63,6 +97,12 @@ static void vcu_read_inputs_1ms(void) {
     can_poll_receive_all(); 
 }
 
+/*
+ * Sample BSPD-related analog and digital monitors.
+ *
+ * The latched BSPD logic input is inverted in software because a low readback
+ * indicates the hardware latch/output is active.
+ */
 static void vcu_read_bspd_1ms(void) {
     s_state.brake_press_sense = oem_adc_read(s_hw.hadc_brake_press_sense);
     s_state.brake_press_sense_ftr = oem_adc_read(s_hw.hadc_brake_press_sense_ftr);
@@ -74,9 +114,16 @@ static void vcu_read_bspd_1ms(void) {
     s_state.bspd_latched = !HAL_GPIO_ReadPin(s_hw.bspd_ll_port, s_hw.bspd_ll_pin);
 }
 
+/*
+ * Read and scale both APPS channels.
+ *
+ * Raw ADC readings are shifted down before applying the calibrated min/max
+ * counts. The scaled values are clipped into the VCU pedal range while separate
+ * flags retain whether clipping or sensor mismatch occurred.
+ */
 static void vcu_read_throttle_1ms(void) {
     // Read raw data from potentiometers
-    // Are we still using int16 instead of uint16
+    // TODO: Are we still using int16 instead of uint16?
     int16_t throttle_l_raw = (int16_t)oem_adc_read(s_hw.hadc_throttle_l);
     s_state.throttle_l_raw = throttle_l_raw;
     int16_t throttle_r_raw = (int16_t)oem_adc_read(s_hw.hadc_throttle_r);
@@ -88,6 +135,7 @@ static void vcu_read_throttle_1ms(void) {
     int16_t range_l = THROTTLE_L_MAX_COUNTS - THROTTLE_L_MIN_COUNTS;
     int16_t range_r = THROTTLE_R_MAX_COUNTS - THROTTLE_R_MIN_COUNTS;
 
+    /* Record invalid calibration constants for status reporting. */
     if (range_l <= 0 || range_r <= 0){
         s_state.throttle_range_invalid = true;
     } else {
@@ -97,6 +145,10 @@ static void vcu_read_throttle_1ms(void) {
     int32_t scaled_l = (int32_t)(raw_l - THROTTLE_L_MIN_COUNTS) * MAX_THROTTLE_POS;
     int32_t scaled_r = (int32_t)(raw_r - THROTTLE_R_MIN_COUNTS) * MAX_THROTTLE_POS;
 
+    /*
+     * Preserve negative below-range values until the clipping checks so the
+     * out-of-range flags still describe the original sensor reading.
+     */
     if (scaled_l < 0) {
         scaled_l = -(int32_t)((-scaled_l + range_l - 1) / range_l);
     } else {
@@ -138,6 +190,12 @@ static void vcu_read_throttle_1ms(void) {
     s_state.throttles_mismatch = throttle_diff > APPS_IMPLAUSIBILITY_DEVIATION_THRESHOLD;
 }
 
+/*
+ * Read shutdown-chain continuity inputs.
+ *
+ * Both monitored shutdown-chain signals are active-low at the MCU, so a reset
+ * pin state is interpreted as a closed segment.
+ */
 static void vcu_read_shutdown_chain_1ms(void) {
     // BSPD_SHUTDOWN_SENSE is inverted before reaching the MCU.
     s_state.ss_bspd_closed =
@@ -148,6 +206,13 @@ static void vcu_read_shutdown_chain_1ms(void) {
         == GPIO_PIN_RESET;
 }
 
+/*
+ * Build fault bitmasks and select the high-level operating mode.
+ *
+ * Fault bits are recomputed from current sampled state on every 1 ms tick,
+ * while specific plausibility conditions latch in s_state until their own
+ * reset criteria are met.
+ */
 static void vcu_update_fault_manager_1ms() {
     uint32_t fault_bits = VCU_FAULT_NONE;
 
@@ -169,6 +234,7 @@ static void vcu_update_fault_manager_1ms() {
         s_state.throttle_r_out_of_range || 
         s_state.throttles_mismatch;
 
+    /* Report immediate APPS fault causes separately from the timeout latch. */
     if (s_state.throttle_l_out_of_range) {
         fault_bits |= VCU_FAULT_APPS1_OUT_OF_RANGE;
     }
@@ -193,6 +259,7 @@ static void vcu_update_fault_manager_1ms() {
     }
 
     // Shared
+    /* Brake/throttle implausibility is evaluated outside the APPS timer. */
     if (s_state.brake_throttle_implaus_latched) {
         fault_bits |= VCU_FAULT_BRAKE_THROTTLE_IMPLAUS;
     }
@@ -215,10 +282,17 @@ static void vcu_update_fault_manager_1ms() {
     }
 }
 
+/*
+ * Enforce the brake/throttle plausibility rule.
+ *
+ * The latch is set when braking overlaps with more than the high APPS
+ * threshold, then clears only after pedal travel drops below the low threshold.
+ */
 static void vcu_check_brake_throttle_implaus_1ms(void) {
     int16_t throttle_scaled_min =
         vcu_min_16(s_state.throttle_l_scaled, s_state.throttle_r_scaled);
 
+    /* Use hysteresis so the latch does not chatter near the threshold. */
     if (s_state.brake_throttle_implaus_latched) {
         if (throttle_scaled_min <= APPS_BRAKE_IMPLAUSIBILITY_THRESHOLD_LOW) {
             s_state.brake_throttle_implaus_latched = false;
@@ -229,6 +303,13 @@ static void vcu_check_brake_throttle_implaus_1ms(void) {
     }
 }
 
+/*
+ * Apply the selected mode to torque and GPIO outputs.
+ *
+ * Torque is forced to zero outside RUN mode. In RUN mode the lower of the two
+ * redundant pedal readings is used so a single high sensor cannot command more
+ * torque than the other channel agrees with.
+ */
 static void vcu_apply_outputs(void){
     if (s_state.mode != VCU_MODE_RUN) {
         s_state.torque_command = 0;
@@ -273,6 +354,12 @@ static void vcu_apply_outputs(void){
     }
 }
 
+/*
+ * Run one slower VCU status iteration.
+ *
+ * The 10 ms task updates software heartbeat timing and publishes all CAN
+ * messages owned by this module.
+ */
 HAL_StatusTypeDef vcu_step_10ms(void) {
     if (HEARTBEAT_TOGGLE_MS > 0u) {
         s_state.heartbeat_elapsed_ms = (uint16_t)(s_state.heartbeat_elapsed_ms + 10u);
@@ -290,6 +377,13 @@ HAL_StatusTypeDef vcu_step_10ms(void) {
     return HAL_OK;
 }
 
+/*
+ * Copy the current runtime state into generated CAN signal structs and send
+ * the corresponding frames.
+ *
+ * The generated can_api layer owns packing/scaling. This function only selects
+ * which internal state values should be exposed on each VCU message.
+ */
 static void vcu_send_can_10ms(void) {
     vcu_throttle_state.throttle_l_raw = (uint16_t)s_state.throttle_l_raw;
     vcu_throttle_state.throttle_r_raw = (uint16_t)s_state.throttle_r_raw;
@@ -385,6 +479,13 @@ HAL_StatusTypeDef vcu_init(void) {
     return HAL_OK;
 }
 
+/*
+ * Firmware entry point.
+ *
+ * Initialization is deliberately ordered as HAL, clocks, GPIO, ADC, CAN, then
+ * VCU state validation so vcu_init() can verify every required hardware handle
+ * before the scheduler begins running.
+ */
 int main(void) {
     /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
     HAL_Init();
@@ -419,10 +520,17 @@ int main(void) {
     }
 }
 
+/*
+ * Return the absolute difference between two signed 16-bit values.
+ *
+ * Inputs are expected to be scaled pedal values small enough that the
+ * subtraction remains inside int16_t range.
+ */
 static inline int16_t vcu_abs_diff_16(int16_t a, int16_t b) {
     return (a > b) ? (int16_t)(a - b) : (int16_t)(b - a);
 }
 
+/* Return the lower of two signed 16-bit values. */
 static inline int16_t vcu_min_16(int16_t a, int16_t b) {
     return (a < b) ? a : b;
 }

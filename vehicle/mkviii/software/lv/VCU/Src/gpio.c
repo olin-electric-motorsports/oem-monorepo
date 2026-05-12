@@ -1,11 +1,26 @@
 #include "gpio.h"
 
+/*
+ * GPIO initialization for VCU-owned digital I/O.
+ *
+ * This module binds each configured pin to s_hw after the HAL pin setup so
+ * the control loop can read inputs and drive indicators through a single
+ * hardware mapping structure.
+ */
+
+/* Small wrapper around HAL_GPIO_Init that also filters invalid mappings. */
 static void gpio_init(GPIO_TypeDef* port,
                       uint16_t pin,
                       uint32_t mode,
                       uint32_t pull,
                       uint32_t speed);
 
+/*
+ * Enable GPIO clocks, configure all VCU digital pins, and populate s_hw.
+ *
+ * Outputs are reset by gpio_init before being configured, which keeps LEDs
+ * and logic outputs in a known off state during initialization.
+ */
 HAL_StatusTypeDef vcu_gpio_init(void)
 {
   // 
@@ -119,6 +134,12 @@ HAL_StatusTypeDef vcu_gpio_init(void)
 
 // Helper functions
 
+/*
+ * Configure a single GPIO pin through the STM32 HAL.
+ *
+ * Invalid port or pin mappings are ignored so callers can safely share this
+ * helper across optional pins without dereferencing NULL.
+ */
 static void gpio_init(GPIO_TypeDef* port,
                           uint16_t pin,
                           uint32_t mode,

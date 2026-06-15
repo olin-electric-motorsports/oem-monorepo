@@ -2,8 +2,12 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
+	(in_pos_files yes)
+	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "U"
 		(at 10.16 11.43 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13,6 +17,8 @@
 	)
 	(property "Value" "MCP2561-E_SN"
 		(at 10.16 8.89 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22,41 +28,49 @@
 	)
 	(property "Footprint" "OEM:SOIC-8_3.9x4.9mm_P1.27mm"
 		(at 10.16 -91.11 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
-			(hide yes)
 		)
 	)
 	(property "Datasheet" "https://www.mouser.com/datasheet/3/282/1/20005167C.pdf"
 		(at 10.16 -191.11 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
-			(hide yes)
 		)
 	)
 	(property "Description" "IC TRANSCEIVER HALF 1/1 8SOIC"
 		(at -13.97 3.81 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "MPN" "MCP2561-E/SN"
 		(at 10.16 -791.11 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
-			(hide yes)
 		)
 	)
 	(symbol "U_CAN-Transceiver_MCP2561-E_SN_SOIC-8_1_1"
@@ -144,34 +158,16 @@
 			)
 		)
 		(pin passive line
-			(at 13.97 3.81 180)
+			(at 13.97 -3.81 180)
 			(length 5.08)
-			(name "STBY"
+			(name "SPLIT"
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(number "8"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
-			(at 13.97 1.27 180)
-			(length 5.08)
-			(name "CANH"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "7"
+			(number "5"
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -198,16 +194,34 @@
 			)
 		)
 		(pin passive line
-			(at 13.97 -3.81 180)
+			(at 13.97 1.27 180)
 			(length 5.08)
-			(name "SPLIT"
+			(name "CANH"
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(number "5"
+			(number "7"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at 13.97 3.81 180)
+			(length 5.08)
+			(name "STBY"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "8"
 				(effects
 					(font
 						(size 1.27 1.27)

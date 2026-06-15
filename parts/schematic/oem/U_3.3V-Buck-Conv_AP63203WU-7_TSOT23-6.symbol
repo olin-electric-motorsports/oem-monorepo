@@ -5,8 +5,12 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
+	(in_pos_files yes)
+	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "U"
 		(at 0 9.398 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -15,6 +19,8 @@
 	)
 	(property "Value" "AP63203WU-7"
 		(at 0 6.858 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -23,58 +29,70 @@
 	)
 	(property "Footprint" "OEM:SOT-23-6"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 				(italic yes)
 			)
-			(hide yes)
 		)
 	)
 	(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP63200-AP63201-AP63203-AP63205.pdf"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 				(italic yes)
 			)
-			(hide yes)
 		)
 	)
 	(property "Description" "IC REG BUCK 3.3V 2A TSOT23-6"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "MPN" "AP63203WU-7"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_keywords" "AP63203WU-7"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_fp_filters" "AP63203WU-7_DIO AP63203WU-7_DIO-M AP63203WU-7_DIO-L"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(symbol "U_3.3V-Buck-Conv_AP63203WU-7_TSOT23-6_0_1"
@@ -114,17 +132,17 @@
 				)
 			)
 		)
-		(pin input line
-			(at 11.43 2.54 180)
+		(pin power_out line
+			(at 11.43 -2.54 180)
 			(length 2.54)
-			(name "BST"
+			(name "GND"
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(number "6"
+			(number "4"
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -150,17 +168,17 @@
 				)
 			)
 		)
-		(pin power_out line
-			(at 11.43 -2.54 180)
+		(pin input line
+			(at 11.43 2.54 180)
 			(length 2.54)
-			(name "GND"
+			(name "BST"
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(number "4"
+			(number "6"
 				(effects
 					(font
 						(size 1.27 1.27)

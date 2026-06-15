@@ -1,17 +1,11 @@
-(symbol "R"
-	(pin_numbers
-		(hide yes)
-	)
-	(pin_names
-		(offset 0)
-	)
+(symbol "L_4.7H_2.4A_60m_SMD"
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
 	(in_pos_files yes)
 	(duplicate_pin_numbers_are_jumpers no)
-	(property "Reference" "R"
-		(at 2.032 0 90)
+	(property "Reference" "L"
+		(at 1.016 0 0)
 		(show_name no)
 		(do_not_autoplace no)
 		(effects
@@ -20,8 +14,8 @@
 			)
 		)
 	)
-	(property "Value" "R_[ResVal]_[PwrDisipVal]"
-		(at 0 0 90)
+	(property "Value" "L_4.7uH_2.4A"
+		(at -0.508 0 90)
 		(show_name no)
 		(do_not_autoplace no)
 		(effects
@@ -30,18 +24,7 @@
 			)
 		)
 	)
-	(property "Footprint" ""
-		(at -1.778 0 90)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-	)
-	(property "Datasheet" ""
+	(property "Footprint" "OEM:SRN5020TA4R7M"
 		(at 0 0 0)
 		(show_name no)
 		(do_not_autoplace no)
@@ -52,7 +35,7 @@
 			)
 		)
 	)
-	(property "Description" "TEMPLATE - Resistor [Digikey Description]"
+	(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/SRN5020TA.pdf"
 		(at 0 0 0)
 		(show_name no)
 		(do_not_autoplace no)
@@ -63,7 +46,7 @@
 			)
 		)
 	)
-	(property "MPN" ""
+	(property "Description" ""
 		(at 0 0 0)
 		(show_name no)
 		(do_not_autoplace no)
@@ -74,34 +57,49 @@
 			)
 		)
 	)
-	(property "ki_keywords" "R res resistor"
-		(at 0 0 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-	)
-	(property "ki_fp_filters" "R_*"
-		(at 0 0 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-	)
-	(symbol "R_0_1"
-		(rectangle
-			(start -1.016 -2.54)
-			(end 1.016 2.54)
+	(symbol "L_4.7H_2.4A_60m_SMD_0_1"
+		(arc
+			(start -2.54 2.54)
+			(mid -1.9077 1.905)
+			(end -2.54 1.27)
 			(stroke
-				(width 0.254)
+				(width 0)
+				(type default)
+			)
+			(fill
+				(type none)
+			)
+		)
+		(arc
+			(start -2.54 1.27)
+			(mid -1.9077 0.635)
+			(end -2.54 0)
+			(stroke
+				(width 0)
+				(type default)
+			)
+			(fill
+				(type none)
+			)
+		)
+		(arc
+			(start -2.54 0)
+			(mid -1.9077 -0.635)
+			(end -2.54 -1.27)
+			(stroke
+				(width 0)
+				(type default)
+			)
+			(fill
+				(type none)
+			)
+		)
+		(arc
+			(start -2.54 -1.27)
+			(mid -1.9077 -1.905)
+			(end -2.54 -2.54)
+			(stroke
+				(width 0)
 				(type default)
 			)
 			(fill
@@ -109,9 +107,9 @@
 			)
 		)
 	)
-	(symbol "R_1_1"
+	(symbol "L_4.7H_2.4A_60m_SMD_1_1"
 		(pin passive line
-			(at 0 3.81 270)
+			(at -2.54 3.81 270)
 			(length 1.27)
 			(name ""
 				(effects
@@ -129,7 +127,7 @@
 			)
 		)
 		(pin passive line
-			(at 0 -3.81 90)
+			(at -2.54 -3.81 90)
 			(length 1.27)
 			(name ""
 				(effects

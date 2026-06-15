@@ -2,8 +2,12 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
+	(in_pos_files yes)
+	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "U"
 		(at 0 47.244 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -12,6 +16,8 @@
 	)
 	(property "Value" "STM32G441KBT6"
 		(at 0 44.704 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20,29 +26,35 @@
 	)
 	(property "Footprint" "OEM:LQFP-32_7x7mm_P0.8mm"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "Datasheet" "https://www.st.com/resource/en/datasheet/stm32g441kb.pdf"
 		(at 1.524 0.254 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "Description" "OEM STM32G441KBT6 Standard Configuration - v1.0 (07-25-2025)"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(symbol "U_MCU_STM32G441KBT6_32-LQFP_1_1"
@@ -92,186 +104,6 @@
 				)
 			)
 		)
-		(pin power_in line
-			(at -35.56 38.1 0)
-			(length 2.54)
-			(name "VDD"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "17"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin power_in line
-			(at -35.56 35.56 0)
-			(length 2.54)
-			(name "VDDA"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "15"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin power_in line
-			(at -35.56 30.48 0)
-			(length 2.54)
-			(name "VSS"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "16"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin power_in line
-			(at -35.56 27.94 0)
-			(length 2.54)
-			(name "VSS"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "32"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin power_in line
-			(at -35.56 25.4 0)
-			(length 2.54)
-			(name "VSSA"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "14"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin bidirectional line
-			(at 35.56 40.64 180)
-			(length 2.54)
-			(name "(GPIO_EXTI10)PG10-NRST"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "4"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin bidirectional line
-			(at 35.56 38.1 180)
-			(length 2.54)
-			(name "(SYS_JTMS-SWDIO/GPIO_EXTI13)PA13"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "23"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin bidirectional line
-			(at 35.56 35.56 180)
-			(length 2.54)
-			(name "(SYS_JTCK-SWCLK/GPIO_EXTI14)PA14"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "24"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin bidirectional line
-			(at 35.56 30.48 180)
-			(length 2.54)
-			(name "(FDCAN1_RX/GPIO_EXTI11)PA11"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "21"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin bidirectional line
-			(at 35.56 27.94 180)
-			(length 2.54)
-			(name "(FDCAN1_TX/GPIO_EXTI12)PA12"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "22"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
 		(pin bidirectional line
 			(at 35.56 22.86 180)
 			(length 2.54)
@@ -301,6 +133,24 @@
 				)
 			)
 			(number "3"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 40.64 180)
+			(length 2.54)
+			(name "(GPIO_EXTI10)PG10-NRST"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "4"
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -470,6 +320,78 @@
 				)
 			)
 		)
+		(pin power_in line
+			(at -35.56 25.4 0)
+			(length 2.54)
+			(name "VSSA"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "14"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin power_in line
+			(at -35.56 35.56 0)
+			(length 2.54)
+			(name "VDDA"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "15"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin power_in line
+			(at -35.56 30.48 0)
+			(length 2.54)
+			(name "VSS"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "16"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin power_in line
+			(at -35.56 38.1 0)
+			(length 2.54)
+			(name "VDD"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "17"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
 		(pin bidirectional line
 			(at 35.56 -10.16 180)
 			(length 2.54)
@@ -517,6 +439,78 @@
 				)
 			)
 			(number "20"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 30.48 180)
+			(length 2.54)
+			(name "(FDCAN1_RX/GPIO_EXTI11)PA11"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "21"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 27.94 180)
+			(length 2.54)
+			(name "(FDCAN1_TX/GPIO_EXTI12)PA12"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "22"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 38.1 180)
+			(length 2.54)
+			(name "(SYS_JTMS-SWDIO/GPIO_EXTI13)PA13"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "23"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 35.56 180)
+			(length 2.54)
+			(name "(SYS_JTCK-SWCLK/GPIO_EXTI14)PA14"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "24"
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -643,6 +637,24 @@
 				)
 			)
 			(number "31"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin power_in line
+			(at -35.56 27.94 0)
+			(length 2.54)
+			(name "VSS"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "32"
 				(effects
 					(font
 						(size 1.27 1.27)

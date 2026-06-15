@@ -2,8 +2,12 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
+	(in_pos_files yes)
+	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "K"
 		(at 11.43 3.81 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13,6 +17,8 @@
 	)
 	(property "Value" "Relay_SPST-NO"
 		(at 11.43 1.27 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22,48 +28,58 @@
 	)
 	(property "Footprint" ""
 		(at 11.43 -1.27 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
-			(hide yes)
 		)
 	)
-	(property "Datasheet" "~"
+	(property "Datasheet" ""
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "Description" "Relay SPST, normally open, EN50005"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_keywords" "1P1T 1-Form-A single pole throw NO"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_fp_filters" "Relay?SPST*"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(symbol "K_Relay_SPST-NO_0_0"
@@ -226,45 +242,9 @@
 	)
 	(symbol "K_Relay_SPST-NO_1_1"
 		(pin passive line
-			(at -5.08 7.62 270)
-			(length 2.54)
-			(name "~"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "A1"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
-			(at -5.08 -7.62 90)
-			(length 2.54)
-			(name "~"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "A2"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
 			(at 5.08 -7.62 90)
 			(length 2.54)
-			(name "~"
+			(name ""
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -282,7 +262,7 @@
 		(pin passive line
 			(at 7.62 7.62 270)
 			(length 2.54)
-			(name "~"
+			(name ""
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -290,6 +270,42 @@
 				)
 			)
 			(number "14"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at -5.08 7.62 270)
+			(length 2.54)
+			(name ""
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "A1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at -5.08 -7.62 90)
+			(length 2.54)
+			(name ""
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "A2"
 				(effects
 					(font
 						(size 1.27 1.27)

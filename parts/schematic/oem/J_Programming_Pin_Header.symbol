@@ -6,8 +6,12 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
+	(in_pos_files yes)
+	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "J"
 		(at 1.27 5.08 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16,6 +20,8 @@
 	)
 	(property "Value" "J_Programming_Pin_Header"
 		(at 1.27 -5.08 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -24,47 +30,57 @@
 	)
 	(property "Footprint" "stm32g441kbt6:Programming_Pin_Header_Keyed"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
-	(property "Datasheet" "~"
+	(property "Datasheet" ""
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "Description" "Programming Pin Header for the STM32G441KBT6 and STM32G474RExx Chips (OEM Standard Configuration v1.0)"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_keywords" "connector"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_fp_filters" "Connector*:*_2x??_*"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(symbol "J_Programming_Pin_Header_1_1"
@@ -153,6 +169,24 @@
 			)
 		)
 		(pin passive line
+			(at 6.35 2.54 180)
+			(length 2.54)
+			(name "Pin_2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
 			(at -3.81 0 0)
 			(length 2.54)
 			(name "Pin_3"
@@ -181,24 +215,6 @@
 				)
 			)
 			(number "4"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
-			(at 6.35 2.54 180)
-			(length 2.54)
-			(name "Pin_2"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "2"
 				(effects
 					(font
 						(size 1.27 1.27)

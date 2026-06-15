@@ -2,8 +2,12 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
+	(in_pos_files yes)
+	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "U"
 		(at 11.43 12.7 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13,6 +17,8 @@
 	)
 	(property "Value" "AP7370-33Y-13"
 		(at 11.43 10.16 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22,41 +28,49 @@
 	)
 	(property "Footprint" "OEM:SOT-89-3"
 		(at 11.43 -89.84 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
-			(hide yes)
 		)
 	)
 	(property "Datasheet" "https://www.diodes.com//assets/Datasheets/AP7370.pdf"
 		(at 11.43 -189.84 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
-			(hide yes)
 		)
 	)
 	(property "Description" "IC REG LINEAR 3.3V 300MA SOT89-3"
 		(at -15.24 2.54 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "MPN" "AP7370-33Y-13"
 		(at 11.43 -789.84 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
-			(hide yes)
 		)
 	)
 	(symbol "U_3.3V-Volt_Reg_AP7370-33Y-13_SOT89-3_1_1"

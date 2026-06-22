@@ -171,7 +171,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:C_10uF_10V_0603"
+		(symbol "OEM:C_10uF_35V_0603"
 			(pin_numbers
 				(hide yes)
 			)
@@ -194,7 +194,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "C_10uF_10V"
+			(property "Value" "C_10uF_35V"
 				(at 0.635 -2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -216,7 +216,18 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188D71A106KA73-01.pdf"
+			(property "Datasheet" "https://pim.murata.com/asset/pim4/ceramicCapacitorSMD/GRM188R6YA106MA73-01A-EN_PDF_CERAMICCAPACITORSMD"
+				(at 0 3.048 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "CAP CER 10UF 35V X5R 0603"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -227,18 +238,7 @@
 					)
 				)
 			)
-			(property "Description" "CAP CER 10UF 10V X7T 0603"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "MPN" "GRM188D71A106KA73D"
+			(property "MPN" ""
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -271,7 +271,7 @@
 					)
 				)
 			)
-			(symbol "C_10uF_10V_0603_0_1"
+			(symbol "C_10uF_35V_0603_0_1"
 				(polyline
 					(pts
 						(xy -2.032 0.762) (xy 2.032 0.762)
@@ -297,7 +297,7 @@
 					)
 				)
 			)
-			(symbol "C_10uF_10V_0603_1_1"
+			(symbol "C_10uF_35V_0603_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.794)
@@ -2401,6 +2401,99 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:C_10uF_35V_0603")
+		(at 111.76 72.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "38926edf-9fc6-4fa3-8186-a4668d35cce4")
+		(property "Reference" "C11"
+			(at 115.57 71.1199 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_10uF_35V"
+			(at 115.57 73.6599 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:C_0603_1608Metric"
+			(at 112.7252 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://pim.murata.com/asset/pim4/ceramicCapacitorSMD/GRM188R6YA106MA73-01A-EN_PDF_CERAMICCAPACITORSMD"
+			(at 111.76 69.342 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 10UF 35V X5R 0603"
+			(at 111.76 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" ""
+			(at 111.76 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "b03ed24a-740a-4b41-a406-5c331a3084b5")
+		)
+		(pin "1"
+			(uuid "591f51b7-9fba-4476-8213-2fb946347b2f")
+		)
+		(instances
+			(project "CarStat"
+				(path "/dea87457-738f-4c5a-8d68-6b57d3b491ea/502635e1-3103-4c74-adc6-3b09efcdb716"
+					(reference "C11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:U_5V-Buck-Conv_AP63205WU-7_TSOT23-6")
 		(at 137.16 93.98 0)
 		(unit 1)
@@ -3190,99 +3283,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:C_10uF_10V_0603")
-		(at 111.76 104.14 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9efba97e-7c4d-4e37-b0a0-77affda928fb")
-		(property "Reference" "C10"
-			(at 115.57 102.8699 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "C_10uF_10V"
-			(at 115.57 105.4099 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
-			(at 112.7252 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188D71A106KA73-01.pdf"
-			(at 111.76 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CAP CER 10UF 10V X7T 0603"
-			(at 111.76 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "GRM188D71A106KA73D"
-			(at 111.76 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "8674acb5-7767-4d3c-a1fc-073c133715a6")
-		)
-		(pin "2"
-			(uuid "10a043c0-1eff-4b5e-ab82-f0b3564479f7")
-		)
-		(instances
-			(project "CarStat"
-				(path "/dea87457-738f-4c5a-8d68-6b57d3b491ea/502635e1-3103-4c74-adc6-3b09efcdb716"
-					(reference "C10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 111.76 78.74 0)
 		(unit 1)
@@ -3361,99 +3361,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:C_10uF_10V_0603")
-		(at 111.76 72.39 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ada0eba1-1cfc-4a0c-b79b-af42c244c58e")
-		(property "Reference" "C11"
-			(at 115.57 71.1199 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "C_10uF_10V"
-			(at 115.57 73.6599 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
-			(at 112.7252 76.2 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188D71A106KA73-01.pdf"
-			(at 111.76 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CAP CER 10UF 10V X7T 0603"
-			(at 111.76 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "GRM188D71A106KA73D"
-			(at 111.76 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "cc7539a3-8e67-4142-961c-23e9f82759ea")
-		)
-		(pin "2"
-			(uuid "c8b343ca-4004-4b5c-9172-308a2c823ba7")
-		)
-		(instances
-			(project "CarStat"
-				(path "/dea87457-738f-4c5a-8d68-6b57d3b491ea/502635e1-3103-4c74-adc6-3b09efcdb716"
-					(reference "C11")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 111.76 110.49 0)
 		(unit 1)
@@ -3526,6 +3433,99 @@
 			(project "CarStat"
 				(path "/dea87457-738f-4c5a-8d68-6b57d3b491ea/502635e1-3103-4c74-adc6-3b09efcdb716"
 					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_10uF_35V_0603")
+		(at 111.76 104.14 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b2fab3ce-cf53-4190-afb7-8fec360c305d")
+		(property "Reference" "C10"
+			(at 115.57 102.8699 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_10uF_35V"
+			(at 115.57 105.4099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:C_0603_1608Metric"
+			(at 112.7252 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://pim.murata.com/asset/pim4/ceramicCapacitorSMD/GRM188R6YA106MA73-01A-EN_PDF_CERAMICCAPACITORSMD"
+			(at 111.76 101.092 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 10UF 35V X5R 0603"
+			(at 111.76 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" ""
+			(at 111.76 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "7f0349bf-f67e-4401-947c-ecf0b316d19b")
+		)
+		(pin "1"
+			(uuid "d03207a3-7df2-4956-9f8e-efa6466234b0")
+		)
+		(instances
+			(project "CarStat"
+				(path "/dea87457-738f-4c5a-8d68-6b57d3b491ea/502635e1-3103-4c74-adc6-3b09efcdb716"
+					(reference "C10")
 					(unit 1)
 				)
 			)

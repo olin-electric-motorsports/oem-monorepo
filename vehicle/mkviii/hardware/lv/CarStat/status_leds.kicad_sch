@@ -641,218 +641,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:D_LED_White_0805"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "D"
-				(at 0 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "LED"
-				(at 0 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "OEM:D_0805_2012Metric"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.qt-brightek.com/datasheet/QBLP631_series.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "LED WHITE DIFFUSED 0805 SMD"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Sim.Pins" "1=K 2=A"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "MPN" "QBLP631-IW"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "LED diode"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "D_LED_White_0805_0_1"
-				(polyline
-					(pts
-						(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 0) (xy 1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 -1.27) (xy -1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "D_LED_White_0805_1_1"
-				(pin passive line
-					(at -3.81 0 0)
-					(length 2.54)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 3.81 0 180)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "OEM:R_1k_0.1W_0603"
 			(pin_numbers
 				(hide yes)
@@ -1169,16 +957,6 @@
 			)
 		)
 		(uuid "2de927a8-9658-48c6-b44e-5ba9a5e2fced")
-	)
-	(text "Shutdown Circuit Closed"
-		(exclude_from_sim no)
-		(at 241.3 32.004 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "305bb171-4bb8-44bb-adb5-c49004fb5837")
 	)
 	(text "ESTOPs ON = stoped"
 		(exclude_from_sim no)
@@ -1562,16 +1340,6 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 43.18) (xy 252.73 43.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "44bbc783-2150-486c-9a65-d463a85a5a39")
-	)
-	(wire
-		(pts
 			(xy 139.7 43.18) (xy 144.78 43.18)
 		)
 		(stroke
@@ -1709,16 +1477,6 @@
 			(type default)
 		)
 		(uuid "5f2d9086-4567-4079-94cf-e247241b430d")
-	)
-	(wire
-		(pts
-			(xy 240.03 43.18) (xy 245.11 43.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "630a9d77-01ad-46be-a492-96a70d10b575")
 	)
 	(wire
 		(pts
@@ -2022,16 +1780,6 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 45.72) (xy 256.54 43.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c0c89905-1c4b-4a85-8183-7f1468721389")
-	)
-	(wire
-		(pts
 			(xy 118.11 114.3) (xy 114.3 114.3)
 		)
 		(stroke
@@ -2169,16 +1917,6 @@
 			(type default)
 		)
 		(uuid "eac02bf5-e031-403d-9113-fe4630fc93ca")
-	)
-	(wire
-		(pts
-			(xy 224.79 43.18) (xy 232.41 43.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ecb6e601-4f75-4d53-9899-fe9bf9e58ba2")
 	)
 	(wire
 		(pts
@@ -2374,17 +2112,6 @@
 		)
 		(uuid "de369ef1-fe2b-4833-b59b-318ba0750c76")
 	)
-	(hierarchical_label "F_SS_C"
-		(shape input)
-		(at 224.79 43.18 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "e5352618-e467-4c1e-affe-f7a560a6b6d9")
-	)
 	(hierarchical_label "RIGHT_ESTOP"
 		(shape input)
 		(at 152.4 146.05 180)
@@ -2428,108 +2155,6 @@
 			(justify right)
 		)
 		(uuid "ee5978c8-8bb0-4b96-8fb2-10669d92ff16")
-	)
-	(symbol
-		(lib_id "OEM:D_LED_White_0805")
-		(at 248.92 43.18 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0df3b6b3-080c-4f7f-ac1a-3f427eb1738d")
-		(property "Reference" "D13"
-			(at 250.5075 35.56 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED"
-			(at 250.5075 38.1 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OEM:D_0805_2012Metric"
-			(at 248.92 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.qt-brightek.com/datasheet/QBLP631_series.pdf"
-			(at 248.92 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "LED WHITE DIFFUSED 0805 SMD"
-			(at 248.92 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 248.92 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "QBLP631-IW"
-			(at 248.92 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "b1fad501-b6bf-442e-beb2-3c5ad4aeea8d")
-		)
-		(pin "1"
-			(uuid "05a3a663-efb6-4c01-9efe-17d7bb437aba")
-		)
-		(instances
-			(project "CarStat"
-				(path "/dea87457-738f-4c5a-8d68-6b57d3b491ea/0755b554-5d57-4252-a46a-33954d869412"
-					(reference "D13")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_id "OEM:R_1k_0.1W_0603")
@@ -5580,84 +5205,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 256.54 45.72 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ab56cba9-857b-433e-bba5-6753c30eb7aa")
-		(property "Reference" "#PWR?"
-			(at 256.54 52.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 256.54 50.8 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 256.54 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 256.54 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 256.54 45.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "aad87654-f9d3-4f68-873d-9a4b2544aa1f")
-		)
-		(instances
-			(project "CarStat"
-				(path "/dea87457-738f-4c5a-8d68-6b57d3b491ea/0755b554-5d57-4252-a46a-33954d869412"
-					(reference "#PWR?")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OEM:D_LED_Red_0805")
 		(at 71.12 146.05 180)
 		(unit 1)
@@ -6114,97 +5661,6 @@
 			(project "CarStat"
 				(path "/dea87457-738f-4c5a-8d68-6b57d3b491ea/0755b554-5d57-4252-a46a-33954d869412"
 					(reference "#PWR?")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:R_1k_0.1W_0603")
-		(at 236.22 43.18 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c8043dbb-f7f4-4303-8dcf-673dad6a2a80")
-		(property "Reference" "R13"
-			(at 236.22 36.83 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "R_1k_0.1W"
-			(at 236.22 39.37 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
-			(at 236.22 44.958 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ3GEYJ102V)"
-			(at 236.22 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "RES SMD 1K OHM 5% 1/10W 0603"
-			(at 236.22 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "RMCF0603FT1K00 (or ERJ-3GEYJ102V)"
-			(at 236.22 43.18 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5fedebaf-2082-474c-964d-89713343be17")
-		)
-		(pin "2"
-			(uuid "1e3ab3a8-768b-46b0-a20b-6d66a22bbb43")
-		)
-		(instances
-			(project "CarStat"
-				(path "/dea87457-738f-4c5a-8d68-6b57d3b491ea/0755b554-5d57-4252-a46a-33954d869412"
-					(reference "R13")
 					(unit 1)
 				)
 			)

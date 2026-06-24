@@ -60,13 +60,13 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.25,
+          "min_clearance": 0.0,
           "min_island_area": 0.0013161349,
           "min_thickness": 0.25,
           "pad_connection": 2,
           "remove_islands": 0,
           "thermal_relief_gap": 0.25,
-          "thermal_relief_spoke_width": 1.0
+          "thermal_relief_spoke_width": 0.5
         }
       },
       "diff_pair_dimensions": [
@@ -573,7 +573,7 @@
       },
       {
         "netclass": "12V",
-        "pattern": "+12V"
+        "pattern": "*+12V*"
       }
     ]
   },
@@ -717,7 +717,7 @@
         "uuid": "dea87457-738f-4c5a-8d68-6b57d3b491ea"
       }
     ],
-    "used_designators": "#PWR41,#PWR46,D13,C10-11,C18-19,R13,R18,TP1-8,U3,U5,L2",
+    "used_designators": "#PWR47",
     "variants": []
   },
   "sheets": [

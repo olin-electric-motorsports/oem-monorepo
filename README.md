@@ -8,110 +8,95 @@ Welcome to the Olin Electric Motorsports monorepo. This is the home for all of o
 electrical, firmware, and software work.
 
 This document will help you get started contributing and walk you through
-important steps for collaborating with teammates.
+important steps for working on the team.
+
+
 
 ## Getting Started
 
-### Prerequisites
-Download the following
-   - [Bazel](https://bazel.build/install) (Bazelisk is recommended but not needed)
-   - OpenOCD: 
+If you are on a completely fresh Ubuntu computer, you won't have the tools needed to download this repository yet. Open your terminal (`Ctrl` + `Alt` + `T`) and run these commands one by one to install Git and clone our code:
 
-for Ubuntu/Linux:
-```Shell
-sudo apt install openocd
-```
-
-Once you have those downloaded and installed, you should be able to build and flash the firmware.
-
-Now we need to set up some of the KiCad Git filters (a set of rules that remove temp files that cause clutter):
+**1. Install Git:**
 ```shell
-cd oem-monorepo/
-./scripts/startup/install_kicad_git_filters.sh
+sudo apt update
+sudo apt install git -y
+git clone https://github.com/olin-electric-motorsports/oem-monorepo oem-monorepo
+cd oem-monorepo
 ```
-You'll also want to have the KiCad Git Hooks to generate our symbol libraries. These hooks run every time you push or pull and allow multiple users to add symbols/footprints to our KiCAD library.
-
+Now we need to install a few things so lets run. 
 ```shell
-./scripts/startup/install_kicad_git_hooks.sh
-```
-### Testing to see if things are installed
-
-You can test if Bazel is installed correctly by running:
-```Shell
-bazel version
-```
-You should see the version of Bazel printed in the terminal.
-
-To test if OpenOCD is installed, you can run:
-```Shell
-openocd --version
-```
-This should also print the version of OpenOCD.
-
-Then run 
-```Shell
-bazel build //...
-```
-If that works yayay!!!
-
-Now run
-```Shell
-bazel build //vehicle/... --config=m4
+./scripts/startup/quick-setup.sh
 ```
 
-There should be a lot of green becasue it all worked first try
+Go through this and install the packages
 
-## Building the Firmware
 
-#### To build:
- specific targets, you can use:
 
-```Shell
-bazel build --config=m4 //vehicle/examples/blinky:blinky.elf
+## Repository Configuration
+
+Once your system has all the required packages, you need to configure your local repository settings to keep our KiCad libraries clean.
+*   Run the KiCad Git filters script to apply rules that remove temporary files and prevent clutter:
+    `./scripts/startup/install_kicad_git_filters.sh`
+*   Run the KiCad Git Hooks script to install Git LFS and the hooks required to generate our symbol libraries on every push/pull:
+    `./scripts/startup/install_kicad_git_hooks.sh`
+
+## Testing Your Setup
+
+Verify that your system is ready by running the following commands in your terminal:
+*   Check your Bazel installation: `bazel version`
+*   Check your OpenOCD installation: `openocd --version`
+*   Test the vehicle firmware build: `bazel build //vehicle/... --config=m4`
+
+If the final command outputs a lot of green text, your environment is perfectly configured!
+
+## Firmware Workflow
+
+Here are the standard Bazel commands you will use to interact with the STM32 microcontrollers. 
+
+**Building specific targets (creates the .elf file):**
+`bazel build --config=m4 //vehicle/examples/blinky:blinky.elf`
+
+**Initializing new chips (configures the boot pin on fresh silicon):**
+`bazel run --config=m4 //vehicle/examples/blinky:blinky_initialize`
+
+**Flashing firmware using the ST-Link:**
+`bazel run --config=m4 //vehicle/examples/blinky:blinky_flash`
+
+**Debugging using OpenOCD and GDB:**
+`bazel run -c dbg --config=m4 //vehicle/examples/blinky:blinky_debug`
+
+## Contributing: Branches and Pull Requests
+
+To keep our codebase stable and functional, we do not push code directly to the `main` branch. Instead, we use branches and Pull Requests (PRs) so code can be reviewed before it is merged. Here is the standard workflow for contributing:
+
+**1. Get the Latest Code**
+Always start by making sure your local repository is up-to-date with everyone else's work:
+```shell
+git checkout main
+git pull origin main
 ```
-This creates the .elf file inside the `bazel-bin` directory. Not super useful
 
-#### To initialize new chips:
-specific target using ST-Link run:
-```Shell
-bazel run --config=m4 //vehicle/examples/blinky:blinky_initialize
-```
-This is for freshly bought chips, the boot pin needs to be configured. You only need to run this once on a chip and after that you never need to run it again.
-
-#### To flash:
-specific target using ST-Link run:
-```Shell
-bazel run --config=m4 //vehicle/examples/blinky:blinky_flash
+**2. Create a New Branch**
+Create a new branch for your specific feature or fix. Use a descriptive name and your name so the team knows what you are working on (e.g., `CoolerJacob/blinky-led`, `Jelly_Kelly/adc-reading`):
+```shell
+git checkout -b your-branch-name
 ```
 
-#### To debug:
-using OpenOCD's debugging tool run:
-```Shell
-bazel run -c dbg --config=m4 //vehicle/examples/blinky:blinky_debug
+**3. Make Your Changes and Commit**
+Write your code, verify it builds, and then stage and commit your changes with a clear, descriptive message:
+```shell
+git add .
+git commit -m "Brief description of what you changed and why"
 ```
 
-## Basic debugging with OpenOCD
+**4. Push Your Branch**
+Upload your newly created branch to the remote repository so the team can see it:
+```shell
+git push -u origin your-branch-name
+```
 
-OpenOCD and GDB are the primary tools and can be used together for debugging STM32 applications. OpenOCD provides the interface to the hardware, while GDB is used to inspect and control the execution of the program.
-
-The debug screen should look like this:
-
-![OpenOCD Debugger Screen](assets/Debugger_window.png)
-
-After the debug session is started, you can use GDB commands to control the execution of your program, set breakpoints, and inspect variables.
-
-Here are some common GDB commands:
-
-- `break <function>` or `b <function>`: Set a breakpoint at the specified function.
-- `continue` or `c`: Resume program execution until the next breakpoint.
-- `next` or `n`: Execute the next line of code, stepping over functions.
-- `step` or `s`: Execute the next line of code, stepping into functions.
-- `finish` or `fin`: Continue execution until the current function returns.
-- `print <variable>`: Print the value of the specified variable.
-- `display <var>`: Automatically display the value of a variable each time the program stops.
-- `undisplay <id_number>`: Stop displaying the value of a variable.
-- `p/x <variable>`: Print the value of a variable in hexadecimal format.
-- `info locals`: Print the values of all local variables in the current stack frame.
-- `set <var> <variable_name> = <value>`: force the value of a variable.
-
-If you want to detach from the chip and leave the OpenOCD session, you can use the `detach` command in GDB. Then type `exit` to close the GDB session.
+**5. Open a Pull Request (PR)**
+*   Go to our repository in your web browser.
+*   You will usually see a green prompt saying "Compare & pull request" for your recently pushed branch.
+*   Click it, fill out a description of what your code does, and submit the PR.
+*   Tag a teammate to review your code. Once it is approved, you can merge it into `main`!

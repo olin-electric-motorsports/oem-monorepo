@@ -340,12 +340,12 @@ main () {
             #########
             # https://www.kicad.org/download/linux/
             printf "\n"
-            printf "${green}${bold}Installing KiCad (v9.0)...${cl}\n"
+            printf "${green}${bold}Installing KiCad (v10.0)...${cl}\n"
             # Check if KiCad is already installed
             if command -v kicad &> /dev/null; then
                 echo "KiCad is already installed. Skipping installation of KiCad."
             else
-                confirm_and_run "sudo add-apt-repository --yes ppa:kicad/kicad-9.0-releases && \
+                confirm_and_run "sudo add-apt-repository --yes ppa:kicad/kicad-10.0-releases && \
                 sudo apt update && \
                 sudo apt install kicad -y"
             fi

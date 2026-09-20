@@ -1,0 +1,166 @@
+(symbol "U_5V-Volt-Reg_TLV70450DBVR_SOT23-5"
+	(exclude_from_sim no)
+	(in_bom yes)
+	(on_board yes)
+	(property "Reference" "U"
+		(at 10.16 10.16 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+	)
+	(property "Value" "TLV70450DBVR"
+		(at 10.16 7.62 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+	)
+	(property "Footprint" "OEM:SOT-23-5"
+		(at 10.16 -92.38 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+			(hide yes)
+		)
+	)
+	(property "Datasheet" "http://www.ti.com/lit/gpn/tlv704"
+		(at 10.16 -192.38 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+			(hide yes)
+		)
+	)
+	(property "Description" "IC REG LINEAR 5V 150MA SOT23-5"
+		(at -13.97 2.54 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(hide yes)
+		)
+	)
+	(property "MPN" "TLV70450DBVR"
+		(at 10.16 -792.38 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+			(hide yes)
+		)
+	)
+	(symbol "U_5V-Volt-Reg_TLV70450DBVR_SOT23-5_1_1"
+		(rectangle
+			(start -8.89 5.08)
+			(end 8.89 -5.08)
+			(stroke
+				(width 0.254)
+				(type default)
+			)
+			(fill
+				(type background)
+			)
+		)
+		(pin power_in line
+			(at -13.97 2.54 0)
+			(length 5.08)
+			(name "GND"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin power_in line
+			(at -13.97 0 0)
+			(length 5.08)
+			(name "IN"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin output line
+			(at -13.97 -2.54 0)
+			(length 5.08)
+			(name "OUT"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "3"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at 13.97 2.54 180)
+			(length 5.08)
+			(name "NC_1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "4"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at 13.97 0 180)
+			(length 5.08)
+			(name "NC_2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "5"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+	)
+	(embedded_fonts no)
+)

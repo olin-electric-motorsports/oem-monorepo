@@ -1,0 +1,130 @@
+(symbol "U_3.3V-Volt_Reg_AP7370-33Y-13_SOT89-3"
+	(exclude_from_sim no)
+	(in_bom yes)
+	(on_board yes)
+	(property "Reference" "U"
+		(at 11.43 12.7 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+	)
+	(property "Value" "AP7370-33Y-13"
+		(at 11.43 10.16 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+	)
+	(property "Footprint" "OEM:SOT-89-3"
+		(at 11.43 -89.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+			(hide yes)
+		)
+	)
+	(property "Datasheet" "https://www.diodes.com//assets/Datasheets/AP7370.pdf"
+		(at 11.43 -189.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+			(hide yes)
+		)
+	)
+	(property "Description" "IC REG LINEAR 3.3V 300MA SOT89-3"
+		(at -15.24 2.54 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(hide yes)
+		)
+	)
+	(property "MPN" "AP7370-33Y-13"
+		(at 11.43 -789.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+			(hide yes)
+		)
+	)
+	(symbol "U_3.3V-Volt_Reg_AP7370-33Y-13_SOT89-3_1_1"
+		(rectangle
+			(start -10.16 7.62)
+			(end 10.16 -6.35)
+			(stroke
+				(width 0.254)
+				(type default)
+			)
+			(fill
+				(type background)
+			)
+		)
+		(pin passive line
+			(at -15.24 2.54 0)
+			(length 5.08)
+			(name "VOUT"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at 0 -11.43 90)
+			(length 5.08)
+			(name "GND_1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at 15.24 2.54 180)
+			(length 5.08)
+			(name "VIN"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "3"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+	)
+	(embedded_fonts no)
+)

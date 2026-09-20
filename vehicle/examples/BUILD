@@ -15,7 +15,7 @@ dbc_gen(
         
         # the following are all the YAMl files that define our cars CAN messages. 
         # If a YAML file is not added here, the files cannot refer to those YAML scripts
-        "//vehicle/examples/can/can_example:can_example.yml",
-        "//vehicle/examples/can/dev_board:dev_board.yml",
+        "//vehicle/examples/software/can/can_example:can_example.yml",
+        "//vehicle/examples/software/can/dev_board:dev_board.yml",
     ],
 )

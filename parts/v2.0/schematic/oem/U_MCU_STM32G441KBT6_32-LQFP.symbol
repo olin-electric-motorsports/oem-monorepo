@@ -1,0 +1,655 @@
+(symbol "U_MCU_STM32G441KBT6_32-LQFP"
+	(exclude_from_sim no)
+	(in_bom yes)
+	(on_board yes)
+	(property "Reference" "U"
+		(at 0 47.244 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Value" "STM32G441KBT6"
+		(at 0 44.704 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Footprint" "OEM:LQFP-32_7x7mm_P0.8mm"
+		(at 0 0 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(hide yes)
+		)
+	)
+	(property "Datasheet" "https://www.st.com/resource/en/datasheet/stm32g441kb.pdf"
+		(at 1.524 0.254 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(hide yes)
+		)
+	)
+	(property "Description" "OEM STM32G441KBT6 Standard Configuration - v1.0 (07-25-2025)"
+		(at 0 0 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(hide yes)
+		)
+	)
+	(symbol "U_MCU_STM32G441KBT6_32-LQFP_1_1"
+		(rectangle
+			(start -33.02 42.8625)
+			(end 33.02 -43.1799)
+			(stroke
+				(width 0)
+				(type solid)
+			)
+			(fill
+				(type color)
+				(color 255 255 194 1)
+			)
+		)
+		(text "Note: Pins with an asterisk (*) can tolerate voltages up to 3.6 V\n"
+			(at 0 -36.068 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(text "OEM STM32G441KBT6 Standard Configuration\nv1.0 (07-25-2025)"
+			(at 0 -40.386 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin power_in line
+			(at -35.56 40.64 0)
+			(length 2.54)
+			(name "VDD"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin power_in line
+			(at -35.56 38.1 0)
+			(length 2.54)
+			(name "VDD"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "17"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin power_in line
+			(at -35.56 35.56 0)
+			(length 2.54)
+			(name "VDDA"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "15"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin power_in line
+			(at -35.56 30.48 0)
+			(length 2.54)
+			(name "VSS"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "16"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin power_in line
+			(at -35.56 27.94 0)
+			(length 2.54)
+			(name "VSS"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "32"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin power_in line
+			(at -35.56 25.4 0)
+			(length 2.54)
+			(name "VSSA"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "14"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 40.64 180)
+			(length 2.54)
+			(name "(GPIO_EXTI10)PG10-NRST"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "4"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 38.1 180)
+			(length 2.54)
+			(name "(SYS_JTMS-SWDIO/GPIO_EXTI13)PA13"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "23"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 35.56 180)
+			(length 2.54)
+			(name "(SYS_JTCK-SWCLK/GPIO_EXTI14)PA14"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "24"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 30.48 180)
+			(length 2.54)
+			(name "(FDCAN1_RX/GPIO_EXTI11)PA11"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "21"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 27.94 180)
+			(length 2.54)
+			(name "(FDCAN1_TX/GPIO_EXTI12)PA12"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "22"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 22.86 180)
+			(length 2.54)
+			(name "PF0-OSC_IN"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 20.32 180)
+			(length 2.54)
+			(name "PF1-OSC_OUT"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "3"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 15.24 180)
+			(length 2.54)
+			(name "(TIM2_ETR/TIM2_CH1/GPIO_EXTI0/ADC2_IN1/ADC1_IN1)PA0*"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "5"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 12.7 180)
+			(length 2.54)
+			(name "(TIM15_CH1N/TIM2_CH2/GPIO_EXTI1/ADC2_IN2/ADC1_IN2)PA1*"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "6"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 10.16 180)
+			(length 2.54)
+			(name "(TIM15_CH1/USART2_TX/TIM2_CH3/GPIO_EXTI2/ADC1_IN3)PA2*"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "7"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 7.62 180)
+			(length 2.54)
+			(name "(TIM15_CH2/USART2_RX/TIM2_CH4/GPIO_EXTI3/ADC1_IN4)PA3*"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "8"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 5.08 180)
+			(length 2.54)
+			(name "(USART2_CK/TIM3_CH2/GPIO_EXTI4/ADC2_IN17)PA4*"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "9"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 2.54 180)
+			(length 2.54)
+			(name "(TIM2_ETR/TIM2_CH1/GPIO_EXTI5/ADC2_IN13)PA5*"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "10"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 0 180)
+			(length 2.54)
+			(name "(TIM3_CH1/TIM16_CH1/GPIO_EXTI6/ADC2_IN3)PA6*"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "11"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 -2.54 180)
+			(length 2.54)
+			(name "(TIM3_CH2/TIM17_CH1/GPIO_EXTI7/ADC2_IN4)PA7*"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "12"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 -5.08 180)
+			(length 2.54)
+			(name "(TIM3_CH3/GPIO_EXTI0/ADC1_IN15)PB0*"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "13"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 -10.16 180)
+			(length 2.54)
+			(name "(TIM4_ETR/USART1_CK/GPIO_EXTI8)PA8"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "18"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 -12.7 180)
+			(length 2.54)
+			(name "(TIM2_CH3/TIM15_BKIN/USART1_TX/GPIO_EXTI9)PA9"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "19"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 -15.24 180)
+			(length 2.54)
+			(name "(TIM2_CH4/USART1_RX/TIM17_BKIN/GPIO_EXTI10)PA10"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "20"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 -17.78 180)
+			(length 2.54)
+			(name "(TIM2_ETR/TIM2_CH1/GPIO_EXTI15)PA15"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "25"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 -20.32 180)
+			(length 2.54)
+			(name "(TIM3_ETR/SPI1_SCK/TIM4_ETR/TIM2_CH2/GPIO_EXTI3)PB3"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "26"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 -22.86 180)
+			(length 2.54)
+			(name "(TIM17_BKIN/SPI1_MISO/TIM3_CH1/TIM16_CH1/GPIO_EXTI4)PB4"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "27"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 -25.4 180)
+			(length 2.54)
+			(name "(TIM17_CH1/SPI1_MOSI/TIM3_CH2/TIM16_BKIN/GPIO_EXTI5)PB5"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "28"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 -27.94 180)
+			(length 2.54)
+			(name "(TIM4_CH1/TIM16_CH1N/GPIO_EXTI6)PB6"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "29"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 -30.48 180)
+			(length 2.54)
+			(name "(TIM3_CH4/TIM4_CH2/TIM17_CH1N/GPIO_EXTI7)PB7"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "30"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin bidirectional line
+			(at 35.56 -33.02 180)
+			(length 2.54)
+			(name "(TIM4_CH3/TIM16_CH1/GPIO_EXTI8)PB8-BOOT0"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "31"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+	)
+	(embedded_fonts no)
+)

@@ -1,0 +1,17 @@
+[Unit]
+Description=OEM dashboard startup (apply deploy / sync with GitHub, then run dashboard)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=oemdashboard
+WorkingDirectory=/home/oemdashboard/oem_startup
+ExecStart=/usr/bin/python3 /home/oemdashboard/oem_startup/startup.py /home/oemdashboard/oem_startup/startup_config.json
+# startup.py restarts the dashboard itself. Don't let systemd restart
+# startup.py, or a crash would re-run the GitHub sync and undo a deploy.
+Restart=no
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

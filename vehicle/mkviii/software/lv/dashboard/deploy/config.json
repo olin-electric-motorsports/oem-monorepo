@@ -1,0 +1,22 @@
+{
+    "pi": {
+        "host": "raspberrypi.local",
+        "user": "oemdashboard",
+        "port": 22,
+        "ssh_key": null,
+        "connect_timeout_s": 10
+    },
+    "remote_deploy_dir": "/home/oemdashboard/deploy",
+    "remote_startup_config": "/home/oemdashboard/oem_startup/startup_config.json",
+    "post_deploy_action": "shutdown",
+    "deploy": [
+        {
+            "local_path": "../dashboard.py",
+            "remote_path": "/home/oemdashboard/oem-monorepo/vehicle/mkviii/software/lv/dashboard/dashboard.py"
+        },
+        {
+            "local_path": "../mkvi.dbc",
+            "remote_path": "/home/oemdashboard/mkvi.dbc"
+        }
+    ]
+}

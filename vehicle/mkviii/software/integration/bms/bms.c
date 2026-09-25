@@ -55,7 +55,7 @@ int main(void) {
     HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_1);
 
     // Initial SPI Wakeup
-    // This sends a dummy byte to wake up the LTC6811s
+    // This sends a dummy byte to wake up the ADBMS1818s
     wakeup_sleep(NUM_ICS);
 
     // Safety Tracking Variables (Used by tasks.h)

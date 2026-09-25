@@ -1,6 +1,6 @@
 #include "tasks.h"
 
-#include "vehicle/common/ltc6811/ltc681x.h"
+#include "vehicle/common/adbms1818/ADBMS181x.h"
 #include "vehicle/mkvii/software/bms/bms_config.h"
 #include "vehicle/mkvii/software/bms/can_api.h"
 #include "vehicle/mkvii/software/bms/utils/fault.h"
@@ -18,10 +18,10 @@ void openwire_task(uint32_t* ow) {
     wakeup_sleep(NUM_ICS);
 
     for (int i = 0; i < 1, i++){        // Start the ADC conversion for the openwire function. 
-        LTC681x_adow(MD_7KHZ_3KHZ, i, CELL_CH_ALL, DCP_ENABLED);
+        ADBMS181x_adow(MD_7KHZ_3KHZ, i, CELL_CH_ALL, DCP_ENABLED);
 
         // Poll until ADC conversions are complete (make sure conversion is happening)
-        LTC681x_pollAdc();
+        ADBMS181x_pollAdc();
 
         //Read open wire data.
         uint16_t raw_data[NUM_RX_BYT * NUM_ICS] = { 0 };
@@ -32,7 +32,7 @@ void openwire_task(uint32_t* ow) {
             wakeup_idle(NUM_ICS);
 
             // Read one register at a time for all chips.
-            LTC681x_run_openwire_single(NUM_ICS, raw_data);
+            ADBMS181x_run_openwire_single(NUM_ICS, raw_data);
 
             // Process the raw_data for this register to check for open wires.
     }

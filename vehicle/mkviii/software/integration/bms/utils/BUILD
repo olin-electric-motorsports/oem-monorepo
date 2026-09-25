@@ -17,7 +17,7 @@ cc_library(
         "//libs/gpio",
         "//libs/spi",
         "//libs/timer",
-        "//vehicle/common/ltc6811:ltc681x",
+        "//vehicle/common/adbms1818:ADBMS181x",
         "//vehicle/mkvii/software/bms:bms_config",
         "//vehicle/mkvii/software/bms:can_api",
     ],

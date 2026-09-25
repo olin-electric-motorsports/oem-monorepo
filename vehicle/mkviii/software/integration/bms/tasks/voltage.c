@@ -1,6 +1,6 @@
 #include "tasks.h"
 
-#include "vehicle/common/ltc6811/ltc681x.h"
+#include "vehicle/common/adbms1818/ADBMS181x.h"
 #include "vehicle/mkvii/software/bms/bms_config.h"
 #include "vehicle/mkvii/software/bms/can_api.h"
 #include "vehicle/mkvii/software/bms/utils/fault.h"
@@ -17,10 +17,10 @@ void voltage_task(uint16_t* pack_voltage, uint32_t* ov, uint32_t* uv,
     wakeup_sleep(NUM_ICS);
 
     // Start cell voltage ADC conversions
-    LTC681x_adcv(MD_7KHZ_3KHZ, DCP_ENABLED, CELL_CH_ALL);
+    ADBMS181x_adcv(MD_7KHZ_3KHZ, DCP_ENABLED, CELL_CH_ALL);
 
     // Blocks until all ADCs are done being read
-    LTC681x_pollAdc(); // Ignore return value because we don't care how long it
+    ADBMS181x_pollAdc(); // Ignore return value because we don't care how long it
                        // took
 
     wakeup_idle(NUM_ICS);
@@ -38,7 +38,7 @@ void voltage_task(uint16_t* pack_voltage, uint32_t* ov, uint32_t* uv,
         wakeup_idle(NUM_ICS);
 
         // + 1 because of the way _rdcv_reg is written
-        LTC681x_rdcv_reg(cell_reg + 1, NUM_ICS, raw_data);
+        ADBMS181x_rdcv_reg(cell_reg + 1, NUM_ICS, raw_data);
 
         for (uint8_t ic = 0; ic < NUM_ICS; ic++) { // foreach segment/chip
             bms_voltage.ic = ic;
@@ -129,7 +129,7 @@ void voltage_task(uint16_t* pack_voltage, uint32_t* ov, uint32_t* uv,
             if (received_pec != data_pec) {
                 *pec_errors += 1;
             }
-        } // end foreach ltc6811
+        } // end foreach adbms1818
     } // end foreach cell reg (A, B, C, D, E, F)
 
     // Fault handling for cell voltage average on segment 1

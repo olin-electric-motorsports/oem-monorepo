@@ -8,7 +8,7 @@ for clarity.
 #include <stdint.h>
 
 #include "fault.h"
-#include "vehicle/common/ltc6811/ltc681x.h"
+#include "vehicle/common/adbms1818/ADBMS181x.h"
 #include "vehicle/mkvii/software/bms/bms_config.h"
 #include "vehicle/mkvii/software/bms/can_api.h"
 
@@ -72,11 +72,11 @@ void configure_mux(uint8_t num_ics, uint8_t address, bool enable,
     write_68(NUM_ICS, wrcomm_cmd, tx_data);
 
     wakeup_idle(num_ics); // wake up the isospi comms
-    LTC681x_stcomm(MUX_DATALENGTH);
+    ADBMS181x_stcomm(MUX_DATALENGTH);
 }
 
 uint8_t check_ack(uint8_t num_ics) {
-    // Adapted from `LTC681x_rdcomm()`
+    // Adapted from `ADBMS181x_rdcomm()`
     uint8_t cmd[2] = { 0x07, 0x22 };
     uint8_t rx_buffer[NUM_RX_BYT * num_ics];
 

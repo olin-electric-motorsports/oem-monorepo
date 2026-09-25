@@ -1,6 +1,6 @@
 #include "tasks.h"
 
-#include "vehicle/common/ltc6811/ltc681x.h"
+#include "vehicle/common/adbms1818/ADBMS181x.h"
 #include "vehicle/mkvii/software/bms/bms_config.h"
 #include "vehicle/mkvii/software/bms/can_api.h"
 #include "vehicle/mkvii/software/bms/utils/i2c_helpers.h"
@@ -65,15 +65,15 @@ void temperature_task(uint32_t* ot, uint32_t* ut, uint16_t* min_temp,
     bms_mux.num_mux = mux;
 
 
-    LTC681x_adax(MD_7KHZ_3KHZ, AUX_CH_ALL);
-    (void)LTC681x_pollAdc();
+    ADBMS181x_adax(MD_7KHZ_3KHZ, AUX_CH_ALL);
+    (void)ADBMS181x_pollAdc();
 
     uint8_t aux_reg_a_raw[NUM_RX_BYT * NUM_ICS];
     uint8_t aux_reg_c_raw[NUM_RX_BYT * NUM_ICS];
 
     wakeup_idle(NUM_ICS);
-    LTC681x_rdaux_reg(AUX_REG_GROUP_A, NUM_ICS, aux_reg_a_raw); // for GPIOS 1-3
-    LTC681x_rdaux_reg(AUX_REG_GROUP_C, NUM_ICS, aux_reg_c_raw); // for GPIOS 6-8
+    ADBMS181x_rdaux_reg(AUX_REG_GROUP_A, NUM_ICS, aux_reg_a_raw); // for GPIOS 1-3
+    ADBMS181x_rdaux_reg(AUX_REG_GROUP_C, NUM_ICS, aux_reg_c_raw); // for GPIOS 6-8
 
     uint8_t num_temps;
     uint16_t temps[6];

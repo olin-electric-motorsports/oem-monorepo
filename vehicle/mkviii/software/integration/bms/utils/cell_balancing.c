@@ -1,5 +1,5 @@
 #include "cell_balancing.h"
-#include "vehicle/common/ltc6811/ltc681x.h"
+#include "vehicle/common/adbms1818/ADBMS181x.h"
 #include "vehicle/mkvii/software/bms/bms_config.h"
 #include "vehicle/mkvii/software/bms/can_api.h"
 #include "vehicle/mkvii/software/bms/utils/fault.h"
@@ -9,8 +9,8 @@ void cell_balancing_init(void) {
     wakeup_sleep(NUM_ICS);
 
     // Start and wait for ADC conversion for internal temp
-    LTC681x_adstat(MD_7KHZ_3KHZ, STAT_CH_ITEMP);
-    LTC681x_pollAdc();
+    ADBMS181x_adstat(MD_7KHZ_3KHZ, STAT_CH_ITEMP);
+    ADBMS181x_pollAdc();
     wakeup_sleep(NUM_ICS);
 
     // Buffers for reading data
@@ -19,7 +19,7 @@ void cell_balancing_init(void) {
 
     for (uint8_t ic = 0; ic < NUM_ICS; ic++) {
         // reg = 1, read back status group A
-        LTC681x_rdstat_reg(1, NUM_ICS, raw_data);
+        ADBMS181x_rdstat_reg(1, NUM_ICS, raw_data);
 
         // Index for the raw data array
         uint8_t raw_idx = ic * NUM_RX_BYT;

@@ -1,9 +1,8 @@
 #include "tasks.h"
 
-#include "vehicle/common/adbms1818/ADBMS181x.h"
-#include "vehicle/mkvii/software/bms/bms_config.h"
-#include "vehicle/mkvii/software/bms/can_api.h"
-#include "vehicle/mkvii/software/bms/utils/fault.h"
+#include "vehicle/mkviii/software/integration/bms/bms_config.h"
+#include "can_api.h"
+#include "vehicle/mkviii/software/integration/bms/utils/fault.h"
 
 #define NUM_CELLS_IN_REG (3)
 #define NUM_CELL_REG     (6)

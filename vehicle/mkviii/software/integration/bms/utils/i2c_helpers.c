@@ -8,9 +8,8 @@ for clarity.
 #include <stdint.h>
 
 #include "fault.h"
-#include "vehicle/common/adbms1818/ADBMS181x.h"
-#include "vehicle/mkvii/software/bms/bms_config.h"
-#include "vehicle/mkvii/software/bms/can_api.h"
+#include "vehicle/mkviii/software/integration/bms/bms_config.h"
+#include "can_api.h"
 
 #define MUX_DATALENGTH (3)
 #define ADBMS_CMD_LEN  (6)

@@ -5,9 +5,7 @@
 #include "stm32g4xx_hal.h" // The master STM32 HAL header
 
 #include "common/adc/adc.h"
-#include "common/gpio/api.h"
-#include "common/spi/api.h"
-#include "common/timer/api.h"
+#include "common/spi/spi.h"
 
 #include "vehicle/common/adbms1818/ADBMS181x.h"
 

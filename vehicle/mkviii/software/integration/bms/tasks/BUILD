@@ -1,18 +1,16 @@
 cc_library(
-    name = "bms_utils",
+    name = "tasks",
     srcs = [
-        "cell_balancing.c",
-        "fault.c",
-        "i2c_helpers.c",
+        "current.c",
+        "openwire.c",
+        "tempurature.c",
+        "voltage.c",
     ],
-    hdrs = [
-        "cell_balancing.h",
-        "fault.h",
-        "i2c_helpers.h",
-    ],
+    hdrs = ["tasks.h"],
     visibility = ["//visibility:public"],
     deps = [
         "//vehicle/common/adbms1818:ADBMS181x",
         "//vehicle/mkviii/software/integration/bms:bms_headers",
+        "//vehicle/mkviii/software/integration/bms/utils:bms_utils",
     ],
 )

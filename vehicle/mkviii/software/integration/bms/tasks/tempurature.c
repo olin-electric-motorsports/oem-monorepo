@@ -1,10 +1,9 @@
 #include "tasks.h"
 
-#include "vehicle/common/adbms1818/ADBMS181x.h"
-#include "vehicle/mkvii/software/bms/bms_config.h"
-#include "vehicle/mkvii/software/bms/can_api.h"
-#include "vehicle/mkvii/software/bms/utils/i2c_helpers.h"
-#include "vehicle/mkvii/software/bms/utils/fault.h"
+#include "vehicle/mkviii/software/integration/bms/bms_config.h"
+#include "can_api.h"
+#include "vehicle/mkviii/software/integration/bms/utils/i2c_helpers.h"
+#include "vehicle/mkviii/software/integration/bms/utils/fault.h"
 #include <stdint.h>
 #include <string.h>
 

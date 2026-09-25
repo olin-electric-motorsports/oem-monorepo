@@ -4,8 +4,7 @@
  */
 #include "bms.h"
 #include "bms_config.h"
-#include "tasks.h"
-#include "common/spi/api.h"
+#include "tasks/tasks.h"
 #include <string.h>
 #include <stdbool.h>
 

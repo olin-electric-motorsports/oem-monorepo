@@ -1,5 +1,5 @@
 #pragma once
-#include "vehicle/mkvii/software/bms/can_api.h"
+#include "can_api.h"
 
 /**
  * The list of possible BMS faults.

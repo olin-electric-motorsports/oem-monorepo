@@ -1,12 +1,11 @@
-#include "libs/adc/api.h"
 #include "tasks.h"
-#include "vehicle/mkvii/software/bms/bms_config.h"
+#include "vehicle/mkviii/software/integration/bms/bms_config.h"
 #include <stdint.h>
 
 void current_task(int16_t* current) {
     float tempCurrent = 0;
     for(uint8_t averageNum = 0; averageNum < 100; averageNum++) {
-        tempCurrent += (float)oem_adc_read(CURRENT_SENSE_VOUT);
+        tempCurrent += (float)oem_adc_read(&current_sense_vout);
     }
     //Average
     tempCurrent /= 100;

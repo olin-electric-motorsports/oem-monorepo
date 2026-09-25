@@ -1,8 +1,7 @@
 #include "cell_balancing.h"
-#include "vehicle/common/adbms1818/ADBMS181x.h"
-#include "vehicle/mkvii/software/bms/bms_config.h"
-#include "vehicle/mkvii/software/bms/can_api.h"
-#include "vehicle/mkvii/software/bms/utils/fault.h"
+#include "vehicle/mkviii/software/integration/bms/bms_config.h"
+#include "can_api.h"
+#include "vehicle/mkviii/software/integration/bms/utils/fault.h"
 
 void cell_balancing_init(void) {
     // Check internal die temperature

@@ -11,20 +11,32 @@ load("//common/can_api:can_defs.bzl", "can_api_files")
 #     ],
 # )
 
+cc_library(
+    name = "bms_headers",
+    hdrs = [
+        "bms.h",
+        "bms_config.h",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//common/adc:adc",
+        "//common/spi:spi",
+        "//vehicle/common/adbms1818:ADBMS181x",
+    ],
+)
+
 stm32_firmware(
     name = "bms.elf",
     srcs = [
         "bms.c",
         "bms_config.c",
-        "bms.h",
-        "bms_config.h",
-        # If you have interrupts specific to example, add them here:
-        # "interrupts.c", 
     ],
-    # deps = [
-    #     "//vehicle/common/ltc6811:ltc6811",
-        
-    # ],
+    deps = [
+        ":bms_headers",
+        "//vehicle/common/adbms1818:ADBMS1818",
+        "//vehicle/mkviii/software/integration/bms/tasks",
+        "//vehicle/mkviii/software/integration/bms/utils:bms_utils",
+    ],
 )
 
 # exports_files([

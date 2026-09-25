@@ -100,7 +100,7 @@ void wakeup_sleep(uint8_t total_ic) //Number of ICs in the system
 /* Generic function to write 68xx commands. Function calculates PEC for tx_cmd data. */
 void cmd_68(uint8_t tx_cmd[2]) //The command to be transmitted
 {
-	uint8_t cmd[4];
+	uint8_t cmd[4] = { 0 };
 	uint16_t cmd_pec;
 	
 	cmd[0] = tx_cmd[0];
@@ -166,7 +166,7 @@ int8_t read_68( uint8_t total_ic, // Number of ICs in the system
 				)
 {
 	const uint8_t BYTES_IN_REG = 8;
-	uint8_t cmd[4];
+	uint8_t cmd[4] = { 0 };
 	uint8_t data[256];
 	int8_t pec_error = 0;
 	uint16_t cmd_pec;
@@ -387,7 +387,7 @@ void ADBMS181x_adax(uint8_t MD, //ADC Mode
 				  uint8_t CHG //GPIO Channels to be measured
 				  )
 {
-	uint8_t cmd[4];
+	uint8_t cmd[4] = { 0 };
 	uint8_t md_bits;
 	
 	md_bits = (MD & 0x02) >> 1;
@@ -403,7 +403,7 @@ void ADBMS181x_adstat(uint8_t MD, //ADC Mode
 				    uint8_t CHST //Stat Channels to be measured
 				    )
 {
-	uint8_t cmd[4];
+	uint8_t cmd[4] = { 0 };
 	uint8_t md_bits;
 	
 	md_bits = (MD & 0x02) >> 1;
@@ -717,7 +717,7 @@ void ADBMS181x_rdcv_reg(uint8_t reg, //Determines which cell voltage register is
                      )
 {
 	const uint8_t REG_LEN = 8; //Number of bytes in each ICs register + 2 bytes for the PEC
-	uint8_t cmd[4];
+	uint8_t cmd[4] = { 0 };
 	uint16_t cmd_pec;
 
 	if (reg == 1)     //1: RDCVA
@@ -771,7 +771,7 @@ void ADBMS181x_rdaux_reg(uint8_t reg, //Determines which GPIO voltage register i
                       )
 {
 	const uint8_t REG_LEN = 8; // Number of bytes in the register + 2 bytes for the PEC
-	uint8_t cmd[4];
+	uint8_t cmd[4] = { 0 };
 	uint16_t cmd_pec;
 
 	if (reg == 1)     //Read back auxiliary group A
@@ -820,7 +820,7 @@ void ADBMS181x_rdstat_reg(uint8_t reg, //Determines which stat register is read 
                        )
 {
 	const uint8_t REG_LEN = 8; // number of bytes in the register + 2 bytes for the PEC
-	uint8_t cmd[4];
+	uint8_t cmd[4] = { 0 };
 	uint16_t cmd_pec;
 
 	if (reg == 1)     //Read back status group A
@@ -897,7 +897,7 @@ int8_t parse_cells(uint8_t current_ic, // Current IC
 /* Sends the poll ADC command */
 uint8_t ADBMS181x_pladc()
 {
-	uint8_t cmd[4];
+	uint8_t cmd[4] = { 0 };
 	uint8_t adc_state = 0xFF;
 	uint16_t cmd_pec;
 	
@@ -921,7 +921,7 @@ uint32_t ADBMS181x_pollAdc()
 	uint32_t counter = 0;
 	uint8_t finished = 0;
 	uint8_t current_time = 0;
-	uint8_t cmd[4];
+	uint8_t cmd[4] = { 0 };
 	uint16_t cmd_pec;
 	
 	cmd[0] = 0x07;
@@ -1059,7 +1059,7 @@ void ADBMS181x_adaxd(uint8_t MD, //ADC Mode
 				   uint8_t CHG //GPIO Channels to be measured
 				   )
 {
-	uint8_t cmd[4];
+	uint8_t cmd[4] = { 0 };
 	uint8_t md_bits;
 
 	md_bits = (MD & 0x02) >> 1;
@@ -1758,7 +1758,7 @@ int8_t ADBMS181x_rdpwm(uint8_t total_ic, //Number of ICs in the system
                      cell_asic ic[] // A two dimensional array that will store the data
                     )
 {
-	uint8_t cmd[4];
+	uint8_t cmd[4] = { 0 };
 	uint8_t read_buffer[256];
 	int8_t pec_error = 0;
 	uint16_t data_pec;
@@ -1846,7 +1846,7 @@ int8_t ADBMS181x_rdsctrl(uint8_t total_ic, // Number of ICs in the daisy chain
                        cell_asic *ic // A two dimensional array that the function stores the read data
                       )	
 {
-    uint8_t cmd[4];
+    uint8_t cmd[4] = { 0 };
     uint8_t read_buffer[256];
     int8_t pec_error = 0;
     uint16_t data_pec;
@@ -1895,7 +1895,7 @@ This command will start the sctrl pulse communication over the spins
 */
 void ADBMS181x_stsctrl()
 {
-	uint8_t cmd[4];
+	uint8_t cmd[4] = { 0 };
     uint16_t cmd_pec;
     
     cmd[0] = 0x00;
@@ -1994,7 +1994,7 @@ int8_t ADBMS181x_rdcomm(uint8_t total_ic, //Number of ICs in the system
 /* Shifts data in COMM register out over ADBMS181x SPI/I2C port */
 void ADBMS181x_stcomm(uint8_t len) //Length of data to be transmitted 
 {
-	uint8_t cmd[4];
+	uint8_t cmd[4] = { 0 };
 	uint16_t cmd_pec;
 
 	cmd[0] = 0x07;

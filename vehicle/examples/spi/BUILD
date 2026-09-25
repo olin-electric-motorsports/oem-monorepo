@@ -9,4 +9,7 @@ stm32_firmware(
         # If you have interrupts specific to example, add them here:
         # "interrupts.c", 
     ],
+    deps = [         
+        "//vehicle/common/adbms1818:ADBMS1818", 
+    ],
 )

@@ -50,36 +50,53 @@ install_git_lfs
 # This hook needs to:
 # A. Implode the KiCad symbols
 # B. Fetch LFS files (so 3D models appear)
-cat > "$HOOKS_DIR/post-checkout" <<EOF
+# POST-CHECKOUT 
+cat > "$HOOKS_DIR/post-checkout" <<'EOF'
 #!/bin/bash
+REPO_ROOT=$(git rev-parse --show-toplevel)
+
+# Do nothing if a rebase or merge is in progress
+if [ -d "$(git rev-parse --git-path rebase-merge)" ] || [ -d "$(git rev-parse --git-path rebase-apply)" ] || [ -f "$(git rev-parse --git-path MERGE_HEAD)" ]; then
+    exit 0
+fi
+
 # Implode symbols 
 bazel run //tools/symbols:convert -- symbols2library --source "$REPO_ROOT/parts/schematic/oem" --out "$REPO_ROOT/parts/schematic/oem.kicad_sym"
 
 # Fetch large files
 if command -v git-lfs >/dev/null 2>&1; then
-    git lfs post-checkout "\$@"
+    git lfs post-checkout "$@"
 fi
 EOF
 chmod +x "$HOOKS_DIR/post-checkout"
 
 
-# Same logic as post-checkout
-cat > "$HOOKS_DIR/post-merge" <<EOF
+# POST-MERGE 
+cat > "$HOOKS_DIR/post-merge" <<'EOF'
 #!/bin/bash
+REPO_ROOT=$(git rev-parse --show-toplevel)
+
 # Implode symbols
 bazel run //tools/symbols:convert -- symbols2library --source "$REPO_ROOT/parts/schematic/oem" --out "$REPO_ROOT/parts/schematic/oem.kicad_sym"
 
 # Fetch large files
 if command -v git-lfs >/dev/null 2>&1; then
-    git lfs post-merge "\$@"
+    git lfs post-merge "$@"
 fi
 EOF
 chmod +x "$HOOKS_DIR/post-merge"
 
 
-# This explodes the library so we track small files
-cat > "$HOOKS_DIR/pre-commit" <<EOF
+# --- PRE-COMMIT ---
+cat > "$HOOKS_DIR/pre-commit" <<'EOF'
 #!/bin/bash
+REPO_ROOT=$(git rev-parse --show-toplevel)
+
+# Do nothing if a rebase or merge is in progress
+if [ -d "$(git rev-parse --git-path rebase-merge)" ] || [ -d "$(git rev-parse --git-path rebase-apply)" ] || [ -f "$(git rev-parse --git-path MERGE_HEAD)" ]; then
+    exit 0
+fi
+
 # Explode symbols
 bazel run //tools/symbols:convert -- library2symbols --source "$REPO_ROOT/parts/schematic/oem.kicad_sym" --out "$REPO_ROOT/parts/schematic/oem"
 
@@ -89,23 +106,29 @@ EOF
 chmod +x "$HOOKS_DIR/pre-commit"
 
 
-# Ensures the single file is rebuilt locally so you can keep working
-cat > "$HOOKS_DIR/post-commit" <<EOF
+# --- POST-COMMIT ---
+cat > "$HOOKS_DIR/post-commit" <<'EOF'
 #!/bin/bash
+REPO_ROOT=$(git rev-parse --show-toplevel)
+
+# Do nothing if a rebase or merge is in progress
+if [ -d "$(git rev-parse --git-path rebase-merge)" ] || [ -d "$(git rev-parse --git-path rebase-apply)" ] || [ -f "$(git rev-parse --git-path MERGE_HEAD)" ]; then
+    exit 0
+fi
+
 # Implode symbols
 bazel run //tools/symbols:convert -- symbols2library --source "$REPO_ROOT/parts/schematic/oem" --out "$REPO_ROOT/parts/schematic/oem.kicad_sym"
 EOF
 chmod +x "$HOOKS_DIR/post-commit"
 
 
-# LFS needs this to upload large files
-cat > "$HOOKS_DIR/pre-push" <<EOF
+# --- PRE-PUSH ---
+cat > "$HOOKS_DIR/pre-push" <<'EOF'
 #!/bin/bash
 if command -v git-lfs >/dev/null 2>&1; then
-    git lfs pre-push "\$@"
+    git lfs pre-push "$@"
 fi
 EOF
 chmod +x "$HOOKS_DIR/pre-push"
 
-
-echo "Hooks installed."
+echo "Git Hooks installed"

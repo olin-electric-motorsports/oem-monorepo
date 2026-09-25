@@ -1,8 +1,8 @@
 /*!
-  LTC681x hardware library
+  ADBMS181x hardware library
 @verbatim
   This library contains all of the hardware dependant functions used by the bms
-  code
+  code edited by Jacob Likins for the STM32G441
 @endverbatim
 
 Copyright 2018(c) Analog Devices, Inc.
@@ -40,27 +40,41 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Copyright 2017 Linear Technology Corp. (LTC)
 */
-#pragma once
+#ifndef BMSHARDWARE_H
+#define BMSHARDWARE_H
 
-#include "libs/gpio/api.h"
+
+
+
 #include <stdint.h>
+
+
+void cs_low(uint8_t pin);//name conflicts with linduino
+
+void cs_high(uint8_t pin);
+
+void delay_u(uint16_t micro);
+
+void delay_m(uint16_t milli);
+
+
 
 /*
 Writes an array of bytes out of the SPI port
 */
-void spi_write_array(uint8_t len, uint8_t* data);
+void spi_write_array(uint8_t len, // Option: Number of bytes to be written on the SPI port
+                     uint8_t data[] //Array of bytes to be written on the SPI port
+                    );
 /*
  Writes and read a set number of bytes using the SPI port.
 
 */
 
-void spi_write_read(
-    uint8_t tx_Data[], // array of data to be written on SPI port
-    uint8_t tx_len, // length of the tx data arry
-    uint8_t*
-        rx_data, // Input: array that will store the data read by the SPI port
-    uint8_t rx_len // Option: number of bytes to be read from the SPI port
-);
+void spi_write_read(uint8_t tx_Data[],//array of data to be written on SPI port
+                    uint8_t tx_len, //length of the tx data arry
+                    uint8_t *rx_data,//Input: array that will store the data read by the SPI port
+                    uint8_t rx_len //Option: number of bytes to be read from the SPI port
+                   );
 
-uint8_t spi_read_byte(uint8_t tx_dat); // name conflicts with linduino also
-                                       // needs to take a byte as a parameter
+uint8_t spi_read_byte(uint8_t tx_dat);//name conflicts with linduino also needs to take a byte as a parameter
+#endif

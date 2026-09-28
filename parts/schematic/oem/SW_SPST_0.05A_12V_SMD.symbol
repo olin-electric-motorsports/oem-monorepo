@@ -5,8 +5,12 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
+	(in_pos_files yes)
+	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "SW"
 		(at 5.08 8.89 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -16,6 +20,8 @@
 	)
 	(property "Value" "SW_0.05A_12V"
 		(at 5.08 6.35 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -25,41 +31,49 @@
 	)
 	(property "Footprint" "OEM:PTS645SM43SMTR92LFS (SW_SPST_0.05A_12V_SMD - PTS645SM43SMTR92_LFS)"
 		(at 5.08 -93.65 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
-			(hide yes)
 		)
 	)
 	(property "Datasheet" "https://www.ckswitches.com/media/1471/pts645.pdf"
 		(at 5.08 -193.65 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
-			(hide yes)
 		)
 	)
 	(property "Description" "SWITCH TACTILE SPST-NO 0.05A 12V"
 		(at -7.62 2.54 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "MPN" "PTS645SM43SMTR92 LFS"
 		(at 5.08 -793.65 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
-			(hide yes)
 		)
 	)
 	(symbol "SW_SPST_0.05A_12V_SMD_1_1"
@@ -146,42 +160,6 @@
 			)
 		)
 		(pin passive line
-			(at -7.62 2.54 0)
-			(length 2.54)
-			(name "COM_1"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "3"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
-			(at -7.62 -2.54 0)
-			(length 2.54)
-			(name "COM_2"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "4"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
 			(at 7.62 2.54 180)
 			(length 2.54)
 			(name "NO_1"
@@ -210,6 +188,42 @@
 				)
 			)
 			(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at -7.62 2.54 0)
+			(length 2.54)
+			(name "COM_1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "3"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at -7.62 -2.54 0)
+			(length 2.54)
+			(name "COM_2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "4"
 				(effects
 					(font
 						(size 1.27 1.27)

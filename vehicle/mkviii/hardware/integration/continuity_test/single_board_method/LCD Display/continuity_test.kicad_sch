@@ -186,6 +186,174 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Display_Graphic:ER_OLEDM0.91_1x-I2C"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "ER_OLEDM0.91_1x-I2C"
+				(at 14.224 -10.668 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Display:ER_OLEDM0.91_1x-I2C"
+				(at 18.034 -12.7 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.buydisplay.com/download/manual/ER-OLEDM0.91-1_Datasheet.pdf"
+				(at 42.672 -14.732 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "SSD1306 OLED module, 0.91 inch, 128x32, I2C"
+				(at 26.67 -16.764 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "EastRising"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "ER?OLEDM0.91?1x?I2C*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "ER_OLEDM0.91_1x-I2C_1_1"
+				(rectangle
+					(start -7.62 7.62)
+					(end 7.62 -7.62)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin power_in line
+					(at 0 -10.16 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 10.16 270)
+					(length 2.54)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input clock
+					(at -10.16 2.54 0)
+					(length 2.54)
+					(name "SCL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -10.16 -2.54 0)
+					(length 2.54)
+					(name "SDA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OEM:C_0.1uF"
 			(pin_numbers
 				(hide yes)
@@ -5297,7 +5465,7 @@
 		)
 		(uuid "83041350-2d2a-422e-bca7-0d24cfa1a388")
 	)
-	(text "Board connects to CAN and powers LV line through external battery connected to back of board.\nSTM32 listens over CAN for signals from each LV component that is connected to CAN and light\nfor that component turns green when it has recieved at least 1 message from that board."
+	(text "Board connects to CAN and powers LV line through external battery connected to back of board.\nSTM32 listens over CAN for signals from each LV component that is connected to CAN and screen\nprints out list of boards it cant see or first one in list of boards it cannot see (as that is likely\nthe origin of the issue)"
 		(exclude_from_sim no)
 		(at 177.8 170.434 0)
 		(effects
@@ -5307,6 +5475,16 @@
 			(justify left)
 		)
 		(uuid "8f5c383b-9dbc-45af-80ac-c0c2972da069")
+	)
+	(text "LQFP32"
+		(exclude_from_sim no)
+		(at 98.552 108.712 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a2c5d189-da9a-462c-a5dd-f27a6ca9978a")
 	)
 	(text "Layout Note: Use recommended layout in datasheet (p. 15)."
 		(exclude_from_sim no)
@@ -5438,6 +5616,26 @@
 			(justify left top)
 		)
 		(uuid "80c484c3-b49b-4eae-9a65-9e05acd7150a")
+	)
+	(text_box "OLED display - can port U8g2 library to STM32 to allow for easy programming"
+		(exclude_from_sim no)
+		(at 35.56 12.7 0)
+		(size 55.88 41.91)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "e06dd80b-c2e3-4125-83c5-456972a71eb7")
 	)
 	(text_box "Debug LEDs"
 		(exclude_from_sim no)
@@ -5644,12 +5842,24 @@
 		(uuid "fec299f2-7d28-4455-9f76-34417701f253")
 	)
 	(no_connect
+		(at 134.62 167.64)
+		(uuid "2d2432ec-a68c-4ae4-97bf-0262dd6eabe8")
+	)
+	(no_connect
 		(at 134.62 147.32)
 		(uuid "2df155be-28c3-452e-8f53-bc061bbf06a6")
 	)
 	(no_connect
 		(at 134.62 139.7)
 		(uuid "3183a190-ccc8-436e-9917-abb5fd52b9c9")
+	)
+	(no_connect
+		(at 134.62 162.56)
+		(uuid "3a73e5af-b2d6-4d32-afcb-bb7237b0ab5f")
+	)
+	(no_connect
+		(at 134.62 180.34)
+		(uuid "4ed6c459-add8-4664-8765-12bec90ed700")
 	)
 	(no_connect
 		(at 134.62 137.16)
@@ -5672,6 +5882,18 @@
 		(uuid "7eb24f7d-da5d-498a-ba40-ecc9d58fe77b")
 	)
 	(no_connect
+		(at 134.62 170.18)
+		(uuid "88d05374-5687-4e15-b283-1d4084ea9c17")
+	)
+	(no_connect
+		(at 134.62 177.8)
+		(uuid "9b493a24-741c-4cd0-a473-5530b110d606")
+	)
+	(no_connect
+		(at 134.62 165.1)
+		(uuid "b81447bd-2a5e-4d5a-83e6-dcf3c3e5cebf")
+	)
+	(no_connect
 		(at 134.62 154.94)
 		(uuid "e247063d-7653-42bd-b444-91151ad9a7bf")
 	)
@@ -5682,6 +5904,14 @@
 	(no_connect
 		(at 134.62 182.88)
 		(uuid "e89085a0-e1fe-4229-a004-f3a474b7dabf")
+	)
+	(no_connect
+		(at 134.62 175.26)
+		(uuid "f42e63e9-cd78-4071-a913-c0ab1f0970a8")
+	)
+	(no_connect
+		(at 134.62 172.72)
+		(uuid "f573ed1a-52b0-436d-8418-946a08e69cc6")
 	)
 	(no_connect
 		(at 234.95 149.86)
@@ -5700,6 +5930,16 @@
 			(type default)
 		)
 		(uuid "0113dc4d-d649-430d-a977-f12370baf425")
+	)
+	(wire
+		(pts
+			(xy 59.69 20.32) (xy 59.69 22.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "02359595-04f8-4800-8d72-a79cd920eeb4")
 	)
 	(wire
 		(pts
@@ -6210,6 +6450,16 @@
 			(type default)
 		)
 		(uuid "71c992d4-7081-4079-b616-4364fe22e97f")
+	)
+	(wire
+		(pts
+			(xy 59.69 43.18) (xy 59.69 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7257de6d-7eb4-4350-a823-672b68926d25")
 	)
 	(wire
 		(pts
@@ -7051,25 +7301,25 @@
 		)
 		(uuid "12116baf-2de3-4afb-8bfb-03e089e89ebf")
 	)
-	(label "ID0_debug"
-		(at 134.62 162.56 0)
+	(label "I2C_SDA"
+		(at 49.53 35.56 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "52d8b37a-a2a0-4fde-b749-eb24615ed080")
+		(uuid "3f5e513e-2f3e-4798-9ec6-d51315103e1c")
 	)
-	(label "ID3_debug"
-		(at 134.62 170.18 0)
+	(label "I2C_SCL"
+		(at 134.62 114.3 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "53ea7849-b831-488d-8661-9d88ef221eed")
+		(uuid "5c540c39-ee42-44a5-af30-4b64afa62feb")
 	)
 	(label "CAN_RX"
 		(at 212.09 149.86 180)
@@ -7081,16 +7331,6 @@
 		)
 		(uuid "64f75482-37f7-4dcb-83a7-f941b01e641c")
 	)
-	(label "ID1_debug"
-		(at 134.62 165.1 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "80f17cda-2a12-4750-9649-eeeb2b8f62e1")
-	)
 	(label "SWDIO"
 		(at 31.75 172.72 180)
 		(effects
@@ -7100,16 +7340,6 @@
 			(justify right bottom)
 		)
 		(uuid "8a2bb39c-2db2-414f-a856-056158fc5f7f")
-	)
-	(label "SWDIO"
-		(at 134.62 114.3 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "91e6ef34-9cfc-4d2b-be4c-35f19ac90a0a")
 	)
 	(label "+12V"
 		(at 27.94 78.74 0)
@@ -7131,26 +7361,6 @@
 		)
 		(uuid "9e85ea37-e111-4d48-97c1-41b77ef67db0")
 	)
-	(label "ID6_debug"
-		(at 134.62 177.8 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "ad17d5b0-0ea5-490e-a30d-b4444aa14a11")
-	)
-	(label "ID5_debug"
-		(at 134.62 175.26 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b7505ce5-5f03-482e-bfa1-d1f85385eebb")
-	)
 	(label "NRST"
 		(at 31.75 177.8 180)
 		(effects
@@ -7161,45 +7371,25 @@
 		)
 		(uuid "be55f242-628c-4d5b-9a91-457b31b6136a")
 	)
-	(label "ID4_debug"
-		(at 134.62 172.72 0)
+	(label "I2C_SCL"
+		(at 49.53 30.48 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "ce9e8df6-c36e-4efd-bf4f-810871888793")
+		(uuid "dc436ec6-1a17-4088-a1bf-e8b41134789c")
 	)
-	(label "ID2_debug"
-		(at 134.62 167.64 0)
+	(label "3V3"
+		(at 59.69 20.32 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "d1871fa9-2477-4473-8abf-962b5880e173")
-	)
-	(label "ID7_debug"
-		(at 134.62 180.34 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d248b217-9094-4cf8-908b-e51dafce543c")
-	)
-	(label "SWCLK"
-		(at 134.62 116.84 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d50de614-a4a6-4b5d-b447-46f006cad5a2")
+		(uuid "e29539ea-476f-4163-9cc4-c9770def6bdb")
 	)
 	(label "CAN_TX"
 		(at 212.09 142.24 180)
@@ -7240,6 +7430,16 @@
 			(justify left bottom)
 		)
 		(uuid "fa8297d4-a8fd-4af2-9557-dfac6027d8cb")
+	)
+	(label "I2C_SDA"
+		(at 134.62 116.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fafd06fe-e37a-4512-978b-142e948f9dee")
 	)
 	(label "+12V"
 		(at 27.94 57.15 0)
@@ -8520,6 +8720,84 @@
 			(project "continuity_test"
 				(path "/780bdc20-839e-433e-aee0-34fd432dd52f"
 					(reference "#PWR036")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 59.69 45.72 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "22d09251-8565-44d0-be48-e452d7bfbf5b")
+		(property "Reference" "#PWR040"
+			(at 59.69 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 59.69 50.8 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 59.69 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 59.69 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 59.69 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "872246e2-09b0-48a8-845c-8da22f45dd0d")
+		)
+		(instances
+			(project "continuity_test"
+				(path "/780bdc20-839e-433e-aee0-34fd432dd52f"
+					(reference "#PWR040")
 					(unit 1)
 				)
 			)
@@ -11128,6 +11406,94 @@
 			(project "continuity_test"
 				(path "/780bdc20-839e-433e-aee0-34fd432dd52f"
 					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Display_Graphic:ER_OLEDM0.91_1x-I2C")
+		(at 59.69 33.02 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6101e7a4-c419-4c6b-b2e5-43caae80a564")
+		(property "Reference" "U5"
+			(at 68.58 31.7499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "ER_OLEDM0.91_1x-I2C"
+			(at 68.58 34.2899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Display:ER_OLEDM0.91_1x-I2C"
+			(at 77.724 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.buydisplay.com/download/manual/ER-OLEDM0.91-1_Datasheet.pdf"
+			(at 102.362 47.752 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "SSD1306 OLED module, 0.91 inch, 128x32, I2C"
+			(at 86.36 49.784 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "4"
+			(uuid "e9447400-8e45-447d-9b62-e8baa319fd1d")
+		)
+		(pin "1"
+			(uuid "fa1d89b5-c986-408a-be67-13e798083472")
+		)
+		(pin "3"
+			(uuid "a43ee708-2fb0-4428-890d-af7480a51d71")
+		)
+		(pin "2"
+			(uuid "90e10a2e-6e66-48a0-9180-019cdf944ba4")
+		)
+		(instances
+			(project "continuity_test"
+				(path "/780bdc20-839e-433e-aee0-34fd432dd52f"
+					(reference "U5")
 					(unit 1)
 				)
 			)

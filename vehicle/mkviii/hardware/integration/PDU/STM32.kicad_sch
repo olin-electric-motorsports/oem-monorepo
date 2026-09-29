@@ -6019,6 +6019,145 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "power:+3.3V"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "+3.3V"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "+3.3V_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+3.3V_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:+5V"
 			(power global)
 			(pin_names
@@ -6372,6 +6511,12 @@
 		(uuid "2a86c859-3c16-407a-b2f9-566e7edb9a08")
 	)
 	(junction
+		(at 22.86 64.77)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2ab4931c-e651-4d9f-a942-9823efc7b068")
+	)
+	(junction
 		(at 157.48 138.43)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6396,7 +6541,7 @@
 		(uuid "6ec4ec98-d4c0-435a-aab9-458ed8a1d879")
 	)
 	(junction
-		(at 19.05 88.9)
+		(at 19.05 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6ed2f337-1ae5-41bf-b0d8-33294a140f78")
@@ -6432,7 +6577,7 @@
 		(uuid "a5aea527-c205-4d55-a1f9-504e2e3d565d")
 	)
 	(junction
-		(at 19.05 77.47)
+		(at 19.05 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a9e13000-1bd6-42fe-b2c2-f2c34490139a")
@@ -6460,6 +6605,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e737022f-3ad7-43d0-ae42-eef7184650eb")
+	)
+	(junction
+		(at 19.05 102.87)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fc8c61f6-9368-491f-8883-09b044ba393b")
 	)
 	(junction
 		(at 22.86 53.34)
@@ -6529,7 +6680,7 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 77.47) (xy 19.05 77.47)
+			(xy 22.86 80.01) (xy 19.05 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6679,7 +6830,7 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 88.9) (xy 19.05 88.9)
+			(xy 22.86 91.44) (xy 19.05 91.44)
 		)
 		(stroke
 			(width 0)
@@ -6769,7 +6920,7 @@
 	)
 	(wire
 		(pts
-			(xy 19.05 77.47) (xy 19.05 22.86)
+			(xy 19.05 80.01) (xy 19.05 22.86)
 		)
 		(stroke
 			(width 0)
@@ -6989,7 +7140,7 @@
 	)
 	(wire
 		(pts
-			(xy 19.05 88.9) (xy 19.05 77.47)
+			(xy 19.05 91.44) (xy 19.05 80.01)
 		)
 		(stroke
 			(width 0)
@@ -7189,7 +7340,7 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 100.33) (xy 19.05 100.33)
+			(xy 22.86 102.87) (xy 19.05 102.87)
 		)
 		(stroke
 			(width 0)
@@ -7709,7 +7860,7 @@
 	)
 	(wire
 		(pts
-			(xy 19.05 100.33) (xy 19.05 88.9)
+			(xy 19.05 102.87) (xy 19.05 91.44)
 		)
 		(stroke
 			(width 0)
@@ -7977,6 +8128,16 @@
 		)
 		(uuid "104ecfc1-8bd9-410d-bc65-512ac7f107d8")
 	)
+	(label "HB_LED"
+		(at 105.41 49.53 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1075b6bc-bf87-405c-ba12-4244c86f182c")
+	)
 	(label "MOSI"
 		(at 143.51 35.56 180)
 		(effects
@@ -8066,16 +8227,6 @@
 			(justify right bottom)
 		)
 		(uuid "4fba0723-eb8b-4023-8141-d9c45e2f93e0")
-	)
-	(label "HB_LED"
-		(at 105.41 44.45 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "523dbef6-b880-4ab3-96cd-00946949e9ce")
 	)
 	(label "MISO"
 		(at 203.2 143.51 0)
@@ -8359,6 +8510,17 @@
 		)
 		(uuid "08d3d81e-e6c9-41df-89f8-6e65926681d4")
 	)
+	(hierarchical_label "PUMP_PWM"
+		(shape input)
+		(at 105.41 46.99 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1109da74-ebf4-4e0e-a354-91aba99a03f8")
+	)
 	(hierarchical_label "SIG_TEMP"
 		(shape input)
 		(at 132.08 143.51 180)
@@ -8413,17 +8575,6 @@
 			(justify right)
 		)
 		(uuid "3cc48097-c5f4-416f-9d49-bd4b354eb5a9")
-	)
-	(hierarchical_label "FAN_PWM"
-		(shape input)
-		(at 105.41 46.99 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "3cd1d21c-63b8-4369-95b3-dded3afb0c33")
 	)
 	(hierarchical_label "COOLING_EN"
 		(shape input)
@@ -8502,6 +8653,17 @@
 		)
 		(uuid "c987d807-2685-4ebd-8f39-3b480f3da2ef")
 	)
+	(hierarchical_label "FAN_PWM"
+		(shape input)
+		(at 105.41 44.45 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "cfc145f6-b03c-47cd-ba0a-1840a41f62ba")
+	)
 	(hierarchical_label "A_PDU"
 		(shape input)
 		(at 132.08 148.59 180)
@@ -8512,17 +8674,6 @@
 			(justify right)
 		)
 		(uuid "e61de8d1-bdc2-4d3c-9980-26575a9f9aed")
-	)
-	(hierarchical_label "PUMP_PWM"
-		(shape input)
-		(at 105.41 49.53 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "ec04b8a9-5664-44db-bd67-2cf8720d4534")
 	)
 	(hierarchical_label "SS_MC"
 		(shape input)
@@ -9763,7 +9914,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 30.48 88.9 90)
+		(at 30.48 91.44 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9773,7 +9924,7 @@
 		(dnp no)
 		(uuid "10dfaca3-b6ab-4907-b3c7-dd29654d0f77")
 		(property "Reference" "#PWR045"
-			(at 36.83 88.9 0)
+			(at 36.83 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9784,7 +9935,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 31.75 86.868 90)
+			(at 31.75 89.408 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9795,7 +9946,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 30.48 88.9 0)
+			(at 30.48 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9806,7 +9957,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 30.48 88.9 0)
+			(at 30.48 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9817,7 +9968,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 30.48 88.9 0)
+			(at 30.48 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12614,7 +12765,7 @@
 	)
 	(symbol
 		(lib_id "OEM:C_4.7uF_20-100V_0603")
-		(at 26.67 100.33 90)
+		(at 26.67 102.87 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12625,16 +12776,6 @@
 		(fields_autoplaced yes)
 		(uuid "504d0daa-d815-4fe6-a0bc-527d0aee5d1f")
 		(property "Reference" "C10"
-			(at 26.67 92.71 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "C_4.7uF"
 			(at 26.67 95.25 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12644,8 +12785,18 @@
 				)
 			)
 		)
+		(property "Value" "C_4.7uF"
+			(at 26.67 97.79 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 30.48 99.3648 0)
+			(at 30.48 101.9048 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12656,7 +12807,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/mure-s-a0004413631-1.pdf"
-			(at 26.67 100.33 0)
+			(at 26.67 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12667,7 +12818,7 @@
 			)
 		)
 		(property "Description" "CAP CER 4.7UF 25V X5R 0603"
-			(at 26.67 100.33 0)
+			(at 26.67 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12678,7 +12829,7 @@
 			)
 		)
 		(property "MPN" "GRT188R61E475ME13D"
-			(at 26.67 100.33 0)
+			(at 26.67 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14907,6 +15058,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3.3V")
+		(at 22.86 64.77 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "88858daf-79e1-4789-8c30-54805422f943")
+		(property "Reference" "#PWR056"
+			(at 22.86 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 22.86 69.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 22.86 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 22.86 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 22.86 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1f88601c-2879-4198-a15f-3171aadcfc8c")
+		)
+		(instances
+			(project "PDU"
+				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1"
+					(reference "#PWR056")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 187.96 156.21 0)
 		(unit 1)
@@ -16584,7 +16813,7 @@
 	)
 	(symbol
 		(lib_id "OEM:C_0.1uF_0-20V_0603")
-		(at 26.67 77.47 90)
+		(at 26.67 80.01 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -16595,16 +16824,6 @@
 		(fields_autoplaced yes)
 		(uuid "abfc7625-83ec-4c76-9fec-6914935324ee")
 		(property "Reference" "C8"
-			(at 26.67 69.85 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "C_0.1uF"
 			(at 26.67 72.39 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16614,8 +16833,18 @@
 				)
 			)
 		)
+		(property "Value" "C_0.1uF"
+			(at 26.67 74.93 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 30.48 76.5048 0)
+			(at 30.48 79.0448 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16626,7 +16855,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
-			(at 26.67 77.47 0)
+			(at 26.67 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16637,7 +16866,7 @@
 			)
 		)
 		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
-			(at 26.67 77.47 0)
+			(at 26.67 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16648,7 +16877,7 @@
 			)
 		)
 		(property "MPN" "C0603C104Z4VACTU"
-			(at 26.67 77.47 0)
+			(at 26.67 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18138,7 +18367,7 @@
 	)
 	(symbol
 		(lib_id "OEM:C_0.1uF_0-20V_0603")
-		(at 26.67 88.9 90)
+		(at 26.67 91.44 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -18149,16 +18378,6 @@
 		(fields_autoplaced yes)
 		(uuid "c1a45232-8f61-499e-9386-07a80284da15")
 		(property "Reference" "C9"
-			(at 26.67 81.28 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "C_0.1uF"
 			(at 26.67 83.82 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18168,8 +18387,18 @@
 				)
 			)
 		)
+		(property "Value" "C_0.1uF"
+			(at 26.67 86.36 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 30.48 87.9348 0)
+			(at 30.48 90.4748 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18180,7 +18409,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
-			(at 26.67 88.9 0)
+			(at 26.67 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18191,7 +18420,7 @@
 			)
 		)
 		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
-			(at 26.67 88.9 0)
+			(at 26.67 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18202,7 +18431,7 @@
 			)
 		)
 		(property "MPN" "C0603C104Z4VACTU"
-			(at 26.67 88.9 0)
+			(at 26.67 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18930,7 +19159,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 30.48 100.33 90)
+		(at 30.48 102.87 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -18940,7 +19169,7 @@
 		(dnp no)
 		(uuid "d1cd5429-9cf6-413a-9fbf-a7d5d20da489")
 		(property "Reference" "#PWR047"
-			(at 36.83 100.33 0)
+			(at 36.83 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18951,7 +19180,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 31.75 98.298 90)
+			(at 31.75 100.838 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18962,7 +19191,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 30.48 100.33 0)
+			(at 30.48 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18973,7 +19202,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 30.48 100.33 0)
+			(at 30.48 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18984,7 +19213,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 30.48 100.33 0)
+			(at 30.48 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19237,6 +19466,84 @@
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1"
 					(reference "#PWR060")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 19.05 102.87 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d6ccc508-75df-4ad0-9490-effcd3414571")
+		(property "Reference" "#PWR055"
+			(at 19.05 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 19.05 107.95 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 19.05 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 19.05 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 19.05 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e091fc2b-3521-4827-b280-e35a0a3ec8ca")
+		)
+		(instances
+			(project "PDU"
+				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1"
+					(reference "#PWR055")
 					(unit 1)
 				)
 			)
@@ -19832,7 +20139,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 30.48 77.47 90)
+		(at 30.48 80.01 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -19842,7 +20149,7 @@
 		(dnp no)
 		(uuid "e8149b65-2266-4b67-a993-bff505ba9123")
 		(property "Reference" "#PWR044"
-			(at 36.83 77.47 0)
+			(at 36.83 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19853,7 +20160,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 31.496 75.184 90)
+			(at 31.496 77.724 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19864,7 +20171,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 30.48 77.47 0)
+			(at 30.48 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19875,7 +20182,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 30.48 77.47 0)
+			(at 30.48 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19886,7 +20193,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 30.48 77.47 0)
+			(at 30.48 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

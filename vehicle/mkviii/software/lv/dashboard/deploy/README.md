@@ -9,23 +9,31 @@ dashboard Raspberry Pi. For what happens on the Pi, see [`../pi/README.md`](../p
 | `set_branch.py` | Show or change which GitHub branch the Pi syncs to on boot. |
 | `reboot_pi.py` | Reboot the Pi so it syncs with GitHub. |
 | `pi_ssh.py` | Shared ssh/config helpers (not run directly). |
-| `config.json` | Pi address and the list of files to deploy. |
+| `config.json` | Pi address and the list of files that live on the Pi. |
 
 All scripts only need Python 3 and the `ssh`/`scp` commands. Each takes
 `-c/--config` to use a config other than `config.json`, and `-h` for help.
 
 ## How deploying works
 
-There are two ways code gets onto the Pi:
+The Pi does **not** have a copy of the repo. It only has the files listed in
+the `deploy` list of `config.json`, each at its `remote_path`. There are two
+ways those files get updated:
 
 1. **Deploy (for quick testing):** `./deploy.py` copies your local, possibly
    uncommitted files to the Pi. The Pi applies them on next boot and runs them.
 2. **GitHub sync (the normal state):** every boot that has *no* pending deploy,
-   the Pi hard-resets its copy of the repo to the configured branch. This
-   **throws away** anything a previous deploy changed inside the repo.
+   the Pi downloads the latest version of each of those files from the
+   configured branch (and only those files) and overwrites its copies. This
+   **throws away** anything a previous deploy changed.
 
 So a deploy lasts for exactly one boot. To go back to what's on GitHub, run
 `./reboot_pi.py`.
+
+The list of files the Pi syncs comes from the last deploy: each deploy leaves a
+manifest (`deploy-manifest.json`) on the Pi recording where each file lives in
+the repo and where it goes on the Pi. So **if you change the `deploy` list,
+run `./deploy.py` once** so the Pi picks up the new list.
 
 ```
 laptop                                   Raspberry Pi
@@ -33,37 +41,60 @@ laptop                                   Raspberry Pi
 ./deploy.py ── scp ──> /home/oemdashboard/deploy/  (staged, not in place yet)
             ── ssh ──> shutdown
                                          ...power on...
-                                         startup.py: files -> final paths,
-                                                     empty /home/oemdashboard/deploy/,
+                                         startup.py: files/ -> final paths,
+                                                     delete files/ (keep manifest),
                                                      run dashboard
 ./reboot_pi.py ── ssh ──> reboot
                                          startup.py: no deploy pending,
-                                                     reset repo to GitHub branch,
+                                                     download manifest's files
+                                                     from GitHub branch,
                                                      run dashboard
 ```
 
 ### What `deploy.py` does
 
 1. Reads the `deploy` list in `config.json` and expands any folders into every
-   file under them (recursively).
+   file under them (recursively). For each file it works out its path inside
+   the repo (`repo_path`), which the Pi uses to download it from GitHub later.
 2. Builds this layout in a local temp folder:
    ```
    deploy/
-   ├─ config.json      <- [{"file_name": "dashboard.py", "file_path": "/home/oemdashboard/.../dashboard.py"}, ...]
+   ├─ deploy-manifest.json
    ├─ files/
    │  ├─ dashboard.py
-   │  ├─ myscript.py
+   │  ├─ mkvi.dbc
    ```
-   `files/` is flat. If two files share a name, later ones get a suffix
-   (`main.py`, `main_1.py`, ...); `config.json` records the real destination.
+   `deploy-manifest.json` lists each file:
+   ```json
+   [
+       {
+           "file_name": "dashboard.py",
+           "file_path": "/home/oemdashboard/dashboard.py",
+           "repo_path": "vehicle/mkviii/software/lv/dashboard/dashboard.py"
+       },
+       {
+           "file_name": "mkvi.dbc",
+           "file_path": "/home/oemdashboard/mkvi.dbc",
+           "repo_path": "vehicle/mkviii/software/lv/dashboard/mkvi.dbc"
+       }
+   ]
+   ```
+   `file_name` is the file's name in `files/`, `file_path` its final location
+   on the Pi (`remote_path`), and `repo_path` its path in the repo. `files/`
+   is flat. If two files share a name, later ones get a suffix (`main.py`,
+   `main_1.py`, ...).
 3. Uploads it to `<remote_deploy_dir>.incoming` on the Pi, then renames it to
    `remote_deploy_dir`. The rename means the Pi never sees a half-uploaded
-   deploy. Any earlier deploy that was never applied is replaced.
+   deploy. Any earlier deploy that was never applied is replaced, along with
+   the old manifest.
 4. Shuts the Pi down (configurable, see below).
+
+A deploy is pending while `remote_deploy_dir/files/` exists. After applying it,
+the Pi deletes `files/` but keeps `deploy-manifest.json`.
 
 ```shell
 ./deploy.py              # deploy, then shut the Pi down
-./deploy.py --dry-run    # just list what would be deployed
+./deploy.py --dry-run    # just list what would be deployed (repo path -> Pi path)
 ./deploy.py --reboot     # deploy, then reboot instead of shutting down
 ./deploy.py --no-shutdown  # deploy and leave the Pi running
 ```
@@ -91,7 +122,8 @@ next boot.
 
 If a deploy is still pending (e.g. you used `deploy.py --no-shutdown`), the
 next boot applies it *instead of* syncing with GitHub. The script warns you;
-pass `--discard-deploy` to clear it and force a GitHub sync.
+pass `--discard-deploy` to delete the staged files and force a GitHub sync.
+The pending deploy's manifest is kept, so the Pi syncs the files listed in it.
 
 ## `config.json`
 
@@ -110,7 +142,7 @@ pass `--discard-deploy` to clear it and force a GitHub sync.
     "deploy": [
         {
             "local_path": "../dashboard.py",
-            "remote_path": "/home/oemdashboard/oem-monorepo/vehicle/mkviii/software/lv/dashboard/dashboard.py"
+            "remote_path": "/home/oemdashboard/dashboard.py"
         },
         {
             "local_path": "../mkvi.dbc",
@@ -130,18 +162,24 @@ pass `--discard-deploy` to clear it and force a GitHub sync.
 | `remote_deploy_dir` | Temporary deploy directory on the Pi. **Must match `deploy_dir` in the Pi's `startup_config.json`.** |
 | `remote_startup_config` | Path to the Pi's `startup_config.json` (used by `set_branch.py`). |
 | `post_deploy_action` | What `deploy.py` does after uploading: `"shutdown"` (default), `"reboot"`, or `"none"`. |
-| `deploy` | List of `local_path` → `remote_path` mappings (see below). |
+| `deploy` | List of `local_path` → `remote_path` mappings: the files that live on the Pi (see below). |
 
 ### The `deploy` list
 
 - `local_path` can be absolute, or relative to **the folder `config.json` is in**
   (not the folder you run the script from). `~` is expanded.
+- `local_path` must be inside the git repo. Its path in the repo is where the
+  Pi downloads it from when syncing with GitHub, so a file that isn't on the
+  branch yet (e.g. new and not pushed) still deploys, but the next GitHub sync
+  logs a warning and leaves the Pi's copy alone.
 - `remote_path` must be absolute. It's the file's final location on the Pi.
 - If `local_path` is a **folder**, every file and subfolder under it is
   deployed, with the same structure under `remote_path`. For example,
   `"local_path": "../gui"`, `"remote_path": "/home/oemdashboard/gui"` sends
   `../gui/widgets/gauge.py` to `/home/oemdashboard/gui/widgets/gauge.py`.
 - Mapping two different local files to the same remote path is an error.
+- Removing an entry doesn't delete the file from the Pi; the Pi just stops
+  syncing it (after your next deploy).
 
 ## Pi requirements
 

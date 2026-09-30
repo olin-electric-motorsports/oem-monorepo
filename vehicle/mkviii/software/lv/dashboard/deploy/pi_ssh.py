@@ -12,6 +12,12 @@ import sys
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_CONFIG_PATH = os.path.join(SCRIPT_DIR, "config.json")
 
+# Layout of the Pi's deploy directory. Must match startup.py on the Pi.
+# The manifest stays between boots (it tells the Pi which files to sync from
+# GitHub); files/ only exists while a deploy is waiting to be applied.
+MANIFEST_NAME = "deploy-manifest.json"
+STAGED_FILES_DIR = "files"
+
 # ssh exits with 255 when the connection itself fails (or is dropped, e.g.
 # because the Pi started shutting down before the command returned).
 SSH_CONNECTION_ERROR = 255
@@ -109,9 +115,13 @@ def write_remote_json(config, remote_path, data):
     ssh(config, command, input_text=json.dumps(data, indent=4) + "\n")
 
 
+def remote_staged_files_dir(config):
+    return os.path.join(config["remote_deploy_dir"], STAGED_FILES_DIR)
+
+
 def remote_has_pending_deploy(config):
-    deploy_config = os.path.join(config["remote_deploy_dir"], "config.json")
-    return ssh(config, ["test", "-f", deploy_config], check=False).returncode == 0
+    staged = remote_staged_files_dir(config)
+    return ssh(config, ["test", "-d", staged], check=False).returncode == 0
 
 
 def power_command(config, action):

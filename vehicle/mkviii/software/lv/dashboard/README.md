@@ -7,7 +7,8 @@ Driver dashboard code, which runs on a Raspberry Pi.
 - `dashboard.yml`: CAN API config for the dashboard's messages.
 - `can_logger`: script that logs CAN traffic on the Pi.
 - [`deploy/`](deploy/README.md): laptop-side scripts to deploy code to the Pi,
-  change which branch it syncs to, and reboot it.
+  change which branch it syncs to, and reboot it. The Pi doesn't clone the
+  repo; it only keeps the files listed in `deploy/config.json`.
 - [`pi/`](pi/README.md): the boot script and systemd service installed on the Pi.
 
 Quick reference, from `deploy/`:

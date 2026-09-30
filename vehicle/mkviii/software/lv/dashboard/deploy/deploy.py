@@ -10,12 +10,16 @@ the Pi's startup script moves the staged files into place. See README.md.
 import argparse
 import json
 import os
+import pathlib
 import shlex
 import shutil
+import subprocess
 import tempfile
 
 from pi_ssh import (
     DEFAULT_CONFIG_PATH,
+    MANIFEST_NAME,
+    STAGED_FILES_DIR,
     DeployError,
     load_config,
     power_command,
@@ -34,10 +38,40 @@ def resolve_local_path(config, local_path):
     return os.path.normpath(local_path)
 
 
+def find_repo_root(local):
+    """The root of the git repo that the local file or folder is in."""
+    folder = local if os.path.isdir(local) else os.path.dirname(local)
+    try:
+        result = subprocess.run(
+            ["git", "-C", folder, "rev-parse", "--show-toplevel"],
+            check=True,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+        )
+    except (subprocess.CalledProcessError, OSError):
+        raise DeployError(
+            f"{local} is not in a git repo; the Pi can only sync files that are "
+            "in the repo"
+        )
+    return os.path.realpath(result.stdout.strip())
+
+
+def repo_relative_path(repo_root, local):
+    """local's path inside the repo, with forward slashes (what git uses)."""
+    rel = os.path.relpath(os.path.realpath(local), repo_root)
+    if rel == ".." or rel.startswith(".." + os.sep):
+        raise DeployError(
+            f"{local} is outside the repo ({repo_root}); the Pi can only sync "
+            "files that are in the repo"
+        )
+    return pathlib.PurePath(rel).as_posix()
+
+
 def collect_files(config):
     """
-    Expand the deploy map into a list of (local_file, remote_file) pairs.
-    Folders are walked recursively, preserving their structure under
+    Expand the deploy map into a list of (local_file, remote_file, repo_path)
+    tuples. Folders are walked recursively, preserving their structure under
     remote_path.
     """
     entries = config.get("deploy", [])
@@ -55,21 +89,29 @@ def collect_files(config):
         if not os.path.isabs(remote):
             raise DeployError(f"remote_path must be absolute: {remote}")
 
+        if not os.path.exists(local):
+            raise DeployError(f"local_path does not exist: {local}")
+        repo_root = find_repo_root(local)
+
         if os.path.isfile(local):
-            files.append((local, remote))
+            files.append((local, remote, repo_relative_path(repo_root, local)))
         elif os.path.isdir(local):
             for root, dirs, names in os.walk(local):
                 dirs.sort()
                 for name in sorted(names):
                     local_file = os.path.join(root, name)
                     rel = os.path.relpath(local_file, local)
-                    files.append((local_file, os.path.join(remote, rel)))
-        else:
-            raise DeployError(f"local_path does not exist: {local}")
+                    files.append(
+                        (
+                            local_file,
+                            os.path.join(remote, rel),
+                            repo_relative_path(repo_root, local_file),
+                        )
+                    )
 
     # Two entries targeting the same remote file is almost certainly a mistake.
     seen = {}
-    for local, remote in files:
+    for local, remote, _ in files:
         if remote in seen and seen[remote] != local:
             raise DeployError(
                 f"Both {seen[remote]} and {local} are mapped to {remote}"
@@ -90,19 +132,21 @@ def unique_name(name, used):
 
 
 def build_staging_dir(files, staging_dir):
-    """Create the deploy/ layout (config.json + files/) locally."""
-    files_dir = os.path.join(staging_dir, "files")
+    """Create the deploy/ layout (deploy-manifest.json + files/) locally."""
+    files_dir = os.path.join(staging_dir, STAGED_FILES_DIR)
     os.makedirs(files_dir)
 
     manifest = []
     used = set()
-    for local, remote in files:
+    for local, remote, repo_path in files:
         name = unique_name(os.path.basename(local), used)
         used.add(name)
         shutil.copy2(local, os.path.join(files_dir, name))
-        manifest.append({"file_name": name, "file_path": remote})
+        manifest.append(
+            {"file_name": name, "file_path": remote, "repo_path": repo_path}
+        )
 
-    with open(os.path.join(staging_dir, "config.json"), "w") as f:
+    with open(os.path.join(staging_dir, MANIFEST_NAME), "w") as f:
         json.dump(manifest, f, indent=4)
         f.write("\n")
     return manifest
@@ -159,8 +203,8 @@ def main():
 
     files = collect_files(config)
     print(f"Deploying {len(files)} file(s) to {config['pi']['host']}:")
-    for local, remote in files:
-        print(f"  {os.path.relpath(local)} -> {remote}")
+    for _, remote, repo_path in files:
+        print(f"  {repo_path} -> {remote}")
 
     if args.dry_run:
         print("Dry run, nothing sent.")

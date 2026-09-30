@@ -14,6 +14,7 @@ from pi_ssh import (
     load_config,
     power_command,
     remote_has_pending_deploy,
+    remote_staged_files_dir,
     run_main,
     ssh,
 )
@@ -37,8 +38,8 @@ def main():
 
     if remote_has_pending_deploy(config):
         if args.discard_deploy:
-            deploy_dir = config["remote_deploy_dir"]
-            ssh(config, ["find", deploy_dir, "-mindepth", "1", "-delete"])
+            # Only the staged files; the manifest is what the GitHub sync uses.
+            ssh(config, ["rm", "-rf", remote_staged_files_dir(config)])
             print("Discarded pending deploy.")
         else:
             print(

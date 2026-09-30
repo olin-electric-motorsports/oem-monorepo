@@ -22,6 +22,12 @@ vcu_state_s s_state = {0};
 /* Hardware mapping populated by GPIO/ADC initialization before vcu_init(). */
 vcu_hw_s s_hw = {0};
 
+/* Check calibration ranges when compiling*/
+_Static_assert(VCU_THROTTLE_L_MAX_COUNTS > VCU_THROTTLE_L_MIN_COUNTS,
+               "left APPS calibration range must be positive");
+_Static_assert(VCU_THROTTLE_R_MAX_COUNTS > VCU_THROTTLE_R_MIN_COUNTS,
+               "right APPS calibration range must be positive");
+
 /* Scheduler flags set by SysTick_Handler and consumed by the main loop. */
 static volatile bool s_tick_1ms = false;
 static volatile bool s_tick_10ms = false;
@@ -31,8 +37,8 @@ static void vcu_read_inputs_1ms(void);
 static void vcu_read_bspd_1ms(void);
 static void vcu_read_throttle_1ms(void);
 static void vcu_read_shutdown_chain_1ms(void);
-static void vcu_update_fault_manager_1ms(void);
 static void vcu_check_brake_throttle_implaus_1ms(void);
+static void vcu_update_fault_manager_1ms(void);
 /* Output and communication helpers that consume the already-updated state. */
 static void vcu_apply_outputs(void);
 static void vcu_send_can_10ms(void);
@@ -75,9 +81,14 @@ void SysTick_Handler(void) {
  * s_state and on the configured GPIO outputs.
  */
 HAL_StatusTypeDef vcu_step_1ms(void) {
+    /* Acquire one coherent set of hardware and CAN inputs. */
     vcu_read_inputs_1ms();
+
+    /* Update latching safety state before evaluating faults and operating mode. */
     vcu_check_brake_throttle_implaus_1ms();
     vcu_update_fault_manager_1ms();
+
+    /* Produce safe torque/enable commands and apply the local GPIO outputs. */
     vcu_apply_outputs();
     return HAL_OK;
 }
@@ -122,28 +133,35 @@ static void vcu_read_bspd_1ms(void) {
  * flags retain whether clipping or sensor mismatch occurred.
  */
 static void vcu_read_throttle_1ms(void) {
-    // Read raw data from potentiometers
-    // TODO: Are we still using int16 instead of uint16?
-    int16_t throttle_l_raw = (int16_t)oem_adc_read(s_hw.hadc_throttle_l);
+    /* ADC values are unsigned 12-bit counts and fit safely in uint16_t. */
+    uint16_t throttle_l_raw = oem_adc_read(s_hw.hadc_throttle_l);
     s_state.throttle_l_raw = throttle_l_raw;
-    int16_t throttle_r_raw = (int16_t)oem_adc_read(s_hw.hadc_throttle_r);
+    uint16_t throttle_r_raw = oem_adc_read(s_hw.hadc_throttle_r);
     s_state.throttle_r_raw = throttle_r_raw;
 
     int16_t raw_l = (int16_t)(throttle_l_raw >> 2);
     int16_t raw_r = (int16_t)(throttle_r_raw >> 2);
 
-    int16_t range_l = THROTTLE_L_MAX_COUNTS - THROTTLE_L_MIN_COUNTS;
-    int16_t range_r = THROTTLE_R_MAX_COUNTS - THROTTLE_R_MIN_COUNTS;
+    int16_t range_l = VCU_THROTTLE_L_MAX_COUNTS - VCU_THROTTLE_L_MIN_COUNTS;
+    int16_t range_r = VCU_THROTTLE_R_MAX_COUNTS - VCU_THROTTLE_R_MIN_COUNTS;
 
-    /* Record invalid calibration constants for status reporting. */
-    if (range_l <= 0 || range_r <= 0){
+    /* Invalid calibration makes scaling unsafe, so fail closed before dividing. */
+    if (range_l <= 0 || range_r <= 0) {
         s_state.throttle_range_invalid = true;
-    } else {
-        s_state.throttle_range_invalid = false;
-    }
 
-    int32_t scaled_l = (int32_t)(raw_l - THROTTLE_L_MIN_COUNTS) * MAX_THROTTLE_POS;
-    int32_t scaled_r = (int32_t)(raw_r - THROTTLE_R_MIN_COUNTS) * MAX_THROTTLE_POS;
+        s_state.throttle_l_scaled = VCU_PEDAL_MIN_COUNTS;
+        s_state.throttle_r_scaled = VCU_PEDAL_MIN_COUNTS;
+        s_state.throttle_l_out_of_range = true;
+        s_state.throttle_r_out_of_range = true;
+        s_state.throttles_mismatch = true;
+        return;
+    }
+    s_state.throttle_range_invalid = false;
+
+    int32_t scaled_l =
+        (int32_t)(raw_l - VCU_THROTTLE_L_MIN_COUNTS) * VCU_PEDAL_MAX_COUNTS;
+    int32_t scaled_r =
+        (int32_t)(raw_r - VCU_THROTTLE_R_MIN_COUNTS) * VCU_PEDAL_MAX_COUNTS;
 
     /*
      * Preserve negative below-range values until the clipping checks so the
@@ -162,21 +180,21 @@ static void vcu_read_throttle_1ms(void) {
     }
 
     // Check if out of range
-    if (scaled_l > MAX_THROTTLE_POS) {
-        scaled_l = MAX_THROTTLE_POS;
+    if (scaled_l > VCU_PEDAL_MAX_COUNTS) {
+        scaled_l = VCU_PEDAL_MAX_COUNTS;
         s_state.throttle_l_out_of_range = true;
-    } else if (scaled_l < MIN_THROTTLE_POS) {
-        scaled_l = MIN_THROTTLE_POS;
+    } else if (scaled_l < VCU_PEDAL_MIN_COUNTS) {
+        scaled_l = VCU_PEDAL_MIN_COUNTS;
         s_state.throttle_l_out_of_range = true;
     } else {
         s_state.throttle_l_out_of_range = false;
     }
 
-    if (scaled_r > MAX_THROTTLE_POS) {
-        scaled_r = MAX_THROTTLE_POS;
+    if (scaled_r > VCU_PEDAL_MAX_COUNTS) {
+        scaled_r = VCU_PEDAL_MAX_COUNTS;
         s_state.throttle_r_out_of_range = true;
-    } else if (scaled_r < MIN_THROTTLE_POS) {
-        scaled_r = MIN_THROTTLE_POS;
+    } else if (scaled_r < VCU_PEDAL_MIN_COUNTS) {
+        scaled_r = VCU_PEDAL_MIN_COUNTS;
         s_state.throttle_r_out_of_range = true;
     } else {
         s_state.throttle_r_out_of_range = false;
@@ -187,7 +205,7 @@ static void vcu_read_throttle_1ms(void) {
 
     // Check if mismatch
     int16_t throttle_diff = vcu_abs_diff_16((int16_t)scaled_l, (int16_t)scaled_r);
-    s_state.throttles_mismatch = throttle_diff > APPS_IMPLAUSIBILITY_DEVIATION_THRESHOLD;
+    s_state.throttles_mismatch = throttle_diff > VCU_APPS_MISMATCH_MAX_COUNTS;
 }
 
 /*
@@ -207,14 +225,14 @@ static void vcu_read_shutdown_chain_1ms(void) {
 }
 
 /*
- * Build fault bitmasks and select the high-level operating mode.
+ * Build fault bitmasks, update the RTD latch, and select the operating mode.
  *
  * Fault bits are recomputed from current sampled state on every 1 ms tick,
  * while specific plausibility conditions latch in s_state until their own
  * reset criteria are met.
  */
-static void vcu_update_fault_manager_1ms() {
-    uint32_t fault_bits = VCU_FAULT_NONE;
+static void vcu_update_fault_manager_1ms(void) {
+    uint16_t fault_bits = VCU_FAULT_NONE;
 
     // BSPD
     if (s_state.bspd_latched) {
@@ -228,10 +246,9 @@ static void vcu_update_fault_manager_1ms() {
     }
 
     // Throttle
-    bool throttle_implausible_now = false;
-    throttle_implausible_now = 
-        s_state.throttle_l_out_of_range || 
-        s_state.throttle_r_out_of_range || 
+    bool throttle_implausible_now =
+        s_state.throttle_l_out_of_range ||
+        s_state.throttle_r_out_of_range ||
         s_state.throttles_mismatch;
 
     /* Report immediate APPS fault causes separately from the timeout latch. */
@@ -244,10 +261,18 @@ static void vcu_update_fault_manager_1ms() {
     if (s_state.throttles_mismatch) {
         fault_bits |= VCU_FAULT_APPS_MISMATCH;
     }
+    if (s_state.throttle_range_invalid) {
+        fault_bits |= VCU_FAULT_APPS_CALIBRATION_INVALID;
+    }
 
     if (throttle_implausible_now) {
-        s_state.throttle_implaus_timer_ms++;
-        if (s_state.throttle_implaus_timer_ms >= IMPLAUSIBILITY_TIME_LIMIT) {
+        /* Saturate the timer so a persistent fault cannot wrap back to zero. */
+        if (s_state.throttle_implaus_timer_ms <
+            VCU_APPS_IMPLAUSIBILITY_TIMEOUT_MS) {
+            s_state.throttle_implaus_timer_ms++;
+        }
+        if (s_state.throttle_implaus_timer_ms >=
+            VCU_APPS_IMPLAUSIBILITY_TIMEOUT_MS) {
             s_state.throttle_implaus_latched = true;
         }
     } else {
@@ -268,13 +293,35 @@ static void vcu_update_fault_manager_1ms() {
     s_state.fault_bits = fault_bits;
     s_state.blocking_fault_bits = fault_bits;
 
-    // Update VCU mode
-    if (s_state.fault_bits != 0u) {
+    /*
+     * A new start-button press arms RTD only while the brake is held, the
+     * pedal is near idle, and no blocking fault is present. Any blocking fault
+     * clears the latch and requires the driver to perform the RTD sequence
+     * again after recovery.
+     */
+    int16_t throttle_scaled_min =
+        vcu_min_16(s_state.throttle_l_scaled, s_state.throttle_r_scaled);
+    bool start_button_rising_edge =
+        s_state.start_button_pressed && !s_state.start_button_pressed_prev;
+    bool safe_to_enter_ready_to_drive =
+        s_state.brake_gate &&
+        throttle_scaled_min <= VCU_APPS_BRAKE_IMPLAUSIBILITY_CLEAR_COUNTS &&
+        s_state.blocking_fault_bits == VCU_FAULT_NONE;
+
+    if (s_state.blocking_fault_bits != VCU_FAULT_NONE) {
+        s_state.ready_to_drive_latched = false;
+    } else if (!s_state.ready_to_drive_latched &&
+               start_button_rising_edge &&
+               safe_to_enter_ready_to_drive) {
+        s_state.ready_to_drive_latched = true;
+    }
+    s_state.start_button_pressed_prev = s_state.start_button_pressed;
+
+    /* Select the high-level mode only after fault and RTD state are final. */
+    if (s_state.blocking_fault_bits != VCU_FAULT_NONE) {
         s_state.mode = VCU_MODE_FAULT;
-    // TODO: Dashboard CAN subscription required
-    // } else if (!dashboard.ready_to_drive) {
-    //     s_state.mode = VCU_MODE_NOT_READY;
-    //     s_state.torque_command = 0;
+    } else if (!s_state.ready_to_drive_latched) {
+        s_state.mode = VCU_MODE_NOT_READY;
     } else if (s_state.brake_gate) {
         s_state.mode = VCU_MODE_BRAKING;
     } else {
@@ -294,11 +341,13 @@ static void vcu_check_brake_throttle_implaus_1ms(void) {
 
     /* Use hysteresis so the latch does not chatter near the threshold. */
     if (s_state.brake_throttle_implaus_latched) {
-        if (throttle_scaled_min <= APPS_BRAKE_IMPLAUSIBILITY_THRESHOLD_LOW) {
+        if (throttle_scaled_min <=
+            VCU_APPS_BRAKE_IMPLAUSIBILITY_CLEAR_COUNTS) {
             s_state.brake_throttle_implaus_latched = false;
         }
     } else if (s_state.brake_gate &&
-               throttle_scaled_min >= APPS_BRAKE_IMPLAUSIBILITY_THRESHOLD) {
+               throttle_scaled_min >=
+                   VCU_APPS_BRAKE_IMPLAUSIBILITY_SET_COUNTS) {
         s_state.brake_throttle_implaus_latched = true;
     }
 }
@@ -310,23 +359,38 @@ static void vcu_check_brake_throttle_implaus_1ms(void) {
  * redundant pedal readings is used so a single high sensor cannot command more
  * torque than the other channel agrees with.
  */
-static void vcu_apply_outputs(void){
-    if (s_state.mode != VCU_MODE_RUN) {
-        s_state.torque_command = 0;
+static void vcu_apply_outputs(void) {
+    /*
+     * Braking suppresses torque without dropping inverter enable. A blocking
+     * fault clears the RTD latch in the fault manager and therefore disables
+     * the inverter here.
+     */
+    s_state.inverter_enable_command =
+        s_state.ready_to_drive_latched &&
+        s_state.blocking_fault_bits == VCU_FAULT_NONE;
+
+    if (s_state.mode != VCU_MODE_RUN ||
+        !s_state.inverter_enable_command) {
+        s_state.inverter_torque_command_raw = 0;
     } else {
-        int16_t torque_raw = vcu_min_16(s_state.throttle_l_scaled, s_state.throttle_r_scaled) * TORQUE_REQUEST_SCALE;
+        int16_t pedal_counts =
+            vcu_min_16(s_state.throttle_l_scaled,
+                       s_state.throttle_r_scaled);
 
-        //Prevent motor whining while idle
-        if (torque_raw < 20) {
-            s_state.torque_command = 0;
-        }else if (torque_raw > 2300) {
-            s_state.torque_command = 2540;
+        /* Prevent motor whining and small unintended requests near pedal idle. */
+        if (pedal_counts <= VCU_PEDAL_IDLE_THRESHOLD_COUNTS) {
+            s_state.inverter_torque_command_raw = 0;
         } else {
-            s_state.torque_command = torque_raw;
+            if (pedal_counts > VCU_PEDAL_MAX_COUNTS) {
+                pedal_counts = VCU_PEDAL_MAX_COUNTS;
+            }
+
+            int32_t torque_raw =
+                ((int32_t)pedal_counts * VCU_MAX_DRIVE_TORQUE_RAW) /
+                VCU_PEDAL_MAX_COUNTS;
+            s_state.inverter_torque_command_raw = (int16_t)torque_raw;
         }
-
     }
-
 
     // Update LEDs
     if (s_state.fault_bits != 0u) {
@@ -361,9 +425,9 @@ static void vcu_apply_outputs(void){
  * messages owned by this module.
  */
 HAL_StatusTypeDef vcu_step_10ms(void) {
-    if (HEARTBEAT_TOGGLE_MS > 0u) {
+    if (VCU_HEARTBEAT_TOGGLE_MS > 0u) {
         s_state.heartbeat_elapsed_ms = (uint16_t)(s_state.heartbeat_elapsed_ms + 10u);
-        if (s_state.heartbeat_elapsed_ms >= HEARTBEAT_TOGGLE_MS) {
+        if (s_state.heartbeat_elapsed_ms >= VCU_HEARTBEAT_TOGGLE_MS) {
             s_state.heartbeat = !s_state.heartbeat;
             s_state.heartbeat_elapsed_ms = 0u;
         }
@@ -385,8 +449,8 @@ HAL_StatusTypeDef vcu_step_10ms(void) {
  * which internal state values should be exposed on each VCU message.
  */
 static void vcu_send_can_10ms(void) {
-    vcu_throttle_state.throttle_l_raw = (uint16_t)s_state.throttle_l_raw;
-    vcu_throttle_state.throttle_r_raw = (uint16_t)s_state.throttle_r_raw;
+    vcu_throttle_state.throttle_l_raw = s_state.throttle_l_raw;
+    vcu_throttle_state.throttle_r_raw = s_state.throttle_r_raw;
     vcu_throttle_state.throttle_l_scaled = (uint8_t)s_state.throttle_l_scaled;
     vcu_throttle_state.throttle_r_scaled = (uint8_t)s_state.throttle_r_scaled;
     vcu_throttle_state.throttle_range_invalid =
@@ -404,17 +468,36 @@ static void vcu_send_can_10ms(void) {
     vcu_status.fault_bits_hi = 0u;
     vcu_status.mode = (uint8_t)s_state.mode;
     vcu_status.heartbeat = s_state.heartbeat ? 1u : 0u;
+    vcu_status.ready_to_drive = s_state.ready_to_drive_latched ? 1u : 0u;
+    vcu_status.inverter_enable_command =
+        s_state.inverter_enable_command ? 1u : 0u;
 
     /*
-    * Sets the torque request in the motor controller command message
-    */
-    m192_command_message.torque_command = s_state.torque_command;
+     * Populate every M192 signal on every send. Keeping the generated CAN
+     * object as a transport-only representation prevents stale fields from
+     * becoming hidden VCU state.
+     */
+    m192_command_message.torque_command =
+        s_state.inverter_enable_command
+            ? s_state.inverter_torque_command_raw
+            : 0;
+    m192_command_message.speed_command = 0;
+    m192_command_message.direction_command =
+        VCU_MOTOR_DIRECTION_COMMAND_RAW;
+    m192_command_message.inverter_enable =
+        s_state.inverter_enable_command ? 1u : 0u;
+    m192_command_message.inverter_discharge = 0u;
+    m192_command_message.speed_mode_enable = 0u;
+    /* Keep zero until inverter rolling-counter checking is confirmed. */
+    m192_command_message.rolling_counter = 0u;
+    /* Zero requests the inverter's configured default torque limit. */
+    m192_command_message.torque_limit_command = 0;
 
-    // Send Message to CAN
-    can_send_vcu_throttle_state();
-    can_send_vcu_bspd_state();
-    can_send_vcu_status();
-    can_send_m192_command_message();
+    /* CAN error handling will be added with the deferred FDCAN bring-up work. */
+    (void)can_send_vcu_throttle_state();
+    (void)can_send_vcu_bspd_state();
+    (void)can_send_vcu_status();
+    (void)can_send_m192_command_message();
 }
 
 
@@ -423,7 +506,10 @@ static void vcu_send_can_10ms(void) {
  * state before the main loop starts.
  */
 HAL_StatusTypeDef vcu_init(void) {
-    s_state = (vcu_state_s){0};
+    /* All fields not listed here intentionally start in their fail-safe zero state. */
+    s_state = (vcu_state_s) {
+        .mode = VCU_MODE_NOT_READY,
+    };
 
     // BSPD
     if (s_hw.hadc_brake_press_sense == NULL || s_hw.hadc_brake_press_sense_ftr == NULL
@@ -449,22 +535,9 @@ HAL_StatusTypeDef vcu_init(void) {
         return HAL_ERROR;
     }
 
-    s_state.mode = VCU_MODE_NOT_READY;
-    s_state.fault_bits = VCU_FAULT_NONE;
-    s_state.blocking_fault_bits = VCU_FAULT_NONE;
-    s_state.heartbeat = false;
-    s_state.heartbeat_elapsed_ms = 0u;
-
-    s_state.torque_command = 0;
-    s_state.throttle_implaus_timer_ms = 0u;
-    s_state.throttle_implaus_latched = false;
-    s_state.brake_throttle_implaus_latched = false;
-
-    s_state.inverter_command_publish_elapsed_ms = 0u;
-    
+    /* Derive explicit disabled/zero-torque commands from the safe initial state. */
     vcu_apply_outputs();
 
-    can_poll_receive_all(); 
     /*
      * This feature is added so that the inverter cannot be accidentally enabled
      * when first powered up. This feature requires that before sending out an
@@ -472,9 +545,7 @@ HAL_StatusTypeDef vcu_init(void) {
      * command. Once the inverter sees a Disable command, the lockout is removed
      * and controller can receive the Inverter Enable command
      */
-    can_send_m192_command_message();
-
-    m192_command_message.direction_command = MOTOR_ANTICLOCKWISE;
+    vcu_send_can_10ms();
 
     return HAL_OK;
 }

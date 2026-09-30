@@ -1,3 +1,6 @@
+#ifndef VCU_CONFIG_H
+#define VCU_CONFIG_H
+
 /*
  * Board-specific VCU configuration for MKVIII low-voltage hardware.
  *
@@ -80,55 +83,53 @@
 #define VCU_RC_TIMER_STATUS_ADC_CHANNEL (ADC_CHANNEL_17)
 
 
-// implausibility constants according to rule T.4.2
+/* Control calibration. */
+
+/* Internal APPS representation: 0 counts = 0%, 255 counts = 100%. */
+#define VCU_PEDAL_MIN_COUNTS (0)
+#define VCU_PEDAL_MAX_COUNTS (255)
+
 /* Required continuous APPS implausibility duration before the fault latches. */
-#define IMPLAUSIBILITY_TIME_LIMIT 100
+#define VCU_APPS_IMPLAUSIBILITY_TIMEOUT_MS (100u)
 
-/* Multiplier applied to scaled pedal travel before motor-controller limits. */
-#define TORQUE_REQUEST_SCALE (1)
+/* Integer APPS thresholds derived from 25%, 5%, and 10% pedal travel. */
+#define VCU_APPS_BRAKE_IMPLAUSIBILITY_SET_COUNTS (64)
+#define VCU_APPS_BRAKE_IMPLAUSIBILITY_CLEAR_COUNTS (12)
+#define VCU_APPS_MISMATCH_MAX_COUNTS (25)
 
-//BASED ON DIRECTION COMMANDS from the PM100DX DATASHEET...DON'T CHANGE!!
-/* Direction-command encoding expected by the motor controller. */
-#define MOTOR_CLOCKWISE     (1)
-#define MOTOR_ANTICLOCKWISE (0)
-
-/* Internal pedal travel range used by plausibility and torque calculations. */
-#define MIN_THROTTLE_POS 0
-#define MAX_THROTTLE_POS 255
+/* Ignore small pedal movement/noise below this command threshold. */
+#define VCU_PEDAL_IDLE_THRESHOLD_COUNTS (20)
 
 /*
-Represents value for 25% pedal travel to check for brake implausibility
-Set as 25% of 255
-*/
-#define APPS_BRAKE_IMPLAUSIBILITY_THRESHOLD (0.25 * MAX_THROTTLE_POS)
+ * M192 torque is encoded in 0.1 N.m per raw count. This commissioning limit
+ * preserves the previous maximum request of approximately 25.5 N.m; it must
+ * be replaced with the approved vehicle torque limit before track operation.
+ */
+#define VCU_MAX_DRIVE_TORQUE_RAW (255)
 
 /*
-Represents value for 5% pedal travel to check for brake implausibility
-Set as 5% of 255
-*/
-#define APPS_BRAKE_IMPLAUSIBILITY_THRESHOLD_LOW (0.05 * MAX_THROTTLE_POS)
+ * Preserve the existing raw direction command until a wheels-off-ground test
+ * establishes which value produces vehicle-forward rotation.
+ */
+#define VCU_MOTOR_DIRECTION_COMMAND_RAW (0u)
+
+/* Extra calibration margin applied before converting the 12-bit ADC to 10-bit. */
+#define VCU_THROTTLE_CALIBRATION_MARGIN_COUNTS (-5)
 
 /*
-Represents value for 10% deviation between throttle sensors
-Set as 10% of 255
-*/
-#define APPS_IMPLAUSIBILITY_DEVIATION_THRESHOLD (0.1 * MAX_THROTTLE_POS)
-
-/*
-buffer here to make sure we don't request torque when small deviations
-in potentiometer happen and we aren't pressing pedal
-*/
-
-#define THROTTLE_BUFFER (-5)
-
-/*
-Minimum and maximum ADC counts representing 0% and 100% pedal travel
-Last calibrated 04-18-2026 for MKVIII 
-*/
-#define THROTTLE_L_MIN_COUNTS (int16_t)((36 + THROTTLE_BUFFER) >> 2)
-#define THROTTLE_L_MAX_COUNTS (int16_t)((1990 - THROTTLE_BUFFER) >> 2)
-#define THROTTLE_R_MIN_COUNTS (int16_t)((7 + THROTTLE_BUFFER) >> 2)
-#define THROTTLE_R_MAX_COUNTS (int16_t)((3383 - THROTTLE_BUFFER) >> 2)
+ * Minimum and maximum ADC counts representing 0% and 100% pedal travel.
+ * Last calibrated 04-18-2026 for MKVIII.
+ */
+#define VCU_THROTTLE_L_MIN_COUNTS \
+    ((36 + VCU_THROTTLE_CALIBRATION_MARGIN_COUNTS) >> 2)
+#define VCU_THROTTLE_L_MAX_COUNTS \
+    ((1990 - VCU_THROTTLE_CALIBRATION_MARGIN_COUNTS) >> 2)
+#define VCU_THROTTLE_R_MIN_COUNTS \
+    ((7 + VCU_THROTTLE_CALIBRATION_MARGIN_COUNTS) >> 2)
+#define VCU_THROTTLE_R_MAX_COUNTS \
+    ((3383 - VCU_THROTTLE_CALIBRATION_MARGIN_COUNTS) >> 2)
     
 /* Heartbeat LED/CAN toggle period in milliseconds. */
-#define HEARTBEAT_TOGGLE_MS 500
+#define VCU_HEARTBEAT_TOGGLE_MS (500u)
+
+#endif /* VCU_CONFIG_H */

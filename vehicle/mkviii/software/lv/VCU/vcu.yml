@@ -105,6 +105,7 @@ publish:
       #   bit 5: VCU_FAULT_BSPD_POWER_LATCHED
       #   bit 6: VCU_FAULT_BRAKE_THROTTLE_IMPLAUS
       #   bit 7: VCU_FAULT_SHUTDOWN_BSPD_OPEN
+      #   bit 8: VCU_FAULT_APPS_CALIBRATION_INVALID
       - name: fault_bits_lo
         slice: 0 + 16
         unit:
@@ -137,3 +138,17 @@ publish:
           values:
             t: ON
             f: OFF
+      - name: ready_to_drive
+        slice: 36 + 1
+        unit:
+          type: bool
+          values:
+            t: READY
+            f: NOT_READY
+      - name: inverter_enable_command
+        slice: 37 + 1
+        unit:
+          type: bool
+          values:
+            t: ENABLED
+            f: DISABLED

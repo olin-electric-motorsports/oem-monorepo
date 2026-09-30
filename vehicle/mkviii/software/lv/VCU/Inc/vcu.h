@@ -49,7 +49,9 @@ typedef enum {
     /* Brake and accelerator were applied together past the allowed threshold. */
     VCU_FAULT_BRAKE_THROTTLE_IMPLAUS = (1u << 6),
     /* BSPD shutdown-chain sense indicates an open shutdown-chain segment. */
-    VCU_FAULT_SHUTDOWN_BSPD_OPEN = (1u << 7)
+    VCU_FAULT_SHUTDOWN_BSPD_OPEN = (1u << 7),
+    /* Configured APPS endpoints cannot form a valid positive calibration range. */
+    VCU_FAULT_APPS_CALIBRATION_INVALID = (1u << 8)
 } vcu_fault_bit_e;
 
 /*
@@ -57,7 +59,7 @@ typedef enum {
  * HAL handles are provided by board/app initialization and passed into vcu_init().
  */
 typedef struct {
-    // Throttle 
+    /* Throttle hardware. */
     /* ADC channel for the left accelerator pedal position sensor. */
     oem_adc_config_t* hadc_throttle_l;
     /* ADC channel for the right accelerator pedal position sensor. */
@@ -75,7 +77,7 @@ typedef struct {
     GPIO_TypeDef* error_led_port;
     uint16_t error_led_pin;
 
-    // BSPD
+    /* BSPD hardware. */
     /* LED output mirroring the brake-light logic-level state. */
     GPIO_TypeDef* brake_ll_led_port;
     uint16_t brake_ll_led_pin;
@@ -114,12 +116,12 @@ typedef struct {
  * This struct is both internal state and the payload for debug/status publish hooks.
  */
 typedef struct {
-    // Throttle
+    /* Throttle inputs and plausibility state. */
     /* Raw ADC counts before right-shifting or calibration scaling. */
-    int16_t throttle_l_raw;
-    int16_t throttle_r_raw;
+    uint16_t throttle_l_raw;
+    uint16_t throttle_r_raw;
 
-    /* Pedal travel scaled to MIN_THROTTLE_POS..MAX_THROTTLE_POS. */
+    /* Pedal travel scaled to VCU_PEDAL_MIN_COUNTS..VCU_PEDAL_MAX_COUNTS. */
     int16_t throttle_l_scaled;
     int16_t throttle_r_scaled;
 
@@ -137,10 +139,7 @@ typedef struct {
 
     /* Millisecond counter for continuous APPS implausibility timing. */
     uint16_t throttle_implaus_timer_ms;
-    /* Final torque request after fault, brake, idle, and scaling limits. */
-    int16_t torque_command;
-
-    // BSPD
+    /* BSPD inputs and state. */
     /* Raw ADC monitor values published for BSPD diagnostics. */
     uint16_t brake_press_sense;
     uint16_t brake_press_sense_ftr;
@@ -153,7 +152,21 @@ typedef struct {
     bool ss_inertia_closed;
     bool bspd_latched;
 
-    // Shared
+    /* Dashboard/ready-to-drive inputs and state. */
+    /* Latest sampled dashboard start-button state. */
+    bool start_button_pressed;
+    /* Previous sample used to detect a new button press. */
+    bool start_button_pressed_prev;
+    /* Set by a valid RTD sequence and cleared by any blocking fault. */
+    bool ready_to_drive_latched;
+
+    /* Final commands produced by the safety/control path. */
+    /* M192 raw torque counts; one count represents 0.1 N.m. */
+    int16_t inverter_torque_command_raw;
+    /* Final inverter enable request after RTD and blocking-fault checks. */
+    bool inverter_enable_command;
+
+    /* Shared status. */
     /* Heartbeat state toggled by the 10 ms loop and reflected on CAN/LED. */
     bool heartbeat;
     uint16_t heartbeat_elapsed_ms;
@@ -163,8 +176,6 @@ typedef struct {
     uint16_t blocking_fault_bits;
     /* Current high-level VCU operating mode. */
     vcu_mode_e mode;
-    /* Reserved timing state for inverter-command publish cadence. */
-    uint16_t inverter_command_publish_elapsed_ms;
 } vcu_state_s;
 
 extern vcu_state_s s_state;

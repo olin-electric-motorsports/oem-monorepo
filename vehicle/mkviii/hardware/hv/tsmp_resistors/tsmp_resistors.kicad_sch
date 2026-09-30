@@ -5,9 +5,10 @@
 	(uuid "83c393d1-a919-4457-9d67-aa5f20fce494")
 	(paper "A4")
 	(lib_symbols
-		(symbol "J_Molex_Header_01x02_VT_1"
-			(pin_numbers
-				(hide yes)
+		(symbol "OEM:J_Molex_Header_01x03_VT"
+			(body_styles demorgan)
+			(pin_names
+				(offset 0.254)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -15,75 +16,50 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "J"
-				(at 7.62 8.89 0)
+				(at 8.89 6.35 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.524 1.524)
 					)
-					(justify left top)
 				)
 			)
-			(property "Value" "J_Molex_Header_01x02_VT"
-				(at 7.62 6.35 0)
+			(property "Value" "J_Molex_Header_01x03_VT"
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.524 1.524)
 					)
-					(justify left top)
 				)
 			)
-			(property "Footprint" "OEM:J_Molex_Header_01x02_VT - 43045-02YY_121314"
-				(at 16.51 -94.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Datasheet" "https://www.molex.com/pdm_docs/sd/430450612_sd.pdf"
-				(at 16.51 -194.92 0)
+			(property "Footprint" "CONN_SD-43650-010_03_MOL"
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
+						(italic yes)
 					)
-					(justify left top)
 				)
 			)
-			(property "Description" "CONN HEADER VERT 2POS"
-				(at -8.89 1.27 0)
+			(property "Datasheet" "https://www.molex.com/en-us/products/part-detail-pdf/436500327?display=pdf"
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
+						(italic yes)
 					)
 				)
 			)
-			(property "MPN" "43045-0212"
-				(at 16.51 -794.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "ki_keywords" "43045-0212"
+			(property "Description" ""
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -94,21 +70,198 @@
 					)
 				)
 			)
-			(symbol "J_Molex_Header_01x02_VT_1_1_1"
-				(rectangle
-					(start -2.54 2.54)
-					(end 2.54 -2.54)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "436500327"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "CONN_SD-43650-010_03_MOL"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "J_Molex_Header_01x03_VT_1_1"
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 5.08 -7.62)
+					)
 					(stroke
-						(width 0.254)
+						(width 0.127)
 						(type default)
 					)
 					(fill
-						(type background)
+						(type none)
 					)
 				)
-				(pin passive line
-					(at -5.08 1.27 0)
-					(length 2.54)
+				(polyline
+					(pts
+						(xy 5.08 -7.62) (xy 12.7 -7.62)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 0) (xy 5.08 0)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 0) (xy 8.89 0.8467)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 0) (xy 8.89 -0.8467)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -2.54) (xy 5.08 -2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -2.54) (xy 8.89 -1.6933)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -2.54) (xy 8.89 -3.3867)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -5.08) (xy 5.08 -5.08)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -5.08) (xy 8.89 -4.2333)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -5.08) (xy 8.89 -5.9267)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 2.54) (xy 5.08 2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 -7.62) (xy 12.7 2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at 0 0 0)
+					(length 5.08)
 					(name "1"
 						(effects
 							(font
@@ -124,9 +277,9 @@
 						)
 					)
 				)
-				(pin passive line
-					(at -5.08 -1.27 0)
-					(length 2.54)
+				(pin unspecified line
+					(at 0 -2.54 0)
+					(length 5.08)
 					(name "2"
 						(effects
 							(font
@@ -142,113 +295,185 @@
 						)
 					)
 				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "OEM:J_Molex_Header_01x02_VT"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "J"
-				(at 7.62 8.89 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
+				(pin unspecified line
+					(at 0 -5.08 0)
+					(length 5.08)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
-					(justify left top)
-				)
-			)
-			(property "Value" "J_Molex_Header_01x02_VT"
-				(at 7.62 6.35 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "OEM:J_Molex_Header_01x02_VT - 43045-02YY_121314"
-				(at 16.51 -94.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Datasheet" "https://www.molex.com/pdm_docs/sd/430450612_sd.pdf"
-				(at 16.51 -194.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Description" "CONN HEADER VERT 2POS"
-				(at -8.89 1.27 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
 				)
 			)
-			(property "MPN" "43045-0212"
-				(at 16.51 -794.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
+			(symbol "J_Molex_Header_01x03_VT_1_2"
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 5.08 -7.62)
 					)
-					(justify left top)
-				)
-			)
-			(property "ki_keywords" "43045-0212"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "J_Molex_Header_01x02_VT_1_1"
-				(rectangle
-					(start -2.54 2.54)
-					(end 2.54 -2.54)
 					(stroke
-						(width 0.254)
+						(width 0.127)
 						(type default)
 					)
 					(fill
-						(type background)
+						(type none)
 					)
 				)
-				(pin passive line
-					(at -5.08 1.27 0)
-					(length 2.54)
+				(polyline
+					(pts
+						(xy 5.08 -7.62) (xy 12.7 -7.62)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 0) (xy 5.08 0)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 0) (xy 8.89 0.8467)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 0) (xy 8.89 -0.8467)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -2.54) (xy 5.08 -2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -2.54) (xy 8.89 -1.6933)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -2.54) (xy 8.89 -3.3867)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -5.08) (xy 5.08 -5.08)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -5.08) (xy 8.89 -4.2333)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -5.08) (xy 8.89 -5.9267)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 2.54) (xy 5.08 2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 -7.62) (xy 12.7 2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at 0 0 0)
+					(length 5.08)
 					(name "1"
 						(effects
 							(font
@@ -264,9 +489,9 @@
 						)
 					)
 				)
-				(pin passive line
-					(at -5.08 -1.27 0)
-					(length 2.54)
+				(pin unspecified line
+					(at 0 -2.54 0)
+					(length 5.08)
 					(name "2"
 						(effects
 							(font
@@ -275,6 +500,24 @@
 						)
 					)
 					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 0 -5.08 0)
+					(length 5.08)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -444,22 +687,30 @@
 		(uuid "2250e27a-e1d3-47c0-8f00-2627294d09fd")
 	)
 	(junction
-		(at 151.13 85.09)
+		(at 140.97 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d5482c2f-e174-4d05-b3ce-658c51810a25")
+		(uuid "4c747a71-4af2-408f-9019-4c24c6149f3a")
 	)
 	(junction
-		(at 140.97 85.09)
+		(at 151.13 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ebe5f03c-6d17-450c-84a9-66fd0941996c")
+		(uuid "80ea7f58-de91-40bf-aff6-884c76b023e1")
 	)
 	(junction
 		(at 140.97 82.55)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f583375e-2018-4c65-a339-ae58de4e6b58")
+	)
+	(no_connect
+		(at 137.16 85.09)
+		(uuid "95bb39a3-6f26-43b6-9247-990371233211")
+	)
+	(no_connect
+		(at 154.94 85.09)
+		(uuid "e0fb2aac-a7c2-4cc2-9398-33e3688ca7a6")
 	)
 	(wire
 		(pts
@@ -503,7 +754,17 @@
 	)
 	(wire
 		(pts
-			(xy 151.13 87.63) (xy 149.86 87.63)
+			(xy 149.86 87.63) (xy 151.13 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "479ead2e-b3ca-4a44-8daf-23ed26251aee")
+	)
+	(wire
+		(pts
+			(xy 151.13 90.17) (xy 149.86 90.17)
 		)
 		(stroke
 			(width 0)
@@ -533,7 +794,7 @@
 	)
 	(wire
 		(pts
-			(xy 151.13 85.09) (xy 154.94 85.09)
+			(xy 151.13 87.63) (xy 154.94 87.63)
 		)
 		(stroke
 			(width 0)
@@ -543,7 +804,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 85.09) (xy 140.97 87.63)
+			(xy 140.97 87.63) (xy 140.97 90.17)
 		)
 		(stroke
 			(width 0)
@@ -553,17 +814,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 85.09) (xy 140.97 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7de2cf70-172c-4e0f-91a2-88ee794e440b")
-	)
-	(wire
-		(pts
-			(xy 151.13 85.09) (xy 151.13 87.63)
+			(xy 151.13 87.63) (xy 151.13 90.17)
 		)
 		(stroke
 			(width 0)
@@ -583,23 +834,33 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 85.09) (xy 151.13 85.09)
+			(xy 137.16 87.63) (xy 140.97 87.63)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8e294d62-03d6-4435-8d0f-02c635f4f471")
+		(uuid "96f5517b-7703-453f-a79f-fded09749bc4")
 	)
 	(wire
 		(pts
-			(xy 142.24 87.63) (xy 140.97 87.63)
+			(xy 142.24 90.17) (xy 140.97 90.17)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "b45d3c79-a26c-41f8-839c-904f04a6e76a")
+	)
+	(wire
+		(pts
+			(xy 140.97 87.63) (xy 142.24 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e6d526c3-880b-4722-a73e-e30a01f1b577")
 	)
 	(wire
 		(pts
@@ -610,16 +871,6 @@
 			(type default)
 		)
 		(uuid "f10c0222-7ec3-4a03-82f8-24c76bc8be53")
-	)
-	(wire
-		(pts
-			(xy 140.97 85.09) (xy 142.24 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f98a519b-06f3-4db0-af00-b2c7844a9b79")
 	)
 	(label "TS+"
 		(at 137.16 82.55 0)
@@ -632,12 +883,12 @@
 		(uuid "6b38b410-18e1-410a-96d5-1ff344585c2d")
 	)
 	(label "TS-"
-		(at 137.16 85.09 0)
+		(at 137.16 87.63 0)
 		(effects
 			(font
 				(size 0.889 0.889)
 			)
-			(justify left top)
+			(justify left bottom)
 		)
 		(uuid "87ae9b2e-ac5f-484c-ad71-a7d3ebed4ea4")
 	)
@@ -652,18 +903,18 @@
 		(uuid "be9a7f8e-2fdf-4cae-9e1f-b6fceee6d30c")
 	)
 	(label "MP-"
-		(at 154.94 85.09 180)
+		(at 154.94 87.63 180)
 		(effects
 			(font
 				(size 0.889 0.889)
 			)
-			(justify right top)
+			(justify right bottom)
 		)
 		(uuid "d167313d-43af-46a5-aada-e3593dcc054d")
 	)
 	(symbol
 		(lib_id "OEM:R_30k_5W_5329")
-		(at 146.05 87.63 90)
+		(at 146.05 90.17 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -673,7 +924,7 @@
 		(dnp no)
 		(uuid "09cb57f6-3af4-48ea-a913-e8e0dc7413c2")
 		(property "Reference" "R4"
-			(at 146.05 81.28 90)
+			(at 146.05 83.82 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -684,7 +935,7 @@
 			)
 		)
 		(property "Value" "R30K"
-			(at 146.05 87.63 90)
+			(at 146.05 90.17 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -694,7 +945,7 @@
 			)
 		)
 		(property "Footprint" "OEM:R_5329_13573Metric"
-			(at 146.05 89.408 90)
+			(at 146.05 91.948 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -705,7 +956,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1773242&DocType=Data%20Sheet&DocLang=English&DocFormat=pdf&PartCntxt=6-1676966-9"
-			(at 146.05 87.63 0)
+			(at 146.05 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -716,7 +967,7 @@
 			)
 		)
 		(property "Description" "RES 30K OHM 5% 5W 5329"
-			(at 146.05 87.63 0)
+			(at 146.05 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -727,7 +978,7 @@
 			)
 		)
 		(property "MPN" "SMF530KJT"
-			(at 146.05 87.63 0)
+			(at 146.05 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -844,6 +1095,91 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:J_Molex_Header_01x03_VT")
+		(at 137.16 87.63 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2b85d4af-ae1e-49cc-a415-189c2c998648")
+		(property "Reference" "J1"
+			(at 128.27 74.93 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Value" "TS"
+			(at 128.27 77.47 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Footprint" "OEM:J_Molex_Header_01x03_VT"
+			(at 137.16 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.molex.com/en-us/products/part-detail-pdf/436500327?display=pdf"
+			(at 137.16 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 137.16 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "862a8e65-1222-4d7d-8e67-c2ed13268669")
+		)
+		(pin "2"
+			(uuid "f48a6298-b67a-4be0-a5a2-f3c3f27c911a")
+		)
+		(pin "3"
+			(uuid "ab50faef-95e2-4f44-bc46-05aa28829897")
+		)
+		(instances
+			(project "tsmp_resistors"
+				(path "/83c393d1-a919-4457-9d67-aa5f20fce494"
+					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:R_30k_5W_5329")
 		(at 146.05 82.55 90)
 		(unit 1)
@@ -935,104 +1271,8 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:J_Molex_Header_01x02_VT")
-		(at 160.02 83.82 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6e7800e5-f441-489d-a15b-c6e039b92652")
-		(property "Reference" "J2"
-			(at 163.83 82.5499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TSMP"
-			(at 163.83 85.0899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OEM:J_Molex_Header_01x02_VT - 43045-02YY_121314"
-			(at 176.53 178.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Datasheet" "https://www.molex.com/pdm_docs/sd/430450612_sd.pdf"
-			(at 176.53 278.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Description" "CONN HEADER VERT 2POS"
-			(at 151.13 82.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "43045-0212"
-			(at 176.53 878.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(pin "1"
-			(uuid "15c57648-1aab-49d6-920d-ebf78226bd8c")
-		)
-		(pin "2"
-			(uuid "d3044d46-f96e-4415-a2c0-c8ee5c7f014b")
-		)
-		(instances
-			(project "tsmp_resistors"
-				(path "/83c393d1-a919-4457-9d67-aa5f20fce494"
-					(reference "J2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OEM:R_30k_5W_5329")
-		(at 146.05 85.09 90)
+		(at 146.05 87.63 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1042,7 +1282,7 @@
 		(dnp no)
 		(uuid "d25a7b2f-6bd0-453b-8590-950a4ac6f7d0")
 		(property "Reference" "R3"
-			(at 146.05 78.74 90)
+			(at 146.05 81.28 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1053,7 +1293,7 @@
 			)
 		)
 		(property "Value" "R30K"
-			(at 146.05 85.09 90)
+			(at 146.05 87.63 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1063,7 +1303,7 @@
 			)
 		)
 		(property "Footprint" "OEM:R_5329_13573Metric"
-			(at 146.05 86.868 90)
+			(at 146.05 89.408 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1074,7 +1314,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1773242&DocType=Data%20Sheet&DocLang=English&DocFormat=pdf&PartCntxt=6-1676966-9"
-			(at 146.05 85.09 0)
+			(at 146.05 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1085,7 +1325,7 @@
 			)
 		)
 		(property "Description" "RES 30K OHM 5% 5W 5329"
-			(at 146.05 85.09 0)
+			(at 146.05 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1096,7 +1336,7 @@
 			)
 		)
 		(property "MPN" "SMF530KJT"
-			(at 146.05 85.09 0)
+			(at 146.05 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1122,9 +1362,8 @@
 		)
 	)
 	(symbol
-		(lib_name "J_Molex_Header_01x02_VT_1")
-		(lib_id "OEM:J_Molex_Header_01x02_VT")
-		(at 132.08 83.82 180)
+		(lib_id "OEM:J_Molex_Header_01x03_VT")
+		(at 154.94 82.55 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1132,29 +1371,55 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "d4ab66c5-5ea8-4149-b3f1-de7cdb3ad561")
-		(property "Reference" "J1"
-			(at 127.762 82.55 0)
+		(uuid "f1cb189f-386b-4da2-8a83-43bdccd45edc")
+		(property "Reference" "J2"
+			(at 162.052 75.184 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MP"
+			(at 162.052 77.724 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:J_Molex_Header_01x03_VT"
+			(at 154.94 82.55 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
+					(italic yes)
 				)
 			)
 		)
-		(property "Value" "TS"
-			(at 127.762 85.09 0)
+		(property "Datasheet" "https://www.molex.com/en-us/products/part-detail-pdf/436500327?display=pdf"
+			(at 154.94 82.55 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
+					(italic yes)
 				)
 			)
 		)
-		(property "Footprint" "OEM:J_Molex_Header_01x02_VT - 43045-02YY_121314"
-			(at 115.57 -11.1 0)
+		(property "Description" ""
+			(at 154.94 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1162,54 +1427,21 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left top)
 			)
-		)
-		(property "Datasheet" "https://www.molex.com/pdm_docs/sd/430450612_sd.pdf"
-			(at 115.57 -111.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Description" "CONN HEADER VERT 2POS"
-			(at 140.97 85.09 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "43045-0212"
-			(at 115.57 -711.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(pin "2"
-			(uuid "d44dd0a9-540c-41c6-9a44-9950c043d7ad")
 		)
 		(pin "1"
-			(uuid "5ca23c30-316f-45b9-b0fa-57864b95bbb7")
+			(uuid "82c29fab-b1bb-4cd6-afdd-4108c9d28e53")
+		)
+		(pin "2"
+			(uuid "210154df-9089-49d1-a351-c84ebed51005")
+		)
+		(pin "3"
+			(uuid "d335db35-f322-453c-b222-a80a301f554d")
 		)
 		(instances
 			(project "tsmp_resistors"
 				(path "/83c393d1-a919-4457-9d67-aa5f20fce494"
-					(reference "J1")
+					(reference "J2")
 					(unit 1)
 				)
 			)

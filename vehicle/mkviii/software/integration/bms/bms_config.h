@@ -65,6 +65,11 @@ void TimerInit(void); // Function prototype to set them up
 
 #define CURRENT_THRESH (12000) // 120A (peak current) * 100cA/A = 12,000 centiAmps
 
+// PLACEHOLDER - needs to be measured against a real open cell tap on hardware
+// An open wire pulls the ADOW-measured code toward
+// 0 relative to a normally-connected cell's code.
+#define THRESHOLD (1000)
+
 // Cell balancing config
 // Insert here
 

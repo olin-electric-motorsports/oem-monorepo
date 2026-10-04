@@ -53,4 +53,4 @@ void temperature_task(uint32_t* ot, uint32_t* ut, uint16_t* min_temp,
 
 void current_task(int16_t* current);
 
-int openwire_task(void);
+void openwire_task(uint32_t* ow);

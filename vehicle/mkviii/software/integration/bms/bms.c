@@ -63,6 +63,7 @@ int main(void) {
     uint32_t uv = 0;
     uint32_t ot = 0;
     uint32_t ut = 0;
+    uint32_t ow = 0;
     uint16_t min_temp = 0;
     uint16_t max_temp = UINT16_MAX;
     uint16_t pec_errors = 0;
@@ -79,9 +80,11 @@ int main(void) {
             voltage_task(&pack_voltage, &ov, &uv, &pec_errors);
             temperature_task(&ot, &ut, &min_temp, &max_temp, &pec_errors);
             current_task(&current);
-            // openwire_task is implemented as returning an int or taking a pointer 
-            // based on file; standard usage:
-            // openwire_task();
+            openwire_task(&ow);
+            // `ow` is tracked but not yet wired into the relay trip
+            // condition below or into BMS_FAULT_OPEN_WIRE (fault.h still
+            // marks that fault as "Currently unused") left
+            // out pending a decision on open-wire trip behavior.
 
             // Fan Control based on latest max_temp
             cooling_fan_control(max_temp);

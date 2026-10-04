@@ -16,7 +16,7 @@ void openwire_task(uint32_t* ow) {
     // Make sure IC's are in the right state. 
     wakeup_sleep(NUM_ICS);
 
-    for (int i = 0; i < 1, i++){        // Start the ADC conversion for the openwire function. 
+    for (int i = 0; i < 1; i++){        // Start the ADC conversion for the openwire function.
         ADBMS181x_adow(MD_7KHZ_3KHZ, i, CELL_CH_ALL, DCP_ENABLED);
 
         // Poll until ADC conversions are complete (make sure conversion is happening)

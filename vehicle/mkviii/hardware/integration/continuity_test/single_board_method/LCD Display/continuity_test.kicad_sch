@@ -2897,6 +2897,157 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "OEM:R_2.2k_0.1W_0603"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R_2.2k_0.1W"
+				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "OEM:R_0603_1608Metric"
+				(at -1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "RES 2.2K OHM 5% 1/10W 0603"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "WR06X222 JTL"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "R_2.2k_0.1W_0603_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_2.2k_0.1W_0603_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OEM:U_5V-Volt-Reg_TLV70450DBVR_SOT23-5"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -5617,10 +5768,30 @@
 		)
 		(uuid "80c484c3-b49b-4eae-9a65-9e05acd7150a")
 	)
+	(text_box "Power connector"
+		(exclude_from_sim no)
+		(at 35.56 55.88 0)
+		(size 21.59 20.32)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "cd6e7d92-7d88-45e4-a3cf-1f6fa1fcbc7d")
+	)
 	(text_box "OLED display - can port U8g2 library to STM32 to allow for easy programming"
 		(exclude_from_sim no)
 		(at 35.56 12.7 0)
-		(size 55.88 41.91)
+		(size 91.44 41.91)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
 			(width 0)
@@ -5933,7 +6104,7 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 20.32) (xy 59.69 22.86)
+			(xy 77.47 20.32) (xy 77.47 22.86)
 		)
 		(stroke
 			(width 0)
@@ -6423,6 +6594,16 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 114.3) (xy 134.62 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a8513a3-b702-4817-a805-733740c56fe9")
+	)
+	(wire
+		(pts
 			(xy 227.33 101.6) (xy 228.6 101.6)
 		)
 		(stroke
@@ -6453,7 +6634,7 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 43.18) (xy 59.69 45.72)
+			(xy 77.47 43.18) (xy 77.47 45.72)
 		)
 		(stroke
 			(width 0)
@@ -6653,6 +6834,16 @@
 	)
 	(wire
 		(pts
+			(xy 138.43 99.06) (xy 138.43 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "964132f1-82e4-4937-b270-af9cc610bc0c")
+	)
+	(wire
+		(pts
 			(xy 41.91 172.72) (xy 54.61 172.72)
 		)
 		(stroke
@@ -6660,6 +6851,16 @@
 			(type default)
 		)
 		(uuid "968e3eca-efbc-445c-a16e-119855746a37")
+	)
+	(wire
+		(pts
+			(xy 140.97 116.84) (xy 134.62 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96b4bbf8-c556-425c-ba09-945006e60e15")
 	)
 	(wire
 		(pts
@@ -6933,6 +7134,16 @@
 	)
 	(wire
 		(pts
+			(xy 49.53 35.56) (xy 59.69 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c3d5bbb9-00cd-40b5-a87a-bde655f4c223")
+	)
+	(wire
+		(pts
 			(xy 248.92 149.86) (xy 257.81 149.86)
 		)
 		(stroke
@@ -6990,6 +7201,16 @@
 			(type default)
 		)
 		(uuid "cde5b2ba-735b-45f8-abb0-2f6c1b3a2cde")
+	)
+	(wire
+		(pts
+			(xy 140.97 102.87) (xy 140.97 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ce4b53b6-4dad-4a9d-91a3-85169fe2f525")
 	)
 	(wire
 		(pts
@@ -7193,6 +7414,16 @@
 	)
 	(wire
 		(pts
+			(xy 50.8 66.04) (xy 48.26 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec9b19ff-29ec-4ad4-8760-66945c556298")
+	)
+	(wire
+		(pts
 			(xy 228.6 101.6) (xy 228.6 100.33)
 		)
 		(stroke
@@ -7210,6 +7441,16 @@
 			(type default)
 		)
 		(uuid "f0a9c5df-43e4-4077-8e92-1b71897f8a56")
+	)
+	(wire
+		(pts
+			(xy 49.53 30.48) (xy 59.69 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f2523e74-eca0-4da7-abb6-6379f1755e95")
 	)
 	(wire
 		(pts
@@ -7281,6 +7522,16 @@
 		)
 		(uuid "fd88178d-15e6-447d-a8c2-04a8c78ca5dd")
 	)
+	(wire
+		(pts
+			(xy 50.8 68.58) (xy 48.26 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fee94338-2995-4357-867a-17d82a075db9")
+	)
 	(label "CAN_-"
 		(at 257.81 149.86 0)
 		(effects
@@ -7301,6 +7552,16 @@
 		)
 		(uuid "12116baf-2de3-4afb-8bfb-03e089e89ebf")
 	)
+	(label "SWDIO"
+		(at 134.62 114.3 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "278844a2-6d58-4a1a-953a-c65287a442a0")
+	)
 	(label "I2C_SDA"
 		(at 49.53 35.56 180)
 		(effects
@@ -7311,8 +7572,28 @@
 		)
 		(uuid "3f5e513e-2f3e-4798-9ec6-d51315103e1c")
 	)
+	(label "SWCLK"
+		(at 134.62 116.84 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4339169a-baea-4d3d-b911-ccc26bfed7e9")
+	)
+	(label "+12V"
+		(at 26.67 27.94 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "52f4244c-8e24-49b8-b763-1bb6f21c7ff3")
+	)
 	(label "I2C_SCL"
-		(at 134.62 114.3 0)
+		(at 138.43 99.06 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7381,8 +7662,8 @@
 		)
 		(uuid "dc436ec6-1a17-4088-a1bf-e8b41134789c")
 	)
-	(label "3V3"
-		(at 59.69 20.32 0)
+	(label "+3V3"
+		(at 77.47 20.32 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7400,6 +7681,16 @@
 			(justify right bottom)
 		)
 		(uuid "ef7be204-3613-4f12-95c5-62dd2052ee49")
+	)
+	(label "CAN_-"
+		(at 50.8 68.58 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f36212ec-64aa-443e-ad2c-7a967c488394")
 	)
 	(label "CAN_TX"
 		(at 134.62 124.46 0)
@@ -7432,7 +7723,7 @@
 		(uuid "fa8297d4-a8fd-4af2-9557-dfac6027d8cb")
 	)
 	(label "I2C_SDA"
-		(at 134.62 116.84 0)
+		(at 140.97 102.87 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7450,6 +7741,16 @@
 			(justify left bottom)
 		)
 		(uuid "fb83feb0-6ff5-4d17-8498-427db02caddc")
+	)
+	(label "CAN_+"
+		(at 50.8 66.04 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fd48f0d0-d669-4d85-9291-4b10ef72eae0")
 	)
 	(symbol
 		(lib_id "power:+3V3")
@@ -7952,7 +8253,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector:Banana_Jack_2Pin"
+		(property "Footprint" "Connector_Molex:Molex_Micro-Fit_3.0_43045-0412_2x02_P3.00mm_Vertical"
 			(at 20.32 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -8727,7 +9028,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 59.69 45.72 0)
+		(at 77.47 45.72 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8738,7 +9039,7 @@
 		(fields_autoplaced yes)
 		(uuid "22d09251-8565-44d0-be48-e452d7bfbf5b")
 		(property "Reference" "#PWR040"
-			(at 59.69 52.07 0)
+			(at 77.47 52.07 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8749,7 +9050,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 59.69 50.8 0)
+			(at 77.47 50.8 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8759,7 +9060,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 59.69 45.72 0)
+			(at 77.47 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8770,7 +9071,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 59.69 45.72 0)
+			(at 77.47 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8781,7 +9082,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 59.69 45.72 0)
+			(at 77.47 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8994,7 +9295,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
+		(property "Footprint" "OEM:C_1206_3216Metric"
 			(at 263.8552 66.04 0)
 			(hide yes)
 			(show_name no)
@@ -10062,6 +10363,85 @@
 			(project "continuity_test"
 				(path "/780bdc20-839e-433e-aee0-34fd432dd52f"
 					(reference "#PWR024")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Pin")
+		(at 43.18 66.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4c2d90da-646d-420c-9a08-5a49a646d6d8")
+		(property "Reference" "J4"
+			(at 43.815 60.96 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x02_Pin"
+			(at 43.688 62.738 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_Molex:Molex_Micro-Fit_3.0_43045-0412_2x02_P3.00mm_Vertical"
+			(at 43.18 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 43.18 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated"
+			(at 43.18 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "eb520cb9-7361-463a-b448-f7be7fc364af")
+		)
+		(pin "1"
+			(uuid "9e6884ae-944f-4d5a-bc02-a336f6825c41")
+		)
+		(instances
+			(project "continuity_test"
+				(path "/780bdc20-839e-433e-aee0-34fd432dd52f"
+					(reference "J4")
 					(unit 1)
 				)
 			)
@@ -11413,7 +11793,7 @@
 	)
 	(symbol
 		(lib_id "Display_Graphic:ER_OLEDM0.91_1x-I2C")
-		(at 59.69 33.02 0)
+		(at 77.47 33.02 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11424,7 +11804,7 @@
 		(fields_autoplaced yes)
 		(uuid "6101e7a4-c419-4c6b-b2e5-43caae80a564")
 		(property "Reference" "U5"
-			(at 68.58 31.7499 0)
+			(at 86.36 31.7499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11435,7 +11815,7 @@
 			)
 		)
 		(property "Value" "ER_OLEDM0.91_1x-I2C"
-			(at 68.58 34.2899 0)
+			(at 86.36 34.2899 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11446,7 +11826,7 @@
 			)
 		)
 		(property "Footprint" "Display:ER_OLEDM0.91_1x-I2C"
-			(at 77.724 45.72 0)
+			(at 95.504 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11457,7 +11837,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.buydisplay.com/download/manual/ER-OLEDM0.91-1_Datasheet.pdf"
-			(at 102.362 47.752 0)
+			(at 120.142 47.752 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11468,7 +11848,7 @@
 			)
 		)
 		(property "Description" "SSD1306 OLED module, 0.91 inch, 128x32, I2C"
-			(at 86.36 49.784 0)
+			(at 104.14 49.784 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13045,7 +13425,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
+		(property "Footprint" "OEM:C_1206_3216Metric"
 			(at 253.6952 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -13244,6 +13624,97 @@
 			(project "continuity_test"
 				(path "/780bdc20-839e-433e-aee0-34fd432dd52f"
 					(reference "#PWR02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_2.2k_0.1W_0603")
+		(at 63.5 35.56 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a9fdc561-6b4e-4713-a08b-3f77692cab2a")
+		(property "Reference" "R5"
+			(at 63.5 29.21 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "R_2.2k_0.1W"
+			(at 63.5 31.75 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 63.5 37.338 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf"
+			(at 63.5 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES 2.2K OHM 5% 1/10W 0603"
+			(at 63.5 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "WR06X222 JTL"
+			(at 63.5 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9425a63f-053b-4071-9d8e-f02916a8e1c9")
+		)
+		(pin "2"
+			(uuid "a03b3ebd-02eb-40f7-b7ed-4d2790d77579")
+		)
+		(instances
+			(project "continuity_test"
+				(path "/780bdc20-839e-433e-aee0-34fd432dd52f"
+					(reference "R5")
 					(unit 1)
 				)
 			)
@@ -13762,7 +14233,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
+		(property "Footprint" "OEM:C_1206_3216Metric"
 			(at 267.6652 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -14705,7 +15176,6 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "d7f81b33-3bbe-43b2-b5e7-e3d98419dd9c")
 		(property "Reference" "#PWR01"
 			(at 15.24 27.94 0)
@@ -14718,14 +15188,15 @@
 				)
 			)
 		)
-		(property "Value" "+5V"
-			(at 15.24 19.05 0)
+		(property "Value" "+12V"
+			(at 14.986 20.32 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -15041,7 +15512,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector:Banana_Jack_2Pin"
+		(property "Footprint" "Connector_Molex:Molex_Micro-Fit_3.0_43045-0412_2x02_P3.00mm_Vertical"
 			(at 20.32 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -15191,13 +15662,14 @@
 			)
 		)
 		(property "Value" "+12V"
-			(at 189.23 50.8 0)
+			(at 191.77 54.6099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -15320,6 +15792,97 @@
 			(project "continuity_test"
 				(path "/780bdc20-839e-433e-aee0-34fd432dd52f"
 					(reference "L1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_2.2k_0.1W_0603")
+		(at 63.5 30.48 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fe2ba384-b909-4be5-a76f-8e9357861489")
+		(property "Reference" "R4"
+			(at 63.5 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "R_2.2k_0.1W"
+			(at 63.5 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 63.5 32.258 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf"
+			(at 63.5 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES 2.2K OHM 5% 1/10W 0603"
+			(at 63.5 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "WR06X222 JTL"
+			(at 63.5 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5e308ec0-3db2-4be6-b5e3-fa611c235a1d")
+		)
+		(pin "2"
+			(uuid "3762939a-6cc6-4259-a711-cfc45890dc44")
+		)
+		(instances
+			(project "continuity_test"
+				(path "/780bdc20-839e-433e-aee0-34fd432dd52f"
+					(reference "R4")
 					(unit 1)
 				)
 			)

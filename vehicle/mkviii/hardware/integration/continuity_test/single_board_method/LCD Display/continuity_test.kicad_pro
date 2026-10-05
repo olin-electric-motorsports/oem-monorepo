@@ -63,7 +63,7 @@
           "min_clearance": 0.5,
           "min_island_area": 10.0,
           "min_thickness": 0.25,
-          "pad_connection": 1,
+          "pad_connection": 2,
           "remove_islands": 0,
           "thermal_relief_gap": 0.5,
           "thermal_relief_spoke_width": 0.5
@@ -518,7 +518,16 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "Default",
+        "pattern": "GND"
+      },
+      {
+        "netclass": "Default",
+        "pattern": "+3V3"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
@@ -661,7 +670,7 @@
         "uuid": "780bdc20-839e-433e-aee0-34fd432dd52f"
       }
     ],
-    "used_designators": "SW1-3,TP1-12,R1-11,L1-2,J1-3,U1-6,F1-3,D1-11,C1-18,Y1,#PWR1-59",
+    "used_designators": "SW1-3,TP1-12,R1-11,L1-2,J1-4,U1-7,F1-3,D1-11,C1-18,Y1,#PWR1-59",
     "variants": []
   },
   "sheets": [

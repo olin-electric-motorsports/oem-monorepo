@@ -2,8 +2,12 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
+	(in_pos_files yes)
+	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "U"
 		(at -2.54 3.81 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -12,6 +16,8 @@
 	)
 	(property "Value" "BU4S11G2-TR"
 		(at 0 -3.81 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20,56 +26,68 @@
 	)
 	(property "Footprint" "OEM:SOT95P280X125-5N (U_NAND-Gate_BU4S11G2-TR_5SSOP - BU4S11G2-TR)"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "Datasheet" "https://fscdn.rohm.com/en/products/databook/datasheet/ic/logic_switch/standard_logic/bu4s11g2-e.pdf"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "Description" "IC GATE NAND 1CH 2-INP 5SSOPIC GATE NAND 1CH 2-INP 5SSOP"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "MPN" "BU4S11G2-TR"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_keywords" "Single Gate NAND LVC CMOS"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_fp_filters" "SOT* SG-*"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(symbol "U_NAND-Gate_BU4S11G2-TR_5SSOP_0_1"
@@ -102,7 +120,7 @@
 		(pin input line
 			(at -10.16 2.54 0)
 			(length 2.54)
-			(name "~"
+			(name ""
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -120,7 +138,7 @@
 		(pin input line
 			(at -10.16 -2.54 0)
 			(length 2.54)
-			(name "~"
+			(name ""
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -128,24 +146,6 @@
 				)
 			)
 			(number "2"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin power_in line
-			(at 0 7.62 270)
-			(length 2.54)
-			(name "VCC"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "5"
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -174,7 +174,7 @@
 		(pin output inverted
 			(at 8.89 0 180)
 			(length 3.81)
-			(name "~"
+			(name ""
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -182,6 +182,24 @@
 				)
 			)
 			(number "4"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin power_in line
+			(at 0 7.62 270)
+			(length 2.54)
+			(name "VCC"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "5"
 				(effects
 					(font
 						(size 1.27 1.27)

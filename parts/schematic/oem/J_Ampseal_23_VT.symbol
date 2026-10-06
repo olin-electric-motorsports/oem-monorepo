@@ -5,8 +5,12 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
+	(in_pos_files yes)
+	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "J"
 		(at -6.35 30.48 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -15,6 +19,8 @@
 	)
 	(property "Value" "J_Ampseal_23_VT"
 		(at -7.62 -30.48 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.524 1.524)
@@ -24,38 +30,46 @@
 	)
 	(property "Footprint" "OEM:J_Ampseal_23_VT"
 		(at -5.08 19.05 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.524 1.524)
 			)
-			(hide yes)
 		)
 	)
 	(property "Datasheet" "http://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F776228%7FC13%7Fpdf%7FEnglish%7FENG_CD_776228_C13.pdf%7F776228-1"
 		(at -5.08 19.05 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.524 1.524)
 			)
-			(hide yes)
 		)
 	)
 	(property "Description" "Ampseal connector 23 pin vertical"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "MPN" "776228-1"
 		(at -1.27 35.56 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.524 1.524)
 			)
-			(hide yes)
 		)
 	)
 	(symbol "J_Ampseal_23_VT_0_1"

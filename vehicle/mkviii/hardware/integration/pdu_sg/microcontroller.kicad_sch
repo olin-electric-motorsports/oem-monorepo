@@ -3991,7 +3991,7 @@
 		(uuid "d6cc4b16-67b7-47ba-bb32-d68942c4369b")
 	)
 	(hierarchical_label "COOLING_EN"
-		(shape input)
+		(shape output)
 		(at 149.86 96.52 0)
 		(effects
 			(font
@@ -4002,7 +4002,7 @@
 		(uuid "0c0e4555-d195-44c2-919d-c21623ca39a4")
 	)
 	(hierarchical_label "FAN_PWM"
-		(shape input)
+		(shape output)
 		(at 149.86 68.58 0)
 		(effects
 			(font
@@ -4024,7 +4024,7 @@
 		(uuid "4576a32d-c542-4d9e-9bbd-b23feec1548d")
 	)
 	(hierarchical_label "PUMP_PWM"
-		(shape input)
+		(shape output)
 		(at 149.86 53.34 0)
 		(effects
 			(font
@@ -4047,7 +4047,7 @@
 	)
 	(hierarchical_label "SS_GLVMS"
 		(shape input)
-		(at 149.86 60.96 0)
+		(at 149.86 58.42 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4056,9 +4056,31 @@
 		)
 		(uuid "8bed17ef-1d9b-429b-9fd7-0f0b01599835")
 	)
+	(hierarchical_label "TS_STATUS_R"
+		(shape output)
+		(at 149.86 66.04 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "98949db3-2460-4aa5-ad26-de700e6e1008")
+	)
+	(hierarchical_label "TS_STATUS_G"
+		(shape output)
+		(at 149.86 71.12 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d15eae09-b76d-420a-a5a1-2de4db0db4e2")
+	)
 	(hierarchical_label "SS_MC"
 		(shape input)
-		(at 149.86 58.42 0)
+		(at 149.86 55.88 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4069,7 +4091,7 @@
 	)
 	(hierarchical_label "SS_ESTOP_R"
 		(shape input)
-		(at 149.86 66.04 0)
+		(at 149.86 60.96 0)
 		(effects
 			(font
 				(size 1.27 1.27)

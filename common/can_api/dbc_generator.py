@@ -40,7 +40,8 @@ def main():
         parser = YamlParser(yml)
 
         db._messages += parser.messages
-        db._nodes.append(Node(parser.name))
+        # Third-party DBCs without a BU_ section (e.g. IVT) set nodes to None.
+        db._nodes = list(db.nodes or []) + [Node(parser.name)]
 
     db.refresh()
 

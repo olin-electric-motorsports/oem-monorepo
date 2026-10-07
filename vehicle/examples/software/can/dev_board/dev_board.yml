@@ -1,6 +1,14 @@
 name: dev_board
-# subscribe:
-  # - name: bspd # since I have this here, I have to have this YAML file connected to the main DBC file
+subscribe:
+  - name: IVT_Msg_Result_I #current (mA) id: 1043
+  - name: IVT_Msg_Result_U1 #voltage 1 (all mV) id: 1044
+  - name: IVT_Msg_Result_U2 #voltage 2 id: 1045
+  - name: IVT_Msg_Result_U3 #voltage 3 id: 1046
+  - name: IVT_Msg_Result_T #temperature (0.1C) id: 1047
+  - name: IVT_Msg_Result_W #power (W) id: 1048
+  - name: IVT_Msg_Result_As #accumulated Coulumb (Ampere-second) id: 1049
+  - name: IVT_Msg_Result_Wh #accumulated electrical energy (Watts-hour) id: 1050
+
 publish:
   - name: dev_board
     id: 0xC # this is the same ID as the VCU so be careful when testing
@@ -60,3 +68,4 @@ publish:
           name: 'rx_ticks'
           offset: 0
           scale: 1
+  

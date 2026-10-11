@@ -1,0 +1,21 @@
+{
+    "pi": {
+        "mac": "b8:27:eb:25:c6:4f",
+        "user": "oem",
+        "port": 22,
+        "ssh_key": null,
+        "connect_timeout_s": 10,
+        "discovery_timeout_s": 60
+    },
+    "post_deploy_action": "shutdown",
+    "deploy": [
+        {
+            "local_path": "../dashboard.py",
+            "remote_path": "/home/oem/dashboard.py"
+        },
+        {
+            "local_path": "../mkvi.dbc",
+            "remote_path": "/home/oem/mkvi.dbc"
+        }
+    ]
+}

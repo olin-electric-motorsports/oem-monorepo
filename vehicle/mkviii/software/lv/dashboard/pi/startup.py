@@ -2,7 +2,7 @@
 """
 Runs on the Raspberry Pi at boot (via oem-startup.service).
 
-1. If deploy.py left files in deploy_dir/files/, copy them to their final
+1. If deploy.py left files in ~/deploy/files/, copy them to their final
    locations and empty the deploy directory (except the manifest).
 2. Otherwise, fetch the latest version of each file listed in the deploy
    manifest from the configured GitHub branch and copy it into place.
@@ -22,6 +22,10 @@ import time
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_CONFIG_PATH = os.path.join(SCRIPT_DIR, "startup_config.json")
+
+# deploy.py stages deploys in ~/deploy, the home of the user this runs as.
+# Must match REMOTE_DEPLOY_DIR in deploy/pi_ssh.py on the laptop.
+DEPLOY_DIR = os.path.join(os.path.expanduser("~"), "deploy")
 
 # Layout of the deploy directory. Must match deploy/pi_ssh.py on the laptop.
 # The manifest stays between boots (it says which files to sync from GitHub);
@@ -174,7 +178,7 @@ def main():
     config_path = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_CONFIG_PATH
     config = load_config(config_path)
 
-    deploy_dir = config["deploy_dir"]
+    deploy_dir = DEPLOY_DIR
     os.makedirs(deploy_dir, exist_ok=True)
     manifest = load_manifest(deploy_dir)
 

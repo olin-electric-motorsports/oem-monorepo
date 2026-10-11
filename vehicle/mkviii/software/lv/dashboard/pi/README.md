@@ -1,16 +1,19 @@
 # Dashboard Startup (Raspberry Pi side)
 
 These files run on the dashboard Raspberry Pi. The Pi doesn't keep a copy of
-the repo, only the files it needs (e.g. `/home/oemdashboard/dashboard.py` and
-`/home/oemdashboard/mkvi.dbc`). Which files those are, and where each one comes
-from in the repo, is recorded in `deploy_dir/deploy-manifest.json`, written by
+the repo, only the files it needs (e.g. `/home/oem/dashboard.py` and
+`/home/oem/mkvi.dbc`). Which files those are, and where each one comes
+from in the repo, is recorded in `~/deploy/deploy-manifest.json`, written by
 [`../deploy/deploy.py`](../deploy/README.md).
+
+`~` here is the home folder of the Pi user (`pi.user` in
+`../deploy/config.json`, e.g. `/home/oem`). The service runs as that user.
 
 On every boot, a systemd service runs `startup.py`, which:
 
-1. **If a deploy is pending**, meaning `deploy_dir/files/` exists: copies each
-   file in `deploy_dir/files/` to the `file_path` listed for it in
-   `deploy_dir/deploy-manifest.json`, then deletes everything in `deploy_dir`
+1. **If a deploy is pending**, meaning `~/deploy/files/` exists: copies each
+   file in `~/deploy/files/` to the `file_path` listed for it in
+   `~/deploy/deploy-manifest.json`, then deletes everything in `~/deploy`
    *except* `deploy-manifest.json`.
 2. **Otherwise**, downloads the latest version of every file in the manifest
    from the configured GitHub branch (its `repo_path`) and overwrites the copy
@@ -27,26 +30,29 @@ GitHub again, which overwrites the deployed files.
 
 | File | Purpose |
 | --- | --- |
-| `startup.py` | The boot script described above. |
-| `startup_config.json` | Its configuration. |
-| `oem-startup.service` | systemd unit that runs `startup.py` at boot. |
+| `startup.py` | The boot script described above. Installed as `~/startup/startup.py`. |
+| `startup_config.json` | Its configuration. Installed as `~/startup/startup_config.json`. |
+| `oem-startup.service` | systemd unit that runs `startup.py` at boot. Installed in `/etc/systemd/system/`. |
 
 ## Installation
 
-The Pi needs `git` (`sudo apt install git`) to download files from GitHub.
-The repo itself is **not** cloned onto the Pi.
+Run [`../deploy/pi-setup.sh`](../deploy/README.md#setting-up-a-new-pi-pi-setupsh)
+from the laptop on a freshly imaged Pi. It installs everything below, plus
+`git`, and runs the first deploy.
 
-From the laptop, in this folder:
+To install by hand instead (replace `oem` with the Pi user and `<pi-ip>` with
+its address), from the laptop, in this folder:
 
 ```shell
-ssh oemdashboard@raspberrypi.local mkdir -p oem_startup
-scp startup.py startup_config.json oemdashboard@raspberrypi.local:oem_startup/
-scp oem-startup.service oemdashboard@raspberrypi.local:
+ssh oem@<pi-ip> mkdir -p startup
+scp startup.py startup_config.json oem@<pi-ip>:startup/
+scp oem-startup.service oem@<pi-ip>:
 ```
 
-Then on the Pi:
+Then on the Pi (edit `User=` in the `.service` file first if your user isn't `oem`):
 
 ```shell
+sudo apt install git
 sudo mv ~/oem-startup.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable oem-startup.service
@@ -57,12 +63,12 @@ That puts the dashboard files on the Pi and writes `deploy-manifest.json`.
 Until then the Pi has no manifest, so it doesn't know which files to sync
 (it logs a warning and just tries to run the dashboard).
 
-The service runs as user `oemdashboard` and expects the files in `/home/oemdashboard/oem_startup/`.
-If you use a different user or folder, edit `User=`, `WorkingDirectory=` and
-`ExecStart=` in the `.service` file.
+The repo itself is **not** cloned onto the Pi. The Pi needs `git` only to
+download the manifest's files from GitHub.
 
-Because the service runs as `oemdashboard`, deploys and GitHub syncs can only
-write to places `oemdashboard` can write to (e.g. anywhere under `/home/oemdashboard`).
+The service runs `startup.py` from `~/startup` as the user in `User=`, and
+`startup.py` uses that user's `~/deploy`. Deploys and GitHub syncs can only
+write to places that user can write to (e.g. anywhere under `/home/oem`).
 
 ## Useful commands
 
@@ -77,11 +83,10 @@ sudo systemctl stop oem-startup       # stop the dashboard
 
 ```json
 {
-    "deploy_dir": "/home/oemdashboard/deploy",
     "repo_url": "https://github.com/olin-electric-motorsports/oem-monorepo.git",
     "branch": "main",
     "git_timeout_s": 60,
-    "dashboard_path": "/home/oemdashboard/dashboard.py",
+    "dashboard_path": "/home/oem/dashboard.py",
     "python_executable": "/usr/bin/python3",
     "restart_dashboard_on_exit": true,
     "restart_delay_s": 3
@@ -90,7 +95,6 @@ sudo systemctl stop oem-startup       # stop the dashboard
 
 | Key | Description |
 | --- | --- |
-| `deploy_dir` | Deploy directory (staged deploys and the manifest). **Must match `remote_deploy_dir` in the laptop's `deploy/config.json`.** |
 | `repo_url` | Repo to download files from. Also used by `set_branch.py` to check branches exist. |
 | `branch` | Branch to sync to on boot. Change it from the laptop with `deploy/set_branch.py`. |
 | `git_timeout_s` | Seconds before a git command is abandoned (e.g. no network). Default 60. |
@@ -101,7 +105,7 @@ sudo systemctl stop oem-startup       # stop the dashboard
 
 ### Deploy directory format
 
-Written by `deploy.py`; documented here for reference:
+Written by `deploy.py` to `~/deploy`; documented here for reference:
 
 ```
 deploy/
@@ -115,12 +119,12 @@ deploy/
 [
     {
         "file_name": "dashboard.py",
-        "file_path": "/home/oemdashboard/dashboard.py",
+        "file_path": "/home/oem/dashboard.py",
         "repo_path": "vehicle/mkviii/software/lv/dashboard/dashboard.py"
     },
     {
         "file_name": "mkvi.dbc",
-        "file_path": "/home/oemdashboard/mkvi.dbc",
+        "file_path": "/home/oem/mkvi.dbc",
         "repo_path": "vehicle/mkviii/software/lv/dashboard/mkvi.dbc"
     }
 ]

@@ -12,6 +12,7 @@ import argparse
 from pi_ssh import (
     DEFAULT_CONFIG_PATH,
     load_config,
+    pi_address,
     power_command,
     remote_has_pending_deploy,
     remote_staged_files_dir,
@@ -39,7 +40,7 @@ def main():
     if remote_has_pending_deploy(config):
         if args.discard_deploy:
             # Only the staged files; the manifest is what the GitHub sync uses.
-            ssh(config, ["rm", "-rf", remote_staged_files_dir(config)])
+            ssh(config, ["rm", "-rf", remote_staged_files_dir()])
             print("Discarded pending deploy.")
         else:
             print(
@@ -47,7 +48,7 @@ def main():
                 "boot instead of syncing with GitHub (use --discard-deploy to skip it)."
             )
 
-    print(f"Rebooting {config['pi']['host']}...")
+    print(f"Rebooting the Pi at {pi_address(config)}...")
     power_command(config, "reboot")
     print("Reboot command sent.")
     return 0

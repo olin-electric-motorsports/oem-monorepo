@@ -2,6 +2,7 @@
 #UPLOAD SCRIPT FROM THE CAR
 
 
+import os
 import threading
 import time
 import cantools
@@ -13,7 +14,8 @@ CHANNEL = "can0"
 BITRATE = 500000
 
 # Loading in everyone's compiled config files
-dbc_file = "/home/oemdashboard/mkvi.dbc"
+# (mkvi.dbc is deployed next to this file, see deploy/config.json)
+dbc_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "mkvi.dbc")
 db = cantools.database.load_file(dbc_file)
 
 # Making variables that store incoming CAN data global

@@ -3,8 +3,9 @@
 Deploy local code to the Raspberry Pi.
 
 Files listed in config.json are staged into the Pi's temporary deploy
-directory (NOT their final locations), then the Pi is shut down. On next boot,
-the Pi's startup script moves the staged files into place. See README.md.
+directory, ~/deploy (NOT their final locations), then the Pi is shut down. On
+next boot, the Pi's startup script moves the staged files into place. See
+README.md.
 """
 
 import argparse
@@ -19,9 +20,11 @@ import tempfile
 from pi_ssh import (
     DEFAULT_CONFIG_PATH,
     MANIFEST_NAME,
+    REMOTE_DEPLOY_DIR,
     STAGED_FILES_DIR,
     DeployError,
     load_config,
+    pi_address,
     power_command,
     remote_has_pending_deploy,
     run_main,
@@ -154,13 +157,12 @@ def build_staging_dir(files, staging_dir):
 
 def upload(config, staging_dir):
     """
-    Upload to <deploy_dir>.incoming, then swap it into place, so the Pi never
+    Upload to ~/deploy.incoming, then swap it into place, so the Pi never
     sees a half-copied deploy if the transfer is interrupted.
     """
-    deploy_dir = config["remote_deploy_dir"].rstrip("/")
+    deploy_dir = REMOTE_DEPLOY_DIR
     incoming = deploy_dir + ".incoming"
     ssh(config, ["rm", "-rf", incoming])
-    ssh(config, ["mkdir", "-p", os.path.dirname(incoming)])
     scp_dir(config, staging_dir, incoming)
     ssh(
         config,
@@ -197,18 +199,19 @@ def main():
     args = parser.parse_args()
 
     config = load_config(args.config)
-    if "remote_deploy_dir" not in config:
-        raise DeployError("config.json is missing 'remote_deploy_dir'")
     post_action = args.action or config.get("post_deploy_action", "shutdown")
 
     files = collect_files(config)
-    print(f"Deploying {len(files)} file(s) to {config['pi']['host']}:")
-    for _, remote, repo_path in files:
-        print(f"  {repo_path} -> {remote}")
-
     if args.dry_run:
+        print(f"Would deploy {len(files)} file(s):")
+        for _, remote, repo_path in files:
+            print(f"  {repo_path} -> {remote}")
         print("Dry run, nothing sent.")
         return 0
+
+    print(f"Deploying {len(files)} file(s) to the Pi at {pi_address(config)}:")
+    for _, remote, repo_path in files:
+        print(f"  {repo_path} -> {remote}")
 
     with tempfile.TemporaryDirectory() as tmp:
         staging_dir = os.path.join(tmp, "deploy")
@@ -218,7 +221,7 @@ def main():
             print("Note: replacing a previous deploy that was never applied.")
         upload(config, staging_dir)
 
-    print(f"Staged in {config['remote_deploy_dir']} on the Pi.")
+    print(f"Staged in ~/{REMOTE_DEPLOY_DIR} on the Pi.")
     if post_action == "none":
         print("Pi left running; files will be applied on its next boot.")
     else:

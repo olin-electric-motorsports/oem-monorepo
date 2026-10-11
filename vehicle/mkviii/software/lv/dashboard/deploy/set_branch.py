@@ -11,6 +11,7 @@ import subprocess
 
 from pi_ssh import (
     DEFAULT_CONFIG_PATH,
+    REMOTE_STARTUP_CONFIG,
     DeployError,
     load_config,
     read_remote_json,
@@ -51,11 +52,7 @@ def main():
     args = parser.parse_args()
 
     config = load_config(args.config)
-    startup_config_path = config.get("remote_startup_config")
-    if not startup_config_path:
-        raise DeployError("config.json is missing 'remote_startup_config'")
-
-    startup_config = read_remote_json(config, startup_config_path)
+    startup_config = read_remote_json(config, REMOTE_STARTUP_CONFIG)
     current = startup_config.get("branch")
 
     if args.branch is None:
@@ -77,7 +74,7 @@ def main():
             print("Warning: couldn't reach GitHub to check that the branch exists.")
 
     startup_config["branch"] = args.branch
-    write_remote_json(config, startup_config_path, startup_config)
+    write_remote_json(config, REMOTE_STARTUP_CONFIG, startup_config)
     print(f"Branch changed: {current} -> {args.branch}")
     print("Takes effect on next boot (see ./reboot_pi.py).")
     return 0

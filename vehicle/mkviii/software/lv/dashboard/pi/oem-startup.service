@@ -5,9 +5,11 @@ After=network-online.target
 
 [Service]
 Type=simple
-User=oemdashboard
-WorkingDirectory=/home/oemdashboard/oem_startup
-ExecStart=/usr/bin/python3 /home/oemdashboard/oem_startup/startup.py /home/oemdashboard/oem_startup/startup_config.json
+# The Pi's user. deploy/pi-setup.sh replaces this with pi.user from config.json.
+User=oem
+# "~" is User='s home; startup.py and startup_config.json live in ~/startup.
+WorkingDirectory=~
+ExecStart=/usr/bin/python3 startup/startup.py
 # startup.py restarts the dashboard itself. Don't let systemd restart
 # startup.py, or a crash would re-run the GitHub sync and undo a deploy.
 Restart=no

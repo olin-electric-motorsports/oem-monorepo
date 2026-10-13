@@ -2001,6 +2001,262 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "OEM_mkvii:TP_Hook_SMD"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP"
+				(at 0 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TP_SMD"
+				(at 1.27 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "OEM:TP_Hook_SMD"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Test Point SMD Hook"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "5019"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "Test Point SMD Hook"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TP_Hook_SMD_1_1"
+				(circle
+					(center 0 2.54)
+					(radius 1.27)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin input line
+					(at 0 -1.27 90)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:+12V"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "+12V"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+12V\""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "+12V_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+12V_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:+5V"
 			(power global)
 			(pin_numbers
@@ -2257,8 +2513,8 @@
 		)
 	)
 	(rectangle
-		(start 17.78 151.13)
-		(end 101.6 194.31)
+		(start 17.78 147.32)
+		(end 66.04 194.31)
 		(stroke
 			(width 0)
 			(type default)
@@ -2270,7 +2526,7 @@
 	)
 	(rectangle
 		(start 107.95 152.4)
-		(end 170.18 194.31)
+		(end 170.18 195.58)
 		(stroke
 			(width 0)
 			(type default)
@@ -2282,7 +2538,7 @@
 	)
 	(rectangle
 		(start 168.91 67.564)
-		(end 233.172 92.964)
+		(end 260.35 95.25)
 		(stroke
 			(width 0)
 			(type default)
@@ -2318,7 +2574,7 @@
 	)
 	(rectangle
 		(start 168.91 24.13)
-		(end 242.824 58.42)
+		(end 280.67 58.42)
 		(stroke
 			(width 0)
 			(type default)
@@ -2329,8 +2585,8 @@
 		(uuid "c1f2e899-7e5f-4e06-a90f-ca091b5f80be")
 	)
 	(rectangle
-		(start 206.502 103.759)
-		(end 280.67 124.46)
+		(start 264.16 73.66)
+		(end 283.21 95.25)
 		(stroke
 			(width 0)
 			(type default)
@@ -2340,13 +2596,14 @@
 		)
 		(uuid "d0d76790-f7ba-43e1-94c6-0183a51e47e9")
 	)
-	(text "To Sensors"
+	(text "Sensors"
 		(exclude_from_sim no)
-		(at 34.036 146.812 0)
+		(at 17.526 144.018 0)
 		(effects
 			(font
 				(size 3.81 3.81)
 			)
+			(justify left)
 		)
 		(uuid "469567db-d69f-4698-8cdf-5ebe8bbdbe04")
 	)
@@ -2420,13 +2677,14 @@
 		)
 		(uuid "e62d0224-4f2a-4294-83da-e851222d8dcc")
 	)
-	(text "PWR GND"
+	(text "PWR\nGND"
 		(exclude_from_sim no)
-		(at 218.948 99.314 0)
+		(at 263.652 66.802 0)
 		(effects
 			(font
 				(size 3.81 3.81)
 			)
+			(justify left)
 		)
 		(uuid "f272a4bf-0cd5-4c2d-b864-3a2284bb17af")
 	)
@@ -2566,6 +2824,16 @@
 	)
 	(wire
 		(pts
+			(xy 273.05 88.9) (xy 273.05 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "41418478-e525-4d90-9f38-aa0dcf83be39")
+	)
+	(wire
+		(pts
 			(xy 140.97 52.07) (xy 140.97 57.15)
 		)
 		(stroke
@@ -2573,6 +2841,16 @@
 			(type default)
 		)
 		(uuid "41d41847-7915-4adc-b33c-e0af4808b2fb")
+	)
+	(wire
+		(pts
+			(xy 273.05 81.28) (xy 273.05 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "429a8dd6-c836-4c64-81d1-835e2a62cae7")
 	)
 	(wire
 		(pts
@@ -2764,6 +3042,26 @@
 		)
 		(uuid "0cd29aba-d676-44f2-84d5-ac45410497d4")
 	)
+	(label "FAN_PWM"
+		(at 157.48 175.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0d729500-865b-403d-8091-c359dbd03161")
+	)
+	(label "TS_STAT_R"
+		(at 120.65 187.96 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "12d56951-4288-4ead-9369-f22dda7fbbb6")
+	)
 	(label "INVERTER_PROGRAM"
 		(at 39.37 60.96 0)
 		(effects
@@ -2884,6 +3182,16 @@
 		)
 		(uuid "30802626-6870-4e98-8328-a95fbd167960")
 	)
+	(label "COOLING_EN"
+		(at 157.48 160.02 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "322320b9-3d1e-43ee-8627-05faebf3410e")
+	)
 	(label "GND"
 		(at 114.3 71.12 0)
 		(effects
@@ -2963,6 +3271,16 @@
 			(justify left bottom)
 		)
 		(uuid "4a6ed18d-2d44-4ded-9a29-02f5dd318029")
+	)
+	(label "SS_ESTOP_L"
+		(at 157.48 186.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4b0aef1c-76ca-4626-b102-a1601444b56d")
 	)
 	(label "GND"
 		(at 44.45 99.06 0)
@@ -3204,6 +3522,16 @@
 		)
 		(uuid "7e7520fd-93de-4cdc-add7-b98b3c7e77c8")
 	)
+	(label "SS_MC"
+		(at 157.48 189.23 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7f819dd7-fe88-488a-9708-ae94a949809b")
+	)
 	(label "12V_PDU"
 		(at 78.74 116.84 0)
 		(effects
@@ -3274,6 +3602,16 @@
 		)
 		(uuid "8ba66211-4de9-48e2-96c4-2dc91b89998d")
 	)
+	(label "CAN_IN-"
+		(at 149.86 93.98 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8cdd50e0-35ff-4d57-8f1d-289e13cd1ea0")
+	)
 	(label "SUS_TRAVEL_R_SIG"
 		(at 78.74 101.6 0)
 		(effects
@@ -3283,6 +3621,16 @@
 			(justify left bottom)
 		)
 		(uuid "8e06469c-2dba-4b25-ad24-5fb78669bf8a")
+	)
+	(label "TS_STAT_G"
+		(at 120.65 185.42 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8ebf5a8e-75d0-43bd-a06b-af630e88a76e")
 	)
 	(label "E_STOP_COM"
 		(at 182.88 53.34 180)
@@ -3303,6 +3651,16 @@
 			(justify left bottom)
 		)
 		(uuid "92260555-0a35-4b52-8afe-a3a0311f645f")
+	)
+	(label "SS_GLVMS"
+		(at 157.48 181.61 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "92fae3d9-97a4-4ee3-8666-bafabb161230")
 	)
 	(label "CAN_6-"
 		(at 114.3 121.92 0)
@@ -3464,6 +3822,16 @@
 		)
 		(uuid "aa0316fd-dd6f-4e85-a81a-fc03f1e5ffee")
 	)
+	(label "GND"
+		(at 273.05 87.63 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ac0c5a91-18c2-4688-8c4b-06d033fee9ed")
+	)
 	(label "12V_SHDN"
 		(at 181.61 29.21 180)
 		(effects
@@ -3473,6 +3841,16 @@
 			(justify right bottom)
 		)
 		(uuid "ac54ded5-7a62-4bb2-8601-d49d470cfa68")
+	)
+	(label "CAN_IN+"
+		(at 132.08 93.98 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b0afe983-da9e-46c8-abd8-d25a892e4c80")
 	)
 	(label "CAN_4-"
 		(at 39.37 53.34 0)
@@ -3493,6 +3871,16 @@
 			(justify left bottom)
 		)
 		(uuid "bb0552d0-0e96-41a4-82ce-780388b70dfa")
+	)
+	(label "12V_IN"
+		(at 273.05 83.82 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c63a9384-bbdd-4a61-8365-23be63b32702")
 	)
 	(label "INVERTER_GND"
 		(at 39.37 45.72 0)
@@ -3604,6 +3992,16 @@
 		)
 		(uuid "dc7e460e-6d8f-4612-be96-e4488001257b")
 	)
+	(label "SS_ESTOP_R"
+		(at 157.48 184.15 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "dd67bc33-d23f-4cc1-a41c-53f34ed291c6")
+	)
 	(label "SIGNAL_R-"
 		(at 78.74 88.9 0)
 		(effects
@@ -3623,6 +4021,26 @@
 			(justify right bottom)
 		)
 		(uuid "e0f67abb-29ee-4b85-b50d-721166d74d32")
+	)
+	(label "PUMP_PWM"
+		(at 157.48 177.8 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e1524583-33a6-44e8-b27e-f2f803c39943")
+	)
+	(label "CAN_1+"
+		(at 157.48 165.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e2ec6a95-18af-4ae7-a31c-ba6ec4bc8db0")
 	)
 	(label "12V_MC"
 		(at 39.37 48.26 0)
@@ -3663,6 +4081,16 @@
 			(justify left bottom)
 		)
 		(uuid "e5914ef8-1096-45cf-9ba3-a7bb3ef4094e")
+	)
+	(label "CAN_1-"
+		(at 157.48 167.64 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "eaf33135-ff0f-4633-bc5f-0cd84ebcbbbb")
 	)
 	(label "GND"
 		(at 114.3 127 0)
@@ -4101,6 +4529,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+12V")
+		(at 273.05 81.28 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "69602051-46a6-4fcb-a25c-ab43134a599f")
+		(property "Reference" "#PWR044"
+			(at 273.05 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+12V"
+			(at 273.05 76.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 273.05 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 273.05 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+12V\""
+			(at 273.05 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e6797b1b-b527-4c45-ace0-1caf7490ab02")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b"
+					(reference "#PWR044")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 95.25 95.25 0)
 		(unit 1)
@@ -4360,6 +4866,84 @@
 			(project "lv_pdu"
 				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b"
 					(reference "SERVICE_SECTION")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 273.05 88.9 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7f07a127-9783-436d-b79b-e8dd9b653df2")
+		(property "Reference" "#PWR046"
+			(at 273.05 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 273.05 93.98 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 273.05 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 273.05 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 273.05 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5293d43a-1f09-40ba-9e37-cc946367cec4")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b"
+					(reference "#PWR046")
 					(unit 1)
 				)
 			)
@@ -5787,6 +6371,186 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM_mkvii:TP_Hook_SMD")
+		(at 132.08 95.25 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e0cff56c-29c3-48f2-bf13-1efb96485b1d")
+		(property "Reference" "TP1"
+			(at 134.62 96.5199 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 134.62 99.0599 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 132.08 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 132.08 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 132.08 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "5019"
+			(at 132.08 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "958ddbe8-bff1-4027-bbc2-6da8dd2b8b33")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b"
+					(reference "TP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM_mkvii:TP_Hook_SMD")
+		(at 149.86 95.25 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "eeef1e9b-096d-49fe-bbab-eca4d6f29056")
+		(property "Reference" "TP2"
+			(at 152.4 96.5199 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 152.4 99.0599 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 149.86 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 149.86 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 149.86 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "5019"
+			(at 149.86 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "616c5aa1-df98-4d78-a602-6e2891d6048e")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b"
+					(reference "TP2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector_Generic:Conn_01x03")
 		(at 187.96 41.91 0)
 		(unit 1)
@@ -5909,10 +6673,212 @@
 				(justify left top)
 			)
 		)
+		(pin "CAN_OUT+" input
+			(at 157.48 165.1 0)
+			(uuid "252ecfd5-f837-4159-b945-e3c1e3454c2e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "CAN_OUT-" input
+			(at 157.48 167.64 0)
+			(uuid "92f35942-f39d-423b-abdd-131d17e48708")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "FAN_PWM" output
+			(at 157.48 175.26 0)
+			(uuid "79847a9f-0e04-486d-baef-ad4e39be1b83")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "COOLING_EN" output
+			(at 157.48 160.02 0)
+			(uuid "5fdd3810-72e8-4d2b-bbc4-dc9d96673939")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "PUMP_PWM" output
+			(at 157.48 177.8 0)
+			(uuid "b41b7736-a1a2-474b-85ff-978f5cb08611")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "SS_ESTOP_L" input
+			(at 157.48 186.69 0)
+			(uuid "317815c4-4e26-484e-8861-dbfe4afdde90")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "SS_ESTOP_R" input
+			(at 157.48 184.15 0)
+			(uuid "19690530-bb13-41c9-9477-46a9df3d0533")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "SS_GLVMS" input
+			(at 157.48 181.61 0)
+			(uuid "c486b7ba-3129-4c3c-9349-005ca951b937")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "SS_MC" input
+			(at 157.48 189.23 0)
+			(uuid "646d8e38-cb0d-4305-9496-93abd5fbbb72")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TS_STATUS_G" output
+			(at 120.65 185.42 180)
+			(uuid "3e997bca-fd1f-457b-a583-2ede533bcac1")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "TS_STATUS_R" output
+			(at 120.65 187.96 180)
+			(uuid "2a57283c-dcd2-4364-b0c9-f92d8d93b3d9")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 		(instances
 			(project "lv_pdu"
 				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b"
 					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 179.07 72.39)
+		(size 46.99 19.05)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "b38d43ea-a7cc-4608-a8cd-81bb88a8718a")
+		(property "Sheetname" "low voltage distribution"
+			(at 179.07 71.6784 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "lv_db.kicad_sch"
+			(at 179.07 92.0246 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 27.94 153.67)
+		(size 30.48 35.56)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "e371c965-49aa-4d25-a51d-19463e9c1b0b")
+		(property "Sheetname" "sensor boards"
+			(at 27.94 152.9584 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sensing_connections.kicad_sch"
+			(at 27.94 189.8146 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b"
+					(page "4")
 				)
 			)
 		)

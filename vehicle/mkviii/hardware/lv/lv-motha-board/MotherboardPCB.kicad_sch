@@ -1,0 +1,1209 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "f6d42832-5bc2-4f8b-aa9e-1d178fa8fa00")
+	(paper "A4")
+	(title_block
+		(title "LV Mother Board")
+		(rev "1")
+	)
+	(lib_symbols
+		(symbol "power:+5V"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "+5V"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+5V\""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "+5V_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+5V_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:+BATT"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "+BATT"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+BATT\""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power battery"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "+BATT_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+BATT_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+	)
+	(rectangle
+		(start 59.69 15.24)
+		(end 215.9 128.27)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid "460d4f99-5908-4586-b0e8-2d9fb18ff1e7")
+	)
+	(rectangle
+		(start 15.24 15.24)
+		(end 55.88 30.48)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid "93d0d2b2-4a68-4b0f-90ab-0453499c38bc")
+	)
+	(text "LV Daughterboards"
+		(exclude_from_sim no)
+		(at 97.028 20.574 0)
+		(effects
+			(font
+				(size 5.08 5.08)
+			)
+		)
+		(uuid "8fe1c021-5fe2-4623-af88-56ecd3c59da8")
+	)
+	(text "12V > 5V Buck Converter"
+		(exclude_from_sim no)
+		(at 28.448 17.272 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ce033963-7169-4261-8a59-c85882ebd87e")
+	)
+	(wire
+		(pts
+			(xy 19.05 24.13) (xy 22.86 24.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aff100ef-3f4e-4d27-a60f-0b4fd05a2ca7")
+	)
+	(wire
+		(pts
+			(xy 49.53 24.13) (xy 53.34 24.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b047b69c-8d4b-4605-976e-2628932ceda2")
+	)
+	(symbol
+		(lib_id "power:+BATT")
+		(at 19.05 24.13 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ba20db7c-efad-44f2-aa98-33b092e67ad1")
+		(property "Reference" "#PWR?"
+			(at 19.05 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+BATT"
+			(at 19.05 20.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 19.05 24.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 19.05 24.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+BATT\""
+			(at 19.05 24.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "faf9d830-d30c-40bd-83e7-ca7ff717b69e")
+		)
+		(instances
+			(project "MotherboardPCB"
+				(path "/f6d42832-5bc2-4f8b-aa9e-1d178fa8fa00"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 53.34 24.13 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e1f1d70e-7b9e-4a6f-8912-142516ab43aa")
+		(property "Reference" "#PWR?"
+			(at 53.34 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 53.34 20.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 53.34 24.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 53.34 24.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 53.34 24.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "dc0a2dd9-b9f7-4808-8981-09a0a17bae49")
+		)
+		(instances
+			(project "MotherboardPCB"
+				(path "/f6d42832-5bc2-4f8b-aa9e-1d178fa8fa00"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(sheet
+		(at 63.5 27.94)
+		(size 26.67 44.45)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "08b40318-cae4-485e-b927-eb2ed245e614")
+		(property "Sheetname" "Vehicle Control Unit (VCU)"
+			(at 63.5 27.2284 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "VCU.kicad_sch"
+			(at 63.5 72.9746 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "5V" input
+			(at 63.5 30.48 180)
+			(uuid "c697ef9c-b382-47df-aaf4-e7131074c949")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "BRAKELIGHT_CONN" input
+			(at 63.5 33.02 180)
+			(uuid "4047cb36-0025-45b5-81f5-d16a8ac7470d")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "BRAKE_PRESS_SENSE" output
+			(at 63.5 35.56 180)
+			(uuid "f91665c2-5fc6-4c8d-a6a5-c131a4225626")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CAN_+" tri_state
+			(at 63.5 38.1 180)
+			(uuid "7d62c269-427f-4ff4-9658-7536477e4d99")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CAN_-" bidirectional
+			(at 63.5 40.64 180)
+			(uuid "4ef74097-97c4-48a9-83be-9ea86847766c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "GND" bidirectional
+			(at 63.5 43.18 180)
+			(uuid "817c31e6-7336-46db-9e1c-b85be4239630")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "INPUT_THROTTLE_1" input
+			(at 63.5 45.72 180)
+			(uuid "e1e2b16e-4587-43b4-a571-24e6abc4beef")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "INPUT_THROTTLE_2" input
+			(at 63.5 48.26 180)
+			(uuid "50fd5b8f-2b74-495a-aa02-7c50deee8c4b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "MOTOR_CURRENT_SENSE" output
+			(at 63.5 50.8 180)
+			(uuid "458c25c1-9ead-443f-a99e-920c942850b4")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SHDN_IN" input
+			(at 63.5 53.34 180)
+			(uuid "8dee4497-1722-4cc0-a9f0-d2d6f4c902d0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SHDN_OUT" output
+			(at 63.5 55.88 180)
+			(uuid "96cbe2ab-d19d-4f25-808c-384c0a8ebdf9")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SS_INERTIA_SWITCH" input
+			(at 63.5 58.42 180)
+			(uuid "ee73054d-8fa9-4e5e-9a33-bc2645921109")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "THROTTLE_1+" input
+			(at 63.5 60.96 180)
+			(uuid "194c3887-dd4a-446b-9161-06a542940c6b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "THROTTLE_2+" input
+			(at 63.5 63.5 180)
+			(uuid "e7e3ee9f-4439-42f4-943e-ec5c05d3d68b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "MotherboardPCB"
+				(path "/f6d42832-5bc2-4f8b-aa9e-1d178fa8fa00"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 63.5 80.01)
+		(size 26.67 44.45)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "1e7e3c4e-7032-4481-acd1-6cec59606cdb")
+		(property "Sheetname" "Wheel Speed Sensor"
+			(at 63.5 79.2984 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "WheelSpeedSensor_sch.kicad_sch"
+			(at 63.5 125.0446 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "MotherboardPCB"
+				(path "/f6d42832-5bc2-4f8b-aa9e-1d178fa8fa00"
+					(page "8")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 22.86 21.59)
+		(size 26.67 5.08)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "4e57a2fd-e5fd-4086-a033-9276bb94d5ff")
+		(property "Sheetname" "Buck Converter"
+			(at 22.86 20.8784 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "BuckConverter.kicad_sch"
+			(at 22.86 27.2546 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "BUCK_VIN" input
+			(at 22.86 24.13 180)
+			(uuid "31db3228-1c02-4ff4-8392-507aa6f3d632")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "BUCK_VOUT" output
+			(at 49.53 24.13 0)
+			(uuid "2d50901c-b3cf-424d-8d23-55f83fd1d4e0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(instances
+			(project "MotherboardPCB"
+				(path "/f6d42832-5bc2-4f8b-aa9e-1d178fa8fa00"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 175.26 27.94)
+		(size 26.67 44.45)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "5efaf233-18bd-4de5-a159-043ffd0b3c15")
+		(property "Sheetname" "Tire Temperature Sensor"
+			(at 175.26 27.2284 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "TireTemperatureSensor.kicad_sch"
+			(at 175.26 72.9746 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "5V" input
+			(at 175.26 30.48 180)
+			(uuid "7a9a9bc0-41ce-4dcf-9770-a34601a16564")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CAN_+" bidirectional
+			(at 175.26 33.02 180)
+			(uuid "bf3ca539-f407-420d-ae1d-042d5e33fb10")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CAN_-" bidirectional
+			(at 175.26 35.56 180)
+			(uuid "04335324-b364-4f84-8003-f97dbc6f8ed4")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "GND" bidirectional
+			(at 175.26 38.1 180)
+			(uuid "2c6e0390-1948-4941-bd8a-f3588c5fbc4c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "IR_SENSOR_SCL" input
+			(at 175.26 40.64 180)
+			(uuid "369249db-045f-40c9-acd8-7f9773a91da6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "IR_SENSOR_SDA" input
+			(at 175.26 43.18 180)
+			(uuid "26c21d6a-ef6e-446a-98f1-d511e91d83f0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "MotherboardPCB"
+				(path "/f6d42832-5bc2-4f8b-aa9e-1d178fa8fa00"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 138.43 27.94)
+		(size 26.67 44.45)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "77278791-65aa-4f37-a561-070ad6133b96")
+		(property "Sheetname" "Dashboard"
+			(at 138.43 27.2284 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Dashboard.kicad_sch"
+			(at 138.43 72.9746 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "MotherboardPCB"
+				(path "/f6d42832-5bc2-4f8b-aa9e-1d178fa8fa00"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 101.6 27.94)
+		(size 26.67 44.45)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "7cc5f2b6-00b3-4d1b-8942-85aeb3d3e5fb")
+		(property "Sheetname" "Angle Sensor"
+			(at 101.6 27.2284 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "AngleSensor.kicad_sch"
+			(at 101.6 72.9746 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "5V" input
+			(at 101.6 30.48 180)
+			(uuid "96079a8e-e3fc-4a43-bf5c-26086e9ebf6b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CAN_+" bidirectional
+			(at 101.6 33.02 180)
+			(uuid "85a3873b-49e9-4548-9489-5e2bbd7fc511")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "CAN_-" bidirectional
+			(at 101.6 35.56 180)
+			(uuid "95c1f5f4-d033-476a-aded-15a233aba23f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "GND" bidirectional
+			(at 101.6 38.1 180)
+			(uuid "8a197e39-4a66-42ae-867b-c27d25738a9c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "PWM_INPUT" input
+			(at 101.6 40.64 180)
+			(uuid "92c19e51-b64d-48b0-ad10-d3dd4051133a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "STATUS_SIGNAL_INPUT" input
+			(at 101.6 43.18 180)
+			(uuid "1aa437b8-a527-45d1-bb8c-687c1548c2e9")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "MotherboardPCB"
+				(path "/f6d42832-5bc2-4f8b-aa9e-1d178fa8fa00"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 175.26 80.01)
+		(size 27.94 44.45)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "8ceac23c-ceee-45ad-9b87-21e39f0074b2")
+		(property "Sheetname" "Brake Temperature Sensor"
+			(at 175.26 79.2984 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "BrakeTemperatureSensor.kicad_sch"
+			(at 175.26 125.0446 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "MotherboardPCB"
+				(path "/f6d42832-5bc2-4f8b-aa9e-1d178fa8fa00"
+					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 138.43 80.01)
+		(size 26.67 44.45)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "da689c4e-ef8f-4c41-ac0b-0073a2b88992")
+		(property "Sheetname" "Suspension Travel"
+			(at 138.43 79.2984 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "SuspensionTravel.kicad_sch"
+			(at 138.43 125.0446 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "MotherboardPCB"
+				(path "/f6d42832-5bc2-4f8b-aa9e-1d178fa8fa00"
+					(page "10")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 101.6 80.01)
+		(size 26.67 44.45)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "dac40553-d52c-40d2-a2c7-ebaf5404d115")
+		(property "Sheetname" "Suspension Strain"
+			(at 101.6 79.2984 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "SuspensionStrain.kicad_sch"
+			(at 101.6 125.0446 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "MotherboardPCB"
+				(path "/f6d42832-5bc2-4f8b-aa9e-1d178fa8fa00"
+					(page "9")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)

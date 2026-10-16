@@ -4701,7 +4701,7 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 113.03) (xy 88.9 113.03)
+			(xy 101.6 113.03) (xy 88.9 113.03)
 		)
 		(stroke
 			(width 0)
@@ -4778,16 +4778,6 @@
 			(type default)
 		)
 		(uuid "869132c1-2415-4cee-81fa-caa4d924b318")
-	)
-	(wire
-		(pts
-			(xy 105.41 113.03) (xy 105.41 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8824f7df-fcae-4f13-b110-4f2f9fffeeb0")
 	)
 	(wire
 		(pts
@@ -5439,7 +5429,7 @@
 		)
 		(uuid "22b35d43-13b9-41ac-abcf-556eb1bef682")
 	)
-	(label "CAN_IN-"
+	(label "CAN_1-"
 		(at 101.6 59.69 0)
 		(effects
 			(font
@@ -5819,7 +5809,7 @@
 		)
 		(uuid "4f28188a-60b3-4375-a32d-7e5da0dda379")
 	)
-	(label "CAN_IN+"
+	(label "CAN_1+"
 		(at 90.17 59.69 0)
 		(effects
 			(font
@@ -11237,7 +11227,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 105.41 118.11 0)
+		(at 101.6 113.03 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11248,7 +11238,7 @@
 		(fields_autoplaced yes)
 		(uuid "7bf43971-65b5-455d-9532-d4d51be3cd9b")
 		(property "Reference" "#PWR011"
-			(at 105.41 121.92 0)
+			(at 101.6 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11259,17 +11249,18 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 105.41 113.03 0)
+			(at 104.14 111.7599 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 105.41 118.11 0)
+			(at 101.6 113.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11280,7 +11271,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 105.41 118.11 0)
+			(at 101.6 113.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11291,7 +11282,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 105.41 118.11 0)
+			(at 101.6 113.03 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

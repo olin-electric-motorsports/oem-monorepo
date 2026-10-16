@@ -258,7 +258,7 @@
       "internal_id": "",
       "mfg": "",
       "mpn": "",
-      "sch_revision": ""
+      "sch_revision": "1"
     },
     "layer_pairs": [],
     "layer_presets": [],
@@ -489,6 +489,7 @@
       "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "same_local_global_label": "warning",
+      "same_local_global_power": "warning",
       "similar_label_and_power": "warning",
       "similar_labels": "warning",
       "similar_power": "warning",
@@ -536,8 +537,8 @@
     "meta": {
       "version": 5
     },
-    "net_colors": null,
-    "netclass_assignments": null,
+    "net_colors": {},
+    "netclass_assignments": {},
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -748,16 +749,16 @@
       {
         "filename": "motherboard-pcie.kicad_sch",
         "name": "motherboard-pcie",
-        "uuid": "00000000-0000-0000-0000-000000000000"
+        "uuid": "8f26d479-2c33-489f-a4df-6bb31c904ceb"
       }
     ],
-    "used_designators": "",
+    "used_designators": "#PWR12-14,J4-5",
     "variants": []
   },
   "sheets": [
     [
       "8f26d479-2c33-489f-a4df-6bb31c904ceb",
-      "Root"
+      "motherboard-pcie"
     ],
     [
       "a79abbba-3db4-4d37-af6c-322d54dae847",
@@ -786,6 +787,10 @@
     [
       "32c032b6-d9da-4a02-a2b0-a101292be82a",
       "bms-core"
+    ],
+    [
+      "29ed4ee0-4b72-45e6-98b2-d290c5992829",
+      "buck-12-to-3"
     ]
   ],
   "text_variables": {},

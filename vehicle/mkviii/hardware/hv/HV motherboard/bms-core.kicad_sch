@@ -5,7 +5,146 @@
 	(uuid "f4f618a4-692d-4031-9de7-e4c228fd8a9d")
 	(paper "A4")
 	(lib_symbols
-		(symbol "OEM:pcie_x1"
+		(symbol "+5V_1"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "+5V"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+5V\""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "+5V_1_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+5V_1_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "OEM:J_PCIe_x1"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -21,7 +160,7 @@
 					)
 				)
 			)
-			(property "Value" "pcie_x1"
+			(property "Value" "J_PCIe_x1"
 				(at 0 27.94 0)
 				(show_name no)
 				(do_not_autoplace yes)
@@ -31,7 +170,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:te_pcie_x1_connector"
+			(property "Footprint" "OEM:J_PCIe_x1"
 				(at 0 35.56 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -53,7 +192,18 @@
 					)
 				)
 			)
-			(property "Description" "Interface used to connect daugterboards to Mk.VII's motherboards"
+			(property "Description" "Interface used to connect daugterboards to motherboards"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "2-1761465-1"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -75,7 +225,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "OEM:pcie_x1"
+			(property "ki_fp_filters" "OEM:J_PCIe_x1 OEM:J_PCIe_x1_Key"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -86,7 +236,7 @@
 					)
 				)
 			)
-			(symbol "pcie_x1_0_1"
+			(symbol "J_PCIe_x1_0_1"
 				(circle
 					(center 44.45 -12.954)
 					(radius 0.0001)
@@ -99,7 +249,7 @@
 					)
 				)
 			)
-			(symbol "pcie_x1_1_1"
+			(symbol "J_PCIe_x1_1_1"
 				(rectangle
 					(start -12.7 26.67)
 					(end 12.7 -31.496)
@@ -114,7 +264,7 @@
 				(pin bidirectional line
 					(at -17.78 24.13 0)
 					(length 5)
-					(name "12V/3V(DA_ONLY)"
+					(name "12V"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -130,9 +280,9 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.78 21.59 0)
+					(at -17.78 19.05 0)
 					(length 5)
-					(name "12V/3V(DA_ONLY)"
+					(name "3.3V"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -508,7 +658,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.78 19.05 0)
+					(at -17.78 21.59 0)
 					(length 5)
 					(name "5V"
 						(effects
@@ -1075,10 +1225,6 @@
 		(uuid "42f54d99-ab80-4211-93d9-82a8447cef87")
 	)
 	(no_connect
-		(at 124.46 76.2)
-		(uuid "4c34e530-c54d-4141-9667-9ed7fb373afe")
-	)
-	(no_connect
 		(at 160.02 119.38)
 		(uuid "56c1bed7-8aa2-4b2e-9558-d7efed123b93")
 	)
@@ -1123,6 +1269,16 @@
 			(type default)
 		)
 		(uuid "08e91c18-578f-43fa-99dc-2736aad4f470")
+	)
+	(wire
+		(pts
+			(xy 120.65 76.2) (xy 124.46 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fbaf465-8696-4466-a92d-ba9cbc9d781a")
 	)
 	(wire
 		(pts
@@ -1383,7 +1539,7 @@
 				)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "3.3V"
 			(at 116.84 73.66 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1433,6 +1589,199 @@
 			(project "motherboard-pcie"
 				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/32c032b6-d9da-4a02-a2b0-a101292be82a"
 					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:J_PCIe_x1")
+		(at 142.24 97.79 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "795e3ee3-445a-49fc-b039-1deb671b91bc")
+		(property "Reference" "J5"
+			(at 142.24 67.31 0)
+			(show_name no)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "J_PCIe_x1"
+			(at 142.24 69.85 0)
+			(show_name no)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:J_PCIe_x1_Key"
+			(at 142.24 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7F4-1773442-7%7F0308%7Fpdf%7FEnglish%7FENG_DS_4-1773442-7_0308.pdf%7F2-1761465-1"
+			(at 143.51 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Interface used to connect daugterboards to motherboards"
+			(at 142.24 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "2-1761465-1"
+			(at 142.24 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "A18"
+			(uuid "efb52754-c574-4ef4-bbd1-1e1146387602")
+		)
+		(pin "B18"
+			(uuid "fe1a3888-f25a-4779-914d-e6147a6675a6")
+		)
+		(pin "B4"
+			(uuid "bc46014a-b892-4ec9-879b-14fdc6229837")
+		)
+		(pin "A7"
+			(uuid "d6e73746-7ed3-499f-8134-41514afc7bda")
+		)
+		(pin "A8"
+			(uuid "8be91348-1388-4844-a304-e992621e3838")
+		)
+		(pin "A9"
+			(uuid "85ef864a-6c3f-434e-8bac-955a130797ba")
+		)
+		(pin "B6"
+			(uuid "52732de1-9d55-4296-a8ed-9a1c49b3e14c")
+		)
+		(pin "A2"
+			(uuid "7a4cd666-ae1a-4e34-b602-bae03d1c8971")
+		)
+		(pin "A10"
+			(uuid "ba84705e-2fc0-498f-9f49-4e0d1214d2ac")
+		)
+		(pin "B7"
+			(uuid "357d8920-fb9c-45a0-9c6d-9348bda29849")
+		)
+		(pin "A15"
+			(uuid "83e26e7c-6378-4a72-82a8-3d270e2a4b4b")
+		)
+		(pin "B14"
+			(uuid "78b7bf42-42c9-4fe2-9c4c-f9e07f8b48ee")
+		)
+		(pin "A13"
+			(uuid "a49fb4a4-e2cb-491b-a082-9a9f9daf83cb")
+		)
+		(pin "A6"
+			(uuid "d3090e47-3f29-4bcf-8914-cc1a1762e625")
+		)
+		(pin "A12"
+			(uuid "a22e1b4e-a37f-4730-9b3b-e229b70f82cf")
+		)
+		(pin "A4"
+			(uuid "a5c9aa35-60a5-4052-b4ae-f13786ac6e9b")
+		)
+		(pin "B11"
+			(uuid "d64a4a50-465b-4ad2-87a1-c8a958996a0d")
+		)
+		(pin "B12"
+			(uuid "8255c563-6360-44b9-97d2-0c5f5b86ef5d")
+		)
+		(pin "A17"
+			(uuid "0fa22866-3443-42dc-96b3-f2a580e1cf1f")
+		)
+		(pin "B15"
+			(uuid "f6da0a7f-b7ed-43fd-b719-b5b13f192c1a")
+		)
+		(pin "A5"
+			(uuid "8bdd6605-21dc-47db-8b92-f0f36d3fe8a4")
+		)
+		(pin "A14"
+			(uuid "c811fd88-052a-4d78-a340-2e55d27c97d5")
+		)
+		(pin "B10"
+			(uuid "9d714906-8b71-4a5c-bd91-6bdf51fdcde2")
+		)
+		(pin "B8"
+			(uuid "cce9af1e-84cb-48c9-9e80-a3a2f1494861")
+		)
+		(pin "B13"
+			(uuid "1573f1a8-dba7-44b5-92a8-42086a3b25fc")
+		)
+		(pin "A16"
+			(uuid "06f44341-3c79-4c65-aa67-7bf12887bdc5")
+		)
+		(pin "A11"
+			(uuid "ba570350-c4a6-4445-a613-4dbf83f261da")
+		)
+		(pin "B2"
+			(uuid "fc13a716-3358-4b2b-8842-6f186122a9dd")
+		)
+		(pin "B9"
+			(uuid "b99bee1b-9259-4756-afb3-0fbb92741dd1")
+		)
+		(pin "B16"
+			(uuid "a53aacb1-1e30-4645-abe5-7aeb37d357d3")
+		)
+		(pin "A3"
+			(uuid "8f4e86d6-3eac-4b1a-ad62-5b285349cd78")
+		)
+		(pin "B17"
+			(uuid "6e347082-61a0-446c-a4a1-891b031e5922")
+		)
+		(pin "B3"
+			(uuid "028f16e4-b0cd-47c4-8924-0dbb34ba232d")
+		)
+		(pin "A1"
+			(uuid "4486bca3-81c8-40af-9c13-ac9d0293bb04")
+		)
+		(pin "B1"
+			(uuid "a19b22f3-03c1-46ec-adc3-b0f4e8ab0833")
+		)
+		(pin "B5"
+			(uuid "74fefff1-24f0-4823-9c04-8a12d7bd8a7a")
+		)
+		(instances
+			(project "motherboard-pcie"
+				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/32c032b6-d9da-4a02-a2b0-a101292be82a"
+					(reference "J5")
 					(unit 1)
 				)
 			)
@@ -1517,8 +1866,9 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:pcie_x1")
-		(at 142.24 97.79 0)
+		(lib_name "+5V_1")
+		(lib_id "power:+5V")
+		(at 120.65 76.2 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1526,29 +1876,10 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "b5212520-2c38-4c28-915c-edb555203fd7")
-		(property "Reference" "J801"
-			(at 142.24 67.31 0)
-			(show_name no)
-			(do_not_autoplace yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "pcie_x1_bms_core"
-			(at 142.24 69.85 0)
-			(show_name no)
-			(do_not_autoplace yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OEM:te_pcie_x1_connector"
-			(at 142.24 62.23 0)
+		(fields_autoplaced yes)
+		(uuid "d64a9e80-5bde-449d-ac61-c53ed20eb2f9")
+		(property "Reference" "#PWR?"
+			(at 120.65 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1558,8 +1889,18 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7F4-1773442-7%7F0308%7Fpdf%7FEnglish%7FENG_DS_4-1773442-7_0308.pdf%7F2-1761465-1"
-			(at 143.51 64.77 0)
+		(property "Value" "+5V"
+			(at 120.65 71.12 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 120.65 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1569,8 +1910,8 @@
 				)
 			)
 		)
-		(property "Description" ""
-			(at 142.24 97.79 0)
+		(property "Datasheet" ""
+			(at 120.65 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1580,118 +1921,24 @@
 				)
 			)
 		)
-		(pin "B16"
-			(uuid "0dd3f582-ee84-4377-be32-cce83b452c42")
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 120.65 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
 		)
-		(pin "A4"
-			(uuid "2eef6541-eb15-4b7c-861a-128d17cd2bbb")
-		)
-		(pin "A5"
-			(uuid "17529078-0c71-4378-8cd5-aacb5fd23bda")
-		)
-		(pin "A6"
-			(uuid "c97532ce-9051-42d5-96c5-6f717088fae4")
-		)
-		(pin "B8"
-			(uuid "1f85e93c-d6f8-4dbf-a810-4f424fb993dd")
-		)
-		(pin "B6"
-			(uuid "3851feb2-66af-4973-a34e-c8cf2080b965")
-		)
-		(pin "B17"
-			(uuid "0666e648-1f77-403c-851e-9f9f6061a845")
-		)
-		(pin "B3"
-			(uuid "5a607aa7-dd4a-4d75-9518-f23e8d4bf87b")
-		)
-		(pin "A18"
-			(uuid "46a9a156-be74-47b8-b32e-e97b99786c8b")
-		)
-		(pin "A3"
-			(uuid "e239e347-dafa-430f-ae8b-059e9f02622d")
-		)
-		(pin "B12"
-			(uuid "d3579d6d-cece-4fde-95ea-f69ad482931c")
-		)
-		(pin "A17"
-			(uuid "0d126e7f-2b5f-45ed-8b3f-cfa237805418")
-		)
-		(pin "A7"
-			(uuid "e8e2659c-739f-4fe9-9ddc-334a87e16098")
-		)
-		(pin "A2"
-			(uuid "7ecaa8b8-88ee-4646-a5dc-4d5d02269a31")
-		)
-		(pin "B4"
-			(uuid "8b48cbfc-3302-4145-b8cc-441e129a94f0")
-		)
-		(pin "A16"
-			(uuid "77ebb639-eb5e-4be1-8475-a8886d0f0525")
-		)
-		(pin "B13"
-			(uuid "07c2e619-57a0-4205-b2bb-cad7802ecaa6")
-		)
-		(pin "B11"
-			(uuid "bc1faa77-0ab9-49b0-b697-1b0c8858a1f9")
-		)
-		(pin "B10"
-			(uuid "ed9dd282-b338-4075-b098-99adb2720372")
-		)
-		(pin "A9"
-			(uuid "1bcf3d57-6586-4e48-86a7-a1d554c6f85b")
-		)
-		(pin "B7"
-			(uuid "e93d509e-5099-4945-81af-eb2124fba3d4")
-		)
-		(pin "B2"
-			(uuid "bcbe0de6-7ee8-4aef-90f2-ecaa7e08f44f")
-		)
-		(pin "B18"
-			(uuid "3a603e97-0759-4153-aa24-e29fa5a4137d")
-		)
-		(pin "B9"
-			(uuid "196f9d5e-cefb-4435-9d8b-9b4832c1db1e")
-		)
-		(pin "B5"
-			(uuid "b2e31674-7c53-4d8f-aa26-1428a343bf8b")
-		)
-		(pin "B15"
-			(uuid "26185a72-3d37-41ac-ba73-cb2e2169858d")
-		)
-		(pin "A10"
-			(uuid "8e388ceb-1bad-41d3-9c17-b6b071120741")
-		)
-		(pin "A8"
-			(uuid "a42659b0-1846-4424-b3ba-56bf101d2569")
-		)
-		(pin "B1"
-			(uuid "09917c7c-abb2-4a20-a2f0-28d359ad84bd")
-		)
-		(pin "A1"
-			(uuid "3711f91c-0d3b-41f5-84cc-bfc6f17bf903")
-		)
-		(pin "A13"
-			(uuid "c729a5e0-f1e4-4ccd-bc4a-226b4c7a04f7")
-		)
-		(pin "A14"
-			(uuid "e82ea720-7d23-46a1-8fdc-e8bad591c4f0")
-		)
-		(pin "A12"
-			(uuid "ff7a4bac-7df9-445b-98d2-824175ecb207")
-		)
-		(pin "A11"
-			(uuid "787214cb-c679-424b-b22f-a8cfc492fd3e")
-		)
-		(pin "A15"
-			(uuid "0a741b62-65cb-4ed5-b119-f171a2c226e9")
-		)
-		(pin "B14"
-			(uuid "7b3de2ab-77b4-4b3d-8363-6dacac3fc756")
+		(pin "1"
+			(uuid "573cabf4-07db-4bfe-b3fd-a6b4ab310246")
 		)
 		(instances
 			(project "motherboard-pcie"
 				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/32c032b6-d9da-4a02-a2b0-a101292be82a"
-					(reference "J801")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)

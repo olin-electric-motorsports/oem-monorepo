@@ -164,11 +164,24 @@ Run from the repository root with the team's Bazel environment:
 ```sh
 bazel build --config=m4 //vehicle/mkviii/software/air_control:air.elf
 bazel build //vehicle/mkviii/software/air_control:air_dbc
-bazel test //vehicle/mkviii/software/air_control:air_test
+bazel test //vehicle/mkviii/software/air_control:host_tests
 ```
 
-The logic test is a **host** test: do not pass `--config=m4` when running it.
-It also runs without Bazel using a native C compiler:
+The logic tests are **host** tests: do not pass `--config=m4` when running them.
+They are marked incompatible with the STM32 platform, so `--config=m4` builds
+skip them.
+
+| File | What it checks |
+| --- | --- |
+| `tests/air_test.c` | Normal and repeated cycles, all shutdown inputs, IMD, voltage threshold boundaries, stale CAN, fault latching, missing/stuck feedback, discharge timeout, startup interlocks, tick wraparound and known CAN byte vectors |
+| `tests/air_paths_test.c` | Every decision in `air.c` and `air_protocol.c` that `air_test.c` misses; together they reach every branch |
+| `tests/air_known_issues_test.c` | What the firmware should do for each known issue. Passes while the issues remain; fails once one is fixed, so that check moves into `air_paths_test.c` |
+| `tests/air_invariant_test.c` | 10 million random 1 ms steps against a model of the car with injected faults, checking the safety rules after every step. Optional `[seed] [steps]`; prints a rerun command on failure |
+| `tests/board_test.c` | GPIO mapping, polarity and interlocks against a fake HAL |
+| `tests/check_protocol.py` | The C codec against cantools and the generated DBC |
+| `tests/coverage.sh` | Fails below 100% line and branch coverage of `air.c` and `air_protocol.c` (gcc and gcov) |
+
+The logic tests also run without Bazel using a native C compiler:
 
 ```sh
 cc -std=c11 -Wall -Wextra -Werror -I. \
@@ -178,19 +191,23 @@ cc -std=c11 -Wall -Wextra -Werror -I. \
 ./air_test
 ```
 
-Repeat with `-DAIR_CONTROLLED_NEGATIVE=0` to exercise the legacy topology.
-Tests exercise normal and repeated cycles, all shutdown inputs, IMD, voltage
-threshold boundaries, stale CAN, fault latching, missing/stuck feedback, discharge
-timeout, startup interlocks, tick wraparound and known CAN byte vectors.
+Swap in any other logic test for `air_test.c`, and repeat with
+`-DAIR_CONTROLLED_NEGATIVE=0` to exercise the legacy topology.
 
-To run both topologies plus GPIO mapping/polarity/interlock tests automatically:
+To run every logic test for both topologies plus the GPIO tests, then the CAN
+and coverage checks:
 
 ```sh
 python vehicle/mkviii/software/air_control/tests/run_host_tests.py --compiler cc
 python vehicle/mkviii/software/air_control/tests/check_protocol.py --compiler cc
+bash vehicle/mkviii/software/air_control/tests/coverage.sh
 ```
 
-The second script needs `requirements_lock.txt`'s Python packages and checks
+Add `--sanitize` to `run_host_tests.py` for AddressSanitizer and UBSan (gcc or
+clang on Linux or macOS). `.github/workflows/air_control_tests.yml` runs all of
+the above on GitHub whenever this folder changes.
+
+`check_protocol.py` needs `requirements_lock.txt`'s Python packages and checks
 1,536 deterministic randomized C codec cases against cantools and the generated
 DBC. It also exercises the fix in `common/can_api/dbc_generator.py` for DBCs with
 no node list. The host runner uses a GPIO-only fake header isolated under `tests/`;

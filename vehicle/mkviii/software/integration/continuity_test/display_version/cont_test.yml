@@ -1,0 +1,38 @@
+name: continuity_test
+subscribe:
+  # pdu
+  - name: GPS_alive
+  - name: rear_sus_travel_alive
+  - name: rear_wheel_speed_alive
+  - name: rear_sus_strain_alive
+  - name: right_rear_imu_alive
+  - name: left_rear_imu_alive
+  - name: motor_controller_alive
+  # mb
+  - name: left_front_imu_alive
+  - name: bspd_alive
+  - name: dashboard_alive
+  - name: throttle_alive
+  - name: front_wheel_speed_alive
+  - name: front_sus_strain_alive
+  - name: front_sus_travel_alive
+  - name: right_front_imu_alive
+publish:
+  - name: car_ok
+    id: 0x20
+    freq_hz: 16
+    signals:
+      - name: pdu_status
+        slice: 0 + 1
+        unit:
+          type: bool
+          values:
+            t: pdu ok
+            f: pdu fault
+      - name: mb_status
+        slice: 1 + 1
+        unit:
+          type: bool
+          values:
+            t: mb ok
+            f: mb fault

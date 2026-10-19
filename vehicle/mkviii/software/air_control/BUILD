@@ -2,6 +2,12 @@ load("//common/can_api:can_defs.bzl", "dbc_gen")
 
 package(default_visibility = ["//visibility:public"])
 
+# Host-only tests: `bazel build --config=m4 //vehicle/...` skips them.
+HOST_ONLY = select({
+    "@platforms//os:none": ["@platforms//:incompatible"],
+    "//conditions:default": [],
+})
+
 cc_library(
     name = "air_logic",
     srcs = ["air.c", "air_protocol.c"],
@@ -35,7 +41,34 @@ sh_binary(name = "air_initialize", srcs = ["//common:setup_chip.sh"])
 cc_test(
     name = "air_test",
     srcs = ["tests/air_test.c"],
+    target_compatible_with = HOST_ONLY,
     deps = [":air_logic"],
+)
+
+cc_test(
+    name = "air_paths_test",
+    srcs = ["tests/air_harness.h", "tests/air_paths_test.c"],
+    target_compatible_with = HOST_ONLY,
+    deps = [":air_logic"],
+)
+
+cc_test(
+    name = "air_known_issues_test",
+    srcs = ["tests/air_harness.h", "tests/air_known_issues_test.c"],
+    target_compatible_with = HOST_ONLY,
+    deps = [":air_logic"],
+)
+
+cc_test(
+    name = "air_invariant_test",
+    srcs = ["tests/air_invariant_test.c"],
+    target_compatible_with = HOST_ONLY,
+    deps = [":air_logic"],
+)
+
+test_suite(
+    name = "host_tests",
+    tests = [":air_test", ":air_paths_test", ":air_known_issues_test", ":air_invariant_test"],
 )
 
 # A local compatibility DBC until the new BMS interface is finalized.

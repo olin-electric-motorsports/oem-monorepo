@@ -1,0 +1,48 @@
+# Host tests for the Mark 8 AIR control firmware. Runs on any branch whenever
+# its code, the shared CAN generator or this file changes.
+name: AIR control tests
+
+on:
+  push:
+    paths:
+      - "vehicle/mkviii/software/air_control/**"
+      - "common/can_api/**"
+      - ".github/workflows/air_control_tests.yml"
+  pull_request:
+    paths:
+      - "vehicle/mkviii/software/air_control/**"
+      - "common/can_api/**"
+      - ".github/workflows/air_control_tests.yml"
+
+jobs:
+  host-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python requirements
+        run: python -m pip install -r requirements_lock.txt
+
+      - name: Logic and GPIO tests, both topologies, with ASan and UBSan
+        run: python vehicle/mkviii/software/air_control/tests/run_host_tests.py --compiler gcc --sanitize
+
+      - name: CAN codec matches the generated DBC
+        run: python vehicle/mkviii/software/air_control/tests/check_protocol.py --compiler gcc
+
+      - name: 100% line and branch coverage of air.c and air_protocol.c
+        run: bash vehicle/mkviii/software/air_control/tests/coverage.sh
+
+      - name: Mount Bazel cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/bazel
+          key: bazel-${{ runner.os }}-${{ hashFiles('MODULE.bazel.lock') }}
+          restore-keys: |
+            bazel-${{ runner.os }}-
+
+      - name: Bazel host tests
+        run: bazel test //vehicle/mkviii/software/air_control:host_tests --test_output=errors

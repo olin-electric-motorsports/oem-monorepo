@@ -76,11 +76,46 @@ static void test_idle_faults_when_loop_air_closed_with_loop_open(void) {
     expect_fault(WELD_LOOP);
 }
 
+/* In a series loop TSMS, the final node, cannot really read closed while an
+ * upstream node reads open. Once that reading lasts the debounce, it faults. */
 static void test_idle_faults_when_final_node_closes_before_upstream(void) {
     to_idle();
     in.shutdown_closed = AIR_SS_ALL & ~AIR_SS_HVD;
+    run_ms(AIR_SHUTDOWN_DEBOUNCE_MS - 1);
+    CHECK(a.state == AIR_STATE_IDLE && a.fault == AIR_FAULT_NONE);
     step(1);
     expect_fault(AIR_FAULT_SHUTDOWN_IMPLAUSIBILITY);
+}
+
+/* A shorter reading may be a glitch on the TSMS input: IDLE keeps waiting
+ * with nothing commanded, and a normal cycle can still start. */
+static void test_idle_ignores_short_implausible_reading(void) {
+    to_idle();
+    in.shutdown_closed = AIR_SS_ALL & ~(AIR_SS_HVD | AIR_SS_TSMS); /* HVD out */
+    run_ms(1000);
+    in.shutdown_closed |= AIR_SS_TSMS; /* TSMS reads closed, HVD still open */
+    run_ms(AIR_SHUTDOWN_DEBOUNCE_MS - 1);
+    CHECK(a.state == AIR_STATE_IDLE && a.fault == AIR_FAULT_NONE);
+    CHECK(!a.main_command && !a.precharge_command);
+    in.shutdown_closed &= ~AIR_SS_TSMS;
+    run_ms(1000);
+    CHECK(a.state == AIR_STATE_IDLE && a.fault == AIR_FAULT_NONE);
+    in.shutdown_closed = AIR_SS_ALL; /* HVD back in, TSMS on */
+    step(1);
+    CHECK(a.state == AIR_STATE_SHUTDOWN_CIRCUIT_CLOSED && a.fault == AIR_FAULT_NONE);
+}
+
+/* Nodes that close together may not all read closed on the same sample, so
+ * TSMS may read closed a sample before an upstream node does. The cycle
+ * starts once all seven read closed. */
+static void test_idle_starts_cycle_after_short_implausible_reading(void) {
+    to_idle();
+    in.shutdown_closed = AIR_SS_ALL & ~AIR_SS_BMS; /* the BMS node reads closed late */
+    run_ms(AIR_SHUTDOWN_DEBOUNCE_MS - 1);
+    CHECK(a.state == AIR_STATE_IDLE && a.fault == AIR_FAULT_NONE);
+    in.shutdown_closed = AIR_SS_ALL;
+    step(1);
+    CHECK(a.state == AIR_STATE_SHUTDOWN_CIRCUIT_CLOSED && a.fault == AIR_FAULT_NONE);
 }
 
 static void test_idle_faults_when_loop_closes_on_charged_dc_link(void) {
@@ -365,6 +400,8 @@ int main(void) {
     test_idle_faults_when_driven_air_closed();
     test_idle_faults_when_loop_air_closed_with_loop_open();
     test_idle_faults_when_final_node_closes_before_upstream();
+    test_idle_ignores_short_implausible_reading();
+    test_idle_starts_cycle_after_short_implausible_reading();
     test_idle_faults_when_loop_closes_on_charged_dc_link();
     test_idle_starts_cycle_just_below_charged_line();
     test_noise_after_discharge_does_not_fault();
@@ -387,6 +424,6 @@ int main(void) {
     test_active_faults_when_driven_air_drops();
     test_bms_charging_counts_as_healthy();
     test_decoder_ignores_unknown_and_malformed_frames();
-    puts("AIR: all 31 path tests passed");
+    puts("AIR: all 33 path tests passed");
     return 0;
 }

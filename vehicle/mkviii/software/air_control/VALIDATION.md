@@ -101,3 +101,52 @@ Run locally on Windows with Zig 0.14.1, for both `AIR_CONTROLLED_NEGATIVE` value
 Not run: `bazel test`, `run_host_tests.py`, `check_protocol.py`, `coverage.sh`
 (gcc and gcov), the GitHub workflow, and an `air.elf` build with the ARM GCC
 toolchain. Nothing was flashed.
+
+## IDLE implausibility debounce, 2026-10-20
+
+IDLE latched SHUTDOWN_IMPLAUSIBILITY on a single 1 ms sample of TSMS reading
+closed while an upstream node read open; the 3 ms debounce did not cover IDLE.
+A check for this in `air_known_issues_test` reported KNOWN ISSUE in every build.
+The firmware owner chose to reuse that debounce: IDLE now faults only once the
+reading has lasted `AIR_SHUTDOWN_DEBOUNCE_MS`, timed from the last sample with
+TSMS open or all seven nodes closed (new field `air_t.plausible_ms`). A shorter
+reading keeps IDLE waiting, with nothing commanded.
+
+The check moved into `air_paths_test.c` (now 33 tests), so the known-issues
+list is empty again. The IDLE implausibility test now checks the 3 ms boundary.
+One new test rides out a 2 ms reading and then starts a cycle; another starts a
+cycle when an upstream node reads closed 2 ms after TSMS. In
+`air_invariant_test.c`, a reading shorter than the debounce must never latch
+SHUTDOWN_IMPLAUSIBILITY in IDLE (a fourth false-alarm rule), and one that lasts
+the debounce must always fault. The exploration check now requires both to
+happen. To make that reliable, the model's node sense fault recurs every 1 to
+6 s instead of once per power-up; with a single event, one seed in 48 produced
+just one IDLE fault.
+
+Run locally on Windows with Zig 0.14.1, for both `AIR_CONTROLLED_NEGATIVE` values:
+
+- All four logic tests pass at `-O0`, at `-O2 -DNDEBUG`, and with
+  `-fsanitize=undefined -fsanitize-trap=undefined`.
+- `air_invariant_test` with the default seed: all 13 reachable fault codes,
+  TS_ACTIVE entered 670 times, commands held through an open reading inside the
+  debounce on 1,268 steps, and IDLE kept waiting through an implausible reading
+  on 31 steps and faulted on 8 that lasted. No rule broke. 48 more seeds (the
+  eight used before, and 100 to 139) also passed; on each, IDLE kept waiting on
+  at least 19 steps and faulted at least 7 times. With the old firmware and the
+  committed model, the default seed latched SHUTDOWN_IMPLAUSIBILITY in IDLE 18
+  times, 14 of them on a reading shorter than 3 ms.
+- Edge coverage via clang SanitizerCoverage at `-O0` with UBSan off: all 101
+  edges in `air.c` and `air_protocol.c` were reached, by `air_test` and
+  `air_paths_test` alone. `air_test` by itself reaches 72.
+- Mutation check: seven regressions of the new check were planted in copies of
+  `air.c`, and `air_paths_test` and `air_invariant_test` each caught every one
+  in both topologies. They were: no debounce, the debounce one sample too long
+  or too short, the timestamp refreshed only while all seven read closed or on
+  every step, never faulting, and timing from `loop_closed_ms` instead.
+  `air_invariant_test` alone still catches the four Stage 1 safety bugs.
+- The five GPIO fake-HAL cases pass. `air.c` and `air_protocol.c` compile for
+  Cortex-M4 with Zig's clang and `-Wall -Wextra -Werror`.
+
+Not run: `bazel test`, `run_host_tests.py`, `check_protocol.py`, `coverage.sh`
+(gcc and gcov), the GitHub workflow, and an `air.elf` build with the ARM GCC
+toolchain. Nothing was flashed.

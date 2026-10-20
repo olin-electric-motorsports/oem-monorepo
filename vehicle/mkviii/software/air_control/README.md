@@ -79,9 +79,13 @@ regardless of `AIR_CONTROLLED_NEGATIVE`.
   both AIR feedbacks open, and tractive voltage below 5 V.
 - **IDLE:** wait for the final shutdown node; require all seven monitored shutdown
   nodes closed before starting. Continue IMD, voltage, CAN and feedback checks.
-  IDLE faults on tractive voltage only at 6 V or more, while INIT and DISCHARGE
-  need below 5 V to reach IDLE; the 1 V gap keeps measurement noise from latching
-  a fault just after a normal discharge.
+  TSMS, the final node, reading closed while an upstream node reads open faults
+  SHUTDOWN_IMPLAUSIBILITY once that has lasted 3 ms (three 1 ms samples), the
+  same debounce used during closure. A shorter reading is treated as a glitch:
+  IDLE keeps waiting, with nothing commanded, and a cycle starts as soon as all
+  seven read closed. IDLE faults on tractive voltage only at 6 V or more, while
+  INIT and DISCHARGE need below 5 V to reach IDLE; the 1 V gap keeps measurement
+  noise from latching a fault just after a normal discharge.
 - **SHUTDOWN_CIRCUIT_CLOSED:** allow 200 ms for the other, hardware-controlled AIR
   to close. With default topology this is AIR-plus. The controlled AIR must remain
   open. Then assert the precharge request.
@@ -185,9 +189,9 @@ skip them.
 | File | What it checks |
 | --- | --- |
 | `tests/air_test.c` | Normal and repeated cycles, all shutdown inputs and their 3 ms debounce, IMD, voltage threshold boundaries, stale CAN, fault latching, missing/stuck feedback, discharge timeout, startup interlocks, tick wraparound and known CAN byte vectors |
-| `tests/air_paths_test.c` | Every decision in `air.c` and `air_protocol.c` that `air_test.c` misses, including glitches, closing the loop again during DISCHARGE, the 60 V / 5 s discharge rule and the 5 V / 6 V margin; together they reach every branch |
+| `tests/air_paths_test.c` | Every decision in `air.c` and `air_protocol.c` that `air_test.c` misses, including glitches during closure and in IDLE, closing the loop again during DISCHARGE, the 60 V / 5 s discharge rule and the 5 V / 6 V margin; together they reach every branch |
 | `tests/air_known_issues_test.c` | Empty now. For each open known issue it holds a check of what the firmware should do: it passes while the issue remains and fails once it is fixed, so that check moves into `air_paths_test.c` |
-| `tests/air_invariant_test.c` | 10 million random 1 ms steps against a model of the car with injected faults, checking after every step the safety rules and three false-alarm rules: no weld fault without a stuck contactor, no TRACTIVE_VOLTAGE from noise near 5 V, no DISCHARGE_FAIL with a healthy discharge circuit. Optional `[seed] [steps]`; prints a rerun command on failure |
+| `tests/air_invariant_test.c` | 10 million random 1 ms steps against a model of the car with injected faults, checking after every step the safety rules and four false-alarm rules: no weld fault without a stuck contactor, no TRACTIVE_VOLTAGE from noise near 5 V, no DISCHARGE_FAIL with a healthy discharge circuit, no SHUTDOWN_IMPLAUSIBILITY in IDLE from a reading shorter than the debounce. Optional `[seed] [steps]`; prints a rerun command on failure |
 | `tests/board_test.c` | GPIO mapping, polarity and interlocks against a fake HAL |
 | `tests/check_protocol.py` | The C codec against cantools and the generated DBC |
 | `tests/coverage.sh` | Fails below 100% line and branch coverage of `air.c` and `air_protocol.c` (gcc and gcov) |
@@ -238,7 +242,9 @@ Confirm the pin/polarity table and package, input electrical levels, output
 drivers and reset pulls, CAN transceiver/bitrate/messages, contactor identity and
 movement times, and voltage thresholds, including the 3 ms shutdown-input debounce
 and the 5 V / 6 V margin against measured input and IVT noise and the real
-discharge curve. Use a low-voltage fixture to verify each
+discharge curve. The debounce is also the longest IDLE allows TSMS to read closed
+before an upstream node does, so measure that skew as the loop closes. Use a
+low-voltage fixture to verify each
 signal and inject every fault. Measure shutdown latency and reset/watchdog
 behavior, verify the real precharge voltage trace and relay overlap, then conduct
 team-supervised vehicle integration. Host tests and successful linking cannot

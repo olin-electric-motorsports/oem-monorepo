@@ -14,7 +14,8 @@
 #define AIR_PRECHARGE_TIMEOUT_MS 5000u
 #define AIR_CONTACTOR_CLOSE_MS 200u
 #define AIR_CONTACTOR_OPEN_MS 100u
-/* Open readings shorter than this during closure are treated as glitches. */
+/* Shutdown readings shorter than this are treated as glitches: a node open
+ * during closure, or in IDLE, TSMS closed while an upstream node is open. */
 #define AIR_SHUTDOWN_DEBOUNCE_MS 3u
 /* FSAE 2026 EV.7.2.2.c: 60 V or less within 5 s of the shutdown circuit opening. */
 #define AIR_DISCHARGE_LIMIT_MV 60000u

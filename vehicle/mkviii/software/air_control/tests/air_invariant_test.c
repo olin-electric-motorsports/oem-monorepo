@@ -6,7 +6,7 @@
  * IVT frames. Each power-up, a simulated driver opens and closes the loop,
  * one scenario from scenario_t may inject a fault, and timing jumps, lost
  * frames and rare input glitches happen throughout. After every step the
- * rules in check_rules() must hold: the safety rules, and three rules against
+ * rules in check_rules() must hold: the safety rules, and four rules against
  * false alarms.
  *
  * Usage: air_invariant_test [seed] [steps]
@@ -90,7 +90,7 @@ typedef enum {
     S_CHARGED_AT_BOOT,        /* DC link charged, discharge circuit dead */
     S_TSMS_CLOSED_AT_BOOT,
     S_QUICK_RECLOSE,          /* driver closes the loop again while discharging */
-    S_NODE_SENSE_FAULT,       /* one node reads wrong for a few ms */
+    S_NODE_SENSE_FAULT,       /* one node reads wrong for a few ms, every few seconds */
     S_NOISY_INPUTS,           /* frequent 1 ms glitches */
     S_IMD_FAULT,
     S_BMS_SILENT,
@@ -136,8 +136,10 @@ static air_inputs_t in;
 static air_measurements_t data;
 static uint32_t now, boot_ms;
 static uint32_t loop_closed_ms; /* last step on which all 7 nodes read closed */
+static uint32_t plausible_ms;   /* last step on which TSMS read open or all 7 closed */
 static uint64_t seed;
 static unsigned long step_no, power_ups, active_entries, held_steps;
+static unsigned long idle_glitch_steps, idle_implausible_faults;
 static unsigned long state_entries[AIR_STATE_FAULT + 1];
 static unsigned long faults[AIR_FAULT_IVT_STATUS + 1];
 
@@ -234,6 +236,8 @@ static void scenario_event(void) {
         p.sensing_wrong = true;
         p.wrong_node = (uint8_t)between(1, 6);
         p.sensing_wrong_until = now + between(1, 50);
+        p.event_done = false; /* an intermittent input: it happens again */
+        p.event_ms = now + between(1000, 6000);
         break;
     case S_IMD_FAULT:
         p.imd_ok = false;
@@ -361,6 +365,10 @@ static void check_rules(const air_t *before) {
         !all_closed && (uint32_t)(now - loop_closed_ms) < AIR_SHUTDOWN_DEBOUNCE_MS;
     const bool ready =
         ((all_closed && loop_air_closed) || debouncing) && in.imd_ok && data_healthy();
+    /* TSMS, the final node, reading closed while an upstream node reads open. */
+    const bool implausible = (in.shutdown_closed & AIR_SS_TSMS) && !all_closed;
+    const bool implausible_long =
+        implausible && (uint32_t)(now - plausible_ms) >= AIR_SHUTDOWN_DEBOUNCE_MS;
     const bool commanding = a.main_command || a.precharge_command;
     const bool turned_on = (a.main_command && !before->main_command) ||
                            (a.precharge_command && !before->precharge_command);
@@ -392,6 +400,8 @@ static void check_rules(const air_t *before) {
     if (before->state == AIR_STATE_INIT && (in.shutdown_closed & AIR_SS_TSMS) &&
         a.fault == AIR_FAULT_NONE)
         fail("TSMS closed during startup always faults");
+    if (before->state == AIR_STATE_IDLE && implausible_long && a.fault == AIR_FAULT_NONE)
+        fail("in IDLE, TSMS closed with an upstream node open for the whole debounce faults");
 
     /* No false alarms. */
     if (a.fault != before->fault) {
@@ -403,6 +413,10 @@ static void check_rules(const air_t *before) {
         if (a.fault == AIR_FAULT_TRACTIVE_VOLTAGE && before->state == AIR_STATE_IDLE &&
             data.tractive_mv >= 0 && p.link_v < 5.5)
             fail("measurement noise near 5 V never latches TRACTIVE_VOLTAGE in IDLE");
+        if (a.fault == AIR_FAULT_SHUTDOWN_IMPLAUSIBILITY && before->state == AIR_STATE_IDLE &&
+            !implausible_long)
+            fail("a reading shorter than the debounce never latches SHUTDOWN_IMPLAUSIBILITY "
+                 "in IDLE");
         /* A time constant of 2 s takes 440 V to 36 V by 5 s and 3 V by 10 s. */
         if (a.fault == AIR_FAULT_DISCHARGE_FAIL && p.tau_discharge_ms <= 2000.0)
             fail("DISCHARGE_FAIL means the discharge circuit really is too slow");
@@ -415,8 +429,13 @@ static void record(const air_t *before) {
         if (a.state == AIR_STATE_TS_ACTIVE) ++active_entries;
     }
     if (in.shutdown_closed != AIR_SS_ALL && (a.main_command || a.precharge_command)) ++held_steps;
+    if (before->state == AIR_STATE_IDLE && a.state == AIR_STATE_IDLE &&
+        (in.shutdown_closed & AIR_SS_TSMS) && in.shutdown_closed != AIR_SS_ALL)
+        ++idle_glitch_steps;
     if (a.fault == AIR_FAULT_NONE || before->fault != AIR_FAULT_NONE) return;
     ++faults[a.fault];
+    if (a.fault == AIR_FAULT_SHUTDOWN_IMPLAUSIBILITY && before->state == AIR_STATE_IDLE)
+        ++idle_implausible_faults;
     p.faulted = true;
     p.restart_ms = now + between(50, 1500);
 }
@@ -440,6 +459,8 @@ int main(int argc, char **argv) {
         plant_update(dt);
         sense();
         if (in.shutdown_closed == AIR_SS_ALL) loop_closed_ms = now;
+        if (in.shutdown_closed == AIR_SS_ALL || !(in.shutdown_closed & AIR_SS_TSMS))
+            plausible_ms = now;
         send_bms();
         send_ivt();
         const air_t before = a;
@@ -458,6 +479,8 @@ int main(int argc, char **argv) {
         if (faults[f]) printf(" %s %lu", fault_names[f], faults[f]);
     printf("\ncommands held with a node reading open (inside the debounce): %lu steps\n",
            held_steps);
+    printf("IDLE kept waiting with TSMS closed before an upstream node (inside the debounce): "
+           "%lu steps; faulted on it %lu times\n", idle_glitch_steps, idle_implausible_faults);
 
     if (steps < DEFAULT_STEPS) {
         puts("all rules held (short run: exploration not checked)");
@@ -474,6 +497,14 @@ int main(int argc, char **argv) {
     bool missed = active_entries < 100;
     if (AIR_SHUTDOWN_DEBOUNCE_MS > 1u && !held_steps) {
         puts("the model never held a command through the debounce");
+        missed = true;
+    }
+    if (AIR_SHUTDOWN_DEBOUNCE_MS > 1u && !idle_glitch_steps) {
+        puts("the model never kept IDLE waiting through TSMS closed before an upstream node");
+        missed = true;
+    }
+    if (!idle_implausible_faults) {
+        puts("the model never produced SHUTDOWN_IMPLAUSIBILITY in IDLE");
         missed = true;
     }
     for (size_t i = 0; i < sizeof reachable / sizeof reachable[0]; ++i) {

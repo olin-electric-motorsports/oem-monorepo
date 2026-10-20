@@ -8,7 +8,8 @@ static void enter(air_t *a, air_state_t state, uint32_t now) {
 }
 
 void air_init(air_t *a, uint32_t now) {
-    *a = (air_t){.state = AIR_STATE_INIT, .entered_ms = now, .loop_closed_ms = now};
+    *a = (air_t){.state = AIR_STATE_INIT, .entered_ms = now,
+                 .loop_closed_ms = now, .plausible_ms = now};
 }
 
 void air_trip(air_t *a, air_fault_t fault) {
@@ -48,8 +49,11 @@ void air_step(air_t *a, const air_inputs_t *in,
     const air_fault_t controlled_weld = AIR_CONTROLLED_NEGATIVE ? AIR_FAULT_AIR_N_WELD : AIR_FAULT_AIR_P_WELD;
     const bool main_was = a->main_command, precharge_was = a->precharge_command;
     if (shutdown_ok) a->loop_closed_ms = now;
+    if (shutdown_ok || !requested) a->plausible_ms = now;
     /* How long at least one node has read open; 0 while all seven read closed. */
     const uint32_t open_ms = now - a->loop_closed_ms;
+    /* How long TSMS has read closed while an upstream node reads open; else 0. */
+    const uint32_t implausible_ms = now - a->plausible_ms;
     a->main_command = false;
     a->precharge_command = false;
 
@@ -101,7 +105,11 @@ void air_step(air_t *a, const air_inputs_t *in,
             if (a->fault == AIR_FAULT_NONE && (uint32_t)d->tractive_mv >= AIR_TRACTIVE_CHARGED_MV)
                 air_trip(a, AIR_FAULT_TRACTIVE_VOLTAGE);
         } else if (!shutdown_ok) {
-            air_trip(a, AIR_FAULT_SHUTDOWN_IMPLAUSIBILITY);
+            /* In a series loop TSMS, the final node, cannot really read closed
+             * while an upstream node reads open. As during closure, a reading
+             * shorter than AIR_SHUTDOWN_DEBOUNCE_MS may be a glitch: keep waiting. */
+            if (implausible_ms >= AIR_SHUTDOWN_DEBOUNCE_MS)
+                air_trip(a, AIR_FAULT_SHUTDOWN_IMPLAUSIBILITY);
         } else if ((uint32_t)d->tractive_mv >= AIR_TRACTIVE_CHARGED_MV) {
             air_trip(a, AIR_FAULT_TRACTIVE_VOLTAGE);
         } else {

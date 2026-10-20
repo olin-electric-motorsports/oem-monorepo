@@ -6,11 +6,19 @@
 #define AIR_CONTROLLED_NEGATIVE 1
 #endif
 #define AIR_PACK_MIN_MV 200000u
+/* INIT and DISCHARGE reach IDLE only below SAFE; IDLE faults at CHARGED or
+ * more. The gap keeps measurement noise from latching a fault. */
 #define AIR_TRACTIVE_SAFE_MV 5000u
+#define AIR_TRACTIVE_CHARGED_MV 6000u
 #define AIR_PRECHARGE_PERCENT 95u
 #define AIR_PRECHARGE_TIMEOUT_MS 5000u
 #define AIR_CONTACTOR_CLOSE_MS 200u
 #define AIR_CONTACTOR_OPEN_MS 100u
+/* Open readings shorter than this during closure are treated as glitches. */
+#define AIR_SHUTDOWN_DEBOUNCE_MS 3u
+/* FSAE 2026 EV.7.2.2.c: 60 V or less within 5 s of the shutdown circuit opening. */
+#define AIR_DISCHARGE_LIMIT_MV 60000u
+#define AIR_DISCHARGE_LIMIT_MS 5000u
 #define AIR_DISCHARGE_TIMEOUT_MS 10000u
 #define AIR_IMD_SETTLE_MS 4000u
 #define AIR_STARTUP_CAN_WAIT_MS 1000u

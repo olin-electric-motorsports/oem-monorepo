@@ -6,7 +6,8 @@
  * IVT frames. Each power-up, a simulated driver opens and closes the loop,
  * one scenario from scenario_t may inject a fault, and timing jumps, lost
  * frames and rare input glitches happen throughout. After every step the
- * rules in check_rules() must hold.
+ * rules in check_rules() must hold: the safety rules, and three rules against
+ * false alarms.
  *
  * Usage: air_invariant_test [seed] [steps]
  */
@@ -134,8 +135,9 @@ static air_t a;
 static air_inputs_t in;
 static air_measurements_t data;
 static uint32_t now, boot_ms;
+static uint32_t loop_closed_ms; /* last step on which all 7 nodes read closed */
 static uint64_t seed;
-static unsigned long step_no, power_ups, active_entries, misreported_welds, threshold_trips;
+static unsigned long step_no, power_ups, active_entries, held_steps;
 static unsigned long state_entries[AIR_STATE_FAULT + 1];
 static unsigned long faults[AIR_FAULT_IVT_STATUS + 1];
 
@@ -348,29 +350,39 @@ static bool data_healthy(void) {
            !data.ivt_error && data.tractive_mv >= 0;
 }
 
-/* The safety rules. They must hold after every step, whatever the inputs. */
+/* The rules. They must hold after every step, whatever the inputs. */
 static void check_rules(const air_t *before) {
     const bool driven_closed = AIR_CONTROLLED_NEGATIVE ? in.air_n_closed : in.air_p_closed;
     const bool loop_air_closed = AIR_CONTROLLED_NEGATIVE ? in.air_p_closed : in.air_n_closed;
     const bool all_closed = in.shutdown_closed == AIR_SS_ALL;
-    const bool ready = all_closed && in.imd_ok && data_healthy() && loop_air_closed;
+    /* A node open for less than the debounce may be a glitch: commands that are
+     * already on may stay on through it, whatever the AIR feedback reads. */
+    const bool debouncing =
+        !all_closed && (uint32_t)(now - loop_closed_ms) < AIR_SHUTDOWN_DEBOUNCE_MS;
+    const bool ready =
+        ((all_closed && loop_air_closed) || debouncing) && in.imd_ok && data_healthy();
     const bool commanding = a.main_command || a.precharge_command;
+    const bool turned_on = (a.main_command && !before->main_command) ||
+                           (a.precharge_command && !before->precharge_command);
 
     if ((unsigned)a.state > AIR_STATE_FAULT) fail("the state is always a valid value");
     if (a.main_command && a.state != AIR_STATE_TS_ACTIVE)
         fail("AIR- is only commanded in TS_ACTIVE");
     if (a.main_command && !ready)
-        fail("AIR- is only commanded with all 7 nodes closed, the IMD OK, fresh healthy "
-             "CAN data and the loop's AIR closed");
+        fail("AIR- is only commanded with all 7 nodes closed (or open for less than the "
+             "debounce), the IMD OK, fresh healthy CAN data and the loop's AIR closed");
     if (a.main_command && !before->main_command &&
         (driven_closed ||
          (uint64_t)data.tractive_mv * 100u < (uint64_t)data.pack_mv * AIR_PRECHARGE_PERCENT))
         fail("AIR- is first commanded only at 95% of pack voltage, while it still reads open");
     if (a.precharge_command &&
         !(ready && (a.state == AIR_STATE_PRECHARGE || a.state == AIR_STATE_TS_ACTIVE)))
-        fail("precharge is only commanded while closing, with all 7 nodes closed, the IMD "
-             "OK, fresh healthy CAN data and the loop's AIR closed");
-    if (!all_closed && commanding) fail("any open node drops both commands in the same step");
+        fail("precharge is only commanded while closing, with all 7 nodes closed (or open "
+             "for less than the debounce), the IMD OK, fresh healthy CAN data and the "
+             "loop's AIR closed");
+    if (!all_closed && turned_on) fail("no command turns on while a node reads open");
+    if (!all_closed && commanding && !debouncing)
+        fail("a node open for the whole debounce drops both commands");
     if (a.fault != AIR_FAULT_NONE && (a.state != AIR_STATE_FAULT || commanding))
         fail("a fault means the FAULT state with both commands off");
     if (before->fault != AIR_FAULT_NONE && a.fault != before->fault)
@@ -380,6 +392,21 @@ static void check_rules(const air_t *before) {
     if (before->state == AIR_STATE_INIT && (in.shutdown_closed & AIR_SS_TSMS) &&
         a.fault == AIR_FAULT_NONE)
         fail("TSMS closed during startup always faults");
+
+    /* No false alarms. */
+    if (a.fault != before->fault) {
+        const bool weld = a.fault == AIR_FAULT_AIR_N_WELD || a.fault == AIR_FAULT_AIR_P_WELD ||
+                          a.fault == AIR_FAULT_BOTH_AIRS_WELD;
+        const bool stuck = p.loop_air.welded || p.driven_air.welded ||
+                           p.loop_air.reads_closed || p.driven_air.reads_closed;
+        if (weld && !stuck) fail("a weld fault means a contactor really is stuck closed");
+        if (a.fault == AIR_FAULT_TRACTIVE_VOLTAGE && before->state == AIR_STATE_IDLE &&
+            data.tractive_mv >= 0 && p.link_v < 5.5)
+            fail("measurement noise near 5 V never latches TRACTIVE_VOLTAGE in IDLE");
+        /* A time constant of 2 s takes 440 V to 36 V by 5 s and 3 V by 10 s. */
+        if (a.fault == AIR_FAULT_DISCHARGE_FAIL && p.tau_discharge_ms <= 2000.0)
+            fail("DISCHARGE_FAIL means the discharge circuit really is too slow");
+    }
 }
 
 static void record(const air_t *before) {
@@ -387,15 +414,9 @@ static void record(const air_t *before) {
         ++state_entries[a.state];
         if (a.state == AIR_STATE_TS_ACTIVE) ++active_entries;
     }
+    if (in.shutdown_closed != AIR_SS_ALL && (a.main_command || a.precharge_command)) ++held_steps;
     if (a.fault == AIR_FAULT_NONE || before->fault != AIR_FAULT_NONE) return;
     ++faults[a.fault];
-    const bool weld = a.fault == AIR_FAULT_AIR_N_WELD || a.fault == AIR_FAULT_AIR_P_WELD ||
-                      a.fault == AIR_FAULT_BOTH_AIRS_WELD;
-    const bool stuck = p.loop_air.welded || p.driven_air.welded ||
-                       p.loop_air.reads_closed || p.driven_air.reads_closed;
-    if (weld && !stuck) ++misreported_welds;
-    if (a.fault == AIR_FAULT_TRACTIVE_VOLTAGE && before->state == AIR_STATE_IDLE && p.link_v < 5.5)
-        ++threshold_trips;
     p.faulted = true;
     p.restart_ms = now + between(50, 1500);
 }
@@ -418,6 +439,7 @@ int main(int argc, char **argv) {
         }
         plant_update(dt);
         sense();
+        if (in.shutdown_closed == AIR_SS_ALL) loop_closed_ms = now;
         send_bms();
         send_ivt();
         const air_t before = a;
@@ -434,12 +456,11 @@ int main(int argc, char **argv) {
     printf("faults latched:");
     for (unsigned f = 1; f <= AIR_FAULT_IVT_STATUS; ++f)
         if (faults[f]) printf(" %s %lu", fault_names[f], faults[f]);
-    printf("\nknown issues seen: %lu weld faults with no stuck contactor, "
-           "%lu TRACTIVE_VOLTAGE faults from noise at 5 V after discharge\n",
-           misreported_welds, threshold_trips);
+    printf("\ncommands held with a node reading open (inside the debounce): %lu steps\n",
+           held_steps);
 
     if (steps < DEFAULT_STEPS) {
-        puts("all safety rules held (short run: exploration not checked)");
+        puts("all rules held (short run: exploration not checked)");
         return 0;
     }
     /* Make sure the model really reached every path air.c can fault on. */
@@ -451,6 +472,10 @@ int main(int argc, char **argv) {
         AIR_FAULT_CONTACTOR_FEEDBACK, AIR_FAULT_IVT_STATUS,
     };
     bool missed = active_entries < 100;
+    if (AIR_SHUTDOWN_DEBOUNCE_MS > 1u && !held_steps) {
+        puts("the model never held a command through the debounce");
+        missed = true;
+    }
     for (size_t i = 0; i < sizeof reachable / sizeof reachable[0]; ++i) {
         if (!faults[reachable[i]]) {
             printf("the model never produced %s\n", fault_names[reachable[i]]);
@@ -467,6 +492,6 @@ int main(int argc, char **argv) {
         puts("exploration too narrow: adjust the scenarios");
         return 1;
     }
-    puts("all safety rules held");
+    puts("all rules held");
     return 0;
 }

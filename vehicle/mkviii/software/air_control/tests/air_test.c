@@ -63,7 +63,7 @@ static void test_normal_and_repeated_cycles(void) {
     step(2000); /* Must not falsely time out after feedback is confirmed. */
     CHECK(a.state == AIR_STATE_TS_ACTIVE);
     in.shutdown_closed = 0;
-    step(1);
+    step(AIR_SHUTDOWN_DEBOUNCE_MS);
     CHECK(a.state == AIR_STATE_DISCHARGE && !a.main_command && !a.precharge_command);
     in.air_p_closed = in.air_n_closed = false;
     d.tractive_mv = 4999;
@@ -82,10 +82,14 @@ static void test_shutdown_and_imd(void) {
     for (unsigned bit = 0; bit < 7; ++bit) {
         precharge();
         in.shutdown_closed &= ~(1u << bit);
+        step(AIR_SHUTDOWN_DEBOUNCE_MS - 1); /* Shorter open readings are glitches. */
+        CHECK(a.state == AIR_STATE_PRECHARGE && a.precharge_command);
         step(1);
         CHECK(a.state == AIR_STATE_DISCHARGE && !a.precharge_command);
         active();
         in.shutdown_closed &= ~(1u << bit);
+        step(AIR_SHUTDOWN_DEBOUNCE_MS - 1);
+        CHECK(a.state == AIR_STATE_TS_ACTIVE && a.main_command);
         step(1);
         CHECK(a.state == AIR_STATE_DISCHARGE && !a.main_command);
     }
@@ -119,12 +123,12 @@ static void test_voltage_and_feedback(void) {
     expect_fault(AIR_FAULT_CONTACTOR_FEEDBACK);
     active();
     in.shutdown_closed = 0;
-    step(1);
+    step(AIR_SHUTDOWN_DEBOUNCE_MS);
     step(AIR_CONTACTOR_OPEN_MS);
     expect_fault(AIR_FAULT_BOTH_AIRS_WELD);
     active();
     in.shutdown_closed = 0;
-    step(1);
+    step(AIR_SHUTDOWN_DEBOUNCE_MS);
     in.air_p_closed = in.air_n_closed = false;
     step(AIR_DISCHARGE_TIMEOUT_MS);
     expect_fault(AIR_FAULT_DISCHARGE_FAIL);
@@ -180,7 +184,7 @@ static void test_additional_interlocks(void) {
     for (unsigned feedback = 1; feedback < 4; ++feedback) {
         active();
         in.shutdown_closed = 0;
-        step(1);
+        step(AIR_SHUTDOWN_DEBOUNCE_MS);
         in.air_p_closed = (feedback & 1u) != 0;
         in.air_n_closed = (feedback & 2u) != 0;
         step(AIR_CONTACTOR_OPEN_MS);
@@ -196,12 +200,12 @@ static void test_additional_interlocks(void) {
     step(1);
     expect_fault(AIR_FAULT_BMS_VOLTAGE);
     reset_at(0);
-    d.tractive_mv = AIR_TRACTIVE_SAFE_MV;
+    d.tractive_mv = AIR_TRACTIVE_CHARGED_MV;
     step(1);
     expect_fault(AIR_FAULT_TRACTIVE_VOLTAGE);
     active();
     in.shutdown_closed &= ~AIR_SS_BMS;
-    step(1);
+    step(AIR_SHUTDOWN_DEBOUNCE_MS);
     in.air_p_closed = in.air_n_closed = false;
     d.tractive_mv = 0;
     step(AIR_CONTACTOR_OPEN_MS);

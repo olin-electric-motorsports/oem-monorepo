@@ -1,22 +1,13 @@
 # Dashboard
 
-Driver dashboard code, which runs on a Raspberry Pi.
+Driver dashboard code for the MK VIII, which runs on a Raspberry Pi Zero W in the car,
+plus the scripts that put code on that Pi over Wi-Fi: deploy local files to it, have it
+pull a GitHub branch on every boot, roll back to earlier versions, and manage who can ssh in.
 
-- `dashboard.py`: the dashboard. The Pi runs it on boot.
-- `mkvi.dbc`: CAN database the dashboard loads (deployed next to `dashboard.py` on the Pi).
-- `dashboard.yml`: CAN API config for the dashboard's messages.
-- `can_logger`: script that logs CAN traffic on the Pi.
-- [`deploy/`](deploy/README.md): laptop-side scripts to deploy code to the Pi,
-  change which branch it syncs to, and reboot it. The Pi doesn't clone the
-  repo; it only keeps the files listed in `deploy/config.json`.
-- [`pi/`](pi/README.md): the boot script and systemd service installed on the Pi.
+**Docs:** [Dashboard OTA Updates](https://docs.superhuman.com/d/MK-VIII-Documentation_dbOBIYXOHlq/Dashboard-OTA-Updates_suMvKQZK)
+(setting up the Pi, deploying code, and how it all works).
 
-Quick reference, from `deploy/`:
-
-```shell
-./pi-setup.sh             # one-time setup of a freshly imaged Pi (+ first deploy)
-./deploy.py               # push local files to the Pi (applied on next boot)
-./set_branch.py           # show the branch the Pi syncs to
-./set_branch.py my-branch # change it
-./reboot_pi.py            # reboot, which syncs the Pi with GitHub
-```
+- `dashboard.py`, `mkvi.dbc`, `dashboard.yml`, `can_logger`: the dashboard and its CAN files.
+- `deploy/`: scripts you run on your laptop (`./deploy.sh`, `./ssh.sh`, `./versions.sh`, ... each takes `-h`).
+- `pi/`: what gets installed on the Pi (the boot script, key sync, version store, systemd service).
+- `tests/`: `bash tests/test_versions.sh` tests the version store locally.

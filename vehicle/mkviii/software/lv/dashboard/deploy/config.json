@@ -5,9 +5,9 @@
         "port": 22,
         "ssh_key": null,
         "connect_timeout_s": 10,
-        "discovery_timeout_s": 60
+        "discovery_timeout_s": 10
     },
-    "post_deploy_action": "shutdown",
+    "post_deploy_action": "reboot",
     "deploy": [
         {
             "local_path": "../dashboard.py",

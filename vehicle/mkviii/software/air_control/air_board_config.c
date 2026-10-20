@@ -1,3 +1,5 @@
+/* the pin table: which port and pin each signal uses. Empty until the PCB is
+ * known, so the firmware refuses to start (see air_board_init) */
 #include "air_board.h"
 #include <stddef.h>
 

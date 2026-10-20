@@ -1,5 +1,5 @@
-/* Shared helpers for the host logic tests; never part of air.elf.
- * Each scenario helper starts from power-up, so tests stay independent. */
+/* helpers the tests share (never built into the firmware). Each "to_" helper
+ * starts again from power-up, so one test can't affect the next */
 #ifndef AIR_HARNESS_H
 #define AIR_HARNESS_H
 
@@ -9,36 +9,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Unlike assert(), CHECK still runs when Bazel uses -DNDEBUG. */
+/* Like assert(), but still works when Bazel builds with -DNDEBUG: prints the
+ * failing line and stops the test */
 #define CHECK(expr) do { if (!(expr)) { \
     fprintf(stderr, "%s:%d: %s\n", __FILE__, __LINE__, #expr); exit(1); \
 } } while (0)
 
-#define PACK_MV 400000u
-#define PRECHARGED_MV 380000 /* exactly 95% of PACK_MV */
+#define PACK_MV 400000u      /* a 400 V pack */
+#define PRECHARGED_MV 380000 /* exactly 95% of PACK_MV, where precharge ends */
 
-/* Weld faults for the AIR this board drives and the AIR the loop closes. */
+/* Weld fault codes for our AIR and the loop's AIR, so the same tests work
+ * whichever AIR this board drives */
 #define WELD_DRIVEN (AIR_CONTROLLED_NEGATIVE ? AIR_FAULT_AIR_N_WELD : AIR_FAULT_AIR_P_WELD)
 #define WELD_LOOP (AIR_CONTROLLED_NEGATIVE ? AIR_FAULT_AIR_P_WELD : AIR_FAULT_AIR_N_WELD)
 
+/* The state machine, its inputs, its CAN data and the clock */
 static air_t a;
 static air_inputs_t in;
 static air_measurements_t d;
 static uint32_t now;
 
-/* Feedback of the AIR this board drives (AIR- by default). */
+/* Our AIR: the one this board switches on (AIR- by default) */
 static inline void set_driven(bool closed) {
     if (AIR_CONTROLLED_NEGATIVE) in.air_n_closed = closed;
     else in.air_p_closed = closed;
 }
 
-/* Feedback of the AIR the shutdown loop closes directly (AIR+ by default). */
+/* The loop's AIR: the one the shutdown loop powers directly (AIR+ by default) */
 static inline void set_loop_air(bool closed) {
     if (AIR_CONTROLLED_NEGATIVE) in.air_p_closed = closed;
     else in.air_n_closed = closed;
 }
 
-/* Advance time with fresh CAN data, then run one step. */
+/* Move the clock forward, mark the CAN data as just arrived, run one step */
 static inline void step(uint32_t ms) {
     now += ms;
     d.bms_ms = now;
@@ -46,12 +49,12 @@ static inline void step(uint32_t ms) {
     air_step(&a, &in, &d, now);
 }
 
-/* Run every millisecond in between, not one big jump. */
+/* Same, but 1 ms at a time like the real main loop, not one big jump */
 static inline void run_ms(uint32_t ms) {
     for (uint32_t i = 0; i < ms; ++i) step(1);
 }
 
-/* Power up with healthy inputs and data. No step has run yet. */
+/* Fresh start with healthy inputs and data; nothing has run yet */
 static inline void power_up(void) {
     now = 0;
     air_init(&a, now);
@@ -59,12 +62,14 @@ static inline void power_up(void) {
     d = (air_measurements_t){.bms_seen = true, .ivt_seen = true, .pack_mv = PACK_MV};
 }
 
+/* Power up and wait out startup */
 static inline void to_idle(void) {
     power_up();
     step(AIR_IMD_SETTLE_MS);
     CHECK(a.state == AIR_STATE_IDLE);
 }
 
+/* Close the loop, then the loop's AIR closes and precharge starts */
 static inline void to_precharge(void) {
     to_idle();
     in.shutdown_closed = AIR_SS_ALL;
@@ -75,6 +80,7 @@ static inline void to_precharge(void) {
     CHECK(a.state == AIR_STATE_PRECHARGE && a.precharge_command);
 }
 
+/* Precharge reaches 95%, our AIR closes and precharge turns off */
 static inline void to_active(void) {
     to_precharge();
     d.tractive_mv = PRECHARGED_MV;
@@ -85,13 +91,14 @@ static inline void to_active(void) {
     CHECK(a.state == AIR_STATE_TS_ACTIVE && a.main_command && !a.precharge_command);
 }
 
-/* Open every node, 1 ms at a time, until the debounce ends closure. */
+/* Open every node, 1 ms at a time, for 3 ms so the TS drops to DISCHARGE */
 static inline void open_loop(void) {
     in.shutdown_closed = 0;
     run_ms(AIR_SHUTDOWN_DEBOUNCE_MS);
     CHECK(a.state == AIR_STATE_DISCHARGE && !a.main_command && !a.precharge_command);
 }
 
+/* Check we're in FAULT with this code and both outputs off */
 static inline void expect_fault(air_fault_t f) {
     CHECK(a.state == AIR_STATE_FAULT && a.fault == f);
     CHECK(!a.main_command && !a.precharge_command);

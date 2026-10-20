@@ -8,12 +8,14 @@ HOST_ONLY = select({
     "//conditions:default": [],
 })
 
+# The state machine and CAN code, shared by the firmware and the tests
 cc_library(
     name = "air_logic",
     srcs = ["air.c", "air_protocol.c"],
     hdrs = ["air.h", "air_config.h", "air_protocol.h"],
 )
 
+# The firmware image for the STM32G441 (build with --config=m4)
 cc_binary(
     name = "air.elf",
     srcs = ["air_board.c", "air_board.h", "air_board_config.c", "air_board_config.h", "air_stm32.c"],
@@ -22,6 +24,7 @@ cc_binary(
     linkopts = ["-T $(location air.ld)", "-Wl,--gc-sections", "-Wl,--no-warn-rwx-segments"],
 )
 
+# Flash, debug and first-time chip setup over SWD
 sh_binary(
     name = "air_flash",
     srcs = ["//common:flash.sh"],
@@ -38,6 +41,7 @@ sh_binary(
 
 sh_binary(name = "air_initialize", srcs = ["//common:setup_chip.sh"])
 
+# The host tests (see the README's test table)
 cc_test(
     name = "air_test",
     srcs = ["tests/air_test.c"],
@@ -66,6 +70,7 @@ cc_test(
     deps = [":air_logic"],
 )
 
+# `bazel test :host_tests` runs all four
 test_suite(
     name = "host_tests",
     tests = [":air_test", ":air_paths_test", ":air_known_issues_test", ":air_invariant_test"],
@@ -76,4 +81,6 @@ dbc_gen(
     name = "air_dbc",
     srcs = ["air.yml", "legacy_bms.yml", "//vehicle/common/gmeter:gmeter.dbc"],
 )
+
+# Lets other packages use air.yml
 exports_files(["air.yml"])

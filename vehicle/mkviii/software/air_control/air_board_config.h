@@ -1,3 +1,4 @@
+/* board settings to fill in once the hardware is known */
 #ifndef AIR_BOARD_CONFIG_H
 #define AIR_BOARD_CONFIG_H
 

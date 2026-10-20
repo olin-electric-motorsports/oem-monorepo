@@ -12,6 +12,7 @@ import tempfile
 
 import cantools
 
+# The repo root and this firmware folder
 ROOT = pathlib.Path(__file__).resolve().parents[5]
 APP = pathlib.Path(__file__).resolve().parents[1]
 
@@ -20,19 +21,24 @@ def main():
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument("--compiler", nargs="+", default=["cc"])
     args = parser.parse_args()
+    # Fixed seed, so every run checks the same cases
     rng = random.Random(441)
     with tempfile.TemporaryDirectory(prefix="air-protocol-") as temp:
         temp = pathlib.Path(temp)
+        # Build the DBC from air.yml, the old BMS file and the IVT DBC
         dbc = temp / "air.dbc"
         subprocess.run([sys.executable, str(ROOT / "common/can_api/dbc_generator.py"),
                         "-o", str(dbc), str(APP / "air.yml"), str(APP / "legacy_bms.yml"),
                         str(ROOT / "vehicle/common/gmeter/gmeter.dbc")], check=True)
         db = cantools.database.load_file(dbc)
+        # Write a C program that checks 512 random BMS, IVT and status messages
+        # against what cantools says they should be
         code = ['#include "vehicle/mkviii/software/air_control/air_protocol.h"',
                 '#include <stdio.h>', '#include <string.h>',
                 '#define CHECK(e) do { if (!(e)) { printf("line %d\\n", __LINE__); return 1; } } while (0)',
                 'int main(void) { air_measurements_t d = {0};']
         for _ in range(512):
+            # BMS: air_decode must agree with cantools
             data = bytes(rng.randrange(256) for _ in range(7))
             decoded = db.decode_message("bms_core", data, decode_choices=False, scaling=False)
             code += ['{ const uint8_t p[7] = {' + ','.join(map(str, data)) + '};',
@@ -40,6 +46,7 @@ def main():
                      f'CHECK(d.bms_state == {decoded["bms_state"]});',
                      f'CHECK(d.bms_fault == {decoded["bms_fault_code"]});',
                      f'CHECK(d.pack_mv == {(decoded["pack_voltage"] * 256 + 5) // 10}); }}']
+            # IVT voltage result: same
             data = bytes([1] + [rng.randrange(256) for _ in range(5)])
             decoded = db.decode_message("IVT_Msg_Result_U1", data, decode_choices=False, scaling=False)
             error = any(decoded[key] for key in decoded if key.endswith(("Error", "OCS")))
@@ -47,6 +54,7 @@ def main():
                      'CHECK(air_decode(&d, AIR_CAN_IVT_ID, p, 6, 42));',
                      f'CHECK(d.tractive_mv == {decoded["IVT_Result_U1"]});',
                      f'CHECK(d.ivt_error == {int(error)}); }}']
+            # Our status message: air_encode_status must give the same bytes
             fault, state = rng.randrange(17), rng.randrange(7)
             signals = dict(air_fault=fault, air_state=state)
             flags = ["air_p_status", "air_n_status", "ss_tsms", "ss_imd", "ss_mpc",
@@ -60,6 +68,7 @@ def main():
                      'uint8_t p[4]; const uint8_t expected[4] = {' + ','.join(map(str, expected)) + '};',
                      'air_encode_status(p, &a, &in); CHECK(memcmp(p, expected, 4) == 0); }']
         code += ['puts("PASS: 1536 C codec comparisons with cantools/DBC"); return 0; }']
+        # Compile it with the real air_protocol.c and run it
         fixture = temp / "vectors.c"
         fixture.write_text('\n'.join(code))
         exe = temp / "vectors.exe"

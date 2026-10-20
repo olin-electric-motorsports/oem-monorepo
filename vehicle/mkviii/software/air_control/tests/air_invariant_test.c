@@ -1,13 +1,13 @@
-/* Randomized safety test for air_step().
+/* random test: a simple model of the car drives the firmware for 10 million
+ * 1 ms steps (about 3 hours), with faults thrown in, and checks the rules in
+ * check_rules() after every step: the safety rules, plus four rules against
+ * false alarms. The same seed always gives the same run, and a failure prints
+ * the command to rerun it.
  *
- * A small model of the car drives the state machine the way the firmware's
- * main loop does: sample the inputs, decode CAN frames, step. The model has
- * the shutdown loop, both AIRs, the precharge relay, the DC link, and BMS and
- * IVT frames. Each power-up, a simulated driver opens and closes the loop,
- * one scenario from scenario_t may inject a fault, and timing jumps, lost
- * frames and rare input glitches happen throughout. After every step the
- * rules in check_rules() must hold: the safety rules, and four rules against
- * false alarms.
+ * The model has the shutdown loop, both AIRs, the precharge relay, the DC
+ * link, and BMS and IVT CAN messages. Each power-up a pretend driver opens and
+ * closes the loop, one scenario from scenario_t may add a fault, and late main
+ * loops, lost messages and rare input glitches happen all the time.
  *
  * Usage: air_invariant_test [seed] [steps]
  */
@@ -20,7 +20,7 @@
 #define DEFAULT_SEED 0x41495231ull /* "AIR1" */
 #define DEFAULT_STEPS 10000000ul   /* about 3 hours of simulated time */
 
-/* Random numbers: xorshift64*, the same sequence on every platform. */
+/* Random numbers that come out the same on every computer (xorshift64*) */
 static uint64_t rng;
 
 static uint32_t rnd(void) {
@@ -30,26 +30,28 @@ static uint32_t rnd(void) {
     return (uint32_t)((rng * 2685821657736338717ull) >> 32);
 }
 
+/* A random number from lo to hi, and true about 1 time in n */
 static uint32_t between(uint32_t lo, uint32_t hi) { return lo + rnd() % (hi - lo + 1u); }
 static bool one_in(uint32_t n) { return rnd() % n == 0u; }
 
-/* Uniform noise in [-amplitude, +amplitude]. */
+/* Random noise between -amplitude and +amplitude */
 static double noise(double amplitude) {
     return amplitude * ((double)between(0, 2000) - 1000.0) / 1000.0;
 }
 
-/* True once time t has reached the deadline, across 32-bit wraparound. */
+/* True once time t has reached the deadline, even when the ms counter wraps */
 static bool reached(uint32_t t, uint32_t deadline) {
     return (uint32_t)(t - deadline) < 0x80000000u;
 }
 
-/* A contactor whose contacts follow its coil after a delay. */
+/* A contactor whose contacts follow its coil after a delay */
 typedef struct {
-    bool coil, contact;
-    bool welded, stuck_open, reads_open, reads_closed;
-    uint32_t coil_ms, close_ms, open_ms;
+    bool coil, contact;                                 /* coil powered; contacts closed */
+    bool welded, stuck_open, reads_open, reads_closed; /* faults it can have */
+    uint32_t coil_ms, close_ms, open_ms;                /* coil change time; close and open delays */
 } contactor_t;
 
+/* A contactor that closes in close_lo to close_hi ms and opens in 2 to 30 ms */
 static contactor_t new_contactor(uint32_t close_lo, uint32_t close_hi) {
     contactor_t c = {0};
     c.close_ms = between(close_lo, close_hi);
@@ -57,6 +59,8 @@ static contactor_t new_contactor(uint32_t close_lo, uint32_t close_hi) {
     return c;
 }
 
+/* Move the contacts to match the coil once the delay has passed; a weld
+ * holds them shut */
 static void contactor_update(contactor_t *c, bool coil, uint32_t t) {
     if (coil != c->coil) {
         c->coil = coil;
@@ -68,81 +72,86 @@ static void contactor_update(contactor_t *c, bool coil, uint32_t t) {
     if (target != c->contact && (uint32_t)(t - c->coil_ms) >= delay) c->contact = target;
 }
 
+/* What the feedback wire says, which a broken wire can get wrong */
 static bool reads_closed(const contactor_t *c) {
     if (c->reads_closed) return true;
     if (c->reads_open) return false;
     return c->contact;
 }
 
-/* At most one scenario per power-up. */
+/* At most one scenario per power-up */
 typedef enum {
-    S_NONE,
+    S_NONE,                   /* no fault */
     S_WELD_LOOP_AIR,          /* the AIR the loop closes welds shut */
     S_WELD_DRIVEN_AIR,        /* the AIR this board drives welds shut */
-    S_LOOP_AIR_STUCK_OPEN,
-    S_DRIVEN_AIR_STUCK_OPEN,
+    S_LOOP_AIR_STUCK_OPEN,    /* the loop's AIR never closes */
+    S_DRIVEN_AIR_STUCK_OPEN,  /* our AIR never closes */
     S_SLOW_CONTACTOR,         /* closes after AIR_CONTACTOR_CLOSE_MS */
     S_DRIVEN_FEEDBACK_OPEN,   /* broken feedback wire */
-    S_FEEDBACK_CLOSED_AT_BOOT,
+    S_FEEDBACK_CLOSED_AT_BOOT, /* feedback reads closed from power-up */
     S_NO_PRECHARGE,           /* open precharge resistor */
-    S_SLOW_PRECHARGE,
-    S_SLOW_DISCHARGE,
+    S_SLOW_PRECHARGE,         /* precharge time constant of 2 to 4 s */
+    S_SLOW_DISCHARGE,         /* discharge time constant of 3 to 8 s */
     S_CHARGED_AT_BOOT,        /* DC link charged, discharge circuit dead */
-    S_TSMS_CLOSED_AT_BOOT,
+    S_TSMS_CLOSED_AT_BOOT,    /* the loop is already closed at power-up */
     S_QUICK_RECLOSE,          /* driver closes the loop again while discharging */
     S_NODE_SENSE_FAULT,       /* one node reads wrong for a few ms, every few seconds */
     S_NOISY_INPUTS,           /* frequent 1 ms glitches */
-    S_IMD_FAULT,
-    S_BMS_SILENT,
-    S_IVT_SILENT,
-    S_BMS_FAULT_BIT,
-    S_BMS_FAULT_STATE,
-    S_BMS_CHARGING,
-    S_PACK_LOW,
-    S_IVT_ERROR,
-    S_IVT_NEGATIVE,
-    S_WATCHDOG_RESETS,
+    S_IMD_FAULT,              /* the IMD reports a fault for a moment */
+    S_BMS_SILENT,             /* the BMS stops sending for over 1 s */
+    S_IVT_SILENT,             /* the IVT stops sending for over 0.5 s */
+    S_BMS_FAULT_BIT,          /* the BMS sets one fault bit */
+    S_BMS_FAULT_STATE,        /* the BMS goes into its fault state */
+    S_BMS_CHARGING,           /* the BMS says it's charging */
+    S_PACK_LOW,               /* pack under 200 V */
+    S_IVT_ERROR,              /* the IVT sets an error flag */
+    S_IVT_NEGATIVE,           /* one negative voltage reading */
+    S_WATCHDOG_RESETS,        /* the controller keeps resetting */
     SCENARIO_COUNT
 } scenario_t;
 
+/* Everything about the simulated car for one power-up */
 typedef struct {
-    scenario_t scenario;
+    scenario_t scenario;        /* which fault this power-up has */
     uint32_t end_ms;            /* power-up ends at the first IDLE after this */
     uint32_t event_ms;          /* when the scenario's fault starts */
     bool event_done;
     bool loop;                  /* the real shutdown loop is closed */
     uint32_t toggle_ms;         /* when the driver next opens or closes it */
     uint8_t open_nodes;         /* nodes that still read closed while it is open */
-    bool sensing_wrong;
+    bool sensing_wrong;         /* a node is reading wrong: which one, until when */
     uint8_t wrong_node;
     uint32_t sensing_wrong_until;
-    bool imd_ok;
+    bool imd_ok;                /* IMD health, and when a bad spell ends */
     uint32_t imd_bad_until;
-    bool bms_quiet, ivt_quiet;
+    bool bms_quiet, ivt_quiet;  /* BMS or IVT not sending, and until when */
     uint32_t bms_quiet_until, ivt_quiet_until;
-    uint16_t bms_fault_bits;
+    uint16_t bms_fault_bits;    /* what the BMS and IVT report */
     bool bms_fault_state, ivt_error, ivt_negative;
     contactor_t loop_air, driven_air, precharge;
-    double pack_v, link_v, tau_precharge_ms, tau_discharge_ms;
-    uint32_t bms_next, ivt_next, reset_ms;
-    uint8_t ivt_counter;
-    bool faulted;
+    double pack_v, link_v, tau_precharge_ms, tau_discharge_ms; /* volts; time constants */
+    uint32_t bms_next, ivt_next, reset_ms; /* next BMS and IVT messages; next reset */
+    uint8_t ivt_counter;        /* the IVT's message counter */
+    bool faulted;               /* the firmware latched a fault */
     uint32_t restart_ms;        /* the car is power-cycled after a fault */
 } plant_t;
 
+/* The simulated car, the firmware's state, inputs and CAN data, and the clock */
 static plant_t p;
 static air_t a;
 static air_inputs_t in;
 static air_measurements_t data;
-static uint32_t now, boot_ms;
+static uint32_t now, boot_ms;   /* boot_ms: when the controller last started */
 static uint32_t loop_closed_ms; /* last step on which all 7 nodes read closed */
 static uint32_t plausible_ms;   /* last step on which TSMS read open or all 7 closed */
 static uint64_t seed;
+/* Counters for the summary at the end */
 static unsigned long step_no, power_ups, active_entries, held_steps;
 static unsigned long idle_glitch_steps, idle_implausible_faults;
 static unsigned long state_entries[AIR_STATE_FAULT + 1];
 static unsigned long faults[AIR_FAULT_IVT_STATUS + 1];
 
+/* Fault names for printing; the assert makes sure there's one per fault code */
 static const char *const fault_names[] = {
     "NONE", "AIR_N_WELD", "AIR_P_WELD", "BOTH_AIRS_WELD", "PRECHARGE_FAIL",
     "DISCHARGE_FAIL", "PRECHARGE_FAIL_RELAY_WELDED", "CAN_ERROR", "CAN_BMS_TIMEOUT",
@@ -156,6 +165,8 @@ static const char *fault_name(air_fault_t f) {
     return (unsigned)f <= AIR_FAULT_IVT_STATUS ? fault_names[f] : "invalid";
 }
 
+/* A rule broke: print which one, what was going on, and the command to rerun
+ * this exact case, then stop */
 static void fail(const char *rule) {
     fprintf(stderr, "RULE BROKEN: %s\n", rule);
     fprintf(stderr, "  seed %llu, step %lu, time %lu ms, scenario %d\n",
@@ -171,13 +182,15 @@ static void fail(const char *rule) {
     exit(1);
 }
 
-/* Power-up or reset: the controller starts over and RAM is cleared. */
+/* Power-up or reset: the controller starts over and RAM is cleared */
 static void boot_controller(void) {
     air_init(&a, now);
     data = (air_measurements_t){0};
     boot_ms = now;
 }
 
+/* A new power-up: pick a scenario (none 30% of the time) and random values
+ * for the car */
 static void start_power_up(void) {
     ++power_ups;
     p = (plant_t){0};
@@ -195,6 +208,7 @@ static void start_power_up(void) {
     p.bms_next = now + between(1, 10);
     p.ivt_next = now + between(1, 10);
 
+    /* Scenarios that change the car from the start */
     switch (p.scenario) {
     case S_LOOP_AIR_STUCK_OPEN: p.loop_air.stuck_open = true; break;
     case S_DRIVEN_AIR_STUCK_OPEN: p.driven_air.stuck_open = true; break;
@@ -226,6 +240,7 @@ static void start_power_up(void) {
     boot_controller();
 }
 
+/* Scenarios that start partway through: start the fault once its time comes */
 static void scenario_event(void) {
     if (p.event_done || !reached(now, p.event_ms)) return;
     p.event_done = true;
@@ -259,7 +274,7 @@ static void scenario_event(void) {
     }
 }
 
-/* The driver closes the loop after power-up, then opens and closes it at random. */
+/* The driver closes the loop after power-up, then opens and closes it at random */
 static void driver(void) {
     if (!reached(now, p.toggle_ms)) return;
     p.loop = !p.loop;
@@ -274,12 +289,15 @@ static void driver(void) {
     else p.toggle_ms = now + between(5000, 12000);
 }
 
+/* Move the contactors and the DC link voltage forward by dt ms */
 static void plant_update(uint32_t dt) {
     contactor_update(&p.loop_air, p.loop, now);
     /* This board's driver and the precharge relay coil both get loop power. */
     contactor_update(&p.driven_air, p.loop && a.main_command, now);
     contactor_update(&p.precharge, p.loop && a.precharge_command, now);
 
+    /* The DC link charges toward the pack through the resistor or our AIR,
+     * and drains through the discharge circuit while the loop is open */
     const bool through_resistor = p.precharge.contact && p.scenario != S_NO_PRECHARGE;
     double target = 0.0, tau_ms = 60000.0; /* an isolated DC link leaks slowly */
     if (p.loop_air.contact && (p.driven_air.contact || through_resistor)) {
@@ -293,6 +311,8 @@ static void plant_update(uint32_t dt) {
     p.link_v += (target - p.link_v) * k;
 }
 
+/* Read the inputs like the board would: shutdown nodes (with glitches), the
+ * IMD and the AIR feedback wires */
 static void sense(void) {
     uint8_t nodes = p.loop ? (uint8_t)AIR_SS_ALL : p.open_nodes;
     if (p.sensing_wrong) {
@@ -310,11 +330,13 @@ static void sense(void) {
     in.air_n_closed = AIR_CONTROLLED_NEGATIVE ? driven_fb : loop_fb;
 }
 
+/* True if this CAN message gets lost: during a quiet spell, or 1 in 200 at random */
 static bool frame_lost(bool *quiet, uint32_t until) {
     if (*quiet && reached(now, until)) *quiet = false;
     return *quiet || one_in(200);
 }
 
+/* Every 10 ms, send a BMS message as real CAN bytes through the firmware's decoder */
 static void send_bms(void) {
     if (!reached(now, p.bms_next)) return;
     p.bms_next = now + 10u; /* 100 Hz */
@@ -327,6 +349,7 @@ static void send_bms(void) {
     if (!air_decode(&data, AIR_CAN_BMS_ID, frame, sizeof frame, now)) fail("BMS frames decode");
 }
 
+/* Same for the IVT's DC link voltage message, with 0.3 V of noise */
 static void send_ivt(void) {
     if (!reached(now, p.ivt_next)) return;
     p.ivt_next = now + 10u;
@@ -347,6 +370,7 @@ static void send_ivt(void) {
     if (!air_decode(&data, AIR_CAN_IVT_ID, frame, sizeof frame, now)) fail("IVT frames decode");
 }
 
+/* The same freshness and health checks the firmware makes on CAN data */
 static bool data_healthy(void) {
     return data.bms_seen && (uint32_t)(now - data.bms_ms) < AIR_BMS_TIMEOUT_MS &&
            data.ivt_seen && (uint32_t)(now - data.ivt_ms) < AIR_IVT_TIMEOUT_MS &&
@@ -354,7 +378,7 @@ static bool data_healthy(void) {
            !data.ivt_error && data.tractive_mv >= 0;
 }
 
-/* The rules. They must hold after every step, whatever the inputs. */
+/* The rules. They must hold after every step, whatever the inputs */
 static void check_rules(const air_t *before) {
     const bool driven_closed = AIR_CONTROLLED_NEGATIVE ? in.air_n_closed : in.air_p_closed;
     const bool loop_air_closed = AIR_CONTROLLED_NEGATIVE ? in.air_p_closed : in.air_n_closed;
@@ -373,6 +397,7 @@ static void check_rules(const air_t *before) {
     const bool turned_on = (a.main_command && !before->main_command) ||
                            (a.precharge_command && !before->precharge_command);
 
+    /* Safety rules */
     if ((unsigned)a.state > AIR_STATE_FAULT) fail("the state is always a valid value");
     if (a.main_command && a.state != AIR_STATE_TS_ACTIVE)
         fail("AIR- is only commanded in TS_ACTIVE");
@@ -423,6 +448,7 @@ static void check_rules(const air_t *before) {
     }
 }
 
+/* Count states and faults for the summary, and power-cycle the car after a fault */
 static void record(const air_t *before) {
     if (a.state != before->state) {
         ++state_entries[a.state];
@@ -440,6 +466,8 @@ static void record(const air_t *before) {
     p.restart_ms = now + between(50, 1500);
 }
 
+/* Run the steps, then print a summary and make sure the model really reached
+ * every fault and state */
 int main(int argc, char **argv) {
     seed = argc > 1 ? strtoull(argv[1], NULL, 0) : DEFAULT_SEED;
     const unsigned long steps = argc > 2 ? strtoul(argv[2], NULL, 0) : DEFAULT_STEPS;
@@ -456,6 +484,7 @@ int main(int argc, char **argv) {
             boot_controller();
             p.reset_ms = now + between(2000, 10000);
         }
+        /* The same order as the firmware's main loop: inputs, CAN, then one step */
         plant_update(dt);
         sense();
         if (in.shutdown_closed == AIR_SS_ALL) loop_closed_ms = now;

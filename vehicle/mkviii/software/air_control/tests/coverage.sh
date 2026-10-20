@@ -5,6 +5,7 @@
 # Usage: tests/coverage.sh [minimum_percent]
 set -euo pipefail
 
+# This firmware folder, the repo root, the minimum percent, and a scratch folder
 APP="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ROOT="$(cd "$APP/../../../.." && pwd)"
 MIN="${1:-100}"
@@ -13,6 +14,7 @@ WORK="$(mktemp -d)"
 trap 'rm -rf "$WORK"' EXIT
 
 status=0
+# For each AIR wiring: build with coverage, run all four tests, then check gcov's totals
 for negative in 1 0; do
     out="$WORK/negative_$negative"
     mkdir -p "$out"
@@ -26,6 +28,7 @@ for negative in 1 0; do
 
     echo "AIR_CONTROLLED_NEGATIVE=$negative"
     (cd "$out" && gcov -b -o "$out" "$APP/air.c" "$APP/air_protocol.c") > "$out/gcov.txt"
+    # Print line and branch percent for each file; fail if any is under the minimum
     if ! awk -v min="$MIN" '
         /^File / { name = $2; gsub(/\047/, "", name); sub(/.*\//, "", name) }
         /^(Lines executed|Taken at least once):/ {

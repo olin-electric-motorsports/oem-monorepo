@@ -8,7 +8,7 @@
  * Nothing is open right now. To add a problem, write a check that returns
  * true once it's fixed (the helpers in air_harness.h make this easy) and add
  * it to issues[] above the end marker */
-#include "vehicle/mkviii/software/air_control/tests/air_harness.h"
+#include "air_harness.h"
 
 /* One known problem: what it is, and a check that returns true once fixed */
 typedef struct {

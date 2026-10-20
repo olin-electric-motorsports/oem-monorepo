@@ -11,9 +11,9 @@
  *
  * Usage: air_invariant_test [seed] [steps]
  */
-#include "vehicle/mkviii/software/air_control/air.h"
-#include "vehicle/mkviii/software/air_control/air_config.h"
-#include "vehicle/mkviii/software/air_control/air_protocol.h"
+#include "air.h"
+#include "air_config.h"
+#include "air_protocol.h"
 #include <stdio.h>
 #include <stdlib.h>
 

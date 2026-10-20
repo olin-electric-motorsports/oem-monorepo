@@ -1,23 +1,30 @@
+/* the firmware's main program for the STM32G441: sets up the clock, pins, CAN
+ * and watchdog, then runs the state machine every 1 ms */
 #include "air_board.h"
 #include "air_board_config.h"
 #include "air_protocol.h"
 
-static FDCAN_HandleTypeDef can;
-static IWDG_HandleTypeDef watchdog;
+static FDCAN_HandleTypeDef can;     /* the CAN peripheral */
+static IWDG_HandleTypeDef watchdog; /* resets the chip if the main loop stops */
 
+/* 1 ms tick behind HAL_GetTick() */
 void SysTick_Handler(void) { HAL_IncTick(); }
 
+/* Something went badly wrong: outputs off and stop. The watchdog, if it was
+ * started, then resets the chip */
 static void stop(void) {
     air_board_safe();
     __disable_irq();
     for (;;) { /* If started, IWDG resets us; no automatic re-arm with TSMS closed. */ }
 }
+/* CPU crashes all end up in stop() */
 void HardFault_Handler(void) { stop(); }
 void MemManage_Handler(void) { stop(); }
 void BusFault_Handler(void) { stop(); }
 void UsageFault_Handler(void) { stop(); }
 void NMI_Handler(void) { stop(); }
 
+/* Run from the internal 16 MHz oscillator, and clock CAN from it too */
 static bool clock_init(void) {
     /* Avoid assuming an external crystal exists on the as-yet-unassigned PCB. */
     RCC_OscInitTypeDef osc = {0};
@@ -26,7 +33,7 @@ static bool clock_init(void) {
     osc.OscillatorType = RCC_OSCILLATORTYPE_HSI | RCC_OSCILLATORTYPE_LSI;
     osc.HSIState = RCC_HSI_ON;
     osc.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-    osc.LSIState = RCC_LSI_ON;
+    osc.LSIState = RCC_LSI_ON; /* the watchdog's clock */
     osc.PLL.PLLState = RCC_PLL_NONE;
     if (HAL_RCC_OscConfig(&osc) != HAL_OK) return false;
     clk.ClockType = RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
@@ -40,6 +47,7 @@ static bool clock_init(void) {
     return HAL_RCCEx_PeriphCLKConfig(&periph) == HAL_OK;
 }
 
+/* Classic CAN at 500 kbit/s that only lets the BMS and IVT messages in */
 static bool can_init(void) {
     __HAL_RCC_FDCAN_CLK_ENABLE();
     can.Instance = FDCAN1;
@@ -53,7 +61,7 @@ static bool can_init(void) {
     can.Init.NominalSyncJumpWidth = AIR_CAN_SJW;
     can.Init.NominalTimeSeg1 = AIR_CAN_SEG1;
     can.Init.NominalTimeSeg2 = AIR_CAN_SEG2;
-    can.Init.DataPrescaler = 1;
+    can.Init.DataPrescaler = 1; /* CAN FD data phase: unused */
     can.Init.DataSyncJumpWidth = 1;
     can.Init.DataTimeSeg1 = 1;
     can.Init.DataTimeSeg2 = 1;
@@ -61,6 +69,7 @@ static bool can_init(void) {
     can.Init.ExtFiltersNbr = 0;
     can.Init.TxFifoQueueMode = FDCAN_TX_FIFO_OPERATION;
     if (HAL_FDCAN_Init(&can) != HAL_OK) return false;
+    /* One filter that accepts just the BMS and IVT IDs; everything else is dropped */
     FDCAN_FilterTypeDef filter = {0};
     filter.IdType = FDCAN_STANDARD_ID;
     filter.FilterIndex = 0;
@@ -74,6 +83,8 @@ static bool can_init(void) {
     return HAL_FDCAN_Start(&can) == HAL_OK;
 }
 
+/* Read up to 3 waiting messages into data. False means a CAN error: the bus
+ * is off, or a message was lost */
 static bool can_receive(air_measurements_t *data, uint32_t now) {
     FDCAN_ProtocolStatusTypeDef status;
     if (HAL_FDCAN_GetProtocolStatus(&can, &status) != HAL_OK || status.BusOff) return false;
@@ -83,8 +94,10 @@ static bool can_receive(air_measurements_t *data, uint32_t now) {
         FDCAN_RxHeaderTypeDef rx;
         uint8_t bytes[64]; /* HAL copies the DLC length, including unexpected FD frames. */
         if (HAL_FDCAN_GetRxMessage(&can, FDCAN_RX_FIFO0, &rx, bytes) != HAL_OK) return false;
+        /* Skip extended, remote and CAN FD frames */
         if (rx.IdType != FDCAN_STANDARD_ID || rx.RxFrameType != FDCAN_DATA_FRAME ||
             rx.FDFormat != FDCAN_CLASSIC_CAN) continue;
+        /* Only 7-byte (BMS) and 6-byte (IVT) messages can be ours */
         size_t length;
         if (rx.DataLength == FDCAN_DLC_BYTES_7) length = 7;
         else if (rx.DataLength == FDCAN_DLC_BYTES_6) length = 6;
@@ -94,6 +107,7 @@ static bool can_receive(air_measurements_t *data, uint32_t now) {
     return true;
 }
 
+/* Send our 4-byte status message */
 static bool can_send(const air_t *air, const air_inputs_t *in) {
     FDCAN_TxHeaderTypeDef tx = {0};
     uint8_t bytes[AIR_CAN_STATUS_BYTES];
@@ -109,6 +123,8 @@ static bool can_send(const air_t *air, const air_inputs_t *in) {
     return HAL_FDCAN_AddMessageToTxFifoQ(&can, &tx, bytes) == HAL_OK;
 }
 
+/* Set up, then every 1 ms: read the inputs and CAN, run the state machine,
+ * set the outputs, send our status every 63 ms, and feed the watchdog */
 int main(void) {
     HAL_Init();
     if (!clock_init()) stop();
@@ -117,7 +133,7 @@ int main(void) {
     air_init(&air, HAL_GetTick());
     bool board_ok = air_board_init();
     bool can_ok = board_ok && can_init();
-    if (!board_ok) air_trip(&air, AIR_FAULT_BOARD_CONFIG);
+    if (!board_ok) air_trip(&air, AIR_FAULT_BOARD_CONFIG); /* pin table not filled in or bad */
     else if (!can_ok) air_trip(&air, AIR_FAULT_CAN_ERROR);
     air_board_safe();
 
@@ -131,7 +147,7 @@ int main(void) {
     uint32_t last_status = last_step;
     for (;;) {
         uint32_t now = HAL_GetTick();
-        if (now == last_step) continue;
+        if (now == last_step) continue; /* wait for the next 1 ms tick */
         last_step = now;
         air_inputs_t in = air_board_read();
         if (can_ok && !can_receive(&data, now)) air_trip(&air, AIR_FAULT_CAN_ERROR);

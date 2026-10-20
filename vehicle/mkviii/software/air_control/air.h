@@ -1,10 +1,11 @@
+/* types and functions for the AIR state machine in air.c */
 #ifndef AIR_H
 #define AIR_H
 
 #include <stdbool.h>
 #include <stdint.h>
 
-/* Preserve the legacy CAN enum numbers; append new faults only. */
+/* Fault codes, sent on CAN. Keep the old numbers; only add new ones at the end */
 typedef enum {
     AIR_FAULT_NONE, AIR_FAULT_AIR_N_WELD, AIR_FAULT_AIR_P_WELD,
     AIR_FAULT_BOTH_AIRS_WELD, AIR_FAULT_PRECHARGE_FAIL,
@@ -16,12 +17,14 @@ typedef enum {
     AIR_FAULT_CONTACTOR_FEEDBACK, AIR_FAULT_IVT_STATUS
 } air_fault_t;
 
+/* States, also sent on CAN */
 typedef enum {
     AIR_STATE_INIT, AIR_STATE_IDLE, AIR_STATE_SHUTDOWN_CIRCUIT_CLOSED,
     AIR_STATE_PRECHARGE, AIR_STATE_TS_ACTIVE, AIR_STATE_DISCHARGE,
     AIR_STATE_FAULT
 } air_state_t;
 
+/* One bit per shutdown node. TSMS is the last node in the loop */
 enum {
     AIR_SS_TSMS = 1u << 0, AIR_SS_IMD = 1u << 1,
     AIR_SS_MPC = 1u << 2, AIR_SS_TSMP = 1u << 3,
@@ -29,33 +32,39 @@ enum {
     AIR_SS_EMETER = 1u << 6, AIR_SS_ALL = 0x7fu
 };
 
-/* Values are logical states AFTER conversion from board-specific polarity. */
+/* Inputs, read every 1 ms. Already flipped for each pin's polarity, so true
+ * always means closed / OK */
 typedef struct {
-    uint8_t shutdown_closed;
+    uint8_t shutdown_closed; /* one bit per node, set = closed */
     bool imd_ok, air_p_closed, air_n_closed;
 } air_inputs_t;
 
+/* The latest BMS and IVT data from CAN, and when each last arrived */
 typedef struct {
-    bool bms_seen, ivt_seen;
-    uint32_t bms_ms, ivt_ms, pack_mv;
-    int32_t tractive_mv;
-    uint16_t bms_fault;
-    uint8_t bms_state;
-    bool ivt_error;
+    bool bms_seen, ivt_seen;          /* heard at least once since power-up */
+    uint32_t bms_ms, ivt_ms, pack_mv; /* arrival times; pack voltage */
+    int32_t tractive_mv;              /* DC link voltage from the IVT */
+    uint16_t bms_fault;               /* BMS fault bits; 0 means none */
+    uint8_t bms_state;                /* 0 and 1 (charging) are fine; 2 and up is a fault */
+    bool ivt_error;                   /* the IVT reports an error */
 } air_measurements_t;
 
+/* The state machine's memory */
 typedef struct {
     air_state_t state;
-    air_fault_t fault;
-    uint32_t entered_ms;
-    uint32_t loop_closed_ms; /* last step on which all seven nodes read closed */
-    uint32_t plausible_ms;   /* last step on which TSMS read open or all seven closed */
-    bool contactor_confirmed;
-    bool main_command, precharge_command;
+    air_fault_t fault;        /* the first fault, or NONE */
+    uint32_t entered_ms;      /* when the current state started */
+    uint32_t loop_closed_ms;  /* last step on which all seven nodes read closed */
+    uint32_t plausible_ms;    /* last step on which TSMS read open or all seven closed */
+    bool contactor_confirmed; /* our AIR has read closed since TS_ACTIVE started */
+    bool main_command, precharge_command; /* the outputs: our AIR, and precharge */
 } air_t;
 
+/* Start fresh, in INIT */
 void air_init(air_t *air, uint32_t now);
+/* Fault right now */
 void air_trip(air_t *air, air_fault_t fault);
+/* Run once every 1 ms */
 void air_step(air_t *air, const air_inputs_t *in,
               const air_measurements_t *data, uint32_t now);
 

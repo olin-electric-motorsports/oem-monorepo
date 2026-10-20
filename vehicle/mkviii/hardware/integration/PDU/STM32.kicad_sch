@@ -9131,6 +9131,17 @@
 		)
 		(uuid "58ef3063-34cd-41f1-bb73-93673a7f1fa6")
 	)
+	(hierarchical_label "3.3V_OUT"
+		(shape input)
+		(at 144.78 93.98 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "701bb234-4fb9-435b-8a73-4ba61161591b")
+	)
 	(hierarchical_label "SS_MC"
 		(shape input)
 		(at 105.41 41.91 0)
@@ -23418,6 +23429,52 @@
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1"
 					(reference "C16")
 					(unit 1)
+				)
+			)
+		)
+	)
+	(sheet
+		(at 144.78 88.9)
+		(size 12.7 10.16)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "c84b6096-a062-409d-bc22-5647385823b9")
+		(property "Sheetname" "3V_Buck"
+			(at 144.78 88.1884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "3V_Buck.kicad_sch"
+			(at 144.78 99.6446 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "PDU"
+				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1"
+					(page "10")
 				)
 			)
 		)

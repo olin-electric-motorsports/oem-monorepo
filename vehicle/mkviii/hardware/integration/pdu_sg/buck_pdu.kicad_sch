@@ -1686,10 +1686,22 @@
 		(uuid "743ee669-bffd-4c3d-9762-3fb2f2c04a25")
 	)
 	(junction
+		(at 193.04 106.68)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "41085d5b-1c35-4097-9907-9ad9df8500c2")
+	)
+	(junction
 		(at 156.21 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5a7f80fd-5efc-4c31-bddf-9dba9aecbbd8")
+	)
+	(junction
+		(at 193.04 99.06)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8df507ee-e4d1-41df-b8e5-8ce93daf8c86")
 	)
 	(junction
 		(at 105.41 91.44)
@@ -1728,7 +1740,7 @@
 		(uuid "e5faed16-9a67-400e-bd88-10a86e9fcd41")
 	)
 	(junction
-		(at 189.23 93.98)
+		(at 193.04 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f9190d4f-0275-4390-b335-19aabd35a442")
@@ -1752,16 +1764,6 @@
 			(type default)
 		)
 		(uuid "0fed5cd7-ee14-434b-90d4-3c189dd97399")
-	)
-	(wire
-		(pts
-			(xy 189.23 105.41) (xy 189.23 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "13eeae21-f566-49a2-a1b5-90625937aaef")
 	)
 	(wire
 		(pts
@@ -1812,6 +1814,16 @@
 			(type default)
 		)
 		(uuid "4614f0ed-de74-4a83-9e26-d1543b674116")
+	)
+	(wire
+		(pts
+			(xy 189.23 99.06) (xy 193.04 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "46b130e7-329a-444c-af69-709d95c2818f")
 	)
 	(wire
 		(pts
@@ -1875,6 +1887,26 @@
 	)
 	(wire
 		(pts
+			(xy 189.23 106.68) (xy 196.85 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7f0368e4-3538-4f98-8d59-d27ea5fe5a68")
+	)
+	(wire
+		(pts
+			(xy 193.04 99.06) (xy 196.85 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8c9d1b0c-6913-4b8b-a415-858f24473c88")
+	)
+	(wire
+		(pts
 			(xy 176.53 93.98) (xy 177.8 93.98)
 		)
 		(stroke
@@ -1935,13 +1967,23 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 116.84) (xy 189.23 113.03)
+			(xy 193.04 106.68) (xy 193.04 110.49)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "e9da843a-ec6a-4f08-901c-10db4b67036b")
+	)
+	(wire
+		(pts
+			(xy 193.04 99.06) (xy 193.04 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f58e8477-37f7-42a0-b79d-55db9afe5d81")
 	)
 	(hierarchical_label "3V3_buck_vin"
 		(shape input)
@@ -2045,7 +2087,8 @@
 	)
 	(symbol
 		(lib_id "OEM:C_22uF_25V_1206")
-		(at 189.23 97.79 0)
+		(at 189.23 102.87 0)
+		(mirror y)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2053,10 +2096,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "21a6b210-7736-4a4d-971d-bfab378ae5bf")
 		(property "Reference" "C20"
-			(at 193.04 96.5199 0)
+			(at 185.42 101.5999 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2067,7 +2109,7 @@
 			)
 		)
 		(property "Value" "C_22uF"
-			(at 193.04 99.0599 0)
+			(at 185.42 104.1399 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2078,7 +2120,7 @@
 			)
 		)
 		(property "Footprint" "OEM:C_1206_3216Metric"
-			(at 190.1952 101.6 0)
+			(at 188.2648 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2089,7 +2131,7 @@
 			)
 		)
 		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
-			(at 189.23 97.79 0)
+			(at 189.23 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2100,7 +2142,7 @@
 			)
 		)
 		(property "Description" "CAP CER 22UF 25V X5R 1206"
-			(at 189.23 97.79 0)
+			(at 189.23 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2111,7 +2153,7 @@
 			)
 		)
 		(property "MPN" "CL31A226KAHNNNE"
-			(at 189.23 97.79 0)
+			(at 189.23 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2951,7 +2993,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 189.23 116.84 0)
+		(at 193.04 110.49 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2962,7 +3004,7 @@
 		(fields_autoplaced yes)
 		(uuid "93162f43-f7d2-4691-8e3d-16652e37141e")
 		(property "Reference" "#PWR058"
-			(at 189.23 123.19 0)
+			(at 193.04 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2973,7 +3015,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 189.23 121.92 0)
+			(at 193.04 115.57 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2983,7 +3025,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 189.23 116.84 0)
+			(at 193.04 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2994,7 +3036,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 189.23 116.84 0)
+			(at 193.04 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3005,7 +3047,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 189.23 116.84 0)
+			(at 193.04 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3316,7 +3358,7 @@
 	)
 	(symbol
 		(lib_id "OEM:C_22uF_25V_1206")
-		(at 189.23 109.22 0)
+		(at 196.85 102.87 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3327,7 +3369,7 @@
 		(fields_autoplaced yes)
 		(uuid "fd0f5287-ccd2-42e4-b53a-7ea46e7fdfb5")
 		(property "Reference" "C19"
-			(at 193.04 107.9499 0)
+			(at 200.66 101.5999 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3338,7 +3380,7 @@
 			)
 		)
 		(property "Value" "C_22uF"
-			(at 193.04 110.4899 0)
+			(at 200.66 104.1399 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3349,7 +3391,7 @@
 			)
 		)
 		(property "Footprint" "OEM:C_1206_3216Metric"
-			(at 190.1952 113.03 0)
+			(at 197.8152 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3360,7 +3402,7 @@
 			)
 		)
 		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
-			(at 189.23 109.22 0)
+			(at 196.85 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3371,7 +3413,7 @@
 			)
 		)
 		(property "Description" "CAP CER 22UF 25V X5R 1206"
-			(at 189.23 109.22 0)
+			(at 196.85 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3382,7 +3424,7 @@
 			)
 		)
 		(property "MPN" "CL31A226KAHNNNE"
-			(at 189.23 109.22 0)
+			(at 196.85 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

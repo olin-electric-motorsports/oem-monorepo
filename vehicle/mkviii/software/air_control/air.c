@@ -8,7 +8,7 @@ static void enter(air_t *a, air_state_t state, uint32_t now) {
 }
 
 void air_init(air_t *a, uint32_t now) {
-    *a = (air_t){.state = AIR_STATE_INIT, .entered_ms = now};
+    *a = (air_t){.state = AIR_STATE_INIT, .entered_ms = now, .loop_closed_ms = now};
 }
 
 void air_trip(air_t *a, air_fault_t fault) {
@@ -45,6 +45,11 @@ void air_step(air_t *a, const air_inputs_t *in,
     const bool shutdown_ok = in->shutdown_closed == AIR_SS_ALL;
     const bool controlled_closed = AIR_CONTROLLED_NEGATIVE ? in->air_n_closed : in->air_p_closed;
     const bool other_closed = AIR_CONTROLLED_NEGATIVE ? in->air_p_closed : in->air_n_closed;
+    const air_fault_t controlled_weld = AIR_CONTROLLED_NEGATIVE ? AIR_FAULT_AIR_N_WELD : AIR_FAULT_AIR_P_WELD;
+    const bool main_was = a->main_command, precharge_was = a->precharge_command;
+    if (shutdown_ok) a->loop_closed_ms = now;
+    /* How long at least one node has read open; 0 while all seven read closed. */
+    const uint32_t open_ms = now - a->loop_closed_ms;
     a->main_command = false;
     a->precharge_command = false;
 
@@ -72,24 +77,32 @@ void air_step(air_t *a, const air_inputs_t *in,
     if (!in->imd_ok) { air_trip(a, AIR_FAULT_IMD_STATUS); return; }
     if (!check_data(a, d, now)) return;
 
-    /* Aborting at ANY stage of contactor closure removes both commands now. */
+    /* Aborting at ANY stage of contactor closure removes both commands once a
+     * node has read open for AIR_SHUTDOWN_DEBOUNCE_MS. A shorter open reading
+     * may be a glitch: keep the state and its commands, and skip the contactor
+     * checks below (the IMD and CAN checks above still apply). */
     if ((a->state == AIR_STATE_SHUTDOWN_CIRCUIT_CLOSED ||
          a->state == AIR_STATE_PRECHARGE || a->state == AIR_STATE_TS_ACTIVE) && !shutdown_ok) {
-        enter(a, AIR_STATE_DISCHARGE, now);
+        if (open_ms >= AIR_SHUTDOWN_DEBOUNCE_MS) {
+            enter(a, AIR_STATE_DISCHARGE, now);
+        } else {
+            a->main_command = main_was;
+            a->precharge_command = precharge_was;
+        }
         return;
     }
 
     switch (a->state) {
     case AIR_STATE_IDLE:
         if (controlled_closed) {
-            air_trip(a, AIR_CONTROLLED_NEGATIVE ? AIR_FAULT_AIR_N_WELD : AIR_FAULT_AIR_P_WELD);
+            air_trip(a, controlled_weld);
         } else if (!requested) {
             (void)check_open(a, in);
-            if (a->fault == AIR_FAULT_NONE && (uint32_t)d->tractive_mv >= AIR_TRACTIVE_SAFE_MV)
+            if (a->fault == AIR_FAULT_NONE && (uint32_t)d->tractive_mv >= AIR_TRACTIVE_CHARGED_MV)
                 air_trip(a, AIR_FAULT_TRACTIVE_VOLTAGE);
         } else if (!shutdown_ok) {
             air_trip(a, AIR_FAULT_SHUTDOWN_IMPLAUSIBILITY);
-        } else if ((uint32_t)d->tractive_mv >= AIR_TRACTIVE_SAFE_MV) {
+        } else if ((uint32_t)d->tractive_mv >= AIR_TRACTIVE_CHARGED_MV) {
             air_trip(a, AIR_FAULT_TRACTIVE_VOLTAGE);
         } else {
             enter(a, AIR_STATE_SHUTDOWN_CIRCUIT_CLOSED, now);
@@ -125,12 +138,25 @@ void air_step(air_t *a, const air_inputs_t *in,
         }
         break;
     case AIR_STATE_DISCHARGE:
+        /* Both commands dropped on entry, so this board's AIR must open within
+         * AIR_CONTACTOR_OPEN_MS. While all nodes read closed (a glitch ended, or
+         * the loop was closed again) the loop powers its own AIR and keeps the
+         * discharge circuit off, so that AIR and the discharge deadlines are
+         * timed from when the loop opens again. */
         if (elapsed < AIR_CONTACTOR_OPEN_MS) break;
+        if (open_ms < AIR_CONTACTOR_OPEN_MS) {
+            if (controlled_closed) air_trip(a, controlled_weld);
+            break;
+        }
         if (!check_open(a, in)) break;
         if ((uint32_t)d->tractive_mv < AIR_TRACTIVE_SAFE_MV) {
             /* Require TSMS release before allowing a new cycle. */
             if (!requested) enter(a, AIR_STATE_IDLE, now);
-        } else if (elapsed >= AIR_DISCHARGE_TIMEOUT_MS) air_trip(a, AIR_FAULT_DISCHARGE_FAIL);
+        } else if (open_ms >= AIR_DISCHARGE_TIMEOUT_MS ||
+                   (open_ms >= AIR_DISCHARGE_LIMIT_MS &&
+                    (uint32_t)d->tractive_mv >= AIR_DISCHARGE_LIMIT_MV)) {
+            air_trip(a, AIR_FAULT_DISCHARGE_FAIL);
+        }
         break;
     default:
         air_trip(a, AIR_FAULT_SHUTDOWN_IMPLAUSIBILITY);

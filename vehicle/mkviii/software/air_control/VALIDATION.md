@@ -52,3 +52,52 @@ for both `AIR_CONTROLLED_NEGATIVE` values:
 Not run locally, because this machine has no Linux toolchain or Python:
 `bazel test`, `run_host_tests.py`, `check_protocol.py`, `coverage.sh` and the
 GitHub workflow.
+
+## Known-issue fixes, 2026-10-19
+
+The four issues that `air_known_issues_test` tracked are fixed. For the last
+three, the behavior is the one the firmware owner chose:
+
+1. DISCHARGE faults DISCHARGE_FAIL if the DC link is still at 60 V or more 5 s
+   after the loop opened (FSAE 2026 EV.7.2.2.c). The under-5 V-by-10 s check stays.
+2. A shutdown node must read open for 3 ms (three samples) before SCC, PRECHARGE
+   or TS_ACTIVE abort. A shorter glitch keeps the state and its commands.
+3. In DISCHARGE, while all nodes read closed again, the loop's AIR is not judged
+   and the discharge clocks restart when the loop opens. The driven AIR must
+   still open within 100 ms, and only a TSMS cycle leads back to IDLE. A glitch
+   or a re-closed e-stop is no longer reported as a weld.
+4. IDLE faults TRACTIVE_VOLTAGE only at 6 V or more; INIT and DISCHARGE still
+   need below 5 V to reach IDLE.
+
+Each check moved from `air_known_issues_test.c` into `air_paths_test.c`, which
+now has 31 tests, so the known-issues list is empty. `air_test.c` steps past the
+debounce wherever it opens the loop, and checks the debounce boundary on all
+seven inputs. In `air_invariant_test.c` the command rules now allow commands to
+be held, but never turned on, during the 3 ms debounce. Its two known-issue
+counters became rules, plus a third: no DISCHARGE_FAIL from a healthy discharge
+circuit.
+
+Run locally on Windows with Zig 0.14.1, for both `AIR_CONTROLLED_NEGATIVE` values:
+
+- All four logic tests pass at `-O0`, at `-O2 -DNDEBUG`, and with
+  `-fsanitize=undefined -fsanitize-trap=undefined`.
+- `air_invariant_test` with the default seed: all 13 reachable fault codes,
+  TS_ACTIVE entered 707 times, commands held through an open reading inside the
+  debounce on 1,234 steps, and no rule broken. Eight more seeds (1, 2, 3, 42,
+  1234567, 987654321, 0xC0FFEE and 0xDEADBEEF) also passed.
+- Edge coverage via clang SanitizerCoverage at `-O0` with UBSan off: all 97 edges
+  in `air.c` and `air_protocol.c` were reached, by `air_test` and
+  `air_paths_test` alone. `air_test` by itself reaches 69. The same method
+  reproduces the Stage 1 figures (90 of 90, and 66) on the previous commit.
+- Mutation check: nine regressions were planted in copies of `air.c`, and each
+  was caught in both topologies. They were: no 60 V check, the 60 V boundary
+  moved, no debounce, a 10 ms debounce, the loop's AIR judged while the loop
+  reads closed, the driven AIR left unchecked then, no 5 V / 6 V margin,
+  contactor checks during a glitch, and deadlines timed from DISCHARGE entry.
+  `air_invariant_test` alone still catches the four Stage 1 safety bugs.
+- The five GPIO fake-HAL cases pass. `air.c` and `air_protocol.c` compile for
+  Cortex-M4 with Zig's clang and `-Wall -Wextra -Werror`.
+
+Not run: `bazel test`, `run_host_tests.py`, `check_protocol.py`, `coverage.sh`
+(gcc and gcov), the GitHub workflow, and an `air.elf` build with the ARM GCC
+toolchain. Nothing was flashed.

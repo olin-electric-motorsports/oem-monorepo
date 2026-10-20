@@ -48,6 +48,7 @@ typedef struct {
     air_state_t state;
     air_fault_t fault;
     uint32_t entered_ms;
+    uint32_t loop_closed_ms; /* last step on which all seven nodes read closed */
     bool contactor_confirmed;
     bool main_command, precharge_command;
 } air_t;

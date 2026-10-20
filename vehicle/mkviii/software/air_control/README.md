@@ -79,6 +79,9 @@ regardless of `AIR_CONTROLLED_NEGATIVE`.
   both AIR feedbacks open, and tractive voltage below 5 V.
 - **IDLE:** wait for the final shutdown node; require all seven monitored shutdown
   nodes closed before starting. Continue IMD, voltage, CAN and feedback checks.
+  IDLE faults on tractive voltage only at 6 V or more, while INIT and DISCHARGE
+  need below 5 V to reach IDLE; the 1 V gap keeps measurement noise from latching
+  a fault just after a normal discharge.
 - **SHUTDOWN_CIRCUIT_CLOSED:** allow 200 ms for the other, hardware-controlled AIR
   to close. With default topology this is AIR-plus. The controlled AIR must remain
   open. Then assert the precharge request.
@@ -88,11 +91,19 @@ regardless of `AIR_CONTROLLED_NEGATIVE`.
 - **TS_ACTIVE:** retain precharge until controlled-AIR feedback confirms closure
   within 200 ms, then remove precharge. Loss of either feedback subsequently
   faults. TS_ACTIVE initially includes that brief closure-confirmation interval.
-- **DISCHARGE:** any shutdown node opening during closure, precharge or active
-  operation removes both software commands in the same state-machine step.
-  After 100 ms verify both AIRs opened; require tractive voltage below 5 V within
-  10 s. Wait for TSMS release before returning to IDLE. There is no separate
-  discharge output; discharge is the external circuit's responsibility.
+- **DISCHARGE:** any shutdown node that reads open for 3 ms (three 1 ms samples)
+  during closure, precharge or active operation removes both software commands.
+  A shorter open reading is treated as a glitch: the state and its commands are
+  kept and contactor feedback is not judged until the loop reads closed again.
+  100 ms after the commands drop, verify this board's AIR opened; once the loop
+  has read open for 100 ms, verify the loop's AIR opened too. Require tractive
+  voltage below 60 V within 5 s of the loop opening (FSAE 2026 EV.7.2.2.c) and
+  below 5 V within 10 s, or fault DISCHARGE_FAIL. If the whole loop reads closed
+  again first (a long glitch, or an e-stop pulled back out), the loop powers its
+  own AIR and keeps the discharge circuit off: that AIR is not judged, and the
+  100 ms, 5 s and 10 s clocks restart when the loop opens again. Wait for TSMS
+  release, with the DC link discharged, before returning to IDLE. There is no
+  separate discharge output; discharge is the external circuit's responsibility.
 - **FAULT:** latch the first fault until reset, remove main/precharge commands,
   light the error LED, and keep attempting status messages when CAN was initialized.
 
@@ -173,10 +184,10 @@ skip them.
 
 | File | What it checks |
 | --- | --- |
-| `tests/air_test.c` | Normal and repeated cycles, all shutdown inputs, IMD, voltage threshold boundaries, stale CAN, fault latching, missing/stuck feedback, discharge timeout, startup interlocks, tick wraparound and known CAN byte vectors |
-| `tests/air_paths_test.c` | Every decision in `air.c` and `air_protocol.c` that `air_test.c` misses; together they reach every branch |
-| `tests/air_known_issues_test.c` | What the firmware should do for each known issue. Passes while the issues remain; fails once one is fixed, so that check moves into `air_paths_test.c` |
-| `tests/air_invariant_test.c` | 10 million random 1 ms steps against a model of the car with injected faults, checking the safety rules after every step. Optional `[seed] [steps]`; prints a rerun command on failure |
+| `tests/air_test.c` | Normal and repeated cycles, all shutdown inputs and their 3 ms debounce, IMD, voltage threshold boundaries, stale CAN, fault latching, missing/stuck feedback, discharge timeout, startup interlocks, tick wraparound and known CAN byte vectors |
+| `tests/air_paths_test.c` | Every decision in `air.c` and `air_protocol.c` that `air_test.c` misses, including glitches, closing the loop again during DISCHARGE, the 60 V / 5 s discharge rule and the 5 V / 6 V margin; together they reach every branch |
+| `tests/air_known_issues_test.c` | Empty now. For each open known issue it holds a check of what the firmware should do: it passes while the issue remains and fails once it is fixed, so that check moves into `air_paths_test.c` |
+| `tests/air_invariant_test.c` | 10 million random 1 ms steps against a model of the car with injected faults, checking after every step the safety rules and three false-alarm rules: no weld fault without a stuck contactor, no TRACTIVE_VOLTAGE from noise near 5 V, no DISCHARGE_FAIL with a healthy discharge circuit. Optional `[seed] [steps]`; prints a rerun command on failure |
 | `tests/board_test.c` | GPIO mapping, polarity and interlocks against a fake HAL |
 | `tests/check_protocol.py` | The C codec against cantools and the generated DBC |
 | `tests/coverage.sh` | Fails below 100% line and branch coverage of `air.c` and `air_protocol.c` (gcc and gcov) |
@@ -225,7 +236,9 @@ over. STM32 flashing uses the repository's ST-Link/OpenOCD scripts.
 
 Confirm the pin/polarity table and package, input electrical levels, output
 drivers and reset pulls, CAN transceiver/bitrate/messages, contactor identity and
-movement times, and voltage thresholds. Use a low-voltage fixture to verify each
+movement times, and voltage thresholds, including the 3 ms shutdown-input debounce
+and the 5 V / 6 V margin against measured input and IVT noise and the real
+discharge curve. Use a low-voltage fixture to verify each
 signal and inject every fault. Measure shutdown latency and reset/watchdog
 behavior, verify the real precharge voltage trace and relay overlap, then conduct
 team-supervised vehicle integration. Host tests and successful linking cannot

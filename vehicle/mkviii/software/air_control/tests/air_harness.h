@@ -85,6 +85,13 @@ static inline void to_active(void) {
     CHECK(a.state == AIR_STATE_TS_ACTIVE && a.main_command && !a.precharge_command);
 }
 
+/* Open every node, 1 ms at a time, until the debounce ends closure. */
+static inline void open_loop(void) {
+    in.shutdown_closed = 0;
+    run_ms(AIR_SHUTDOWN_DEBOUNCE_MS);
+    CHECK(a.state == AIR_STATE_DISCHARGE && !a.main_command && !a.precharge_command);
+}
+
 static inline void expect_fault(air_fault_t f) {
     CHECK(a.state == AIR_STATE_FAULT && a.fault == f);
     CHECK(!a.main_command && !a.precharge_command);

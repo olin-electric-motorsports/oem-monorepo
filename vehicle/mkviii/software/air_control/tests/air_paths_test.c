@@ -1,5 +1,5 @@
 /* tests for what is not in air_test.c Together, they cover all bases */
-#include "vehicle/mkviii/software/air_control/tests/air_harness.h"
+#include "air_harness.h"
 
 /* A bad IMD is ignored for the first 4 s while it settles, then it faults */
 static void test_init_ignores_imd_until_settled(void) {

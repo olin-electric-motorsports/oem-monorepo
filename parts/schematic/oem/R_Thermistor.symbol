@@ -8,8 +8,12 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
+	(in_pos_files yes)
+	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "R"
 		(at 2.54 1.27 90)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18,6 +22,8 @@
 	)
 	(property "Value" "R_Thermistor"
 		(at -2.54 0 90)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -27,47 +33,57 @@
 	)
 	(property "Footprint" ""
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
-	(property "Datasheet" "~"
+	(property "Datasheet" ""
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "Description" "Temperature dependent resistor"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_keywords" "R res thermistor"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_fp_filters" "R_*"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(symbol "R_Thermistor_0_1"
@@ -99,7 +115,7 @@
 		(pin passive line
 			(at 0 5.08 270)
 			(length 2.54)
-			(name "~"
+			(name ""
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -117,7 +133,7 @@
 		(pin passive line
 			(at 0 -5.08 90)
 			(length 2.54)
-			(name "~"
+			(name ""
 				(effects
 					(font
 						(size 1.27 1.27)

@@ -372,7 +372,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:F"
+		(symbol "OEM:F_5A_12V_1210"
 			(pin_numbers
 				(hide yes)
 			)
@@ -394,7 +394,7 @@
 					)
 				)
 			)
-			(property "Value" "F"
+			(property "Value" "F_5A_12V"
 				(at -1.905 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -404,7 +404,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Fuse:Fuse_1210_3225Metric"
 				(at -1.778 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -415,7 +415,7 @@
 					)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "https://www.mouser.com/catalog/specsheets/bourns_03282019_MF-USML-X_datasheet.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -426,7 +426,18 @@
 					)
 				)
 			)
-			(property "Description" "Fuse"
+			(property "Description" "PTC RESET FUSE 12V 5A 1210"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "MF-USML500/12-2"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -459,7 +470,7 @@
 					)
 				)
 			)
-			(symbol "F_0_1"
+			(symbol "F_5A_12V_1210_0_1"
 				(rectangle
 					(start -0.762 -2.54)
 					(end 0.762 2.54)
@@ -484,7 +495,7 @@
 					)
 				)
 			)
-			(symbol "F_1_1"
+			(symbol "F_5A_12V_1210_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 1.27)
@@ -2920,6 +2931,97 @@
 		(uuid "fef179ff-c87e-4fc2-8ffb-600b96b48b38")
 	)
 	(symbol
+		(lib_id "OEM:F_5A_12V_1210")
+		(at 92.71 41.91 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0a18596d-a564-4a06-9e43-138c8ba7a8d4")
+		(property "Reference" "F2"
+			(at 92.71 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "F_5A_12V"
+			(at 92.71 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuse_1210_3225Metric"
+			(at 92.71 43.688 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/bourns_03282019_MF-USML-X_datasheet.pdf"
+			(at 92.71 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "PTC RESET FUSE 12V 5A 1210"
+			(at 92.71 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MF-USML500/12-2"
+			(at 92.71 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5663b669-f387-48d6-9536-0399573883a9")
+		)
+		(pin "2"
+			(uuid "a4fe788f-7507-4c33-8272-0acfb3a9cb43")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
+					(reference "F2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:U_Current-Sensor_ACS37010LLZATR-030B5_SOIC-6")
 		(at 185.42 40.64 180)
 		(unit 1)
@@ -3059,7 +3161,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 148.2852 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -3119,86 +3221,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:F")
-		(at 92.71 41.91 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0f8f9819-e128-49d7-8319-12a0f2dfc178")
-		(property "Reference" "F7"
-			(at 92.71 35.56 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "F"
-			(at 92.71 38.1 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 92.71 43.688 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 92.71 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Fuse"
-			(at 92.71 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "4f50ef01-aa20-4fb4-882a-dde24e4616ec")
-		)
-		(pin "1"
-			(uuid "3ea0a729-64c7-495d-b73e-9c94135b940c")
-		)
-		(instances
-			(project "lv_pdu"
-				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
-					(reference "F7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OEM:C_0.1uF_50V_0603")
 		(at 217.17 41.91 0)
 		(unit 1)
@@ -3232,7 +3254,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 218.1352 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -4084,7 +4106,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 152.0952 156.21 0)
 			(hide yes)
 			(show_name no)
@@ -4315,6 +4337,97 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:F_5A_12V_1210")
+		(at 92.71 152.4 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "39868a19-4123-4320-b112-308d4b111fa8")
+		(property "Reference" "F7"
+			(at 92.71 146.05 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "F_5A_12V"
+			(at 92.71 148.59 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuse_1210_3225Metric"
+			(at 92.71 154.178 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/bourns_03282019_MF-USML-X_datasheet.pdf"
+			(at 92.71 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "PTC RESET FUSE 12V 5A 1210"
+			(at 92.71 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MF-USML500/12-2"
+			(at 92.71 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5663b669-f387-48d6-9536-0399573883a9")
+		)
+		(pin "2"
+			(uuid "a4fe788f-7507-4c33-8272-0acfb3a9cb43")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
+					(reference "F7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 156.21 180.34 0)
 		(unit 1)
@@ -4393,8 +4506,8 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:F")
-		(at 92.71 152.4 270)
+		(lib_id "OEM:F_5A_12V_1210")
+		(at 35.56 92.71 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4403,88 +4516,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "4387056c-f201-441b-a592-c06b5a0d8967")
+		(uuid "3e288b0c-3e5f-404f-839f-5e364a06ac38")
 		(property "Reference" "F1"
-			(at 92.71 158.75 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "F"
-			(at 92.71 156.21 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OEM:U_Current-Sensor_ACS37010LLZATR-030B5_SOIC-6"
-			(at 92.71 150.622 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 92.71 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Fuse"
-			(at 92.71 152.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "8a9218b5-f97a-4704-9688-e271d15c5af4")
-		)
-		(pin "2"
-			(uuid "faf37bf5-b36f-4c97-bc08-37c894d81571")
-		)
-		(instances
-			(project "lv_pdu"
-				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
-					(reference "F1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:F")
-		(at 35.56 92.71 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "43fec78b-fd22-4a12-8993-367c19ea37c8")
-		(property "Reference" "F3"
 			(at 38.1 91.4399 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4492,10 +4525,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
-		(property "Value" "F"
+		(property "Value" "F_5A_12V"
 			(at 38.1 93.9799 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4503,11 +4536,11 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
-		(property "Footprint" ""
-			(at 37.338 92.71 90)
+		(property "Footprint" "Fuse:Fuse_1210_3225Metric"
+			(at 33.782 92.71 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4517,7 +4550,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/bourns_03282019_MF-USML-X_datasheet.pdf"
 			(at 35.56 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -4528,7 +4561,7 @@
 				)
 			)
 		)
-		(property "Description" "Fuse"
+		(property "Description" "PTC RESET FUSE 12V 5A 1210"
 			(at 35.56 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -4539,16 +4572,27 @@
 				)
 			)
 		)
-		(pin "2"
-			(uuid "55c0f4db-c2d0-4e15-bef1-edab70804759")
+		(property "MPN" "MF-USML500/12-2"
+			(at 35.56 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
 		)
 		(pin "1"
-			(uuid "cb174043-b3ce-4569-bcda-a34f7d8f1946")
+			(uuid "5663b669-f387-48d6-9536-0399573883a9")
+		)
+		(pin "2"
+			(uuid "a4fe788f-7507-4c33-8272-0acfb3a9cb43")
 		)
 		(instances
 			(project "lv_pdu"
 				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
-					(reference "F3")
+					(reference "F1")
 					(unit 1)
 				)
 			)
@@ -5667,6 +5711,97 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:F_5A_12V_1210")
+		(at 92.71 58.42 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "79279837-904b-4d42-bf82-88f89474171a")
+		(property "Reference" "F3"
+			(at 92.71 52.07 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "F_5A_12V"
+			(at 92.71 54.61 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuse_1210_3225Metric"
+			(at 92.71 60.198 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/bourns_03282019_MF-USML-X_datasheet.pdf"
+			(at 92.71 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "PTC RESET FUSE 12V 5A 1210"
+			(at 92.71 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MF-USML500/12-2"
+			(at 92.71 58.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5663b669-f387-48d6-9536-0399573883a9")
+		)
+		(pin "2"
+			(uuid "a4fe788f-7507-4c33-8272-0acfb3a9cb43")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
+					(reference "F3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 151.13 146.05 0)
 		(unit 1)
@@ -5838,86 +5973,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:F")
-		(at 92.71 132.08 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8cd0ea29-3f65-4f11-a6c7-c7fa9a90c70f")
-		(property "Reference" "F2"
-			(at 92.71 138.43 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "F"
-			(at 92.71 135.89 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 92.71 130.302 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 92.71 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Fuse"
-			(at 92.71 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "513f3089-c66d-4186-b7ec-ae264bff2278")
-		)
-		(pin "2"
-			(uuid "8b9a752e-aa7d-4767-a027-f0fb2002ccde")
-		)
-		(instances
-			(project "lv_pdu"
-				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
-					(reference "F2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OEM:R_200_0.1W_0603")
 		(at 171.45 142.24 0)
 		(unit 1)
@@ -6043,7 +6098,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 221.9452 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -6259,86 +6314,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:F")
-		(at 92.71 101.6 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "968d017b-029b-44e5-b262-f0995a55e082")
-		(property "Reference" "F4"
-			(at 92.71 95.25 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "F"
-			(at 92.71 97.79 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 92.71 103.378 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 92.71 101.6 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Fuse"
-			(at 92.71 101.6 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "da09bfa7-0a2c-4ec9-8116-0ac6d0ce1719")
-		)
-		(pin "1"
-			(uuid "918596c1-156e-4e17-b3bd-a262c3592531")
-		)
-		(instances
-			(project "lv_pdu"
-				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
-					(reference "F4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OEM:R_200_0.1W_0603")
 		(at 102.87 68.58 0)
 		(unit 1)
@@ -6465,7 +6440,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 218.1352 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -6681,6 +6656,97 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:F_5A_12V_1210")
+		(at 92.71 101.6 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bd4f52e6-b17f-4838-bb42-acee405ef9ed")
+		(property "Reference" "F5"
+			(at 92.71 95.25 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "F_5A_12V"
+			(at 92.71 97.79 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuse_1210_3225Metric"
+			(at 92.71 103.378 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/bourns_03282019_MF-USML-X_datasheet.pdf"
+			(at 92.71 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "PTC RESET FUSE 12V 5A 1210"
+			(at 92.71 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MF-USML500/12-2"
+			(at 92.71 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5663b669-f387-48d6-9536-0399573883a9")
+		)
+		(pin "2"
+			(uuid "a4fe788f-7507-4c33-8272-0acfb3a9cb43")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
+					(reference "F5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:U_Current-Sensor_ACS37010LLZATR-030B5_SOIC-6")
 		(at 116.84 57.15 180)
 		(unit 1)
@@ -6781,6 +6847,97 @@
 			(project "lv_pdu"
 				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
 					(reference "U7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:F_5A_12V_1210")
+		(at 92.71 87.63 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c13fa312-4d03-400d-9828-3d5324ce1f41")
+		(property "Reference" "F4"
+			(at 92.71 81.28 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "F_5A_12V"
+			(at 92.71 83.82 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuse_1210_3225Metric"
+			(at 92.71 89.408 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/bourns_03282019_MF-USML-X_datasheet.pdf"
+			(at 92.71 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "PTC RESET FUSE 12V 5A 1210"
+			(at 92.71 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MF-USML500/12-2"
+			(at 92.71 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5663b669-f387-48d6-9536-0399573883a9")
+		)
+		(pin "2"
+			(uuid "a4fe788f-7507-4c33-8272-0acfb3a9cb43")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
+					(reference "F4")
 					(unit 1)
 				)
 			)
@@ -7679,166 +7836,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:F")
-		(at 92.71 58.42 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e7a9966c-bef0-459a-9cea-da67e0d41ff8")
-		(property "Reference" "F6"
-			(at 92.71 52.07 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "F"
-			(at 92.71 54.61 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 92.71 60.198 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 92.71 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Fuse"
-			(at 92.71 58.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "285c619f-aead-456f-aed9-02534131df93")
-		)
-		(pin "1"
-			(uuid "e9f544a5-72fa-4877-9591-0512fda38ed1")
-		)
-		(instances
-			(project "lv_pdu"
-				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
-					(reference "F6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:F")
-		(at 92.71 87.63 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e7f4185f-c313-44e9-af23-5a993c61bd28")
-		(property "Reference" "F5"
-			(at 92.71 81.28 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "F"
-			(at 92.71 83.82 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 92.71 89.408 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 92.71 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Fuse"
-			(at 92.71 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "6f22c9f1-613e-4831-85a4-c3d2f4cb8f5a")
-		)
-		(pin "1"
-			(uuid "3e4fa48e-fb2b-44cf-9100-8847efd3d1a7")
-		)
-		(instances
-			(project "lv_pdu"
-				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
-					(reference "F5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 147.32 63.5 0)
 		(unit 1)
@@ -7911,6 +7908,97 @@
 			(project "lv_pdu"
 				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
 					(reference "#PWR035")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:F_5A_12V_1210")
+		(at 92.71 132.08 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "edb098fa-8d89-4ad2-9055-80a60dfb7459")
+		(property "Reference" "F6"
+			(at 92.71 125.73 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "F_5A_12V"
+			(at 92.71 128.27 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuse_1210_3225Metric"
+			(at 92.71 133.858 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/bourns_03282019_MF-USML-X_datasheet.pdf"
+			(at 92.71 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "PTC RESET FUSE 12V 5A 1210"
+			(at 92.71 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MF-USML500/12-2"
+			(at 92.71 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5663b669-f387-48d6-9536-0399573883a9")
+		)
+		(pin "2"
+			(uuid "a4fe788f-7507-4c33-8272-0acfb3a9cb43")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a"
+					(reference "F6")
 					(unit 1)
 				)
 			)
@@ -8277,7 +8365,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 153.3652 107.95 0)
 			(hide yes)
 			(show_name no)

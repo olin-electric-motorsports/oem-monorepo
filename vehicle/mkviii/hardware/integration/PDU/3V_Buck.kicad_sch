@@ -5,7 +5,7 @@
 	(uuid "00dbca7e-13aa-44da-9cc9-9ad4831d6278")
 	(paper "A4")
 	(lib_symbols
-		(symbol "OEM:C_0.1uF_16V_0603"
+		(symbol "OEM:C_0.1uF_0-20V_0603"
 			(pin_numbers
 				(hide yes)
 			)
@@ -28,7 +28,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "C_0.1uF_16V"
+			(property "Value" "C_0.1uF"
 				(at 0.635 -2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -39,7 +39,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "OEM:C_0603_1608Metric"
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 				(at 0.9652 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -105,7 +105,7 @@
 					)
 				)
 			)
-			(symbol "C_0.1uF_16V_0603_0_1"
+			(symbol "C_0.1uF_0-20V_0603_0_1"
 				(polyline
 					(pts
 						(xy -2.032 0.762) (xy 2.032 0.762)
@@ -131,7 +131,7 @@
 					)
 				)
 			)
-			(symbol "C_0.1uF_16V_0603_1_1"
+			(symbol "C_0.1uF_0-20V_0603_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.794)
@@ -171,7 +171,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:C_10uF_450V_Radial"
+		(symbol "OEM:C_0.22uF_20-100V_0603"
 			(pin_numbers
 				(hide yes)
 			)
@@ -194,7 +194,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "C_10uF_450V"
+			(property "Value" "C_0.22uF"
 				(at 0.635 -2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -205,7 +205,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "OEM:CAPPRD500W60D1025H2200 (C_10uF_450V_Radial - 450BXC10MEFC10X20)"
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 				(at 0.9652 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -216,7 +216,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://www.mouser.com/datasheet/3/3655/1/BXC.pdf"
+			(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1862/CL10A224KB8NNNC_Spec.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -227,7 +227,7 @@
 					)
 				)
 			)
-			(property "Description" "CAP ALUM 10UF 20% 450V RADIAL TH"
+			(property "Description" "CAP CER 0.22UF 50V X5R 0603"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -238,195 +238,7 @@
 					)
 				)
 			)
-			(property "MPN" "450BXC10MEFC10X20"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "cap capacitor"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "CP_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "C_10uF_450V_Radial_0_1"
-				(rectangle
-					(start -2.286 0.508)
-					(end 2.286 1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 2.286) (xy -0.762 2.286)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 2.794) (xy -1.27 1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 2.286 -0.508)
-					(end -2.286 -1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-			)
-			(symbol "C_10uF_450V_Radial_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 2.794)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.794)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "OEM:C_22uF_25V_1206"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.254)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "C"
-				(at 0.635 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "C_22uF_25V"
-				(at 0.635 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "OEM:C_1206_3216Metric"
-				(at 0.9652 -3.81 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "CAP CER 22UF 25V X5R 1206"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "MPN" "CL31A226KAHNNNE"
+			(property "MPN" ""
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -459,7 +271,7 @@
 					)
 				)
 			)
-			(symbol "C_22uF_25V_1206_0_1"
+			(symbol "C_0.22uF_20-100V_0603_0_1"
 				(polyline
 					(pts
 						(xy -2.032 0.762) (xy 2.032 0.762)
@@ -485,7 +297,173 @@
 					)
 				)
 			)
-			(symbol "C_22uF_25V_1206_1_1"
+			(symbol "C_0.22uF_20-100V_0603_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "OEM:C_10uF_0-20V_0603"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_10uF"
+				(at 0.635 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0.9652 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188D71A106KA73-01.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "CAP CER 10UF 10V X7T 0603"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "GRM188D71A106KA73D"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C_10uF_0-20V_0603_0_1"
+				(polyline
+					(pts
+						(xy -2.032 0.762) (xy 2.032 0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_10uF_0-20V_0603_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.794)
@@ -1338,6 +1316,12 @@
 		(uuid "00c1c017-c119-46bf-8768-7308e64901eb")
 	)
 	(junction
+		(at 102.87 105.41)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "19d608f0-922d-4a80-9f77-598cbb116b9d")
+	)
+	(junction
 		(at 144.78 102.87)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1366,12 +1350,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b9564809-91a9-4593-8c09-2560406adb38")
-	)
-	(junction
-		(at 102.87 105.41)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e314dab6-b0a9-4dc3-b39e-3558f0245fd8")
 	)
 	(wire
 		(pts
@@ -1544,192 +1522,6 @@
 		(uuid "e69ead69-b3fd-4b04-ba4a-1a88d0df6d13")
 	)
 	(symbol
-		(lib_id "OEM:C_22uF_25V_1206")
-		(at 142.24 111.76 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "01732c6d-8f00-4799-826c-8ecb7475b0d9")
-		(property "Reference" "C5"
-			(at 138.43 110.4899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "C_22uF_25V"
-			(at 138.43 113.0299 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OEM:C_1206_3216Metric"
-			(at 141.2748 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
-			(at 142.24 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CAP CER 22UF 25V X5R 1206"
-			(at 142.24 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "CL31A226KAHNNNE"
-			(at 142.24 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "76363f15-d4a3-4580-a942-91f42bb295f5")
-		)
-		(pin "1"
-			(uuid "f097e911-b259-4627-94ab-351d27a045f9")
-		)
-		(instances
-			(project "PDU"
-				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1/c84b6096-a062-409d-bc22-5647385823b9"
-					(reference "C5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:C_10uF_450V_Radial")
-		(at 102.87 109.22 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "266e5196-ae56-4ed9-b02d-267059217fca")
-		(property "Reference" "C3"
-			(at 99.06 107.0609 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "C_10uF_450V"
-			(at 99.06 109.6009 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OEM:CAPPRD500W60D1025H2200 (C_10uF_450V_Radial - 450BXC10MEFC10X20)"
-			(at 101.9048 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/3655/1/BXC.pdf"
-			(at 102.87 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CAP ALUM 10UF 20% 450V RADIAL TH"
-			(at 102.87 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "450BXC10MEFC10X20"
-			(at 102.87 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "fabcbb8b-89ba-42e3-9024-64d76c68272f")
-		)
-		(pin "1"
-			(uuid "e11ab2e0-d57b-4a05-82f5-236ee194ae28")
-		)
-		(instances
-			(project "PDU"
-				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1/c84b6096-a062-409d-bc22-5647385823b9"
-					(reference "C3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 102.87 113.03 0)
 		(unit 1)
@@ -1808,6 +1600,284 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:C_10uF_0-20V_0603")
+		(at 102.87 109.22 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "29f23cbe-59fd-4976-bc5e-7cb076062a81")
+		(property "Reference" "C3"
+			(at 99.06 107.9499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "C_10uF"
+			(at 99.06 110.4899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 103.8352 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188D71A106KA73-01.pdf"
+			(at 102.87 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 10UF 10V X7T 0603"
+			(at 102.87 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "GRM188D71A106KA73D"
+			(at 102.87 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "32de9509-d83c-4af8-ab92-ea0bc84cf910")
+		)
+		(pin "1"
+			(uuid "903dfacd-9bb3-4b71-be7f-4d61909acf2f")
+		)
+		(instances
+			(project "PDU"
+				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1/c84b6096-a062-409d-bc22-5647385823b9"
+					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_0.22uF_20-100V_0603")
+		(at 147.32 111.76 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "40c46167-de49-4b29-b3e9-57fb9b4ccbba")
+		(property "Reference" "C5"
+			(at 151.13 110.4899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_0.22uF"
+			(at 151.13 113.0299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 148.2852 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1862/CL10A224KB8NNNC_Spec.pdf"
+			(at 147.32 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.22UF 50V X5R 0603"
+			(at 147.32 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" ""
+			(at 147.32 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8ded43e1-439e-414c-9617-036616f0ec19")
+		)
+		(pin "2"
+			(uuid "f8fecf32-1abf-48f6-8ff8-3b18ef80fb33")
+		)
+		(instances
+			(project "PDU"
+				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1/c84b6096-a062-409d-bc22-5647385823b9"
+					(reference "C5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_0.22uF_20-100V_0603")
+		(at 142.24 111.76 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "53152529-e2ad-4767-927d-9c32ea4d09af")
+		(property "Reference" "C6"
+			(at 138.43 110.4899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_0.22uF"
+			(at 138.43 113.0299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 141.2748 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1862/CL10A224KB8NNNC_Spec.pdf"
+			(at 142.24 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.22UF 50V X5R 0603"
+			(at 142.24 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" ""
+			(at 142.24 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f9cfe129-a134-48d4-9eee-6f5c6075a38d")
+		)
+		(pin "2"
+			(uuid "4f5e1690-b643-4453-800c-db928206281f")
+		)
+		(instances
+			(project "PDU"
+				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1/c84b6096-a062-409d-bc22-5647385823b9"
+					(reference "C6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:L_3.9uH_2A_55m_SMD")
 		(at 140.97 102.87 90)
 		(unit 1)
@@ -1839,7 +1909,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:IND_BOURNS_SRR5018"
+		(property "Footprint" "OEM:IND_BOURNS_SRR5018 (L_3.9uH_2A_55m_SMD)"
 			(at 140.97 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -1972,6 +2042,99 @@
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1/c84b6096-a062-409d-bc22-5647385823b9"
 					(reference "#PWR037")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_0.1uF_0-20V_0603")
+		(at 133.35 93.98 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7c7a160e-3504-43b8-af8d-167b835b67e4")
+		(property "Reference" "C4"
+			(at 137.16 92.7099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_0.1uF"
+			(at 137.16 95.2499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 134.3152 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
+			(at 133.35 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
+			(at 133.35 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C0603C104Z4VACTU"
+			(at 133.35 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0fa2069c-5f99-44af-b3ed-ab4e7f6dd194")
+		)
+		(pin "2"
+			(uuid "30d61cd3-b550-4e25-b6c3-4320886c665b")
+		)
+		(instances
+			(project "PDU"
+				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1/c84b6096-a062-409d-bc22-5647385823b9"
+					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -2156,191 +2319,6 @@
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1/c84b6096-a062-409d-bc22-5647385823b9"
 					(reference "U5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:C_0.1uF_16V_0603")
-		(at 133.35 93.98 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a4bdada6-9f10-433c-8cfb-c67034d881a2")
-		(property "Reference" "C4"
-			(at 136.525 92.7099 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "C_0.1uF_16V"
-			(at 136.525 95.2499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
-			(at 134.3152 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
-			(at 133.35 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
-			(at 133.35 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "C0603C104Z4VACTU"
-			(at 133.35 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "2afe5e8f-1aef-445a-8625-0bed0c1d32fb")
-		)
-		(pin "1"
-			(uuid "8eaf3399-8210-4177-a120-b6a64ea4c1b3")
-		)
-		(instances
-			(project "PDU"
-				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1/c84b6096-a062-409d-bc22-5647385823b9"
-					(reference "C4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:C_22uF_25V_1206")
-		(at 147.32 111.76 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "d49145de-0e10-4ccb-895a-ce474b1bb77b")
-		(property "Reference" "C6"
-			(at 151.13 110.4899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "C_22uF_25V"
-			(at 151.13 113.0299 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OEM:C_1206_3216Metric"
-			(at 148.2852 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
-			(at 147.32 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CAP CER 22UF 25V X5R 1206"
-			(at 147.32 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "CL31A226KAHNNNE"
-			(at 147.32 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "e7e6319b-1eb9-4131-bf40-2a94d4df84ed")
-		)
-		(pin "1"
-			(uuid "70dbc952-dd0b-42d7-b775-a5b9ab265004")
-		)
-		(instances
-			(project "PDU"
-				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1/c84b6096-a062-409d-bc22-5647385823b9"
-					(reference "C6")
 					(unit 1)
 				)
 			)

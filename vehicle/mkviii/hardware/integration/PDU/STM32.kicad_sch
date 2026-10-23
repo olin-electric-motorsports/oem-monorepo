@@ -3656,7 +3656,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:C_30pF"
+		(symbol "OEM:C_30pF_20-100V_0603"
 			(pin_numbers
 				(hide yes)
 			)
@@ -3690,7 +3690,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "OEM:C_0603"
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 				(at 0.9652 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3701,7 +3701,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://www.seielect.com/Catalog/SEI-CML.PDF"
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-CML.PDF"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3712,7 +3712,7 @@
 					)
 				)
 			)
-			(property "Description" "Unpolarized capacitor 30pf 5% 50V C0G NP0 0603"
+			(property "Description" "CAP CER 30PF 50V C0G/NP0 0603"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3724,72 +3724,6 @@
 				)
 			)
 			(property "MPN" "CML0603C0G300JT50V"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "MFN" "Stackpole Electronics"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "DKPN" "738-CML0603C0G300JT50VDKR-ND"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "NewDesigns" "YES"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Stocked" "Digi-Reel"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Package" "0603"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Style" "SMD"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3822,7 +3756,7 @@
 					)
 				)
 			)
-			(symbol "C_30pF_0_1"
+			(symbol "C_30pF_20-100V_0603_0_1"
 				(polyline
 					(pts
 						(xy -2.032 0.762) (xy 2.032 0.762)
@@ -3848,7 +3782,7 @@
 					)
 				)
 			)
-			(symbol "C_30pF_1_1"
+			(symbol "C_30pF_20-100V_0603_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.794)
@@ -12096,6 +12030,96 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:C_30pF_20-100V_0603")
+		(at 96.52 109.22 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "33fcf36c-5fbb-4db0-9011-3fb9b187d86c")
+		(property "Reference" "C15"
+			(at 96.52 116.84 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "C_30pF"
+			(at 96.52 114.3 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 100.33 108.2548 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-CML.PDF"
+			(at 96.52 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 30PF 50V C0G/NP0 0603"
+			(at 96.52 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CML0603C0G300JT50V"
+			(at 96.52 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "45617a18-6d54-4862-91cd-b7a9efc31d55")
+		)
+		(pin "1"
+			(uuid "04f3e6b2-6641-42b6-b528-29e68c7a7a4b")
+		)
+		(instances
+			(project "PDU"
+				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1"
+					(reference "C15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:R_200")
 		(at 252.73 80.01 0)
 		(unit 1)
@@ -12800,6 +12824,96 @@
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1"
 					(reference "R32")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_30pF_20-100V_0603")
+		(at 110.49 119.38 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "431741c4-b360-4a68-aab5-9686582750f9")
+		(property "Reference" "C17"
+			(at 106.934 121.412 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "C_30pF"
+			(at 115.316 121.412 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 114.3 118.4148 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-CML.PDF"
+			(at 110.49 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 30PF 50V C0G/NP0 0603"
+			(at 110.49 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CML0603C0G300JT50V"
+			(at 110.49 119.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "98e24f9a-01ca-48d2-9ec2-289f8ad1f217")
+		)
+		(pin "1"
+			(uuid "4b45f9aa-3aff-4c28-bd22-891de53c2df0")
+		)
+		(instances
+			(project "PDU"
+				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1"
+					(reference "C17")
 					(unit 1)
 				)
 			)
@@ -18607,164 +18721,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:C_30pF")
-		(at 96.52 109.22 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b94d4eb5-4998-4912-904d-c6a2ad85135b")
-		(property "Reference" "C15"
-			(at 94.488 112.522 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "C_30pF"
-			(at 93.218 114.7294 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OEM:C_0603"
-			(at 92.71 110.1852 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.seielect.com/Catalog/SEI-CML.PDF"
-			(at 96.52 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor 30pf 5% 50V C0G NP0 0603"
-			(at 96.52 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "CML0603C0G300JT50V"
-			(at 96.52 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MFN" "Stackpole Electronics"
-			(at 96.52 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DKPN" "738-CML0603C0G300JT50VDKR-ND"
-			(at 96.52 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "NewDesigns" "YES"
-			(at 96.52 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Stocked" "Digi-Reel"
-			(at 96.52 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Package" "0603"
-			(at 96.52 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Style" "SMD"
-			(at 96.52 109.22 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "75c4e57a-1aed-40f9-9567-6dfb9e897d38")
-		)
-		(pin "2"
-			(uuid "c8149191-f705-4b75-be09-65cf0e8137d6")
-		)
-		(instances
-			(project "PDU"
-				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1"
-					(reference "C15")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OEM:R_200")
 		(at 241.3 82.55 0)
 		(unit 1)
@@ -22907,7 +22863,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:Crystal_TXC7M"
+		(property "Footprint" "Crystal:Crystal_SMD_TXC_7M-4Pin_3.2x2.5mm_HandSoldering"
 			(at 115.57 114.3 0)
 			(hide yes)
 			(show_name no)
@@ -23270,164 +23226,6 @@
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1"
 					(reference "R39")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:C_30pF")
-		(at 110.49 119.38 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "ffc4eec5-e8f0-432a-bde8-f917dceab356")
-		(property "Reference" "C16"
-			(at 104.902 121.158 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "C_30pF"
-			(at 112.268 121.158 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OEM:C_0603"
-			(at 106.68 120.3452 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.seielect.com/Catalog/SEI-CML.PDF"
-			(at 110.49 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor 30pf 5% 50V C0G NP0 0603"
-			(at 110.49 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "CML0603C0G300JT50V"
-			(at 110.49 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MFN" "Stackpole Electronics"
-			(at 110.49 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DKPN" "738-CML0603C0G300JT50VDKR-ND"
-			(at 110.49 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "NewDesigns" "YES"
-			(at 110.49 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Stocked" "Digi-Reel"
-			(at 110.49 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Package" "0603"
-			(at 110.49 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Style" "SMD"
-			(at 110.49 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9cdf7c96-7a71-4fbb-8ac0-b37490d015f3")
-		)
-		(pin "2"
-			(uuid "249061c5-608a-474e-8af9-9482a8411f9d")
-		)
-		(instances
-			(project "PDU"
-				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/4d828ac3-ffc9-42fb-a576-78e59bc536b1"
-					(reference "C16")
 					(unit 1)
 				)
 			)

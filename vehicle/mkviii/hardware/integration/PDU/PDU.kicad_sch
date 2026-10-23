@@ -949,6 +949,241 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "OEM:J_Ampseal_08_RA"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J"
+				(at -6.35 11.43 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Value" "J_Ampseal_08_RA"
+				(at -7.62 -11.43 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "OEM:J_Ampseal_8_RA"
+				(at -5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Datasheet" "http://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F776279%7FF7%7Fpdf%7FEnglish%7FENG_CD_776279_F7.pdf%7F1-776279-1"
+				(at -5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Description" "Ampseal connector 8 pin right angle"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "1-776279-1"
+				(at -1.27 16.51 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(symbol "J_Ampseal_08_RA_0_1"
+				(rectangle
+					(start -7.62 10.16)
+					(end 0 -10.16)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "J_Ampseal_08_RA_1_1"
+				(pin passive line
+					(at 5.08 8.89 180)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 6.35 180)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 3.81 180)
+					(length 5.08)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 1.27 180)
+					(length 5.08)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -1.27 180)
+					(length 5.08)
+					(name "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -3.81 180)
+					(length 5.08)
+					(name "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -6.35 180)
+					(length 5.08)
+					(name "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -8.89 180)
+					(length 5.08)
+					(name "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OEM:LED_AMBER"
 			(pin_numbers
 				(hide yes)
@@ -10570,137 +10805,6 @@
 		)
 	)
 	(symbol
-		(lib_id "oem:Ampseal_08_RA")
-		(at 104.14 44.45 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6ebdc8b9-e569-46f5-a404-856d2f6a1c3a")
-		(property "Reference" "AUX_DEVICE_GPS1"
-			(at 100.33 29.21 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Value" "Ampseal_08_RA"
-			(at 100.33 31.75 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Footprint" "OEM:J_Ampseal_8_RA"
-			(at 99.06 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" "http://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F776279%7FF7%7Fpdf%7FEnglish%7FENG_CD_776279_F7.pdf%7F1-776279-1"
-			(at 99.06 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" "Ampseal connector 8 pin right angle"
-			(at 104.14 44.45 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MFN" "TE"
-			(at 100.33 30.48 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "MPN" "1-776279-1"
-			(at 102.87 27.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "PurchasingLink" "http://www.te.com/usa-en/product-1-776279-1.html"
-			(at 105.41 25.4 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(pin "8"
-			(uuid "86f100d7-0f67-458c-83a9-dc3e8230663a")
-		)
-		(pin "1"
-			(uuid "6cabceba-6876-4ba4-9503-df50cf38f410")
-		)
-		(pin "6"
-			(uuid "c85ee570-80f9-4dc1-9305-2620303af4b3")
-		)
-		(pin "7"
-			(uuid "d756999f-5794-4c2b-8878-4d8e8501404e")
-		)
-		(pin "4"
-			(uuid "f4aa5f5e-b028-4737-a26e-33da6b97f2fd")
-		)
-		(pin "2"
-			(uuid "6b76ad02-1ece-4819-bb4f-dfbecde7fe8e")
-		)
-		(pin "5"
-			(uuid "20d149cc-4833-4a26-99f3-1684d7e89416")
-		)
-		(pin "3"
-			(uuid "d7c62256-c94a-4e5b-b59e-f195fcbafd14")
-		)
-		(instances
-			(project "PDU"
-				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "AUX_DEVICE_GPS1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OEM:R_200")
 		(at 64.77 172.72 0)
 		(unit 1)
@@ -11858,6 +11962,115 @@
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
 					(reference "R26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:J_Ampseal_08_RA")
+		(at 104.14 44.45 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "91151d90-0c81-42cd-9f55-a61fe92fb749")
+		(property "Reference" "AUX_DEVICE_GPS1"
+			(at 100.33 29.21 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Value" "J_Ampseal_08_RA"
+			(at 100.33 31.75 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Footprint" "OEM:J_Ampseal_8_RA"
+			(at 99.06 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F776279%7FF7%7Fpdf%7FEnglish%7FENG_CD_776279_F7.pdf%7F1-776279-1"
+			(at 99.06 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Description" "Ampseal connector 8 pin right angle"
+			(at 104.14 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1-776279-1"
+			(at 102.87 27.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(pin "4"
+			(uuid "e20d3717-2507-445c-a312-caeb11610d14")
+		)
+		(pin "2"
+			(uuid "8135b797-1d12-4708-bfa5-bb44904e5b18")
+		)
+		(pin "7"
+			(uuid "fe319cac-944b-4c15-ab47-9986c175702a")
+		)
+		(pin "5"
+			(uuid "022e5f94-8fc1-47d6-86be-5021c35ce6e3")
+		)
+		(pin "8"
+			(uuid "5bebd647-3a21-4992-9717-012aa9ae18bd")
+		)
+		(pin "6"
+			(uuid "a90b8560-b992-40c3-b5d8-5f2c59e6f5a0")
+		)
+		(pin "3"
+			(uuid "9d8dfef8-1bb3-45f3-ae11-425a5d16468d")
+		)
+		(pin "1"
+			(uuid "33969868-71aa-4c54-9354-1b8b7208ff1e")
+		)
+		(instances
+			(project "PDU"
+				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
+					(reference "AUX_DEVICE_GPS1")
 					(unit 1)
 				)
 			)

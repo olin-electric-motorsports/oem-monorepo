@@ -21,3 +21,12 @@ separate validation steps.
 The calibration and APPS latch checks protect the existing temporary calibration
 and the existing manual restart policy. The startup check verifies that missing
 dashboard input does not accidentally enable the inverter.
+
+CAN checks cover command priority, deferred telemetry, full queues, controller
+errors, and submitting an updated Disable command after a fault. A command still
+waiting for a hardware slot after the existing 10 ms publication period is a
+communication fault. Successful submission means the controller accepted the
+message; it does not prove that the inverter received it. After a communication
+fault, recovering submissions does not restore ready-to-drive automatically.
+Bus-off stays disabled until the controller is reinitialized (for example by an
+MCU restart); automatic bus-off restart is deliberately not implemented here.

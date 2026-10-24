@@ -53,7 +53,9 @@ typedef enum {
     /* Configured APPS endpoints cannot form a valid positive calibration range. */
     VCU_FAULT_APPS_CALIBRATION_INVALID = (1u << 8),
     /* At least one required ADC input could not be sampled this iteration. */
-    VCU_FAULT_ADC_INPUT_INVALID = (1u << 9)
+    VCU_FAULT_ADC_INPUT_INVALID = (1u << 9),
+    /* CAN controller error, failed submission, or a missed command deadline. */
+    VCU_FAULT_CAN_TX = (1u << 10)
 } vcu_fault_bit_e;
 
 /*
@@ -170,6 +172,7 @@ typedef struct {
     bool inverter_enable_command;
 
     /* Shared status. */
+    bool can_tx_fault;
     /* Heartbeat state toggled by the 10 ms loop and reflected on CAN/LED. */
     bool heartbeat;
     uint16_t heartbeat_elapsed_ms;

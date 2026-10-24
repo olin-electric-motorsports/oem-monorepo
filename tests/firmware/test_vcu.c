@@ -13,6 +13,11 @@ static void setup(void) {
     assert(can_init_vcu() == 0);
     assert(vcu_init() == HAL_OK);
 }
+static void reset_tx(unsigned capacity) {
+    mock.tx_capacity = capacity;
+    mock.tx_queued = mock.tx_attempts = mock.tx_failures = 0;
+    memset(mock.tx_ids, 0, sizeof(mock.tx_ids));
+}
 int main(int argc, char **argv) {
     assert(argc == 2);
     const char *test = argv[1];
@@ -45,6 +50,82 @@ int main(int argc, char **argv) {
         assert(!s_state.inverter_enable_command);
         assert(s_state.inverter_torque_command_raw == 0);
         assert(s_state.throttle_r_raw == 80);
+    } else if (!strcmp(test, "can_first_disable")) {
+        setup();
+        assert(mock.tx_ids[0] == 0xc0);
+        assert((mock.tx_data[0][5] & 1u) == 0u);
+    } else if (!strcmp(test, "can_three_slot_burst")) {
+        setup(); reset_tx(3);
+        assert(vcu_step_10ms() != HAL_ERROR);
+        assert(mock.tx_attempts == 3 && mock.tx_failures == 0);
+        assert(mock.tx_ids[0] == 0xc0);
+    } else if (!strcmp(test, "can_deferred_status")) {
+        setup(); reset_tx(3); vcu_step_10ms();
+        mock.tx_queued = 0; vcu_step_1ms();
+        assert(mock.tx_attempts == 4 && mock.tx_failures == 0);
+        assert(mock.tx_ids[3] == 0x702);
+    } else if (!strcmp(test, "can_backpressure")) {
+        setup(); reset_tx(3); mock.tx_queued = 3;
+        vcu_step_10ms();
+        assert(mock.tx_attempts == 0);
+        mock.tx_queued = 0; vcu_step_1ms();
+        assert(mock.tx_ids[0] == 0xc0);
+    } else if (!strcmp(test, "can_submit_error")) {
+        setup(); reset_tx(3);
+        s_state.ready_to_drive_latched = true; vcu_step_1ms();
+        mock.fail_tx = true;
+        assert(vcu_step_10ms() == HAL_ERROR);
+        assert(s_state.fault_bits != VCU_FAULT_NONE);
+        assert(!s_state.inverter_enable_command);
+    } else if (!strcmp(test, "can_recovery_disabled")) {
+        setup(); reset_tx(3);
+        s_state.ready_to_drive_latched = true; vcu_step_1ms();
+        mock.fail_tx = true; vcu_step_10ms();
+        mock.fail_tx = false; reset_tx(3); vcu_step_1ms();
+        assert(mock.tx_ids[0] == 0xc0);
+        assert((mock.tx_data[0][5] & 1u) == 0u);
+        assert(!s_state.ready_to_drive_latched);
+    } else if (!strcmp(test, "can_pending_uses_safe_state")) {
+        setup(); reset_tx(3); mock.tx_queued = 3;
+        s_state.ready_to_drive_latched = true;
+        mock.adc_counts[1] = 1010; mock.adc_counts[2] = 1700;
+        vcu_step_1ms(); vcu_step_10ms();
+        mock.failing_channel = 2; mock.poll_status = HAL_TIMEOUT;
+        mock.tx_queued = 0; vcu_step_1ms();
+        assert(mock.tx_ids[0] == 0xc0);
+        assert(mock.tx_data[0][0] == 0 && mock.tx_data[0][1] == 0);
+        assert((mock.tx_data[0][5] & 1u) == 0u);
+    } else if (!strcmp(test, "can_command_deadline")) {
+        setup(); reset_tx(3); mock.tx_queued = 3;
+        vcu_step_10ms(); mock.now_ms += 10; vcu_step_1ms();
+        assert(s_state.fault_bits != VCU_FAULT_NONE);
+    } else if (!strcmp(test, "can_bus_off")) {
+        setup(); reset_tx(3); mock.bus_off = true;
+        s_state.ready_to_drive_latched = true; vcu_step_1ms();
+        assert(s_state.fault_bits != VCU_FAULT_NONE);
+        assert(!s_state.inverter_enable_command);
+        assert(mock.tx_attempts == 0);
+    } else if (!strcmp(test, "can_busy_before_deadline")) {
+        setup(); reset_tx(3); mock.tx_queued = 3;
+        vcu_step_10ms(); mock.now_ms += 9; vcu_step_1ms();
+        assert(s_state.fault_bits == VCU_FAULT_NONE);
+        assert(mock.tx_attempts == 0);
+    } else if (!strcmp(test, "healthy_drive_and_brake")) {
+        setup(); mock.brake = true; s_state.start_button_pressed = true;
+        vcu_step_1ms(); assert(s_state.ready_to_drive_latched);
+        s_state.start_button_pressed = false; mock.brake = false;
+        mock.adc_counts[1] = 1010; mock.adc_counts[2] = 1700;
+        vcu_step_1ms();
+        assert(s_state.inverter_enable_command && s_state.inverter_torque_command_raw == 127);
+        reset_tx(3); vcu_step_10ms();
+        assert(mock.tx_ids[0] == 0xc0 && mock.tx_data[0][0] == 127);
+        assert((mock.tx_data[0][5] & 1u) != 0u);
+        mock.brake = true; vcu_step_1ms();
+        assert(s_state.inverter_torque_command_raw == 0);
+    } else if (!strcmp(test, "can_ack_error")) {
+        setup(); reset_tx(3); mock.can_last_error = FDCAN_PROTOCOL_ERROR_ACK;
+        s_state.ready_to_drive_latched = true; vcu_step_1ms();
+        assert(!s_state.ready_to_drive_latched);
     } else if (!strcmp(test, "apps_elapsed_time")) {
         setup(); mock.adc_counts[1] = 1000; mock.adc_counts[2] = 0;
         vcu_step_1ms();

@@ -132,4 +132,7 @@
 /* Heartbeat LED/CAN toggle period in milliseconds. */
 #define VCU_HEARTBEAT_TOGGLE_MS (500u)
 
+/* A pending motor command must be submitted within one publication period. */
+#define VCU_CAN_PUBLISH_PERIOD_MS (10u)
+
 #endif /* VCU_CONFIG_H */

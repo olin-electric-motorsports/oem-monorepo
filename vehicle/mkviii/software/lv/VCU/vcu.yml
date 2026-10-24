@@ -107,6 +107,7 @@ publish:
       #   bit 7: VCU_FAULT_SHUTDOWN_BSPD_OPEN
       #   bit 8: VCU_FAULT_APPS_CALIBRATION_INVALID
       #   bit 9: VCU_FAULT_ADC_INPUT_INVALID
+      #   bit 10: VCU_FAULT_CAN_TX
       - name: fault_bits_lo
         slice: 0 + 16
         unit:

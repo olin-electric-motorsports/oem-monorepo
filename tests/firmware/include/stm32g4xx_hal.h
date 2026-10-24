@@ -99,3 +99,9 @@ HAL_StatusTypeDef HAL_FDCAN_AddMessageToTxFifoQ(FDCAN_HandleTypeDef*,FDCAN_TxHea
 
 uint32_t HAL_GetTick(void);
 HAL_StatusTypeDef HAL_ADC_Stop(ADC_HandleTypeDef*);
+typedef struct { uint32_t BusOff, LastErrorCode; } FDCAN_ProtocolStatusTypeDef;
+#define FDCAN_PROTOCOL_ERROR_NONE 0u
+#define FDCAN_PROTOCOL_ERROR_ACK 3u
+#define FDCAN_PROTOCOL_ERROR_NO_CHANGE 7u
+HAL_StatusTypeDef HAL_FDCAN_GetProtocolStatus(const FDCAN_HandleTypeDef*, FDCAN_ProtocolStatusTypeDef*);
+uint32_t HAL_FDCAN_GetTxFifoFreeLevel(const FDCAN_HandleTypeDef*);

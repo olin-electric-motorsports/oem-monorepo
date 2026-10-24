@@ -14,6 +14,10 @@ CASES = [
     'apps_latch_unchanged', 'startup_input_still_required',
     'apps_elapsed_time', 'apps_no_elapsed_time', 'apps_clock_wrap',
     'apps_interrupted_fault', 'heartbeat_delayed_task', 'heartbeat_clock_wrap',
+    'can_first_disable', 'can_three_slot_burst', 'can_deferred_status',
+    'can_backpressure', 'can_submit_error', 'can_recovery_disabled',
+    'can_pending_uses_safe_state', 'can_command_deadline', 'can_bus_off', 'can_ack_error',
+    'can_busy_before_deadline', 'healthy_drive_and_brake',
 ]
 
 def main():

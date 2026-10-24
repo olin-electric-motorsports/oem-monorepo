@@ -58,13 +58,27 @@ HAL_StatusTypeDef HAL_FDCAN_GetRxMessage(FDCAN_HandleTypeDef *h, uint32_t n, FDC
     (void)h; (void)n; (void)r; (void)d; return HAL_ERROR;
 }
 HAL_StatusTypeDef HAL_FDCAN_AddMessageToTxFifoQ(FDCAN_HandleTypeDef *h, FDCAN_TxHeaderTypeDef *t, uint8_t *d) {
-    (void)h; (void)d;
-    if (mock.tx_attempts < 32) mock.tx_ids[mock.tx_attempts] = t->Identifier;
+    (void)h;
+    if (mock.tx_attempts < 32) {
+        mock.tx_ids[mock.tx_attempts] = t->Identifier;
+        memcpy(mock.tx_data[mock.tx_attempts], d, 8);
+    }
     mock.tx_attempts++;
     if (mock.fail_tx || mock.tx_queued >= mock.tx_capacity) {
         mock.tx_failures++;
         return HAL_ERROR;
     }
     mock.tx_queued++;
+    return HAL_OK;
+}
+uint32_t HAL_FDCAN_GetTxFifoFreeLevel(const FDCAN_HandleTypeDef *h) {
+    (void)h;
+    return mock.tx_queued < mock.tx_capacity ? mock.tx_capacity - mock.tx_queued : 0;
+}
+HAL_StatusTypeDef HAL_FDCAN_GetProtocolStatus(const FDCAN_HandleTypeDef *h, FDCAN_ProtocolStatusTypeDef *status) {
+    (void)h;
+    status->BusOff = mock.bus_off;
+    status->LastErrorCode = mock.can_last_error;
+    mock.can_last_error = FDCAN_PROTOCOL_ERROR_NO_CHANGE;
     return HAL_OK;
 }

@@ -33,6 +33,17 @@ static bool s_apps_implaus_active = false;
 static uint32_t s_apps_implaus_since_ms = 0;
 static uint32_t s_heartbeat_since_ms = 0;
 
+/* The generated API owns this handle; scheduling below is VCU-specific. */
+extern FDCAN_HandleTypeDef hfdcan1;
+enum {
+    VCU_CAN_COMMAND = (1u << 0),
+    VCU_CAN_THROTTLE = (1u << 1),
+    VCU_CAN_BSPD = (1u << 2),
+    VCU_CAN_STATUS = (1u << 3),
+};
+static uint8_t s_can_pending = 0;
+static uint32_t s_can_command_since_ms = 0;
+
 /* Input sampling and state update helpers for the fast control loop. */
 static void vcu_read_inputs_1ms(void);
 static void vcu_read_bspd_1ms(void);
@@ -42,7 +53,11 @@ static void vcu_check_brake_throttle_implaus_1ms(void);
 static void vcu_update_fault_manager_1ms(void);
 /* Output and communication helpers that consume the already-updated state. */
 static void vcu_apply_outputs(void);
-static void vcu_send_can_10ms(void);
+static HAL_StatusTypeDef vcu_send_can_10ms(void);
+static HAL_StatusTypeDef vcu_service_can_tx(void);
+static void vcu_update_can_signals(void);
+static void vcu_request_can_command(void);
+static void vcu_mark_can_fault(void);
 /* Small arithmetic helpers kept local to avoid depending on lib helpers. */
 static int16_t vcu_abs_diff_16(int16_t a, int16_t b);
 static int16_t vcu_min_16(int16_t a, int16_t b);
@@ -71,6 +86,8 @@ void SysTick_Handler(void) {
  * s_state and on the configured GPIO outputs.
  */
 HAL_StatusTypeDef vcu_step_1ms(void) {
+    bool was_enabled = s_state.inverter_enable_command;
+    int16_t previous_torque = s_state.inverter_torque_command_raw;
     /* Acquire one coherent set of hardware and CAN inputs. */
     vcu_read_inputs_1ms();
 
@@ -80,7 +97,12 @@ HAL_StatusTypeDef vcu_step_1ms(void) {
 
     /* Produce safe torque/enable commands and apply the local GPIO outputs. */
     vcu_apply_outputs();
-    return HAL_OK;
+    if ((was_enabled && !s_state.inverter_enable_command) ||
+        (previous_torque != 0 && s_state.inverter_torque_command_raw == 0)) {
+        /* Do not wait for the next status period to submit a safe command. */
+        vcu_request_can_command();
+    }
+    return vcu_service_can_tx();
 }
 
 /*
@@ -239,6 +261,9 @@ static void vcu_update_fault_manager_1ms(void) {
     uint16_t fault_bits = VCU_FAULT_NONE;
     if (!s_state.adc_inputs_valid) {
         fault_bits |= VCU_FAULT_ADC_INPUT_INVALID;
+    }
+    if (s_state.can_tx_fault) {
+        fault_bits |= VCU_FAULT_CAN_TX;
     }
 
     // BSPD
@@ -451,19 +476,16 @@ HAL_StatusTypeDef vcu_step_10ms(void) {
         s_state.heartbeat_elapsed_ms = 0u;
     }
 
-    vcu_send_can_10ms();
-    
-    return HAL_OK;
+    return vcu_send_can_10ms();
 }
 
 /*
- * Copy the current runtime state into generated CAN signal structs and send
- * the corresponding frames.
+ * Copy current runtime state into generated CAN signal structs before submission.
  *
  * The generated can_api layer owns packing/scaling. This function only selects
  * which internal state values should be exposed on each VCU message.
  */
-static void vcu_send_can_10ms(void) {
+static void vcu_update_can_signals(void) {
     vcu_throttle_state.throttle_l_raw = s_state.throttle_l_raw;
     vcu_throttle_state.throttle_r_raw = s_state.throttle_r_raw;
     vcu_throttle_state.throttle_l_scaled = (uint8_t)s_state.throttle_l_scaled;
@@ -507,14 +529,70 @@ static void vcu_send_can_10ms(void) {
     m192_command_message.rolling_counter = 0u;
     /* Zero requests the inverter's configured default torque limit. */
     m192_command_message.torque_limit_command = 0;
-
-    /* CAN error handling will be added with the deferred FDCAN bring-up work. */
-    (void)can_send_vcu_throttle_state();
-    (void)can_send_vcu_bspd_state();
-    (void)can_send_vcu_status();
-    (void)can_send_m192_command_message();
 }
 
+static void vcu_request_can_command(void) {
+    if ((s_can_pending & VCU_CAN_COMMAND) == 0u) {
+        s_can_command_since_ms = HAL_GetTick();
+    }
+    s_can_pending |= VCU_CAN_COMMAND;
+}
+
+static void vcu_mark_can_fault(void) {
+    s_state.can_tx_fault = true;
+    vcu_request_can_command();
+    vcu_update_fault_manager_1ms();
+    vcu_apply_outputs();
+}
+
+static HAL_StatusTypeDef vcu_service_can_tx(void) {
+    FDCAN_ProtocolStatusTypeDef protocol = {0};
+    if (HAL_FDCAN_GetProtocolStatus(&hfdcan1, &protocol) != HAL_OK ||
+        protocol.BusOff != 0u ||
+        (protocol.LastErrorCode != FDCAN_PROTOCOL_ERROR_NONE &&
+         protocol.LastErrorCode != FDCAN_PROTOCOL_ERROR_NO_CHANGE)) {
+        /* Bus-off needs controller reinitialization; never re-arm drive here. */
+        vcu_mark_can_fault();
+        return HAL_ERROR;
+    }
+    if ((s_can_pending & VCU_CAN_COMMAND) != 0u &&
+        (uint32_t)(HAL_GetTick() - s_can_command_since_ms) >= VCU_CAN_PUBLISH_PERIOD_MS) {
+        vcu_mark_can_fault();
+    }
+
+    /* Pack the latest safe state when space is available, not a stale snapshot. */
+    vcu_update_can_signals();
+    static int (*const send[])(void) = {
+        can_send_m192_command_message,
+        can_send_vcu_throttle_state,
+        can_send_vcu_bspd_state,
+        can_send_vcu_status,
+    };
+    for (unsigned i = 0; i < sizeof(send) / sizeof(send[0]); i++) {
+        uint8_t bit = (uint8_t)(1u << i);
+        if ((s_can_pending & bit) == 0u) continue;
+        if (HAL_FDCAN_GetTxFifoFreeLevel(&hfdcan1) == 0u) {
+            /* Keep unsent messages pending and retry on the next fast task. */
+            return s_state.can_tx_fault ? HAL_ERROR : HAL_BUSY;
+        }
+        if (send[i]() != 0) {
+            vcu_mark_can_fault();
+            return HAL_ERROR;
+        }
+        s_can_pending &= (uint8_t)~bit;
+        if (bit == VCU_CAN_COMMAND && !s_state.inverter_enable_command) {
+            /* Submission recovery clears this fault, but RTD stays unlatched. */
+            s_state.can_tx_fault = false;
+        }
+    }
+    return s_state.can_tx_fault ? HAL_ERROR : HAL_OK;
+}
+
+static HAL_StatusTypeDef vcu_send_can_10ms(void) {
+    vcu_request_can_command();
+    s_can_pending |= VCU_CAN_THROTTLE | VCU_CAN_BSPD | VCU_CAN_STATUS;
+    return vcu_service_can_tx();
+}
 
 /*
  * Validate hardware mappings populated by peripheral init and clear runtime
@@ -528,6 +606,8 @@ HAL_StatusTypeDef vcu_init(void) {
     s_apps_implaus_active = false;
     s_apps_implaus_since_ms = HAL_GetTick();
     s_heartbeat_since_ms = HAL_GetTick();
+    s_can_pending = 0u;
+    s_can_command_since_ms = HAL_GetTick();
 
     // BSPD
     if (s_hw.hadc_brake_press_sense == NULL || s_hw.hadc_brake_press_sense_ftr == NULL
@@ -563,9 +643,8 @@ HAL_StatusTypeDef vcu_init(void) {
      * command. Once the inverter sees a Disable command, the lockout is removed
      * and controller can receive the Inverter Enable command
      */
-    vcu_send_can_10ms();
-
-    return HAL_OK;
+    /* A full hardware queue is handled by the foreground retry path. */
+    return vcu_send_can_10ms() == HAL_ERROR ? HAL_ERROR : HAL_OK;
 }
 
 /*
@@ -607,7 +686,7 @@ int main(void) {
         }
 
         now_ms = HAL_GetTick();
-        if ((uint32_t)(now_ms - last_slow_ms) >= 10u) {
+        if ((uint32_t)(now_ms - last_slow_ms) >= VCU_CAN_PUBLISH_PERIOD_MS) {
             last_slow_ms = now_ms;
             vcu_step_10ms();
         }

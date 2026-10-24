@@ -12,6 +12,9 @@ typedef struct {
     bool fail_tx;
     unsigned tx_capacity, tx_queued, tx_attempts, tx_failures;
     uint32_t tx_ids[32];
+    uint8_t tx_data[32][8];
+    bool bus_off;
+    uint32_t can_last_error;
 } mock_hal_state_t;
 extern mock_hal_state_t mock;
 void mock_hal_reset(void);

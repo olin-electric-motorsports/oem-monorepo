@@ -40,7 +40,7 @@
 // These are digital outputs for avr-controlled LED outputs
 /* Diagnostic LEDs showing brake-light logic level and 5 kW BSPD state. */
 #define VCU_BRAKE_LL_LED_GPIO_PORT (GPIOB)
-#define VCU_BRAKE_LL_LED_GPIO_PIN (GPIO_PIN_8)
+#define VCU_BRAKE_LL_LED_GPIO_PIN (GPIO_PIN_4)
 #define VCU_MOTOR_5KW_LED_GPIO_PORT (GPIOB)
 #define VCU_MOTOR_5KW_LED_GPIO_PIN (GPIO_PIN_3)
 

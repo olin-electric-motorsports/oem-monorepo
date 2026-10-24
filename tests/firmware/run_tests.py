@@ -12,6 +12,8 @@ CASES = [
     'adc_read_config_error', 'adc_read_start_error', 'adc_read_timeout',
     'adc_read_stop_error', 'temporary_calibration_unchanged',
     'apps_latch_unchanged', 'startup_input_still_required',
+    'apps_elapsed_time', 'apps_no_elapsed_time', 'apps_clock_wrap',
+    'apps_interrupted_fault', 'heartbeat_delayed_task', 'heartbeat_clock_wrap',
 ]
 
 def main():

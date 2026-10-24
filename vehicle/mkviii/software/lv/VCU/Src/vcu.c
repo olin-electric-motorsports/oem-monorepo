@@ -28,9 +28,10 @@ _Static_assert(VCU_THROTTLE_L_MAX_COUNTS > VCU_THROTTLE_L_MIN_COUNTS,
 _Static_assert(VCU_THROTTLE_R_MAX_COUNTS > VCU_THROTTLE_R_MIN_COUNTS,
                "right APPS calibration range must be positive");
 
-/* Scheduler flags set by SysTick_Handler and consumed by the main loop. */
-static volatile bool s_tick_1ms = false;
-static volatile bool s_tick_10ms = false;
+/* Unsigned tick differences remain valid across the HAL millisecond wrap. */
+static bool s_apps_implaus_active = false;
+static uint32_t s_apps_implaus_since_ms = 0;
+static uint32_t s_heartbeat_since_ms = 0;
 
 /* Input sampling and state update helpers for the fast control loop. */
 static void vcu_read_inputs_1ms(void);
@@ -49,21 +50,10 @@ static int16_t vcu_min_16(int16_t a, int16_t b);
 /*
  * System tick interrupt hook.
  *
- * HAL timekeeping runs every millisecond. The VCU also derives a 10 ms flag
- * from this interrupt so the main loop can execute both periodic tasks without
- * doing control work directly inside the interrupt context.
+ * Keep HAL timekeeping in the interrupt; foreground tasks use elapsed time.
  */
 void SysTick_Handler(void) {
-    static uint8_t tick_10ms_div = 0;
-
     HAL_IncTick();
-    s_tick_1ms = true;
-
-    tick_10ms_div++;
-    if (tick_10ms_div >= 10u) {
-        tick_10ms_div = 0u;
-        s_tick_10ms = true;
-    }
 }
 
 /*
@@ -76,8 +66,8 @@ void SysTick_Handler(void) {
 /*
  * Run one fast VCU control iteration.
  *
- * This function is intended to be called from the foreground loop whenever the
- * 1 ms scheduler flag is set. It leaves all externally visible results in
+ * This function is called from the foreground loop when the next millisecond
+ * is due. It leaves all externally visible results in
  * s_state and on the configured GPIO outputs.
  */
 HAL_StatusTypeDef vcu_step_1ms(void) {
@@ -283,16 +273,21 @@ static void vcu_update_fault_manager_1ms(void) {
     }
 
     if (throttle_implausible_now) {
-        /* Saturate the timer so a persistent fault cannot wrap back to zero. */
-        if (s_state.throttle_implaus_timer_ms <
-            VCU_APPS_IMPLAUSIBILITY_TIMEOUT_MS) {
-            s_state.throttle_implaus_timer_ms++;
+        uint32_t now_ms = HAL_GetTick();
+        if (!s_apps_implaus_active) {
+            s_apps_implaus_active = true;
+            s_apps_implaus_since_ms = now_ms;
         }
-        if (s_state.throttle_implaus_timer_ms >=
-            VCU_APPS_IMPLAUSIBILITY_TIMEOUT_MS) {
+        uint32_t elapsed_ms = now_ms - s_apps_implaus_since_ms;
+        s_state.throttle_implaus_timer_ms =
+            elapsed_ms < VCU_APPS_IMPLAUSIBILITY_TIMEOUT_MS
+                ? (uint16_t)elapsed_ms
+                : VCU_APPS_IMPLAUSIBILITY_TIMEOUT_MS;
+        if (elapsed_ms >= VCU_APPS_IMPLAUSIBILITY_TIMEOUT_MS) {
             s_state.throttle_implaus_latched = true;
         }
     } else {
+        s_apps_implaus_active = false;
         s_state.throttle_implaus_timer_ms = 0;
     }
 
@@ -443,11 +438,14 @@ static void vcu_apply_outputs(void) {
  */
 HAL_StatusTypeDef vcu_step_10ms(void) {
     if (VCU_HEARTBEAT_TOGGLE_MS > 0u) {
-        s_state.heartbeat_elapsed_ms = (uint16_t)(s_state.heartbeat_elapsed_ms + 10u);
-        if (s_state.heartbeat_elapsed_ms >= VCU_HEARTBEAT_TOGGLE_MS) {
-            s_state.heartbeat = !s_state.heartbeat;
-            s_state.heartbeat_elapsed_ms = 0u;
+        uint32_t now_ms = HAL_GetTick();
+        uint32_t elapsed_ms = now_ms - s_heartbeat_since_ms;
+        uint32_t toggles = elapsed_ms / VCU_HEARTBEAT_TOGGLE_MS;
+        if (toggles != 0u) {
+            if ((toggles & 1u) != 0u) s_state.heartbeat = !s_state.heartbeat;
+            s_heartbeat_since_ms += toggles * VCU_HEARTBEAT_TOGGLE_MS;
         }
+        s_state.heartbeat_elapsed_ms = (uint16_t)(now_ms - s_heartbeat_since_ms);
     } else {
         s_state.heartbeat = false;
         s_state.heartbeat_elapsed_ms = 0u;
@@ -527,6 +525,9 @@ HAL_StatusTypeDef vcu_init(void) {
     s_state = (vcu_state_s) {
         .mode = VCU_MODE_NOT_READY,
     };
+    s_apps_implaus_active = false;
+    s_apps_implaus_since_ms = HAL_GetTick();
+    s_heartbeat_since_ms = HAL_GetTick();
 
     // BSPD
     if (s_hw.hadc_brake_press_sense == NULL || s_hw.hadc_brake_press_sense_ftr == NULL
@@ -595,14 +596,19 @@ int main(void) {
         Error_Handler();
     }
 
+    uint32_t last_fast_ms = HAL_GetTick();
+    uint32_t last_slow_ms = last_fast_ms;
     while (true) {
-        if (s_tick_1ms) {
-            s_tick_1ms = false;
+        uint32_t now_ms = HAL_GetTick();
+        if ((uint32_t)(now_ms - last_fast_ms) >= 1u) {
+            /* Sample current inputs once; do not replay missed samples. */
+            last_fast_ms = now_ms;
             vcu_step_1ms();
         }
 
-        if (s_tick_10ms) {
-            s_tick_10ms = false;
+        now_ms = HAL_GetTick();
+        if ((uint32_t)(now_ms - last_slow_ms) >= 10u) {
+            last_slow_ms = now_ms;
             vcu_step_10ms();
         }
     }

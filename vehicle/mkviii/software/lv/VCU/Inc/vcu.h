@@ -140,7 +140,7 @@ typedef struct {
     /* Latches brake/throttle overlap until pedal travel returns below reset threshold. */
     bool brake_throttle_implaus_latched;
 
-    /* Millisecond counter for continuous APPS implausibility timing. */
+    /* Elapsed milliseconds of continuous APPS implausibility, saturated at timeout. */
     uint16_t throttle_implaus_timer_ms;
     /* BSPD inputs and state. */
     /* Raw ADC monitor values published for BSPD diagnostics. */

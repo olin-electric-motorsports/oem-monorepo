@@ -45,12 +45,52 @@ int main(int argc, char **argv) {
         assert(!s_state.inverter_enable_command);
         assert(s_state.inverter_torque_command_raw == 0);
         assert(s_state.throttle_r_raw == 80);
+    } else if (!strcmp(test, "apps_elapsed_time")) {
+        setup(); mock.adc_counts[1] = 1000; mock.adc_counts[2] = 0;
+        vcu_step_1ms();
+        mock.now_ms = 99; vcu_step_1ms();
+        assert(!s_state.throttle_implaus_latched);
+        mock.now_ms = 100; vcu_step_1ms();
+        assert(s_state.throttle_implaus_latched);
+        assert(s_state.throttle_implaus_timer_ms == 100);
+    } else if (!strcmp(test, "apps_no_elapsed_time")) {
+        setup(); mock.adc_counts[1] = 1000; mock.adc_counts[2] = 0;
+        for (unsigned i = 0; i < 200; i++) vcu_step_1ms();
+        assert(!s_state.throttle_implaus_latched);
+        assert(s_state.throttle_implaus_timer_ms == 0);
+    } else if (!strcmp(test, "apps_clock_wrap")) {
+        setup(); mock.adc_counts[1] = 1000; mock.adc_counts[2] = 0;
+        mock.now_ms = UINT32_MAX - 30; vcu_step_1ms();
+        mock.now_ms += 100; vcu_step_1ms();
+        assert(s_state.throttle_implaus_latched);
+    } else if (!strcmp(test, "apps_interrupted_fault")) {
+        setup(); mock.adc_counts[1] = 1000; mock.adc_counts[2] = 0;
+        mock.now_ms = 10; vcu_step_1ms();
+        mock.adc_counts[1] = 36; mock.adc_counts[2] = 7;
+        mock.now_ms = 60; vcu_step_1ms();
+        mock.adc_counts[1] = 1000; mock.adc_counts[2] = 0;
+        mock.now_ms = 110; vcu_step_1ms();
+        mock.now_ms = 150; vcu_step_1ms();
+        assert(!s_state.throttle_implaus_latched);
+        mock.now_ms = 210; vcu_step_1ms();
+        assert(s_state.throttle_implaus_latched);
+    } else if (!strcmp(test, "heartbeat_delayed_task")) {
+        setup(); mock.now_ms = 1250; vcu_step_10ms();
+        assert(!s_state.heartbeat);
+        assert(s_state.heartbeat_elapsed_ms == 250);
+    } else if (!strcmp(test, "heartbeat_clock_wrap")) {
+        setup(); mock.now_ms = UINT32_MAX - 200;
+        assert(vcu_init() == HAL_OK);
+        mock.now_ms += 501; vcu_step_10ms();
+        assert(s_state.heartbeat);
+        assert(s_state.heartbeat_elapsed_ms == 1);
     } else if (!strcmp(test, "temporary_calibration_unchanged")) {
         setup(); mock.adc_counts[2] = 0; vcu_step_1ms();
         assert(!s_state.throttle_r_out_of_range);
         assert(s_state.fault_bits == VCU_FAULT_NONE);
     } else if (!strcmp(test, "apps_latch_unchanged")) {
         setup(); mock.adc_counts[1] = 1000; mock.adc_counts[2] = 0;
+        vcu_step_1ms();
         for (unsigned i = 0; i < 100; i++) {mock.now_ms++; vcu_step_1ms();}
         assert(s_state.throttle_implaus_latched);
         mock.adc_counts[1] = 36; mock.adc_counts[2] = 7;

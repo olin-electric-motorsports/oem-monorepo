@@ -1,11 +1,15 @@
-# Firmware host regression checks
+# VCU host regression checks
 
 Build the generated VCU CAN files once:
 
 ```sh
 bazel build --config=m4 //vehicle/mkviii/software/lv/VCU:vcu_can_api
-python3 tests/firmware/run_tests.py
+python3 vehicle/mkviii/software/lv/VCU/tests/run_tests.py
 ```
+
+All files in this directory are VCU-specific test support. The headers under
+`include/` are local substitutes, not ST official headers. Only this test runner
+adds them to its include path; the ARM firmware build uses the official HAL.
 
 A C compiler (`gcc`) and Python 3 are required. There are no additional Python
 packages. Pass case names to run selected checks. Every case runs in a separate

@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Build real firmware C with a host HAL substitute; never access hardware."""
+"""Run VCU C regression checks on the host with a VCU-local HAL substitute."""
 import argparse
 from pathlib import Path
 import subprocess
 import tempfile
 
-ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
+VCU = HERE.parent
+ROOT = next(parent for parent in VCU.parents if (parent / 'MODULE.bazel').is_file())
 CASES = [
     'adc_init_error', 'adc_calibration_error', 'adc_retry_calibration',
     'adc_read_config_error', 'adc_read_start_error', 'adc_read_timeout',
@@ -24,19 +25,19 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('cases', nargs='*', choices=CASES)
     args = parser.parse_args()
-    generated = ROOT / 'bazel-bin/vehicle/mkviii/software/lv/VCU'
+    generated = ROOT / 'bazel-bin' / VCU.relative_to(ROOT)
     if not (generated / 'can_api.c').exists():
         parser.error('First run: bazel build --config=m4 //vehicle/mkviii/software/lv/VCU:vcu_can_api')
-    with tempfile.TemporaryDirectory(prefix='oem-firmware-tests-') as tmp:
+    with tempfile.TemporaryDirectory(prefix='oem-vcu-tests-') as tmp:
         binary = Path(tmp) / 'test_vcu'
         command = ['gcc', '-std=c11', '-O1', '-g', '-Wall', '-Wextra', '-Werror',
                    '-fsanitize=undefined', '-fno-omit-frame-pointer']
-        for path in [HERE / 'include', HERE, ROOT, ROOT / 'vehicle/mkviii/software/lv/VCU/Inc',
-                     ROOT / 'vehicle/mkviii/software/lv/VCU', generated]:
+        for path in [HERE / 'include', HERE, ROOT, VCU / 'Inc',
+                     VCU, generated]:
             command.append('-I' + str(path))
         command += [str(p) for p in [HERE / 'test_vcu.c', HERE / 'mock_hal.c',
-                    ROOT / 'vehicle/mkviii/software/lv/VCU/Src/adc.c',
-                    ROOT / 'vehicle/mkviii/software/lv/VCU/Src/gpio.c',
+                    VCU / 'Src/adc.c',
+                    VCU / 'Src/gpio.c',
                     ROOT / 'common/adc/adc.c', generated / 'can_api.c', generated / 'can_tools.c']]
         subprocess.run(command + ['-o', str(binary)], check=True)
         failed = 0

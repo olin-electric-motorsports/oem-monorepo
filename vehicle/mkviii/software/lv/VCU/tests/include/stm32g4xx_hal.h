@@ -1,3 +1,6 @@
+/* VCU host-test substitute, not an ST official header.
+ * Include only from this directory's host test runner.
+ */
 #pragma once
 #include <stdint.h>
 #include <stddef.h>

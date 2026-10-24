@@ -51,7 +51,9 @@ typedef enum {
     /* BSPD shutdown-chain sense indicates an open shutdown-chain segment. */
     VCU_FAULT_SHUTDOWN_BSPD_OPEN = (1u << 7),
     /* Configured APPS endpoints cannot form a valid positive calibration range. */
-    VCU_FAULT_APPS_CALIBRATION_INVALID = (1u << 8)
+    VCU_FAULT_APPS_CALIBRATION_INVALID = (1u << 8),
+    /* At least one required ADC input could not be sampled this iteration. */
+    VCU_FAULT_ADC_INPUT_INVALID = (1u << 9)
 } vcu_fault_bit_e;
 
 /*
@@ -117,6 +119,7 @@ typedef struct {
  */
 typedef struct {
     /* Throttle inputs and plausibility state. */
+    bool adc_inputs_valid;
     /* Raw ADC counts before right-shifting or calibration scaling. */
     uint16_t throttle_l_raw;
     uint16_t throttle_r_raw;

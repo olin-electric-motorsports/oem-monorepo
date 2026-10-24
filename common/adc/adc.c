@@ -16,7 +16,11 @@ static void enable_clocks(GPIO_TypeDef* port, ADC_TypeDef* adc) {
     else if (port == GPIOC) __HAL_RCC_GPIOC_CLK_ENABLE();
 }
 
-void oem_adc_init(oem_adc_config_t* config) {
+HAL_StatusTypeDef oem_adc_init(oem_adc_config_t* config) {
+    if (config == NULL || config->port == NULL || config->pin == 0u ||
+        (config->adc_instance != ADC1 && config->adc_instance != ADC2)) {
+        return HAL_ERROR;
+    }
     enable_clocks(config->port, config->adc_instance);
 
     // Put the pin in Analog Mode
@@ -32,8 +36,10 @@ void oem_adc_init(oem_adc_config_t* config) {
         hadc1.Init.Resolution = ADC_RESOLUTION_12B;
         hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
         hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
-        HAL_ADC_Init(&hadc1);
-        HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
+        HAL_StatusTypeDef status = HAL_ADC_Init(&hadc1);
+        if (status != HAL_OK) return status;
+        status = HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
+        if (status != HAL_OK) return status;
         is_adc1_calibrated = true;
     }
     
@@ -43,18 +49,22 @@ void oem_adc_init(oem_adc_config_t* config) {
         hadc2.Init.Resolution = ADC_RESOLUTION_12B;
         hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
         hadc2.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
-        HAL_ADC_Init(&hadc2);
-        HAL_ADCEx_Calibration_Start(&hadc2, ADC_SINGLE_ENDED);
+        HAL_StatusTypeDef status = HAL_ADC_Init(&hadc2);
+        if (status != HAL_OK) return status;
+        status = HAL_ADCEx_Calibration_Start(&hadc2, ADC_SINGLE_ENDED);
+        if (status != HAL_OK) return status;
         is_adc2_calibrated = true;
     }
+    return HAL_OK;
 }
 
-uint16_t oem_adc_read(oem_adc_config_t* config) {
+HAL_StatusTypeDef oem_adc_read(oem_adc_config_t* config, uint16_t* value) {
+    if (config == NULL || value == NULL) return HAL_ERROR;
     // Figure out which hardware engine to talk to based on the struct
     ADC_HandleTypeDef* active_hadc;
-    if (config->adc_instance == ADC1) active_hadc = &hadc1;
-    else if (config->adc_instance == ADC2) active_hadc = &hadc2;
-    else return 0; 
+    if (config->adc_instance == ADC1 && is_adc1_calibrated) active_hadc = &hadc1;
+    else if (config->adc_instance == ADC2 && is_adc2_calibrated) active_hadc = &hadc2;
+    else return HAL_ERROR;
 
     // Configure (based off of example code)
     ADC_ChannelConfTypeDef sConfig = {0};
@@ -63,15 +73,23 @@ uint16_t oem_adc_read(oem_adc_config_t* config) {
     sConfig.SamplingTime = config->sample_time;
     sConfig.SingleDiff = ADC_SINGLE_ENDED;
     
-    HAL_ADC_ConfigChannel(active_hadc, &sConfig);
+    HAL_StatusTypeDef status = HAL_ADC_ConfigChannel(active_hadc, &sConfig);
+    if (status != HAL_OK) return status;
 
     // Take the reading
-    HAL_ADC_Start(active_hadc);
-    if (HAL_ADC_PollForConversion(active_hadc, 5) == HAL_OK) {
-        return HAL_ADC_GetValue(active_hadc);
+    status = HAL_ADC_Start(active_hadc);
+    if (status != HAL_OK) return status;
+    status = HAL_ADC_PollForConversion(active_hadc, 5);
+    if (status != HAL_OK) {
+        /* End a timed-out conversion before the next channel is selected. */
+        (void)HAL_ADC_Stop(active_hadc);
+        return status;
     }
-    
-    return 0;
+    uint16_t sample = (uint16_t)HAL_ADC_GetValue(active_hadc);
+    status = HAL_ADC_Stop(active_hadc);
+    if (status != HAL_OK) return status;
+    *value = sample;
+    return HAL_OK;
 }
 
 

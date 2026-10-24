@@ -100,6 +100,7 @@ HAL_StatusTypeDef vcu_step_1ms(void) {
  * is drained so any subscribed status can be incorporated by later logic.
  */
 static void vcu_read_inputs_1ms(void) {
+    s_state.adc_inputs_valid = true;
     vcu_read_bspd_1ms();
     vcu_read_throttle_1ms();
     vcu_read_shutdown_chain_1ms();
@@ -115,9 +116,15 @@ static void vcu_read_inputs_1ms(void) {
  * indicates the hardware latch/output is active.
  */
 static void vcu_read_bspd_1ms(void) {
-    s_state.brake_press_sense = oem_adc_read(s_hw.hadc_brake_press_sense);
-    s_state.brake_press_sense_ftr = oem_adc_read(s_hw.hadc_brake_press_sense_ftr);
-    s_state.rc_timer_status = oem_adc_read(s_hw.hadc_rc_timer_status);
+    if (oem_adc_read(s_hw.hadc_brake_press_sense, &s_state.brake_press_sense) != HAL_OK) {
+        s_state.adc_inputs_valid = false;
+    }
+    if (oem_adc_read(s_hw.hadc_brake_press_sense_ftr, &s_state.brake_press_sense_ftr) != HAL_OK) {
+        s_state.adc_inputs_valid = false;
+    }
+    if (oem_adc_read(s_hw.hadc_rc_timer_status, &s_state.rc_timer_status) != HAL_OK) {
+        s_state.adc_inputs_valid = false;
+    }
     
     s_state.brake_gate = !!HAL_GPIO_ReadPin(s_hw.brakelight_ll_port, s_hw.brakelight_ll_pin);
     s_state.bspd_5kw = !!HAL_GPIO_ReadPin(s_hw.motor_current_sense_port, s_hw.motor_current_sense_pin);
@@ -134,9 +141,16 @@ static void vcu_read_bspd_1ms(void) {
  */
 static void vcu_read_throttle_1ms(void) {
     /* ADC values are unsigned 12-bit counts and fit safely in uint16_t. */
-    uint16_t throttle_l_raw = oem_adc_read(s_hw.hadc_throttle_l);
+    uint16_t throttle_l_raw;
+    uint16_t throttle_r_raw;
+    HAL_StatusTypeDef left_status = oem_adc_read(s_hw.hadc_throttle_l, &throttle_l_raw);
+    HAL_StatusTypeDef right_status = oem_adc_read(s_hw.hadc_throttle_r, &throttle_r_raw);
+    if (left_status != HAL_OK || right_status != HAL_OK) {
+        /* Keep the last sample for diagnostics, but block output this iteration. */
+        s_state.adc_inputs_valid = false;
+        return;
+    }
     s_state.throttle_l_raw = throttle_l_raw;
-    uint16_t throttle_r_raw = oem_adc_read(s_hw.hadc_throttle_r);
     s_state.throttle_r_raw = throttle_r_raw;
 
     int16_t raw_l = (int16_t)(throttle_l_raw >> 2);
@@ -233,6 +247,9 @@ static void vcu_read_shutdown_chain_1ms(void) {
  */
 static void vcu_update_fault_manager_1ms(void) {
     uint16_t fault_bits = VCU_FAULT_NONE;
+    if (!s_state.adc_inputs_valid) {
+        fault_bits |= VCU_FAULT_ADC_INPUT_INVALID;
+    }
 
     // BSPD
     if (s_state.bspd_latched) {

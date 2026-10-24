@@ -23,3 +23,4 @@ extern oem_adc_config_t throttle_sensor;
 */
 void SysTick_Handler(void);
 void SystemClockConfig(void);
+void ErrorHandler(void);

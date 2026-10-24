@@ -61,16 +61,21 @@ static oem_adc_config_t s_rc_timer_status_adc = {
 HAL_StatusTypeDef vcu_adc_init(void)
 {
   // Throttle
-  oem_adc_init(&s_throttle_l_adc);
-  oem_adc_init(&s_throttle_r_adc);
+  HAL_StatusTypeDef status = oem_adc_init(&s_throttle_l_adc);
+  if (status != HAL_OK) return status;
+  status = oem_adc_init(&s_throttle_r_adc);
+  if (status != HAL_OK) return status;
 
   s_hw.hadc_throttle_l = &s_throttle_l_adc;
   s_hw.hadc_throttle_r = &s_throttle_r_adc;
 
   // BSPD
-  oem_adc_init(&s_brake_press_sense_adc);
-  oem_adc_init(&s_brake_press_sense_ftr_adc);
-  oem_adc_init(&s_rc_timer_status_adc);
+  status = oem_adc_init(&s_brake_press_sense_adc);
+  if (status != HAL_OK) return status;
+  status = oem_adc_init(&s_brake_press_sense_ftr_adc);
+  if (status != HAL_OK) return status;
+  status = oem_adc_init(&s_rc_timer_status_adc);
+  if (status != HAL_OK) return status;
 
   s_hw.hadc_brake_press_sense = &s_brake_press_sense_adc;
   s_hw.hadc_brake_press_sense_ftr = &s_brake_press_sense_ftr_adc;

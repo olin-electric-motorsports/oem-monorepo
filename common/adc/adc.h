@@ -19,8 +19,10 @@ typedef struct {
     uint32_t sample_time;        
 } oem_adc_config_t;
 
-void oem_adc_init(oem_adc_config_t* config);
-uint16_t oem_adc_read(oem_adc_config_t* config);
+/* Initialization errors are returned; failed calibration can be retried. */
+HAL_StatusTypeDef oem_adc_init(oem_adc_config_t* config);
+/* Write value only after a successful conversion and stop. */
+HAL_StatusTypeDef oem_adc_read(oem_adc_config_t* config, uint16_t* value);
 
 
 

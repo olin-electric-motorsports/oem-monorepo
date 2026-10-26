@@ -1,12 +1,23 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Set up a freshly imaged dashboard Raspberry Pi (Raspberry Pi OS trixie).
 #
-#   ./pi-setup.sh [-c config.json]
+#   ./pi-setup.sh [-c CONFIG] [-f]
+#   ./pi-setup.sh [-c CONFIG] --update
+#
+# --update only reinstalls ../pi's scripts (startup.sh, sync-keys.sh,
+# versions.sh, lib/common.sh) in ~/startup and the systemd service, keeping
+# the Pi's startup_config.json (its branch and github_users). Use it after
+# changing anything in ../pi. They take effect on the next boot.
 #
 # Run on the laptop after the Pi's first boot has finished, with the Pi on the
 # same network. The Pi is found by pi.mac in config.json; pi.user, pi.port and
 # pi.ssh_key are used to log in. You'll be asked for the Pi user's password
 # once, for sudo. Takes a few minutes, mostly apt on the Pi.
+#
+# First, on the laptop: checks that ../pi/startup_config.json has GitHub users
+# (github_users) and that one of this laptop's ssh keys is among their keys on
+# GitHub. Once set up, the Pi only accepts those keys, so you'd otherwise lock
+# yourself out. -f skips the key check.
 #
 # On the Pi, as root:
 #   1. Converts the netplan-backed NetworkManager profiles (the Wi-Fi from
@@ -17,43 +28,97 @@
 #      Python CLI + `daemon-reload` when there is no netplan YAML left (~19 s).
 #   3. Uninstalls cloud-init, which otherwise runs on every boot before
 #      NetworkManager (~16 s).
-#   4. Installs git (startup.py uses it to sync files from GitHub).
-#   5. Gives the Pi user passwordless sudo (deploy.py and reboot_pi.py run
-#      `sudo -n shutdown` / `sudo -n reboot` over ssh, where nobody can type one).
-#   6. Installs a boot-time probe that records when the internet first becomes
+#   4. Caps the boot's wait for the network at 20 s (NM's default is 60 s), so
+#      with no Wi-Fi (in the car) the dashboard starts at most ~20 s late.
+#   5. Installs git, jq, curl and patch (the startup scripts use them).
+#   6. Gives the Pi user passwordless sudo (deploy.sh and reboot.sh run
+#      `sudo -n reboot` / `sudo -n shutdown` over ssh, where nobody can type one).
+#   7. Installs a boot-time probe that records when the internet first becomes
 #      reachable, and `boot-net-times` to print it (diagnostics only).
-#   7. Installs ../pi/startup.py and ../pi/startup_config.json in ~/startup.
-#   8. Installs ../pi/oem-startup.service in /etc/systemd/system and enables it.
+#   8. Installs ../pi/startup.sh, sync-keys.sh, versions.sh, lib/common.sh and
+#      startup_config.json in ~/startup.
+#   9. Installs ../pi/oem-startup.service in /etc/systemd/system and enables it.
 # Then, from the laptop:
-#   9. Runs the first deploy (./deploy.py --reboot) and exits once the Pi starts
-#      rebooting. On that boot, startup.py applies the deploy and starts the
+#  10. Runs ~/startup/sync-keys.sh, which replaces the Pi's authorized_keys with
+#      the github_users' keys from GitHub, and checks you can still ssh in.
+#  11. Runs the first deploy (./deploy.sh --reboot) and exits once the Pi starts
+#      rebooting. On that boot, startup.sh applies the deploy and starts the
 #      dashboard.
 
-set -uo pipefail
+set -euo pipefail
+source "$(dirname "${BASH_SOURCE[0]}")/lib/common.sh"
 
-DIR=$(cd "$(dirname "$0")" && pwd)
-PI_DIR=$(cd "$DIR/../pi" && pwd)
-CONFIG="$DIR/config.json"
-
-usage() { sed -n '2,/^$/s/^# \{0,1\}//p' "$0"; exit "${1:-0}"; }
-while getopts "c:h" opt; do
-  case $opt in
-    c) CONFIG=$OPTARG ;;
-    h) usage 0 ;;
-    *) usage 2 ;;
+config_arg= force= update=
+while [ $# -gt 0 ]; do
+  case $1 in
+    -c | --config)
+      [ $# -ge 2 ] || die "$1 needs a config file"
+      config_arg=$2
+      shift
+      ;;
+    -f | --force) force=1 ;;
+    --update) update=1 ;;
+    -h | --help) usage ;;
+    *) die "unknown argument '$1' (see $(basename "$0") -h)" ;;
   esac
+  shift
 done
 
+# Timestamped, since this takes a few minutes.
 log() { echo "[$(date +%T)] $*" >&2; }
-die() { log "ERROR: $*"; exit 1; }
 
-for f in startup.py startup_config.json oem-startup.service; do
-  [ -f "$PI_DIR/$f" ] || die "missing $PI_DIR/$f"
+require_cmds ssh scp curl
+load_config "$config_arg"
+for f in startup.sh sync-keys.sh versions.sh lib/common.sh startup_config.json oem-startup.service; do
+  [ -f "$PI_FILES_DIR/$f" ] || die "missing $PI_FILES_DIR/$f"
 done
+
+if [ -n "$update" ]; then
+  log "looking for the Pi..."
+  find_pi
+  stage=$(pi_ssh 'mktemp -d /tmp/pi-update.XXXXXX') || die "couldn't run commands on the Pi at $PI_IP"
+  pi_scp "$PI_FILES_DIR" "$stage/pi" || die "couldn't copy ../pi to the Pi"
+  pi_ssh "bash -s -- $stage" <<'UPDATE_EOF' || die "updating ~/startup failed (see above)"
+set -euo pipefail
+stage=$1
+trap 'rm -rf "$stage"' EXIT
+[ -f startup/startup_config.json ] ||
+  { echo "error: the Pi has no ~/startup/startup_config.json; run ./pi-setup.sh without --update" >&2; exit 1; }
+install -d startup/lib
+install -m 755 "$stage"/pi/{startup,sync-keys,versions}.sh startup/
+install -m 644 "$stage/pi/lib/common.sh" startup/lib/
+rm -f startup/startup.py
+echo "[pi] updated startup.sh, sync-keys.sh, versions.sh and lib/common.sh in ~/startup"
+sed "s/^User=.*/User=$(id -un)/" "$stage/pi/oem-startup.service" >"$stage/service"
+if ! cmp -s "$stage/service" /etc/systemd/system/oem-startup.service; then
+  sudo -n install -m 644 "$stage/service" /etc/systemd/system/oem-startup.service
+  sudo -n systemctl daemon-reload
+  echo "[pi] updated oem-startup.service"
+fi
+UPDATE_EOF
+  log "done; the Pi's startup_config.json is unchanged. The new scripts run from its next boot (./reboot.sh)."
+  exit 0
+fi
+
+# The Pi will only accept the github_users' GitHub keys (sync-keys.sh), so make
+# sure that includes one of yours before going any further.
+startup_config=$PI_FILES_DIR/startup_config.json
+jq -e 'type == "object"' "$startup_config" >/dev/null 2>&1 || die "$startup_config is not valid JSON"
+mapfile -t github_users < <(jq -r '.github_users[]?' "$startup_config")
+[ ${#github_users[@]} -gt 0 ] ||
+  die "$startup_config has no github_users. Add your GitHub username to it: the Pi only lets in ssh keys from those users' GitHub accounts."
+for user in "${github_users[@]}"; do
+  valid_github_user "$user" || die "'$user' in github_users ($startup_config) isn't a valid GitHub username"
+done
+if [ -z "$force" ]; then
+  log "checking that one of your ssh keys is on GitHub for: ${github_users[*]}"
+  laptop_key_on_github "${github_users[@]}" ||
+    die "none of this laptop's ssh keys are on GitHub for ${github_users[*]} (github_users in $startup_config), so once the Pi uses their keys you couldn't ssh into it. Add your public key (e.g. ~/.ssh/id_ed25519.pub) to your GitHub account and your username to github_users (see the docs: Adding users), or use -f."
+fi
 
 # ---------------------------------------------------------------- runs on the Pi as root
-# Usage: setup.sh STAGE_DIR (holds the uploaded startup files and service).
-read -r -d '' REMOTE <<'REMOTE_EOF'
+# Usage: setup.sh STAGE_DIR (holds a copy of ../pi in STAGE_DIR/pi).
+read -r -d '' REMOTE <<'REMOTE_EOF' || true # read -d '' "fails" at the end of its input
 set -euo pipefail
 say() { echo "[pi] $*"; }
 trap 'say "FAILED at line $LINENO: $BASH_COMMAND"' ERR
@@ -116,15 +181,36 @@ if dpkg -s cloud-init >/dev/null 2>&1; then
   say "cloud-init removed"
 fi
 
-# --- 4. git, for startup.py's GitHub sync
-if ! command -v git >/dev/null; then
-  say "installing git (a minute or two)..."
-  apt_get update
-  apt_get install git
-fi
-say "git: $(git --version)"
+# --- 4. wait at most 20 s for the network at boot (NM's default is 60 s), so with
+#        no Wi-Fi (in the car) the dashboard isn't held up. Applied by the
+#        daemon-reloads below.
+dropin=/etc/systemd/system/NetworkManager-wait-online.service.d
+mkdir -p "$dropin"
+cat > "$dropin/oem-timeout.conf" <<'EOF'
+# Installed by pi-setup.sh: oem-startup.service waits for network-online.target,
+# so don't let a missing Wi-Fi network hold up the dashboard for the default 60 s.
+[Service]
+Environment=NM_ONLINE_TIMEOUT=20
+EOF
+unit=$(systemctl show -p FragmentPath --value NetworkManager-wait-online.service)
+grep -q NM_ONLINE_TIMEOUT "$unit" 2>/dev/null ||
+  say "warning: $unit doesn't use NM_ONLINE_TIMEOUT, so the 20 s cap may not apply"
+say "boot waits at most 20 s for the network"
 
-# --- 5. passwordless sudo (deploy.py, reboot_pi.py)
+# --- 5. tools for the startup scripts (git: GitHub sync; jq: configs;
+#        curl: downloads and GitHub keys; patch: the version store)
+missing=()
+for cmd in git jq curl patch; do
+  command -v "$cmd" >/dev/null || missing+=("$cmd")
+done
+if [ ${#missing[@]} -gt 0 ]; then
+  say "installing ${missing[*]} (a minute or two)..."
+  apt_get update
+  apt_get install "${missing[@]}"
+fi
+say "git, jq, curl and patch are installed"
+
+# --- 6. passwordless sudo (deploy.sh, reboot.sh, versions.sh)
 rule=/etc/sudoers.d/oem-dashboard-nopasswd
 echo "$PI_USER ALL=(ALL) NOPASSWD: ALL" > "$rule.tmp"
 chmod 440 "$rule.tmp"
@@ -132,7 +218,7 @@ visudo -cqf "$rule.tmp" || { say "generated sudoers rule is invalid; aborting"; 
 mv "$rule.tmp" "$rule"
 say "$PI_USER has passwordless sudo"
 
-# --- 6. boot-time internet probe (diagnostics)
+# --- 7. boot-time internet probe (diagnostics)
 cat > /usr/local/sbin/inetprobe.py <<'EOF'
 #!/usr/bin/env python3
 """Boot-time internet probe (installed by pi-setup.sh).
@@ -256,14 +342,20 @@ systemctl daemon-reload
 systemctl enable --quiet inetprobe.service
 say "internet probe installed (run 'boot-net-times' to see results)"
 
-# --- 7. startup files -> ~/startup (owned by the Pi user, who runs them)
-install -d -o "$PI_USER" -g "$PI_USER" "$PI_HOME/startup"
-install -m 755 -o "$PI_USER" -g "$PI_USER" "$STAGE/startup.py" "$PI_HOME/startup/startup.py"
-install -m 644 -o "$PI_USER" -g "$PI_USER" "$STAGE/startup_config.json" "$PI_HOME/startup/startup_config.json"
-say "installed $PI_HOME/startup/startup.py and startup_config.json"
+# --- 8. startup scripts -> ~/startup (owned by the Pi user, who runs them)
+own=(-o "$PI_USER" -g "$PI_USER")
+install -d "${own[@]}" "$PI_HOME/startup" "$PI_HOME/startup/lib"
+for f in startup.sh sync-keys.sh versions.sh; do
+  install -m 755 "${own[@]}" "$STAGE/pi/$f" "$PI_HOME/startup/$f"
+done
+install -m 644 "${own[@]}" "$STAGE/pi/lib/common.sh" "$PI_HOME/startup/lib/common.sh"
+install -m 644 "${own[@]}" "$STAGE/pi/startup_config.json" "$PI_HOME/startup/startup_config.json"
+# Left by the old Python version: its boot script, and its pending deploys.
+rm -rf "$PI_HOME/startup/startup.py" "$PI_HOME/deploy/files" "$PI_HOME/deploy.incoming"
+say "installed startup.sh, sync-keys.sh, versions.sh, lib/common.sh and startup_config.json in $PI_HOME/startup"
 
-# --- 8. systemd service, running as the Pi user
-sed "s/^User=.*/User=$PI_USER/" "$STAGE/oem-startup.service" > /etc/systemd/system/oem-startup.service
+# --- 9. systemd service, running as the Pi user
+sed "s/^User=.*/User=$PI_USER/" "$STAGE/pi/oem-startup.service" > /etc/systemd/system/oem-startup.service
 systemctl daemon-reload
 systemctl enable --quiet oem-startup.service
 say "installed and enabled oem-startup.service (User=$PI_USER)"
@@ -271,29 +363,44 @@ REMOTE_EOF
 
 # ---------------------------------------------------------------- main
 log "looking for the Pi..."
-env=$(python3 "$DIR/pi_ssh.py" shell-env -c "$CONFIG") || exit 1
-eval "$env"
+find_pi
 log "found the Pi at $PI_IP"
 
 # A fresh image has a new ssh host key. The scripts store the Pi's key by MAC
-# (see host_key_alias in pi_ssh.py), so forget the old one.
+# (HOST_KEY_ALIAS in lib/common.sh), so forget the old one.
 ssh-keygen -R "$HOST_KEY_ALIAS" >/dev/null 2>&1 || true
 
-pissh() { ssh "${SSH_OPTS[@]}" -o BatchMode=yes "$PI_TARGET" "$@"; }
-
-stage=$(pissh 'mktemp -d /tmp/pi-setup.XXXXXX' </dev/null) || die "could not ssh into the Pi at $PI_IP"
-scp -q "${SCP_OPTS[@]}" -o BatchMode=yes \
-  "$PI_DIR/startup.py" "$PI_DIR/startup_config.json" "$PI_DIR/oem-startup.service" \
-  "$PI_TARGET:$stage/" || die "could not copy the startup files to the Pi"
-pissh "cat > $stage/setup.sh" <<<"$REMOTE" || die "could not upload the setup script"
+stage=$(pi_ssh -o BatchMode=yes 'mktemp -d /tmp/pi-setup.XXXXXX' </dev/null) || die "could not ssh into the Pi at $PI_IP"
+pi_scp "$PI_FILES_DIR" "$stage/pi" || die "could not copy ../pi to the Pi"
+pi_ssh -o BatchMode=yes "cat > $stage/setup.sh" <<<"$REMOTE" || die "could not upload the setup script"
 
 log "setting up the Pi (sudo will ask for the Pi user's password)"
-tflag=-t; [ -t 0 ] || tflag=-tt
-ssh $tflag "${SSH_OPTS[@]}" "$PI_TARGET" \
-  "sudo -p '[sudo] password for %u on the Pi: ' bash $stage/setup.sh $stage; rc=\$?; rm -rf $stage; exit \$rc" \
-  || die "setup failed on the Pi (see above)"
+tflag=-t
+[ -t 0 ] || tflag=-tt
+pi_ssh -q "$tflag" "sudo -p '[sudo] password for %u on the Pi: ' bash $stage/setup.sh $stage; rc=\$?; rm -rf $stage; exit \$rc" ||
+  die "setup failed on the Pi (see above)"
+
+log "replacing the Pi's authorized_keys with the GitHub keys of: ${github_users[*]}"
+rc=0
+pi_ssh -o BatchMode=yes "$REMOTE_STARTUP_DIR/sync-keys.sh" --strict || rc=$?
+# 3: it left the keys as they were (the Pi couldn't get them from GitHub). The
+# check below would then only prove the old keys work, and the first boot would
+# swap them unchecked, so stop here.
+[ "$rc" -ne 3 ] || die "the Pi couldn't get the GitHub keys (see above), so they haven't been checked. Make sure the Pi can reach github.com and run ./pi-setup.sh again."
+[ "$rc" -eq 0 ] || die "sync-keys.sh failed on the Pi (see above)"
+# A brand-new connection (ControlPath=none), not the shared one opened before
+# the keys changed, or this wouldn't test logging in with them.
+if ! ssh -o ControlPath=none -o BatchMode=yes "${SSH_OPTS[@]}" "$PI_TARGET" true; then
+  log "ERROR: this laptop can't ssh into the Pi any more, now that it only accepts the"
+  log "  GitHub keys of: ${github_users[*]}. To get back in, open a shell on the Pi with"
+  log "  Raspberry Pi Connect (or a keyboard and screen) and add your public key to"
+  log "  ~/.ssh/authorized_keys. Then add that key to your GitHub account (see the docs:"
+  log "  Adding users) so the Pi keeps it after the next boot, and run ./pi-setup.sh again."
+  exit 1
+fi
+log "ssh still works with the new keys"
 
 log "first deploy"
-"$DIR/deploy.py" -c "$CONFIG" --reboot || die "first deploy failed"
+PI_IP=$PI_IP "$SCRIPT_DIR/deploy.sh" -c "$CONFIG" --reboot || die "first deploy failed"
 log "done. The Pi is rebooting; on this boot it applies the deploy and starts the dashboard."
-log "Afterwards: ssh $PI_TARGET 'journalctl -u oem-startup -b'  (logs)  or  'boot-net-times'  (network timing)"
+log "Afterwards: ./ssh.sh journalctl -u oem-startup -b  (logs)  or  ./ssh.sh boot-net-times  (network timing)"

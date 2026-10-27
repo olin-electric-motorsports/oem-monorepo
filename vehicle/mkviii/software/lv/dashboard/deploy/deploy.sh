@@ -3,6 +3,11 @@
 # dashboard Pi, then reboot it.
 #
 #   ./deploy.sh [-c CONFIG] [-n|--dry-run] [--reboot|--shutdown|--no-reboot]
+#               [--no-pre-deploy]
+#
+# If config.json sets "pre_deploy_command", it runs first (with bash, in
+# config.json's folder), e.g. to compile the dashboard so the build output in
+# the deploy list is fresh. If it fails, nothing is deployed.
 #
 # The files (uncommitted changes included) are staged on the Pi in
 # ~/deploy/pending, not in their final places. On its next boot the Pi installs
@@ -15,13 +20,14 @@
 #   --reboot       reboot the Pi afterwards (default; see post_deploy_action)
 #   --shutdown     shut the Pi down afterwards instead
 #   --no-reboot    leave the Pi running; the deploy is applied on its next boot
+#   --no-pre-deploy  don't run pre_deploy_command (deploy the files as they are)
 #
 # PI_IP=<ip> ./deploy.sh skips looking for the Pi by its MAC address.
 
 set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/common.sh"
 
-config_arg= dry_run= action=
+config_arg= dry_run= action= pre_deploy=1
 while [ $# -gt 0 ]; do
   case $1 in
     -c | --config)
@@ -30,6 +36,7 @@ while [ $# -gt 0 ]; do
       shift
       ;;
     -n | --dry-run) dry_run=1 ;;
+    --no-pre-deploy) pre_deploy= ;;
     --reboot | --shutdown | --no-reboot)
       a=${1#--}
       a=${a/no-reboot/none}
@@ -179,6 +186,22 @@ list_files() {
   done
 }
 
+# run_pre_deploy: run pre_deploy_command from config.json's folder. Its output
+# goes to stderr, so it can't mix with what this script prints.
+run_pre_deploy() {
+  local rc=0
+  echo "Running the pre-deploy command: $PRE_DEPLOY_COMMAND" >&2
+  (cd -- "$CONFIG_DIR" && bash -c "$PRE_DEPLOY_COMMAND") >&2 || rc=$?
+  [ "$rc" -eq 0 ] || die "the pre-deploy command failed (exit $rc); nothing was deployed. Fix it, or skip it with --no-pre-deploy."
+}
+
+if [ -n "$PRE_DEPLOY_COMMAND" ]; then
+  if [ -n "$pre_deploy" ]; then
+    run_pre_deploy
+  else
+    echo "Skipping the pre-deploy command (--no-pre-deploy)." >&2
+  fi
+fi
 collect_files
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT

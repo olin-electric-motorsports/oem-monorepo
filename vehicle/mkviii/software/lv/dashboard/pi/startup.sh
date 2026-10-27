@@ -9,7 +9,8 @@
 #    branch in startup_config.json; without network it keeps the files it has.
 # 2. In the background: refreshes ~/.ssh/authorized_keys from GitHub
 #    (sync-keys.sh) and records the installed files as a version (versions.sh).
-# 3. Runs the dashboard, restarting it whenever it exits.
+# 3. Runs dashboard_command (with bash, in dashboard_dir), restarting it
+#    whenever it exits.
 #
 # The dashboard starts even if step 1 fails. Logs: journalctl -u oem-startup -b
 
@@ -23,17 +24,21 @@ esac
 
 err() { echo "ERROR: $*" >&2; }
 
+# What runs the dashboard when startup_config.json doesn't say (or can't be read).
+DEFAULT_DASH_CMD="/usr/bin/python3 dashboard.py"
+
 # Read startup_config.json in one jq call (jq is slow to start on a Pi Zero).
 # A broken config must not stop the dashboard: fall back to the defaults and
 # skip the GitHub sync.
 read_config() {
   local out c
-  REPO_URL="" BRANCH=main NET_TIMEOUT=10 DASHBOARD=$HOME/dashboard.py
-  PYTHON=/usr/bin/python3 RESTART=true RESTART_DELAY=3 CONFIG_OK=0
-  if ! out=$(jq -r --arg home "$HOME" '
+  REPO_URL="" BRANCH=main NET_TIMEOUT=10 DASH_CMD=$DEFAULT_DASH_CMD DASH_DIR=$HOME
+  RESTART=true RESTART_DELAY=3 CONFIG_OK=0
+  # The command is one line (newlines -> spaces) so it stays one config value.
+  if ! out=$(jq -r --arg cmd "$DEFAULT_DASH_CMD" '
       def get(k; d): if .[k] == null then d else .[k] end;
       get("repo_url"; ""), get("branch"; "main"), get("network_timeout_s"; 10),
-      get("dashboard_path"; $home + "/dashboard.py"), get("python_executable"; "/usr/bin/python3"),
+      (get("dashboard_command"; $cmd) | tostring | gsub("[\\r\\n]+"; " ")), get("dashboard_dir"; "~"),
       get("restart_dashboard_on_exit"; true), get("restart_delay_s"; 3)' "$CONFIG" 2>&1); then
     err "Can't read $CONFIG (${out:-no output}); running the dashboard with default settings, without a GitHub sync"
     return 0
@@ -43,8 +48,19 @@ read_config() {
     err "Unexpected values in $CONFIG; running the dashboard with default settings, without a GitHub sync"
     return 0
   fi
-  REPO_URL=${c[0]} BRANCH=${c[1]} NET_TIMEOUT=${c[2]} DASHBOARD=${c[3]}
-  PYTHON=${c[4]} RESTART=${c[5]} RESTART_DELAY=${c[6]} CONFIG_OK=1
+  REPO_URL=${c[0]} BRANCH=${c[1]} NET_TIMEOUT=${c[2]} DASH_CMD=${c[3]}
+  DASH_DIR=${c[4]} RESTART=${c[5]} RESTART_DELAY=${c[6]} CONFIG_OK=1
+  # dashboard_dir may start with ~ or be relative to the home folder.
+  case $DASH_DIR in
+    "~") DASH_DIR=$HOME ;;
+    "~/"*) DASH_DIR=$HOME/${DASH_DIR#"~/"} ;;
+    /*) ;;
+    *) DASH_DIR=$HOME/$DASH_DIR ;;
+  esac
+  if [[ -z ${DASH_CMD//[[:space:]]/} ]]; then
+    warn "dashboard_command is empty; using \"$DEFAULT_DASH_CMD\""
+    DASH_CMD=$DEFAULT_DASH_CMD
+  fi
   # 0 would mean "no timeout" to timeout and curl, so a dead network could hold
   # up the dashboard forever.
   if [[ ! $NET_TIMEOUT =~ ^[0-9]+([.][0-9]+)?$ ]] || [[ $NET_TIMEOUT =~ ^0*([.]0*)?$ ]]; then
@@ -298,16 +314,16 @@ prepare_files() {
   printf '%s\n%s\n' "$SOURCE" "${DETAIL//$'\n'/ }" >"$WORK/result"
 }
 
-# run_dashboard: run it, restarting it RESTART_DELAY s after it exits unless
-# restart_dashboard_on_exit is false. Returns the dashboard's exit code.
+# run_dashboard: run dashboard_command with bash in dashboard_dir, restarting
+# it RESTART_DELAY s after it exits unless restart_dashboard_on_exit is false.
+# Returns the dashboard's exit code.
 run_dashboard() {
-  local dir code
-  dir=$(dirname -- "$DASHBOARD")
-  [ -f "$DASHBOARD" ] || err "The dashboard ($DASHBOARD) doesn't exist. Deploy it from the laptop with deploy/deploy.sh."
+  local code
   while true; do
-    log "Starting the dashboard: $PYTHON $DASHBOARD"
+    log "Starting the dashboard (in $DASH_DIR): $DASH_CMD"
     code=0
-    (cd -- "$dir" && exec "$PYTHON" "$DASHBOARD") || code=$?
+    # exec, so the dashboard replaces the subshell and gets systemd's signals.
+    (cd -- "$DASH_DIR" && exec /bin/bash -c "$DASH_CMD") || code=$?
     if [ "$code" -eq 0 ]; then log "The dashboard exited (code 0)"; else warn "The dashboard exited with code $code"; fi
     if [ "$RESTART" = false ]; then
       return "$code"

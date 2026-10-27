@@ -83,6 +83,11 @@ load_config() {
   CONNECT_TIMEOUT=$(jq -r '.pi.connect_timeout_s // 10' "$CONFIG")
   DISCOVERY_TIMEOUT=$(jq -r '.pi.discovery_timeout_s // 10' "$CONFIG")
   POST_DEPLOY_ACTION=$(jq -r '.post_deploy_action // "reboot"' "$CONFIG")
+  # Optional shell command deploy.sh runs (in CONFIG_DIR) before collecting the
+  # files, e.g. to compile the dashboard. Empty if not set.
+  PRE_DEPLOY_COMMAND=$(jq -r '.pre_deploy_command // empty
+    | if type == "string" then . else error("must be a string") end' "$CONFIG" 2>/dev/null) ||
+    die "pre_deploy_command in $CONFIG must be a string (a shell command) or null"
   local key value
   for key in port connect_timeout_s discovery_timeout_s; do
     value=$(jq -r --arg k "$key" '.pi[$k] // empty' "$CONFIG")

@@ -800,11 +800,11 @@ BH=$B/home
 mkdir -p "$B/root" "$B/bin" "$BH/deploy"
 cat >"$B/bin/python" <<'EOF_PY'
 #!/usr/bin/env bash
-echo "$@" >>"${0%/*}/ran"
+echo "$PWD $*" >>"${0%/*}/ran"
 EOF_PY
 chmod +x "$B/bin/python"
 jq -n --arg b "$B" '{repo_url: "file:///nowhere/not-github.git", branch: "main", network_timeout_s: 2,
-  dashboard_path: "\($b)/root/dashboard.py", python_executable: "\($b)/bin/python",
+  dashboard_command: "\($b)/bin/python dashboard.py", dashboard_dir: "\($b)/root",
   restart_dashboard_on_exit: false, restart_delay_s: 1, max_versions: 3, github_users: []}' >"$B/startup_config.json"
 # bvs ARGS...: the engine on this Pi's store.
 bvs() { HOME=$BH OEM_DEPLOY_DIR=$BH/deploy OEM_STARTUP_CONFIG=$B/startup_config.json vs "$@"; }
@@ -845,7 +845,7 @@ HOME=$BH OEM_DEPLOY_DIR=$BH/deploy OEM_STARTUP_CONFIG=$B/startup_config.json OEM
 grep -q "Applying the pending rollback: rollback to v2" "$ERR" && grep -q "Applied the rollback: 3 file(s) installed" "$ERR" ||
   fail "startup.sh should apply the rollback"
 grep -q "^versions: v2 (already stored)$" "$ERR" || fail "the boot's snapshot should find v2"
-[ "$(cat "$B/bin/ran")" = "$B/root/dashboard.py" ] || fail "startup.sh should have run the dashboard"
+[ "$(cat "$B/bin/ran")" = "$B/root dashboard.py" ] || fail "startup.sh should have run dashboard_command in dashboard_dir"
 [ ! -e "$BH/deploy/pending" ] && [ ! -e "$BH/deploy/.applying" ] || fail "startup.sh should have used up the rollback"
 for f in tool.sh data.txt dashboard.py; do cmp -s "$B/v2/$f" "$B/root/$f" || fail "startup.sh installed the wrong $f"; done
 [ "$(modes "$B/root")" = "$(modes "$B/v2")" ] || fail "the installed files have modes $(modes "$B/root" | tr '\n' ' ')"

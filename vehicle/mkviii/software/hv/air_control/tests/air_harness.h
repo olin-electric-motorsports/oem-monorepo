@@ -105,3 +105,4 @@ static inline void expect_fault(air_fault_t f) {
 }
 
 #endif
+

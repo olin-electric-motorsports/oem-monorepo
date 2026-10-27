@@ -27,13 +27,13 @@ def main():
         temp = pathlib.Path(temp)
         # Build the DBC from air.yml, the old BMS file and the IVT DBC
         dbc = temp / "air.dbc"
-        subprocess.run([sys.executable, str(ROOT / "common/can_api/dbc_generator.py"),
+        subprocess.run([sys.executable, str(ROOT / "../../../../../vehicle/common/can_api/dbc_generator.py"),
                         "-o", str(dbc), str(APP / "air.yml"), str(APP / "legacy_bms.yml"),
-                        str(ROOT / "vehicle/common/gmeter/gmeter.dbc")], check=True)
+                        str(ROOT / "../../../../../vehicle/common/gmeter/gmeter.dbc")], check=True)
         db = cantools.database.load_file(dbc)
         # Write a C program that checks 512 random BMS, IVT and status messages
         # against what cantools says they should be
-        code = ['#include "vehicle/mkviii/software/air_control/air_protocol.h"',
+        code = ['#include "../air_protocol.h"',
                 '#include <stdio.h>', '#include <string.h>',
                 '#define CHECK(e) do { if (!(e)) { printf("line %d\\n", __LINE__); return 1; } } while (0)',
                 'int main(void) { air_measurements_t d = {0};']

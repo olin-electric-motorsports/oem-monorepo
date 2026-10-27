@@ -11,9 +11,9 @@
  *
  * Usage: air_invariant_test [seed] [steps]
  */
-#include "air.h"
-#include "air_config.h"
-#include "air_protocol.h"
+#include "../air.h"
+#include "../air_config.h"
+#include "../air_protocol.h"
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,8 +1,8 @@
 /* the original tests from the STM32 port: normal drive cycles, every shutdown
  * input, the IMD, voltages, CAN timeouts, startup, and the CAN byte layout */
-#include "air.h"
-#include "air_config.h"
-#include "air_protocol.h"
+#include "../air.h"
+#include "../air_config.h"
+#include "../air_protocol.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

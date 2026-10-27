@@ -1,7 +1,7 @@
 /* GPIO tests with a fake HAL: a bad or unfinished pin table must not touch any
  * pin, and a good one must set safe output levels first and get polarity right */
-#include "air_board.h"
-#include "air_board_config.h"
+#include "../air_board.h"
+#include "../air_board_config.h"
 #include <stdio.h>
 #include <stdlib.h>
 /* Prints the failing line and stops */

@@ -5,130 +5,7 @@
 	(uuid "d519c77c-8740-4a1d-af06-6f69130ee48e")
 	(paper "A4")
 	(lib_symbols
-		(symbol "Connector:TestPoint"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0.762)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "TP"
-				(at 0 6.858 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "TestPoint"
-				(at 0 5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 5.08 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 5.08 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "test point"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "test point tp"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "Pin* Test*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "TestPoint_0_1"
-				(circle
-					(center 0 3.302)
-					(radius 0.762)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "TestPoint_1_1"
-				(pin passive line
-					(at 0 0 90)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "OEM:C_0.1uF_16V_0603"
+		(symbol "OEM:C_0.1uF_0-20V_0603"
 			(pin_numbers
 				(hide yes)
 			)
@@ -151,7 +28,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "C_0.1uF_16V"
+			(property "Value" "C_0.1uF"
 				(at 0.635 -2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -162,7 +39,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "OEM:C_0603_1608Metric"
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 				(at 0.9652 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -228,7 +105,7 @@
 					)
 				)
 			)
-			(symbol "C_0.1uF_16V_0603_0_1"
+			(symbol "C_0.1uF_0-20V_0603_0_1"
 				(polyline
 					(pts
 						(xy -2.032 0.762) (xy 2.032 0.762)
@@ -254,7 +131,7 @@
 					)
 				)
 			)
-			(symbol "C_0.1uF_16V_0603_1_1"
+			(symbol "C_0.1uF_0-20V_0603_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.794)
@@ -294,7 +171,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:C_22uF_25V_1206"
+		(symbol "OEM:C_22uF_20-100V_1206"
 			(pin_numbers
 				(hide yes)
 			)
@@ -317,7 +194,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "C_22uF_25V"
+			(property "Value" "C_22uF"
 				(at 0.635 -2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -328,7 +205,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "OEM:C_1206_3216Metric"
+			(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 				(at 0.9652 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -394,7 +271,7 @@
 					)
 				)
 			)
-			(symbol "C_22uF_25V_1206_0_1"
+			(symbol "C_22uF_20-100V_1206_0_1"
 				(polyline
 					(pts
 						(xy -2.032 0.762) (xy 2.032 0.762)
@@ -420,7 +297,7 @@
 					)
 				)
 			)
-			(symbol "C_22uF_25V_1206_1_1"
+			(symbol "C_22uF_20-100V_1206_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.794)
@@ -493,7 +370,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:D_0805_2012Metric"
+			(property "Footprint" "Diode_SMD:D_0805_2012Metric"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -526,7 +403,7 @@
 					)
 				)
 			)
-			(property "Sim.Pins" "1=K 2=A"
+			(property "MPN" "LTST-C171KRKT"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -537,7 +414,7 @@
 					)
 				)
 			)
-			(property "MPN" "LTST-C171KRKT"
+			(property "Sim.Pins" "1=K 2=A"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -672,7 +549,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:D_Schottky"
+		(symbol "OEM:D_Schottky_100V_1A_SOD123W"
 			(pin_numbers
 				(hide yes)
 			)
@@ -695,7 +572,7 @@
 					)
 				)
 			)
-			(property "Value" "D_Schottky"
+			(property "Value" "D_100V_1A"
 				(at 0 -2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -705,7 +582,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "OEM:SODFL3718X102N (D_Schottky_100V_1A_SMD - SS110LW)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -716,7 +593,7 @@
 					)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "https://www.taiwansemi.com/assets/datasheet/pdf.php?pn=SS110LW"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -727,7 +604,18 @@
 					)
 				)
 			)
-			(property "Description" "Schottky diode"
+			(property "Description" "DIODE SCHOTTKY 100V 1A SOD123W"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "SS110LW"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -760,7 +648,7 @@
 					)
 				)
 			)
-			(symbol "D_Schottky_0_1"
+			(symbol "D_Schottky_100V_1A_SOD123W_0_1"
 				(polyline
 					(pts
 						(xy -1.905 0.635) (xy -1.905 1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -0.635 -1.27) (xy -0.635 -0.635)
@@ -798,7 +686,7 @@
 					)
 				)
 			)
-			(symbol "D_Schottky_1_1"
+			(symbol "D_Schottky_100V_1A_SOD123W_1_1"
 				(pin passive line
 					(at -3.81 0 0)
 					(length 2.54)
@@ -864,7 +752,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:te_pcie_x1_connector"
+			(property "Footprint" "OEM:J_PCIe_x1_Key"
 				(at 0 35.56 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -919,7 +807,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "OEM:pcie_x1 OEM_PCIexpress_x1"
+			(property "ki_fp_filters" "J_PCIe_x1 J_PCIe_x1_Key"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1861,6 +1749,24 @@
 			)
 			(symbol "K_SPST-NO_10A_5V_TH_1_1"
 				(pin passive line
+					(at -5.08 7.62 270)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
 					(at 5.08 -7.62 90)
 					(length 2.54)
 					(name ""
@@ -1870,7 +1776,7 @@
 							)
 						)
 					)
-					(number "13"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1888,25 +1794,7 @@
 							)
 						)
 					)
-					(number "14"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 7.62 270)
-					(length 2.54)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A1"
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1924,7 +1812,7 @@
 							)
 						)
 					)
-					(number "A2"
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1967,7 +1855,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "OEM:SOT-23-3"
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-3"
 				(at 5.08 2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2258,7 +2146,7 @@
 					)
 				)
 			)
-			(property "Value" "R_1.82M_0.1W"
+			(property "Value" "R_1.82M"
 				(at 0 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2268,7 +2156,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:R_0603_1608Metric"
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 				(at -1.778 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2409,7 +2297,7 @@
 					)
 				)
 			)
-			(property "Value" "R_100k_0.1W"
+			(property "Value" "R_100k"
 				(at 0 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2419,7 +2307,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:R_0603_1608Metric"
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 				(at -1.778 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2560,7 +2448,7 @@
 					)
 				)
 			)
-			(property "Value" "R_120k_0.1W"
+			(property "Value" "R_120k"
 				(at 0 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2570,7 +2458,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:R_0603_1608Metric"
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 				(at -1.778 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2711,7 +2599,7 @@
 					)
 				)
 			)
-			(property "Value" "R_1k_0.1W"
+			(property "Value" "R_1k"
 				(at 0 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2721,7 +2609,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:R_0603_1608Metric"
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 				(at -1.778 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2862,7 +2750,7 @@
 					)
 				)
 			)
-			(property "Value" "R_3k_0.1W"
+			(property "Value" "R_3k"
 				(at 0 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2872,7 +2760,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:R_0603_1608Metric"
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 				(at -1.778 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3013,7 +2901,7 @@
 					)
 				)
 			)
-			(property "Value" "R_604k_0.1W"
+			(property "Value" "R_604k"
 				(at 0 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3023,7 +2911,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:R_0603_1608Metric"
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 				(at -1.778 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3164,7 +3052,7 @@
 					)
 				)
 			)
-			(property "Value" "R_71.5k_0.1W"
+			(property "Value" "R_71.5k"
 				(at 0 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3174,7 +3062,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:R_0603_1608Metric"
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 				(at -1.778 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3293,7 +3181,124 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:U_OpAmp_MCP6001T-ILT_SOT-353"
+		(symbol "OEM:TP_Hook_SMD"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP"
+				(at 0 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TP_SMD"
+				(at 1.27 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "OEM:TP_Hook_SMD"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Test Point SMD Hook"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "5019"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "Test Point SMD Hook"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TP_Hook_SMD_1_1"
+				(circle
+					(center 0 2.54)
+					(radius 1.27)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin input line
+					(at 0 -1.27 90)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "OEM:U_OpAmp_MCP6001UT-IOT_SOT23-5"
 			(pin_names
 				(offset 0.127)
 			)
@@ -3313,7 +3318,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "MCP6001T-I/LT"
+			(property "Value" "MCP6001UT-I/OT"
 				(at 0 -5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3324,7 +3329,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "OEM:SOT-353_SC-70-5"
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3335,7 +3340,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://www.mouser.com/datasheet/3/282/1/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf"
+			(property "Datasheet" "http://componentsearchengine.com/Datasheets/3/MCP6001UT-I_OT.pdf"
 				(at 0 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3346,7 +3351,7 @@
 					)
 				)
 			)
-			(property "Description" "IC OPAMP GP 1 CIRCUIT SC70-5"
+			(property "Description" "IC OPAMP GP 1 CIRCUIT SOT23-5"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3357,7 +3362,7 @@
 					)
 				)
 			)
-			(property "MPN" "MCP6001T-I/LT"
+			(property "MPN" "MCP6001UT-I/OT"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3450,7 +3455,7 @@
 					)
 				)
 			)
-			(symbol "U_OpAmp_MCP6001T-ILT_SOT-353_0_1"
+			(symbol "U_OpAmp_MCP6001UT-IOT_SOT23-5_0_1"
 				(polyline
 					(pts
 						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
@@ -3500,7 +3505,7 @@
 					)
 				)
 			)
-			(symbol "U_OpAmp_MCP6001T-ILT_SOT-353_1_1"
+			(symbol "U_OpAmp_MCP6001UT-IOT_SOT23-5_1_1"
 				(pin output line
 					(at 7.62 0 180)
 					(length 2.54)
@@ -4679,6 +4684,12 @@
 		(uuid "24517859-63fb-4df6-9f33-da158754937c")
 	)
 	(junction
+		(at 69.85 54.61)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "24d241c9-1d1e-40ae-b1d9-c10ef6e1fceb")
+	)
+	(junction
 		(at 50.8 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4695,6 +4706,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "564e5b49-46c0-47e1-92d9-4579e832a7fd")
+	)
+	(junction
+		(at 105.41 110.49)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5758d927-0d61-4dd4-8098-2fbc7f327dd8")
 	)
 	(junction
 		(at 100.33 110.49)
@@ -4721,22 +4738,16 @@
 		(uuid "b6c65b2d-a625-40ad-967c-09719b19041c")
 	)
 	(junction
-		(at 104.14 110.49)
+		(at 184.15 35.56)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ca1d6f4c-0903-40f6-9303-8a53784e1adf")
+		(uuid "cdef6fd9-1fa0-441d-aaff-36bde4e50b08")
 	)
 	(junction
 		(at 54.61 129.54)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e1db9c37-3242-454c-915d-3a0843b002a6")
-	)
-	(junction
-		(at 73.66 54.61)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e43fdab2-e28b-4327-979a-f43e31e10c59")
 	)
 	(junction
 		(at 86.36 34.29)
@@ -4854,6 +4865,16 @@
 	)
 	(wire
 		(pts
+			(xy 195.58 35.56) (xy 198.12 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "07e4f8c3-bc84-4f4b-ad68-2fa17cae9193")
+	)
+	(wire
+		(pts
 			(xy 229.87 95.25) (xy 229.87 97.79)
 		)
 		(stroke
@@ -4861,6 +4882,16 @@
 			(type default)
 		)
 		(uuid "0858635d-196f-4e52-9657-55a80e6e0155")
+	)
+	(wire
+		(pts
+			(xy 105.41 110.49) (xy 110.49 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0bb7d219-6ca3-4113-a1f6-592a5c8b53cd")
 	)
 	(wire
 		(pts
@@ -4901,6 +4932,16 @@
 			(type default)
 		)
 		(uuid "1386e781-9dc2-42ab-bad1-80edfd3864cc")
+	)
+	(wire
+		(pts
+			(xy 105.41 107.95) (xy 105.41 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "13bfb71c-9bb7-4d5f-9b83-a192550f0a21")
 	)
 	(wire
 		(pts
@@ -5014,13 +5055,13 @@
 	)
 	(wire
 		(pts
-			(xy 196.85 35.56) (xy 198.12 35.56)
+			(xy 184.15 35.56) (xy 184.15 44.45)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "38c70d7a-f939-4c63-be13-dd001ee9899d")
+		(uuid "3a2e89d5-43c8-4e46-b701-d25e3e786363")
 	)
 	(wire
 		(pts
@@ -5044,16 +5085,6 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 43.18) (xy 109.22 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4449d094-64aa-44ea-8a25-82f03e8ee9aa")
-	)
-	(wire
-		(pts
 			(xy 260.35 62.23) (xy 260.35 69.85)
 		)
 		(stroke
@@ -5064,7 +5095,17 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 54.61) (xy 73.66 54.61)
+			(xy 69.85 54.61) (xy 73.66 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "474e411d-6d51-4ec3-a073-a3d0551eea96")
+	)
+	(wire
+		(pts
+			(xy 40.64 54.61) (xy 69.85 54.61)
 		)
 		(stroke
 			(width 0)
@@ -5151,26 +5192,6 @@
 			(type default)
 		)
 		(uuid "5d7a1872-6e4e-428f-a103-ff23c535b5ec")
-	)
-	(wire
-		(pts
-			(xy 63.5 33.02) (xy 63.5 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "64e3faef-55fe-4aed-b95e-3f48f0d247be")
-	)
-	(wire
-		(pts
-			(xy 104.14 110.49) (xy 110.49 110.49)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "68ab84f7-020d-4ff7-a92e-9165db76d028")
 	)
 	(wire
 		(pts
@@ -5394,6 +5415,16 @@
 	)
 	(wire
 		(pts
+			(xy 109.22 40.64) (xy 109.22 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a966bc17-6b95-4421-890b-d4c487d04cbb")
+	)
+	(wire
+		(pts
 			(xy 102.87 44.45) (xy 102.87 45.72)
 		)
 		(stroke
@@ -5454,7 +5485,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 110.49) (xy 104.14 110.49)
+			(xy 100.33 110.49) (xy 105.41 110.49)
 		)
 		(stroke
 			(width 0)
@@ -5634,6 +5665,16 @@
 	)
 	(wire
 		(pts
+			(xy 184.15 35.56) (xy 187.96 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e11d2be4-4463-413e-afac-de2abc2e2b30")
+	)
+	(wire
+		(pts
 			(xy 21.59 34.29) (xy 26.67 34.29)
 		)
 		(stroke
@@ -5684,7 +5725,7 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 33.02) (xy 184.15 44.45)
+			(xy 184.15 33.02) (xy 184.15 35.56)
 		)
 		(stroke
 			(width 0)
@@ -5941,165 +5982,6 @@
 			(justify left bottom)
 		)
 		(uuid "f7beec64-02eb-4c88-9854-9e464c330a6b")
-	)
-	(symbol
-		(lib_id "OEM:U_OpAmp_MCP6001T-ILT_SOT-353")
-		(at 81.28 110.49 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "0e38e542-fc71-4ca5-9d25-ca2dc4f83b27")
-		(property "Reference" "U2"
-			(at 88.646 114.3 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "MCP6001T-I/LT"
-			(at 88.646 116.84 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OEM:SOT-353_SC-70-5"
-			(at 81.28 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/282/1/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf"
-			(at 81.28 105.41 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "IC OPAMP GP 1 CIRCUIT SC70-5"
-			(at 81.28 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "MCP6001T-I/LT"
-			(at 81.28 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MFN" ""
-			(at 81.28 110.49 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DKPN" ""
-			(at 81.28 110.49 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Package" ""
-			(at 81.28 110.49 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "NewDesigns" ""
-			(at 81.28 110.49 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Stocked" ""
-			(at 81.28 110.49 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Style" ""
-			(at 81.28 110.49 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "3f11ddd4-0928-4626-b7d5-99c1908a3ed4")
-		)
-		(pin "1"
-			(uuid "b7920918-0ed4-49c8-8860-d644b01ea510")
-		)
-		(pin "4"
-			(uuid "0ede3788-c3d3-4551-9551-c199ab7334b6")
-		)
-		(pin "3"
-			(uuid "8138af56-f9de-4711-bdd3-eeb7952567ac")
-		)
-		(pin "5"
-			(uuid "4eb012f8-a0d6-4067-8612-8a2bc927d040")
-		)
-		(instances
-			(project "imd_latch_v2"
-				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
-					(reference "U2")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_id "OEM:U_Quad-NAND-RS-Latch_CD4044BDR_16-SOIC")
@@ -6550,6 +6432,190 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:C_0.1uF_0-20V_0603")
+		(at 191.77 35.56 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2c870cdf-51a3-41be-bcaa-1a0b732506c2")
+		(property "Reference" "C3"
+			(at 191.77 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "C_0.1uF"
+			(at 191.77 30.48 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 195.58 34.5948 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
+			(at 191.77 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
+			(at 191.77 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C0603C104Z4VACTU"
+			(at 191.77 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "860fbeaf-777f-457b-84cb-3cd81161c9dd")
+		)
+		(pin "2"
+			(uuid "c16c08a2-f24b-451d-bd1f-714cf6a70ce8")
+		)
+		(instances
+			(project "imd_latch_v2"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_1k_0.1W_0603")
+		(at 100.33 115.57 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "329e3f22-e28f-4385-9010-382b8e6dc84f")
+		(property "Reference" "R13"
+			(at 102.87 114.2999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_1k"
+			(at 102.87 116.8399 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 98.552 115.57 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ3GEYJ102V)"
+			(at 100.33 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES SMD 1K OHM 5% 1/10W 0603"
+			(at 100.33 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RMCF0603FT1K00 (or ERJ-3GEYJ102V)"
+			(at 100.33 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "bb95790e-3902-4f87-ace8-b3d603319715")
+		)
+		(pin "2"
+			(uuid "f241380e-995f-475b-8878-43709e11c579")
+		)
+		(instances
+			(project "imd_latch_v2"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "R13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 40.64 74.93 0)
 		(unit 1)
@@ -6661,7 +6727,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "OEM:D_0805_2012Metric"
+		(property "Footprint" "Diode_SMD:D_0805_2012Metric"
 			(at 100.33 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -6726,99 +6792,6 @@
 			(project "imd_latch_v2"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "D2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:R_1k_0.1W_0603")
-		(at 100.33 115.57 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3de40bb2-a1b1-44a1-adf8-6e384ce0e2f6")
-		(property "Reference" "R13"
-			(at 102.87 114.2999 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "R_1k_0.1W"
-			(at 102.87 116.8399 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
-			(at 98.552 115.57 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ3GEYJ102V)"
-			(at 100.33 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "RES SMD 1K OHM 5% 1/10W 0603"
-			(at 100.33 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "RMCF0603FT1K00 (or ERJ-3GEYJ102V)"
-			(at 100.33 115.57 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e7c6f6c3-c2cf-4121-874f-3c65b0e5a68b")
-		)
-		(pin "2"
-			(uuid "158b5133-ab93-46f7-92c0-4db87772baf3")
-		)
-		(instances
-			(project "imd_latch_v2"
-				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
-					(reference "R13")
 					(unit 1)
 				)
 			)
@@ -6903,8 +6876,8 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:U_OpAmp_MCP6001T-ILT_SOT-353")
-		(at 88.9 44.45 0)
+		(lib_id "OEM:D_Schottky_100V_1A_SOD123W")
+		(at 228.6 54.61 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6913,29 +6886,31 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "46cfda01-d85d-4aa9-9a9b-6962f5d77a7e")
-		(property "Reference" "U1"
-			(at 102.87 38.0298 0)
+		(uuid "46be284d-6796-4925-a8a0-286e4f61a49e")
+		(property "Reference" "D4"
+			(at 231.14 53.0224 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "MCP6001T-I/LT"
-			(at 102.87 40.5698 0)
+		(property "Value" "D_100V_1A"
+			(at 231.14 55.5624 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:SOT-353_SC-70-5"
-			(at 88.9 44.45 0)
+		(property "Footprint" "OEM:SODFL3718X102N (D_Schottky_100V_1A_SMD - SS110LW)"
+			(at 228.6 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6945,8 +6920,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/282/1/MCP6001-1R-1U-2-4-1-MHz-Low-Power-Op-Amp-DS20001733L.pdf"
-			(at 88.9 39.37 0)
+		(property "Datasheet" "https://www.taiwansemi.com/assets/datasheet/pdf.php?pn=SS110LW"
+			(at 228.6 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6956,8 +6931,8 @@
 				)
 			)
 		)
-		(property "Description" "IC OPAMP GP 1 CIRCUIT SC70-5"
-			(at 88.9 44.45 0)
+		(property "Description" "DIODE SCHOTTKY 100V 1A SOD123W"
+			(at 228.6 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6967,69 +6942,9 @@
 				)
 			)
 		)
-		(property "MPN" "MCP6001T-I/LT"
-			(at 88.9 44.45 0)
+		(property "MPN" "SS110LW"
+			(at 228.6 54.61 0)
 			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MFN" ""
-			(at 88.9 44.45 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DKPN" ""
-			(at 88.9 44.45 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Package" ""
-			(at 88.9 44.45 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "NewDesigns" ""
-			(at 88.9 44.45 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Stocked" ""
-			(at 88.9 44.45 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Style" ""
-			(at 88.9 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7039,24 +6954,15 @@
 			)
 		)
 		(pin "2"
-			(uuid "3c2e18c5-f3ad-4555-82da-20e4d1bec0d7")
-		)
-		(pin "5"
-			(uuid "94060da5-48dc-4200-8123-83b2b1c7bb0d")
+			(uuid "d47c7431-ad4a-4e4b-afb9-cbf8725fa4e8")
 		)
 		(pin "1"
-			(uuid "92939063-5e49-447b-9922-da028ced02c6")
-		)
-		(pin "3"
-			(uuid "6b1fc86b-a43d-4516-a885-2ed04cf5d9aa")
-		)
-		(pin "4"
-			(uuid "2b85dff5-0706-4070-83fe-9bee904b10a4")
+			(uuid "d8c22a48-f690-412d-a68e-773c5ca8b1c0")
 		)
 		(instances
 			(project "imd_latch_v2"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
-					(reference "U1")
+					(reference "D4")
 					(unit 1)
 				)
 			)
@@ -7096,7 +7002,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "OEM:D_0805_2012Metric"
+		(property "Footprint" "Diode_SMD:D_0805_2012Metric"
 			(at 102.87 58.42 0)
 			(hide yes)
 			(show_name no)
@@ -7324,6 +7230,96 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 105.41 106.68 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4de1bd58-0a9e-4fe6-9eb5-fa43f7da5b00")
+		(property "Reference" "TP3"
+			(at 107.95 102.8699 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 107.95 105.4099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 105.41 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 105.41 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 105.41 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "5019"
+			(at 105.41 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f99fe543-7f39-47cc-9e78-5cb8961fbfd4")
+		)
+		(instances
+			(project "imd_latch_v2"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "TP3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:R_100k_0.1W_0603")
 		(at 33.02 129.54 270)
 		(unit 1)
@@ -7355,7 +7351,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 33.02 127.762 90)
 			(hide yes)
 			(show_name no)
@@ -7448,7 +7444,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 42.418 60.96 90)
 			(hide yes)
 			(show_name no)
@@ -7541,7 +7537,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 42.418 69.85 90)
 			(hide yes)
 			(show_name no)
@@ -7835,97 +7831,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:C_0.1uF_16V_0603")
-		(at 92.71 34.29 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "636bf3cd-b1d2-40dc-abd8-df8d4e242d81")
-		(property "Reference" "C2"
-			(at 92.71 26.67 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "C_0.1uF_16V"
-			(at 92.71 29.21 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
-			(at 96.52 33.3248 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
-			(at 92.71 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
-			(at 92.71 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "C0603C104Z4VACTU"
-			(at 92.71 34.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9115f150-6e20-4ba8-9f98-b4f8e2e9fa4f")
-		)
-		(pin "2"
-			(uuid "62cd2d39-e831-4106-befb-c700d4553ac2")
-		)
-		(instances
-			(project "imd_latch_v2"
-				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
-					(reference "C2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OEM:R_100k_0.1W_0603")
 		(at 33.02 54.61 90)
 		(unit 1)
@@ -7957,7 +7862,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 33.02 56.388 90)
 			(hide yes)
 			(show_name no)
@@ -8095,6 +8000,165 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:U_OpAmp_MCP6001UT-IOT_SOT23-5")
+		(at 88.9 44.45 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6f791613-2af1-46ed-abd3-aef890b1fdb0")
+		(property "Reference" "U4"
+			(at 95.25 53.848 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "MCP6001UT-I/OT"
+			(at 92.71 53.848 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+			(at 88.9 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://componentsearchengine.com/Datasheets/3/MCP6001UT-I_OT.pdf"
+			(at 88.9 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "IC OPAMP GP 1 CIRCUIT SOT23-5"
+			(at 88.9 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MCP6001UT-I/OT"
+			(at 88.9 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MFN" ""
+			(at 88.9 44.45 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DKPN" ""
+			(at 88.9 44.45 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Package" ""
+			(at 88.9 44.45 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "NewDesigns" ""
+			(at 88.9 44.45 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Stocked" ""
+			(at 88.9 44.45 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Style" ""
+			(at 88.9 44.45 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b82ade63-0547-413c-b4ed-9a7400a96711")
+		)
+		(pin "4"
+			(uuid "0fe0033d-f473-472e-b9ff-b47e0c88ba1d")
+		)
+		(pin "5"
+			(uuid "a8dbfdbc-1ab3-4dec-8a0a-b25d067f0e02")
+		)
+		(pin "3"
+			(uuid "7b86031c-d6aa-471d-a00b-82348a61787e")
+		)
+		(pin "2"
+			(uuid "c8b2f45b-7ec4-4ec3-8693-375c55da332c")
+		)
+		(instances
+			(project "imd_latch_v2"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "U4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:R_1k_0.1W_0603")
 		(at 52.07 113.03 0)
 		(unit 1)
@@ -8128,7 +8192,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 50.292 113.03 90)
 			(hide yes)
 			(show_name no)
@@ -8182,6 +8246,97 @@
 			(project "imd_latch_v2"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_0.1uF_0-20V_0603")
+		(at 92.71 34.29 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7167b175-b126-4a17-b78b-f5fc96e16e6a")
+		(property "Reference" "C2"
+			(at 92.71 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "C_0.1uF"
+			(at 92.71 29.21 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 96.52 33.3248 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
+			(at 92.71 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
+			(at 92.71 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C0603C104Z4VACTU"
+			(at 92.71 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "30a897ad-ef9e-4fec-9e7d-ecd7b5b63002")
+		)
+		(pin "2"
+			(uuid "80d60367-d2f4-4e3f-bb5d-d91f64a5f896")
+		)
+		(instances
+			(project "imd_latch_v2"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "C2")
 					(unit 1)
 				)
 			)
@@ -8345,6 +8500,96 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 69.85 55.88 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "74734fce-7b77-4867-8210-79b74715e794")
+		(property "Reference" "TP1"
+			(at 72.39 57.1499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 72.39 59.6899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 69.85 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 69.85 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 69.85 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "5019"
+			(at 69.85 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e66950bd-8191-487b-bae3-be091e913edc")
+		)
+		(instances
+			(project "imd_latch_v2"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "TP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "OEM:R_1k_0.1W_0603")
 		(at 102.87 49.53 0)
 		(unit 1)
@@ -8378,7 +8623,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 101.092 49.53 90)
 			(hide yes)
 			(show_name no)
@@ -8471,7 +8716,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:SOT-23-3"
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-3"
 			(at 266.7 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -8595,6 +8840,96 @@
 			(project "imd_latch_v2"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 109.22 39.37 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "79874aab-e972-4df2-8a0f-aae1066dac62")
+		(property "Reference" "TP2"
+			(at 111.76 35.5599 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 111.76 38.0999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 109.22 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 109.22 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 109.22 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "5019"
+			(at 109.22 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "78f82c70-ca51-4ad9-86f3-cfeb997c9be6")
+		)
+		(instances
+			(project "imd_latch_v2"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "TP2")
 					(unit 1)
 				)
 			)
@@ -8836,113 +9171,22 @@
 				)
 			)
 		)
-		(pin "13"
+		(pin "1"
 			(uuid "be7d8dfc-2701-43ea-a9b7-517354ee35bf")
 		)
-		(pin "14"
+		(pin "5"
 			(uuid "da56c9d3-772a-4e8d-abfc-d40ef7b7acf2")
 		)
-		(pin "A1"
+		(pin "3"
 			(uuid "509ba889-e4af-471d-a84e-c1666ad781df")
 		)
-		(pin "A2"
+		(pin "2"
 			(uuid "f38eaa0b-d6a4-4441-bf87-8518dcf04a76")
 		)
 		(instances
 			(project "imd_latch_v2"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "K1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:C_0.1uF_16V_0603")
-		(at 87.63 100.33 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "810ee366-e2c3-43b3-8b17-8193506ea1f4")
-		(property "Reference" "C3"
-			(at 87.63 92.71 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "C_0.1uF_16V"
-			(at 87.63 95.25 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
-			(at 91.44 99.3648 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
-			(at 87.63 100.33 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
-			(at 87.63 100.33 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "C0603C104Z4VACTU"
-			(at 87.63 100.33 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "13a00392-0273-45e6-b0e9-99b887849fbd")
-		)
-		(pin "2"
-			(uuid "ccf273e4-839d-4b75-9435-485ba24b509e")
-		)
-		(instances
-			(project "imd_latch_v2"
-				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
-					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -9058,7 +9302,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:te_pcie_x1_connector"
+		(property "Footprint" "OEM:J_PCIe_x1_Key"
 			(at 171.45 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -9298,6 +9542,165 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:U_OpAmp_MCP6001UT-IOT_SOT23-5")
+		(at 81.28 110.49 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "891c6206-b114-4ec7-80b9-467d9d9f0b1e")
+		(property "Reference" "U1"
+			(at 88.138 112.522 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "MCP6001UT-I/OT"
+			(at 88.138 115.062 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+			(at 81.28 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://componentsearchengine.com/Datasheets/3/MCP6001UT-I_OT.pdf"
+			(at 81.28 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "IC OPAMP GP 1 CIRCUIT SOT23-5"
+			(at 81.28 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "MCP6001UT-I/OT"
+			(at 81.28 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MFN" ""
+			(at 81.28 110.49 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "DKPN" ""
+			(at 81.28 110.49 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Package" ""
+			(at 81.28 110.49 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "NewDesigns" ""
+			(at 81.28 110.49 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Stocked" ""
+			(at 81.28 110.49 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Style" ""
+			(at 81.28 110.49 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "3"
+			(uuid "2732ac37-ee2c-41e1-9e7e-8b4da2c96726")
+		)
+		(pin "4"
+			(uuid "f5552235-d439-442a-849b-e21d5c59ff5a")
+		)
+		(pin "5"
+			(uuid "d48a6867-e9fb-4015-9daf-188cd4ba4501")
+		)
+		(pin "1"
+			(uuid "5cbe008b-1870-428f-ba43-41d75b793a80")
+		)
+		(pin "2"
+			(uuid "144554fa-c6a4-481b-ba75-057da5eb9ff7")
+		)
+		(instances
+			(project "imd_latch_v2"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 148.59 107.95 270)
 		(unit 1)
@@ -9371,99 +9774,6 @@
 			(project "imd_latch_v2"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:C_22uF_25V_1206")
-		(at 50.8 39.37 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8c7c3c6c-a1ba-48d0-8457-9031fb21da68")
-		(property "Reference" "C1"
-			(at 54.61 38.0999 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "C_22uF"
-			(at 54.61 40.6399 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "OEM:C_1206_3216Metric"
-			(at 49.8348 35.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
-			(at 50.8 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CAP CER 22UF 25V X5R 1206"
-			(at 50.8 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "CL31A226KAHNNNE"
-			(at 50.8 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "f273da80-c55f-4afe-ae0d-e5364dce681a")
-		)
-		(pin "1"
-			(uuid "e298393b-aa7f-4101-9693-0aa7791803fe")
-		)
-		(instances
-			(project "imd_latch_v2"
-				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
-					(reference "C1")
 					(unit 1)
 				)
 			)
@@ -9581,7 +9891,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 61.722 39.37 90)
 			(hide yes)
 			(show_name no)
@@ -9719,97 +10029,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:C_0.1uF_16V_0603")
-		(at 193.04 35.56 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "94e596fa-dbcd-4753-b94e-deebfe0a9cfb")
-		(property "Reference" "C4"
-			(at 193.04 27.94 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "C_0.1uF_16V"
-			(at 193.04 30.48 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
-			(at 196.85 34.5948 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
-			(at 193.04 35.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
-			(at 193.04 35.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "C0603C104Z4VACTU"
-			(at 193.04 35.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "8d097cff-d67f-43c3-8990-b3a7701a62f4")
-		)
-		(pin "2"
-			(uuid "7102a238-53c1-4586-bd6a-e3510e812bf0")
-		)
-		(instances
-			(project "imd_latch_v2"
-				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
-					(reference "C4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+5V")
 		(at 132.08 58.42 180)
 		(unit 1)
@@ -9919,7 +10138,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 44.45 36.068 90)
 			(hide yes)
 			(show_name no)
@@ -10012,7 +10231,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 56.388 135.89 90)
 			(hide yes)
 			(show_name no)
@@ -10105,7 +10324,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 228.092 101.6 90)
 			(hide yes)
 			(show_name no)
@@ -10196,7 +10415,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 46.99 127.762 90)
 			(hide yes)
 			(show_name no)
@@ -10412,163 +10631,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 73.66 54.61 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b2b46ceb-d7ed-4b6d-897b-eb65c2358f67")
-		(property "Reference" "TP1"
-			(at 76.2 56.6419 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 76.2 59.1819 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-353_SC-70-5"
-			(at 68.58 54.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 68.58 54.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "test point"
-			(at 73.66 54.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "2dea5e2a-7e16-40d0-920a-35fbc056cd43")
-		)
-		(instances
-			(project "imd_latch_v2"
-				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
-					(reference "TP1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 104.14 110.49 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b3541343-90a8-42ed-9422-b44dc35db0be")
-		(property "Reference" "TP3"
-			(at 103.378 102.616 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 103.378 105.156 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "OEM:D_0805_2012Metric"
-			(at 109.22 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 109.22 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "test point"
-			(at 104.14 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9ccb85f0-2c96-47ef-8f8f-9221dcdb4ddc")
-		)
-		(instances
-			(project "imd_latch_v2"
-				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
-					(reference "TP3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 52.07 116.84 0)
 		(unit 1)
@@ -10756,7 +10818,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 34.29 109.728 90)
 			(hide yes)
 			(show_name no)
@@ -10894,8 +10956,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 109.22 43.18 0)
+		(lib_id "OEM:C_0.1uF_0-20V_0603")
+		(at 87.63 100.33 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10904,31 +10966,29 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "cdc12670-7f58-4daa-86db-ddfc47e99606")
-		(property "Reference" "TP2"
-			(at 111.76 38.6079 0)
+		(uuid "ceaa147a-b92e-4df3-9a07-cdfff000a498")
+		(property "Reference" "C5"
+			(at 87.63 92.71 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "TestPoint"
-			(at 111.76 41.1479 0)
+		(property "Value" "C_0.1uF"
+			(at 87.63 95.25 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Footprint" ""
-			(at 114.3 43.18 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 83.82 101.2952 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10938,8 +10998,8 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
-			(at 114.3 43.18 0)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
+			(at 87.63 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10949,8 +11009,19 @@
 				)
 			)
 		)
-		(property "Description" "test point"
-			(at 109.22 43.18 0)
+		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
+			(at 87.63 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C0603C104Z4VACTU"
+			(at 87.63 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10961,12 +11032,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "bddfd6ea-7105-4e22-ae00-834df59b6b32")
+			(uuid "885815fc-a696-46af-a590-9cf8513c1add")
+		)
+		(pin "2"
+			(uuid "a5a6209c-f1ad-40f2-98dd-8629d6545fab")
 		)
 		(instances
 			(project "imd_latch_v2"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
-					(reference "TP2")
+					(reference "C5")
 					(unit 1)
 				)
 			)
@@ -11163,7 +11237,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 238.252 101.6 90)
 			(hide yes)
 			(show_name no)
@@ -11256,7 +11330,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "OEM:D_0805_2012Metric"
+		(property "Footprint" "Diode_SMD:D_0805_2012Metric"
 			(at 229.87 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -11405,87 +11479,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:D_Schottky")
-		(at 228.6 54.61 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "e20edbbc-3704-4e55-b7bb-c9f24d3f92fc")
-		(property "Reference" "D4"
-			(at 222.25 59.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "D_Schottky"
-			(at 224.79 59.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "OEM:D_SMC"
-			(at 228.6 54.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 228.6 54.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Schottky diode"
-			(at 228.6 54.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "8df816da-bbf1-4e7a-9b14-37063c99b6ea")
-		)
-		(pin "1"
-			(uuid "db996e29-fb2a-4d45-b8ec-0b1a74d2f317")
-		)
-		(instances
-			(project "imd_latch_v2"
-				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
-					(reference "D4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 229.87 116.84 0)
 		(unit 1)
@@ -11558,6 +11551,99 @@
 			(project "imd_latch_v2"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_22uF_20-100V_1206")
+		(at 50.8 39.37 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f7490493-f340-4c3d-9536-b95dcdea2f6e")
+		(property "Reference" "C4"
+			(at 54.61 38.0999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_22uF"
+			(at 54.61 40.6399 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 51.7652 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
+			(at 50.8 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 22UF 25V X5R 1206"
+			(at 50.8 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL31A226KAHNNNE"
+			(at 50.8 39.37 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "540cc638-77ad-4ca7-a282-b8930e534b14")
+		)
+		(pin "1"
+			(uuid "48b57325-8758-407e-95c9-9054d6b31872")
+		)
+		(instances
+			(project "imd_latch_v2"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -11751,7 +11837,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 30.48 36.068 90)
 			(hide yes)
 			(show_name no)

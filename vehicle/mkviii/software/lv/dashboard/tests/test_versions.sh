@@ -800,11 +800,11 @@ BH=$B/home
 mkdir -p "$B/root" "$B/bin" "$BH/deploy"
 cat >"$B/bin/python" <<'EOF_PY'
 #!/usr/bin/env bash
-echo "$@" >>"${0%/*}/ran"
+echo "$PWD $*" >>"${0%/*}/ran"
 EOF_PY
 chmod +x "$B/bin/python"
 jq -n --arg b "$B" '{repo_url: "file:///nowhere/not-github.git", branch: "main", network_timeout_s: 2,
-  dashboard_path: "\($b)/root/dashboard.py", python_executable: "\($b)/bin/python",
+  dashboard_command: "\($b)/bin/python dashboard.py", dashboard_dir: "\($b)/root",
   restart_dashboard_on_exit: false, restart_delay_s: 1, max_versions: 3, github_users: []}' >"$B/startup_config.json"
 # bvs ARGS...: the engine on this Pi's store.
 bvs() { HOME=$BH OEM_DEPLOY_DIR=$BH/deploy OEM_STARTUP_CONFIG=$B/startup_config.json vs "$@"; }
@@ -845,13 +845,45 @@ HOME=$BH OEM_DEPLOY_DIR=$BH/deploy OEM_STARTUP_CONFIG=$B/startup_config.json OEM
 grep -q "Applying the pending rollback: rollback to v2" "$ERR" && grep -q "Applied the rollback: 3 file(s) installed" "$ERR" ||
   fail "startup.sh should apply the rollback"
 grep -q "^versions: v2 (already stored)$" "$ERR" || fail "the boot's snapshot should find v2"
-[ "$(cat "$B/bin/ran")" = "$B/root/dashboard.py" ] || fail "startup.sh should have run the dashboard"
+[ "$(cat "$B/bin/ran")" = "$B/root dashboard.py" ] || fail "startup.sh should have run dashboard_command in dashboard_dir"
 [ ! -e "$BH/deploy/pending" ] && [ ! -e "$BH/deploy/.applying" ] || fail "startup.sh should have used up the rollback"
 for f in tool.sh data.txt dashboard.py; do cmp -s "$B/v2/$f" "$B/root/$f" || fail "startup.sh installed the wrong $f"; done
 [ "$(modes "$B/root")" = "$(modes "$B/v2")" ] || fail "the installed files have modes $(modes "$B/root" | tr '\n' ' ')"
 [ "$("$B/root/tool.sh")" = two ] || fail "the rolled-back tool.sh should run"
 [ "$(bvs current && cat "$OUT")" = v2 ] || fail "current should be v2 after the boot"
 [ ! -e "$BH/.ssh/authorized_keys" ] || fail "the key sync shouldn't have written anything"
+
+# pre_run_command runs once in dashboard_dir before the dashboard; if it fails,
+# the dashboard isn't started and startup.sh exits non-zero.
+STEP=pre-run
+# boot_with PRE_RUN_COMMAND: run startup.sh with that pre_run_command; sets rc.
+boot_with() {
+  jq --arg c "$1" '.pre_run_command = $c' "$B/startup_config.json" >"$B/c" && mv "$B/c" "$B/startup_config.json"
+  rm -f "$B/bin/ran" "$B/root/built"
+  rc=0
+  HOME=$BH OEM_DEPLOY_DIR=$BH/deploy OEM_STARTUP_CONFIG=$B/startup_config.json OEM_AUTHORIZED_KEYS=$BH/.ssh/authorized_keys \
+    bash "$DASH/pi/startup.sh" >"$OUT" 2>"$ERR" || rc=$?
+}
+boot_with 'echo compiling; pwd >built'
+[ "$rc" -eq 0 ] || fail "pre-run: startup.sh exited with $rc after a passing pre-run command"
+[ "$(cat "$B/root/built" 2>/dev/null)" = "$B/root" ] || fail "pre-run: the command should run in dashboard_dir"
+grep -q "pre-run: compiling$" "$ERR" || fail "pre-run: its output should be logged with a pre-run: tag"
+[ "$(cat "$B/bin/ran")" = "$B/root dashboard.py" ] || fail "pre-run: the dashboard should run after a passing pre-run command"
+boot_with 'echo "dashboard.c:3: error: oops"; exit 4'
+[ "$rc" -ne 0 ] || fail "pre-run: startup.sh should exit non-zero when the pre-run command fails"
+[ ! -e "$B/bin/ran" ] || fail "pre-run: the dashboard must not start when the pre-run command fails"
+grep -q "pre-run: dashboard.c:3: error: oops" "$ERR" && grep -q "dashboard is NOT running" "$ERR" ||
+  fail "pre-run: a failure should be logged with the command's output"
+jq '.pre_run_command = null' "$B/startup_config.json" >"$B/c" && mv "$B/c" "$B/startup_config.json"
+# There's no built-in dashboard command: without dashboard_command nothing
+# runs (not even the pre-run command) and startup.sh exits non-zero.
+cp "$B/startup_config.json" "$B/config-saved"
+jq 'del(.dashboard_command)' "$B/config-saved" >"$B/startup_config.json"
+boot_with 'touch built'
+[ "$rc" -ne 0 ] || fail "no command: startup.sh should exit non-zero without a dashboard_command"
+[ ! -e "$B/bin/ran" ] && [ ! -e "$B/root/built" ] || fail "no command: nothing should run without a dashboard_command"
+grep -q "No dashboard_command in .*dashboard is NOT running" "$ERR" || fail "no command: should log that the dashboard isn't running"
+mv "$B/config-saved" "$B/startup_config.json"
 
 # A prune re-points v2 (its parent v1 goes): its modes come along.
 STEP=modes

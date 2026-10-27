@@ -9,7 +9,11 @@
 #    branch in startup_config.json; without network it keeps the files it has.
 # 2. In the background: refreshes ~/.ssh/authorized_keys from GitHub
 #    (sync-keys.sh) and records the installed files as a version (versions.sh).
-# 3. Runs the dashboard, restarting it whenever it exits.
+# 3. Runs pre_run_command, if set (with bash, in dashboard_dir), e.g. to
+#    compile the dashboard. If it fails, the dashboard is NOT started: broken
+#    code shows up as no dashboard, not as an older one still running.
+# 4. Runs dashboard_command (with bash, in dashboard_dir), restarting it
+#    whenever it exits.
 #
 # The dashboard starts even if step 1 fails. Logs: journalctl -u oem-startup -b
 
@@ -24,27 +28,38 @@ esac
 err() { echo "ERROR: $*" >&2; }
 
 # Read startup_config.json in one jq call (jq is slow to start on a Pi Zero).
-# A broken config must not stop the dashboard: fall back to the defaults and
-# skip the GitHub sync.
+# A broken config skips the GitHub sync and the dashboard (there's no
+# dashboard_command to run), but the key sync still runs so ssh keeps working.
 read_config() {
   local out c
-  REPO_URL="" BRANCH=main NET_TIMEOUT=10 DASHBOARD=$HOME/dashboard.py
-  PYTHON=/usr/bin/python3 RESTART=true RESTART_DELAY=3 CONFIG_OK=0
-  if ! out=$(jq -r --arg home "$HOME" '
+  REPO_URL="" BRANCH=main NET_TIMEOUT=10 DASH_CMD="" DASH_DIR=$HOME
+  RESTART=true RESTART_DELAY=3 PRE_RUN="" CONFIG_OK=0
+  # Commands are one line (newlines -> spaces) so each stays one config value.
+  if ! out=$(jq -r '
       def get(k; d): if .[k] == null then d else .[k] end;
       get("repo_url"; ""), get("branch"; "main"), get("network_timeout_s"; 10),
-      get("dashboard_path"; $home + "/dashboard.py"), get("python_executable"; "/usr/bin/python3"),
+      (get("dashboard_command"; "") | tostring | gsub("[\\r\\n]+"; " ")), get("dashboard_dir"; "~"),
+      (get("pre_run_command"; "") | tostring | gsub("[\\r\\n]+"; " ")),
       get("restart_dashboard_on_exit"; true), get("restart_delay_s"; 3)' "$CONFIG" 2>&1); then
-    err "Can't read $CONFIG (${out:-no output}); running the dashboard with default settings, without a GitHub sync"
+    err "Can't read $CONFIG (${out:-no output}); skipping the GitHub sync and the dashboard"
     return 0
   fi
   mapfile -t c <<<"$out"
-  if [ "${#c[@]}" -ne 7 ]; then
-    err "Unexpected values in $CONFIG; running the dashboard with default settings, without a GitHub sync"
+  if [ "${#c[@]}" -ne 8 ]; then
+    err "Unexpected values in $CONFIG; skipping the GitHub sync and the dashboard"
     return 0
   fi
-  REPO_URL=${c[0]} BRANCH=${c[1]} NET_TIMEOUT=${c[2]} DASHBOARD=${c[3]}
-  PYTHON=${c[4]} RESTART=${c[5]} RESTART_DELAY=${c[6]} CONFIG_OK=1
+  REPO_URL=${c[0]} BRANCH=${c[1]} NET_TIMEOUT=${c[2]} DASH_CMD=${c[3]}
+  DASH_DIR=${c[4]} PRE_RUN=${c[5]} RESTART=${c[6]} RESTART_DELAY=${c[7]} CONFIG_OK=1
+  [[ -n ${PRE_RUN//[[:space:]]/} ]] || PRE_RUN=""
+  # dashboard_dir may start with ~ or be relative to the home folder.
+  case $DASH_DIR in
+    "~") DASH_DIR=$HOME ;;
+    "~/"*) DASH_DIR=$HOME/${DASH_DIR#"~/"} ;;
+    /*) ;;
+    *) DASH_DIR=$HOME/$DASH_DIR ;;
+  esac
+  [[ -n ${DASH_CMD//[[:space:]]/} ]] || DASH_CMD=""
   # 0 would mean "no timeout" to timeout and curl, so a dead network could hold
   # up the dashboard forever.
   if [[ ! $NET_TIMEOUT =~ ^[0-9]+([.][0-9]+)?$ ]] || [[ $NET_TIMEOUT =~ ^0*([.]0*)?$ ]]; then
@@ -298,16 +313,23 @@ prepare_files() {
   printf '%s\n%s\n' "$SOURCE" "${DETAIL//$'\n'/ }" >"$WORK/result"
 }
 
-# run_dashboard: run it, restarting it RESTART_DELAY s after it exits unless
-# restart_dashboard_on_exit is false. Returns the dashboard's exit code.
+# pre_run: run pre_run_command once, in dashboard_dir. Its output goes to the
+# journal tagged "pre-run". Returns its exit code.
+pre_run() {
+  log "Running the pre-run command (in $DASH_DIR): $PRE_RUN"
+  tagged pre-run /bin/bash -c "cd -- \"\$1\" && exec /bin/bash -c \"\$2\"" pre-run "$DASH_DIR" "$PRE_RUN"
+}
+
+# run_dashboard: run dashboard_command with bash in dashboard_dir, restarting
+# it RESTART_DELAY s after it exits unless restart_dashboard_on_exit is false.
+# Returns the dashboard's exit code.
 run_dashboard() {
-  local dir code
-  dir=$(dirname -- "$DASHBOARD")
-  [ -f "$DASHBOARD" ] || err "The dashboard ($DASHBOARD) doesn't exist. Deploy it from the laptop with deploy/deploy.sh."
+  local code
   while true; do
-    log "Starting the dashboard: $PYTHON $DASHBOARD"
+    log "Starting the dashboard (in $DASH_DIR): $DASH_CMD"
     code=0
-    (cd -- "$dir" && exec "$PYTHON" "$DASHBOARD") || code=$?
+    # exec, so the dashboard replaces the subshell and gets systemd's signals.
+    (cd -- "$DASH_DIR" && exec /bin/bash -c "$DASH_CMD") || code=$?
     if [ "$code" -eq 0 ]; then log "The dashboard exited (code 0)"; else warn "The dashboard exited with code $code"; fi
     if [ "$RESTART" = false ]; then
       return "$code"
@@ -363,9 +385,18 @@ main() {
 
   read -r now _ </proc/uptime
   log "Files ready after $(awk -v a="$start" -v b="$now" 'BEGIN { printf "%.1f", b - a }') s"
-  run_dashboard || code=$?
+  if [ -z "$DASH_CMD" ]; then
+    code=1
+    err "No dashboard_command in $CONFIG, so the dashboard is NOT running. Set it there (see pi/startup_config.json in the repo)."
+  elif [ -n "$PRE_RUN" ] && ! pre_run; then
+    code=1
+    err "The pre-run command failed, so the dashboard is NOT running. Fix the code and deploy again (deploy/deploy.sh), or roll back (deploy/versions.sh)."
+  else
+    run_dashboard || code=$?
+  fi
 
-  # Only reached if restart_dashboard_on_exit is false. systemd kills whatever
+  # Only reached if there's no dashboard_command, the pre-run command failed,
+  # or restart_dashboard_on_exit is false. systemd kills whatever
   # is left in the service once this script exits, so let background jobs finish.
   if [ -n "$(jobs -rp)" ]; then
     log "Waiting for the background jobs (key sync, version snapshot) to finish"

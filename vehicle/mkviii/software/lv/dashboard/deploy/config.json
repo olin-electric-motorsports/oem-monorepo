@@ -1,7 +1,7 @@
 {
     "pi": {
-        "mac": "b8:27:eb:25:c6:4f",
-        "user": "oem",
+        "mac": "e4:5f:01:85:7d:1c",
+        "user": "lv-display",
         "port": 22,
         "ssh_key": null,
         "connect_timeout_s": 10,
@@ -11,11 +11,11 @@
     "deploy": [
         {
             "local_path": "../dashboard.py",
-            "remote_path": "/home/oem/dashboard.py"
+            "remote_path": "/home/lv-display/dashboard.py"
         },
         {
             "local_path": "../mkvi.dbc",
-            "remote_path": "/home/oem/mkvi.dbc"
+            "remote_path": "/home/lv-display/mkvi.dbc"
         }
     ]
 }

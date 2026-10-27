@@ -875,6 +875,15 @@ boot_with 'echo "dashboard.c:3: error: oops"; exit 4'
 grep -q "pre-run: dashboard.c:3: error: oops" "$ERR" && grep -q "dashboard is NOT running" "$ERR" ||
   fail "pre-run: a failure should be logged with the command's output"
 jq '.pre_run_command = null' "$B/startup_config.json" >"$B/c" && mv "$B/c" "$B/startup_config.json"
+# There's no built-in dashboard command: without dashboard_command nothing
+# runs (not even the pre-run command) and startup.sh exits non-zero.
+cp "$B/startup_config.json" "$B/config-saved"
+jq 'del(.dashboard_command)' "$B/config-saved" >"$B/startup_config.json"
+boot_with 'touch built'
+[ "$rc" -ne 0 ] || fail "no command: startup.sh should exit non-zero without a dashboard_command"
+[ ! -e "$B/bin/ran" ] && [ ! -e "$B/root/built" ] || fail "no command: nothing should run without a dashboard_command"
+grep -q "No dashboard_command in .*dashboard is NOT running" "$ERR" || fail "no command: should log that the dashboard isn't running"
+mv "$B/config-saved" "$B/startup_config.json"
 
 # A prune re-points v2 (its parent v1 goes): its modes come along.
 STEP=modes

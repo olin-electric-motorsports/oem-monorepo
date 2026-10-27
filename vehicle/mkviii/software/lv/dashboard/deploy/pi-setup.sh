@@ -30,7 +30,8 @@
 #      NetworkManager (~16 s).
 #   4. Caps the boot's wait for the network at 20 s (NM's default is 60 s), so
 #      with no Wi-Fi (in the car) the dashboard starts at most ~20 s late.
-#   5. Installs git, jq, curl and patch (the startup scripts use them).
+#   5. Installs git, jq, curl and patch (the startup scripts use them) and gcc
+#      (for a pre_run_command that compiles the dashboard).
 #   6. Gives the Pi user passwordless sudo (deploy.sh and reboot.sh run
 #      `sudo -n reboot` / `sudo -n shutdown` over ssh, where nobody can type one).
 #   7. Installs a boot-time probe that records when the internet first becomes
@@ -198,9 +199,10 @@ grep -q NM_ONLINE_TIMEOUT "$unit" 2>/dev/null ||
 say "boot waits at most 20 s for the network"
 
 # --- 5. tools for the startup scripts (git: GitHub sync; jq: configs;
-#        curl: downloads and GitHub keys; patch: the version store)
+#        curl: downloads and GitHub keys; patch: the version store;
+#        gcc: compiling the dashboard in pre_run_command)
 missing=()
-for cmd in git jq curl patch; do
+for cmd in git jq curl patch gcc; do
   command -v "$cmd" >/dev/null || missing+=("$cmd")
 done
 if [ ${#missing[@]} -gt 0 ]; then
@@ -208,7 +210,7 @@ if [ ${#missing[@]} -gt 0 ]; then
   apt_get update
   apt_get install "${missing[@]}"
 fi
-say "git, jq, curl and patch are installed"
+say "git, jq, curl, patch and gcc are installed"
 
 # --- 6. passwordless sudo (deploy.sh, reboot.sh, versions.sh)
 rule=/etc/sudoers.d/oem-dashboard-nopasswd

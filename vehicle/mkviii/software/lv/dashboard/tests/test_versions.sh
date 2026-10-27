@@ -853,6 +853,29 @@ for f in tool.sh data.txt dashboard.py; do cmp -s "$B/v2/$f" "$B/root/$f" || fai
 [ "$(bvs current && cat "$OUT")" = v2 ] || fail "current should be v2 after the boot"
 [ ! -e "$BH/.ssh/authorized_keys" ] || fail "the key sync shouldn't have written anything"
 
+# pre_run_command runs once in dashboard_dir before the dashboard; if it fails,
+# the dashboard isn't started and startup.sh exits non-zero.
+STEP=pre-run
+# boot_with PRE_RUN_COMMAND: run startup.sh with that pre_run_command; sets rc.
+boot_with() {
+  jq --arg c "$1" '.pre_run_command = $c' "$B/startup_config.json" >"$B/c" && mv "$B/c" "$B/startup_config.json"
+  rm -f "$B/bin/ran" "$B/root/built"
+  rc=0
+  HOME=$BH OEM_DEPLOY_DIR=$BH/deploy OEM_STARTUP_CONFIG=$B/startup_config.json OEM_AUTHORIZED_KEYS=$BH/.ssh/authorized_keys \
+    bash "$DASH/pi/startup.sh" >"$OUT" 2>"$ERR" || rc=$?
+}
+boot_with 'echo compiling; pwd >built'
+[ "$rc" -eq 0 ] || fail "pre-run: startup.sh exited with $rc after a passing pre-run command"
+[ "$(cat "$B/root/built" 2>/dev/null)" = "$B/root" ] || fail "pre-run: the command should run in dashboard_dir"
+grep -q "pre-run: compiling$" "$ERR" || fail "pre-run: its output should be logged with a pre-run: tag"
+[ "$(cat "$B/bin/ran")" = "$B/root dashboard.py" ] || fail "pre-run: the dashboard should run after a passing pre-run command"
+boot_with 'echo "dashboard.c:3: error: oops"; exit 4'
+[ "$rc" -ne 0 ] || fail "pre-run: startup.sh should exit non-zero when the pre-run command fails"
+[ ! -e "$B/bin/ran" ] || fail "pre-run: the dashboard must not start when the pre-run command fails"
+grep -q "pre-run: dashboard.c:3: error: oops" "$ERR" && grep -q "dashboard is NOT running" "$ERR" ||
+  fail "pre-run: a failure should be logged with the command's output"
+jq '.pre_run_command = null' "$B/startup_config.json" >"$B/c" && mv "$B/c" "$B/startup_config.json"
+
 # A prune re-points v2 (its parent v1 goes): its modes come along.
 STEP=modes
 echo 'echo four' >>"$B/root/tool.sh"

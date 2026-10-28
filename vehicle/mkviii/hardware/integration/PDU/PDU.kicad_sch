@@ -4686,7 +4686,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 74.93) (xy 200.66 74.93)
+			(xy 184.15 73.66) (xy 186.69 73.66)
 		)
 		(stroke
 			(width 0)
@@ -5206,7 +5206,7 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 74.93) (xy 185.42 74.93)
+			(xy 207.01 73.66) (xy 201.93 73.66)
 		)
 		(stroke
 			(width 0)
@@ -5703,16 +5703,6 @@
 			(justify left bottom)
 		)
 		(uuid "29e3276c-ec28-4684-9b72-d1cd7b6cd1d2")
-	)
-	(label "INVERTER_START_OK"
-		(at 184.15 74.93 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "29ebe343-db4c-4f10-9b60-5d12610d51d3")
 	)
 	(label "CAN_2+"
 		(at 264.16 73.66 0)
@@ -7144,6 +7134,16 @@
 		)
 		(uuid "d7dba5c7-ecbf-47fe-ade7-db1e02044860")
 	)
+	(label "INVERTER_START_OK"
+		(at 184.15 73.66 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d84005b3-d6fd-41ac-abd6-6e12a63a7532")
+	)
 	(label "SS_GLVMS"
 		(at 266.7 157.48 0)
 		(effects
@@ -7406,7 +7406,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0110387a-d489-43ca-9db0-aa16bf6b3cd7")
-		(property "Reference" "#PWR015"
+		(property "Reference" "#PWR?"
 			(at 133.35 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -7466,7 +7466,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR015")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -7645,7 +7645,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "07871387-8b4a-47d4-8809-1a579c1bab85")
-		(property "Reference" "#PWR03"
+		(property "Reference" "#PWR?"
 			(at 53.34 200.66 0)
 			(hide yes)
 			(show_name no)
@@ -7705,7 +7705,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR03")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -8200,7 +8200,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "11d8cb1d-f5bc-4f6b-b05b-1016c8921048")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR?"
 			(at 93.98 180.34 0)
 			(hide yes)
 			(show_name no)
@@ -8260,7 +8260,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR09")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -8423,84 +8423,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 203.2 74.93 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2652cf5d-2f50-4eea-b775-e0a19b4e0970")
-		(property "Reference" "#PWR019"
-			(at 203.2 81.28 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 203.2 80.01 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 203.2 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 203.2 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 203.2 74.93 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "35e85dda-b175-4811-a3ff-ace154dc6750")
-		)
-		(instances
-			(project "PDU"
-				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR019")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+5V")
 		(at 133.35 170.18 0)
 		(unit 1)
@@ -8511,7 +8433,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "29eeda6b-f18c-48f9-8e7d-7e740b5c420e")
-		(property "Reference" "#PWR016"
+		(property "Reference" "#PWR?"
 			(at 133.35 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -8571,7 +8493,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR016")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -8919,7 +8841,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "30c066be-e5b5-4f8a-a31c-d12ce5c8ddf4")
-		(property "Reference" "#PWR06"
+		(property "Reference" "#PWR?"
 			(at 67.31 196.85 0)
 			(hide yes)
 			(show_name no)
@@ -8979,7 +8901,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR06")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -9296,7 +9218,7 @@
 	)
 	(symbol
 		(lib_id "OEM:LED_RED")
-		(at 200.66 64.77 180)
+		(at 193.04 64.77 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9306,7 +9228,7 @@
 		(dnp no)
 		(uuid "3e3a95c9-df36-442f-a63d-faf57d799fa3")
 		(property "Reference" "D31"
-			(at 202.184 58.42 0)
+			(at 191.516 71.12 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9316,7 +9238,7 @@
 			)
 		)
 		(property "Value" "LED_RED"
-			(at 202.184 60.706 0)
+			(at 191.516 68.834 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9326,7 +9248,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
-			(at 200.66 64.77 0)
+			(at 193.04 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9337,7 +9259,7 @@
 			)
 		)
 		(property "Datasheet" "${OEM_DIR}/parts/datasheets"
-			(at 200.66 64.77 0)
+			(at 193.04 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9348,7 +9270,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 200.66 64.77 0)
+			(at 193.04 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9359,7 +9281,7 @@
 			)
 		)
 		(property "MPN" ""
-			(at 200.66 64.77 0)
+			(at 193.04 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9370,7 +9292,7 @@
 			)
 		)
 		(property "MFN" ""
-			(at 200.66 64.77 0)
+			(at 193.04 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9381,7 +9303,7 @@
 			)
 		)
 		(property "DKPN" ""
-			(at 200.66 64.77 0)
+			(at 193.04 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9392,7 +9314,7 @@
 			)
 		)
 		(property "Package" "0805"
-			(at 200.66 64.77 0)
+			(at 193.04 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9403,7 +9325,7 @@
 			)
 		)
 		(property "NewDesigns" "No"
-			(at 200.66 64.77 0)
+			(at 193.04 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9414,7 +9336,7 @@
 			)
 		)
 		(property "Stocked" "No"
-			(at 200.66 64.77 0)
+			(at 193.04 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9425,7 +9347,7 @@
 			)
 		)
 		(property "Style" "SMD"
-			(at 200.66 64.77 0)
+			(at 193.04 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9611,7 +9533,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3ff6c083-db1a-454f-8dcd-b731d6b87ed1")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR?"
 			(at 254 128.524 0)
 			(hide yes)
 			(show_name no)
@@ -9671,7 +9593,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR021")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -9838,84 +9760,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 208.28 64.77 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "41f2c375-4820-42d1-85fe-30fce7c3e59e")
-		(property "Reference" "#PWR020"
-			(at 208.28 71.12 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 208.28 69.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 208.28 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 208.28 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 208.28 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9f1074f0-61fd-43d9-825b-f50a6281f1d0")
-		)
-		(instances
-			(project "PDU"
-				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR020")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 109.22 193.04 0)
 		(mirror y)
 		(unit 1)
@@ -9926,7 +9770,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "43cb3cba-3791-440b-b76d-59ae42850ed1")
-		(property "Reference" "#PWR012"
+		(property "Reference" "#PWR?"
 			(at 109.22 199.39 0)
 			(hide yes)
 			(show_name no)
@@ -9986,7 +9830,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR012")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -10430,7 +10274,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5ffe6862-f5e7-4de8-a194-909902940c98")
-		(property "Reference" "#PWR018"
+		(property "Reference" "#PWR?"
 			(at 154.94 189.23 0)
 			(hide yes)
 			(show_name no)
@@ -10490,7 +10334,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR018")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -11263,7 +11107,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7ad3a867-4dac-437b-8509-377cc2549d7a")
-		(property "Reference" "#PWR014"
+		(property "Reference" "#PWR?"
 			(at 121.92 177.8 0)
 			(hide yes)
 			(show_name no)
@@ -11323,7 +11167,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR014")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -11341,7 +11185,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7bf43971-65b5-455d-9532-d4d51be3cd9b")
-		(property "Reference" "#PWR011"
+		(property "Reference" "#PWR?"
 			(at 101.6 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -11402,7 +11246,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR011")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -11734,6 +11578,84 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
+		(at 207.01 73.66 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8532d914-763c-4d8e-a5ff-3471e0eb9034")
+		(property "Reference" "#PWR?"
+			(at 207.01 69.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 207.01 78.74 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 207.01 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 207.01 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 207.01 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "43e730bf-8f60-4bfc-b7b3-50ff9b1002dd")
+		)
+		(instances
+			(project "PDU"
+				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
 		(at 101.6 160.02 0)
 		(unit 1)
 		(body_style 1)
@@ -11743,7 +11665,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8dd2bff4-846c-482c-8ede-2f9d2d6dbeb0")
-		(property "Reference" "#PWR010"
+		(property "Reference" "#PWR?"
 			(at 101.6 163.83 0)
 			(hide yes)
 			(show_name no)
@@ -11803,7 +11725,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR010")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -12584,7 +12506,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a620a7da-f345-4ca2-b38e-8457995ba946")
-		(property "Reference" "#PWR02"
+		(property "Reference" "#PWR?"
 			(at 35.56 173.99 0)
 			(hide yes)
 			(show_name no)
@@ -12644,7 +12566,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR02")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -12820,7 +12742,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "aa39a9ae-3eae-42ab-9cc7-4bc7599d88a8")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR?"
 			(at 92.71 200.66 0)
 			(hide yes)
 			(show_name no)
@@ -12880,7 +12802,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR08")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -12898,7 +12820,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "aca6ad14-4731-4804-8ac5-1b8a4595e787")
-		(property "Reference" "#PWR023"
+		(property "Reference" "#PWR?"
 			(at 274.32 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -12958,7 +12880,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR023")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -12966,7 +12888,7 @@
 	)
 	(symbol
 		(lib_id "OEM:LED_AMBER")
-		(at 196.85 74.93 180)
+		(at 190.5 73.66 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12976,7 +12898,7 @@
 		(dnp no)
 		(uuid "b7e3a3fd-7e6a-4e9e-99d6-3836ef3a4ec4")
 		(property "Reference" "D32"
-			(at 198.628 69.342 0)
+			(at 188.722 79.248 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12986,7 +12908,7 @@
 			)
 		)
 		(property "Value" "LED_AMBER"
-			(at 198.628 71.374 0)
+			(at 188.722 77.216 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12996,7 +12918,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
-			(at 196.85 74.93 0)
+			(at 190.5 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13007,7 +12929,7 @@
 			)
 		)
 		(property "Datasheet" "${OEM_DIR}/parts/datasheets"
-			(at 196.85 74.93 0)
+			(at 190.5 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13018,7 +12940,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 196.85 74.93 0)
+			(at 190.5 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13029,7 +12951,7 @@
 			)
 		)
 		(property "MPN" ""
-			(at 196.85 74.93 0)
+			(at 190.5 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13040,7 +12962,7 @@
 			)
 		)
 		(property "MFN" ""
-			(at 196.85 74.93 0)
+			(at 190.5 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13051,7 +12973,7 @@
 			)
 		)
 		(property "DKPN" ""
-			(at 196.85 74.93 0)
+			(at 190.5 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13062,7 +12984,7 @@
 			)
 		)
 		(property "Package" "0805"
-			(at 196.85 74.93 0)
+			(at 190.5 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13073,7 +12995,7 @@
 			)
 		)
 		(property "NewDesigns" "No"
-			(at 196.85 74.93 0)
+			(at 190.5 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13084,7 +13006,7 @@
 			)
 		)
 		(property "Stocked" "No"
-			(at 196.85 74.93 0)
+			(at 190.5 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13095,7 +13017,7 @@
 			)
 		)
 		(property "Style" "SMD"
-			(at 196.85 74.93 0)
+			(at 190.5 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13131,7 +13053,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "c4b67799-7702-4a11-a0cd-0f83b287f787")
-		(property "Reference" "#PWR05"
+		(property "Reference" "#PWR?"
 			(at 64.77 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -13191,7 +13113,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR05")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -13384,7 +13306,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c8e2988c-39f8-4426-bdd0-a4824b169a16")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR?"
 			(at 133.35 199.39 0)
 			(hide yes)
 			(show_name no)
@@ -13444,7 +13366,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR017")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -13462,7 +13384,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cc5e0ced-0c62-443b-94ae-f0d7f09d3418")
-		(property "Reference" "#PWR022"
+		(property "Reference" "#PWR?"
 			(at 274.32 114.3 0)
 			(hide yes)
 			(show_name no)
@@ -13522,7 +13444,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR022")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -13695,7 +13617,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d0528bed-e326-4fec-9c1a-3b9acecd38b9")
-		(property "Reference" "#PWR013"
+		(property "Reference" "#PWR?"
 			(at 116.84 182.88 0)
 			(hide yes)
 			(show_name no)
@@ -13755,7 +13677,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR013")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -13927,7 +13849,7 @@
 	)
 	(symbol
 		(lib_id "OEM:R_200")
-		(at 189.23 74.93 90)
+		(at 198.12 73.66 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13937,7 +13859,7 @@
 		(dnp no)
 		(uuid "d97a8026-1294-4aa5-81de-f6232e59a811")
 		(property "Reference" "R17"
-			(at 189.23 69.088 90)
+			(at 198.12 79.502 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13947,7 +13869,7 @@
 			)
 		)
 		(property "Value" "R_1k"
-			(at 189.23 71.12 90)
+			(at 198.12 77.47 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13957,7 +13879,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 189.23 82.55 90)
+			(at 198.12 66.04 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13968,7 +13890,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf"
-			(at 189.23 76.2 0)
+			(at 198.12 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13979,7 +13901,7 @@
 			)
 		)
 		(property "Description" "Resistor 200 ohm 0603 1/10W 1%"
-			(at 189.23 74.93 0)
+			(at 198.12 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13990,7 +13912,7 @@
 			)
 		)
 		(property "MPN" "RC0603FR-13200RL"
-			(at 189.23 77.47 0)
+			(at 198.12 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14001,7 +13923,7 @@
 			)
 		)
 		(property "MFN" "Yageo"
-			(at 189.23 76.2 0)
+			(at 198.12 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14012,7 +13934,7 @@
 			)
 		)
 		(property "DKPN" "13-RC0603FR-13200RLDKR-ND"
-			(at 189.23 76.2 0)
+			(at 198.12 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14023,7 +13945,7 @@
 			)
 		)
 		(property "Package" "0603"
-			(at 189.23 74.93 0)
+			(at 198.12 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14034,7 +13956,7 @@
 			)
 		)
 		(property "NewDesigns" "YES"
-			(at 189.23 74.93 0)
+			(at 198.12 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14045,7 +13967,7 @@
 			)
 		)
 		(property "Stocked" "Digi-Reel"
-			(at 189.23 76.2 0)
+			(at 198.12 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14056,7 +13978,7 @@
 			)
 		)
 		(property "Style" "SMD"
-			(at 189.23 76.2 0)
+			(at 198.12 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14093,7 +14015,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d99e3993-8aac-460e-928c-7f36981c6457")
-		(property "Reference" "#PWR01"
+		(property "Reference" "#PWR?"
 			(at 27.94 196.85 0)
 			(hide yes)
 			(show_name no)
@@ -14153,7 +14075,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR01")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -14811,7 +14733,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ea83e013-cd9d-484e-9c93-695a46c54c7f")
-		(property "Reference" "#PWR04"
+		(property "Reference" "#PWR?"
 			(at 58.42 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -14871,7 +14793,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR04")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -15162,7 +15084,7 @@
 	)
 	(symbol
 		(lib_id "OEM:R_200")
-		(at 193.04 64.77 90)
+		(at 200.66 64.77 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15173,7 +15095,7 @@
 		(fields_autoplaced yes)
 		(uuid "ef840710-ab36-475b-87dd-687f000badad")
 		(property "Reference" "R5"
-			(at 193.04 58.42 90)
+			(at 200.66 71.12 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15183,7 +15105,7 @@
 			)
 		)
 		(property "Value" "R_200"
-			(at 193.04 60.96 90)
+			(at 200.66 68.58 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15193,7 +15115,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 193.04 72.39 90)
+			(at 200.66 57.15 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15204,7 +15126,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf"
-			(at 193.04 66.04 0)
+			(at 200.66 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15215,7 +15137,7 @@
 			)
 		)
 		(property "Description" "Resistor 200 ohm 0603 1/10W 1%"
-			(at 193.04 64.77 0)
+			(at 200.66 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15226,7 +15148,7 @@
 			)
 		)
 		(property "MPN" "RC0603FR-13200RL"
-			(at 193.04 67.31 0)
+			(at 200.66 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15237,7 +15159,7 @@
 			)
 		)
 		(property "MFN" "Yageo"
-			(at 193.04 66.04 0)
+			(at 200.66 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15248,7 +15170,7 @@
 			)
 		)
 		(property "DKPN" "13-RC0603FR-13200RLDKR-ND"
-			(at 193.04 66.04 0)
+			(at 200.66 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15259,7 +15181,7 @@
 			)
 		)
 		(property "Package" "0603"
-			(at 193.04 64.77 0)
+			(at 200.66 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15270,7 +15192,7 @@
 			)
 		)
 		(property "NewDesigns" "YES"
-			(at 193.04 64.77 0)
+			(at 200.66 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15281,7 +15203,7 @@
 			)
 		)
 		(property "Stocked" "Digi-Reel"
-			(at 193.04 66.04 0)
+			(at 200.66 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15292,7 +15214,7 @@
 			)
 		)
 		(property "Style" "SMD"
-			(at 193.04 66.04 0)
+			(at 200.66 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15328,7 +15250,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "efbb0c3f-e2dc-4982-bcb2-03e5081b2ff2")
-		(property "Reference" "#PWR07"
+		(property "Reference" "#PWR?"
 			(at 74.93 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -15388,7 +15310,85 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
-					(reference "#PWR07")
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 208.28 64.77 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f23d6069-70b2-43e2-a10f-504460c40bb7")
+		(property "Reference" "#PWR?"
+			(at 208.28 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 208.28 69.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 208.28 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 208.28 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 208.28 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c6fcdb6a-7816-4096-aa36-edf950fb5f54")
+		)
+		(instances
+			(project "PDU"
+				(path "/f655fa78-2860-41ca-ba0e-06d986d434be"
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)

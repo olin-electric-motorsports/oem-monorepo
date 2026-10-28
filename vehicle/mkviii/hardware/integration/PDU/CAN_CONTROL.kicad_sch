@@ -3095,7 +3095,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2bca2967-4d6b-4b7c-8c83-2a88e2025b99")
-		(property "Reference" "#PWR042"
+		(property "Reference" "#PWR?"
 			(at 95.25 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -3155,7 +3155,7 @@
 		(instances
 			(project "PDU"
 				(path "/f655fa78-2860-41ca-ba0e-06d986d434be/fb6a863c-99fa-4808-971d-be1b07470863"
-					(reference "#PWR042")
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -3731,6 +3731,7 @@
 	(symbol
 		(lib_id "Power_Protection:NUP2105L")
 		(at 95.25 74.93 0)
+		(mirror y)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3738,10 +3739,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "d028def8-78d1-40df-aa4f-711e7d4090f4")
 		(property "Reference" "D15"
-			(at 101.6 73.6599 0)
+			(at 88.9 73.6599 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3752,7 +3752,7 @@
 			)
 		)
 		(property "Value" "NUP2105L"
-			(at 101.6 76.1999 0)
+			(at 88.9 76.1999 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3763,7 +3763,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 100.965 76.2 0)
+			(at 89.535 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3775,7 +3775,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.onsemi.com/pub_link/Collateral/NUP2105L-D.PDF"
-			(at 98.425 71.755 0)
+			(at 92.075 71.755 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

@@ -119,14 +119,14 @@ text_edit() {  # a random edit; the file may end up without a final newline
 }
 
 init_files() {
-  cp "$DASH/dashboard.py" "${SLOT_PATH[dash]}"
+  cp "$DASH/dashboard.c" "${SLOT_PATH[dash]}"
   cp "$DASH/mkvi.dbc" "${SLOT_PATH[dbc]}"
   printf '[display]\nbrightness=%s\nunits=metric' "$RANDOM" >"${SLOT_PATH[cfg]}"
   bin_write "${SLOT_PATH[bin]}"
   : >"${SLOT_PATH[empty]}"
   printf 'line one\r\nline two\r\nline three\r\n' >"${SLOT_PATH[crlf]}"
   printf 'notes with a space in the name\n' >"${SLOT_PATH[spaced]}"
-  head -c 3000 "$DASH/dashboard.py" >"${SLOT_PATH[dup]}"
+  head -c 3000 "$DASH/dashboard.c" >"${SLOT_PATH[dup]}"
   printf 'text for now\n' >"${SLOT_PATH[mixed]}"
   SLOT_IN=([dash]=1 [dbc]=1 [cfg]=1 [bin]=1 [empty]= [crlf]= [spaced]= [dup]= [mixed]=)
 }
@@ -705,12 +705,12 @@ crash_case() {  # crash_case AT WHEN: one power cut, then the next boot's snapsh
   rm -rf "$w"
 }
 set_max 3
-cp "$DASH/dashboard.py" "$C/root/app.py"
+cp "$DASH/dashboard.c" "$C/root/app.py"
 bin_write "$C/root/data.bin"
 jq -n --arg r "$C/root" '[{file_name: "app.py", file_path: "\($r)/app.py", repo_path: "a/app.py"},
   {file_name: "data.bin", file_path: "\($r)/data.bin", repo_path: "a/data.bin"}]' >"$C/pre/deploy-manifest.json"
 for v in base a b; do   # v1 in full; v2 and v3 each a diff against v1
-  cp "$DASH/dashboard.py" "$C/root/app.py"
+  cp "$DASH/dashboard.c" "$C/root/app.py"
   [ "$v" = base ] || printf '# %s\n' "$v" >>"$C/root/app.py"
   OEM_DEPLOY_DIR=$C/pre vs snapshot --source deploy --detail "$v" || fail "crash test setup"
 done
@@ -718,7 +718,7 @@ done
   fail "crash test setup: expected v2 and v3 to be stored against v1"
 declare -A C_HASH=()
 while read -r id h; do C_HASH[$id]=$h; done < <(jq -r '.versions[] | "\(.id) \(.hash)"' "$C/pre/versions/index.json")
-cp "$DASH/dashboard.py" "$C/root/app.py"
+cp "$DASH/dashboard.c" "$C/root/app.py"
 printf '# c\n' >>"$C/root/app.py"   # the new version: v4, which prunes v1 and re-points v2 and v3
 cp "$C/root/app.py" "$C/root/data.bin" "$C/new/files/"
 cp "$C/pre/deploy-manifest.json" "$C/new/manifest.json"
@@ -811,7 +811,7 @@ bvs() { HOME=$BH OEM_DEPLOY_DIR=$BH/deploy OEM_STARTUP_CONFIG=$B/startup_config.
 modes() { (cd "$1" && stat -c '%n %a' tool.sh data.txt dashboard.py); }
 { printf '#!/usr/bin/env bash\n'; seq 1 60 | sed 's/^/# line /'; } >"$B/root/tool.sh"
 printf 'some data\n' >"$B/root/data.txt"
-cp "$DASH/dashboard.py" "$B/root/dashboard.py"
+cp "$DASH/dashboard.c" "$B/root/dashboard.py"
 chmod 755 "$B/root/tool.sh"; chmod 640 "$B/root/data.txt"; chmod 644 "$B/root/dashboard.py"
 jq -n --arg r "$B/root" '[{file_name: "tool.sh", file_path: "\($r)/tool.sh", repo_path: "t/tool.sh"},
   {file_name: "data.txt", file_path: "\($r)/data.txt", repo_path: "t/data.txt"},

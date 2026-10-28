@@ -7,7 +7,7 @@ pull a GitHub branch on every boot, roll back to earlier versions, and manage wh
 **Docs:** [Dashboard OTA Updates](https://docs.superhuman.com/d/MK-VIII-Documentation_dbOBIYXOHlq/Dashboard-OTA-Updates_suMvKQZK)
 (setting up the Pi, deploying code, and how it all works).
 
-- `dashboard.py`, `mkvi.dbc`, `dashboard.yml`, `can_logger`: the dashboard and its CAN files.
+- `dashboard.c` (compiled on the Pi at boot; needs LVGL, not in the repo yet), `mkvi.dbc`, `dashboard.yml`, `can_logger`: the dashboard and its CAN files.
 - `deploy/`: scripts you run on your laptop (`./deploy.sh`, `./ssh.sh`, `./versions.sh`, ... each takes `-h`).
 - `pi/`: what gets installed on the Pi (the boot script, key sync, version store, systemd service).
 - `tests/`: `bash tests/test_versions.sh` tests the version store locally.

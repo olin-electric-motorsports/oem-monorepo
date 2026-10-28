@@ -1,0 +1,23 @@
+[Unit]
+Description=OEM dashboard startup (apply deploy / sync with GitHub, then run dashboard)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+# The Pi's user. deploy/pi-setup.sh replaces this with pi.user from config.json.
+User=oem
+# "~" is User='s home; startup.sh and startup_config.json live in ~/startup.
+WorkingDirectory=~
+ExecStart=/bin/bash startup/startup.sh
+# startup.sh restarts the dashboard itself. Don't let systemd restart
+# startup.sh, or a crash would re-run the GitHub sync and undo a deploy.
+Restart=no
+# Stopping the service also stops startup.sh's background jobs (key sync,
+# version snapshot). This is systemd's default; it's spelled out because
+# startup.sh relies on it.
+KillMode=control-group
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+{
+    "repo_url": "https://github.com/olin-electric-motorsports/oem-monorepo.git",
+    "branch": "max-b/dashboard-ota-updates",
+    "network_timeout_s": 10,
+    "dashboard_command": "./dashboard",
+    "dashboard_dir": "~",
+    "pre_run_command": "gcc -O2 -o dashboard dashboard.c -lgpiod -lpthread",
+    "restart_dashboard_on_exit": true,
+    "restart_delay_s": 3,
+    "max_versions": 10,
+    "github_users": ["FahmidaH911"]
+}

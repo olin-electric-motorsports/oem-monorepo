@@ -7,7 +7,7 @@ set -euo pipefail
 
 # This firmware folder, the repo root, the minimum percent, and a scratch folder
 APP="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-ROOT="$(cd "$APP/../../../.." && pwd)"
+ROOT="$(cd "$APP/../../../../.." && pwd)"
 MIN="${1:-100}"
 TESTS=(air_test air_paths_test air_known_issues_test air_invariant_test)
 WORK="$(mktemp -d)"
@@ -18,7 +18,7 @@ status=0
 for negative in 1 0; do
     out="$WORK/negative_$negative"
     mkdir -p "$out"
-    flags=(-std=c11 -Wall -Wextra -Werror -O0 --coverage -I"$ROOT" "-DAIR_CONTROLLED_NEGATIVE=$negative")
+    flags=(-std=c11 -Wall -Wextra -Werror -O0 --coverage -I"$ROOT" -I"$APP" "-DAIR_CONTROLLED_NEGATIVE=$negative")
     gcc "${flags[@]}" -c "$APP/air.c" -o "$out/air.o"
     gcc "${flags[@]}" -c "$APP/air_protocol.c" -o "$out/air_protocol.o"
     for test in "${TESTS[@]}"; do

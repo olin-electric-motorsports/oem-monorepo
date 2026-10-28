@@ -5,12 +5,12 @@ name: AIR control tests
 on:
   push:
     paths:
-      - "vehicle/mkviii/software/air_control/**"
+      - "vehicle/mkviii/software/hv/air_control/**"
       - "common/can_api/**"
       - ".github/workflows/air_control_tests.yml"
   pull_request:
     paths:
-      - "vehicle/mkviii/software/air_control/**"
+      - "vehicle/mkviii/software/hv/air_control/**"
       - "common/can_api/**"
       - ".github/workflows/air_control_tests.yml"
 
@@ -28,13 +28,13 @@ jobs:
         run: python -m pip install -r requirements_lock.txt
 
       - name: Logic and GPIO tests, both topologies, with ASan and UBSan
-        run: python vehicle/mkviii/software/air_control/tests/run_host_tests.py --compiler gcc --sanitize
+        run: python vehicle/mkviii/software/hv/air_control/tests/run_host_tests.py --compiler gcc --sanitize
 
       - name: CAN codec matches the generated DBC
-        run: python vehicle/mkviii/software/air_control/tests/check_protocol.py --compiler gcc
+        run: python vehicle/mkviii/software/hv/air_control/tests/check_protocol.py --compiler gcc
 
       - name: 100% line and branch coverage of air.c and air_protocol.c
-        run: bash vehicle/mkviii/software/air_control/tests/coverage.sh
+        run: bash vehicle/mkviii/software/hv/air_control/tests/coverage.sh
 
       - name: Mount Bazel cache
         uses: actions/cache@v4
@@ -45,4 +45,4 @@ jobs:
             bazel-${{ runner.os }}-
 
       - name: Bazel host tests
-        run: bazel test //vehicle/mkviii/software/air_control:host_tests --test_output=errors
+        run: bazel test //vehicle/mkviii/software/hv/air_control:host_tests --test_output=errors

@@ -3,9 +3,9 @@
 #ifndef AIR_HARNESS_H
 #define AIR_HARNESS_H
 
-#include "air.h"
-#include "air_config.h"
-#include "air_protocol.h"
+#include "../air.h"
+#include "../air_config.h"
+#include "../air_protocol.h"
 #include <stdio.h>
 #include <stdlib.h>
 

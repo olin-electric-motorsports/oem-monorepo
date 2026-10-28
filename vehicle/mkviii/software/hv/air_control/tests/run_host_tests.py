@@ -30,19 +30,19 @@ def main():
         # Every logic test, for both AIR wirings
         for negative in (0, 1):
             for test in LOGIC_TESTS:
-                run(f"{test}_{negative}", ["../air.c", "../air_protocol.c", f"tests/{test}.c"],
+                run(f"{test}_{negative}", ["air.c", "air_protocol.c", f"tests/{test}.c"],
                     ["-DAIR_CONTROLLED_NEGATIVE=" + str(negative)])
         # The GPIO test with five pin tables: the real empty one, switched off and
         # on; a test table, switched off and on; and one with a pin used twice
         cases = [
-            ("default", [], ["../air_board_config.c"]),
-            ("unassigned", ["-DAIR_BOARD_CONFIGURED=1"], ["../air_board_config.c"]),
+            ("default", [], ["air_board_config.c"]),
+            ("unassigned", ["-DAIR_BOARD_CONFIGURED=1"], ["air_board_config.c"]),
             ("disabled", ["-DTEST_ASSIGNED_BOARD"], []),
             ("assigned", ["-DTEST_ASSIGNED_BOARD", "-DAIR_BOARD_CONFIGURED=1"], []),
             ("duplicate", ["-DTEST_ASSIGNED_BOARD", "-DAIR_BOARD_CONFIGURED=1", "-DTEST_DUPLICATE_PIN"], []),
         ]
         for name, flags, config in cases:
-            run(name, ["../air_board.c", "tests/board_test.c"] + config,
+            run(name, ["air_board.c", "tests/board_test.c"] + config,
                 ["-I" + str(APP / "tests")] + flags)
     print("PASS: four logic tests for both contactor topologies and five GPIO configuration cases")
 

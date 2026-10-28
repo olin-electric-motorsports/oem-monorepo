@@ -1,0 +1,37 @@
+# Used for VCU testing.
+# Legacy MKVI dashboard wire format: standard ID 0x00F, one-byte payload.
+# Only start_button_state is used by VCU control; VCU determines its own READY.
+name: dashboard
+publish:
+  - name: dashboard
+    id: 0x00F
+    freq_hz: 100
+    signals:
+      - name: ready_to_drive
+        slice: 1 + 1
+        unit:
+          type: bool
+          values:
+            t: READY
+            f: NOT_READY
+      - name: start_button_state
+        slice: 2 + 1
+        unit:
+          type: bool
+          values:
+            t: PRESSED
+            f: NOT_PRESSED
+      - name: ss_bots
+        slice: 3 + 1
+        unit:
+          type: bool
+          values:
+            t: OPEN
+            f: CLOSED
+      - name: ss_estop
+        slice: 4 + 1
+        unit:
+          type: bool
+          values:
+            t: CLOSED
+            f: OPEN

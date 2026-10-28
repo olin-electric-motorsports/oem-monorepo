@@ -17,6 +17,8 @@
 #include "stm32g4xx_hal_pwr_ex.h"
 #include "stm32g4xx_hal_flash.h"
 
+#include "can.h"
+
 /* Global runtime state published through CAN and used by each control task. */
 vcu_state_s s_state = {0};
 /* Hardware mapping populated by GPIO/ADC initialization before vcu_init(). */
@@ -117,8 +119,7 @@ static void vcu_read_inputs_1ms(void) {
     vcu_read_throttle_1ms();
     vcu_read_shutdown_chain_1ms();
 
-    // Read message from CAN
-    can_poll_receive_all(); 
+    vcu_receive_dashboard();
 }
 
 /*
@@ -329,6 +330,9 @@ static void vcu_update_fault_manager_1ms(void) {
     // Update fault bits
     s_state.fault_bits = fault_bits;
     s_state.blocking_fault_bits = fault_bits;
+
+    s_state.start_button_pressed = vcu_dashboard_start_button(
+        HAL_GetTick(), fault_bits != VCU_FAULT_NONE);
 
     /*
      * A new start-button press arms RTD only while the brake is held, the
@@ -608,6 +612,8 @@ HAL_StatusTypeDef vcu_init(void) {
     s_heartbeat_since_ms = HAL_GetTick();
     s_can_pending = 0u;
     s_can_command_since_ms = HAL_GetTick();
+
+    vcu_dashboard_reset();
 
     // BSPD
     if (s_hw.hadc_brake_press_sense == NULL || s_hw.hadc_brake_press_sense_ftr == NULL

@@ -135,4 +135,7 @@
 /* A pending motor command must be submitted within one publication period. */
 #define VCU_CAN_PUBLISH_PERIOD_MS (10u)
 
+/* Expire stale dashboard button input; this does not clear an existing RTD latch. */
+#define VCU_DASHBOARD_TIMEOUT_MS (250u)
+
 #endif /* VCU_CONFIG_H */

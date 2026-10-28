@@ -30,8 +30,9 @@ pattern. The heartbeat alternated. Every captured motor command requested zero
 torque and inverter disable; ready-to-drive stayed false. Sensor range and
 disconnected shutdown-chain faults were present.
 
-The key hardware-setup repair is `6233b4e`: `Src/fdcan.c` selects the 16 MHz HSE
-CAN clock, enables FDCAN/GPIOA clocks, and configures PA11 RX and PA12 TX as AF9.
+The key hardware-setup repair is `6233b4e`: the original `Src/fdcan.c` selected
+the 16 MHz HSE CAN clock, enabled FDCAN/GPIOA clocks, and configured PA11 RX and
+PA12 TX as AF9. This setup now lives in [Src/can.c](Src/can.c).
 The tested image also includes the transmit priority/error handling in `30ac2fe`.
 
 ## Repeat the observation

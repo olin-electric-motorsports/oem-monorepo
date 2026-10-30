@@ -45,28 +45,28 @@ sh_binary(name = "air_initialize", srcs = ["//common:setup_chip.sh"])
 cc_test(
     name = "air_test",
     srcs = ["tests/air_test.c"],
-    target_compatible_with = HOST_ONLY,
+    #target_compatible_with = HOST_ONLY,
     deps = [":air_logic"],
 )
 
 cc_test(
     name = "air_paths_test",
     srcs = ["tests/air_harness.h", "tests/air_paths_test.c"],
-    target_compatible_with = HOST_ONLY,
+    #target_compatible_with = HOST_ONLY,
     deps = [":air_logic"],
 )
 
 cc_test(
     name = "air_known_issues_test",
     srcs = ["tests/air_harness.h", "tests/air_known_issues_test.c"],
-    target_compatible_with = HOST_ONLY,
+    #target_compatible_with = HOST_ONLY,
     deps = [":air_logic"],
 )
 
 cc_test(
     name = "air_invariant_test",
     srcs = ["tests/air_invariant_test.c"],
-    target_compatible_with = HOST_ONLY,
+    #target_compatible_with = HOST_ONLY,
     deps = [":air_logic"],
 )
 

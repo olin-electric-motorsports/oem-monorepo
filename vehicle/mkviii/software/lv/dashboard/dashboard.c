@@ -12,7 +12,7 @@
 #include <unistd.h>
 #include <pthread.h>
 #endif
-#include "lvgl/lvgl.h"
+#include "third_party/lvgl.h"
 #include <gpiod.h>
 
 #if LV_USE_OS != LV_OS_FREERTOS

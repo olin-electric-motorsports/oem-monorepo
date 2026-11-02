@@ -10,4 +10,3 @@ pull a GitHub branch on every boot, roll back to earlier versions, and manage wh
 - `dashboard.c` (compiled on the Pi at boot; needs LVGL, not in the repo yet), `mkvi.dbc`, `dashboard.yml`, `can_logger`: the dashboard and its CAN files.
 - `deploy/`: scripts you run on your laptop (`./deploy.sh`, `./ssh.sh`, `./versions.sh`, ... each takes `-h`).
 - `pi/`: what gets installed on the Pi (the boot script, key sync, version store, systemd service).
-- `tests/`: `bash tests/test_versions.sh` tests the version store locally.

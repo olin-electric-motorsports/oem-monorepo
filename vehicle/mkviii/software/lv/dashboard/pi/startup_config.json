@@ -4,7 +4,7 @@
     "network_timeout_s": 10,
     "dashboard_command": "./dashboard",
     "dashboard_dir": "~",
-    "pre_run_command": "gcc -O2 -o dashboard dashboard.c -lgpiod -lpthread",
+    "pre_run_command": "cmake -B build && cmake --build build",
     "restart_dashboard_on_exit": true,
     "restart_delay_s": 3,
     "max_versions": 10,

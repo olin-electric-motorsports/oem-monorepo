@@ -22,8 +22,7 @@
 #define BATTERY_SECTIONS 24
 #define MAX_SLOGANS 128
 #define MAX_LEN 128
-#define SLOGAN_FILE "src/slogans.txt"
-#define USED_FILE "src/slogan_flags.bin"
+#define SLOGAN_FILE "vehicle/mkviii/software/lv/dashboard/slogans.txt"
 
 // GPIO Pin definitions (BCM numbering)
 #define CLK_PIN 17

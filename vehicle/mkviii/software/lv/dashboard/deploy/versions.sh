@@ -5,11 +5,16 @@
 #   ./versions.sh [-c CONFIG] show VERSION       details and files of one version
 #   ./versions.sh [-c CONFIG] rollback [--no-reboot] VERSION
 #
-# VERSION is v12, 12, or the start of a version hash (at least 4 hex digits).
+# VERSION is a version id like 20261102-143005, the start of one if only one
+# version starts with it (e.g. 20261102-1430), or the start of a version hash
+# (at least 4 hex digits). Old-style ids (v12, or 12) still work.
 #
 # Every code state the Pi runs (a deploy, a GitHub sync, a rollback, or files
 # edited on the Pi) is kept as a version on the Pi, up to max_versions in its
-# ~/startup/startup_config.json (default 10).
+# ~/startup/startup_config.json (default 10). A version's id is the date and
+# time it was made, in the Pi's time zone: for a deploy, when deploy.sh staged
+# it (the laptop's clock); otherwise when the Pi stored it. The Pi has no clock
+# battery, so if it boots without network a version's time can be early.
 #
 # A rollback is staged like a deploy and applied on the next boot; the Pi
 # reboots now unless --no-reboot. Like a deploy, it lasts until a boot without

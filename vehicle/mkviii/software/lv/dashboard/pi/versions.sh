@@ -4,7 +4,7 @@
 # back to. startup.sh takes a snapshot on every boot; deploy/versions.sh on
 # the laptop lists versions and rolls back.
 #
-#   versions.sh snapshot --source SOURCE [--detail TEXT]
+#   versions.sh snapshot --source SOURCE [--detail TEXT] [--time TIME] [--clock-wait S]
 #                                store the files listed in ~/deploy/deploy-manifest.json
 #                                as they are now (SOURCE: deploy, github, rollback, local)
 #   versions.sh list [-n N]      newest first (* = current); only the N newest
@@ -14,12 +14,25 @@
 #   versions.sh verify           rebuild every version and check all its hashes
 #   versions.sh current          print the current version's id
 #
-# VERSION is v12, 12, or the start of a version hash (at least 4 hex digits).
+# A version's id is the date and time it was made, YYYYMMDD-HHMMSS in the
+# Pi's time zone (e.g. 20261102-143005), with -2, -3, ... added if two land
+# on the same second. A new version made with --time TIME (e.g. the time a
+# deploy was staged on the laptop) is named after TIME; otherwise after now.
+# The Pi has no clock battery, so early in a boot its clock can still be the
+# time it last saved: with --clock-wait S, a new version waits up to S
+# seconds for the clock to sync over the network before it's named (and is
+# named anyway, with a warning, if it doesn't). Ids made before this scheme
+# (v1, v2, ...) still work.
+#
+# VERSION is a version id, the start of one if only one version starts with
+# it (e.g. 20261102-1430), v12 or 12 for an old-style id, or the start of a
+# version hash (at least 4 hex digits).
 #
 # Versions live in ~/deploy/versions. index.json lists them with their hashes
 # and parents, so a code state that's already stored is recognised without
-# rebuilding anything. vN/ holds a version's files: each in full, as a diff
-# against the same file in vN's parent, or nothing if it's unchanged, and a
+# rebuilding anything. A folder named after each version's id holds its
+# files: each in full, as a diff against the same file in the version's
+# parent, or nothing if it's unchanged, and a
 # manifest.json with each file's sha256 and mode (a rollback restores both).
 # The parent is whichever version gives the smallest diffs. Only the newest
 # max_versions (startup_config.json, default 10) are kept; the current one is
@@ -44,15 +57,19 @@ INDEX=$VERSIONS_DIR/index.json
 INDEX_CHECK='if type == "object" and (.versions | type) == "array" then . else error("not an index") end'
 LOCK_WAIT_S=60
 DEFAULT_MAX_VERSIONS=10
+# A version id: YYYYMMDD-HHMMSS[-N], or vN from before ids were dates.
+ID_RE='^([0-9]{8}-[0-9]{6}(-[0-9]+)?|v[0-9]+)$'
 SOURCES="deploy github rollback local"
 US=$'\x1f'   # field separator for jq -> bash (unlike tab, keeps empty fields)
 # The work cache goes here if it's in RAM (tmpfs), to spare the SD card.
 # OEM_VERSIONS_TMP is only for testing.
 TMP_ROOT=${OEM_VERSIONS_TMP:-/tmp}
 
-# index.json, loaded by load_index. IDS is oldest first.
+# index.json, loaded by load_index. IDS is oldest first (the order versions
+# were made in, which is also the order they're pruned in, whatever their ids
+# say: an id named after an unsynced clock can be out of order).
 IDS=()
-NEXT_ID=1 CURRENT=
+CURRENT=
 declare -A PARENT=() HASH=() CREATED=() SOURCE=() DETAIL=() SBYTES=()
 
 # Version manifests, loaded by load_manifests and keyed "LABEL/FILE_NAME"
@@ -99,7 +116,7 @@ human() {
   if [ "$t" -lt 100 ]; then _h=$((t / 10)).$((t % 10))$unit; else _h=$(((b + div / 2) / div))$unit; fi
 }
 
-describe() {  # describe VAR BYTES PARENT: VAR="1.2K patch vs v12" / "14K full"
+describe() {  # describe VAR BYTES PARENT: VAR="1.2K patch vs 20261102-143005" / "14K full"
   local -n _d=$1
   local size
   human size "$2"
@@ -132,6 +149,46 @@ max_versions() {
 # never reached the SD card would be a broken version.
 sync_fs() { sync -f "$1" 2>/dev/null || sync; }
 
+# ------------------------------------------------------------------ version ids
+
+# True once the clock has been set over the network this boot:
+# systemd-timesyncd makes the file; timedatectl covers other NTP clients.
+# OEM_CLOCK_SYNCED (yes/no) is only for testing.
+clock_synced() {
+  case ${OEM_CLOCK_SYNCED-} in yes) return 0 ;; no) return 1 ;; esac
+  [ -e /run/systemd/timesync/synchronized ] && return 0
+  [ "$(timedatectl show -p NTPSynchronized --value 2>/dev/null)" = yes ]
+}
+
+# version_time VAR TIME WAIT: VAR = the ISO time a new version is named after.
+# TIME if it's given and valid; else now, after waiting up to WAIT seconds
+# for the clock to sync.
+version_time() {
+  local -n _t=$1
+  local given=$2 wait=$3 waited=0
+  if [ -n "$given" ]; then
+    if _t=$(date -d "$given" -Iseconds 2>/dev/null); then return 0; fi
+    warn "--time '$given' isn't a time; naming the version after the Pi's clock"
+  fi
+  if ! clock_synced && [ "$wait" -gt 0 ]; then
+    log "Waiting up to $wait s for the clock to sync over the network before naming the new version..."
+    while [ "$waited" -lt "$wait" ] && ! clock_synced; do sleep 1; waited=$((waited + 1)); done
+  fi
+  clock_synced ||
+    warn "The Pi's clock hasn't synced over the network this boot (no clock battery), so the new version's date and time may be early"
+  _t=$(date -Iseconds)
+}
+
+# new_id VAR TIME: VAR = the id for a version made at ISO TIME, with -2, -3, ...
+# if a version already has that id.
+new_id() {
+  local -n _id=$1
+  local base k=2
+  base=$(date -d "$2" +%Y%m%d-%H%M%S)
+  _id=$base
+  while [ -n "${HASH[$_id]+set}" ] || [ -e "$VERSIONS_DIR/$_id" ]; do _id=$base-$k k=$((k + 1)); done
+}
+
 # ------------------------------------------------------------------ locking and recovery
 
 # Every command that reads or changes version folders holds this lock, so a
@@ -148,9 +205,9 @@ lock_store() {
   WORK=$(mktemp -d "$VERSIONS_DIR/.work-XXXXXX")
 }
 
-have_folders() {  # true if any version folder (vN, vN.tmp, vN.old) exists
+have_folders() {  # true if any version folder (ID, ID.tmp, ID.old) exists
   local d
-  for d in "$VERSIONS_DIR"/v[0-9]*; do [ ! -e "$d" ] || return 0; done
+  for d in "$VERSIONS_DIR"/v[0-9]* "$VERSIONS_DIR"/[0-9]*; do [ ! -e "$d" ] || return 0; done
   return 1
 }
 
@@ -197,12 +254,12 @@ recover() {
     return 0
   fi
   rm -f "$INDEX.tmp"
-  for d in "$VERSIONS_DIR"/v* "$VERSIONS_DIR"/.work-*; do
+  for d in "$VERSIONS_DIR"/v* "$VERSIONS_DIR"/[0-9]* "$VERSIONS_DIR"/.work-*; do
     [ -e "$d" ] || continue
     base=${d##*/}
     if [[ $base == .work-* ]]; then rm -rf "$d"; continue; fi
-    id=${base%.*}   # v7.old, v7.tmp -> v7
-    [[ $id =~ ^v[0-9]+$ ]] || continue
+    id=${base%.*}   # ID.old, ID.tmp -> ID (ids have no dots)
+    [[ $id =~ $ID_RE ]] || continue
     if [[ $known != *" $id "* ]]; then
       log "Removing $base (not in index.json; left over from an interrupted snapshot or prune)"
       rm -rf "$d"
@@ -216,8 +273,8 @@ recover() {
     fi
   done
   [ ${#old[@]} -gt 0 ] || return 0
-  # vN was swapped in, but the index edit that goes with it may not have
-  # happened: count its stored bytes again, then drop vN.old.
+  # ID was swapped in, but the index edit that goes with it may not have
+  # happened: count its stored bytes again, then drop ID.old.
   log "Finishing the interrupted rewrite of ${old[*]}"
   for id in "${old[@]}"; do bytes[$id]=0; done
   while read -r b d; do
@@ -248,7 +305,7 @@ make_cache() {
 # ------------------------------------------------------------------ index.json
 
 new_index() {
-  printf '{\n  "next_id": 1,\n  "current": null,\n  "versions": []\n}\n' >"$INDEX.tmp" && [ -s "$INDEX.tmp" ] ||
+  printf '{\n  "current": null,\n  "versions": []\n}\n' >"$INDEX.tmp" && [ -s "$INDEX.tmp" ] ||
     { rm -f "$INDEX.tmp"; die "couldn't create $INDEX"; }
   mv -f "$INDEX.tmp" "$INDEX"
 }
@@ -264,7 +321,7 @@ index_edit() {
 
 load_index() {
   local out id parent hash created source detail bytes
-  IDS=() DUP_IDS=() NEXT_ID=1 CURRENT=
+  IDS=() DUP_IDS=() CURRENT=
   PARENT=() HASH=() CREATED=() SOURCE=() DETAIL=() SBYTES=()
   if [ ! -s "$INDEX" ]; then
     if have_folders; then damaged_index; fi
@@ -272,12 +329,12 @@ load_index() {
   fi
   out=$(jq -r 'def s: tostring | gsub("[[:cntrl:]]"; " ");
       '"$INDEX_CHECK"' |
-      ([.next_id // 1, .current // ""] | map(s) | join("\u001f")),
+      (.current // "" | s),
       (.versions[] | [.id, .parent // "", .hash // "", .created // "", .source // "",
                       .detail // "", .stored_bytes // 0] | map(s) | join("\u001f"))' "$INDEX" 2>/dev/null) ||
     damaged_index
   {
-    IFS=$US read -r NEXT_ID CURRENT
+    IFS= read -r CURRENT
     while IFS=$US read -r id parent hash created source detail bytes; do
       [ -n "$id" ] || continue
       [[ $bytes =~ ^[0-9]+$ ]] || bytes=0
@@ -287,7 +344,6 @@ load_index() {
       SOURCE[$id]=$source DETAIL[$id]=$detail SBYTES[$id]=$bytes
     done
   } <<<"$out"
-  [[ $NEXT_ID =~ ^[0-9]+$ ]] || NEXT_ID=1
 }
 DUP_IDS=()
 
@@ -713,13 +769,18 @@ MANIFEST_CHECK='
   | map(s) | join("\u001f")'
 
 cmd_snapshot() {
-  local source= detail= out kind a b c hash hit cur count id num i n max extra how need=0 entries=0 manifest=$MANIFEST
+  local source= detail= time= clock_wait=0 created out kind a b c hash hit cur count id i n max extra how need=0 entries=0 manifest=$MANIFEST
   local -a same_name=() sums stats cands=()
   local -A doomed=()
   while [ $# -gt 0 ]; do
     case $1 in
       --source) [ $# -ge 2 ] || die "--source needs a value"; source=$2; shift 2 ;;
       --detail) [ $# -ge 2 ] || die "--detail needs a value"; detail=$2; shift 2 ;;
+      --time) [ $# -ge 2 ] || die "--time needs a value"; time=$2; shift 2 ;;
+      --clock-wait)
+        [[ ${2-} =~ ^[0-9]+$ ]] || die "--clock-wait needs a number of seconds"
+        clock_wait=$((10#$2))
+        shift 2 ;;
       -h | --help) usage ;;
       *) die "snapshot: unexpected argument '$1' (see versions.sh -h)" ;;
     esac
@@ -785,8 +846,10 @@ cmd_snapshot() {
     return 0
   fi
 
-  # 3. A new version. Store it against the existing version that gives the
-  # smallest diffs, leaving out those the prune below will delete.
+  # 3. A new version, named after its time. Store it against the existing
+  # version that gives the smallest diffs, leaving out those the prune below
+  # will delete.
+  version_time created "$time" "$clock_wait"
   load_index
   mapfile -t sums < <(cd "$WORK/new/files" && sha256sum -- "${S_NAMES[@]}")
   mapfile -t stats < <(cd "$WORK/new/files" && stat -c '%s %a' -- "${S_NAMES[@]}")
@@ -796,12 +859,7 @@ cmd_snapshot() {
     need=$((need + ${S_SIZE[$n]}))
   done
   load_all "$need"
-  num=$((10#$NEXT_ID))
-  for id in "${IDS[@]}"; do   # in case next_id is behind (it shouldn't be)
-    [[ $id =~ ^v([0-9]+)$ ]] || continue
-    [ $((10#${BASH_REMATCH[1]})) -lt "$num" ] || num=$((10#${BASH_REMATCH[1]} + 1))
-  done
-  id=v$num
+  new_id id "$created"
   max=$(max_versions)
   extra=$((${#IDS[@]} + 1 - max))
   for i in "${IDS[@]}"; do
@@ -826,13 +884,13 @@ cmd_snapshot() {
   sync_fs "$VERSIONS_DIR"
   mv "$VERSIONS_DIR/$id.tmp" "$VERSIONS_DIR/$id"
   M_DIR[$id]=$VERSIONS_DIR/$id
-  index_edit --arg id "$id" --arg hash "$hash" --arg parent "$BEST" --arg created "$(date -Iseconds)" \
+  index_edit --arg id "$id" --arg hash "$hash" --arg parent "$BEST" --arg created "$created" \
     --arg source "$source" --arg detail "$detail" --argjson files "${#S_NAMES[@]}" \
-    --argjson bytes "$DIR_BYTES" --argjson next "$((num + 1))" '
+    --argjson bytes "$DIR_BYTES" '
     .versions += [{id: $id, hash: $hash, parent: (if $parent == "" then null else $parent end),
                    created: $created, source: $source, detail: $detail,
                    files: $files, stored_bytes: $bytes}]
-    | .next_id = $next | .current = $id'
+    | del(.next_id) | .current = $id'
   IDS+=("$id") CURRENT=$id
   PARENT[$id]=$BEST HASH[$id]=$hash SBYTES[$id]=$DIR_BYTES
   # The check above rebuilt it into $CACHE/.check: keep that as its cached copy.
@@ -846,7 +904,7 @@ cmd_snapshot() {
 }
 
 cmd_list() {
-  local n=0 i id mark created stored shown=0
+  local n=0 i id mark stored shown=0
   while [ $# -gt 0 ]; do
     case $1 in
       -n) [[ ${2-} =~ ^[1-9][0-9]*$ ]] || die "-n needs a number (at least 1)"; n=$2; shift 2 ;;
@@ -856,28 +914,41 @@ cmd_list() {
   done
   load_index
   if [ ${#IDS[@]} -eq 0 ]; then echo "No versions stored yet."; return 0; fi
-  printf '   %-8s %-17s %-9s %-19s %s\n' VERSION CREATED SOURCE STORED DETAIL
+  # The id is the date and time, so there's no separate CREATED column.
+  printf '   %-17s %-9s %-32s %s\n' VERSION SOURCE STORED DETAIL
   for ((i = ${#IDS[@]} - 1; i >= 0; i--)); do
     [ "$n" -eq 0 ] || [ "$shown" -lt "$n" ] || break
     id=${IDS[i]}
     mark=' '
     [ "$id" != "$CURRENT" ] || mark='*'
-    created=${CREATED[$id]:0:10}\ ${CREATED[$id]:11:5}
     describe stored "${SBYTES[$id]:-0}" "${PARENT[$id]}"
-    printf ' %s %-8s %-17s %-9s %-19s %s\n' "$mark" "$id" "$created" "${SOURCE[$id]}" "$stored" "${DETAIL[$id]}"
+    printf ' %s %-17s %-9s %-32s %s\n' "$mark" "$id" "${SOURCE[$id]}" "$stored" "${DETAIL[$id]}"
     shown=$((shown + 1))
   done
   [ "$shown" -eq ${#IDS[@]} ] || echo "($((${#IDS[@]} - shown)) older not shown)"
 }
 
-# resolve VERSION: print the id that v12 / 12 / a hash prefix names.
+# resolve VERSION: print the id that VERSION names: an id, the start of one
+# (if only one version starts with it), v12 / 12 (old-style ids), or the
+# start of a version hash.
 resolve() {
   local arg=$1 id
   local -a matches=()
+  if [ -n "$arg" ] && [ -n "${HASH[$arg]+set}" ]; then echo "$arg"; return 0; fi
   if [[ $arg =~ ^[vV]?([0-9]+)$ ]]; then
     id=v$((10#${BASH_REMATCH[1]}))
     if [ -n "${HASH[$id]+set}" ]; then echo "$id"; return 0; fi
-    if [[ $arg == [vV]* || ${#arg} -lt 4 ]]; then die "there's no version $id (versions.sh list shows them)"; fi
+    [[ $arg != [vV]* ]] || die "there's no version $id (versions.sh list shows them)"
+  fi
+  if [[ $arg =~ ^[0-9][0-9-]*$ ]]; then
+    for id in "${IDS[@]}"; do
+      if [[ $id == "$arg"* ]]; then matches+=("$id"); fi
+    done
+    case ${#matches[@]} in
+      0) ;;
+      1) echo "${matches[0]}"; return 0 ;;
+      *) die "more than one version starts with $arg (${matches[*]}); give more of it" ;;
+    esac
   fi
   if [[ $arg =~ ^[0-9a-fA-F]{4,64}$ ]]; then
     arg=${arg,,}
@@ -886,11 +957,12 @@ resolve() {
     done
     case ${#matches[@]} in
       1) echo "${matches[0]}"; return 0 ;;
-      0) die "no version has a number or hash starting with $arg (versions.sh list shows them)" ;;
+      0) die "no version's id or hash starts with $arg (versions.sh list shows them)" ;;
       *) die "$arg is the start of more than one version's hash (${matches[*]}); give more of it" ;;
     esac
   fi
-  die "'$1' isn't a version: use v12, 12, or the start of a version hash (at least 4 hex digits)"
+  [[ ! $arg =~ ^[0-9][0-9-]*$ ]] || die "no version's id starts with $arg (versions.sh list shows them)"
+  die "'$1' isn't a version: use its id (e.g. 20261102-143005, or the start of it), or the start of its hash (at least 4 hex digits)"
 }
 
 cmd_show() {
@@ -990,7 +1062,7 @@ cmd_restore() {
 cmd_verify() {
   [ "${1-}" != -h ] && [ "${1-}" != --help ] || usage
   [ $# -eq 0 ] || die "usage: versions.sh verify"
-  local id p steps prev=0 problems=0 h n how
+  local id p steps problems=0 h how
   local -a errs
   local -A seen_hash=()
   lock_store
@@ -1003,14 +1075,7 @@ cmd_verify() {
   fi
   for id in "${IDS[@]}"; do
     errs=()
-    if [[ ! $id =~ ^v([0-9]+)$ ]]; then
-      errs+=("its id isn't vN")
-    else
-      n=$((10#${BASH_REMATCH[1]}))
-      [ "$n" -gt "$prev" ] || errs+=("index.json isn't in id order here")
-      [ "$n" -lt "$NEXT_ID" ] || errs+=("next_id ($NEXT_ID) isn't above its id")
-      prev=$n
-    fi
+    [[ $id =~ $ID_RE ]] || errs+=("its id isn't a date and time (YYYYMMDD-HHMMSS) or vN")
     [[ ${HASH[$id]} =~ ^[0-9a-f]{64}$ ]] || errs+=("its hash isn't 64 hex digits")
     if [ -n "${HASH[$id]}" ]; then
       if [ -n "${seen_hash[${HASH[$id]}]-}" ]; then errs+=("same hash as ${seen_hash[${HASH[$id]}]}"); fi

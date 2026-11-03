@@ -2,8 +2,12 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
+	(in_pos_files yes)
+	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "U"
 		(at -2.54 3.81 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -12,6 +16,8 @@
 	)
 	(property "Value" "OR-Gate"
 		(at 0 -3.81 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20,47 +26,57 @@
 	)
 	(property "Footprint" ""
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "Datasheet" "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "Description" "Single OR Gate, Low-Voltage CMOS"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_keywords" "Single Gate OR LVC CMOS"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_fp_filters" "SOT* SG-*"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(symbol "U_OR-Gate_0_1"
@@ -153,7 +169,7 @@
 		(pin input line
 			(at -15.24 2.54 0)
 			(length 7.62)
-			(name "~"
+			(name ""
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -171,7 +187,7 @@
 		(pin input line
 			(at -15.24 -2.54 0)
 			(length 7.62)
-			(name "~"
+			(name ""
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -179,24 +195,6 @@
 				)
 			)
 			(number "2"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin power_in line
-			(at 0 10.16 270)
-			(length 5.08)
-			(name "VCC"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "5"
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -225,7 +223,7 @@
 		(pin output line
 			(at 12.7 0 180)
 			(length 7.62)
-			(name "~"
+			(name ""
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -233,6 +231,24 @@
 				)
 			)
 			(number "4"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin power_in line
+			(at 0 10.16 270)
+			(length 5.08)
+			(name "VCC"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "5"
 				(effects
 					(font
 						(size 1.27 1.27)

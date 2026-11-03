@@ -39,9 +39,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.8,
-          "height": 1.27,
-          "width": 1.27
+          "drill": 0.0,
+          "height": 1.4,
+          "width": 0.975
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -60,7 +60,7 @@
           "hatch_smoothing_level": 0,
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
-          "min_clearance": 0.5,
+          "min_clearance": 0.0,
           "min_island_area": 10.0,
           "min_thickness": 0.25,
           "pad_connection": 1,
@@ -488,7 +488,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "imd_latch_v2.kicad_pro",
+    "filename": "imd_latch.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -511,6 +511,17 @@
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "clearance": 0.2,
+        "name": "5V",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.4,
+        "tuning_profile": "",
+        "via_diameter": 0.6,
+        "via_drill": 0.6
       }
     ],
     "meta": {
@@ -518,7 +529,12 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "5V",
+        "pattern": "+5V"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
@@ -656,18 +672,18 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "imd_latch_v2.kicad_sch",
-        "name": "Root",
+        "filename": "imd_latch.kicad_sch",
+        "name": "imd_latch",
         "uuid": "d519c77c-8740-4a1d-af06-6f69130ee48e"
       }
     ],
-    "used_designators": "K1,J1,D1-4,C1-6,Q1,U1-4,TP1-3,R1-16,#PWR1-34",
+    "used_designators": "K1,J1,D1-5,C1-6,Q1,U1-4,TP1-7,R1-16,#PWR1-36",
     "variants": []
   },
   "sheets": [
     [
       "d519c77c-8740-4a1d-af06-6f69130ee48e",
-      "Root"
+      "imd_latch"
     ]
   ],
   "text_variables": {},

@@ -5,145 +5,6 @@
 	(uuid "f4f618a4-692d-4031-9de7-e4c228fd8a9d")
 	(paper "A4")
 	(lib_symbols
-		(symbol "+5V_1"
-			(power global)
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "#PWR"
-				(at 0 -3.81 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "+5V"
-				(at 0 3.556 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"+5V\""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "global power"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "+5V_1_0_1"
-				(polyline
-					(pts
-						(xy -0.762 1.27) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "+5V_1_1_1"
-				(pin power_in line
-					(at 0 0 90)
-					(length 0)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "OEM:J_PCIe_x1"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -170,7 +31,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:J_PCIe_x1"
+			(property "Footprint" "OEM:J_PCIe_x1_Key"
 				(at 0 35.56 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -192,7 +53,7 @@
 					)
 				)
 			)
-			(property "Description" "Interface used to connect daugterboards to motherboards"
+			(property "Description" "Interface used to connect daugterboards to Mk.VII's motherboards"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -225,7 +86,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "OEM:J_PCIe_x1 OEM:J_PCIe_x1_Key"
+			(property "ki_fp_filters" "J_PCIe_x1 J_PCIe_x1_Key"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -264,7 +125,7 @@
 				(pin bidirectional line
 					(at -17.78 24.13 0)
 					(length 5)
-					(name "12V"
+					(name "12V/3V(DA_ONLY)"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -280,9 +141,9 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.78 19.05 0)
+					(at -17.78 21.59 0)
 					(length 5)
-					(name "3.3V"
+					(name "12V/3V(DA_ONLY)"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -658,7 +519,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.78 21.59 0)
+					(at -17.78 19.05 0)
 					(length 5)
 					(name "5V"
 						(effects
@@ -912,10 +773,153 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "power:+5V"
+		(symbol "power:+3.3V"
 			(power global)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "+3.3V"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "+3.3V_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+3.3V_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:+5V"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -976,7 +980,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1029,8 +1033,7 @@
 				(pin power_in line
 					(at 0 0 90)
 					(length 0)
-					(hide yes)
-					(name "+5V"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1050,8 +1053,12 @@
 		)
 		(symbol "power:GND"
 			(power global)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1112,7 +1119,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1141,8 +1148,7 @@
 				(pin power_in line
 					(at 0 0 270)
 					(length 0)
-					(hide yes)
-					(name "GND"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1518,83 +1524,6 @@
 		(uuid "f573d669-3dc0-47c1-b695-10aac95c3508")
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 116.84 78.74 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "36ef8c42-56c5-4d06-81ff-98ce4389c641")
-		(property "Reference" "#PWR?"
-			(at 116.84 82.55 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "3.3V"
-			(at 116.84 73.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 116.84 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 116.84 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 116.84 78.74 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "3b75e3dd-92c4-4e96-ab8b-b434ce3a475c")
-		)
-		(instances
-			(project "motherboard-pcie"
-				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/32c032b6-d9da-4a02-a2b0-a101292be82a"
-					(reference "#PWR?")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OEM:J_PCIe_x1")
 		(at 142.24 97.79 0)
 		(unit 1)
@@ -1606,7 +1535,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "795e3ee3-445a-49fc-b039-1deb671b91bc")
-		(property "Reference" "J5"
+		(property "Reference" "J801"
 			(at 142.24 67.31 0)
 			(show_name no)
 			(do_not_autoplace yes)
@@ -1626,7 +1555,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:J_PCIe_x1_Key"
+		(property "Footprint" "OEM:J_PCIe_x1"
 			(at 142.24 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -1648,7 +1577,7 @@
 				)
 			)
 		)
-		(property "Description" "Interface used to connect daugterboards to motherboards"
+		(property "Description" "Interface used to connect daugterboards to Mk.VII's motherboards"
 			(at 142.24 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -1781,7 +1710,7 @@
 		(instances
 			(project "motherboard-pcie"
 				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/32c032b6-d9da-4a02-a2b0-a101292be82a"
-					(reference "J5")
+					(reference "J801")
 					(unit 1)
 				)
 			)
@@ -1842,7 +1771,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 116.84 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -1866,7 +1795,6 @@
 		)
 	)
 	(symbol
-		(lib_name "+5V_1")
 		(lib_id "power:+5V")
 		(at 120.65 76.2 0)
 		(unit 1)
@@ -1934,6 +1862,84 @@
 		)
 		(pin "1"
 			(uuid "573cabf4-07db-4bfe-b3fd-a6b4ab310246")
+		)
+		(instances
+			(project "motherboard-pcie"
+				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/32c032b6-d9da-4a02-a2b0-a101292be82a"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 116.84 78.74 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fc4668ae-41db-4c9d-8018-030f75788fdb")
+		(property "Reference" "#PWR?"
+			(at 116.84 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 116.84 73.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 116.84 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 116.84 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 116.84 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "253d1f95-06d4-47c1-a6d9-85f3d0c4dea5")
 		)
 		(instances
 			(project "motherboard-pcie"

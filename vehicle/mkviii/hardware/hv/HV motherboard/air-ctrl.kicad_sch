@@ -5,7 +5,7 @@
 	(uuid "c680bdb1-d5f7-4831-869a-848484d49d84")
 	(paper "A4")
 	(lib_symbols
-		(symbol "OEM:pcie_x1"
+		(symbol "OEM:J_PCIe_x1"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -21,7 +21,7 @@
 					)
 				)
 			)
-			(property "Value" "pcie_x1"
+			(property "Value" "J_PCIe_x1"
 				(at 0 27.94 0)
 				(show_name no)
 				(do_not_autoplace yes)
@@ -31,7 +31,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:te_pcie_x1_connector"
+			(property "Footprint" "OEM:J_PCIe_x1_Key"
 				(at 0 35.56 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -64,6 +64,17 @@
 					)
 				)
 			)
+			(property "MPN" "2-1761465-1"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
 			(property "ki_keywords" "2-1761465-1"
 				(at 0 0 0)
 				(show_name no)
@@ -75,7 +86,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "OEM:pcie_x1"
+			(property "ki_fp_filters" "J_PCIe_x1 J_PCIe_x1_Key"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -86,7 +97,7 @@
 					)
 				)
 			)
-			(symbol "pcie_x1_0_1"
+			(symbol "J_PCIe_x1_0_1"
 				(circle
 					(center 44.45 -12.954)
 					(radius 0.0001)
@@ -99,7 +110,7 @@
 					)
 				)
 			)
-			(symbol "pcie_x1_1_1"
+			(symbol "J_PCIe_x1_1_1"
 				(rectangle
 					(start -12.7 26.67)
 					(end 12.7 -31.496)
@@ -903,8 +914,12 @@
 		)
 		(symbol "power:+5V"
 			(power global)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -965,7 +980,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1018,8 +1033,7 @@
 				(pin power_in line
 					(at 0 0 90)
 					(length 0)
-					(hide yes)
-					(name "+5V"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1039,8 +1053,12 @@
 		)
 		(symbol "power:GND"
 			(power global)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1101,7 +1119,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1130,8 +1148,7 @@
 				(pin power_in line
 					(at 0 0 270)
 					(length 0)
-					(hide yes)
-					(name "GND"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1586,6 +1603,199 @@
 		(uuid "f37822ba-4eba-4dd4-a83c-77be10cf3079")
 	)
 	(symbol
+		(lib_id "OEM:J_PCIe_x1")
+		(at 140.97 97.79 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "08dee0e6-466d-44cb-8bf9-c0871aee853f")
+		(property "Reference" "J501"
+			(at 140.97 67.31 0)
+			(show_name no)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "J_PCIe_x1"
+			(at 140.97 69.85 0)
+			(show_name no)
+			(do_not_autoplace yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:J_PCIe_x1"
+			(at 140.97 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7F4-1773442-7%7F0308%7Fpdf%7FEnglish%7FENG_DS_4-1773442-7_0308.pdf%7F2-1761465-1"
+			(at 142.24 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Interface used to connect daugterboards to Mk.VII's motherboards"
+			(at 140.97 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "2-1761465-1"
+			(at 140.97 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "B18"
+			(uuid "69aa8b27-3f12-4909-88eb-eb8918ca7f6a")
+		)
+		(pin "B17"
+			(uuid "f98057b1-8bfa-47bc-a987-543e1cce84ea")
+		)
+		(pin "B15"
+			(uuid "5cbc3e1d-557c-4ef5-a77f-9d7d915f454a")
+		)
+		(pin "B16"
+			(uuid "95570bc1-c4b5-4eaf-ac6c-0c29bd63bffc")
+		)
+		(pin "A4"
+			(uuid "4b24b9ec-d464-49af-8dca-0ec5de2e28e3")
+		)
+		(pin "A6"
+			(uuid "f837a7a9-d856-4c23-8e1f-0e5d7dfa22e8")
+		)
+		(pin "A1"
+			(uuid "dbec6d74-cf41-4a73-a163-12c4ae50a6da")
+		)
+		(pin "A2"
+			(uuid "c59714f4-c401-4987-b5cb-cc5e9dee2168")
+		)
+		(pin "A3"
+			(uuid "67080f76-2c7e-49a7-be4d-54ec0d837c36")
+		)
+		(pin "B11"
+			(uuid "a36a0564-71d0-47bc-b33a-c373c8a4b47e")
+		)
+		(pin "B10"
+			(uuid "1c3118c0-7021-4bdb-bbae-159b13c274ad")
+		)
+		(pin "B9"
+			(uuid "514b97e9-56ac-44cc-8778-ed6c7343bf9b")
+		)
+		(pin "B13"
+			(uuid "ff78c5a3-1f9c-4bf1-9b65-ab2665f5e3a2")
+		)
+		(pin "B14"
+			(uuid "0741fd1b-d5cc-4f31-9b78-09f45bab7850")
+		)
+		(pin "A15"
+			(uuid "987cab62-cedd-4430-83fd-fff4b017c4bb")
+		)
+		(pin "B12"
+			(uuid "1ec4984e-5a53-4c76-8e41-70bf65595fd1")
+		)
+		(pin "A5"
+			(uuid "253b891c-079d-4101-8102-47e7dfac034d")
+		)
+		(pin "A18"
+			(uuid "3e0c6482-757e-4239-a2eb-2fec5b209803")
+		)
+		(pin "A16"
+			(uuid "d60f21e3-d230-4308-8849-0c55df2c0f34")
+		)
+		(pin "B8"
+			(uuid "f2109c89-b9c4-4e23-a30f-22c01a350b7d")
+		)
+		(pin "B5"
+			(uuid "a1f45b23-6fee-4ab5-829d-95145f148f3b")
+		)
+		(pin "B2"
+			(uuid "fdd1d649-ef6c-4cf4-b7a1-769c86f5259a")
+		)
+		(pin "A9"
+			(uuid "8f3d496b-bbfb-474a-bf90-b8116c32deda")
+		)
+		(pin "B7"
+			(uuid "572c0e9c-24d2-4f2b-937d-6a8d06a0a92c")
+		)
+		(pin "A10"
+			(uuid "1876f2e3-9552-460f-a1d6-8bb2d495f18c")
+		)
+		(pin "B6"
+			(uuid "712071e2-5d9c-4805-a6f8-2988f93e7b5f")
+		)
+		(pin "B4"
+			(uuid "57c5c82c-ab59-47ee-a8dc-ddda1384a514")
+		)
+		(pin "A11"
+			(uuid "d6a63fb3-5bf4-472a-829b-2fd36ef76239")
+		)
+		(pin "A12"
+			(uuid "c1635711-2e4c-45b8-894a-767055d7a1df")
+		)
+		(pin "B3"
+			(uuid "b56755ca-5b22-46fd-97a2-b0332d1fe77d")
+		)
+		(pin "A13"
+			(uuid "eb23d707-7531-4385-a134-fc812256d5fc")
+		)
+		(pin "A14"
+			(uuid "9f4844b1-f60c-4572-8d4e-86ebaf84b6d0")
+		)
+		(pin "B1"
+			(uuid "62e08fc9-ef3a-42d9-846b-df848883e6a4")
+		)
+		(pin "A17"
+			(uuid "e872eefc-76d2-4253-a720-c3d6fb4161a4")
+		)
+		(pin "A8"
+			(uuid "dabaadc2-4cae-46de-a750-f737bf229586")
+		)
+		(pin "A7"
+			(uuid "0ff61d79-2d10-4310-a207-d15b96d37e1d")
+		)
+		(instances
+			(project "motherboard-pcie"
+				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/59e3884a-39d0-4f6c-bd8f-e4f897fa95a0"
+					(reference "J501")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 111.76 76.2 0)
 		(unit 1)
@@ -1608,7 +1818,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 111.76 71.12 0)
+			(at 111.76 72.644 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1639,7 +1849,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
 			(at 111.76 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -1741,188 +1951,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:pcie_x1")
-		(at 140.97 97.79 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d712592a-00a2-4a0c-8b3c-3eb41e28216d")
-		(property "Reference" "J501"
-			(at 140.97 67.31 0)
-			(show_name no)
-			(do_not_autoplace yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "pcie_x1_air_ctrl"
-			(at 140.97 69.85 0)
-			(show_name no)
-			(do_not_autoplace yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OEM:te_pcie_x1_connector"
-			(at 140.97 62.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7F4-1773442-7%7F0308%7Fpdf%7FEnglish%7FENG_DS_4-1773442-7_0308.pdf%7F2-1761465-1"
-			(at 142.24 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 140.97 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "B16"
-			(uuid "e3812433-ccbe-4285-988a-8b953c4326fd")
-		)
-		(pin "A4"
-			(uuid "965b0b01-ec9a-4b70-b83d-249e7eb25066")
-		)
-		(pin "A5"
-			(uuid "203af301-d864-4410-8108-b252b86cdb04")
-		)
-		(pin "A6"
-			(uuid "5a3ce5ae-e20d-495e-9db6-d2fdf933ce2a")
-		)
-		(pin "B8"
-			(uuid "73b53ccd-d5c9-4bb0-9c0c-af14ce6c2575")
-		)
-		(pin "B6"
-			(uuid "2c13d5f1-db53-4ea2-a060-74852b19ea24")
-		)
-		(pin "B17"
-			(uuid "2f7a25b2-a069-4f4d-9628-f1b2a63aa7ff")
-		)
-		(pin "B3"
-			(uuid "647d4c05-dee8-4d51-a5a2-650b5520990d")
-		)
-		(pin "A18"
-			(uuid "9c67bd83-13a8-43e5-8f5d-1a1fc4f470f6")
-		)
-		(pin "A3"
-			(uuid "87f735ca-50d8-4bfd-b255-8f57719a9529")
-		)
-		(pin "B12"
-			(uuid "642e7730-2320-4a08-9eba-103d8eea5348")
-		)
-		(pin "A17"
-			(uuid "fe7a2979-6b1e-4a45-b622-99658fc5f2d4")
-		)
-		(pin "A7"
-			(uuid "70dd7a1f-904d-4046-b52b-54f35921a5af")
-		)
-		(pin "A2"
-			(uuid "7603a10e-8a2d-4f82-8823-65d08ed99797")
-		)
-		(pin "B4"
-			(uuid "2ab269dc-832b-4983-b38a-cdacbef03859")
-		)
-		(pin "A16"
-			(uuid "a913e34a-9be5-42c7-b442-bf0bace74c54")
-		)
-		(pin "B13"
-			(uuid "86175123-039d-447b-bfcd-e4a6c60275db")
-		)
-		(pin "B11"
-			(uuid "c5dbdf32-408a-4ad1-8a0c-f457b71183a0")
-		)
-		(pin "B10"
-			(uuid "a27fed30-b030-411b-9944-582b23a29fc9")
-		)
-		(pin "A9"
-			(uuid "79a67e55-9a42-455e-847c-09eb1f52dac4")
-		)
-		(pin "B7"
-			(uuid "dec924d1-2181-485c-9895-eb3e0a20e713")
-		)
-		(pin "B2"
-			(uuid "46f4d728-e8db-4208-bed7-13d33e083cef")
-		)
-		(pin "B18"
-			(uuid "55fcadd7-584e-4575-9d75-e408b4dd2656")
-		)
-		(pin "B9"
-			(uuid "8f79305b-4f1c-4344-bf7f-8ac429d61ed3")
-		)
-		(pin "B5"
-			(uuid "3e7de98c-7209-4a76-a1e9-d4939c0f43fc")
-		)
-		(pin "B15"
-			(uuid "81e7dc30-8322-4a02-8a89-f1784b54485b")
-		)
-		(pin "A10"
-			(uuid "24c5e3e0-8d49-4919-a791-7e147d167def")
-		)
-		(pin "A8"
-			(uuid "abff37e1-8b1a-47ab-bb6e-fa7439cd6cad")
-		)
-		(pin "B1"
-			(uuid "471f6b94-1367-4eb5-b1ba-98a468d87e5c")
-		)
-		(pin "A1"
-			(uuid "f8adb55b-9371-4984-9880-ee4643b198f0")
-		)
-		(pin "A13"
-			(uuid "76b59e48-e0ab-4c67-84a6-9ae71ccab8c4")
-		)
-		(pin "A14"
-			(uuid "49717403-e81f-4238-abaa-f18b25e9978c")
-		)
-		(pin "A12"
-			(uuid "7a02abfe-d75b-496b-b38f-62e2d3166d0d")
-		)
-		(pin "A11"
-			(uuid "63eb4062-1b4e-424b-9e52-ecc4db7be1ea")
-		)
-		(pin "A15"
-			(uuid "0241ac20-84f7-45fe-939b-6d0f36fcf0dc")
-		)
-		(pin "B14"
-			(uuid "4f83de17-5cf1-4a3c-bbc0-84c7b19723b9")
-		)
-		(instances
-			(project "motherboard-pcie"
-				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/59e3884a-39d0-4f6c-bd8f-e4f897fa95a0"
-					(reference "J501")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 115.57 87.63 0)
 		(unit 1)
@@ -1977,7 +2005,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 115.57 87.63 0)
 			(hide yes)
 			(show_name no)

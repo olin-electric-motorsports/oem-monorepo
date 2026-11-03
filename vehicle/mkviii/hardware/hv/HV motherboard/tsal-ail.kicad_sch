@@ -5,47 +5,61 @@
 	(uuid "5ed016ce-4b23-4bf4-b5fc-2d28a9f2c852")
 	(paper "A4")
 	(lib_symbols
-		(symbol "OEM:TP_1mm"
+		(symbol "OEM:J_Molex_Header_01x03_VT"
+			(body_styles demorgan)
 			(pin_names
-				(offset 1.016)
+				(offset 0.254)
 			)
 			(exclude_from_sim no)
-			(in_bom no)
+			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "TP"
-				(at 0 7.62 0)
+			(property "Reference" "J"
+				(at 8.89 6.35 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.524 1.524)
 					)
 				)
 			)
-			(property "Value" "TP_1mm"
-				(at 1.27 5.08 0)
+			(property "Value" "J_Molex_Header_01x03_VT"
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.524 1.524)
 					)
 				)
 			)
-			(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-				(at 0 -3.81 0)
+			(property "Footprint" "OEM:J_Molex_Header_01x03_VT - 436500327"
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
+						(italic yes)
 					)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "https://www.molex.com/en-us/products/part-detail-pdf/436500327?display=pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+				)
+			)
+			(property "Description" "CONN HEADER VERT 3POS 3MM"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -56,7 +70,7 @@
 					)
 				)
 			)
-			(property "Description" "test point circular 1mm"
+			(property "ki_keywords" "436500327"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -67,7 +81,7 @@
 					)
 				)
 			)
-			(property "MPN" ""
+			(property "ki_fp_filters" "CONN_SD-43650-010_03_MOL"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -78,88 +92,167 @@
 					)
 				)
 			)
-			(property "MFN" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
+			(symbol "J_Molex_Header_01x03_VT_1_1"
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 5.08 -7.62)
 					)
-				)
-			)
-			(property "DKPN" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "NewDesigns" "YES"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Stocked" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Package" "Custom"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Style" "SMD"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "TP_1mm_1_1"
-				(circle
-					(center 0 2.54)
-					(radius 1.27)
 					(stroke
-						(width 0)
+						(width 0.127)
 						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
-				(pin input line
-					(at 0 -1.27 90)
-					(length 2.54)
-					(name ""
+				(polyline
+					(pts
+						(xy 5.08 -7.62) (xy 12.7 -7.62)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 0) (xy 5.08 0)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 0) (xy 8.89 0.8467)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 0) (xy 8.89 -0.8467)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -2.54) (xy 5.08 -2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -2.54) (xy 8.89 -1.6933)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -2.54) (xy 8.89 -3.3867)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -5.08) (xy 5.08 -5.08)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -5.08) (xy 8.89 -4.2333)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 10.16 -5.08) (xy 8.89 -5.9267)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 2.54) (xy 5.08 2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 -7.62) (xy 12.7 2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at 0 0 0)
+					(length 5.08)
+					(name "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -174,10 +267,258 @@
 						)
 					)
 				)
+				(pin unspecified line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 0 -5.08 0)
+					(length 5.08)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "J_Molex_Header_01x03_VT_1_2"
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 5.08 -7.62)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 -7.62) (xy 12.7 -7.62)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 0) (xy 5.08 0)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 0) (xy 8.89 0.8467)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 0) (xy 8.89 -0.8467)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -2.54) (xy 5.08 -2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -2.54) (xy 8.89 -1.6933)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -2.54) (xy 8.89 -3.3867)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -5.08) (xy 5.08 -5.08)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -5.08) (xy 8.89 -4.2333)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 -5.08) (xy 8.89 -5.9267)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 2.54) (xy 5.08 2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 12.7 -7.62) (xy 12.7 2.54)
+					)
+					(stroke
+						(width 0.127)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at 0 0 0)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 0 -5.08 0)
+					(length 5.08)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:pcie_x1"
+		(symbol "OEM:J_PCIe_x1"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -193,7 +534,7 @@
 					)
 				)
 			)
-			(property "Value" "pcie_x1"
+			(property "Value" "J_PCIe_x1"
 				(at 0 27.94 0)
 				(show_name no)
 				(do_not_autoplace yes)
@@ -203,7 +544,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:te_pcie_x1_connector"
+			(property "Footprint" "OEM:J_PCIe_x1_Key"
 				(at 0 35.56 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -236,6 +577,17 @@
 					)
 				)
 			)
+			(property "MPN" "2-1761465-1"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
 			(property "ki_keywords" "2-1761465-1"
 				(at 0 0 0)
 				(show_name no)
@@ -247,7 +599,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "OEM:pcie_x1"
+			(property "ki_fp_filters" "J_PCIe_x1 J_PCIe_x1_Key"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -258,7 +610,7 @@
 					)
 				)
 			)
-			(symbol "pcie_x1_0_1"
+			(symbol "J_PCIe_x1_0_1"
 				(circle
 					(center 44.45 -12.954)
 					(radius 0.0001)
@@ -271,7 +623,7 @@
 					)
 				)
 			)
-			(symbol "pcie_x1_1_1"
+			(symbol "J_PCIe_x1_1_1"
 				(rectangle
 					(start -12.7 26.67)
 					(end 12.7 -31.496)
@@ -934,59 +1286,47 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "oem:MicroFit_VT_3x1"
+		(symbol "OEM:TP_Hook_SMD"
 			(pin_names
-				(offset 0.254)
-				(hide yes)
+				(offset 1.016)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "J"
-				(at 8.89 6.35 0)
+			(property "Reference" "TP"
+				(at 0 7.62 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.524 1.524)
+						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "MicroFit_VT_3x1"
-				(at 8.89 -10.16 0)
+			(property "Value" "TP_SMD"
+				(at 1.27 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.524 1.524)
+						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Footprint" "footprints:MicroFit_VT_3"
-				(at 10.16 6.35 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-				)
-			)
-			(property "Datasheet" "${OEM_DIR}/parts/datasheets/molex_0436500515.pdf"
-				(at 0 0 0)
+			(property "Footprint" "OEM:TP_Hook_SMD"
+				(at 0 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
 				(effects
 					(font
-						(size 1.524 1.524)
+						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Description" "MicroFit 3.0 Vertical 3 Pin Single Row Header Through Hole"
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -997,7 +1337,7 @@
 					)
 				)
 			)
-			(property "MPN" "436500327"
+			(property "Description" "Test Point SMD Hook"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1008,7 +1348,7 @@
 					)
 				)
 			)
-			(property "MFN" "Molex"
+			(property "MPN" "5019"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1019,7 +1359,7 @@
 					)
 				)
 			)
-			(property "DKPN" "WM1920-ND"
+			(property "ki_keywords" "Test Point SMD Hook"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1030,220 +1370,32 @@
 					)
 				)
 			)
-			(property "Package" "Custom"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "NewDesigns" "YES"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Stocked" "Loose"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Style" "THT"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "microfit 3"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "CON_436500515_MOL"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "MicroFit_VT_3x1_0_1"
-				(rectangle
-					(start 5.08 2.54)
-					(end 12.7 -7.62)
+			(symbol "TP_Hook_SMD_1_1"
+				(circle
+					(center 0 2.54)
+					(radius 1.27)
 					(stroke
 						(width 0)
 						(type default)
 					)
 					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "MicroFit_VT_3x1_1_1"
-				(polyline
-					(pts
-						(xy 5.08 2.54) (xy 5.08 -7.62)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
 						(type none)
 					)
 				)
-				(polyline
-					(pts
-						(xy 5.08 -7.62) (xy 12.7 -7.62)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 10.16 0) (xy 5.08 0)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 10.16 -2.54) (xy 5.08 -2.54)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 10.16 -5.08) (xy 5.08 -5.08)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 12.7 2.54) (xy 5.08 2.54)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 12.7 -7.62) (xy 12.7 2.54)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin unspecified line
-					(at 0 0 0)
-					(length 5.08)
-					(name "1"
+				(pin input line
+					(at 0 -1.27 90)
+					(length 2.54)
+					(name ""
 						(effects
 							(font
-								(size 1.4986 1.4986)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "2"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 0 -5.08 0)
-					(length 5.08)
-					(name "3"
-						(effects
-							(font
-								(size 1.4986 1.4986)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.4986 1.4986)
+								(size 1.27 1.27)
 							)
 						)
 					)
@@ -1253,8 +1405,12 @@
 		)
 		(symbol "power:+12V"
 			(power global)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1315,7 +1471,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1368,8 +1524,7 @@
 				(pin power_in line
 					(at 0 0 90)
 					(length 0)
-					(hide yes)
-					(name "+12V"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1389,8 +1544,12 @@
 		)
 		(symbol "power:+5V"
 			(power global)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1451,7 +1610,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1504,8 +1663,7 @@
 				(pin power_in line
 					(at 0 0 90)
 					(length 0)
-					(hide yes)
-					(name "+5V"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1525,8 +1683,12 @@
 		)
 		(symbol "power:GND"
 			(power global)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1587,7 +1749,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1616,8 +1778,7 @@
 				(pin power_in line
 					(at 0 0 270)
 					(length 0)
-					(hide yes)
-					(name "GND"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1660,7 +1821,7 @@
 		(at 175.26 82.55)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "f26eb303-051b-4394-baea-4383a9adae31")
+		(uuid "1c01e007-5747-4caa-8deb-8f62fcfb275c")
 	)
 	(no_connect
 		(at 165.1 115.57)
@@ -1820,16 +1981,6 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 82.55) (xy 175.26 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8bab6fc9-94b9-493d-936d-6ea29826caa0")
-	)
-	(wire
-		(pts
 			(xy 125.73 73.66) (xy 125.73 77.47)
 		)
 		(stroke
@@ -1851,6 +2002,16 @@
 	(wire
 		(pts
 			(xy 175.26 82.55) (xy 180.34 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d0f3cd55-a397-4d01-a22d-706dfc88ef77")
+	)
+	(wire
+		(pts
+			(xy 165.1 82.55) (xy 175.26 82.55)
 		)
 		(stroke
 			(width 0)
@@ -1996,7 +2157,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"+12V\""
 			(at 125.73 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -2020,40 +2181,39 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:TP_1mm")
-		(at 175.26 83.82 180)
+		(lib_id "OEM:J_PCIe_x1")
+		(at 147.32 101.6 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "6a25a11f-2a6e-4012-9c61-16f2df70b4cb")
-		(property "Reference" "TP201"
-			(at 172.72 90.17 0)
+		(fields_autoplaced yes)
+		(uuid "55e36020-7f09-4595-99a1-5043a9f31cea")
+		(property "Reference" "J202"
+			(at 147.32 71.12 0)
 			(show_name no)
-			(do_not_autoplace no)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
-		(property "Value" "TP_TSAL_FLAG"
-			(at 172.72 92.71 0)
+		(property "Value" "J_PCIe_x1"
+			(at 147.32 73.66 0)
 			(show_name no)
-			(do_not_autoplace no)
+			(do_not_autoplace yes)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 175.26 80.01 0)
+		(property "Footprint" "OEM:J_PCIe_x1"
+			(at 147.32 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2063,8 +2223,8 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
-			(at 175.26 83.82 0)
+		(property "Datasheet" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7F4-1773442-7%7F0308%7Fpdf%7FEnglish%7FENG_DS_4-1773442-7_0308.pdf%7F2-1761465-1"
+			(at 148.59 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2074,8 +2234,8 @@
 				)
 			)
 		)
-		(property "Description" ""
-			(at 175.26 83.82 0)
+		(property "Description" "Interface used to connect daugterboards to Mk.VII's motherboards"
+			(at 147.32 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2085,8 +2245,8 @@
 				)
 			)
 		)
-		(property "MPN" ""
-			(at 175.26 83.82 0)
+		(property "MPN" "2-1761465-1"
+			(at 147.32 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2096,79 +2256,118 @@
 				)
 			)
 		)
-		(property "MFN" ""
-			(at 175.26 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
+		(pin "B18"
+			(uuid "b53d61b5-4a3b-4dc3-9d7d-c66319e07b45")
 		)
-		(property "DKPN" ""
-			(at 175.26 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
+		(pin "B17"
+			(uuid "f13b5499-c76c-4258-8f2b-652d52f4b30a")
 		)
-		(property "NewDesigns" "YES"
-			(at 175.26 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
+		(pin "B15"
+			(uuid "5e3202a5-634f-47c7-b17f-f67157903c8c")
 		)
-		(property "Stocked" ""
-			(at 175.26 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
+		(pin "B16"
+			(uuid "71ec1e4f-8a13-48fc-8c0f-86881e40185f")
 		)
-		(property "Package" "Custom"
-			(at 175.26 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
+		(pin "A4"
+			(uuid "60702bf8-ed4c-4ddf-acfe-4db35d9d8f82")
 		)
-		(property "Style" "SMD"
-			(at 175.26 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
+		(pin "A6"
+			(uuid "acb4ea16-fb51-48c6-a139-bf627feffd57")
 		)
-		(pin "1"
-			(uuid "a808973f-56e5-4024-925d-15bdae511a00")
+		(pin "A1"
+			(uuid "baf1c2cb-cee5-4d9a-8fe2-776e0224955c")
+		)
+		(pin "A2"
+			(uuid "30b36066-7ee7-43e6-833d-eb1a00a851cd")
+		)
+		(pin "A3"
+			(uuid "f52207a2-3a9d-4d94-ab0b-ec1f5ab4438d")
+		)
+		(pin "B11"
+			(uuid "35059f8f-e12b-49e2-8bef-f8d461795bcd")
+		)
+		(pin "B10"
+			(uuid "302ccfc7-9c27-4b1e-a326-7fb2f08d80dc")
+		)
+		(pin "B9"
+			(uuid "688ba92b-4f3e-46f6-9148-ed2a54bd3441")
+		)
+		(pin "B13"
+			(uuid "38d0b0c3-c339-4e85-b5e7-42901b460fb4")
+		)
+		(pin "B14"
+			(uuid "1602fbe2-12b9-483c-aa5e-ca07fe9cd0a5")
+		)
+		(pin "A15"
+			(uuid "83403dc1-d5a4-49d7-92e5-a24b7018b423")
+		)
+		(pin "B12"
+			(uuid "8647d832-b3aa-4f4d-a36c-7c25b693168e")
+		)
+		(pin "A5"
+			(uuid "94a5a2c5-67e8-404a-9fcd-860397218914")
+		)
+		(pin "A18"
+			(uuid "5fa6641b-edd9-4b24-9b29-e69f8bf96660")
+		)
+		(pin "A16"
+			(uuid "76e24d99-40e5-414b-b46c-2e77816985e7")
+		)
+		(pin "B8"
+			(uuid "43ce0fbd-61a4-49fb-a2cc-8bde0c1a8ff3")
+		)
+		(pin "B5"
+			(uuid "36de7fbf-5780-4b6b-91fb-13e912cd0297")
+		)
+		(pin "B2"
+			(uuid "3ab5dc8a-e7e5-41ca-80af-83a3591a8a4b")
+		)
+		(pin "A9"
+			(uuid "212532ba-afe0-487b-a85e-7ef404deea61")
+		)
+		(pin "B7"
+			(uuid "5deaea21-2aec-44be-b786-bee912e7c30c")
+		)
+		(pin "A10"
+			(uuid "a4cd213e-6828-438b-b37e-29d7db4a6bbb")
+		)
+		(pin "B6"
+			(uuid "ca8af45e-5597-42df-af46-5d777d431f5f")
+		)
+		(pin "B4"
+			(uuid "e7d8cdd2-6063-4e46-9c77-6496f8ecefb0")
+		)
+		(pin "A11"
+			(uuid "9aa05528-5500-456f-a318-3ce513ea5811")
+		)
+		(pin "A12"
+			(uuid "3e462c13-9859-47ac-a20c-8796f6f08fbb")
+		)
+		(pin "B3"
+			(uuid "68b23aa3-19c2-4b1d-b601-dfa23c7b5221")
+		)
+		(pin "A13"
+			(uuid "2a1f56c3-a250-43bb-973f-e41900c3fb93")
+		)
+		(pin "A14"
+			(uuid "3690a331-58bd-4a2b-aed0-832e5d1cb82b")
+		)
+		(pin "B1"
+			(uuid "b1d3f156-abbf-4868-9867-a5b6174e6d50")
+		)
+		(pin "A17"
+			(uuid "a59375c7-ac69-4b19-ad71-b0ab785f6cf9")
+		)
+		(pin "A8"
+			(uuid "774ffce6-4415-43d7-9625-5eabca10e0cb")
+		)
+		(pin "A7"
+			(uuid "e1712bff-dd5c-4c2b-866b-4cf95b9a8cf3")
 		)
 		(instances
 			(project "motherboard-pcie"
 				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/a79abbba-3db4-4d37-af6c-322d54dae847"
-					(reference "TP201")
+					(reference "J202")
 					(unit 1)
 				)
 			)
@@ -2197,7 +2396,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 118.11 69.215 0)
+			(at 118.11 70.104 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2228,7 +2427,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
 			(at 118.11 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -2246,6 +2445,91 @@
 			(project "motherboard-pcie"
 				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/a79abbba-3db4-4d37-af6c-322d54dae847"
 					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:J_Molex_Header_01x03_VT")
+		(at 93.98 83.82 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "96ccd5b7-d4da-4e0f-b92d-f4bf3e251bd4")
+		(property "Reference" "J6"
+			(at 85.09 69.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Value" "J_Molex_Header_01x03_VT"
+			(at 85.09 73.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Footprint" "OEM:J_Molex_Header_01x03_VT - 436500327"
+			(at 93.98 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.molex.com/en-us/products/part-detail-pdf/436500327?display=pdf"
+			(at 93.98 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Description" "CONN HEADER VERT 3POS 3MM"
+			(at 93.98 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "ede500d0-06db-48a3-b353-26468ea732d3")
+		)
+		(pin "1"
+			(uuid "77717dd2-30f0-4dc1-b373-d84b9b661d42")
+		)
+		(pin "3"
+			(uuid "b9348b93-e4b5-4959-a6b0-8decbe5b77b1")
+		)
+		(instances
+			(project "motherboard-pcie"
+				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/a79abbba-3db4-4d37-af6c-322d54dae847"
+					(reference "J6")
 					(unit 1)
 				)
 			)
@@ -2306,7 +2590,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 123.19 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -2330,8 +2614,8 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:pcie_x1")
-		(at 147.32 101.6 0)
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 175.26 83.82 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2339,30 +2623,29 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b0ffbe1b-c836-4445-88ea-666acc973020")
-		(property "Reference" "J202"
-			(at 147.32 71.12 0)
+		(uuid "f18618ab-0446-42bf-b60e-e1c9be7f188f")
+		(property "Reference" "TP201"
+			(at 175.26 91.44 0)
 			(show_name no)
-			(do_not_autoplace yes)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "pcie_x1_tsal_ail"
-			(at 147.32 73.66 0)
+		(property "Value" "TP_SMD"
+			(at 173.99 88.9 0)
 			(show_name no)
-			(do_not_autoplace yes)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "OEM:te_pcie_x1_connector"
-			(at 147.32 66.04 0)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 175.26 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2372,8 +2655,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7F4-1773442-7%7F0308%7Fpdf%7FEnglish%7FENG_DS_4-1773442-7_0308.pdf%7F2-1761465-1"
-			(at 148.59 68.58 0)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 175.26 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2383,8 +2666,8 @@
 				)
 			)
 		)
-		(property "Description" ""
-			(at 147.32 101.6 0)
+		(property "Description" "Test Point SMD Hook"
+			(at 175.26 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2394,256 +2677,8 @@
 				)
 			)
 		)
-		(pin "B16"
-			(uuid "fced2c2a-8d0c-4291-8556-8e722764d306")
-		)
-		(pin "A4"
-			(uuid "19287fe4-45c3-4242-ab41-2a22088ce203")
-		)
-		(pin "A5"
-			(uuid "7852dbae-00a0-42ec-8790-59ba1d09347b")
-		)
-		(pin "A6"
-			(uuid "9e269d03-3883-4a7b-a4ca-48cd591cb949")
-		)
-		(pin "B8"
-			(uuid "8ba441c0-119f-4350-a01c-96cd6d90ce71")
-		)
-		(pin "B6"
-			(uuid "b9440d33-2fc1-4679-a7aa-1d319af1e6c9")
-		)
-		(pin "B17"
-			(uuid "f65b08fc-002f-4108-bb82-a917da70c14c")
-		)
-		(pin "B3"
-			(uuid "843ba91c-58e4-4aa9-a21f-9a2129c204ea")
-		)
-		(pin "A18"
-			(uuid "5fa8adba-4a41-488c-8b51-fb635595a21e")
-		)
-		(pin "A3"
-			(uuid "a6622c91-d389-42c5-9738-f1164d3492bf")
-		)
-		(pin "B12"
-			(uuid "746e9bed-a4c7-4c74-bf35-6903df2e9846")
-		)
-		(pin "A17"
-			(uuid "ad50f7b5-be15-43f5-8283-436e0470719a")
-		)
-		(pin "A7"
-			(uuid "9be98762-57db-4e1a-b5f8-2fe6346c4897")
-		)
-		(pin "A2"
-			(uuid "aa05b8c4-8f7d-49a0-b234-89f9d1e7e244")
-		)
-		(pin "B4"
-			(uuid "72249c7c-a815-42a7-bfae-e6f7555b3f3b")
-		)
-		(pin "A16"
-			(uuid "81a0d924-3532-4fcf-8e19-723b589ce7e8")
-		)
-		(pin "B13"
-			(uuid "b5360015-0d15-4b7a-9dab-0b8744eb62ea")
-		)
-		(pin "B11"
-			(uuid "815a08ec-af0e-4a00-94f4-08c06041c45e")
-		)
-		(pin "B10"
-			(uuid "f77420f7-c66b-4abe-b9c9-b44a13cbb838")
-		)
-		(pin "A9"
-			(uuid "0e1e1498-65f4-4658-bc92-610818fcdaeb")
-		)
-		(pin "B7"
-			(uuid "fce29b23-f09c-442b-bbdc-036a0b443461")
-		)
-		(pin "B2"
-			(uuid "e1910edb-e759-4863-9be5-48bfd3c4e4c6")
-		)
-		(pin "B18"
-			(uuid "9d96c5a9-7098-4666-9c2c-1c392d20b0f3")
-		)
-		(pin "B9"
-			(uuid "19b49c2c-3d14-4f86-9731-c5c7089eac7e")
-		)
-		(pin "B5"
-			(uuid "90f92d9f-8df5-41ab-8a89-ab97b5929f04")
-		)
-		(pin "B15"
-			(uuid "fc65d53a-21b1-43f4-982e-3e54440c3998")
-		)
-		(pin "A10"
-			(uuid "a017f13c-34f0-4d5e-91cf-f17f4e04f367")
-		)
-		(pin "A8"
-			(uuid "c54eff99-3a33-4d94-8884-294cbfe4a9f4")
-		)
-		(pin "B1"
-			(uuid "be379d11-f924-4825-8039-58e64176d449")
-		)
-		(pin "A1"
-			(uuid "4468ef4f-4507-4336-a062-27af21a9056c")
-		)
-		(pin "A13"
-			(uuid "e5607f37-ae95-430b-94a4-4ab56ed12b27")
-		)
-		(pin "A14"
-			(uuid "a05974be-ac01-4fe3-8e58-72be7d966381")
-		)
-		(pin "A12"
-			(uuid "e835d726-ea58-4db4-85fa-c85be3bbfb7a")
-		)
-		(pin "A11"
-			(uuid "37703976-58ad-4cfc-a49a-7d7032fa5aae")
-		)
-		(pin "A15"
-			(uuid "3bc96119-02ec-40b7-95f3-d09c56c23190")
-		)
-		(pin "B14"
-			(uuid "63844975-d83c-497c-97b8-e15d8f962a71")
-		)
-		(instances
-			(project "motherboard-pcie"
-				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/a79abbba-3db4-4d37-af6c-322d54dae847"
-					(reference "J202")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "oem:MicroFit_VT_3x1")
-		(at 93.98 83.82 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "da2fd7b5-e1bb-4549-b85a-bb11709d8304")
-		(property "Reference" "J201"
-			(at 85.09 69.85 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Value" "TSAL/AIL HV"
-			(at 85.09 73.66 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Footprint" "footprints:MicroFit_VT_3"
-			(at 83.82 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" "${OEM_DIR}/parts/datasheets/molex_0436500515.pdf"
-			(at 93.98 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 93.98 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "436500327"
-			(at 93.98 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MFN" "Molex"
-			(at 93.98 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "DKPN" "WM1920-ND"
-			(at 93.98 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Package" "Custom"
-			(at 93.98 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "NewDesigns" "YES"
-			(at 93.98 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Stocked" "Loose"
-			(at 93.98 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Style" "THT"
-			(at 93.98 83.82 0)
+		(property "MPN" "5019"
+			(at 175.26 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2654,18 +2689,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "81715440-25c3-4d2a-9e7b-a7b401bfb38b")
-		)
-		(pin "2"
-			(uuid "1aacfd08-13d4-4ed6-97f4-362a4cae938b")
-		)
-		(pin "3"
-			(uuid "c0c7bef4-da61-4943-afb3-7e9650f675c7")
+			(uuid "aa3c2662-d8e8-4185-b89f-39f1f63705c4")
 		)
 		(instances
 			(project "motherboard-pcie"
 				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/a79abbba-3db4-4d37-af6c-322d54dae847"
-					(reference "J201")
+					(reference "TP201")
 					(unit 1)
 				)
 			)

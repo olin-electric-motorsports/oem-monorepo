@@ -971,10 +971,14 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "power:+5V"
+		(symbol "power:+3.3V"
 			(power global)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -992,7 +996,7 @@
 					)
 				)
 			)
-			(property "Value" "+5V"
+			(property "Value" "+3.3V"
 				(at 0 3.556 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1024,7 +1028,7 @@
 					)
 				)
 			)
-			(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(property "Description" "Power symbol creates a global label with name \"+3.3V\""
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1035,7 +1039,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1046,7 +1050,7 @@
 					)
 				)
 			)
-			(symbol "+5V_0_1"
+			(symbol "+3.3V_0_1"
 				(polyline
 					(pts
 						(xy -0.762 1.27) (xy 0 2.54)
@@ -1084,12 +1088,11 @@
 					)
 				)
 			)
-			(symbol "+5V_1_1"
+			(symbol "+3.3V_1_1"
 				(pin power_in line
 					(at 0 0 90)
 					(length 0)
-					(hide yes)
-					(name "+5V"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1221,617 +1224,190 @@
 		)
 	)
 	(junction
-		(at 162.56 113.03)
+		(at 135.89 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "14f279a2-5cec-4469-968b-603ff0b63260")
+		(uuid "3239e320-52e8-4825-a016-ccff5f529f57")
 	)
 	(junction
-		(at 172.72 101.6)
+		(at 135.89 107.95)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "37c007f1-b33a-47f5-a4cb-e1743685172f")
+		(uuid "4deea7bf-d408-43ee-8aa0-e6e9469f5332")
 	)
 	(junction
-		(at 154.94 113.03)
+		(at 125.73 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "5de001e6-8ea2-4b33-bc36-824d8d0187d5")
+		(uuid "5e866a3b-fbc9-40fb-948a-c22b3bcb28e2")
 	)
 	(junction
-		(at 154.94 96.52)
+		(at 148.59 88.9)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "b9b73631-23ec-464a-96dc-cfe6984089e5")
+		(uuid "72a81829-0a7c-4d6d-926a-e1e12dc4d726")
 	)
 	(junction
-		(at 162.56 101.6)
+		(at 148.59 107.95)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "bb331e23-f872-4c38-800e-9e444629d51b")
+		(uuid "b22860cc-1cf7-497a-a692-c798db00ab54")
 	)
 	(wire
 		(pts
-			(xy 181.61 101.6) (xy 172.72 101.6)
+			(xy 148.59 107.95) (xy 148.59 109.22)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "031ab56d-6d3e-4005-bced-40faa92f0319")
+		(uuid "04653efa-80d3-4de4-940d-e498255a9d20")
 	)
 	(wire
 		(pts
-			(xy 162.56 110.49) (xy 162.56 113.03)
+			(xy 148.59 99.06) (xy 148.59 107.95)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0d929f37-c1b8-4ca6-bb3e-3d0156d3afba")
+		(uuid "24d8bde1-ea49-4adf-bf96-a25a1793d66f")
 	)
 	(wire
 		(pts
-			(xy 154.94 96.52) (xy 135.89 96.52)
+			(xy 148.59 88.9) (xy 148.59 87.63)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1856ffbb-46cd-4a0c-9409-3063c07eb1d7")
+		(uuid "2f3e59c7-e440-4a60-8ba5-716779b0a08c")
 	)
 	(wire
 		(pts
-			(xy 154.94 96.52) (xy 154.94 95.25)
+			(xy 125.73 93.98) (xy 135.89 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "300a938b-f7c1-49c0-b41c-80d82dbc7807")
+		(uuid "305036a8-6493-49ed-8126-8c3f10070b26")
 	)
 	(wire
 		(pts
-			(xy 154.94 113.03) (xy 154.94 116.84)
+			(xy 148.59 88.9) (xy 161.29 88.9)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "60c680d5-c579-4257-8c68-40d8f94cb4d0")
+		(uuid "342b1727-d027-4223-9c10-f0270699e40c")
 	)
 	(wire
 		(pts
-			(xy 172.72 101.6) (xy 162.56 101.6)
+			(xy 135.89 107.95) (xy 148.59 107.95)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7974107f-04d0-4385-b100-27c12c138776")
+		(uuid "4f056383-6e2e-4322-93f9-1de06caf601e")
 	)
 	(wire
 		(pts
-			(xy 154.94 86.36) (xy 154.94 87.63)
+			(xy 134.62 107.95) (xy 135.89 107.95)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "79e6881a-f2f3-4add-a41f-9ffddde40b9d")
+		(uuid "56734df3-2fe6-41cd-a549-bf96b4b41efd")
 	)
 	(wire
 		(pts
-			(xy 162.56 113.03) (xy 154.94 113.03)
+			(xy 135.89 107.95) (xy 135.89 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a32835f5-26ab-4caf-a47c-7ee808c07413")
+		(uuid "60cde420-9adf-4cc3-9126-94920ea3b14a")
 	)
 	(wire
 		(pts
-			(xy 172.72 110.49) (xy 172.72 113.03)
+			(xy 120.65 93.98) (xy 125.73 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ba5148a5-cf12-4fbb-95c3-95d2f6adad68")
+		(uuid "6fc900f0-bf4d-476b-a0f8-dc750d7493d8")
 	)
 	(wire
 		(pts
-			(xy 165.1 113.03) (xy 162.56 113.03)
+			(xy 125.73 101.6) (xy 125.73 107.95)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c988ecd4-fb32-4cf3-83c0-9e8d5ba65f20")
+		(uuid "a87eec02-d421-4c5f-8a5b-a4868d135f5c")
 	)
 	(wire
 		(pts
-			(xy 162.56 101.6) (xy 162.56 102.87)
+			(xy 148.59 78.74) (xy 148.59 80.01)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "cae0c713-6824-4a92-9e59-3c3d6873bf30")
+		(uuid "d63859d1-9bfb-4d93-b7de-b9b17cb871ba")
 	)
 	(wire
 		(pts
-			(xy 172.72 101.6) (xy 172.72 102.87)
+			(xy 125.73 107.95) (xy 127 107.95)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ce73fa80-0e4b-46f4-9f30-017e219e511e")
+		(uuid "e24e34a4-5fcb-4cd5-a746-c70feb5df7a1")
 	)
 	(wire
 		(pts
-			(xy 154.94 106.68) (xy 154.94 113.03)
+			(xy 135.89 93.98) (xy 140.97 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f7c9ee22-0e87-4ef3-9b5c-538310a45c40")
+		(uuid "e72e4390-b9d8-4b4e-a2d8-c1cef6f51b30")
 	)
-	(hierarchical_label "In from Shutdown"
-		(shape input)
-		(at 181.61 101.6 0)
+	(hierarchical_label "Out to Micro"
+		(shape output)
+		(at 161.29 88.9 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "41e7afb7-d0b9-4a98-9b02-ba3137883f21")
+		(uuid "29bcec49-aaad-422e-9c67-1e1f13a6cb59")
 	)
-	(hierarchical_label "Out to Micro"
-		(shape output)
-		(at 135.89 96.52 180)
+	(hierarchical_label "In from Shutdown"
+		(shape input)
+		(at 120.65 93.98 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right)
 		)
-		(uuid "cc9d71af-5869-49dd-8102-688466aa28e2")
-	)
-	(symbol
-		(lib_id "OEM:Q_NMOS_30V_6A_SOT-23F")
-		(at 157.48 101.6 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2df28163-2516-4b5b-9f40-6e05fe31d98b")
-		(property "Reference" "Q8"
-			(at 151.13 100.3299 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "SSM3K333R,LF"
-			(at 151.13 102.8699 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-3"
-			(at 152.4 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/105/1/6D62190F2E76D58532DB25403AB4F650F25B6580F37A84A2AFAB7A89D257D933.pdf"
-			(at 157.48 101.6 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "MOSFET N CH 30V 6A 2-3Z1A"
-			(at 157.48 101.6 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "3"
-			(uuid "abd74d70-c1fd-43f6-a2aa-8cd8556ac5c1")
-		)
-		(pin "2"
-			(uuid "81b84301-8caa-4f95-a5b1-94272b189205")
-		)
-		(pin "1"
-			(uuid "526b5d8f-f4ad-4156-a373-23801457e83c")
-		)
-		(instances
-			(project "air_control"
-				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/93c7f88c-5c7a-4e7d-9f78-8de8f84bd890"
-					(reference "Q8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 154.94 116.84 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "6a153d01-2371-4d39-b3e7-05e18ac6bcbd")
-		(property "Reference" "#PWR?"
-			(at 154.94 123.19 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 154.813 121.2342 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 154.94 116.84 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 154.94 116.84 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 154.94 116.84 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e368c859-3e30-46ba-800c-0db02b6d72c9")
-		)
-		(instances
-			(project "air_control"
-				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/93c7f88c-5c7a-4e7d-9f78-8de8f84bd890"
-					(reference "#PWR?")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 154.94 86.36 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8eda0753-71bf-44ea-bfb5-4b8e182d3e3b")
-		(property "Reference" "#PWR?"
-			(at 154.94 90.17 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 154.94 81.28 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 154.94 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 154.94 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 154.94 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "313edd03-f1f6-4eb4-8994-029625908348")
-		)
-		(instances
-			(project "air_control"
-				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/93c7f88c-5c7a-4e7d-9f78-8de8f84bd890"
-					(reference "#PWR?")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:R_3k_0.1W_0603")
-		(at 172.72 106.68 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9053ec4b-fae5-4c29-93db-14da2caea052")
-		(property "Reference" "R30"
-			(at 175.26 105.4099 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "R_3k"
-			(at 175.26 107.9499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 170.942 106.68 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.yageogroup.com/browse/products?search=pyu-yc_tc_group_51_rohs_l.pdf"
-			(at 172.72 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "RES 3K OHM 1% 1/10W 0603"
-			(at 172.72 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "RC0603FR-103KL"
-			(at 172.72 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "da8a59da-6aa0-4ba3-af02-6ee432f34af1")
-		)
-		(pin "2"
-			(uuid "83ee2962-b211-448e-84c7-26e2bd9ef91f")
-		)
-		(instances
-			(project "air_control"
-				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/93c7f88c-5c7a-4e7d-9f78-8de8f84bd890"
-					(reference "R30")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:R_10k_0.1W_0603")
-		(at 154.94 91.44 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d21d7c9a-0870-4808-b1a6-cb9efed3bf8e")
-		(property "Reference" "R28"
-			(at 157.48 90.1699 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "R_10k"
-			(at 157.48 92.7099 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 153.162 91.44 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
-			(at 154.94 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "RES 10K OHM 1% 1/10W 0603"
-			(at 154.94 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "RMCF0603FT10K0"
-			(at 154.94 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6e3cb828-de2d-4028-b266-da8d5efb7319")
-		)
-		(pin "2"
-			(uuid "cf65f3b9-b94a-408e-b73b-69d4c3f648e0")
-		)
-		(instances
-			(project "air_control"
-				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/93c7f88c-5c7a-4e7d-9f78-8de8f84bd890"
-					(reference "R28")
-					(unit 1)
-				)
-			)
-		)
+		(uuid "9daa20bb-a1ef-4a85-99cd-5999a99ec27b")
 	)
 	(symbol
 		(lib_id "OEM:D_LED_Blue_0805")
-		(at 168.91 113.03 0)
+		(at 130.81 107.95 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1839,9 +1415,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "d88c9e6b-ce7e-4472-a8e8-7498054b7f7f")
-		(property "Reference" "D12"
-			(at 168.91 115.824 0)
+		(uuid "14a380e3-c77e-422e-8fb6-3323952a3217")
+		(property "Reference" "D6"
+			(at 130.81 105.156 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1851,7 +1427,7 @@
 			)
 		)
 		(property "Value" "D_Blue_LED"
-			(at 169.164 117.856 0)
+			(at 131.064 111.252 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1861,7 +1437,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_0805_2012Metric"
-			(at 168.91 113.03 0)
+			(at 130.81 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1872,7 +1448,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/Lite-On_LTST-C171TBKT.pdf"
-			(at 168.91 113.03 0)
+			(at 130.81 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1883,7 +1459,7 @@
 			)
 		)
 		(property "Description" "LED BLUE CLEAR CHIP SMD"
-			(at 168.91 113.03 0)
+			(at 130.81 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1894,7 +1470,7 @@
 			)
 		)
 		(property "MPN" "LTST-C171TBKT"
-			(at 168.91 113.03 0)
+			(at 130.81 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1905,7 +1481,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 168.91 113.03 0)
+			(at 130.81 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1916,23 +1492,48 @@
 			)
 		)
 		(pin "2"
-			(uuid "429ef10d-429b-45a7-a664-d3c678602cfc")
+			(uuid "56ac6228-2472-4f3b-b7fa-f4250207f926")
 		)
 		(pin "1"
-			(uuid "5c585f6d-f8c7-4f2e-8d3a-0dba9d466c3f")
+			(uuid "d45447b7-cdc0-4bfd-825c-c884ab4fba7c")
 		)
 		(instances
 			(project "air_control"
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/180bef91-9a9d-4f0c-a156-7ce68102661f"
+					(reference "D8")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/44b04197-cfae-41dc-8c56-74dbbabd9478"
+					(reference "D9")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/4962e1a0-0cbd-43d4-9bf0-fa709016ab91"
+					(reference "D6")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/9371264c-9295-45f5-bf55-fc8e252e8e9c"
+					(reference "D11")
+					(unit 1)
+				)
 				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/93c7f88c-5c7a-4e7d-9f78-8de8f84bd890"
 					(reference "D12")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/987e2b60-f5b5-4cc1-a71a-66cd055bb15b"
+					(reference "D7")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/9a67b718-b3b7-4727-9793-58e40336a834"
+					(reference "D10")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_100k_0.1W_0603")
-		(at 162.56 106.68 0)
+		(lib_id "power:GND")
+		(at 148.59 109.22 0)
+		(mirror y)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1940,9 +1541,110 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "fabccf53-cf3e-436f-9778-d95d3aa234de")
-		(property "Reference" "R29"
-			(at 164.338 105.41 0)
+		(uuid "55b4aaa5-04d9-4789-a96b-9f44c4d435f6")
+		(property "Reference" "#PWR?"
+			(at 148.59 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 148.463 113.6142 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 148.59 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 148.59 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 148.59 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "176e291f-d03a-4811-98b7-7420c1147dfb")
+		)
+		(instances
+			(project "air_control"
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/180bef91-9a9d-4f0c-a156-7ce68102661f"
+					(reference "#PWR?")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/44b04197-cfae-41dc-8c56-74dbbabd9478"
+					(reference "#PWR?")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/4962e1a0-0cbd-43d4-9bf0-fa709016ab91"
+					(reference "#PWR?")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/9371264c-9295-45f5-bf55-fc8e252e8e9c"
+					(reference "#PWR?")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/93c7f88c-5c7a-4e7d-9f78-8de8f84bd890"
+					(reference "#PWR?")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/987e2b60-f5b5-4cc1-a71a-66cd055bb15b"
+					(reference "#PWR?")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/9a67b718-b3b7-4727-9793-58e40336a834"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_100k_0.1W_0603")
+		(at 135.89 97.79 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6ff70793-b6b8-45ed-a2f7-0dcd35ae7305")
+		(property "Reference" "R18"
+			(at 137.668 96.52 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1953,7 +1655,7 @@
 			)
 		)
 		(property "Value" "R_100k"
-			(at 164.338 107.696 0)
+			(at 137.668 98.806 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1964,7 +1666,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 160.782 106.68 90)
+			(at 134.112 97.79 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1975,7 +1677,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
-			(at 162.56 106.68 0)
+			(at 135.89 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1986,7 +1688,7 @@
 			)
 		)
 		(property "Description" "RES 100K OHM 1% 1/10W 0603"
-			(at 162.56 106.68 0)
+			(at 135.89 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1997,7 +1699,7 @@
 			)
 		)
 		(property "MPN" "RMCF0603FT100K"
-			(at 162.56 106.68 0)
+			(at 135.89 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2008,15 +1710,484 @@
 			)
 		)
 		(pin "2"
-			(uuid "4a50e6c1-afb7-42e6-bb9e-fb6b3294043e")
+			(uuid "aa6d97a6-d8a8-446f-a893-79cdf3ba40d4")
 		)
 		(pin "1"
-			(uuid "9eb702ac-f38c-477f-8e97-ca4f123d2809")
+			(uuid "c2225ee7-50bb-466e-ba85-6c6b19f0bd5f")
 		)
 		(instances
 			(project "air_control"
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/180bef91-9a9d-4f0c-a156-7ce68102661f"
+					(reference "R24")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/44b04197-cfae-41dc-8c56-74dbbabd9478"
+					(reference "R27")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/4962e1a0-0cbd-43d4-9bf0-fa709016ab91"
+					(reference "R18")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/9371264c-9295-45f5-bf55-fc8e252e8e9c"
+					(reference "R33")
+					(unit 1)
+				)
 				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/93c7f88c-5c7a-4e7d-9f78-8de8f84bd890"
+					(reference "R36")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/987e2b60-f5b5-4cc1-a71a-66cd055bb15b"
+					(reference "R21")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/9a67b718-b3b7-4727-9793-58e40336a834"
+					(reference "R30")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:Q_NMOS_30V_6A_SOT-23F")
+		(at 146.05 93.98 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b1c34110-555d-4489-9362-5848e66e1e47")
+		(property "Reference" "Q4"
+			(at 152.4 92.7099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "SSM3K333R,LF"
+			(at 152.4 95.2499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-3"
+			(at 151.13 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/105/1/6D62190F2E76D58532DB25403AB4F650F25B6580F37A84A2AFAB7A89D257D933.pdf"
+			(at 146.05 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "MOSFET N CH 30V 6A 2-3Z1A"
+			(at 146.05 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "3"
+			(uuid "737d6865-1931-4e1e-b87d-4f62b6828667")
+		)
+		(pin "2"
+			(uuid "3ffb351c-03e0-4d55-bdea-1726ecb99168")
+		)
+		(pin "1"
+			(uuid "24853f87-8711-4491-9688-7b6934c02941")
+		)
+		(instances
+			(project "air_control"
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/180bef91-9a9d-4f0c-a156-7ce68102661f"
+					(reference "Q6")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/44b04197-cfae-41dc-8c56-74dbbabd9478"
+					(reference "Q7")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/4962e1a0-0cbd-43d4-9bf0-fa709016ab91"
+					(reference "Q4")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/9371264c-9295-45f5-bf55-fc8e252e8e9c"
+					(reference "Q9")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/93c7f88c-5c7a-4e7d-9f78-8de8f84bd890"
+					(reference "Q10")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/987e2b60-f5b5-4cc1-a71a-66cd055bb15b"
+					(reference "Q5")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/9a67b718-b3b7-4727-9793-58e40336a834"
+					(reference "Q8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 148.59 78.74 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d6142a7a-d1db-486d-b53d-becbe0324b5a")
+		(property "Reference" "#PWR?"
+			(at 148.59 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 148.59 73.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 148.59 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 148.59 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 148.59 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "548815dc-08bc-43c7-8159-f178943a5b21")
+		)
+		(instances
+			(project "air_control"
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/180bef91-9a9d-4f0c-a156-7ce68102661f"
+					(reference "#PWR?")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/44b04197-cfae-41dc-8c56-74dbbabd9478"
+					(reference "#PWR?")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/4962e1a0-0cbd-43d4-9bf0-fa709016ab91"
+					(reference "#PWR?")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/9371264c-9295-45f5-bf55-fc8e252e8e9c"
+					(reference "#PWR?")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/93c7f88c-5c7a-4e7d-9f78-8de8f84bd890"
+					(reference "#PWR?")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/987e2b60-f5b5-4cc1-a71a-66cd055bb15b"
+					(reference "#PWR?")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/9a67b718-b3b7-4727-9793-58e40336a834"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_10k_0.1W_0603")
+		(at 148.59 83.82 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fbe12a8c-4f79-4213-8dd3-53e3bfc6ae8c")
+		(property "Reference" "R17"
+			(at 151.13 82.5499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_10k"
+			(at 151.13 85.0899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 146.812 83.82 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
+			(at 148.59 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES 10K OHM 1% 1/10W 0603"
+			(at 148.59 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RMCF0603FT10K0"
+			(at 148.59 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "050ff497-68ef-4b96-9d1b-e0be09456e26")
+		)
+		(pin "2"
+			(uuid "070f38bc-569e-400b-a7ec-01ba343548e3")
+		)
+		(instances
+			(project "air_control"
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/180bef91-9a9d-4f0c-a156-7ce68102661f"
+					(reference "R23")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/44b04197-cfae-41dc-8c56-74dbbabd9478"
+					(reference "R26")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/4962e1a0-0cbd-43d4-9bf0-fa709016ab91"
+					(reference "R17")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/9371264c-9295-45f5-bf55-fc8e252e8e9c"
+					(reference "R32")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/93c7f88c-5c7a-4e7d-9f78-8de8f84bd890"
+					(reference "R35")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/987e2b60-f5b5-4cc1-a71a-66cd055bb15b"
+					(reference "R20")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/9a67b718-b3b7-4727-9793-58e40336a834"
 					(reference "R29")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_3k_0.1W_0603")
+		(at 125.73 97.79 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fe6d5559-9814-43a3-ba41-cffe6c874593")
+		(property "Reference" "R19"
+			(at 128.27 96.5199 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_3k"
+			(at 128.27 99.0599 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 123.952 97.79 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.yageogroup.com/browse/products?search=pyu-yc_tc_group_51_rohs_l.pdf"
+			(at 125.73 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES 3K OHM 1% 1/10W 0603"
+			(at 125.73 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC0603FR-103KL"
+			(at 125.73 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "db5e5f89-d10b-4fdf-969a-717923c834c8")
+		)
+		(pin "2"
+			(uuid "c9e4df3e-2530-4660-9949-f84e8437fc6e")
+		)
+		(instances
+			(project "air_control"
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/180bef91-9a9d-4f0c-a156-7ce68102661f"
+					(reference "R25")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/44b04197-cfae-41dc-8c56-74dbbabd9478"
+					(reference "R28")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/4962e1a0-0cbd-43d4-9bf0-fa709016ab91"
+					(reference "R19")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/9371264c-9295-45f5-bf55-fc8e252e8e9c"
+					(reference "R34")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/93c7f88c-5c7a-4e7d-9f78-8de8f84bd890"
+					(reference "R37")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/987e2b60-f5b5-4cc1-a71a-66cd055bb15b"
+					(reference "R22")
+					(unit 1)
+				)
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db/9a67b718-b3b7-4727-9793-58e40336a834"
+					(reference "R31")
 					(unit 1)
 				)
 			)

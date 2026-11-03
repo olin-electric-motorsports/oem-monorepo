@@ -549,6 +549,218 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "OEM:D_LED_White_0805"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "LED"
+				(at 0 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Diode_SMD:D_0805_2012Metric"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.qt-brightek.com/datasheet/QBLP631_series.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "LED WHITE DIFFUSED 0805 SMD"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "QBLP631-IW"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Sim.Pins" "1=K 2=A"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "LED diode"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "D_LED_White_0805_0_1"
+				(polyline
+					(pts
+						(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -1.27) (xy -1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "D_LED_White_0805_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OEM:D_Schottky_100V_1A_SOD123W"
 			(pin_numbers
 				(hide yes)
@@ -2728,6 +2940,157 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "OEM:R_330_0.1W_0603"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R_330"
+				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at -1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "RES 330 OHM 1% 1/10W 0603"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "R_330_0.1W_0603_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_330_0.1W_0603_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OEM:R_3k_0.1W_0603"
 			(pin_numbers
 				(hide yes)
@@ -4336,18 +4699,6 @@
 		)
 	)
 	(rectangle
-		(start 215.9 16.51)
-		(end 283.21 125.73)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid "1607fc50-e08c-42d3-91c5-6a1246729132")
-	)
-	(rectangle
 		(start 138.43 20.32)
 		(end 138.43 30.48)
 		(stroke
@@ -4360,42 +4711,6 @@
 		(uuid "77749b9d-5abe-4ee8-847f-4c87774112e2")
 	)
 	(rectangle
-		(start 16.51 16.51)
-		(end 127 82.55)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid "9f9d073a-eaa7-4c56-a444-8aec18c288ec")
-	)
-	(rectangle
-		(start 16.51 85.09)
-		(end 128.27 151.13)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid "a6058469-1e53-4406-a8ea-ab7833ff7d9b")
-	)
-	(rectangle
-		(start 129.54 16.51)
-		(end 207.01 78.74)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid "b35ec9d4-1e13-420e-bbdb-b801f4f0a619")
-	)
-	(rectangle
 		(start 133.35 22.86)
 		(end 142.24 22.86)
 		(stroke
@@ -4406,18 +4721,6 @@
 			(type none)
 		)
 		(uuid "b59604a8-7d8e-4e83-be11-7bca52328bf4")
-	)
-	(rectangle
-		(start 130.81 81.28)
-		(end 212.09 153.67)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid "ba820c9f-4a87-42c5-a2cc-4e9bd7f2c4fd")
 	)
 	(text "Shutdown Circuit Node"
 		(exclude_from_sim no)
@@ -4501,7 +4804,7 @@
 	)
 	(text "V = 3.334V after 4.6s"
 		(exclude_from_sim no)
-		(at 66.294 31.496 0)
+		(at 47.244 25.908 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4591,7 +4894,7 @@
 	)
 	(text "V = 3V when IMD_output is good"
 		(exclude_from_sim no)
-		(at 57.404 105.918 0)
+		(at 39.37 94.996 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4690,6 +4993,18 @@
 		(uuid "24d241c9-1d1e-40ae-b1d9-c10ef6e1fceb")
 	)
 	(junction
+		(at 105.41 156.21)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2dada596-cb82-4b8b-8e0f-f9f5e2086aca")
+	)
+	(junction
+		(at 60.96 107.95)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2fe9fa5b-0812-468b-859c-e44f74a5ab41")
+	)
+	(junction
 		(at 50.8 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4712,6 +5027,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5758d927-0d61-4dd4-8098-2fbc7f327dd8")
+	)
+	(junction
+		(at 68.58 123.19)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "626b94e3-17ee-462a-92f4-738979f67819")
 	)
 	(junction
 		(at 100.33 110.49)
@@ -4748,6 +5069,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e1db9c37-3242-454c-915d-3a0843b002a6")
+	)
+	(junction
+		(at 73.66 34.29)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "eb2aac92-d3c3-4b06-a68a-ab0b0335fea7")
 	)
 	(junction
 		(at 86.36 34.29)
@@ -4865,6 +5192,26 @@
 	)
 	(wire
 		(pts
+			(xy 81.28 156.21) (xy 81.28 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0631b56a-97a5-4723-9214-16a41e27921b")
+	)
+	(wire
+		(pts
+			(xy 102.87 156.21) (xy 105.41 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06d6c71b-0ccd-477d-9aab-9e1147dbbdf4")
+	)
+	(wire
+		(pts
 			(xy 195.58 35.56) (xy 198.12 35.56)
 		)
 		(stroke
@@ -4945,6 +5292,16 @@
 	)
 	(wire
 		(pts
+			(xy 68.58 123.19) (xy 68.58 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "18cb5d9b-6914-468d-b04b-c7b3f1673395")
+	)
+	(wire
+		(pts
 			(xy 102.87 62.23) (xy 102.87 64.77)
 		)
 		(stroke
@@ -4995,6 +5352,16 @@
 	)
 	(wire
 		(pts
+			(xy 73.66 34.29) (xy 81.28 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "28178965-2af3-417e-a4a6-79a77a0f89a0")
+	)
+	(wire
+		(pts
 			(xy 36.83 129.54) (xy 43.18 129.54)
 		)
 		(stroke
@@ -5002,6 +5369,16 @@
 			(type default)
 		)
 		(uuid "295bf727-c2a0-4537-b5ea-6f6dae82c37f")
+	)
+	(wire
+		(pts
+			(xy 60.96 107.95) (xy 73.66 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "298acccd-88d4-4593-aa5b-12d8da3edf0d")
 	)
 	(wire
 		(pts
@@ -5265,7 +5642,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 34.29) (xy 81.28 34.29)
+			(xy 63.5 34.29) (xy 73.66 34.29)
 		)
 		(stroke
 			(width 0)
@@ -5282,6 +5659,16 @@
 			(type default)
 		)
 		(uuid "7e143403-6cd5-4b0f-ada6-f841aa6d7b99")
+	)
+	(wire
+		(pts
+			(xy 105.41 156.21) (xy 111.76 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7f4fe1cf-90c3-453f-8d3f-671df7542394")
 	)
 	(wire
 		(pts
@@ -5335,6 +5722,16 @@
 	)
 	(wire
 		(pts
+			(xy 92.71 156.21) (xy 95.25 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8b681d14-5aca-49a2-b4c3-b3e26df83ace")
+	)
+	(wire
+		(pts
 			(xy 73.66 54.61) (xy 73.66 46.99)
 		)
 		(stroke
@@ -5342,6 +5739,16 @@
 			(type default)
 		)
 		(uuid "8df2c6b9-c1f1-4447-873e-feac37e02f72")
+	)
+	(wire
+		(pts
+			(xy 85.09 156.21) (xy 81.28 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "901b4717-53be-4e49-90b1-718f3852a54a")
 	)
 	(wire
 		(pts
@@ -5735,7 +6142,7 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 129.54) (xy 68.58 113.03)
+			(xy 68.58 129.54) (xy 68.58 123.19)
 		)
 		(stroke
 			(width 0)
@@ -5775,7 +6182,7 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 107.95) (xy 73.66 107.95)
+			(xy 52.07 107.95) (xy 60.96 107.95)
 		)
 		(stroke
 			(width 0)
@@ -5953,7 +6360,7 @@
 		)
 		(uuid "a6fe16a3-887c-4615-815e-0c2c394938f7")
 	)
-	(label "IMD_Status"
+	(label "IMD_STATUS"
 		(at 180.34 52.07 0)
 		(effects
 			(font
@@ -5973,7 +6380,7 @@
 		)
 		(uuid "f78fcb49-4079-4a24-bc00-3f4856bbb960")
 	)
-	(label "IMD_Status"
+	(label "IMD_STATUS"
 		(at 189.23 95.25 0)
 		(effects
 			(font
@@ -5982,6 +6389,94 @@
 			(justify left bottom)
 		)
 		(uuid "f7beec64-02eb-4c88-9854-9e464c330a6b")
+	)
+	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 67.31 123.19 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0fc79b6f-aa98-4397-9441-95d82a68ae44")
+		(property "Reference" "TP5"
+			(at 64.77 116.84 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 64.77 119.38 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 71.12 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 67.31 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 67.31 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "5019"
+			(at 67.31 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f4881cd2-de20-4802-9909-dfe73286e926")
+		)
+		(instances
+			(project "imd_latch"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "TP5")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "OEM:U_Quad-NAND-RS-Latch_CD4044BDR_16-SOIC")
@@ -6111,7 +6606,7 @@
 			(uuid "23681742-1449-42d5-9b25-6169ae858128")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "U3")
 					(unit 1)
@@ -6189,7 +6684,7 @@
 			(uuid "7cf3051d-8463-478f-8ec3-5b72fbe67df9")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -6267,7 +6762,7 @@
 			(uuid "f6e0ded5-7b1f-4069-b48a-50f93861ab02")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -6345,7 +6840,7 @@
 			(uuid "10915f67-cfab-40e6-96e3-e6809ae5df7b")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -6423,7 +6918,7 @@
 			(uuid "e4f6bde6-208a-4c27-8dd1-5e2577f48af1")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -6514,7 +7009,7 @@
 			(uuid "c16c08a2-f24b-451d-bd1f-714cf6a70ce8")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "C3")
 					(unit 1)
@@ -6607,7 +7102,7 @@
 			(uuid "f241380e-995f-475b-8878-43709e11c579")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R13")
 					(unit 1)
@@ -6685,7 +7180,7 @@
 			(uuid "1b9e63e2-a153-402f-a3f9-c929fdd307de")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -6789,9 +7284,99 @@
 			(uuid "089a6d5f-a3e7-424d-8d45-508183914d55")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "D2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 60.96 106.68 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3cd75480-c747-423e-96bb-33cbf2c2b086")
+		(property "Reference" "TP4"
+			(at 63.5 102.8699 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 63.5 105.4099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 60.96 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 60.96 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 60.96 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "5019"
+			(at 60.96 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "609a1474-8986-4061-a042-d2686a8f8c64")
+		)
+		(instances
+			(project "imd_latch"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "TP4")
 					(unit 1)
 				)
 			)
@@ -6867,7 +7452,7 @@
 			(uuid "b38ae1d3-121b-45e8-aa5d-7259269f4a47")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -6960,7 +7545,7 @@
 			(uuid "d8c22a48-f690-412d-a68e-773c5ca8b1c0")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "D4")
 					(unit 1)
@@ -7064,7 +7649,7 @@
 			(uuid "85ed3f90-fbb3-4d4f-a3cd-3287c5dfd4f7")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "D1")
 					(unit 1)
@@ -7143,7 +7728,7 @@
 			(uuid "c27251ee-f585-4215-9fbb-bfa2048b2983")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -7221,7 +7806,85 @@
 			(uuid "c1507996-3658-49cd-ac87-96bb07251d61")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 111.76 156.21 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4b17192e-dde0-45b1-95a4-fbf73b769cc0")
+		(property "Reference" "#PWR?"
+			(at 111.76 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 111.76 151.13 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 111.76 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 111.76 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 111.76 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3e612c27-9702-416f-96c6-b2eb5eb6680a")
+		)
+		(instances
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -7311,7 +7974,7 @@
 			(uuid "f99fe543-7f39-47cc-9e78-5cb8961fbfd4")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "TP3")
 					(unit 1)
@@ -7402,7 +8065,7 @@
 			(uuid "bb356325-3385-4b73-87ba-0f6eccf99271")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R10")
 					(unit 1)
@@ -7495,7 +8158,7 @@
 			(uuid "bae90dea-ff98-4669-8f20-52edb9b5674d")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R1")
 					(unit 1)
@@ -7588,7 +8251,7 @@
 			(uuid "84645663-4d7d-424e-9d20-3945fbbe0bab")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R2")
 					(unit 1)
@@ -7666,7 +8329,7 @@
 			(uuid "a22e81a2-7c97-4718-b685-283b7f904619")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -7744,7 +8407,7 @@
 			(uuid "e803682a-c747-4b09-9b48-b57e85dd664c")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -7822,7 +8485,7 @@
 			(uuid "14a950fd-e6d7-41f3-9230-1d58e108fa3e")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -7913,7 +8576,7 @@
 			(uuid "35c51e59-29cd-4bfd-b520-c42aa964e91a")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R3")
 					(unit 1)
@@ -7991,7 +8654,7 @@
 			(uuid "cce55f4b-632e-4cf7-91f0-e761634a8be8")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -8150,7 +8813,7 @@
 			(uuid "c8b2f45b-7ec4-4ec3-8693-375c55da332c")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "U4")
 					(unit 1)
@@ -8243,7 +8906,7 @@
 			(uuid "0b300f0d-da04-4b6f-a623-8b3cb7c98a0e")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R9")
 					(unit 1)
@@ -8334,7 +8997,7 @@
 			(uuid "80d60367-d2f4-4e3f-bb5d-d91f64a5f896")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "C2")
 					(unit 1)
@@ -8412,7 +9075,7 @@
 			(uuid "5d481673-2a90-4b95-a8c2-eec6aaabd47c")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -8491,7 +9154,7 @@
 			(uuid "8a5dcb88-f0cd-43a3-80e0-00f126d7e0b5")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -8581,7 +9244,7 @@
 			(uuid "e66950bd-8191-487b-bae3-be091e913edc")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "TP1")
 					(unit 1)
@@ -8674,7 +9337,7 @@
 			(uuid "b1f53f5f-7d7a-44be-b298-46a953e6dc6f")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R7")
 					(unit 1)
@@ -8759,7 +9422,7 @@
 			(uuid "51a73152-c9bc-4bef-8da7-5f0527e79349")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "Q1")
 					(unit 1)
@@ -8837,7 +9500,7 @@
 			(uuid "0da670f9-3a7c-4d55-b007-0e28f1e21a91")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -8927,7 +9590,7 @@
 			(uuid "78f82c70-ca51-4ad9-86f3-cfeb997c9be6")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "TP2")
 					(unit 1)
@@ -9006,7 +9669,7 @@
 			(uuid "493575f1-51d8-41b0-805f-8dead273fe1b")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -9084,7 +9747,7 @@
 			(uuid "dc0d37db-7230-49a0-b2f6-c9e1954007fa")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -9184,7 +9847,7 @@
 			(uuid "f38eaa0b-d6a4-4441-bf87-8518dcf04a76")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "K1")
 					(unit 1)
@@ -9262,7 +9925,7 @@
 			(uuid "ccab9552-ebe4-4113-8fac-4672a97de00c")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -9455,7 +10118,7 @@
 			(uuid "76842ac8-7f23-4d18-80bf-b31a3efd0e9b")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "J1")
 					(unit 1)
@@ -9533,7 +10196,7 @@
 			(uuid "29c9af19-77f3-4430-8519-b26917024acc")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -9692,7 +10355,7 @@
 			(uuid "144554fa-c6a4-481b-ba75-057da5eb9ff7")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "U1")
 					(unit 1)
@@ -9771,9 +10434,100 @@
 			(uuid "e4ee7359-e4ff-4b13-8c57-cc4b439d4a0a")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_330_0.1W_0603")
+		(at 99.06 156.21 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8e4adbc8-37c9-4cb8-84e2-cf62e88d3e4c")
+		(property "Reference" "R16"
+			(at 99.06 149.86 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "R_330"
+			(at 99.06 152.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 99.06 157.988 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
+			(at 99.06 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES 330 OHM 1% 1/10W 0603"
+			(at 99.06 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
+			(at 99.06 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "704a6409-8194-41f1-bef9-ba496e7ca60a")
+		)
+		(pin "2"
+			(uuid "5f9339ff-16c8-4355-9366-0919a11e0609")
+		)
+		(instances
+			(project "imd_latch"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "R16")
 					(unit 1)
 				)
 			)
@@ -9849,7 +10603,7 @@
 			(uuid "975a269e-aa15-42f3-bd2b-29f034b76e0e")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -9942,7 +10696,7 @@
 			(uuid "0996c564-c16b-4f76-ab29-19811d100b79")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R6")
 					(unit 1)
@@ -10020,9 +10774,99 @@
 			(uuid "0316cef9-106a-4d5e-8106-9bb05be27d7f")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 105.41 157.48 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9745d908-9bdc-4e2c-b7cd-f3c11b01b54d")
+		(property "Reference" "TP7"
+			(at 107.95 158.7499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 107.95 161.2899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 105.41 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 105.41 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 105.41 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "5019"
+			(at 105.41 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "753fb3a3-2cbc-4e66-81f4-82f9e770310e")
+		)
+		(instances
+			(project "imd_latch"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "TP7")
 					(unit 1)
 				)
 			)
@@ -10098,7 +10942,7 @@
 			(uuid "87b46264-e192-4043-88d2-e8ff3aaa07ab")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -10189,7 +11033,7 @@
 			(uuid "4626145a-df40-4569-bd2e-db7d5617e527")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R5")
 					(unit 1)
@@ -10282,7 +11126,7 @@
 			(uuid "d6a517d9-7f7d-430d-961b-6801b0075944")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R12")
 					(unit 1)
@@ -10375,7 +11219,7 @@
 			(uuid "6e7b76bc-8e9e-465c-82b9-d2892afdd6b9")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R14")
 					(unit 1)
@@ -10466,7 +11310,7 @@
 			(uuid "fdf628d3-4541-4820-bd22-e524d2210a0b")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R11")
 					(unit 1)
@@ -10544,9 +11388,99 @@
 			(uuid "465864cd-3fcf-456b-829c-e6c357f8ffac")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 73.66 33.02 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "adee1f9e-859f-4a05-ad9e-8c8955093601")
+		(property "Reference" "TP6"
+			(at 76.2 29.2099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TP_SMD"
+			(at 76.2 31.7499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 73.66 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 73.66 33.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 73.66 33.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "5019"
+			(at 73.66 33.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "fa5b1595-12ff-41f0-877d-7a82b7777b4e")
+		)
+		(instances
+			(project "imd_latch"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "TP6")
 					(unit 1)
 				)
 			)
@@ -10622,7 +11556,7 @@
 			(uuid "79ff8360-5958-497d-826a-9dc4f07f3b0f")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -10700,7 +11634,85 @@
 			(uuid "0feeefe5-5b4e-4929-8e3f-00ac4b05de3a")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 81.28 157.48 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bab10f71-2302-44f0-bc9e-e615b2839faf")
+		(property "Reference" "#PWR?"
+			(at 81.28 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 81.28 162.56 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 81.28 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 81.28 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 81.28 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "89d49f8d-06bf-4336-bead-a828ad164335")
+		)
+		(instances
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -10778,7 +11790,7 @@
 			(uuid "836f00bd-f19f-4b4f-a197-1cee80634de7")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -10869,7 +11881,7 @@
 			(uuid "f8a74b4b-d9d4-4491-92c7-41b0d4285d68")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R8")
 					(unit 1)
@@ -10947,7 +11959,7 @@
 			(uuid "d6635450-de02-4749-bdd2-c5719824dbb4")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -11038,7 +12050,7 @@
 			(uuid "a5a6209c-f1ad-40f2-98dd-8629d6545fab")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "C5")
 					(unit 1)
@@ -11116,9 +12128,111 @@
 			(uuid "cb65adb7-0866-4272-930c-b2f0453aa80d")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:D_LED_White_0805")
+		(at 88.9 156.21 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d1ce4a09-7545-4263-aa51-2a28d02f4801")
+		(property "Reference" "D5"
+			(at 87.3125 149.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED"
+			(at 87.3125 152.4 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_0805_2012Metric"
+			(at 88.9 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.qt-brightek.com/datasheet/QBLP631_series.pdf"
+			(at 88.9 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "LED WHITE DIFFUSED 0805 SMD"
+			(at 88.9 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "QBLP631-IW"
+			(at 88.9 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 88.9 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "bc2d55ff-0fc5-4f7f-b13a-754c72a9db15")
+		)
+		(pin "1"
+			(uuid "a997062b-ea39-40dc-9a75-e59df1c9acf6")
+		)
+		(instances
+			(project "imd_latch"
+				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
+					(reference "D5")
 					(unit 1)
 				)
 			)
@@ -11195,7 +12309,7 @@
 			(uuid "87ed2b8f-021b-443b-999c-3286271711dd")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -11288,7 +12402,7 @@
 			(uuid "a32fa83e-039b-480b-a45a-b302bd19829c")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R15")
 					(unit 1)
@@ -11392,7 +12506,7 @@
 			(uuid "b11ff922-5839-4534-afc6-5dc21f5d2881")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "D3")
 					(unit 1)
@@ -11470,7 +12584,7 @@
 			(uuid "1d75b416-973a-4df6-86d9-a4a24a8f06f5")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -11548,7 +12662,7 @@
 			(uuid "e52dbbdd-a47e-4871-90b2-f4e494887f0f")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -11641,7 +12755,7 @@
 			(uuid "48b57325-8758-407e-95c9-9054d6b31872")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "C4")
 					(unit 1)
@@ -11719,7 +12833,7 @@
 			(uuid "47849b36-3de8-4843-875a-7ab138840500")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -11797,7 +12911,7 @@
 			(uuid "ba35634b-9403-4218-9c37-b1c1bccf82db")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "#PWR?")
 					(unit 1)
@@ -11888,7 +13002,7 @@
 			(uuid "a08f2cdf-c360-4f9c-9b43-a6fc378b7b42")
 		)
 		(instances
-			(project "imd_latch_v2"
+			(project "imd_latch"
 				(path "/d519c77c-8740-4a1d-af06-6f69130ee48e"
 					(reference "R4")
 					(unit 1)

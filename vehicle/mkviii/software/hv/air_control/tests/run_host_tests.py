@@ -32,11 +32,12 @@ def main():
             for test in LOGIC_TESTS:
                 run(f"{test}_{negative}", ["air.c", "air_protocol.c", f"tests/{test}.c"],
                     ["-DAIR_CONTROLLED_NEGATIVE=" + str(negative)])
-        # The GPIO test with five pin tables: the real empty one, switched off and
-        # on; a test table, switched off and on; and one with a pin used twice
+        # The GPIO test with five pin tables: the real one in air_board_config.c,
+        # switched off and on (refused while unfinished, checked pin by pin once
+        # filled in); a test table, switched off and on; and one with a pin used twice
         cases = [
             ("default", [], ["air_board_config.c"]),
-            ("unassigned", ["-DAIR_BOARD_CONFIGURED=1"], ["air_board_config.c"]),
+            ("configured", ["-DAIR_BOARD_CONFIGURED=1"], ["air_board_config.c"]),
             ("disabled", ["-DTEST_ASSIGNED_BOARD"], []),
             ("assigned", ["-DTEST_ASSIGNED_BOARD", "-DAIR_BOARD_CONFIGURED=1"], []),
             ("duplicate", ["-DTEST_ASSIGNED_BOARD", "-DAIR_BOARD_CONFIGURED=1", "-DTEST_DUPLICATE_PIN"], []),

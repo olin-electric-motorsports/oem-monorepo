@@ -5,6 +5,172 @@
 	(uuid "61f6c21a-fc63-4c75-85c4-c30c665f98cf")
 	(paper "A4")
 	(lib_symbols
+		(symbol "OEM:C_0.1uF_0-20V_0603"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_0.1uF"
+				(at 0.635 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0.9652 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "C0603C104Z4VACTU"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C_0.1uF_0-20V_0603_0_1"
+				(polyline
+					(pts
+						(xy -2.032 0.762) (xy 2.032 0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_0.1uF_0-20V_0603_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OEM:C_10uF_0-20V_0603"
 			(pin_numbers
 				(hide yes)
@@ -171,7 +337,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:C_22uF_20-100V_1206"
+		(symbol "OEM:C_2.2uF_20-100V_0603"
 			(pin_numbers
 				(hide yes)
 			)
@@ -194,7 +360,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "C_22uF"
+			(property "Value" "C_2.2uF"
 				(at 0.635 -2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -205,7 +371,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 				(at 0.9652 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -216,7 +382,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/76/1/GRM188R61E225KA12-04A.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -227,7 +393,7 @@
 					)
 				)
 			)
-			(property "Description" "CAP CER 22UF 25V X5R 1206"
+			(property "Description" "CAP CER 2.2UF 25V X5R 0603"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -238,7 +404,7 @@
 					)
 				)
 			)
-			(property "MPN" "CL31A226KAHNNNE"
+			(property "MPN" "GRM188R61E225KA12J"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -271,7 +437,7 @@
 					)
 				)
 			)
-			(symbol "C_22uF_20-100V_1206_0_1"
+			(symbol "C_2.2uF_20-100V_0603_0_1"
 				(polyline
 					(pts
 						(xy -2.032 0.762) (xy 2.032 0.762)
@@ -297,7 +463,7 @@
 					)
 				)
 			)
-			(symbol "C_22uF_20-100V_1206_1_1"
+			(symbol "C_2.2uF_20-100V_0603_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.794)
@@ -337,7 +503,170 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:L_3.9uH_2A_55m_SMD"
+		(symbol "OEM:F_1.5A_63V_1206"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "F"
+				(at 2.032 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "F_1.5A_63V"
+				(at -1.905 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Fuse:Fuse_1206_3216Metric"
+				(at -1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.littelfuse.com/assetdocs/fuse-466-datasheet?assetguid=dbe9bcd7-6072-4adf-bf5b-d33e52a6b90f"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "FUSE BRD MNT 1.5A 63VAC/VDC 1206"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "046601.5NR"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "fuse"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "*Fuse*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "F_1.5A_63V_1206_0_1"
+				(rectangle
+					(start -0.762 -2.54)
+					(end 0.762 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "F_1.5A_63V_1206_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "OEM:L_3.3uH_5A_21m_SMD"
 			(pin_numbers
 				(hide yes)
 			)
@@ -360,7 +689,7 @@
 					)
 				)
 			)
-			(property "Value" "L_3.9uH"
+			(property "Value" "L_3.3uH"
 				(at 1.905 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -370,7 +699,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:IND_BOURNS_SRR5018 (L_3.9uH_2A_55m_SMD)"
+			(property "Footprint" "OEM:SRN6045TA330M (L_3.3uH_5A_21m_SMD - SRN6045TA-3R3Y)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -381,7 +710,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://www.mouser.com/datasheet/3/40/1/SRR5018.pdf"
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/40/1/srn6045ta.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -392,7 +721,7 @@
 					)
 				)
 			)
-			(property "Description" "FIXED IND 3.9UH 2A 55 MOHM SMD"
+			(property "Description" "FIXED IND 3.3UH 5A 21 MOHM SMD"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -403,7 +732,7 @@
 					)
 				)
 			)
-			(property "MPN" "SRR5018-3R9Y"
+			(property "MPN" "SRN6045TA-3R3Y"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -436,7 +765,7 @@
 					)
 				)
 			)
-			(symbol "L_3.9uH_2A_55m_SMD_0_1"
+			(symbol "L_3.3uH_5A_21m_SMD_0_1"
 				(arc
 					(start 0 2.54)
 					(mid 0.6323 1.905)
@@ -486,7 +815,7 @@
 					)
 				)
 			)
-			(symbol "L_3.9uH_2A_55m_SMD_1_1"
+			(symbol "L_3.3uH_5A_21m_SMD_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 1.27)
@@ -526,60 +855,50 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:U_3.3V-Buck-Conv_AP63203WU-7_TSOT23-6"
+		(symbol "OEM:R_22.1k_0.1W_0603"
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254)
+				(offset 0)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U"
-				(at 0 9.398 0)
+			(property "Reference" "R"
+				(at 2.032 0 90)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.524 1.524)
+						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "AP63203WU-7"
-				(at 0 6.858 0)
+			(property "Value" "R_22.1k"
+				(at 0 0 90)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
-						(size 1.524 1.524)
+						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
-				(at 0 0 0)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at -1.778 0 90)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
-						(italic yes)
 					)
 				)
 			)
-			(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP63200-AP63201-AP63203-AP63205.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-				)
-			)
-			(property "Description" "IC REG BUCK 3.3V 2A TSOT23-6"
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -590,7 +909,7 @@
 					)
 				)
 			)
-			(property "MPN" "AP63203WU-7"
+			(property "Description" "RES 23.7K OHM 1% 1/10W 0603"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -601,7 +920,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "AP63203WU-7"
+			(property "MPN" "RMCF0603FT23K7"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -612,7 +931,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "AP63203WU-7_DIO AP63203WU-7_DIO-M AP63203WU-7_DIO-L"
+			(property "ki_keywords" "R res resistor"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -623,11 +942,35 @@
 					)
 				)
 			)
-			(symbol "U_3.3V-Buck-Conv_AP63203WU-7_TSOT23-6_0_1"
-				(pin output line
-					(at -11.43 2.54 0)
-					(length 2.54)
-					(name "FB"
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "R_22.1k_0.1W_0603_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_22.1k_0.1W_0603_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -642,10 +985,10 @@
 						)
 					)
 				)
-				(pin input line
-					(at -11.43 0 0)
-					(length 2.54)
-					(name "EN"
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -660,10 +1003,363 @@
 						)
 					)
 				)
-				(pin power_out line
-					(at 11.43 -2.54 180)
-					(length 2.54)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "OEM:R_51k_0.1W_0603"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R_51k"
+				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at -1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "RES 49.9K OHM 1% 1/10W 0603"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "RMCF0603FT49K9"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "R_51k_0.1W_0603_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_51k_0.1W_0603_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "OEM:U_3.3V-Buck-Conv-1A-SOT23-6"
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at 0 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Value" "U_3.3V-Buck-Conv-1A-SOT23-6"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.524 1.524)
+					)
+				)
+			)
+			(property "Footprint" "DBV0006A-IPC_A"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.ti.com/lit/gpn/lmr50410-q1"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "LMR50410Y5FQDBVRQ1"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "DBV0006A-IPC_A DBV0006A-IPC_B DBV0006A-IPC_C DBV0006A-MFG"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "U_3.3V-Buck-Conv-1A-SOT23-6_0_1"
+				(polyline
+					(pts
+						(xy -15.24 12.7) (xy -15.24 -12.7)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -15.24 -12.7) (xy 15.24 -12.7)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 15.24 12.7) (xy -15.24 12.7)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 15.24 -12.7) (xy 15.24 12.7)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at 20.32 0 180)
+					(length 5.08)
+					(name "CB"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 20.32 -10.16 180)
+					(length 5.08)
 					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 20.32 -5.08 180)
+					(length 5.08)
+					(name "FB"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -20.32 2.54 0)
+					(length 5.08)
+					(name "EN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -678,10 +1374,10 @@
 						)
 					)
 				)
-				(pin output line
-					(at 11.43 0 180)
-					(length 2.54)
-					(name "SW"
+				(pin power_in line
+					(at -20.32 7.62 0)
+					(length 5.08)
+					(name "VIN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -696,10 +1392,10 @@
 						)
 					)
 				)
-				(pin input line
-					(at 11.43 2.54 180)
-					(length 2.54)
-					(name "BST"
+				(pin power_in line
+					(at 20.32 7.62 180)
+					(length 5.08)
+					(name "SW"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -715,30 +1411,276 @@
 					)
 				)
 			)
-			(symbol "U_3.3V-Buck-Conv_AP63203WU-7_TSOT23-6_1_1"
-				(rectangle
-					(start -8.89 5.08)
-					(end 8.89 -5.08)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type color)
-						(color 255 255 194 1)
+			(embedded_fonts no)
+		)
+		(symbol "power:+12V"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
 					)
 				)
+			)
+			(property "Value" "+12V"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+12V\""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "+12V_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+12V_1_1"
 				(pin power_in line
-					(at -11.43 -2.54 0)
-					(length 2.54)
-					(name "VIN"
+					(at 0 0 90)
+					(length 0)
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "3"
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:+3.3V"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "+3.3V"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "+3.3V_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+3.3V_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -865,16 +1807,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "Decoupling Capacitor\n"
-		(exclude_from_sim no)
-		(at 89.916 114.554 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "649912ed-5aa6-4626-acc7-3e6a19d4a6ee")
-	)
 	(text "3.3V BUCK CONVERTER\n"
 		(exclude_from_sim no)
 		(at 108.204 73.66 0)
@@ -887,399 +1819,266 @@
 		(uuid "baed2ab5-e545-4326-8c56-b2cda6b5b54d")
 	)
 	(junction
-		(at 157.48 97.79)
+		(at 184.15 114.3)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "17451469-93ef-4ed6-a0e4-d9c0d8064a26")
+		(uuid "2c607b84-bad2-405b-99b7-97ce14b9f91e")
 	)
 	(junction
-		(at 166.37 120.65)
+		(at 97.79 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "193c1fc4-bd8e-40a6-91aa-f410d4cfe756")
+		(uuid "7d443edf-8392-4163-a67c-0e1e575bc6e6")
 	)
 	(junction
-		(at 166.37 125.73)
+		(at 173.99 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "41b2296a-ded8-4ab9-b6db-e29a51d5f362")
+		(uuid "ad956706-bd7f-4990-90e7-48a42e5035bc")
 	)
 	(junction
-		(at 139.7 97.79)
+		(at 173.99 106.68)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "5d82dc60-ee74-4234-8748-0f6c527ea460")
+		(uuid "b23770f8-4999-47c4-83e2-233fac0b7415")
 	)
 	(junction
-		(at 166.37 97.79)
+		(at 102.87 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "711e3b57-d9e3-49ec-a882-f546232b9a0c")
+		(uuid "b5be8a66-4a32-408a-904f-150f801eae70")
 	)
 	(junction
-		(at 166.37 107.95)
+		(at 173.99 114.3)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "7a11466a-9a91-4a84-9ddf-e11ddaacedea")
+		(uuid "bcc276a2-e844-45d0-b70c-ddccda477060")
 	)
 	(junction
-		(at 95.25 100.33)
+		(at 154.94 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "87b1c094-4e0b-4022-adeb-a9a54f88cb61")
+		(uuid "c2fda359-6dde-4da3-9136-4b2d6d1cebcd")
 	)
 	(junction
-		(at 104.14 100.33)
+		(at 184.15 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "98a51ed5-a0e1-457c-a42f-559ebc0b22a1")
+		(uuid "f0b760a9-4b73-4785-96aa-7f24ee587b60")
 	)
 	(wire
 		(pts
-			(xy 171.45 107.95) (xy 171.45 110.49)
+			(xy 97.79 120.65) (xy 97.79 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0d405234-36f4-4c42-b037-4282a90e1197")
+		(uuid "03406aac-f85d-451a-be7e-266e42cf1bc3")
 	)
 	(wire
 		(pts
-			(xy 104.14 100.33) (xy 104.14 97.79)
+			(xy 173.99 106.68) (xy 148.59 106.68)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1236d30c-157c-442e-83c0-71eb52fe5f1e")
+		(uuid "1bf82e9f-67ac-461c-9aea-f525974d26b3")
 	)
 	(wire
 		(pts
-			(xy 104.14 97.79) (xy 107.95 97.79)
+			(xy 97.79 93.98) (xy 102.87 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "12bb29ac-cf26-4a50-a441-ee991f285e22")
+		(uuid "4afc79f0-ee6b-4764-883d-48d55c119517")
 	)
 	(wire
 		(pts
-			(xy 161.29 120.65) (xy 166.37 120.65)
+			(xy 97.79 90.17) (xy 97.79 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "192095e1-65e4-4169-ac16-5aafa3440450")
+		(uuid "554fac29-33f9-42e4-ad6d-32d27a0c4c73")
 	)
 	(wire
 		(pts
-			(xy 104.14 82.55) (xy 157.48 82.55)
+			(xy 148.59 114.3) (xy 173.99 114.3)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "19fd6c49-6f67-4b2c-996c-6e0d4269ea3e")
+		(uuid "56618c35-44a9-474c-9ac8-f1e93d0b0756")
 	)
 	(wire
 		(pts
-			(xy 157.48 82.55) (xy 157.48 97.79)
+			(xy 102.87 93.98) (xy 107.95 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1c758f8e-9857-4084-a265-8d21e425a3e0")
+		(uuid "5867b041-3949-415c-a360-49770f00e4d4")
 	)
 	(wire
 		(pts
-			(xy 95.25 100.33) (xy 104.14 100.33)
+			(xy 148.59 93.98) (xy 154.94 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2486c379-e8bc-457a-b415-f404b8953b4c")
+		(uuid "63ad0506-e9c5-4068-bb45-13888ead538c")
 	)
 	(wire
 		(pts
-			(xy 171.45 120.65) (xy 171.45 118.11)
+			(xy 184.15 81.28) (xy 184.15 83.82)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "367bac7f-d461-408a-8166-0c73fa005899")
+		(uuid "6dd42a2a-0a29-423a-9fb7-6660d35e886c")
 	)
 	(wire
 		(pts
-			(xy 104.14 95.25) (xy 104.14 82.55)
+			(xy 184.15 91.44) (xy 184.15 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5191f47e-97b1-4756-902f-96bdff19f1a7")
+		(uuid "74cc7ab4-ba61-4810-b5dc-580c0b95a7c6")
 	)
 	(wire
 		(pts
-			(xy 104.14 100.33) (xy 107.95 100.33)
+			(xy 107.95 99.06) (xy 102.87 99.06)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "637e402d-35bb-4163-9367-0709d74c0cde")
+		(uuid "78b393c2-10e4-4959-870c-3caf46715dae")
 	)
 	(wire
 		(pts
-			(xy 107.95 95.25) (xy 104.14 95.25)
+			(xy 102.87 99.06) (xy 102.87 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "67238b26-8d88-4848-829f-95efbc40fa23")
+		(uuid "84fdae8e-6b78-4f79-969d-2c8f7ea80543")
 	)
 	(wire
 		(pts
-			(xy 166.37 97.79) (xy 184.15 97.79)
+			(xy 148.59 114.3) (xy 148.59 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "76bf8129-5276-4ce5-929d-e33285968e13")
+		(uuid "8cd09310-cdba-4079-815f-44ac1f1f2bf5")
 	)
 	(wire
 		(pts
-			(xy 166.37 125.73) (xy 166.37 130.81)
+			(xy 168.91 93.98) (xy 173.99 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8447392d-df92-4c97-a86e-cdc98df149f4")
+		(uuid "8f2a2258-94bc-46fd-b1ee-a1dfa95e5a6f")
 	)
 	(wire
 		(pts
-			(xy 139.7 97.79) (xy 147.32 97.79)
+			(xy 173.99 104.14) (xy 173.99 106.68)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "93fd6874-693e-418a-8f15-d621a6525a5a")
+		(uuid "92a91c5c-4943-469a-84a8-4f0e2e1ab737")
 	)
 	(wire
 		(pts
-			(xy 139.7 125.73) (xy 166.37 125.73)
+			(xy 154.94 93.98) (xy 161.29 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "aba32fe6-4d8f-4b1a-beb7-52f34bcaa6cb")
+		(uuid "94369e6f-08c5-408d-a46c-1a44d4aff6d8")
 	)
 	(wire
 		(pts
-			(xy 130.81 100.33) (xy 139.7 100.33)
+			(xy 173.99 114.3) (xy 184.15 114.3)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ac5db36e-ddd9-4195-97ef-69a4bdd2dad5")
+		(uuid "9fd186c6-556d-4eed-b59a-3648d7ec0c3c")
 	)
 	(wire
 		(pts
-			(xy 161.29 107.95) (xy 166.37 107.95)
+			(xy 173.99 93.98) (xy 173.99 96.52)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ad5adf3a-d826-4150-92ca-ef432f734e16")
+		(uuid "b38883c8-061a-4b49-983a-9ca47bdf44bf")
 	)
 	(wire
 		(pts
-			(xy 83.82 100.33) (xy 95.25 100.33)
+			(xy 148.59 101.6) (xy 154.94 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b11f7cf1-6fb0-493e-856c-c57d1e94a4d0")
+		(uuid "c23bb87d-23cf-474c-9487-4fe3ac9e728a")
 	)
 	(wire
 		(pts
-			(xy 95.25 100.33) (xy 95.25 109.22)
+			(xy 184.15 93.98) (xy 184.15 97.79)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b1a79b6f-96f0-4baf-aad0-af4a3fcfa101")
+		(uuid "d891a996-02e3-4151-aa55-ffe0f6e53396")
 	)
 	(wire
 		(pts
-			(xy 139.7 95.25) (xy 139.7 97.79)
+			(xy 173.99 93.98) (xy 184.15 93.98)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b2cddce7-4ab9-4a8c-8a6e-66481f0c1794")
+		(uuid "ec1edf91-edac-4f5f-9d8e-702a38a27ed9")
 	)
 	(wire
 		(pts
-			(xy 166.37 120.65) (xy 166.37 125.73)
+			(xy 184.15 105.41) (xy 184.15 120.65)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b672d63b-d71e-4ee9-acc0-4ff40ca07e0c")
-	)
-	(wire
-		(pts
-			(xy 139.7 100.33) (xy 139.7 125.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b6f3762f-fd86-451b-ade3-530e38628bba")
-	)
-	(wire
-		(pts
-			(xy 161.29 110.49) (xy 161.29 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c7f2ef86-c63f-4a24-b70b-ac8178f36cdc")
-	)
-	(wire
-		(pts
-			(xy 130.81 95.25) (xy 139.7 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c8c6a1e4-1ae7-4973-ad3f-36147733dcca")
-	)
-	(wire
-		(pts
-			(xy 157.48 97.79) (xy 166.37 97.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c9c2dd7e-6508-40fc-89c0-527c243c90cd")
-	)
-	(wire
-		(pts
-			(xy 161.29 118.11) (xy 161.29 120.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cb9ed669-336c-4121-914d-58999a72610e")
-	)
-	(wire
-		(pts
-			(xy 166.37 97.79) (xy 166.37 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dd0037e2-af8f-4797-9e7f-ca55e3bc2003")
-	)
-	(wire
-		(pts
-			(xy 166.37 107.95) (xy 171.45 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e17634e4-e6b8-49a6-ab33-2f42f96d8255")
-	)
-	(wire
-		(pts
-			(xy 166.37 120.65) (xy 171.45 120.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e433257b-c8d6-46be-95bb-a0d7ec3da088")
-	)
-	(wire
-		(pts
-			(xy 130.81 97.79) (xy 139.7 97.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f32d35b9-382f-4110-b8a8-e3b95d7a0ec3")
-	)
-	(wire
-		(pts
-			(xy 154.94 97.79) (xy 157.48 97.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f65ee016-d7f5-470a-9298-6c98cf77d88a")
-	)
-	(wire
-		(pts
-			(xy 95.25 116.84) (xy 95.25 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f84f1f68-cf9a-4bd6-b041-27944ba11b8d")
-	)
-	(hierarchical_label "+12V"
-		(shape input)
-		(at 83.82 100.33 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "24ba1cb9-fae1-4e58-87ca-189f6493f240")
-	)
-	(hierarchical_label "+3.3V"
-		(shape output)
-		(at 184.15 97.79 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "86243bc6-d813-442b-8541-e8dfd6babaa7")
+		(uuid "f2e73190-7b7d-4c9c-8bbc-714b6014d0c1")
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 166.37 130.81 0)
-		(mirror y)
+		(lib_id "power:+12V")
+		(at 97.79 90.17 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1288,9 +2087,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "1f5eafb1-b22e-456e-be22-c6c4f3bdd098")
+		(uuid "21e4b003-c0fa-491a-aec6-228ffb3a135b")
 		(property "Reference" "#PWR?"
-			(at 166.37 137.16 0)
+			(at 97.79 93.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1300,8 +2099,8 @@
 				)
 			)
 		)
-		(property "Value" "GND"
-			(at 166.37 135.89 0)
+		(property "Value" "+12V"
+			(at 97.79 85.09 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1311,7 +2110,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 166.37 130.81 0)
+			(at 97.79 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1322,7 +2121,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 166.37 130.81 0)
+			(at 97.79 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1332,8 +2131,8 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 166.37 130.81 0)
+		(property "Description" "Power symbol creates a global label with name \"+12V\""
+			(at 97.79 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1344,15 +2143,9 @@
 			)
 		)
 		(pin "1"
-			(uuid "dadd8853-978e-4774-bbce-d7892fae5af9")
+			(uuid "2f0945c0-eaad-4a2e-a3d6-27113c7011af")
 		)
 		(instances
-			(project "buck_3v"
-				(path "/61f6c21a-fc63-4c75-85c4-c30c665f98cf"
-					(reference "#PWR?")
-					(unit 1)
-				)
-			)
 			(project "motherboard-pcie"
 				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/29ed4ee0-4b72-45e6-98b2-d290c5992829"
 					(reference "#PWR?")
@@ -1362,8 +2155,8 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:C_10uF_0-20V_0603")
-		(at 95.25 113.03 0)
+		(lib_id "OEM:L_3.3uH_5A_21m_SMD")
+		(at 165.1 93.98 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1372,9 +2165,178 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "9e6976d7-a09a-4224-87e3-d3855d96698e")
-		(property "Reference" "C8"
-			(at 99.06 111.76 0)
+		(uuid "391d4685-83e4-495d-97bc-420ccb474912")
+		(property "Reference" "L901"
+			(at 165.1 88.9 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "L_3.3uH"
+			(at 165.1 91.44 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:SRN6045TA330M (L_3.3uH_5A_21m_SMD - SRN6045TA-3R3Y)"
+			(at 165.1 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/40/1/srn6045ta.pdf"
+			(at 165.1 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FIXED IND 3.3UH 5A 21 MOHM SMD"
+			(at 165.1 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "SRN6045TA-3R3Y"
+			(at 165.1 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "a989bcdd-2095-4c73-aa45-bffbc3da24e3")
+		)
+		(pin "1"
+			(uuid "95d1f84b-09aa-4309-9eed-0ad7de2c885c")
+		)
+		(instances
+			(project "motherboard-pcie"
+				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/29ed4ee0-4b72-45e6-98b2-d290c5992829"
+					(reference "L901")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 97.79 120.65 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4d68cc36-0636-40aa-b923-2ec9b9a0ed93")
+		(property "Reference" "#PWR?"
+			(at 97.79 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 97.79 125.73 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 97.79 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 97.79 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 97.79 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a72f12fc-9368-48c0-bd10-46e51968ec9a")
+		)
+		(instances
+			(project "motherboard-pcie"
+				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/29ed4ee0-4b72-45e6-98b2-d290c5992829"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_22.1k_0.1W_0603")
+		(at 173.99 110.49 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5004a7b1-04a1-49ab-a950-24b623de21a9")
+		(property "Reference" "R902"
+			(at 176.53 109.22 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1384,8 +2346,272 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C_10uF"
-			(at 99.06 114.3 0)
+		(property "Value" "R_22.1k"
+			(at 176.53 111.76 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 172.212 110.49 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
+			(at 173.99 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES 23.7K OHM 1% 1/10W 0603"
+			(at 173.99 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RMCF0603FT23K7"
+			(at 173.99 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "be897823-dbe9-4c9c-aaa2-6b2a88b37175")
+		)
+		(pin "2"
+			(uuid "6c3a3885-3cc5-4b1b-b3ea-9f45ff46d077")
+		)
+		(instances
+			(project "motherboard-pcie"
+				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/29ed4ee0-4b72-45e6-98b2-d290c5992829"
+					(reference "R902")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 184.15 120.65 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "53f09895-9d89-4d38-94e2-a9e96e66546b")
+		(property "Reference" "#PWR?"
+			(at 184.15 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 184.15 125.73 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 184.15 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 184.15 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 184.15 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5819fb06-8fc8-4fd7-a6ed-2a1beffe4b10")
+		)
+		(instances
+			(project "motherboard-pcie"
+				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/29ed4ee0-4b72-45e6-98b2-d290c5992829"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:R_51k_0.1W_0603")
+		(at 173.99 100.33 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "65d0f8d7-67a4-4b37-ac58-3e615647806d")
+		(property "Reference" "R901"
+			(at 176.53 99.06 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_51k"
+			(at 176.53 101.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 172.212 100.33 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
+			(at 173.99 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES 49.9K OHM 1% 1/10W 0603"
+			(at 173.99 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RMCF0603FT49K9"
+			(at 173.99 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f595177a-0953-4de7-8eb9-f953a1c64f4c")
+		)
+		(pin "2"
+			(uuid "ae9b7015-b509-4c40-b1db-f27b788517a7")
+		)
+		(instances
+			(project "motherboard-pcie"
+				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/29ed4ee0-4b72-45e6-98b2-d290c5992829"
+					(reference "R901")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_0.1uF_0-20V_0603")
+		(at 154.94 97.79 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "71cf0dfa-bbd7-4ff2-9fd4-98e7bf72228c")
+		(property "Reference" "C902"
+			(at 158.75 96.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_0.1uF"
+			(at 158.75 99.06 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1396,7 +2622,100 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 96.2152 116.84 0)
+			(at 155.9052 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
+			(at 154.94 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
+			(at 154.94 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C0603C104Z4VACTU"
+			(at 154.94 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "001d5be2-964e-4011-a4f1-c9fdcda7df85")
+		)
+		(pin "1"
+			(uuid "78544df7-7b6d-4841-a7a5-e4f77e6d7b82")
+		)
+		(instances
+			(project "motherboard-pcie"
+				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/29ed4ee0-4b72-45e6-98b2-d290c5992829"
+					(reference "C902")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_10uF_0-20V_0603")
+		(at 184.15 101.6 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "80a01acd-7b51-4251-86c9-6873d585d511")
+		(property "Reference" "C903"
+			(at 187.96 100.33 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_10uF"
+			(at 187.96 102.87 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 185.1152 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1407,7 +2726,7 @@
 			)
 		)
 		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188D71A106KA73-01.pdf"
-			(at 95.25 113.03 0)
+			(at 184.15 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1418,7 +2737,7 @@
 			)
 		)
 		(property "Description" "CAP CER 10UF 10V X7T 0603"
-			(at 95.25 113.03 0)
+			(at 184.15 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1429,7 +2748,7 @@
 			)
 		)
 		(property "MPN" "GRM188D71A106KA73D"
-			(at 95.25 113.03 0)
+			(at 184.15 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1440,29 +2759,23 @@
 			)
 		)
 		(pin "1"
-			(uuid "0a131543-cfac-4f54-a674-c0dd0048d759")
+			(uuid "858008e0-2a5b-4024-b63f-99e808ce7ac3")
 		)
 		(pin "2"
-			(uuid "1412c7ef-23ca-424d-ba2a-3445c64110bb")
+			(uuid "451d4d06-d319-4f3d-a971-bc0a1247ffe9")
 		)
 		(instances
-			(project "buck_3v"
-				(path "/61f6c21a-fc63-4c75-85c4-c30c665f98cf"
-					(reference "C8")
-					(unit 1)
-				)
-			)
 			(project "motherboard-pcie"
 				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/29ed4ee0-4b72-45e6-98b2-d290c5992829"
-					(reference "C8")
+					(reference "C903")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "OEM:C_22uF_20-100V_1206")
-		(at 171.45 114.3 0)
+		(lib_id "OEM:F_1.5A_63V_1206")
+		(at 184.15 87.63 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1471,9 +2784,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "b1a58828-85c4-4f15-9daa-c983ff123201")
-		(property "Reference" "C6"
-			(at 175.26 113.03 0)
+		(uuid "8e27c1f2-647d-4dce-b552-cb9192f4fe0a")
+		(property "Reference" "F901"
+			(at 186.69 86.36 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1483,8 +2796,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C_22uF"
-			(at 175.26 115.57 0)
+		(property "Value" "F_1.5A_63V"
+			(at 186.69 88.9 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1494,8 +2807,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
-			(at 172.4152 118.11 0)
+		(property "Footprint" "Fuse:Fuse_1206_3216Metric"
+			(at 182.372 87.63 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1505,8 +2818,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
-			(at 171.45 114.3 0)
+		(property "Datasheet" "https://www.littelfuse.com/assetdocs/fuse-466-datasheet?assetguid=dbe9bcd7-6072-4adf-bf5b-d33e52a6b90f"
+			(at 184.15 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1516,8 +2829,8 @@
 				)
 			)
 		)
-		(property "Description" "CAP CER 22UF 25V X5R 1206"
-			(at 171.45 114.3 0)
+		(property "Description" "FUSE BRD MNT 1.5A 63VAC/VDC 1206"
+			(at 184.15 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1527,105 +2840,8 @@
 				)
 			)
 		)
-		(property "MPN" "CL31A226KAHNNNE"
-			(at 171.45 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "55fa8c50-73ab-40b7-98c6-a9fb1bf02487")
-		)
-		(pin "1"
-			(uuid "97e0b0de-e064-44ac-9083-0813cadd049c")
-		)
-		(instances
-			(project "buck_3v"
-				(path "/61f6c21a-fc63-4c75-85c4-c30c665f98cf"
-					(reference "C6")
-					(unit 1)
-				)
-			)
-			(project "motherboard-pcie"
-				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/29ed4ee0-4b72-45e6-98b2-d290c5992829"
-					(reference "C6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:L_3.9uH_2A_55m_SMD")
-		(at 151.13 97.79 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b4800fe7-36f5-476d-9846-ac51c7329147")
-		(property "Reference" "L1"
-			(at 151.13 92.71 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "L_3.9uH"
-			(at 151.13 95.25 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OEM:IND_BOURNS_SRR5018 (L_3.9uH_2A_55m_SMD)"
-			(at 151.13 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/40/1/SRR5018.pdf"
-			(at 151.13 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "FIXED IND 3.9UH 2A 55 MOHM SMD"
-			(at 151.13 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "SRR5018-3R9Y"
-			(at 151.13 97.79 0)
+		(property "MPN" "046601.5NR"
+			(at 184.15 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1636,30 +2852,115 @@
 			)
 		)
 		(pin "2"
-			(uuid "311a8b66-a594-4e27-bff0-2bd5b4a561b6")
+			(uuid "af53d3db-0b8a-42c4-bd4c-9219e1426b46")
 		)
 		(pin "1"
-			(uuid "49566335-f8de-474e-aabd-766233d30469")
+			(uuid "d18b5bab-f776-486c-b630-110d8a75c2c5")
 		)
 		(instances
-			(project "buck_3v"
-				(path "/61f6c21a-fc63-4c75-85c4-c30c665f98cf"
-					(reference "L1")
-					(unit 1)
-				)
-			)
 			(project "motherboard-pcie"
 				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/29ed4ee0-4b72-45e6-98b2-d290c5992829"
-					(reference "L1")
+					(reference "F901")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 95.25 123.19 0)
-		(mirror y)
+		(lib_id "OEM:C_2.2uF_20-100V_0603")
+		(at 97.79 97.79 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "accbb65c-7165-410f-8c1b-ed67efc4fa66")
+		(property "Reference" "C901"
+			(at 85.344 97.536 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_2.2uF"
+			(at 85.344 100.076 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 98.7552 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/76/1/GRM188R61E225KA12-04A.pdf"
+			(at 97.79 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 2.2UF 25V X5R 0603"
+			(at 97.79 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "GRM188R61E225KA12J"
+			(at 97.79 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "8b00e519-df16-4655-8c3a-3970c60951d4")
+		)
+		(pin "1"
+			(uuid "5802a67f-ea95-4618-8b22-8a16eaa4894c")
+		)
+		(instances
+			(project "motherboard-pcie"
+				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/29ed4ee0-4b72-45e6-98b2-d290c5992829"
+					(reference "C901")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 184.15 81.28 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1668,9 +2969,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "c14ec52c-3eea-4fea-85a7-94758ec0e71a")
+		(uuid "b6e45fc9-0ba6-407d-bdb8-3b846ee5c6d4")
 		(property "Reference" "#PWR?"
-			(at 95.25 129.54 0)
+			(at 184.15 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1680,8 +2981,8 @@
 				)
 			)
 		)
-		(property "Value" "GND"
-			(at 95.25 128.27 0)
+		(property "Value" "+3.3V"
+			(at 184.15 76.2 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1691,7 +2992,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 95.25 123.19 0)
+			(at 184.15 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1702,7 +3003,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 95.25 123.19 0)
+			(at 184.15 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1712,8 +3013,8 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 95.25 123.19 0)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 184.15 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1724,15 +3025,9 @@
 			)
 		)
 		(pin "1"
-			(uuid "aeda90a0-7b91-4dcb-8b9c-a001568a2473")
+			(uuid "70a7b404-37ab-4686-b192-09eae3fd2769")
 		)
 		(instances
-			(project "buck_3v"
-				(path "/61f6c21a-fc63-4c75-85c4-c30c665f98cf"
-					(reference "#PWR?")
-					(unit 1)
-				)
-			)
 			(project "motherboard-pcie"
 				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/29ed4ee0-4b72-45e6-98b2-d290c5992829"
 					(reference "#PWR?")
@@ -1742,8 +3037,8 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:U_3.3V-Buck-Conv_AP63203WU-7_TSOT23-6")
-		(at 119.38 97.79 0)
+		(lib_id "OEM:U_3.3V-Buck-Conv-1A-SOT23-6")
+		(at 128.27 101.6 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1752,9 +3047,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "d93c6241-8ea1-4fc5-9e80-23afb9fe3ba9")
-		(property "Reference" "U3"
-			(at 119.38 86.36 0)
+		(uuid "c551c91b-58d7-44b3-ac62-19ebf1dd0283")
+		(property "Reference" "U901"
+			(at 128.27 82.55 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1763,8 +3058,8 @@
 				)
 			)
 		)
-		(property "Value" "AP63203WU-7"
-			(at 119.38 90.17 0)
+		(property "Value" "U_3.3V-Buck-Conv-1A-SOT23-6"
+			(at 128.27 86.36 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1773,8 +3068,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
-			(at 119.38 97.79 0)
+		(property "Footprint" "DBV0006A-IPC_A"
+			(at 128.27 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1785,8 +3080,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP63200-AP63201-AP63203-AP63205.pdf"
-			(at 119.38 97.79 0)
+		(property "Datasheet" "https://www.ti.com/lit/gpn/lmr50410-q1"
+			(at 128.27 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1797,8 +3092,8 @@
 				)
 			)
 		)
-		(property "Description" "IC REG BUCK 3.3V 2A TSOT23-6"
-			(at 119.38 97.79 0)
+		(property "Description" ""
+			(at 128.27 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1807,145 +3102,29 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(property "MPN" "AP63203WU-7"
-			(at 119.38 97.79 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "847f5c3f-7f47-4d14-9db6-01831d7f95f4")
-		)
-		(pin "5"
-			(uuid "c9045fc8-ad90-47d1-8d5d-220f0a130b05")
-		)
-		(pin "1"
-			(uuid "9351ba5d-ceed-41b6-bba8-812b79b73662")
-		)
-		(pin "4"
-			(uuid "6cfdf9b8-97d7-4aa0-8efc-aeaf8212af65")
-		)
-		(pin "3"
-			(uuid "3e953028-63c6-4045-bd27-0d804d4986eb")
 		)
 		(pin "6"
-			(uuid "55a89cf1-7771-49a8-bb49-c536cf5e182e")
-		)
-		(instances
-			(project "buck_3v"
-				(path "/61f6c21a-fc63-4c75-85c4-c30c665f98cf"
-					(reference "U3")
-					(unit 1)
-				)
-			)
-			(project "motherboard-pcie"
-				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/29ed4ee0-4b72-45e6-98b2-d290c5992829"
-					(reference "U3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:C_22uF_20-100V_1206")
-		(at 161.29 114.3 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f1cd3835-6d19-4482-8d7a-34c0501ca99c")
-		(property "Reference" "C4"
-			(at 165.1 113.03 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "C_22uF"
-			(at 165.1 115.57 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
-			(at 162.2552 118.11 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
-			(at 161.29 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CAP CER 22UF 25V X5R 1206"
-			(at 161.29 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "CL31A226KAHNNNE"
-			(at 161.29 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "69f8d7c0-7669-4464-ba51-3e48da780ca2")
+			(uuid "8906a188-af7b-4a19-9e25-0bb2c5e08edb")
 		)
 		(pin "1"
-			(uuid "02c85319-a5fc-4049-a2a0-a987611e98e0")
+			(uuid "8439b9fb-64d7-4af4-ae8b-eb34b6bfb310")
+		)
+		(pin "5"
+			(uuid "e106af0d-52a0-4875-9afd-a1f972a76b4b")
+		)
+		(pin "4"
+			(uuid "13bafc0a-0e13-40ca-93cc-6cb21d60d933")
+		)
+		(pin "2"
+			(uuid "ff10da3b-9cca-4a5b-bbf6-ae3d4193b178")
+		)
+		(pin "3"
+			(uuid "71082b43-877a-4004-b7f1-51cf0a2d79e1")
 		)
 		(instances
-			(project "buck_3v"
-				(path "/61f6c21a-fc63-4c75-85c4-c30c665f98cf"
-					(reference "C4")
-					(unit 1)
-				)
-			)
 			(project "motherboard-pcie"
 				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb/29ed4ee0-4b72-45e6-98b2-d290c5992829"
-					(reference "C4")
+					(reference "U901")
 					(unit 1)
 				)
 			)

@@ -5804,16 +5804,6 @@
 	)
 	(wire
 		(pts
-			(xy 309.88 135.89) (xy 318.77 135.89)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2e7ea23e-ec1f-4edb-8583-6f16f136a4ab")
-	)
-	(wire
-		(pts
 			(xy 283.21 203.2) (xy 261.62 203.2)
 		)
 		(stroke
@@ -6067,6 +6057,16 @@
 	)
 	(wire
 		(pts
+			(xy 341.63 133.35) (xy 334.01 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "99a3a1bf-a176-44dc-9a37-89e102300b2b")
+	)
+	(wire
+		(pts
 			(xy 114.3 226.06) (xy 119.38 226.06)
 		)
 		(stroke
@@ -6315,16 +6315,6 @@
 	)
 	(wire
 		(pts
-			(xy 309.88 132.08) (xy 309.88 135.89)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d68c1b23-ee7c-4f9d-b36a-fbd6c1886eb5")
-	)
-	(wire
-		(pts
 			(xy 232.41 127) (xy 237.49 127)
 		)
 		(stroke
@@ -6440,7 +6430,17 @@
 	)
 	(wire
 		(pts
-			(xy 313.69 119.38) (xy 321.31 119.38)
+			(xy 341.63 129.54) (xy 341.63 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f0804493-a626-478c-a8c4-f9d63fd309ff")
+	)
+	(wire
+		(pts
+			(xy 313.69 120.65) (xy 321.31 120.65)
 		)
 		(stroke
 			(width 0)
@@ -6490,6 +6490,16 @@
 			(justify left bottom)
 		)
 		(uuid "03941cc5-ad6a-4003-884e-aeca1f80b27f")
+	)
+	(label "GND"
+		(at 334.01 130.81 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0781e033-b699-4539-9c40-b7ddaff583af")
 	)
 	(label "CAN-"
 		(at 180.34 123.19 180)
@@ -6551,6 +6561,16 @@
 		)
 		(uuid "1ad2aa91-32a9-4342-b6b7-0e853041f585")
 	)
+	(label "CAN-"
+		(at 318.77 130.81 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1b2259b2-e3c9-4365-8ed8-3da632191ed2")
+	)
 	(label "RTM_LIGHT-"
 		(at 180.34 83.82 180)
 		(effects
@@ -6602,6 +6622,16 @@
 			(justify left bottom)
 		)
 		(uuid "23b73df6-6a06-45aa-8261-8f3f5d4dd701")
+	)
+	(label "IMD_OUTPUT"
+		(at 318.77 133.35 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2749f200-a1b3-42f4-91f1-75d7fded4d2c")
 	)
 	(label "AIR-_WELD_DETECT"
 		(at 370.84 200.66 180)
@@ -6664,16 +6694,6 @@
 			(justify left bottom)
 		)
 		(uuid "3504a930-c2ed-465e-b858-ca0bf09bc74d")
-	)
-	(label "CAN-"
-		(at 318.77 130.81 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "356102e5-c012-4043-98bf-a3f93be8b79f")
 	)
 	(label "SHDN_SENSE_BMS"
 		(at 264.16 195.58 0)
@@ -6769,16 +6789,6 @@
 			(justify right bottom)
 		)
 		(uuid "67cbef87-c317-4e2c-b290-4b3b35689bb7")
-	)
-	(label "CAN+"
-		(at 318.77 133.35 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "684e39cd-aba6-4f41-bb4b-eddab7f257e6")
 	)
 	(label "CAN+"
 		(at 203.2 182.88 180)
@@ -7000,7 +7010,7 @@
 		(uuid "9f5415c2-59ce-4322-8203-275ec999dcf4")
 	)
 	(label "CAN-"
-		(at 313.69 111.76 180)
+		(at 313.69 110.49 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7008,16 +7018,6 @@
 			(justify right bottom)
 		)
 		(uuid "a70251d8-6b62-4f2c-81bf-dc8561221d9c")
-	)
-	(label "GND"
-		(at 334.01 133.35 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "aa7f95f7-de02-43d6-b520-4c149af541bd")
 	)
 	(label "GND"
 		(at 123.19 147.32 0)
@@ -7122,6 +7122,16 @@
 			(justify left bottom)
 		)
 		(uuid "c2cb13e4-7040-4368-9427-e80c711fc5dc")
+	)
+	(label "CAN+"
+		(at 318.77 135.89 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c548c33f-8d8f-4c30-9e30-594713bfde1f")
 	)
 	(label "AIR+_WELD_DETECT"
 		(at 320.04 200.66 0)
@@ -7240,18 +7250,8 @@
 		)
 		(uuid "dd394b82-0ea2-4835-b9af-935db28163b9")
 	)
-	(label "IMD_OUTPUT"
-		(at 334.01 130.81 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "df3e6300-602f-41e4-8116-a17e0af9acac")
-	)
 	(label "CAN+"
-		(at 313.69 119.38 180)
+		(at 313.69 120.65 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7341,6 +7341,83 @@
 			(justify left bottom)
 		)
 		(uuid "ffa8aea7-70f4-42a5-bb30-9121432e5146")
+	)
+	(symbol
+		(lib_id "power:+12V")
+		(at 341.63 129.54 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0533062c-4d12-441f-9cfd-36a10d11806b")
+		(property "Reference" "#PWR?"
+			(at 341.63 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+12V"
+			(at 341.63 125.984 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 341.63 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 341.63 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+12V\""
+			(at 341.63 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "dca0f8d4-115a-4f08-82fb-51a34fe2c4d1")
+		)
+		(instances
+			(project "motherboard-pcie"
+				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb"
+					(reference "#PWR?")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x05")
@@ -10356,7 +10433,7 @@
 		(dnp no)
 		(uuid "64fb1f56-f856-49bb-83e9-1e9a4ec5a6f6")
 		(property "Reference" "J2"
-			(at 332.74 123.19 0)
+			(at 321.31 123.19 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10366,8 +10443,8 @@
 				(justify left top)
 			)
 		)
-		(property "Value" "J_Molex_Header_02x03_VT"
-			(at 332.74 125.73 0)
+		(property "Value" "2X3"
+			(at 321.31 125.73 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12174,83 +12251,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+12V")
-		(at 309.88 132.08 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "b123a1c9-3400-462d-930c-81fa0a65d67d")
-		(property "Reference" "#PWR?"
-			(at 309.88 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+12V"
-			(at 309.88 128.524 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 309.88 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 309.88 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+12V\""
-			(at 309.88 132.08 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c9fe2fa5-7f93-4921-8f8e-61c496e34d08")
-		)
-		(instances
-			(project "motherboard-pcie"
-				(path "/8f26d479-2c33-489f-a4df-6bb31c904ceb"
-					(reference "#PWR?")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 134.62 179.07 0)
 		(unit 1)
@@ -12408,7 +12408,7 @@
 	)
 	(symbol
 		(lib_id "OEM:R_120_0.1W_0603")
-		(at 317.5 111.76 90)
+		(at 317.5 110.49 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12419,7 +12419,7 @@
 		(fields_autoplaced yes)
 		(uuid "b67df17f-d4c0-476b-a69e-75ccf73bc154")
 		(property "Reference" "R1"
-			(at 317.5 105.41 90)
+			(at 317.5 104.14 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12429,7 +12429,7 @@
 			)
 		)
 		(property "Value" "R_120"
-			(at 317.5 107.95 90)
+			(at 317.5 106.68 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12439,7 +12439,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 317.5 113.538 90)
+			(at 317.5 112.268 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12450,7 +12450,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/508/1/PYu-RC_Group_51_RoHS_L_12.pdf"
-			(at 317.5 111.76 0)
+			(at 317.5 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12461,7 +12461,7 @@
 			)
 		)
 		(property "Description" "RES 120 OHM 1% 1/10W 0603"
-			(at 317.5 111.76 0)
+			(at 317.5 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12472,7 +12472,7 @@
 			)
 		)
 		(property "MPN" "RC0603FR-13120RL"
-			(at 317.5 111.76 0)
+			(at 317.5 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

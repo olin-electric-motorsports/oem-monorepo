@@ -535,6 +535,28 @@
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "clearance": 0.2,
+        "name": "+12V",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.635,
+        "tuning_profile": "",
+        "via_diameter": 0.6,
+        "via_drill": 0.9
+      },
+      {
+        "clearance": 0.2,
+        "name": "+5V",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 1,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.4064,
+        "tuning_profile": "",
+        "via_diameter": 0.6,
+        "via_drill": 0.3
       }
     ],
     "meta": {
@@ -542,7 +564,16 @@
     },
     "net_colors": {},
     "netclass_assignments": {},
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "+5V",
+        "pattern": "+5V"
+      },
+      {
+        "netclass": "+12V",
+        "pattern": "+12V"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
@@ -755,7 +786,7 @@
         "uuid": "8f26d479-2c33-489f-a4df-6bb31c904ceb"
       }
     ],
-    "used_designators": "#PWR49,D707,J4,J6-9,J114,R5,TP1-8",
+    "used_designators": "#FLG1-4,#PWR1-52,C1-2,C604-605,D707,F1,J4,J6-9,J114,L1-2,L_602,R5-6,R603-604,TP1-8,U2,U4",
     "variants": []
   },
   "sheets": [

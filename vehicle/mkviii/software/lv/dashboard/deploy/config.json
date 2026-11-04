@@ -10,12 +10,12 @@
     "post_deploy_action": "reboot",
     "deploy": [
         {
-            "local_path": "../dashboard.py",
-            "remote_path": "/home/lv-display/dashboard.py"
-        },
-        {
             "local_path": "../mkvi.dbc",
             "remote_path": "/home/lv-display/mkvi.dbc"
+        },
+        {
+            "local_path": "../dashboard_display",
+            "remote_path": "/home/lv-display/dashboard_display"
         }
     ]
 }

@@ -1,15 +1,5 @@
-load("@rules_python//python:defs.bzl", "py_binary")
-
-# Runs on the dashboard Raspberry Pi, not the laptop. It needs RPi.GPIO,
-# python-can and cantools installed on the Pi.
-py_binary(
-    name = "dashboard",
-    srcs = [
-        "dashboard.py",
-    ],
-    main = "dashboard.py",
-    visibility = ["//visibility:public"],
-)
+# dashboard.c is compiled on the Pi (pre_run_command in pi/startup_config.json),
+# not by Bazel: it needs LVGL and libgpiod, which aren't in the repo yet.
 
 exports_files([
     "dashboard.yml",

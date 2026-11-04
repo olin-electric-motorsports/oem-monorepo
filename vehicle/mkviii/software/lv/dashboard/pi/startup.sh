@@ -111,7 +111,8 @@ claim_pending() {
 }
 
 # apply_pending DIR: install a deploy/rollback claimed by claim_pending and
-# make its manifest the Pi's. Sets SOURCE/DETAIL for the snapshot. If it's
+# make its manifest the Pi's. Sets SOURCE/DETAIL/TIME for the snapshot (TIME:
+# when it was staged, by the laptop's clock for a deploy). If it's
 # unusable it's discarded and SOURCE stays empty, so the boot syncs with GitHub
 # instead.
 apply_pending() {
@@ -125,7 +126,7 @@ apply_pending() {
   fi
   mapfile -t info < <(jq -r '.source // "deploy", .detail // "deploy", .time // ""' \
     "$dir/deploy-info.json" 2>/dev/null)
-  SOURCE=${info[0]:-deploy} DETAIL=${info[1]:-deploy}
+  SOURCE=${info[0]:-deploy} DETAIL=${info[1]:-deploy} TIME=${info[2]-}
   case $SOURCE in deploy | rollback) ;; *) SOURCE=deploy ;; esac
   log "Applying the pending $SOURCE: $DETAIL${info[2]:+ (staged ${info[2]})}"
 
@@ -268,8 +269,10 @@ github_sync() {
   # Save what's installed before overwriting it, so edits made by hand on the
   # Pi can be rolled back to. Usually it's already a version (a cache hit,
   # well under a second); only runs when GitHub changes something.
+  # The dashboard waits for this one, so a new version waits at most 5 s
+  # for the clock to sync before it's named.
   if [ "${#changed[@]}" -gt 0 ] && [ -f "$STARTUP_DIR/versions.sh" ]; then
-    tagged versions "$BASH" "$STARTUP_DIR/versions.sh" snapshot --source local \
+    tagged versions "$BASH" "$STARTUP_DIR/versions.sh" snapshot --source local --clock-wait 5 \
       --detail "files on the Pi before syncing $BRANCH @ ${sha:0:7}" || true
   fi
 
@@ -293,9 +296,9 @@ github_sync() {
 }
 
 # prepare_files: apply a pending deploy or sync with GitHub. Writes the
-# snapshot's source and detail to $WORK/result.
+# snapshot's source, detail and time to $WORK/result.
 prepare_files() {
-  SOURCE="" DETAIL=""
+  SOURCE="" DETAIL="" TIME=""
   if ! command -v jq >/dev/null; then
     err "jq isn't installed (pi-setup.sh installs it); leaving any pending deploy for later and skipping the GitHub sync"
     return 0
@@ -310,7 +313,7 @@ prepare_files() {
       warn "No $MANIFEST yet, so there's nothing to sync. Run deploy/deploy.sh from the laptop once."
     fi
   fi
-  printf '%s\n%s\n' "$SOURCE" "${DETAIL//$'\n'/ }" >"$WORK/result"
+  printf '%s\n%s\n%s\n' "$SOURCE" "${DETAIL//$'\n'/ }" "${TIME//$'\n'/ }" >"$WORK/result"
 }
 
 # pre_run: run pre_run_command once, in dashboard_dir. Its output goes to the
@@ -373,10 +376,14 @@ main() {
 
   # Snapshot what's installed, also when nothing came in (that records hand
   # edits on the Pi; otherwise it's a cache hit). In the background: storing a
-  # new version can take a few seconds and the dashboard shouldn't wait.
+  # new version can take a few seconds and the dashboard shouldn't wait. A new
+  # version is named after its date and time: a deploy's or rollback's is when
+  # it was staged; any other waits up to 30 s for the clock to sync first.
   if [ -f "$MANIFEST" ]; then
     if [ -f "$STARTUP_DIR/versions.sh" ]; then
-      tagged versions "$BASH" "$STARTUP_DIR/versions.sh" snapshot \
+      local -a when=(--clock-wait 30)
+      [ -z "${result[2]-}" ] || when=(--time "${result[2]}")
+      tagged versions "$BASH" "$STARTUP_DIR/versions.sh" snapshot "${when[@]}" \
         --source "${result[0]:-local}" --detail "${result[1]:-files on the Pi (boot sync failed)}" &
     else
       warn "No $STARTUP_DIR/versions.sh; not recording this boot's files as a version"

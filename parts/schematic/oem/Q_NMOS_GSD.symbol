@@ -6,8 +6,12 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
+	(in_pos_files yes)
+	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "Q"
 		(at 5.08 1.905 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17,6 +21,8 @@
 	)
 	(property "Value" "Q_NMOS_GSD"
 		(at 5.08 0 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -26,38 +32,46 @@
 	)
 	(property "Footprint" ""
 		(at 5.08 2.54 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
-	(property "Datasheet" "~"
+	(property "Datasheet" ""
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "Description" "N-MOSFET transistor, gate/source/drain"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_keywords" "transistor NMOS N-MOS N-MOSFET"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(symbol "Q_NMOS_GSD_0_1"
@@ -247,24 +261,6 @@
 			)
 		)
 		(pin passive line
-			(at 2.54 5.08 270)
-			(length 2.54)
-			(name "D"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "3"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
 			(at 2.54 -5.08 90)
 			(length 2.54)
 			(name "S"
@@ -275,6 +271,24 @@
 				)
 			)
 			(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at 2.54 5.08 270)
+			(length 2.54)
+			(name "D"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "3"
 				(effects
 					(font
 						(size 1.27 1.27)

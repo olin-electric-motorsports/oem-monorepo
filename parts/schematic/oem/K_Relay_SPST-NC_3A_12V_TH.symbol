@@ -2,8 +2,12 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
+	(in_pos_files yes)
+	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "K"
 		(at 11.43 3.81 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -13,6 +17,8 @@
 	)
 	(property "Value" "K_3A_12V"
 		(at 11.43 1.27 0)
+		(show_name no)
+		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -22,57 +28,69 @@
 	)
 	(property "Footprint" "OEM:K_Relay_SPST-NC_3A_12V_TH (3350-4275-126)"
 		(at 11.43 -1.27 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
-			(hide yes)
 		)
 	)
 	(property "Datasheet" "https://comus-intl.com/wp-content/uploads/2017/01/High-Voltage-Reed-Relays.pdf"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "Description" "RELAY REED HV SPST-NC 200W 3A 12"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "MPN" "3350-4275-126"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_keywords" "1P1T 1-Form-B single pole throw NC"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(property "ki_fp_filters" "Relay?SPST*"
 		(at 0 0 0)
+		(show_name no)
+		(do_not_autoplace no)
+		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(hide yes)
 		)
 	)
 	(symbol "K_Relay_SPST-NC_3A_12V_TH_0_1"
@@ -241,16 +259,16 @@
 			)
 		)
 		(pin passive line
-			(at -5.08 7.62 270)
+			(at 5.08 -7.62 90)
 			(length 2.54)
-			(name "~"
+			(name ""
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(number "3"
+			(number "1"
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -261,7 +279,7 @@
 		(pin passive line
 			(at -5.08 -7.62 90)
 			(length 2.54)
-			(name "~"
+			(name ""
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -269,6 +287,24 @@
 				)
 			)
 			(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at -5.08 7.62 270)
+			(length 2.54)
+			(name ""
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "3"
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -287,24 +323,6 @@
 				)
 			)
 			(number "4"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
-			(at 5.08 -7.62 90)
-			(length 2.54)
-			(name "~"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "1"
 				(effects
 					(font
 						(size 1.27 1.27)

@@ -1,0 +1,28 @@
+{
+    "pi": {
+        "mac": "e4:5f:01:85:7d:1c",
+        "user": "lv-display",
+        "port": 22,
+        "ssh_key": null,
+        "connect_timeout_s": 10,
+        "discovery_timeout_s": 10
+    },
+    "post_deploy_action": "reboot",
+    "deploy": [
+        {
+<<<<<<< HEAD
+=======
+            "local_path": "../dashboard.c",
+            "remote_path": "/home/lv-display/dashboard.c"
+        },
+        {
+>>>>>>> 626d5e8a62b92349f0e08ff084c11edffd34a06f
+            "local_path": "../mkvi.dbc",
+            "remote_path": "/home/lv-display/mkvi.dbc"
+        },
+        {
+            "local_path": "../dashboard_display",
+            "remote_path": "/home/lv-display/dashboard_display"
+        }
+    ]
+}

@@ -904,157 +904,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:R_499_0.1W_0603"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R"
-				(at 2.032 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "R_499"
-				(at 0 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-				(at -1.778 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.yageogroup.com/browse/products?search=PYu-RC_Group_51_RoHS_L_12.pdf"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "RES 499 OHM 1% 1/10W 0603"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "MPN" "RC0603FR-10499RL"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "R res resistor"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "R_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "R_499_0.1W_0603_0_1"
-				(rectangle
-					(start -1.016 -2.54)
-					(end 1.016 2.54)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "R_499_0.1W_0603_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "OEM:R_60.4_0.1W_0603"
 			(pin_numbers
 				(hide yes)
@@ -1710,12 +1559,6 @@
 		(uuid "a7ba21a2-e820-4178-ac86-5be8fd27556f")
 	)
 	(junction
-		(at 83.82 91.44)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ba81fccf-923e-415d-a648-f9a92ece596c")
-	)
-	(junction
 		(at 177.8 88.9)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1817,7 +1660,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 91.44) (xy 105.41 91.44)
+			(xy 85.09 91.44) (xy 105.41 91.44)
 		)
 		(stroke
 			(width 0)
@@ -1834,16 +1677,6 @@
 			(type default)
 		)
 		(uuid "61fc12db-a2b1-4f59-8215-d6499d85e78d")
-	)
-	(wire
-		(pts
-			(xy 83.82 91.44) (xy 83.82 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "758d755a-86c7-4d14-9881-14bd6e347e19")
 	)
 	(wire
 		(pts
@@ -1977,7 +1810,7 @@
 	)
 	(hierarchical_label "3V3_buck_vin"
 		(shape input)
-		(at 69.85 91.44 180)
+		(at 85.09 91.44 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2163,84 +1996,6 @@
 			(project "lv_pdu"
 				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/303eea3f-87b3-408e-8ac0-e44bb894ea83"
 					(reference "C20")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 83.82 110.49 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "24614675-0b92-4cf5-9587-f2c12a2fdcef")
-		(property "Reference" "#PWR060"
-			(at 83.82 116.84 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 83.82 115.57 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_LCC:PLCC-84_29.3x29.3mm_P1.27mm"
-			(at 83.82 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 83.82 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 83.82 110.49 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "426f3bd6-31fb-4921-a8d4-8a0aa1abcce2")
-		)
-		(instances
-			(project "lv_pdu"
-				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/303eea3f-87b3-408e-8ac0-e44bb894ea83"
-					(reference "#PWR060")
 					(unit 1)
 				)
 			)
@@ -2887,99 +2642,6 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_499_0.1W_0603")
-		(at 83.82 99.06 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8142facb-67ac-4836-9a90-4905299e35c7")
-		(property "Reference" "R12"
-			(at 86.36 97.7899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "R_499"
-			(at 86.36 100.3299 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 82.042 99.06 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.yageogroup.com/browse/products?search=PYu-RC_Group_51_RoHS_L_12.pdf"
-			(at 83.82 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "RES 499 OHM 1% 1/10W 0603"
-			(at 83.82 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "RC0603FR-10499RL"
-			(at 83.82 99.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "8f6eb9fa-e73a-489c-a268-e56f086e8b2b")
-		)
-		(pin "1"
-			(uuid "841acc8f-fe93-4582-a590-f602f074f431")
-		)
-		(instances
-			(project "lv_pdu"
-				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/303eea3f-87b3-408e-8ac0-e44bb894ea83"
-					(reference "R12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 193.04 105.41 0)
 		(unit 1)
@@ -3052,110 +2714,6 @@
 			(project "lv_pdu"
 				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/303eea3f-87b3-408e-8ac0-e44bb894ea83"
 					(reference "#PWR058")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:D_LED_Green_0805")
-		(at 83.82 106.68 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ad5ca7fa-7d3c-46b0-98f9-58fc907fdb01")
-		(property "Reference" "D13"
-			(at 87.63 106.9974 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "Green_LED"
-			(at 87.63 109.5374 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Diode_SMD:D_0805_2012Metric"
-			(at 83.82 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/Lite-On-LTST-C170KGKT.pdf"
-			(at 83.82 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "LED GREEN CLEAR SMD"
-			(at 83.82 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 83.82 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "LTST-C170KGKT"
-			(at 83.82 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "ad704d74-3f46-4369-b8b9-a9bf605d913f")
-		)
-		(pin "1"
-			(uuid "ae920f59-3393-4b5d-913a-b01c20d7273f")
-		)
-		(instances
-			(project "lv_pdu"
-				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/303eea3f-87b3-408e-8ac0-e44bb894ea83"
-					(reference "D13")
 					(unit 1)
 				)
 			)

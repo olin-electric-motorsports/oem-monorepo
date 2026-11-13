@@ -5,12 +5,8 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
-	(in_pos_files yes)
-	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "L"
 		(at -5.08 27.94 0)
-		(show_name no)
-		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -20,8 +16,6 @@
 	)
 	(property "Value" "SM91501AL-E"
 		(at -5.08 25.4 0)
-		(show_name no)
-		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -31,59 +25,49 @@
 	)
 	(property "Footprint" "OEM:SOP200P1473X500-12N (L_BMS-isoSPI-Transformer_SM91501AL-E_SMD - SM91501ALE)"
 		(at -40.64 -11.43 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
+			(hide yes)
 		)
 	)
 	(property "Datasheet" "https://productfinder.pulseeng.com/doc_type/WEB301/doc_num/HM2112ZNL/doc_part/HM2112ZNL.pdf"
 		(at -44.45 -12.7 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
+			(hide yes)
 		)
 	)
 	(property "Description" "Telecom Transformer 1:1 0.45Ohm Prim. DCR 0.85Ohm Sec. DCR 12Term. Gull Wing SMD"
 		(at 0 0 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(hide yes)
 		)
 	)
 	(property "MPN" "SM91501AL-E"
 		(at 0 0 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(hide yes)
 		)
 	)
 	(property "ki_keywords" "transformer, isoSPI"
 		(at 0 0 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(hide yes)
 		)
 	)
 	(symbol "L_BMS-isoSPI-Transformer_SM91501AL-E_SMD_0_0"
@@ -196,7 +180,7 @@
 			)
 		)
 		(pin passive line
-			(at 13.97 -6.35 180)
+			(at 13.97 21.59 180)
 			(length 5.08)
 			(name ""
 				(effects
@@ -205,61 +189,7 @@
 					)
 				)
 			)
-			(number "7"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
-			(at 13.97 -1.27 180)
-			(length 5.08)
-			(name ""
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "8"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
-			(at 13.97 3.81 180)
-			(length 5.08)
-			(name ""
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "9"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
-			(at 13.97 11.43 180)
-			(length 5.08)
-			(name ""
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "10"
+			(number "12"
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -286,7 +216,7 @@
 			)
 		)
 		(pin passive line
-			(at 13.97 21.59 180)
+			(at 13.97 11.43 180)
 			(length 5.08)
 			(name ""
 				(effects
@@ -295,7 +225,61 @@
 					)
 				)
 			)
-			(number "12"
+			(number "10"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at 13.97 3.81 180)
+			(length 5.08)
+			(name ""
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "9"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at 13.97 -1.27 180)
+			(length 5.08)
+			(name ""
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "8"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at 13.97 -6.35 180)
+			(length 5.08)
+			(name ""
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "7"
 				(effects
 					(font
 						(size 1.27 1.27)

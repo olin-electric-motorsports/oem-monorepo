@@ -1,0 +1,222 @@
+(footprint "Fuse_Blade_Holder"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Fuse blade holder, 30A, 500V")
+	(tags "Fuse blade holder")
+	(property "Reference" "REF**"
+		(at -6.985 -4.445 0)
+		(layer "F.SilkS")
+		(uuid "f70ce3a9-7acd-4124-aa32-f8c7c79430fb")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Fuse_Blade_Holder"
+		(at -3.175 4.445 0)
+		(layer "F.Fab")
+		(uuid "5010b627-aa42-421a-9ccd-42f60697e788")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "0a19ae2a-3d3b-402b-83ef-9bf55102af0c")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d598b8e4-9de3-4c35-89f2-4417bafd8abc")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -9.905 -3.365)
+		(end -9.905 3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "ba895838-a837-4905-96db-7a6cb2d7f0fb")
+	)
+	(fp_line
+		(start -9.905 3.365)
+		(end 9.905 3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "69ddfc90-3250-40b5-badd-35c566302590")
+	)
+	(fp_line
+		(start 9.905 -3.365)
+		(end -9.905 -3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "393243c5-f59b-4325-b6ae-ddf421787a0b")
+	)
+	(fp_line
+		(start 9.905 3.365)
+		(end 9.905 -3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "084d4bb6-71c9-47bd-8234-9fafa22f1721")
+	)
+	(fp_line
+		(start -10.155 -3.615)
+		(end 10.155 -3.615)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "1c87e049-e7b4-4398-94a5-1b50fd0f7fa7")
+	)
+	(fp_line
+		(start -10.155 3.615)
+		(end -10.155 -3.615)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "4168da82-0610-4332-bfd4-9123947787b9")
+	)
+	(fp_line
+		(start 10.155 -3.615)
+		(end 10.155 3.615)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "0eb1ae5c-c0ba-493f-8d5f-59d4f8c43fe5")
+	)
+	(fp_line
+		(start 10.155 3.615)
+		(end -10.155 3.615)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "b0c355e6-aa1e-4a11-be43-50593edf83ca")
+	)
+	(fp_line
+		(start -9.905 -3.365)
+		(end -9.905 3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "4b9d3edf-ade7-45da-9522-dea839ced321")
+	)
+	(fp_line
+		(start -9.905 3.365)
+		(end 9.905 3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "5eb82341-4258-46cc-a40c-ce0fab9afd23")
+	)
+	(fp_line
+		(start 9.905 -3.365)
+		(end -9.905 -3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "9ffe5599-cfa1-4716-a84d-63bc7148bfa8")
+	)
+	(fp_line
+		(start 9.905 3.365)
+		(end 9.905 -3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "3011a262-f9cf-4eca-a58a-4ab653a26b43")
+	)
+	(pad "1_1" thru_hole circle
+		(at -6.735 -1.7)
+		(size 2.4 2.4)
+		(drill 1.6)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "af2a6789-c92c-4e9b-84fd-c7fbc7320d8f")
+	)
+	(pad "1_2" thru_hole circle
+		(at -6.735 1.7)
+		(size 2.4 2.4)
+		(drill 1.6)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "ff065b94-abda-4007-b982-1351674b2acd")
+	)
+	(pad "2_1" thru_hole circle
+		(at 6.735 -1.7)
+		(size 2.4 2.4)
+		(drill 1.6)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "8caaa9b5-f1b4-48c4-b610-81f6340f6a7b")
+	)
+	(pad "2_2" thru_hole circle
+		(at 6.735 1.7)
+		(size 2.4 2.4)
+		(drill 1.6)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "50d71477-7e7c-495c-88ff-ae07a611c8e1")
+	)
+	(embedded_fonts no)
+	(model "${OEM_DIR}/parts/3d models/3557-2.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

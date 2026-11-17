@@ -272,7 +272,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:R_1K"
+		(symbol "OEM:R_330_0.1W_0603"
 			(pin_numbers
 				(hide yes)
 			)
@@ -294,7 +294,7 @@
 					)
 				)
 			)
-			(property "Value" "R_1K"
+			(property "Value" "R_330"
 				(at 0 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -304,7 +304,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:R_0603"
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 				(at -1.778 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -315,7 +315,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -326,7 +326,7 @@
 					)
 				)
 			)
-			(property "Description" "Resistor 1K ohm 0603 1/10W 1%"
+			(property "Description" "RES 330 OHM 1% 1/10W 0603"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -337,7 +337,7 @@
 					)
 				)
 			)
-			(property "MPN" "RMCF0603FT1K00"
+			(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -348,73 +348,7 @@
 					)
 				)
 			)
-			(property "DKPN" "RMCF0603FT1K00TR-ND"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "MFN" "Stackpole Electronics"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "NewDesigns" "YES"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Stocked" "Reel"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Package" "0603"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Style" "SMD"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "R res resistor "
+			(property "ki_keywords" "R res resistor"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -436,7 +370,7 @@
 					)
 				)
 			)
-			(symbol "R_1K_0_1"
+			(symbol "R_330_0.1W_0603_0_1"
 				(rectangle
 					(start -1.016 -2.54)
 					(end 1.016 2.54)
@@ -449,7 +383,7 @@
 					)
 				)
 			)
-			(symbol "R_1K_1_1"
+			(symbol "R_330_0.1W_0603_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 1.27)
@@ -1492,7 +1426,7 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_1K")
+		(lib_id "OEM:R_330_0.1W_0603")
 		(at 62.23 74.93 90)
 		(unit 1)
 		(body_style 1)
@@ -1523,7 +1457,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 62.23 76.708 90)
 			(hide yes)
 			(show_name no)
@@ -1534,7 +1468,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
 			(at 62.23 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -1545,7 +1479,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor 1K ohm 0603 1/10W 1%"
+		(property "Description" "RES 330 OHM 1% 1/10W 0603"
 			(at 62.23 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -1556,7 +1490,7 @@
 				)
 			)
 		)
-		(property "MPN" "RMCF0603FT1K00"
+		(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
 			(at 62.23 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -1649,7 +1583,7 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_1K")
+		(lib_id "OEM:R_330_0.1W_0603")
 		(at 62.23 113.03 90)
 		(unit 1)
 		(body_style 1)
@@ -1680,7 +1614,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 62.23 114.808 90)
 			(hide yes)
 			(show_name no)
@@ -1691,7 +1625,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
 			(at 62.23 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -1702,7 +1636,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor 1K ohm 0603 1/10W 1%"
+		(property "Description" "RES 330 OHM 1% 1/10W 0603"
 			(at 62.23 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -1713,7 +1647,7 @@
 				)
 			)
 		)
-		(property "MPN" "RMCF0603FT1K00"
+		(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
 			(at 62.23 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -2594,7 +2528,7 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_1K")
+		(lib_id "OEM:R_330_0.1W_0603")
 		(at 138.43 38.1 90)
 		(unit 1)
 		(body_style 1)
@@ -2625,7 +2559,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 138.43 39.878 90)
 			(hide yes)
 			(show_name no)
@@ -2636,7 +2570,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
 			(at 138.43 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -2647,7 +2581,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor 1K ohm 0603 1/10W 1%"
+		(property "Description" "RES 330 OHM 1% 1/10W 0603"
 			(at 138.43 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -2658,7 +2592,7 @@
 				)
 			)
 		)
-		(property "MPN" "RMCF0603FT1K00"
+		(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
 			(at 138.43 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -2909,7 +2843,7 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_1K")
+		(lib_id "OEM:R_330_0.1W_0603")
 		(at 62.23 49.53 90)
 		(unit 1)
 		(body_style 1)
@@ -2940,7 +2874,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 62.23 51.308 90)
 			(hide yes)
 			(show_name no)
@@ -2951,7 +2885,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
 			(at 62.23 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -2962,7 +2896,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor 1K ohm 0603 1/10W 1%"
+		(property "Description" "RES 330 OHM 1% 1/10W 0603"
 			(at 62.23 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -2973,7 +2907,7 @@
 				)
 			)
 		)
-		(property "MPN" "RMCF0603FT1K00"
+		(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
 			(at 62.23 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -3224,7 +3158,7 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_1K")
+		(lib_id "OEM:R_330_0.1W_0603")
 		(at 62.23 87.63 90)
 		(unit 1)
 		(body_style 1)
@@ -3255,7 +3189,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 62.23 89.408 90)
 			(hide yes)
 			(show_name no)
@@ -3266,7 +3200,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
 			(at 62.23 87.63 0)
 			(hide yes)
 			(show_name no)
@@ -3277,7 +3211,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor 1K ohm 0603 1/10W 1%"
+		(property "Description" "RES 330 OHM 1% 1/10W 0603"
 			(at 62.23 87.63 0)
 			(hide yes)
 			(show_name no)
@@ -3288,7 +3222,7 @@
 				)
 			)
 		)
-		(property "MPN" "RMCF0603FT1K00"
+		(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
 			(at 62.23 87.63 0)
 			(hide yes)
 			(show_name no)
@@ -3617,7 +3551,7 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_1K")
+		(lib_id "OEM:R_330_0.1W_0603")
 		(at 138.43 50.8 90)
 		(unit 1)
 		(body_style 1)
@@ -3648,7 +3582,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 138.43 52.578 90)
 			(hide yes)
 			(show_name no)
@@ -3659,7 +3593,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
 			(at 138.43 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -3670,7 +3604,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor 1K ohm 0603 1/10W 1%"
+		(property "Description" "RES 330 OHM 1% 1/10W 0603"
 			(at 138.43 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -3681,7 +3615,7 @@
 				)
 			)
 		)
-		(property "MPN" "RMCF0603FT1K00"
+		(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
 			(at 138.43 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -3774,7 +3708,7 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_1K")
+		(lib_id "OEM:R_330_0.1W_0603")
 		(at 62.23 100.33 90)
 		(unit 1)
 		(body_style 1)
@@ -3805,7 +3739,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 62.23 102.108 90)
 			(hide yes)
 			(show_name no)
@@ -3816,7 +3750,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
 			(at 62.23 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -3827,7 +3761,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor 1K ohm 0603 1/10W 1%"
+		(property "Description" "RES 330 OHM 1% 1/10W 0603"
 			(at 62.23 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -3838,7 +3772,7 @@
 				)
 			)
 		)
-		(property "MPN" "RMCF0603FT1K00"
+		(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
 			(at 62.23 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -4167,7 +4101,7 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_1K")
+		(lib_id "OEM:R_330_0.1W_0603")
 		(at 62.23 36.83 90)
 		(unit 1)
 		(body_style 1)
@@ -4198,7 +4132,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 62.23 38.608 90)
 			(hide yes)
 			(show_name no)
@@ -4209,7 +4143,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
 			(at 62.23 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -4220,7 +4154,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor 1K ohm 0603 1/10W 1%"
+		(property "Description" "RES 330 OHM 1% 1/10W 0603"
 			(at 62.23 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -4231,7 +4165,7 @@
 				)
 			)
 		)
-		(property "MPN" "RMCF0603FT1K00"
+		(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
 			(at 62.23 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -4324,7 +4258,7 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_1K")
+		(lib_id "OEM:R_330_0.1W_0603")
 		(at 138.43 63.5 90)
 		(unit 1)
 		(body_style 1)
@@ -4355,7 +4289,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 138.43 65.278 90)
 			(hide yes)
 			(show_name no)
@@ -4366,7 +4300,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
 			(at 138.43 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -4377,7 +4311,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor 1K ohm 0603 1/10W 1%"
+		(property "Description" "RES 330 OHM 1% 1/10W 0603"
 			(at 138.43 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -4388,7 +4322,7 @@
 				)
 			)
 		)
-		(property "MPN" "RMCF0603FT1K00"
+		(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
 			(at 138.43 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -4481,7 +4415,7 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_1K")
+		(lib_id "OEM:R_330_0.1W_0603")
 		(at 138.43 101.6 90)
 		(unit 1)
 		(body_style 1)
@@ -4512,7 +4446,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 138.43 103.378 90)
 			(hide yes)
 			(show_name no)
@@ -4523,7 +4457,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
 			(at 138.43 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -4534,7 +4468,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor 1K ohm 0603 1/10W 1%"
+		(property "Description" "RES 330 OHM 1% 1/10W 0603"
 			(at 138.43 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -4545,7 +4479,7 @@
 				)
 			)
 		)
-		(property "MPN" "RMCF0603FT1K00"
+		(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
 			(at 138.43 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -5346,7 +5280,7 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_1K")
+		(lib_id "OEM:R_330_0.1W_0603")
 		(at 62.23 62.23 90)
 		(unit 1)
 		(body_style 1)
@@ -5377,7 +5311,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 62.23 64.008 90)
 			(hide yes)
 			(show_name no)
@@ -5388,7 +5322,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
 			(at 62.23 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -5399,7 +5333,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor 1K ohm 0603 1/10W 1%"
+		(property "Description" "RES 330 OHM 1% 1/10W 0603"
 			(at 62.23 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -5410,7 +5344,7 @@
 				)
 			)
 		)
-		(property "MPN" "RMCF0603FT1K00"
+		(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
 			(at 62.23 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -5739,7 +5673,7 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_1K")
+		(lib_id "OEM:R_330_0.1W_0603")
 		(at 138.43 76.2 90)
 		(unit 1)
 		(body_style 1)
@@ -5770,7 +5704,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 138.43 77.978 90)
 			(hide yes)
 			(show_name no)
@@ -5781,7 +5715,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
 			(at 138.43 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -5792,7 +5726,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor 1K ohm 0603 1/10W 1%"
+		(property "Description" "RES 330 OHM 1% 1/10W 0603"
 			(at 138.43 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -5803,7 +5737,7 @@
 				)
 			)
 		)
-		(property "MPN" "RMCF0603FT1K00"
+		(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
 			(at 138.43 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -6208,7 +6142,7 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:R_1K")
+		(lib_id "OEM:R_330_0.1W_0603")
 		(at 138.43 88.9 90)
 		(unit 1)
 		(body_style 1)
@@ -6239,7 +6173,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 138.43 90.678 90)
 			(hide yes)
 			(show_name no)
@@ -6250,7 +6184,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "${OEM_DIR}/parts/datasheets/stackpole_RMCF_RMCP.pdf"
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf)"
 			(at 138.43 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -6261,7 +6195,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor 1K ohm 0603 1/10W 1%"
+		(property "Description" "RES 330 OHM 1% 1/10W 0603"
 			(at 138.43 88.9 0)
 			(hide yes)
 			(show_name no)
@@ -6272,7 +6206,7 @@
 				)
 			)
 		)
-		(property "MPN" "RMCF0603FT1K00"
+		(property "MPN" "RMCF0603FT330R (or WR06X3300FTL)"
 			(at 138.43 88.9 0)
 			(hide yes)
 			(show_name no)

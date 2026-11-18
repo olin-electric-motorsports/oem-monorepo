@@ -14,6 +14,7 @@ dbc_gen(
         "//vehicle/common/motor_controller:cm200dx.dbc",
         
         # "//vehicle/mkvii/software/air_control:air.yml",
+        "//vehicle/mkviii/software/hv/air_control:air.yml",
         # "//vehicle/mkvii/software/bms:bms.yml",
         
         # "//vehicle/mkviii/software/lv/bspd:bspd.yml",

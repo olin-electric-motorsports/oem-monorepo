@@ -40,8 +40,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 3.0,
-          "width": 4.5
+          "height": 0.95,
+          "width": 0.975
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -76,7 +76,16 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "copper_edge_clearance|144206563|58876783|ea8fb670-6f0a-4fdf-bc8f-88fd892ab632|a97b783a-2c0d-4c3d-b3ee-335f8d987741",
+          "Standoff mounting point for LV Motherboard, can be excluded"
+        ],
+        [
+          "copper_edge_clearance|146923936|58885040|ea8fb670-6f0a-4fdf-bc8f-88fd892ab632|9aad9132-64a6-42a6-882d-4539c8345c7d",
+          "Standoff mounting point for LV Motherboard, can be excluded"
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -677,7 +686,7 @@
         "uuid": "6be7b82b-a906-4000-b390-7e018e967367"
       }
     ],
-    "used_designators": "#PWR1-63,Y2,SYM1,Q2-5,R10,R16-21,U1-3,C1-8,TP6-8,J2",
+    "used_designators": "#PWR1-63,Y2,SYM1,Q2-5,R10,R16-21,U1-3,C1-8,TP6-8,J2,#SYM1",
     "variants": []
   },
   "sheets": [

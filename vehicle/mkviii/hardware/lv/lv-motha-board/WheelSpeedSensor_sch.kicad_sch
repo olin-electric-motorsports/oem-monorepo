@@ -8,6 +8,8 @@
 		(title "Wheel Speed Sensor")
 		(date "2026-10-15")
 		(rev "1")
+		(company "Olin Electric Motorsports")
+		(comment 1 "By Ian Sim")
 	)
 	(lib_symbols
 		(symbol "OEM:J_PCIe_x1"
@@ -36,7 +38,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:te_pcie_x1_connector"
+			(property "Footprint" "OEM:J_PCIe_x1"
 				(at 0 35.56 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -816,10 +818,6 @@
 		(uuid "5d98ae1c-4294-4b98-a44b-1836dfe0a015")
 	)
 	(no_connect
-		(at 128.27 76.2)
-		(uuid "61486e81-ec85-400f-bdbb-3ffa448f6299")
-	)
-	(no_connect
 		(at 163.83 73.66)
 		(uuid "6206f2b1-8fad-4b0d-bc5a-71d62ce9ecbb")
 	)
@@ -906,6 +904,17 @@
 		)
 		(uuid "109f1808-0981-43d7-a222-a2cefbf6d4b9")
 	)
+	(hierarchical_label "+3V3"
+		(shape input)
+		(at 128.27 76.2 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "21a6c4f7-1d63-4462-a774-249a29adb365")
+	)
 	(hierarchical_label "WS2_VOUT"
 		(shape output)
 		(at 163.83 76.2 0)
@@ -928,7 +937,7 @@
 		)
 		(uuid "7546b93b-e73a-4e64-9eaa-47f4af48b9e6")
 	)
-	(hierarchical_label "5V"
+	(hierarchical_label "+5V"
 		(shape input)
 		(at 128.27 78.74 180)
 		(effects
@@ -1004,7 +1013,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:te_pcie_x1_connector"
+		(property "Footprint" "OEM:J_PCIe_x1"
 			(at 146.05 62.23 0)
 			(hide yes)
 			(show_name no)

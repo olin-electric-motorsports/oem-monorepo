@@ -8,6 +8,8 @@
 		(title "Suspension Strain")
 		(date "2026-10-15")
 		(rev "1")
+		(company "Olin Electric Motorsports")
+		(comment 1 "By Ian Sim")
 	)
 	(lib_symbols
 		(symbol "OEM:J_PCIe_x1"
@@ -36,7 +38,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:te_pcie_x1_connector"
+			(property "Footprint" "OEM:J_PCIe_x1"
 				(at 0 35.56 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -796,10 +798,6 @@
 		(uuid "2fca4710-f12f-4247-8971-22c38dd600be")
 	)
 	(no_connect
-		(at 124.46 77.47)
-		(uuid "31d64d9a-7bc4-4259-a8b5-2a45a959555a")
-	)
-	(no_connect
 		(at 124.46 74.93)
 		(uuid "3b32468c-9981-4041-82a6-f01d62856b52")
 	)
@@ -866,6 +864,17 @@
 		)
 		(uuid "0cc0eb3c-76fd-4f11-9e85-04d738d188be")
 	)
+	(hierarchical_label "+3V3"
+		(shape input)
+		(at 124.46 77.47 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "18982d6d-4187-46ea-a46f-6459441484fe")
+	)
 	(hierarchical_label "GND"
 		(shape bidirectional)
 		(at 124.46 87.63 180)
@@ -877,7 +886,7 @@
 		)
 		(uuid "4286be3b-98a2-4e3d-a021-1c0a5f065142")
 	)
-	(hierarchical_label "EXCITATION-_(GND)_1"
+	(hierarchical_label "EXCITATION-_1"
 		(shape input)
 		(at 160.02 85.09 0)
 		(effects
@@ -888,7 +897,7 @@
 		)
 		(uuid "52e2416d-4403-46d4-8f91-43c41d2b167f")
 	)
-	(hierarchical_label "EXCITATION+_(5V)_1"
+	(hierarchical_label "EXCITATION+_1"
 		(shape input)
 		(at 160.02 82.55 0)
 		(effects
@@ -998,7 +1007,7 @@
 		)
 		(uuid "bcdaa448-9d20-4ffa-8b9e-a954088b4226")
 	)
-	(hierarchical_label "EXCITATION-_(GND)_2"
+	(hierarchical_label "EXCITATION-_2"
 		(shape input)
 		(at 160.02 100.33 0)
 		(effects
@@ -1009,7 +1018,7 @@
 		)
 		(uuid "c66bd514-84f3-4b33-bffc-436088ae9906")
 	)
-	(hierarchical_label "5V"
+	(hierarchical_label "+5V"
 		(shape input)
 		(at 124.46 80.01 180)
 		(effects
@@ -1031,7 +1040,7 @@
 		)
 		(uuid "f6175132-d674-4d40-9369-34be08a02ede")
 	)
-	(hierarchical_label "EXCITATION+_(5V)_2"
+	(hierarchical_label "EXCITATION+_2"
 		(shape input)
 		(at 160.02 97.79 0)
 		(effects
@@ -1074,7 +1083,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:te_pcie_x1_connector"
+		(property "Footprint" "OEM:J_PCIe_x1"
 			(at 142.24 63.5 0)
 			(hide yes)
 			(show_name no)

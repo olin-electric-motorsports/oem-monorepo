@@ -8,6 +8,8 @@
 		(title "Dashboard")
 		(date "2026-10-15")
 		(rev "1")
+		(company "Olin Electric Motorsports")
+		(comment 1 "By Ian Sim")
 	)
 	(lib_symbols
 		(symbol "OEM:J_PCIe_x1"
@@ -36,7 +38,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:te_pcie_x1_connector"
+			(property "Footprint" "OEM:J_PCIe_x1"
 				(at 0 35.56 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -780,28 +782,16 @@
 		)
 	)
 	(no_connect
-		(at 165.1 88.9)
-		(uuid "1582861a-a10e-4f6a-a00b-920ff1d1dd7c")
-	)
-	(no_connect
 		(at 129.54 96.52)
 		(uuid "1c5e776e-ec6c-4395-9157-023436b7d1f3")
-	)
-	(no_connect
-		(at 165.1 99.06)
-		(uuid "1f013ad4-0376-4c35-8d82-f71d91c362ba")
-	)
-	(no_connect
-		(at 165.1 96.52)
-		(uuid "26b20a41-d9f7-4f73-90fa-73c896664593")
 	)
 	(no_connect
 		(at 165.1 104.14)
 		(uuid "2a0043be-b6ad-42e4-a68f-e04bf65be1b9")
 	)
 	(no_connect
-		(at 129.54 73.66)
-		(uuid "541c757f-fc94-4fd1-82b4-c839d45e5e8a")
+		(at 165.1 71.12)
+		(uuid "41a48118-6599-4877-8102-e8ca059f7808")
 	)
 	(no_connect
 		(at 129.54 71.12)
@@ -832,10 +822,6 @@
 		(uuid "7c6c3ee9-9d8a-4fe0-810a-686cd2529651")
 	)
 	(no_connect
-		(at 165.1 93.98)
-		(uuid "849a6565-72e2-4d80-94d9-6e35cc3a5d78")
-	)
-	(no_connect
 		(at 129.54 119.38)
 		(uuid "8e78296d-1fab-4b6c-a9fc-fbaa7c8946cb")
 	)
@@ -844,12 +830,20 @@
 		(uuid "9f24fcde-0cf9-4add-b035-487a67e04c24")
 	)
 	(no_connect
+		(at 165.1 76.2)
+		(uuid "acff29f4-cfcd-488f-9db7-a8febdc6ce65")
+	)
+	(no_connect
 		(at 165.1 101.6)
 		(uuid "b2d8f165-dedd-41f7-82d2-ac65585ed0d2")
 	)
 	(no_connect
-		(at 165.1 91.44)
-		(uuid "e12d8db3-86d4-4d95-b705-a9defbc83020")
+		(at 165.1 121.92)
+		(uuid "c64c4020-2d15-4089-b6d7-f21921342186")
+	)
+	(no_connect
+		(at 165.1 78.74)
+		(uuid "e8bd2b6d-282a-431b-8d47-d675fdd706e2")
 	)
 	(no_connect
 		(at 129.54 93.98)
@@ -863,7 +857,11 @@
 		(at 165.1 119.38)
 		(uuid "f9482a9f-04d3-4dda-8d80-50cd6273a1c6")
 	)
-	(hierarchical_label "5V"
+	(no_connect
+		(at 165.1 116.84)
+		(uuid "ff92f728-1be7-4f98-9977-2aa8f40f042a")
+	)
+	(hierarchical_label "+5V"
 		(shape input)
 		(at 129.54 76.2 180)
 		(effects
@@ -887,7 +885,7 @@
 	)
 	(hierarchical_label "SS_ESTOP_DRIVER"
 		(shape input)
-		(at 165.1 76.2 0)
+		(at 165.1 93.98 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -898,7 +896,7 @@
 	)
 	(hierarchical_label "IMD_LED_LOW_SIDE"
 		(shape input)
-		(at 165.1 71.12 0)
+		(at 165.1 99.06 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -906,6 +904,17 @@
 			(justify left)
 		)
 		(uuid "3eff19ac-39dc-4b8b-a5d2-3024ac31cf34")
+	)
+	(hierarchical_label "+3V3"
+		(shape input)
+		(at 129.54 73.66 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4faf4349-d6c0-4314-80ab-9b04fd6597a0")
 	)
 	(hierarchical_label "CAN_+"
 		(shape bidirectional)
@@ -920,7 +929,7 @@
 	)
 	(hierarchical_label "SS_BOTS"
 		(shape input)
-		(at 165.1 78.74 0)
+		(at 165.1 81.28 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -931,7 +940,7 @@
 	)
 	(hierarchical_label "RTD_BUZZER_LOW_SIDE"
 		(shape input)
-		(at 165.1 73.66 0)
+		(at 165.1 83.82 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -964,7 +973,7 @@
 	)
 	(hierarchical_label "RTD_BUTTON_SENSE-"
 		(shape input)
-		(at 165.1 121.92 0)
+		(at 165.1 91.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -975,7 +984,7 @@
 	)
 	(hierarchical_label "RTD_BUTTON_LED+"
 		(shape output)
-		(at 165.1 116.84 0)
+		(at 165.1 96.52 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -986,7 +995,7 @@
 	)
 	(hierarchical_label "HV_LED_LOW_SIDE"
 		(shape input)
-		(at 165.1 81.28 0)
+		(at 165.1 88.9 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1019,7 +1028,7 @@
 	)
 	(hierarchical_label "AMS_LED_LOW_SIDE"
 		(shape input)
-		(at 165.1 83.82 0)
+		(at 165.1 73.66 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1060,7 +1069,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:te_pcie_x1_connector"
+		(property "Footprint" "OEM:J_PCIe_x1"
 			(at 147.32 59.69 0)
 			(hide yes)
 			(show_name no)

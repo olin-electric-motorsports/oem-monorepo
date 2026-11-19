@@ -8,6 +8,8 @@
 		(title "Angle Sensor")
 		(date "2026-10-15")
 		(rev "1")
+		(company "Olin Electric Motorsports")
+		(comment 1 "By Ian Sim")
 	)
 	(lib_symbols
 		(symbol "OEM:J_PCIe_x1"
@@ -36,7 +38,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:te_pcie_x1_connector"
+			(property "Footprint" "OEM:J_PCIe_x1"
 				(at 0 35.56 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -864,10 +866,6 @@
 		(uuid "d80ed7e1-6aa5-4182-8c58-2f3b5bc20ed7")
 	)
 	(no_connect
-		(at 124.46 71.12)
-		(uuid "e518d50f-f762-4eed-aa3f-77151cbebd9d")
-	)
-	(no_connect
 		(at 160.02 81.28)
 		(uuid "e8f6a0a7-36b7-4859-bace-6ee405d29e67")
 	)
@@ -950,6 +948,17 @@
 		)
 		(uuid "e5c93236-f6a3-46fe-be61-a07aef8210d3")
 	)
+	(hierarchical_label "+3V3"
+		(shape input)
+		(at 124.46 71.12 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e9801e43-ff5d-4b8a-99b1-6d1eb9dfde49")
+	)
 	(hierarchical_label "GND"
 		(shape bidirectional)
 		(at 124.46 81.28 180)
@@ -961,7 +970,7 @@
 		)
 		(uuid "ec1019c2-0e68-49e9-8e95-4bb63930c92c")
 	)
-	(hierarchical_label "5V"
+	(hierarchical_label "+5V"
 		(shape input)
 		(at 124.46 73.66 180)
 		(effects
@@ -1004,7 +1013,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:te_pcie_x1_connector"
+		(property "Footprint" "OEM:J_PCIe_x1"
 			(at 142.24 57.15 0)
 			(hide yes)
 			(show_name no)

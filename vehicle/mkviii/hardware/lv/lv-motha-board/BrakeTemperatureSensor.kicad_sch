@@ -8,6 +8,8 @@
 		(title "Brake Temperature Sensor")
 		(date "2026-10-15")
 		(rev "1")
+		(company "Olin Electric Motorsports")
+		(comment 1 "By Ian Sim")
 	)
 	(lib_symbols
 		(symbol "OEM:J_PCIe_x1"
@@ -36,7 +38,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:te_pcie_x1_connector"
+			(property "Footprint" "OEM:J_PCIe_x1"
 				(at 0 35.56 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -792,10 +794,6 @@
 		(uuid "1b15069d-3c1e-4ec7-a99f-f2f85b218c03")
 	)
 	(no_connect
-		(at 123.19 76.2)
-		(uuid "1ef518a1-bbad-4902-b55e-a58626f9d31e")
-	)
-	(no_connect
 		(at 158.75 111.76)
 		(uuid "2580bd83-c9cb-44b4-a651-189a14f787df")
 	)
@@ -921,6 +919,17 @@
 		)
 		(uuid "15bc4bc1-266a-431a-ae16-93ac9163e7b4")
 	)
+	(hierarchical_label "+3V3"
+		(shape input)
+		(at 123.19 76.2 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4458f312-b3a7-4377-b5ef-e4fc962f54c0")
+	)
 	(hierarchical_label "IR_OUTPUT"
 		(shape output)
 		(at 158.75 73.66 0)
@@ -932,7 +941,7 @@
 		)
 		(uuid "c5833df6-8255-4f76-8b6b-b7443f2e73b8")
 	)
-	(hierarchical_label "5V"
+	(hierarchical_label "+5V"
 		(shape input)
 		(at 123.19 78.74 180)
 		(effects
@@ -997,7 +1006,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:te_pcie_x1_connector"
+		(property "Footprint" "OEM:J_PCIe_x1"
 			(at 140.97 62.23 0)
 			(hide yes)
 			(show_name no)

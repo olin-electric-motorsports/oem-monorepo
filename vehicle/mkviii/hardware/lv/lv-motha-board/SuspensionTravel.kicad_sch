@@ -8,6 +8,8 @@
 		(title "Suspension Travel")
 		(date "2026-10-15")
 		(rev "1")
+		(company "Olin Electric Motorsports")
+		(comment 1 "By Ian Sim")
 	)
 	(lib_symbols
 		(symbol "OEM:J_PCIe_x1"
@@ -36,7 +38,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:te_pcie_x1_connector"
+			(property "Footprint" "OEM:J_PCIe_x1"
 				(at 0 35.56 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -880,10 +882,6 @@
 		(uuid "de434681-f34b-4fd2-996b-e7db37ddc2c8")
 	)
 	(no_connect
-		(at 118.11 73.66)
-		(uuid "e69b1fb0-ce53-482f-adc2-527adecd9a58")
-	)
-	(no_connect
 		(at 153.67 106.68)
 		(uuid "f7a29436-8bd3-41c5-8ee9-0beca53607e1")
 	)
@@ -909,7 +907,7 @@
 		)
 		(uuid "5347a787-af72-4839-bac5-121beec25bd3")
 	)
-	(hierarchical_label "5V"
+	(hierarchical_label "+5V"
 		(shape input)
 		(at 118.11 76.2 180)
 		(effects
@@ -930,6 +928,17 @@
 			(justify right)
 		)
 		(uuid "935c719c-a675-45c9-aaf8-44bfda40b38f")
+	)
+	(hierarchical_label "+3V3"
+		(shape input)
+		(at 118.11 73.66 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b403d828-6e4d-4875-ae12-70ca05916cfd")
 	)
 	(hierarchical_label "GND"
 		(shape bidirectional)
@@ -1018,7 +1027,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:te_pcie_x1_connector"
+		(property "Footprint" "OEM:J_PCIe_x1"
 			(at 135.89 59.69 0)
 			(hide yes)
 			(show_name no)

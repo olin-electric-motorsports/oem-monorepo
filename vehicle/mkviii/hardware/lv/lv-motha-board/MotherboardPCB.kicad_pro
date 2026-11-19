@@ -69,7 +69,13 @@
           "thermal_relief_spoke_width": 0.5
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -203,7 +209,11 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
+      "track_widths": [
+        0.0,
+        0.2032,
+        1.27
+      ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
           "corner_radius_percentage": 80,
@@ -230,7 +240,12 @@
           "spacing": 0.6
         }
       },
-      "via_dimensions": [],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
@@ -484,7 +499,9 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [],
+    "pinned_footprint_libs": [
+      "OEM"
+    ],
     "pinned_symbol_libs": [
       "Connector"
     ]
@@ -613,12 +630,108 @@
           "label": "Datasheet",
           "name": "Datasheet",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "EU_RoHS_Compliance",
+          "name": "EU_RoHS_Compliance",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MANUFACTURER",
+          "name": "MANUFACTURER",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MF",
+          "name": "MF",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MP",
+          "name": "MP",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MPN",
+          "name": "MPN",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "PARTREV",
+          "name": "PARTREV",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Package",
+          "name": "Package",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Price",
+          "name": "Price",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "STANDARD",
+          "name": "STANDARD",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Pins",
+          "name": "Sim.Pins",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "SnapEDA_Link",
+          "name": "SnapEDA_Link",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Comment",
+          "name": "Comment",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Description",
+          "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Check_prices",
+          "name": "Check_prices",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Availability",
+          "name": "Availability",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": true,
-      "name": "Default Editing",
+      "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
     },
@@ -651,7 +764,7 @@
     "meta": {
       "version": 1
     },
-    "page_layout_descr_file": "",
+    "page_layout_descr_file": "Buck Converter 3.3V",
     "plot_directory": "",
     "reuse_designators": true,
     "subpart_first_id": 65,
@@ -663,7 +776,7 @@
         "uuid": "f6d42832-5bc2-4f8b-aa9e-1d178fa8fa00"
       }
     ],
-    "used_designators": "#PWR1-2,U1-2,J1-2,J4-10,J12-13",
+    "used_designators": "J1-2,J4-10,J12-14,U1-2,#PWR1-4,#PWR8-15,TP1-6,R1-6,D2-7,C8-14,L2",
     "variants": []
   },
   "sheets": [
@@ -681,7 +794,7 @@
     ],
     [
       "4e57a2fd-e5fd-4086-a033-9276bb94d5ff",
-      "Buck Converter"
+      "Buck Converter 5V"
     ],
     [
       "5efaf233-18bd-4de5-a159-043ffd0b3c15",
@@ -706,6 +819,14 @@
     [
       "da689c4e-ef8f-4c41-ac0b-0073a2b88992",
       "Suspension Travel"
+    ],
+    [
+      "243e2037-e52c-4795-a6c9-063be4dbe23c",
+      "Buck Converter 3.3V"
+    ],
+    [
+      "d7bfba67-a9df-4f22-94bd-cb52a252222d",
+      "IMU"
     ]
   ],
   "text_variables": {},

@@ -8,6 +8,8 @@
 		(title "Tire Temperature Sensor")
 		(date "2026-10-15")
 		(rev "1")
+		(company "Olin Electric Motorsports")
+		(comment 1 "By Ian Sim")
 	)
 	(lib_symbols
 		(symbol "OEM:J_PCIe_x1"
@@ -36,7 +38,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:te_pcie_x1_connector"
+			(property "Footprint" "OEM:J_PCIe_x1"
 				(at 0 35.56 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -812,10 +814,6 @@
 		(uuid "3d096c8f-b48c-4dd2-9afc-c3f82e627b51")
 	)
 	(no_connect
-		(at 123.19 73.66)
-		(uuid "3e5dabb5-d5a7-49e6-872f-d78be5e1513f")
-	)
-	(no_connect
 		(at 158.75 119.38)
 		(uuid "444d5fd6-ce78-4b54-93da-313d55119c17")
 	)
@@ -917,7 +915,7 @@
 		)
 		(uuid "15ab6e53-3769-49ac-b5bc-77ad4fcd72c0")
 	)
-	(hierarchical_label "5V"
+	(hierarchical_label "+5V"
 		(shape input)
 		(at 123.19 76.2 180)
 		(effects
@@ -927,6 +925,17 @@
 			(justify right)
 		)
 		(uuid "2fbcf20c-affe-4aa1-90e4-8e5820734de2")
+	)
+	(hierarchical_label "+3V3"
+		(shape input)
+		(at 123.19 73.66 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3e5c6c00-7a17-4908-b3eb-9dbc55795598")
 	)
 	(hierarchical_label "IR_SENSOR_SCL"
 		(shape input)
@@ -1004,7 +1013,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:te_pcie_x1_connector"
+		(property "Footprint" "OEM:J_PCIe_x1"
 			(at 140.97 59.69 0)
 			(hide yes)
 			(show_name no)

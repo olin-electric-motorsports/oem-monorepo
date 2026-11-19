@@ -8,6 +8,8 @@
 		(title "VCU")
 		(date "2026-10-15")
 		(rev "1")
+		(company "Olin Electric Motorsports")
+		(comment 1 "By Ian Sim")
 	)
 	(lib_symbols
 		(symbol "OEM:J_PCIe_x1"
@@ -36,7 +38,7 @@
 					)
 				)
 			)
-			(property "Footprint" "OEM:te_pcie_x1_connector"
+			(property "Footprint" "OEM:J_PCIe_x1"
 				(at 0 35.56 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -823,10 +825,6 @@
 		(at 158.75 124.46)
 		(uuid "9ef4f44c-79d3-4ec5-8fef-051482e781c1")
 	)
-	(no_connect
-		(at 123.19 73.66)
-		(uuid "dc689b27-5c00-4ff3-8dcd-30be626d69aa")
-	)
 	(wire
 		(pts
 			(xy 121.92 119.38) (xy 121.92 120.65)
@@ -938,7 +936,7 @@
 		)
 		(uuid "09d53f52-c467-4d0c-8a3a-f24a0e23d60a")
 	)
-	(hierarchical_label "5V"
+	(hierarchical_label "+5V"
 		(shape input)
 		(at 123.19 76.2 180)
 		(effects
@@ -1092,6 +1090,17 @@
 		)
 		(uuid "a2fd8fed-62d4-455e-8082-0cb5a907e004")
 	)
+	(hierarchical_label "+3V3"
+		(shape input)
+		(at 123.19 73.66 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a444776e-a0f4-4fbc-9b31-5a9c5c9cb198")
+	)
 	(hierarchical_label "GND"
 		(shape bidirectional)
 		(at 158.75 81.28 0)
@@ -1234,7 +1243,7 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:te_pcie_x1_connector"
+		(property "Footprint" "OEM:J_PCIe_x1"
 			(at 140.97 59.69 0)
 			(hide yes)
 			(show_name no)

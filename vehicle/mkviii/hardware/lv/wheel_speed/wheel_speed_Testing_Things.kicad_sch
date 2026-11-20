@@ -1464,6 +1464,169 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "OEM:F_500mA_8V_1206"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "F"
+				(at 2.032 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "F_500mA_8V"
+				(at -1.905 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Fuse:Fuse_1206_3216Metric"
+				(at -1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/191/1/ds-cp-0zcj-series.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "PTC RESET FUSE 8V 500MA 1206"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "0ZCJ0050FF2G"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "fuse"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "*Fuse*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "F_500mA_8V_1206_0_1"
+				(rectangle
+					(start -0.762 -2.54)
+					(end 0.762 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "F_500mA_8V_1206_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OEM:J_PCIe_x1"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -4836,7 +4999,7 @@
 		)
 		(uuid "42d90654-5fc2-415a-a864-0eff889d668f")
 	)
-	(text "VDD Test Point"
+	(text "VDD Test Points"
 		(exclude_from_sim no)
 		(at 272.796 141.986 0)
 		(effects
@@ -4917,6 +5080,12 @@
 		(uuid "fbebe837-f344-4b3c-905f-5e9ad582e870")
 	)
 	(junction
+		(at 82.55 15.24)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "04494624-3887-4103-9baf-00bedd5fcecc")
+	)
+	(junction
 		(at 223.52 72.39)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4951,6 +5120,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "459e89dd-ce46-430b-abf2-41c4781f2062")
+	)
+	(junction
+		(at 82.55 22.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4de37d23-2c99-4821-8d60-4c1dbb0cc68a")
 	)
 	(junction
 		(at 223.52 36.83)
@@ -5298,6 +5473,16 @@
 	)
 	(wire
 		(pts
+			(xy 76.2 25.4) (xy 77.47 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "14a85529-80af-4af1-922d-a1b3060fdac1")
+	)
+	(wire
+		(pts
 			(xy 139.7 175.26) (xy 153.67 175.26)
 		)
 		(stroke
@@ -5355,6 +5540,16 @@
 			(type default)
 		)
 		(uuid "2e5b3407-00d0-426d-81e8-c019fbe0ee8e")
+	)
+	(wire
+		(pts
+			(xy 85.09 25.4) (xy 87.63 25.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "313db2c6-52f2-4fa8-a3b1-9645f62a50ca")
 	)
 	(wire
 		(pts
@@ -5628,16 +5823,6 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 19.05) (xy 82.55 22.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9894644f-2ebe-4dcf-9262-504fb95d7ee9")
-	)
-	(wire
-		(pts
 			(xy 223.52 36.83) (xy 227.33 36.83)
 		)
 		(stroke
@@ -5745,6 +5930,16 @@
 			(type default)
 		)
 		(uuid "b4a3b498-2cb3-4266-8acb-c6a590ddfc50")
+	)
+	(wire
+		(pts
+			(xy 82.55 15.24) (xy 82.55 22.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bf174012-3083-4499-9dc2-e23457c805c3")
 	)
 	(wire
 		(pts
@@ -5925,16 +6120,6 @@
 			(type default)
 		)
 		(uuid "f33a428c-da83-4fad-9bad-8cde35e13aa5")
-	)
-	(wire
-		(pts
-			(xy 87.63 25.4) (xy 76.2 25.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f6fa7deb-9e05-4414-90e4-ded00f86e780")
 	)
 	(label "+5V"
 		(at 218.44 124.46 180)
@@ -6286,7 +6471,7 @@
 			(uuid "1b0fa889-70c7-43f7-8268-f380cc4a9744")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -6375,7 +6560,7 @@
 			(uuid "f758854a-4dbd-47ad-8f78-7ca6553eec2d")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "WS1_Output2")
 					(unit 1)
@@ -6453,7 +6638,7 @@
 			(uuid "4f2c17ff-3b92-4620-a6e0-d2098e1f76e5")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -6538,7 +6723,7 @@
 			(uuid "7d73b435-b9ce-498b-80ae-434698d2cb23")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "Q2")
 					(unit 1)
@@ -6628,7 +6813,7 @@
 			(uuid "6e05b88b-ae23-4026-a75c-428f8a5abb81")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "C5")
 					(unit 1)
@@ -6720,7 +6905,7 @@
 			(uuid "72f1aa6a-aa37-4434-b151-bd8b86ae1c28")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "R4")
 					(unit 1)
@@ -6798,7 +6983,7 @@
 			(uuid "44798089-e4b0-4f2e-9855-361de82d4cbb")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#FLG?")
 					(unit 1)
@@ -6876,7 +7061,7 @@
 			(uuid "0c5f1e57-abd4-420c-9f09-b98346d0f363")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -6968,7 +7153,7 @@
 			(uuid "08cc0280-17c5-4866-a257-173623d0c852")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "C8")
 					(unit 1)
@@ -7057,9 +7242,99 @@
 			(uuid "88e35ff9-3e01-4e85-adec-2723781ad984")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "WS2_Output2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:F_500mA_8V_1206")
+		(at 81.28 25.4 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2b45b801-36d4-4717-9a62-a538a82adb25")
+		(property "Reference" "F1"
+			(at 81.28 27.432 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "F_500mA_8V"
+			(at 81.28 29.21 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuse_1206_3216Metric"
+			(at 81.28 27.178 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/191/1/ds-cp-0zcj-series.pdf"
+			(at 81.28 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "PTC RESET FUSE 8V 500MA 1206"
+			(at 81.28 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0ZCJ0050FF2G"
+			(at 81.28 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1794dd32-d24b-4318-9172-125b44362aa1")
+		)
+		(pin "2"
+			(uuid "da6f4a09-f954-483c-98d2-666c147418ac")
+		)
+		(instances
+			(project "wheel_speed_Testing_Things (1)"
+				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
+					(reference "F1")
 					(unit 1)
 				)
 			)
@@ -7158,7 +7433,7 @@
 			(uuid "00efdb50-e782-4e91-a551-0957bffad262")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "D3")
 					(unit 1)
@@ -7236,7 +7511,7 @@
 			(uuid "febac508-8799-4d5e-9d83-52602bdd17aa")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -7313,7 +7588,7 @@
 			(uuid "0ac7fc34-f3f4-44cc-bfa4-4c1e29e05ad7")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -7406,9 +7681,87 @@
 			(uuid "feb215c8-3bf3-45ab-899a-af4e18fed580")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 278.13 151.13 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "33e4499b-b451-44d2-ac44-7ee142068c9a")
+		(property "Reference" "#PWR?"
+			(at 278.13 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 278.13 146.05 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 278.13 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 278.13 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 278.13 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d0689479-1a04-496d-bba7-a4e0550aade2")
+		)
+		(instances
+			(project "wheel_speed_Testing_Things (1)"
+				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
+					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -7575,7 +7928,7 @@
 			(uuid "79a0f7a1-65e8-417e-803a-19e0bcee02b1")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "U2")
 					(unit 1)
@@ -7676,9 +8029,98 @@
 			(uuid "91109279-9f29-43b0-ad61-5846db12f14b")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:TP_Hook_SMD")
+		(at 278.13 152.4 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "423a4c10-9ac5-4b76-8741-6a0554a8b694")
+		(property "Reference" "5V1"
+			(at 279.908 160.782 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 283.718 158.242 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:TP_Hook_SMD"
+			(at 278.13 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
+			(at 278.13 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Test Point SMD Hook"
+			(at 278.13 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "5019"
+			(at 278.13 152.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "fd60e041-b4d3-401e-b707-0afd670f3c9f")
+		)
+		(instances
+			(project "wheel_speed_Testing_Things (1)"
+				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
+					(reference "5V1")
 					(unit 1)
 				)
 			)
@@ -7754,7 +8196,7 @@
 			(uuid "010db701-a2bc-4820-b9fd-ebe27dc856ff")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -7847,7 +8289,7 @@
 			(uuid "f24eea29-b996-45e7-8791-f74c8040d377")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "C10")
 					(unit 1)
@@ -7949,7 +8391,7 @@
 			(uuid "3145a491-7a9a-470c-830d-1dca9d051013")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "D1")
 					(unit 1)
@@ -8027,7 +8469,7 @@
 			(uuid "b79aef1a-3533-4193-b756-7f2ef8391770")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -8037,7 +8479,7 @@
 	)
 	(symbol
 		(lib_id "OEM:TP_Hook_SMD")
-		(at 274.32 151.13 180)
+		(at 269.24 152.4 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8046,8 +8488,8 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4a2ff334-cb0c-4ae3-bb5b-2a648db2c694")
-		(property "Reference" "VDD1"
-			(at 270.764 159.004 0)
+		(property "Reference" "3V3"
+			(at 267.208 161.036 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8058,7 +8500,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 270.51 156.718 0)
+			(at 265.176 158.242 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8069,7 +8511,7 @@
 			)
 		)
 		(property "Footprint" "OEM:TP_Hook_SMD"
-			(at 274.32 147.32 0)
+			(at 269.24 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8080,7 +8522,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
-			(at 274.32 151.13 0)
+			(at 269.24 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8091,7 +8533,7 @@
 			)
 		)
 		(property "Description" "Test Point SMD Hook"
-			(at 274.32 151.13 0)
+			(at 269.24 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8102,7 +8544,7 @@
 			)
 		)
 		(property "MPN" "5019"
-			(at 274.32 151.13 0)
+			(at 269.24 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8116,9 +8558,101 @@
 			(uuid "3f121a58-7c47-4943-b780-ebe82903b5c9")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
-					(reference "VDD1")
+					(reference "3V3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:F_500mA_8V_1206")
+		(at 82.55 19.05 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "57ca7582-797f-48fd-95a6-c8f0b408611f")
+		(property "Reference" "F2"
+			(at 84.074 15.24 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "F_500mA_8V"
+			(at 87.122 15.24 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Fuse:Fuse_1206_3216Metric"
+			(at 84.328 19.05 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/191/1/ds-cp-0zcj-series.pdf"
+			(at 82.55 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "PTC RESET FUSE 8V 500MA 1206"
+			(at 82.55 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0ZCJ0050FF2G"
+			(at 82.55 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "31843645-9011-41cd-b990-5a27abfe10c6")
+		)
+		(pin "2"
+			(uuid "89ec6432-5c6a-41d4-8238-a5d0daf8832f")
+		)
+		(instances
+			(project "wheel_speed_Testing_Things (1)"
+				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
+					(reference "F2")
 					(unit 1)
 				)
 			)
@@ -8205,7 +8739,7 @@
 			(uuid "08d2ad73-790c-487c-b57c-da79824e4786")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "Can_Testpoint2")
 					(unit 1)
@@ -8283,7 +8817,7 @@
 			(uuid "3c0a2ba2-79fd-4346-997d-7f43c3136cd6")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -8361,7 +8895,7 @@
 			(uuid "480b0e55-43b0-4513-a427-7db1887788ed")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -8439,7 +8973,7 @@
 			(uuid "3c44edde-b6c3-442f-97b1-46af56386011")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -8517,7 +9051,7 @@
 			(uuid "02a7a970-9e48-4fcf-87e1-8d80f675f81c")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -8602,7 +9136,7 @@
 			(uuid "0540bc5c-1292-43f0-afba-383fbd716bde")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "Q1")
 					(unit 1)
@@ -8680,7 +9214,7 @@
 			(uuid "6c00fb0b-6999-4579-b494-c8c6ead47aa7")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -8758,7 +9292,7 @@
 			(uuid "ba8e29cd-68c9-4e96-8e4a-cffe8031af4d")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#FLG?")
 					(unit 1)
@@ -8836,7 +9370,7 @@
 			(uuid "54e3b749-6bf8-499e-b1ee-410865c26491")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -8925,7 +9459,7 @@
 			(uuid "6a1411dc-d028-4260-a958-a0c60aaa25c9")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "GND1")
 					(unit 1)
@@ -9018,7 +9552,7 @@
 			(uuid "b7d439f3-6721-4be1-9f2f-a104b201fc1a")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "C11")
 					(unit 1)
@@ -9096,7 +9630,7 @@
 			(uuid "1fda0651-6ccd-4dd7-9db5-f832369b2528")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -9174,7 +9708,7 @@
 			(uuid "0065edcb-94da-4edf-8447-800f6c301ec2")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -9252,7 +9786,7 @@
 			(uuid "6e8d3bef-b415-4427-8ac6-f206fee32359")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -9341,7 +9875,7 @@
 			(uuid "57f667b1-2d81-4201-a4c9-48c2ca1c8c6e")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "J1")
 					(unit 1)
@@ -9419,7 +9953,7 @@
 			(uuid "8802c282-2442-480a-aeb6-c3eac625e8d1")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -9497,7 +10031,7 @@
 			(uuid "8e4852ed-10ae-4670-b64f-c57f8bd02a40")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -9588,7 +10122,7 @@
 			(uuid "0191fe9c-e2fb-4fbc-8191-58a82d07c8a8")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "R5")
 					(unit 1)
@@ -9680,7 +10214,7 @@
 			(uuid "11eda404-ba2a-4229-8c86-429a182a2ea7")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "C3")
 					(unit 1)
@@ -9758,7 +10292,7 @@
 			(uuid "a12b7ea1-f468-4774-b5fc-0bea7a4b771a")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -9951,7 +10485,7 @@
 			(uuid "5f692c9e-9f99-474f-94bd-66f6a1fca9f4")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "J2")
 					(unit 1)
@@ -10044,7 +10578,7 @@
 			(uuid "41ba5ca6-619e-4e9f-9586-957840cc9852")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "R7")
 					(unit 1)
@@ -10122,7 +10656,7 @@
 			(uuid "6b78eabc-a747-4bb9-be8b-167e1d857807")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -10132,7 +10666,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 274.32 149.86 0)
+		(at 269.24 151.13 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10142,7 +10676,7 @@
 		(dnp no)
 		(uuid "941a9cfc-166c-4544-9f6c-9c2fc5a08016")
 		(property "Reference" "#PWR?"
-			(at 274.32 153.67 0)
+			(at 269.24 154.94 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10153,7 +10687,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 271.272 144.526 0)
+			(at 266.192 145.796 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10164,7 +10698,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 274.32 149.86 0)
+			(at 269.24 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10175,7 +10709,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 274.32 149.86 0)
+			(at 269.24 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10186,7 +10720,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 274.32 149.86 0)
+			(at 269.24 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10200,7 +10734,7 @@
 			(uuid "cd65d211-2de7-4b57-adbb-0f8f7436be32")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -10293,7 +10827,7 @@
 			(uuid "c38bab32-9869-448f-a442-06e7e11cfa06")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "R1")
 					(unit 1)
@@ -10371,7 +10905,7 @@
 			(uuid "ceb5bd39-a6ec-4601-9ce2-6346a0edc980")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -10460,7 +10994,7 @@
 			(uuid "fe6cebe0-b0ac-4296-bcd6-50062b17f6ef")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "Can_Testpoint1")
 					(unit 1)
@@ -10538,7 +11072,7 @@
 			(uuid "4ffaa60c-620e-4f9f-8d83-32cf858e26f2")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -10630,7 +11164,7 @@
 			(uuid "ec544ce3-5a00-4cb6-b4a0-9c379b83587d")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "C7")
 					(unit 1)
@@ -10708,7 +11242,7 @@
 			(uuid "3067eb48-3ba8-4d4a-b0b1-b875038ec4d2")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -10801,7 +11335,7 @@
 			(uuid "0e33e261-c74c-4a03-b078-1e359a21af11")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "C1")
 					(unit 1)
@@ -10879,7 +11413,7 @@
 			(uuid "f5339a61-4b67-4f5d-aaac-21df22eef064")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -10975,7 +11509,7 @@
 			(uuid "9189b689-5f60-499f-b286-3e3f4477db86")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "X1")
 					(unit 1)
@@ -11053,7 +11587,7 @@
 			(uuid "89d8cf29-d5c8-4261-b3aa-e12df2d86f41")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -11131,7 +11665,7 @@
 			(uuid "cb125fdc-c462-4368-8a16-9f4a6948d7c6")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -11224,7 +11758,7 @@
 			(uuid "a245d148-1e62-4bec-b48d-ace2db28dbed")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "R2")
 					(unit 1)
@@ -11326,7 +11860,7 @@
 			(uuid "7fdce6e8-a7ee-4e57-b12a-3ffd4610b8cf")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "D2")
 					(unit 1)
@@ -11404,7 +11938,7 @@
 			(uuid "e79d1cbf-f891-4ef1-9a81-6688e87c82d2")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -11497,7 +12031,7 @@
 			(uuid "110b1ca7-42da-459e-bbd1-df90d6db3082")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "R8")
 					(unit 1)
@@ -11575,7 +12109,7 @@
 			(uuid "75379b25-6e98-4c71-920b-62354d9d6886")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -11667,7 +12201,7 @@
 			(uuid "90117b6e-2250-4c0f-a66f-0233b9979f90")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "C2")
 					(unit 1)
@@ -11756,7 +12290,7 @@
 			(uuid "bb0a5a5f-9593-4f3a-ac34-e18ab2cbcbf6")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "WS2_Output1")
 					(unit 1)
@@ -11857,7 +12391,7 @@
 			(uuid "7b7140fc-4ca0-49dd-a102-a5504609976e")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "D4")
 					(unit 1)
@@ -11935,7 +12469,7 @@
 			(uuid "c0535dce-3beb-47de-a3ad-ea8458c68f2b")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -12013,7 +12547,7 @@
 			(uuid "043fbd32-b2ee-4b18-9c61-8a3b313d4401")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -12106,7 +12640,7 @@
 			(uuid "f6613d24-5a13-429c-ac49-d0249492aae8")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "R3")
 					(unit 1)
@@ -12195,7 +12729,7 @@
 			(uuid "a66109f3-767a-41a1-bbd6-726c1df754d3")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "WS1_Output1")
 					(unit 1)
@@ -12273,7 +12807,7 @@
 			(uuid "44af5b23-fb29-47de-89d3-c9c55c7422ec")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -12365,7 +12899,7 @@
 			(uuid "54763c9b-62b2-4796-b7df-3cb834955ecb")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "C9")
 					(unit 1)
@@ -12458,7 +12992,7 @@
 			(uuid "5b7cf61f-fe3f-4118-ad31-ab15d018157e")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "R10")
 					(unit 1)
@@ -12535,7 +13069,7 @@
 			(uuid "e771b301-456a-49b3-8b29-264927fb6ed1")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -12627,7 +13161,7 @@
 			(uuid "7c536139-420e-4e88-9dd8-2fff13eb711a")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "C6")
 					(unit 1)
@@ -12705,7 +13239,7 @@
 			(uuid "791e5d66-1839-490d-812b-2226e84f3799")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -12715,7 +13249,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 82.55 19.05 0)
+		(at 82.55 15.24 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12725,7 +13259,7 @@
 		(dnp no)
 		(uuid "f614de86-3d8c-4496-8961-3728e4912818")
 		(property "Reference" "#PWR?"
-			(at 82.55 22.86 0)
+			(at 82.55 19.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12736,7 +13270,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 82.55 15.24 0)
+			(at 78.232 13.208 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12746,7 +13280,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 82.55 19.05 0)
+			(at 82.55 15.24 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12757,7 +13291,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 82.55 19.05 0)
+			(at 82.55 15.24 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12768,7 +13302,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 82.55 19.05 0)
+			(at 82.55 15.24 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12782,7 +13316,7 @@
 			(uuid "f04adc1f-f5e4-44e3-a17f-d2411b922814")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -12860,7 +13394,7 @@
 			(uuid "66323868-7e90-439c-ab4c-7430dc4ae4a0")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)
@@ -12953,7 +13487,7 @@
 			(uuid "d3d096ee-9bb8-4d07-bca6-61b380348f23")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "R11")
 					(unit 1)
@@ -13031,7 +13565,7 @@
 			(uuid "1043427e-bc01-4700-9ed4-07bbff72913c")
 		)
 		(instances
-			(project "wheel_speed_Testing_Things"
+			(project "wheel_speed_Testing_Things (1)"
 				(path "/e7195ce3-5a1b-4095-9397-a48b8b9b0612"
 					(reference "#PWR?")
 					(unit 1)

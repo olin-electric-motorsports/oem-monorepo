@@ -5755,6 +5755,157 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "R_10k_0.1W_0603_1"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R_10k_0.1W"
+				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "OEM:R_0603_1608Metric"
+				(at -1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "RES 10K OHM 1% 1/10W 0603"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "RMCF0603FT10K0"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "R_10k_0.1W_0603_1_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_10k_0.1W_0603_1_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:+3.3V"
 			(power global)
 			(pin_numbers
@@ -6161,6 +6312,16 @@
 		)
 		(uuid "6cd35258-8691-49af-b471-44b962dd95db")
 	)
+	(text "AIR MPN: EV200HAANA"
+		(exclude_from_sim no)
+		(at 151.892 94.996 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0e920ee1-85e8-4b9d-b9f6-fe36c056949f")
+	)
 	(text "Provided by Motherboard"
 		(exclude_from_sim no)
 		(at 124.46 67.056 0)
@@ -6495,6 +6656,12 @@
 		(color 0 0 0 0)
 		(uuid "fdda62a2-743e-4461-be41-cde24c90fd10")
 	)
+	(junction
+		(at 189.23 125.73)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ff3158cd-27be-47f4-94ad-462dad14695a")
+	)
 	(no_connect
 		(at 73.66 54.61)
 		(uuid "014822f9-b2d5-46e9-8100-82900e0f334d")
@@ -6554,6 +6721,10 @@
 	(no_connect
 		(at 73.66 36.83)
 		(uuid "da87e3a2-8af7-47ea-897b-0012831d4733")
+	)
+	(no_connect
+		(at 130.81 175.26)
+		(uuid "f2d5e84b-beae-4c86-ab81-ed21c37958fc")
 	)
 	(wire
 		(pts
@@ -6847,16 +7018,6 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 179.07) (xy 138.43 187.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2f00cbbb-ee5f-4cb5-874f-ef8fd4c57dcc")
-	)
-	(wire
-		(pts
 			(xy 137.16 52.07) (xy 137.16 53.34)
 		)
 		(stroke
@@ -7047,16 +7208,6 @@
 	)
 	(wire
 		(pts
-			(xy 130.81 175.26) (xy 134.62 175.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "46226e96-0ad3-4994-85b3-dc54b110166c")
-	)
-	(wire
-		(pts
 			(xy 129.54 38.1) (xy 137.16 38.1)
 		)
 		(stroke
@@ -7064,16 +7215,6 @@
 			(type default)
 		)
 		(uuid "47710143-b6ee-46e3-97a1-07e6c3b81282")
-	)
-	(wire
-		(pts
-			(xy 138.43 170.18) (xy 138.43 171.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4868bc85-5e5f-42db-bcf6-15337a81f36f")
 	)
 	(wire
 		(pts
@@ -7214,6 +7355,16 @@
 			(type default)
 		)
 		(uuid "5a40cb95-d240-486c-a6f3-2874cc2d271f")
+	)
+	(wire
+		(pts
+			(xy 189.23 125.73) (xy 193.04 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5b3602dd-19b9-451f-a79c-487ffd045572")
 	)
 	(wire
 		(pts
@@ -7417,16 +7568,6 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 175.26) (xy 134.62 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7ccc13a7-e9b3-4688-a978-66e6c2639145")
-	)
-	(wire
-		(pts
 			(xy 115.57 38.1) (xy 121.92 38.1)
 		)
 		(stroke
@@ -7494,6 +7635,16 @@
 			(type default)
 		)
 		(uuid "8802f012-fd80-4f2f-b41c-de4ab0f8487c")
+	)
+	(wire
+		(pts
+			(xy 189.23 133.35) (xy 189.23 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "88c3eea1-b066-4fa3-8ce6-2d80e9d2cb18")
 	)
 	(wire
 		(pts
@@ -8087,7 +8238,7 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 125.73) (xy 193.04 125.73)
+			(xy 185.42 125.73) (xy 189.23 125.73)
 		)
 		(stroke
 			(width 0)
@@ -8294,16 +8445,6 @@
 			(type default)
 		)
 		(uuid "f39d8b72-09d8-44cf-92e7-efaa5aed275c")
-	)
-	(wire
-		(pts
-			(xy 134.62 170.18) (xy 138.43 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f4d8f8b0-554d-4873-9a01-33a186c12e90")
 	)
 	(wire
 		(pts
@@ -9512,7 +9653,7 @@
 		(uuid "457727e8-3d8e-4e22-9911-03df8149e423")
 	)
 	(label "PRECHARGE_IN"
-		(at 191.77 125.73 180)
+		(at 185.42 125.73 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10120,6 +10261,99 @@
 			(justify left bottom)
 		)
 		(uuid "fec758da-1366-4e7b-b8e5-0de9a2c0c62a")
+	)
+	(symbol
+		(lib_name "R_10k_0.1W_0603_1")
+		(lib_id "OEM:R_10k_0.1W_0603")
+		(at 259.08 129.54 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "006795c5-2fc3-45a2-a2fb-4519a4342fe3")
+		(property "Reference" "R6"
+			(at 260.604 128.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_10k"
+			(at 260.604 131.064 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 257.302 129.54 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
+			(at 259.08 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "RES 10K OHM 1% 1/10W 0603"
+			(at 259.08 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RMCF0603FT10K0"
+			(at 259.08 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7466bef9-2c27-4ad9-ad94-6f4a83a4db52")
+		)
+		(pin "2"
+			(uuid "b78a0b76-0bbb-454a-8e5d-f05e9f449b1e")
+		)
+		(instances
+			(project "air_control"
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db"
+					(reference "R6")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "OEM:J_Programming_Pin_Header")
@@ -12372,8 +12606,9 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 138.43 187.96 0)
+		(lib_name "R_10k_0.1W_0603_1")
+		(lib_id "OEM:R_10k_0.1W_0603")
+		(at 189.23 129.54 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12381,10 +12616,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4e3959bb-3ac7-4811-a144-5dd948097b9d")
-		(property "Reference" "#PWR?"
-			(at 138.43 194.31 0)
+		(uuid "4e302fa2-87cd-4eb7-91d3-4da8b8f77e42")
+		(property "Reference" "R16"
+			(at 190.754 128.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R_10k"
+			(at 190.754 131.064 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "OEM:R_0603_1608Metric"
+			(at 187.452 129.54 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12394,18 +12650,8 @@
 				)
 			)
 		)
-		(property "Value" "GND"
-			(at 138.43 193.04 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 138.43 187.96 0)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
+			(at 189.23 129.54 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12415,8 +12661,8 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
-			(at 138.43 187.96 0)
+		(property "Description" "RES 10K OHM 1% 1/10W 0603"
+			(at 189.23 129.54 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12426,8 +12672,8 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 138.43 187.96 0)
+		(property "MPN" "RMCF0603FT10K0"
+			(at 189.23 129.54 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12438,12 +12684,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "07445746-2f21-41f3-af6e-9492696d788a")
+			(uuid "95ce3c67-1708-430e-8be5-af0ad4b08eee")
+		)
+		(pin "2"
+			(uuid "32750f43-2442-48d7-b290-2673ef98f1e8")
 		)
 		(instances
 			(project "air_control"
 				(path "/3ddc153e-3789-4d06-8069-516c20ae91db"
-					(reference "#PWR?")
+					(reference "R16")
 					(unit 1)
 				)
 			)
@@ -13158,6 +13407,84 @@
 			(project "air_control"
 				(path "/3ddc153e-3789-4d06-8069-516c20ae91db"
 					(reference "C5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "GND_2")
+		(lib_id "power:GND")
+		(at 189.23 134.62 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "61a378fd-ae7f-4e8d-b01b-9822ba6416eb")
+		(property "Reference" "#PWR01"
+			(at 189.23 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 189.357 139.0142 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 189.23 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 189.23 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 189.23 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3667aa88-8d77-4847-9972-39b7ddb29129")
+		)
+		(instances
+			(project "air_control"
+				(path "/3ddc153e-3789-4d06-8069-516c20ae91db"
+					(reference "#PWR01")
 					(unit 1)
 				)
 			)
@@ -13926,99 +14253,6 @@
 			(project "air_control"
 				(path "/3ddc153e-3789-4d06-8069-516c20ae91db"
 					(reference "#PWR?")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:R_10k_0.1W_0603")
-		(at 138.43 175.26 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7a8eb098-4807-4901-ad0f-18db5a3d6c49")
-		(property "Reference" "R6"
-			(at 140.97 173.9899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "R_10k"
-			(at 140.97 176.5299 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 136.652 175.26 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf"
-			(at 138.43 175.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "RES 10K OHM 1% 1/10W 0603"
-			(at 138.43 175.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "RMCF0603FT10K0"
-			(at 138.43 175.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "4e67a9a6-8b76-4a46-8a4d-1c5205a817c2")
-		)
-		(pin "1"
-			(uuid "5d97453f-1030-4e80-b350-e64096a3a7ac")
-		)
-		(instances
-			(project "air_control"
-				(path "/3ddc153e-3789-4d06-8069-516c20ae91db"
-					(reference "R6")
 					(unit 1)
 				)
 			)
@@ -15005,98 +15239,6 @@
 			(project "air_control"
 				(path "/3ddc153e-3789-4d06-8069-516c20ae91db"
 					(reference "TP4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:R_1k_0.1W_0603")
-		(at 259.08 129.54 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9bd98629-6723-4dc4-a63b-23ccd873272e")
-		(property "Reference" "R16"
-			(at 260.858 128.27 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "R_1k"
-			(at 260.858 130.81 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 257.302 129.54 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/1099/1/SEI-RMCF_RMCP.pdf (or https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ3GEYJ102V)"
-			(at 259.08 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "RES SMD 1K OHM 5% 1/10W 0603"
-			(at 259.08 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "RMCF0603FT1K00 (or ERJ-3GEYJ102V)"
-			(at 259.08 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "baf10094-d405-4dea-847c-2b5501fa5727")
-		)
-		(pin "1"
-			(uuid "d04509c3-1568-43a4-a750-89d84bae1b14")
-		)
-		(instances
-			(project "air_control"
-				(path "/3ddc153e-3789-4d06-8069-516c20ae91db"
-					(reference "R16")
 					(unit 1)
 				)
 			)

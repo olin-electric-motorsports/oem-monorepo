@@ -2,12 +2,8 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
-	(in_pos_files yes)
-	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "VR"
 		(at 0 13.97 0)
-		(show_name no)
-		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17,8 +13,6 @@
 	)
 	(property "Value" "R_Pot_50k"
 		(at 0 11.43 0)
-		(show_name no)
-		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -28,60 +22,50 @@
 	)
 	(property "Footprint" "OEM:PTV1124420AA503 (R_Pot_50k_0.05W - PTV112-4420A-A503)"
 		(at 26.67 -94.92 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
+			(hide yes)
 		)
 	)
 	(property "Datasheet" "https://componentsearchengine.com/Datasheets/1/PTV112-4420A-A503.pdf"
 		(at 26.67 -194.92 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
+			(hide yes)
 		)
 	)
 	(property "Description" "POT 50K OHM 1/20W CARBON LOG"
 		(at 0 0 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(hide yes)
 		)
 	)
 	(property "MPN" "PTV112-4420A-A503"
 		(at 26.67 -794.92 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
+			(hide yes)
 		)
 	)
 	(property "ki_keywords" "R Potentiometer"
 		(at 0 0 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(hide yes)
 		)
 	)
 	(symbol "R_Pot_50k_0.05W_TH_1_1"
@@ -94,24 +78,6 @@
 			)
 			(fill
 				(type background)
-			)
-		)
-		(pin passive line
-			(at -15.24 3.81 0)
-			(length 5.08)
-			(name "CCW_1"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "1"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
 			)
 		)
 		(pin passive line
@@ -133,52 +99,16 @@
 			)
 		)
 		(pin passive line
-			(at -15.24 -6.35 0)
+			(at -15.24 3.81 0)
 			(length 5.08)
-			(name "CW_1"
+			(name "CCW_1"
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(number "3"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
-			(at 15.24 6.35 180)
-			(length 5.08)
-			(name "MH1"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "4"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
-			(at 15.24 3.81 180)
-			(length 5.08)
-			(name "MH2"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "5"
+			(number "1"
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -233,6 +163,60 @@
 				)
 			)
 			(number "31"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at -15.24 -6.35 0)
+			(length 5.08)
+			(name "CW_1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "3"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at 15.24 6.35 180)
+			(length 5.08)
+			(name "MH1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "4"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at 15.24 3.81 180)
+			(length 5.08)
+			(name "MH2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "5"
 				(effects
 					(font
 						(size 1.27 1.27)

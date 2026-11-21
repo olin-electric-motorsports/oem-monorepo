@@ -2,12 +2,8 @@
 	(exclude_from_sim no)
 	(in_bom yes)
 	(on_board yes)
-	(in_pos_files yes)
-	(duplicate_pin_numbers_are_jumpers no)
 	(property "Reference" "U"
 		(at 12.7 11.43 0)
-		(show_name no)
-		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -17,8 +13,6 @@
 	)
 	(property "Value" "DS18B20U"
 		(at 12.7 8.89 0)
-		(show_name no)
-		(do_not_autoplace no)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -28,60 +22,50 @@
 	)
 	(property "Footprint" "OEM:8-uSOP"
 		(at 29.21 -94.92 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
+			(hide yes)
 		)
 	)
 	(property "Datasheet" "https://datasheet.datasheetarchive.com/originals/dk/DKDS-25/482711.pdf"
 		(at 29.21 -194.92 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
+			(hide yes)
 		)
 	)
 	(property "Description" "SENSOR DIGITAL -55C-125C 8UMAX"
 		(at 0 0 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(hide yes)
 		)
 	)
 	(property "MPN" "DS18B20U"
 		(at 29.21 -794.92 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left top)
+			(hide yes)
 		)
 	)
 	(property "ki_keywords" "E-Meter Temperature Sensor"
 		(at 0 0 0)
-		(show_name no)
-		(do_not_autoplace no)
-		(hide yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(hide yes)
 		)
 	)
 	(symbol "U_E-Meter-Temperature-Sensor_DS18B20U_1_1"
@@ -169,34 +153,16 @@
 			)
 		)
 		(pin passive line
-			(at 10.16 -3.81 180)
+			(at 10.16 3.81 180)
 			(length 2.54)
-			(name "NC"
+			(name "VDD"
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(number "5"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
-			(at 10.16 -1.27 180)
-			(length 2.54)
-			(name "NC"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "6"
+			(number "8"
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -223,16 +189,34 @@
 			)
 		)
 		(pin passive line
-			(at 10.16 3.81 180)
+			(at 10.16 -1.27 180)
 			(length 2.54)
-			(name "VDD"
+			(name "NC"
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(number "8"
+			(number "6"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at 10.16 -3.81 180)
+			(length 2.54)
+			(name "NC"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "5"
 				(effects
 					(font
 						(size 1.27 1.27)

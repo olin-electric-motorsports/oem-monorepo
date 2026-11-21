@@ -39,9 +39,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.0,
-          "height": 1.4,
-          "width": 0.975
+          "drill": 1.4,
+          "height": 2.1,
+          "width": 2.1
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -61,34 +61,24 @@
           "hatch_smoothing_value": 0.1,
           "hatch_thickness": 1.0,
           "min_clearance": 0.0,
-          "min_island_area": 10.0,
+          "min_island_area": 9.99999999996,
           "min_thickness": 0.25,
-          "pad_connection": 1,
+          "pad_connection": 2,
           "remove_islands": 0,
           "thermal_relief_gap": 0.5,
           "thermal_relief_spoke_width": 0.5
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [
         [
-          "copper_edge_clearance|178950000|63000000|2f723a1b-82e8-44e2-96ab-146606d652ff|35888885-6918-40d0-be32-b9d65927301a",
-          ""
-        ],
-        [
-          "copper_edge_clearance|183900000|63000000|f2524221-e59c-418e-ab09-048749db7883|b954ce75-05bd-4f9e-b239-b8b7134bef65",
-          ""
-        ],
-        [
           "copper_edge_clearance|232750000|38930000|ca53e815-3e1f-4c6f-b757-2a94197302d6|5bf5d2a7-a894-4600-b860-383b41dffd9c",
-          ""
-        ],
-        [
-          "copper_edge_clearance|236500000|53490000|5cb76a39-79fe-421e-9e83-5dc475fc3a1c|8f504bec-99b2-49a6-828d-5b665e4f157d",
-          ""
-        ],
-        [
-          "copper_edge_clearance|236500000|53490000|5cb76a39-79fe-421e-9e83-5dc475fc3a1c|b3b52440-c862-4a7a-92ea-f6bbf820fe00",
           ""
         ]
       ],
@@ -193,7 +183,6 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
-          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -205,7 +194,6 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
-          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -217,7 +205,6 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
-          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -227,7 +214,11 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
+      "track_widths": [
+        0.0,
+        0.2032,
+        0.4064
+      ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
           "corner_radius_percentage": 80,
@@ -254,7 +245,16 @@
           "spacing": 0.6
         }
       },
-      "via_dimensions": [],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        },
+        {
+          "diameter": 0.6096,
+          "drill": 0.3048
+        }
+      ],
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
@@ -552,8 +552,8 @@
     "meta": {
       "version": 5
     },
-    "net_colors": {},
-    "netclass_assignments": {},
+    "net_colors": null,
+    "netclass_assignments": null,
     "netclass_patterns": [
       {
         "netclass": "5V",
@@ -652,12 +652,72 @@
           "label": "Datasheet",
           "name": "Datasheet",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "NewDesigns",
+          "name": "NewDesigns",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Package",
+          "name": "Package",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Pins",
+          "name": "Sim.Pins",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Stocked",
+          "name": "Stocked",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Style",
+          "name": "Style",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MPN",
+          "name": "MPN",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Description",
+          "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MFN",
+          "name": "MFN",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "DKPN",
+          "name": "DKPN",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": true,
-      "name": "Default Editing",
+      "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
     },
@@ -702,7 +762,7 @@
         "uuid": "d519c77c-8740-4a1d-af06-6f69130ee48e"
       }
     ],
-    "used_designators": "#PWR1-36,C1-6,D1-5,J1,K1,Q1,R1-16,TP1-7,U1-4",
+    "used_designators": "#PWR1-36,C1-6,D1-6,J1,K1-2,Q1,U1-4,R1-17,TP1-7",
     "variants": []
   },
   "sheets": [

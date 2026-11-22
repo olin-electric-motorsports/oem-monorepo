@@ -13,6 +13,7 @@ cc_library(
     visibility = ["//visibility:public"],
     deps = [
         "//vehicle/common/adbms1818:ADBMS181x",
+        "//vehicle/mkviii/software/integration/bms:bms_can_api",
         "//vehicle/mkviii/software/integration/bms:bms_headers",
     ],
 )

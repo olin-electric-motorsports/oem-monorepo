@@ -2,14 +2,14 @@ load("//common:macros.bzl", "stm32_firmware")
 load("//common/can_api:can_defs.bzl", "can_api_files")
 
 
-# can_api_files(
-#     name = "bms_can_api",
-#     yaml = "bms.yml",
-#     dbc = "//vehicle/mkviii/integration/bms:bms", # Points to DBC target
-#     deps = [
-#         "//third_party:stm32cubeg4",
-#     ],
-# )
+can_api_files(
+    name = "bms_can_api",
+    yaml = "bms.yml",
+    dbc = "//vehicle/mkviii:mkviii", # Points to DBC target
+    deps = [
+        "//third_party:stm32cubeg4",
+    ],
+)
 
 cc_library(
     name = "bms_headers",
@@ -32,6 +32,7 @@ stm32_firmware(
         "bms_config.c",
     ],
     deps = [
+        ":bms_can_api",
         ":bms_headers",
         "//vehicle/common/adbms1818:ADBMS1818",
         "//vehicle/mkviii/software/integration/bms/tasks",
@@ -39,6 +40,6 @@ stm32_firmware(
     ],
 )
 
-# exports_files([
-#     "bms.yml",
-# ])
+exports_files([
+    "bms.yml",
+])

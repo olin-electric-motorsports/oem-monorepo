@@ -2,8 +2,6 @@
 #include "vehicle/mkviii/software/integration/bms/bms_config.h"
 #include "can_api.h"
 
-#include "libs/gpio/api.h"
-
 void set_fault(enum bms_fault the_fault) {
     bms_core.bms_fault_code |= (1 << the_fault);
 }

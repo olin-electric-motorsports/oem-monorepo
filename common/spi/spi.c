@@ -30,7 +30,13 @@ void oem_spi_init(oem_spi_config_t* config) {
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP; 
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH; 
-    GPIO_InitStruct.Alternate = GPIO_AF5_SPI1; 
+    GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    // MISO needs a pull-up: the LTC6820's MISO only pulls low, and nothing on
+    // the BMS Core pulls it high. Without this it always reads 0.
+    GPIO_InitStruct.Pin = GPIO_PIN_4;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
     // Boot up the SPI 

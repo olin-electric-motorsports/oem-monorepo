@@ -7,12 +7,9 @@
 #include <stdint.h>
 #include <string.h>
 
-const uint8_t GPIO_CHANNELS[4] = { 1, 1, 1, 3 };
-
-#define NUM_TEMPS_PER_IC              (NUM_MUXES * NUM_MUX_CHANNELS)
 #define NUM_MUX_CHANNELS              (8)
 #define NUM_BYTES_IN_REG              (6)
-#define INVALID_TEMPERATURE_THRESHOLD (0xD555)
+#define NUM_TEMPS_PER_READ            (6)
 
 #define AUX_REG_GROUP_A (1)
 #define AUX_REG_GROUP_C (3)
@@ -35,34 +32,45 @@ static void update_min_max_temps(uint16_t* min_temp, uint16_t* max_temp,
     }
 }
 
+static uint16_t read_temp(uint8_t* raw, uint8_t idx) {
+    return raw[idx] | (raw[idx + 1] << 8);
+}
+
+static uint16_t check_pec(uint8_t* raw) {
+    uint16_t received_pec = (raw[6] << 8) | raw[7];
+    return received_pec != pec15_calc(NUM_BYTES_IN_REG, raw);
+}
+
 void temperature_task(uint32_t* ot, uint32_t* ut, uint16_t* min_temp,
                      uint16_t* max_temp, uint16_t* pec_errors) {
-    static uint8_t mux = 0;
     static uint8_t channel = 0;
 
-    if (get_fault(BMS_FAULT_MUX_MIA)) {
-        // return;
-    }
-
-    if (mux == 0 && channel == 7) {
-        bms_sense.min_temperature = *min_temp;
-        bms_sense.max_temperature = *max_temp;
-        *min_temp = 0;
-        *max_temp = UINT16_MAX;
-        *ot = 0;
-        *ut = 0;
-    }
+    // Accumulated over one sweep of all mux channels
+    static uint32_t sweep_ot = 0;
+    static uint32_t sweep_ut = 0;
+    static uint16_t sweep_min = 0;
+    static uint16_t sweep_max = UINT16_MAX;
 
     bms_temperature.channel = channel;
 
+    // All four muxes are switched to the same channel. Each mux output goes
+    // to its own ADBMS1818 GPIO, so one ADAX reads 4 muxed thermistors.
     wakeup_sleep(NUM_ICS);
-    configure_mux_until_ack(NUM_ICS, MUXES[0], MUX_ENABLE, channel, 10);
-    configure_mux_until_ack(NUM_ICS, MUXES[1], MUX_ENABLE, channel, 10);
-    configure_mux_until_ack(NUM_ICS, MUXES[2], MUX_ENABLE, channel, 10);
-    configure_mux_until_ack(NUM_ICS, MUXES[3], MUX_ENABLE, channel, 10);
-    // For debugging to know which mux is being commanded
-    bms_mux.num_mux = mux;
+    uint8_t mux_ack = 0;
+    for (uint8_t mux = 0; mux < NUM_MUXES; mux++) {
+        if (configure_mux_until_ack(NUM_ICS, MUXES[mux], MUX_ENABLE, channel, 10)) {
+            mux_ack |= (1 << mux);
+        }
+    }
 
+    bms_mux.num_mux = NUM_MUXES;
+    bms_mux.mux_ack = mux_ack;
+    if (mux_ack == ((1 << NUM_MUXES) - 1)) {
+        clear_fault(BMS_FAULT_MUX_MIA);
+    } else {
+        set_fault(BMS_FAULT_MUX_MIA);
+        bms_metrics.i2c_error_count++;
+    }
 
     ADBMS181x_adax(MD_7KHZ_3KHZ, AUX_CH_ALL);
     (void)ADBMS181x_pollAdc();
@@ -74,136 +82,82 @@ void temperature_task(uint32_t* ot, uint32_t* ut, uint16_t* min_temp,
     ADBMS181x_rdaux_reg(AUX_REG_GROUP_A, NUM_ICS, aux_reg_a_raw); // for GPIOS 1-3
     ADBMS181x_rdaux_reg(AUX_REG_GROUP_C, NUM_ICS, aux_reg_c_raw); // for GPIOS 6-8
 
-    uint8_t num_temps;
-    uint16_t temps[6];
-
-    //ADD PROBLEM THERMISTORS HERE
-    // const uint8_t numExeptions = 3;
-    //add a triplet for each bad thermistor {segment (0-5), DA (0-3), thermistor (0-23)}
-    // uint8_t exceptions[3][3] = {{0,0,7}, {1,2,12}, {1,1,20}};
-    // static uint16_t exceptionReplacement = 11708; //35C at the beginning, will follow the average of the pack after
-
     for (uint8_t ic = 0; ic < NUM_ICS; ic++) {
-        num_temps = 0;
+        uint8_t* reg_a = &aux_reg_a_raw[ic * NUM_RX_BYT];
+        uint8_t* reg_c = &aux_reg_c_raw[ic * NUM_RX_BYT];
+
+        bool pec_bad = false;
+        if (check_pec(reg_a)) {
+            *pec_errors += 1;
+            pec_bad = true;
+        }
+        if (check_pec(reg_c)) {
+            *pec_errors += 1;
+            pec_bad = true;
+        }
+        if (pec_bad) {
+            // Don't act on corrupted data. Repeated PEC errors raise
+            // BMS_FAULT_PEC in bms.c
+            continue;
+        }
+
+        // GPIO1, GPIO2, GPIO3 | GPIO6, GPIO7, GPIO8
+        uint16_t temps[NUM_TEMPS_PER_READ] = {
+            read_temp(reg_a, 0), read_temp(reg_a, 2), read_temp(reg_a, 4),
+            read_temp(reg_c, 0), read_temp(reg_c, 2), read_temp(reg_c, 4),
+        };
+
         bms_temperature.ic = ic;
+
         bms_temperature.mux_chips = MUX_CHIPS_MUX_CHIPS_12;
-
-        uint16_t ic_zero_idx = ic * NUM_RX_BYT;
-
-        bms_temperature.temperature_1 = aux_reg_a_raw[ic_zero_idx + 0]
-                                        | (aux_reg_a_raw[ic_zero_idx + 1] << 8);
-        bms_temperature.temperature_2 = aux_reg_a_raw[ic_zero_idx + 2]
-                                         | (aux_reg_a_raw[ic_zero_idx + 3] << 8);
-
-        //Deal with problem thermistors in DA 0 and 1
-        // for(uint8_t i = 0; i < numExeptions; i++) {
-        //     //Indevidual issue cells
-        //     if(ic == exceptions[i][0] && mux == exceptions[i][2] / NUM_MUX_CHANNELS && channel == exceptions[i][2] % NUM_MUX_CHANNELS) {
-        //         if(exceptions[i][1] == 0) {
-        //             bms_temperature.temperature_1 = exceptionReplacement;
-        //         }
-        //         if(exceptions[i][1] == 1) {
-        //             bms_temperature.temperature_2 = exceptionReplacement;
-        //         }
-        //     }
-        // }
-
-        //Unconnected cells
-        // if(mux == 0 && channel != 7) {
-        //     bms_temperature.temperature_1 = exceptionReplacement;
-        // }
-
-        temps[num_temps] =  bms_temperature.temperature_1;
-        num_temps++;
-        temps[num_temps] =  bms_temperature.temperature_2;
-        num_temps++;
-
+        bms_temperature.temperature_1 = temps[0];
+        bms_temperature.temperature_2 = temps[1];
+        can_wait_for_tx_slot();
         can_send_bms_temperature();
 
         bms_temperature.mux_chips = MUX_CHIPS_MUX_CHIPS_34;
-
-        bms_temperature.temperature_1 = aux_reg_a_raw[ic_zero_idx + 4]
-                                        | (aux_reg_a_raw[ic_zero_idx + 5] << 8);
-        bms_temperature.temperature_2 = aux_reg_c_raw[ic_zero_idx + 0]
-                                        | (aux_reg_c_raw[ic_zero_idx + 1] << 8);
-
-        //Deal with problem thermistors in DA 2 and 3
-        // for(uint8_t i = 0; i < numExeptions; i++) {
-        //     //Indevidual issue cells
-        //     if(ic == exceptions[i][0] && mux == exceptions[i][2] / NUM_MUX_CHANNELS && channel == exceptions[i][2] % NUM_MUX_CHANNELS) {
-        //         if(exceptions[i][1] == 2) {
-        //             bms_temperature.temperature_1 = exceptionReplacement;
-        //         }
-        //         if(exceptions[i][1] == 3) {
-        //             bms_temperature.temperature_2 = exceptionReplacement;
-        //         }
-        //     }
-        // }
-
-        // if(mux == 0 && channel < 4) {
-        //     bms_temperature.temperature_2 = exceptionReplacement;
-        // }
-
-        temps[num_temps] =  bms_temperature.temperature_1;
-        num_temps++;
-        temps[num_temps] =  bms_temperature.temperature_2;
-        num_temps++;
-
+        bms_temperature.temperature_1 = temps[2];
+        bms_temperature.temperature_2 = temps[3];
+        can_wait_for_tx_slot();
         can_send_bms_temperature();
 
         bms_temperature.mux_chips = MUX_CHIPS_NO_MUX;
-
-        bms_temperature.temperature_1 = aux_reg_c_raw[ic_zero_idx + 2] 
-                                        | aux_reg_c_raw[ic_zero_idx + 3] << 8; 
-
-        bms_temperature.temperature_2 = aux_reg_c_raw[ic_zero_idx + 4] 
-                                        | aux_reg_c_raw[ic_zero_idx + 5] << 8; 
-
-        temps[num_temps] = bms_temperature.temperature_1;
-        num_temps++;
-        temps[num_temps] = bms_temperature.temperature_2;
-        num_temps++;
-
+        bms_temperature.temperature_1 = temps[4];
+        bms_temperature.temperature_2 = temps[5];
+        can_wait_for_tx_slot();
         can_send_bms_temperature();
 
-        update_min_max_temps(min_temp, max_temp, temps, num_temps);
+        update_min_max_temps(&sweep_min, &sweep_max, temps, NUM_TEMPS_PER_READ);
 
-        // exceptionReplacement = (*min_temp + *max_temp) / 2;
-
-        // PEC error handling for register A...
-        uint16_t received_pec = (aux_reg_a_raw[ic_zero_idx + 6] << 8)
-                                | aux_reg_a_raw[ic_zero_idx + 7];
-        uint16_t calculated_pec
-            = pec15_calc(NUM_BYTES_IN_REG, &aux_reg_a_raw[ic_zero_idx]);
-        if (received_pec != calculated_pec) {
-            *pec_errors += 1;
-        }
-
-        // and register C
-        received_pec = (aux_reg_c_raw[ic_zero_idx + 6] << 8)
-                       | aux_reg_c_raw[ic_zero_idx + 7];
-        calculated_pec
-            = pec15_calc(NUM_BYTES_IN_REG, &aux_reg_c_raw[ic_zero_idx]);
-        if (received_pec != calculated_pec) {
-            *pec_errors += 1;
+        for (uint8_t i = 0; i < NUM_TEMPS_PER_READ; i++) {
+            // GPIO7 and GPIO8 aren't muxed, so only count them once per sweep
+            if (i >= 4 && channel != 0) {
+                break;
+            }
+            // Lower voltage = hotter
+            if (temps[i] < OVERTEMPERATURE_THRESHOLD) {
+                sweep_ot += 1;
+            } else if (temps[i] > UNDERTEMPERATURE_THRESHOLD) {
+                sweep_ut += 1;
+            }
         }
     }
 
     channel += 1;
-    // Move on to next mux if we are at the last channel
+    // Publish and reset once every channel has been read
     if (channel == NUM_MUX_CHANNELS) {
-        // configure_mux_until_ack(NUM_ICS, MUXES[mux], MUX_DISABLE, channel, 10);
-        // mux = (mux + 1) % NUM_MUXES;
         channel = 0;
-    }
 
-    // if max is hotter than overtemp threshold, increment overtemp counter
-    if (*max_temp < OVERTEMPERATURE_THRESHOLD)  {
-        *ot += 1;
-    }
+        *ot = sweep_ot;
+        *ut = sweep_ut;
+        *min_temp = sweep_min;
+        *max_temp = sweep_max;
+        bms_sense.min_temperature = sweep_min;
+        bms_sense.max_temperature = sweep_max;
 
-    // if min is colder than undertemp threshold, increment undertemp counter
-    if (*min_temp > UNDERTEMPERATURE_THRESHOLD) {
-        *ut += 1;
+        sweep_ot = 0;
+        sweep_ut = 0;
+        sweep_min = 0;
+        sweep_max = UINT16_MAX;
     }
 }

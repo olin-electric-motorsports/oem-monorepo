@@ -1,4 +1,5 @@
 #pragma once
+#include <stdbool.h>
 #include "can_api.h"
 
 /**
@@ -23,7 +24,8 @@
  *
  * BMS_FAULT_DIAGNOSTICS_FAIL: Currently unused.
  *
- * BMS_FAULT_OPEN_WIRE: Currently unused.
+ * BMS_FAULT_OPEN_WIRE: Fault set if openwire_task() finds a disconnected
+ *   cell sense wire.
  *
  * BMS_FAULT_OVERCURRENT: Fault set if pack current draw is above the
  * CURRENT_THRESH set in bms_config.h
@@ -47,10 +49,9 @@
  *
  * BMS_FAULT_MUX_MIA: Fault set if an analog mux is not sending ACKs over i2c.
  *
- * BMS_FAULT_DIE_OVERTEMPERATURE: Fault set if the die temperature of the BMS
- *   chip is above the DIE_OVERTEMPERATURE_THRESHOLD set in bms_config.h.
- * Primarily checked with cell balancing to ensure internal mosfets do not
- * overheat.
+ * BMS_FAULT_DIE_OVERTEMPERATURE: Currently unused. The die temperature is
+ *   checked against DIE_OVERTEMPERATURE_THRESHOLD in cell_balancing.c, which
+ *   stops balancing instead of opening the relay.
  */
 enum bms_fault {
     BMS_FAULT_UNDERVOLTAGE,       // UV 

@@ -1,131 +1,248 @@
 /*
- * BMS Heartbeat firmware for STM32G441KBT6.
- * Specifically targets the PA7 Heartbeat pin on the BMS Micro board.
+ * BMS firmware for the STM32G441KBT6 on the BMS Core board.
  */
 #include "bms.h"
 #include "bms_config.h"
+#include "can_api.h"
 #include "tasks/tasks.h"
+#include "utils/cell_balancing.h"
+#include "utils/fault.h"
+#include "utils/i2c_helpers.h"
 #include <string.h>
 #include <stdbool.h>
 
-// Flag to tell the main loop 10ms has passed
-volatile bool main_loop_ready = false;
+#define LOOP_PERIOD_MS (10)
 
-#define MAX_TEMPERATURE_FAN (50)
-#define MIN_TEMPERATURE_FAN (20)
+// How often (in 10ms loops) the slower jobs run
+#define HEARTBEAT_LOOPS     (50)  // toggle every 500ms
+#define SLOW_CAN_LOOPS      (50)  // bms_metrics and bms_debug at 2Hz
+#define COOLING_CAN_LOOPS   (25)  // bms_cooling at 4Hz
+#define BALANCING_LOOPS     (100) // rewrite the discharge switches every 1s
+#define OPEN_WIRE_LOOPS     (500) // check for open wires every 5s
 
-void cooling_fan_control(uint16_t max_temp) {
-    uint32_t duty_cycle;
-    uint16_t range = MAX_TEMPERATURE_FAN - MIN_TEMPERATURE_FAN;
+/*
+ * Fan speed from the hottest thermistor reading. Readings are thermistor
+ * voltages, so lower = hotter: off at or below 35degC, full speed at or
+ * above 45degC, linear in between.
+ */
+static void cooling_fan_control(uint16_t max_temp) {
+    uint32_t percent;
 
-    if (max_temp >= MAX_TEMPERATURE_FAN) {
-        duty_cycle = 1023; 
-    } else if (max_temp < MIN_TEMPERATURE_FAN) {
-        duty_cycle = 0;   
+    if (max_temp <= SOFT_OVERTEMPERATURE_THRESHOLD) {
+        percent = 100;
+    } else if (max_temp >= SOFT_OVERTEMPERATURE_THRESHOLD_LOW) {
+        percent = 0;
     } else {
-        duty_cycle = ((uint32_t)(max_temp - MIN_TEMPERATURE_FAN) * 1023) / range;
+        uint32_t range = SOFT_OVERTEMPERATURE_THRESHOLD_LOW - SOFT_OVERTEMPERATURE_THRESHOLD;
+        percent = (uint32_t)(SOFT_OVERTEMPERATURE_THRESHOLD_LOW - max_temp) * 100 / range;
     }
-    // Set PWM duty cycle on Timer 15
-    __HAL_TIM_SET_COMPARE(&htim15, TIM_CHANNEL_1, duty_cycle);
+
+    bms_cooling.duty_cycle = percent;
+
+    uint32_t period = __HAL_TIM_GET_AUTORELOAD(&htim2) + 1;
+    __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, period * percent / 100);
+}
+
+/*
+ * Update the PEC error count for one task and set/clear BMS_FAULT_PEC.
+ * Counts reset after a task reads back with no PEC errors.
+ */
+static void handle_pec_errors(uint16_t pec_errors, volatile uint8_t* error_count) {
+    if (pec_errors != 0) {
+        uint16_t count = *error_count + pec_errors;
+        *error_count = (count > UINT8_MAX) ? UINT8_MAX : count;
+    } else {
+        *error_count = 0;
+    }
+
+    if (bms_metrics.voltage_pec_error_count >= MAX_PEC_ERROR_COUNT
+        || bms_metrics.temperature_pec_error_count >= MAX_PEC_ERROR_COUNT) {
+        set_fault(BMS_FAULT_PEC);
+    } else {
+        clear_fault(BMS_FAULT_PEC);
+    }
+}
+
+static void monitor_cells(bool run_open_wire) {
+    // read all temperatures. ot/ut/min/max only change once per sweep of
+    // every mux channel, so they're kept between calls
+    static uint32_t ot = 0;
+    static uint32_t ut = 0;
+    static uint16_t min_temp = 0;
+    static uint16_t max_temp = UINT16_MAX;
+
+    uint16_t pec_errors = 0;
+    temperature_task(&ot, &ut, &min_temp, &max_temp, &pec_errors);
+    handle_pec_errors(pec_errors, &bms_metrics.temperature_pec_error_count);
+
+    // Check for undertemparature and overtemperature faults
+    if (ut > MAX_EXTRANEOUS_TEMPERATURES) {
+        set_fault(BMS_FAULT_UNDERTEMPERATURE);
+    } else {
+        clear_fault(BMS_FAULT_UNDERTEMPERATURE);
+    }
+
+    if (ot > MAX_EXTRANEOUS_TEMPERATURES) {
+        set_fault(BMS_FAULT_OVERTEMPERATURE);
+    } else {
+        clear_fault(BMS_FAULT_OVERTEMPERATURE);
+    }
+
+    // Fan Control based on latest max_temp
+    cooling_fan_control(max_temp);
+
+    // read all voltages
+    uint32_t ov = 0;
+    uint32_t uv = 0;
+    uint16_t pack_voltage = 0;
+    pec_errors = 0;
+    voltage_task(&pack_voltage, &ov, &uv, &pec_errors);
+    handle_pec_errors(pec_errors, &bms_metrics.voltage_pec_error_count);
+    bms_core.pack_voltage = pack_voltage;
+
+    // Check for undervoltage and overvoltage faults
+    if (ov > 0) {
+        set_fault(BMS_FAULT_OVERVOLTAGE);
+    } else {
+        clear_fault(BMS_FAULT_OVERVOLTAGE);
+    }
+
+    // The bridged unused channels always read 0V
+    if (uv > NUM_UNUSED_VOLTAGE_CHANNELS * NUM_ICS) {
+        set_fault(BMS_FAULT_UNDERVOLTAGE);
+    } else {
+        clear_fault(BMS_FAULT_UNDERVOLTAGE);
+    }
+
+    // read current
+    int16_t current = 0;
+    current_task(&current);
+    bms_core.pack_current = current;
+
+    // Check for overcurrent fault
+    if (current > CURRENT_THRESH) {
+        set_fault(BMS_FAULT_OVERCURRENT);
+        bms_core.overcurrent_detect = true;
+    } else {
+        clear_fault(BMS_FAULT_OVERCURRENT);
+        bms_core.overcurrent_detect = false;
+    }
+
+    if (run_open_wire) {
+        uint32_t ow = 0;
+        openwire_task(&ow);
+        if (ow > 0) {
+            set_fault(BMS_FAULT_OPEN_WIRE);
+        } else {
+            clear_fault(BMS_FAULT_OPEN_WIRE);
+        }
+    }
 }
 
 int main(void) {
     // 1. Reset of all peripherals, Initializes the Flash interface and the Systick.
     HAL_Init();
 
-    // 2. Configure the system clock 
+    // 2. Configure the system clock
     SystemClockConfig();
 
-    // 3. Initialize the Heartbeat GPIO pin
+    // 3. Initialize GPIO (relay starts open)
     GpioInit();
-    //initialize stm32 timer
+    // Fan PWM
     TimerInit();
+    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+
     // 4. Initialize SPI 04/18/26
     oem_spi_init(&bms_spi);
 
-    
-
     // Initializing ADCs
-    oem_adc_init(&pre_dis_temp_1);
-    oem_adc_init(&pre_dis_temp_2);
     oem_adc_init(&current_sense_vout);
 
-    // Start PWM for Fan
-    HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_1);
+    // If CAN fails to start, keep running so the relay logic still works and
+    // show it on the error LED
+    bool can_ok = (can_init_bms() == 0);
 
     // Initial SPI Wakeup
     // This sends a dummy byte to wake up the ADBMS1818s
     wakeup_sleep(NUM_ICS);
+    mux_init(NUM_ICS);
+    cell_balancing_init();
 
-    // Safety Tracking Variables (Used by tasks.h)
-    uint16_t pack_voltage = 0;
-    uint32_t ov = 0;
-    uint32_t uv = 0;
-    uint32_t ot = 0;
-    uint32_t ut = 0;
-    uint32_t ow = 0;
-    uint16_t min_temp = 0;
-    uint16_t max_temp = UINT16_MAX;
-    uint16_t pec_errors = 0;
-    int16_t current = 0;
+    // Run the first open wire check before the relay can close
+    bool run_open_wire = true;
 
-    uint8_t loop_counter = 0;
+    // TODO: set from the charger once charging is implemented. Cell balancing
+    // only runs while this is true.
+    bool charging = false;
+
+    uint16_t loop_counter = 0;
+    uint32_t last_loop = HAL_GetTick();
 
     // Infinite Loop
     while (1) {
-        if (main_loop_ready) {
-            main_loop_ready = false; // Reset flag
+        if ((HAL_GetTick() - last_loop) < LOOP_PERIOD_MS) {
+            continue;
+        }
+        last_loop = HAL_GetTick();
 
-            // Run Safety Tasks (From tasks)
-            voltage_task(&pack_voltage, &ov, &uv, &pec_errors);
-            temperature_task(&ot, &ut, &min_temp, &max_temp, &pec_errors);
-            current_task(&current);
-            openwire_task(&ow);
-            // `ow` is tracked but not yet wired into the relay trip
-            // condition below or into BMS_FAULT_OPEN_WIRE (fault.h still
-            // marks that fault as "Currently unused") left
-            // out pending a decision on open-wire trip behavior.
+        bms_core.bspd_current_sense
+            = HAL_GPIO_ReadPin(BSPD_CURRENT_THRESH_PORT, BSPD_CURRENT_THRESH_PIN);
 
-            // Fan Control based on latest max_temp
-            cooling_fan_control(max_temp);
+        // Run Safety Tasks (From tasks)
+        monitor_cells(run_open_wire);
+        run_open_wire = false;
 
-            // Relay Logic (Safety Shutdown)
-            // If any safety flags are set, open the relay (PA8)
-            if (ov > 0 || uv > (NUM_UNUSED_VOLTAGE_CHANNELS * NUM_ICS) || 
-                ot > MAX_EXTRANEOUS_TEMPERATURES || current > CURRENT_THRESH) {
-                HAL_GPIO_WritePin(BMS_RELAY_DRIVE_PORT, BMS_RELAY_DRIVE_PIN, GPIO_PIN_RESET);
-                HAL_GPIO_WritePin(ERROR_LED_PORT, ERROR_LED_PIN, GPIO_PIN_SET);
-            } else {
-                // No faults, keep relay closed
-                HAL_GPIO_WritePin(BMS_RELAY_DRIVE_PORT, BMS_RELAY_DRIVE_PIN, GPIO_PIN_SET);
-                HAL_GPIO_WritePin(ERROR_LED_PORT, ERROR_LED_PIN, GPIO_PIN_RESET);
-            }
+        // Relay Logic (Safety Shutdown)
+        // If any fault is set, open the relay (PA8)
+        if (!check_fault_state()) {
+            HAL_GPIO_WritePin(BMS_RELAY_DRIVE_PORT, BMS_RELAY_DRIVE_PIN, GPIO_PIN_SET);
+            HAL_GPIO_WritePin(ERROR_LED_PORT, ERROR_LED_PIN, can_ok ? GPIO_PIN_RESET : GPIO_PIN_SET);
+            bms_core.relay_closed = true;
+        } else {
+            HAL_GPIO_WritePin(BMS_RELAY_DRIVE_PORT, BMS_RELAY_DRIVE_PIN, GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(ERROR_LED_PORT, ERROR_LED_PIN, GPIO_PIN_SET);
+            bms_core.relay_closed = false;
+        }
 
+        // Green LED on while every CSC is answering with good data
+        bool comms_ok = !get_fault(BMS_FAULT_CSC_MIA) && !get_fault(BMS_FAULT_PEC);
+        HAL_GPIO_WritePin(CSC_COMMS_PORT, CSC_COMMS_PIN, comms_ok ? GPIO_PIN_SET : GPIO_PIN_RESET);
 
-            // Read Safety Sensors (ADC)
-            // uint16_t raw_current = oem_adc_read(&current_sense_vout);
-            // uint16_t temp1 = oem_adc_read(&pre_dis_temp_1);
+        can_wait_for_tx_slot();
+        can_send_bms_core();
+        can_wait_for_tx_slot();
+        can_send_bms_sense();
 
-            // Heartbeat logic (Toggle every 500ms = 50 loops)
-            static uint8_t blink_counter = 0;
-            if (++blink_counter >= 50) {
-                HAL_GPIO_TogglePin(HEARTBEAT_GPIO_Port, HEARTBEAT_Pin);
-                blink_counter = 0;
-            }
-            
-            // do i need this?
-            // SPI Communication with Battery Chips
-            //oem_spi_select(&bms_spi);
-            //oem_spi_deselect(&bms_spi);
+        loop_counter++;
+
+        if (loop_counter % COOLING_CAN_LOOPS == 0) {
+            can_wait_for_tx_slot();
+            can_send_bms_cooling();
+            can_wait_for_tx_slot();
+            can_send_bms_mux();
+        }
+
+        if (loop_counter % SLOW_CAN_LOOPS == 0) {
+            can_wait_for_tx_slot();
+            can_send_bms_metrics();
+            can_wait_for_tx_slot();
+            can_send_bms_debug();
+        }
+
+        // Heartbeat logic (Toggle every 500ms = 50 loops)
+        if (loop_counter % HEARTBEAT_LOOPS == 0) {
+            HAL_GPIO_TogglePin(HEARTBEAT_PORT, HEARTBEAT_PIN);
+        }
+
+        if (loop_counter % BALANCING_LOOPS == 0) {
+            update_cell_balancing(charging && !check_fault_state());
+        }
+
+        if (loop_counter % OPEN_WIRE_LOOPS == 0) {
+            run_open_wire = true;
+            loop_counter = 0;
         }
     }
 
     return 0;
-}
-
-// callback is triggered by the Timer 2 interrupt every 10ms
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-    if (htim->Instance == TIM2) {
-        main_loop_ready = true;
-    }
 }

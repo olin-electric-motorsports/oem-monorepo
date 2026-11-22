@@ -7,16 +7,25 @@
 #define NUM_CELLS_IN_REG (3)
 #define NUM_CELL_REG     (6)
 #define NUM_BYTES_IN_REG (6)
-#define NUM_CELLS_PER_IC (17)
+
+// Readings below this are the bridged unused channel(s), not real cells
+#define UNUSED_CHANNEL_MAX_CODE (5000) // 0.5V
 
 void voltage_task(uint16_t* pack_voltage, uint32_t* ov, uint32_t* uv,
                   uint16_t* pec_errors) {
+    // Only one cell register's worth of bms_voltage messages is sent per call
+    // so the 3-deep CAN TX FIFO can keep up. Every register is sent every 6
+    // calls.
+    static uint8_t broadcast_reg = 0;
+
     *pack_voltage = 0;
+    uint16_t min_cell = UINT16_MAX;
 
     wakeup_sleep(NUM_ICS);
 
-    // Start cell voltage ADC conversions
-    ADBMS181x_adcv(MD_7KHZ_3KHZ, DCP_ENABLED, CELL_CH_ALL);
+    // Start cell voltage ADC conversions. Discharge is paused during the
+    // measurement so cell balancing doesn't pull the readings down.
+    ADBMS181x_adcv(MD_7KHZ_3KHZ, DCP_DISABLED, CELL_CH_ALL);
 
     // Blocks until all ADCs are done being read
     ADBMS181x_pollAdc(); // Ignore return value because we don't care how long it
@@ -29,7 +38,6 @@ void voltage_task(uint16_t* pack_voltage, uint32_t* ov, uint32_t* uv,
      * then the Register B, etc.
      */
     uint8_t raw_data[NUM_RX_BYT * NUM_ICS] = { 0 };
-    uint32_t pack_voltages[NUM_ICS] = { 0 };
 
     for (uint8_t cell_reg = 0; cell_reg < NUM_CELL_REG; cell_reg++) {
         // Read one register at a time for all segments
@@ -40,79 +48,23 @@ void voltage_task(uint16_t* pack_voltage, uint32_t* ov, uint32_t* uv,
         ADBMS181x_rdcv_reg(cell_reg + 1, NUM_ICS, raw_data);
 
         for (uint8_t ic = 0; ic < NUM_ICS; ic++) { // foreach segment/chip
-            bms_voltage.ic = ic;
-            bms_voltage.cell = cell_reg;
-
             // Index for the raw data array
             uint8_t raw_idx = ic * NUM_RX_BYT;
 
             // Get cell voltages
-            uint16_t cell_1
-                = raw_data[raw_idx + 0] + (raw_data[raw_idx + 1] << 8);
-            uint16_t cell_2
-                = raw_data[raw_idx + 2] + (raw_data[raw_idx + 3] << 8);
-            uint16_t cell_3
-                = raw_data[raw_idx + 4] + (raw_data[raw_idx + 5] << 8);
-
-            // Artificially increasing cell voltages by 0.04 to get rid of the weird voltage diff
-            if (cell_reg == 0) {
-                cell_1 += 400;
-            } else if (cell_reg == NUM_CELL_REG - 1) {
-                cell_2 += 400;
+            uint16_t cells[NUM_CELLS_IN_REG];
+            for (uint8_t i = 0; i < NUM_CELLS_IN_REG; i++) {
+                cells[i] = raw_data[raw_idx + 2 * i]
+                           + (raw_data[raw_idx + 2 * i + 1] << 8);
             }
 
             // Core receives all 1s when the CSC is MIA
-            if ((cell_1 == UINT16_MAX) && (cell_2 == UINT16_MAX)
-                && (cell_3 == UINT16_MAX)) {
+            if ((cells[0] == UINT16_MAX) && (cells[1] == UINT16_MAX)
+                && (cells[2] == UINT16_MAX)) {
                 set_csc_mia(ic);
-            } else {
-                clear_csc_mia(ic);
-                // Accumulate voltage (only append if valid SPI response)
-                *pack_voltage += cell_1 >> 8;
-                *pack_voltage += cell_2 >> 8;
-                *pack_voltage += cell_3 >> 8;
+                continue;
             }
-
-            // Set CSC fault based on status of all CSCs
-            if (!check_csc_state()) {
-                clear_fault(BMS_FAULT_CSC_MIA);
-            } else {
-                set_fault(BMS_FAULT_CSC_MIA);
-            }
-
-            // Put cell voltages in CAN message
-            bms_voltage.voltage_1 = cell_1;
-            bms_voltage.voltage_2 = cell_2;
-            bms_voltage.voltage_3 = cell_3;
-
-            // Average cell voltages on segment 1
-            if (ic == 1) {
-                // pack_voltages[ic] += (cell_1 + cell_2 + cell_3);
-                pack_voltages[ic] += cell_1;
-                pack_voltages[ic] += cell_2;
-                pack_voltages[ic] += cell_3;
-            } else {
-                // Check under/overvoltage thresholds
-                if (cell_1 >= OVERVOLTAGE_THRESHOLD) {
-                    *ov += 1;
-                } else if (cell_1 <= UNDERVOLTAGE_THRESHOLD) {
-                    *uv += 1;
-                }
-
-                if (cell_2 >= OVERVOLTAGE_THRESHOLD) {
-                    *ov += 1;
-                } else if (cell_2 <= UNDERVOLTAGE_THRESHOLD) {
-                    *uv += 1;
-                }
-
-                if (cell_3 >= OVERVOLTAGE_THRESHOLD) {
-                    *ov += 1;
-                } else if (cell_3 <= UNDERVOLTAGE_THRESHOLD) {
-                    *uv += 1;
-                }
-            }
-
-            can_send_bms_voltage();
+            clear_csc_mia(ic);
 
             /*
              * The received PEC for the current_ic
@@ -123,18 +75,57 @@ void voltage_task(uint16_t* pack_voltage, uint32_t* ov, uint32_t* uv,
                 = (raw_data[raw_idx + 6] << 8) + raw_data[raw_idx + 7];
 
             uint16_t data_pec
-                = pec15_calc(NUM_BYTES_IN_REG, &raw_data[(ic)*NUM_RX_BYT]);
+                = pec15_calc(NUM_BYTES_IN_REG, &raw_data[raw_idx]);
 
             if (received_pec != data_pec) {
+                // Don't act on corrupted data. Repeated PEC errors raise
+                // BMS_FAULT_PEC in bms.c
                 *pec_errors += 1;
+                continue;
+            }
+
+            for (uint8_t i = 0; i < NUM_CELLS_IN_REG; i++) {
+                cell_data.cells[ic].cells.c_codes[cell_reg * NUM_CELLS_IN_REG + i]
+                    = cells[i];
+
+                // Accumulate voltage (only append if valid SPI response)
+                *pack_voltage += cells[i] >> 8;
+
+                // Check under/overvoltage thresholds
+                if (cells[i] >= OVERVOLTAGE_THRESHOLD) {
+                    *ov += 1;
+                } else if (cells[i] <= UNDERVOLTAGE_THRESHOLD) {
+                    *uv += 1;
+                }
+
+                if (cells[i] > UNUSED_CHANNEL_MAX_CODE && cells[i] < min_cell) {
+                    min_cell = cells[i];
+                }
+            }
+
+            // Put cell voltages in CAN message
+            if (cell_reg == broadcast_reg) {
+                bms_voltage.ic = ic;
+                bms_voltage.cell = cell_reg;
+                bms_voltage.voltage_1 = cells[0];
+                bms_voltage.voltage_2 = cells[1];
+                bms_voltage.voltage_3 = cells[2];
+                can_wait_for_tx_slot();
+                can_send_bms_voltage();
             }
         } // end foreach adbms1818
     } // end foreach cell reg (A, B, C, D, E, F)
 
-    // Fault handling for cell voltage average on segment 1
-    // if (pack_voltages[1] > SEGMENT_OVERVOLTAGE_THRESHOLD) {
-    //     set_fault(BMS_FAULT_OVERVOLTAGE);
-    // } else if (pack_voltages[1] < SEGMENT_UNDERVOLTAGE_THRESHOLD) {
-    //     set_fault(BMS_FAULT_UNDERVOLTAGE);
-    // }
+    broadcast_reg = (broadcast_reg + 1) % NUM_CELL_REG;
+
+    // Set CSC fault based on status of all CSCs
+    if (!check_csc_state()) {
+        clear_fault(BMS_FAULT_CSC_MIA);
+    } else {
+        set_fault(BMS_FAULT_CSC_MIA);
+    }
+
+    if (min_cell != UINT16_MAX) {
+        bms_sense.min_cell_voltage = min_cell;
+    }
 }

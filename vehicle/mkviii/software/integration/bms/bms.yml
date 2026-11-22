@@ -1,0 +1,334 @@
+name: bms
+
+# Message IDs carried over from MKVII (vehicle/mkvii/software/bms/bms.yml in
+# the old olin-electric-motorsports repo). Check them against the MKVIII CAN
+# address space spreadsheet.
+publish:
+  - name: bms_core
+    id: 0x10
+    freq_hz: 100
+    signals:
+      - name: bms_state
+        slice: 0 + 2
+        unit:
+          type: enum
+          values:
+            - ACTIVE
+            - CHARGING
+            - FAULT
+      - name: bms_fault_code
+        slice: 2 + 16
+        unit:
+          type: uint16_t
+          name: ""
+          offset: 0
+          scale: 1
+          # Bitfield, bit n set = fault n. See utils/fault.h for full
+          # documentation of faults. Listed here for convenience.
+          # - (UV)  UNDERVOLTAGE
+          # - (OV)  OVERVOLTAGE
+          # - (UT)  UNDERTEMPERATURE
+          # - (OT)  OVERTEMPERATURE
+          # - (DF)  DIAGNOSTICS_FAIL
+          # - (OW)  OPEN_WIRE
+          # - (OC)  OVERCURRENT
+          # - (PEC) PEC
+          # - (CF)  CHARGER_FAULT
+          # - (SM)  STATE_MACHINE
+          # - (CSC) CSC_MIA
+          # - (MUX) MUX_MIA
+          # - (DOT) DIE_OVERTEMPERATURE
+      - name: pack_voltage
+        slice: 18 + 16
+        unit:
+          type: uint16_t
+          name: V
+          offset: 0
+          scale: 0.0001 * 256
+      - name: pack_current
+        slice: 34 + 16
+        unit:
+          type: int16_t
+          name: A
+          offset: 0
+          scale: 0.01
+      - name: cell_balancing_status
+        slice: 50 + 1
+        unit:
+          type: bool
+          values:
+            t: Cell balancing enabled
+            f: Cell balancing disabled
+      - name: regen_enabled
+        slice: 51 + 1
+        unit:
+          type: bool
+          values:
+            t: Regenerative braking enabled
+            f: Regenerative braking disabled
+      - name: current_limiting_enabled
+        slice: 52 + 1
+        unit:
+          type: bool
+          values:
+            t: Current limiting enabled
+            f: Current limiting disabled
+      - name: bspd_current_sense
+        slice: 53 + 1
+        unit:
+          type: bool
+          values:
+            t: Current sensed
+            f: No current sensed
+      - name: overcurrent_detect
+        slice: 54 + 1
+        unit:
+          type: bool
+          values:
+            t: Over-current detected
+            f: No over-current detected
+      - name: charger_connected
+        slice: 55 + 1
+        unit:
+          type: bool
+          values:
+            t: Connected
+            f: Disconnected
+      - name: relay_closed
+        slice: 56 + 1
+        unit:
+          type: bool
+          values:
+            t: Relay closed
+            f: Relay open
+
+  - name: bms_sense
+    id: 0x11
+    freq_hz: 100
+    signals:
+      # Raw thermistor voltages. NTC, so min_temperature is the highest voltage
+      - name: min_temperature
+        slice: 0 + 16
+        unit:
+          type: uint16_t
+          name: V
+          offset: 0
+          scale: 0.0001
+      - name: max_temperature
+        slice: 16 + 16
+        unit:
+          type: uint16_t
+          name: V
+          offset: 0
+          scale: 0.0001
+      # Current sensor output voltage (before the divider)
+      - name: current_vout
+        slice: 32 + 16
+        unit:
+          type: uint16_t
+          name: V
+          offset: 0
+          scale: 0.001
+      - name: min_cell_voltage
+        slice: 48 + 16
+        unit:
+          type: uint16_t
+          name: V
+          offset: 0
+          scale: 0.0001
+
+  - name: bms_metrics
+    id: 0x510
+    freq_hz: 2
+    signals:
+      - name: csc_mia
+        slice: 0 + 6
+        unit:
+          type: uint8_t
+          name: ""
+          scale: 1
+          offset: 0
+      - name: open_wire_ic
+        slice: 6 + 8
+        unit:
+          type: uint8_t
+          name: ""
+          scale: 1
+          offset: 0
+      - name: open_wire_cell
+        slice: 14 + 8
+        unit:
+          type: uint8_t
+          name: ""
+          scale: 1
+          offset: 0
+      - name: i2c_error_count
+        slice: 22 + 8
+        unit:
+          type: uint8_t
+          name: "errors"
+          scale: 1
+          offset: 0
+      - name: voltage_pec_error_count
+        slice: 30 + 8
+        unit:
+          type: uint8_t
+          name: "errors"
+          scale: 1
+          offset: 0
+      - name: temperature_pec_error_count
+        slice: 38 + 8
+        unit:
+          type: uint8_t
+          name: "errors"
+          scale: 1
+          offset: 0
+
+  - name: bms_debug
+    id: 0x511
+    freq_hz: 2
+    signals:
+      - name: internal_die_temp
+        slice: 0 + 16
+        unit:
+          type: uint16_t
+          name: ""
+          scale: 1
+          offset: 0
+      - name: dbg_2
+        slice: 16 + 16
+        unit:
+          type: uint16_t
+          name: ""
+          scale: 1
+          offset: 0
+      - name: dbg_3
+        slice: 32 + 16
+        unit:
+          type: uint16_t
+          name: ""
+          scale: 1
+          offset: 0
+      - name: dbg_4
+        slice: 48 + 16
+        unit:
+          type: uint16_t
+          name: ""
+          scale: 1
+          offset: 0
+
+  - name: bms_voltage
+    id: 0x401
+    freq_hz: 4
+    signals:
+      - name: ic
+        slice: 0 + 8
+        unit:
+          type: uint8_t
+          name: ""
+          scale: 1
+          offset: 0
+      - name: cell
+        slice: 8 + 8
+        unit:
+          type: enum
+          values:
+            - REG_A
+            - REG_B
+            - REG_C
+            - REG_D
+            - REG_E
+            - REG_F
+      - name: voltage_1
+        slice: 16 + 16
+        unit:
+          type: uint16_t
+          name: "volts"
+          scale: 0.0001
+          offset: 0
+      - name: voltage_2
+        slice: 32 + 16
+        unit:
+          type: uint16_t
+          name: "volts"
+          scale: 0.0001
+          offset: 0
+      - name: voltage_3
+        slice: 48 + 16
+        unit:
+          type: uint16_t
+          name: "volts"
+          scale: 0.0001
+          offset: 0
+
+  - name: bms_temperature
+    id: 0x402
+    freq_hz: 4
+    signals:
+      - name: ic
+        slice: 0 + 3
+        unit:
+          type: uint8_t
+          name: ""
+          scale: 1
+          offset: 0
+      - name: mux_chips
+        slice: 4 + 2
+        unit:
+          type: enum
+          values:
+            - MUX_CHIPS_12
+            - MUX_CHIPS_34
+            - NO_MUX # Individual readings 33 and 34
+      - name: channel
+        slice: 8 + 5
+        unit:
+          type: uint8_t
+          name: ""
+          scale: 1
+          offset: 0
+      - name: temperature_1
+        slice: 16 + 16
+        unit:
+          type: uint16_t
+          name: "volts"
+          scale: 0.0001
+          offset: 0
+      - name: temperature_2
+        slice: 32 + 16
+        unit:
+          type: uint16_t
+          name: "volts"
+          scale: 0.0001
+          offset: 0
+
+  - name: bms_cooling
+    id: 0x403
+    freq_hz: 4
+    signals:
+      - name: duty_cycle
+        slice: 0 + 8
+        unit:
+          type: uint8_t
+          name: "percent"
+          scale: 1
+          offset: 0
+
+  - name: bms_mux
+    id: 0x404
+    freq_hz: 4
+    signals:
+      - name: num_mux
+        slice: 0 + 8
+        unit:
+          type: uint8_t
+          name: "num_mux"
+          scale: 1
+          offset: 0
+      - name: mux_ack
+        slice: 8 + 8
+        unit:
+          type: uint8_t
+          name: "bitfield, bit n = mux n ACKed on every IC"
+          scale: 1
+          offset: 0

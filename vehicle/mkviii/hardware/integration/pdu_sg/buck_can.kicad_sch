@@ -5,7 +5,7 @@
 	(uuid "7071792e-f38f-442b-9439-3688340c5528")
 	(paper "A4")
 	(lib_symbols
-		(symbol "OEM:C_0.1uF_16V_0603"
+		(symbol "OEM:C_10uF_0-20V_0603"
 			(pin_numbers
 				(hide yes)
 			)
@@ -28,7 +28,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "C_0.1uF_16V"
+			(property "Value" "C_10uF"
 				(at 0.635 -2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -39,7 +39,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "OEM:C_0603_1608Metric"
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 				(at 0.9652 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -50,7 +50,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
+			(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188D71A106KA73-01.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -61,7 +61,7 @@
 					)
 				)
 			)
-			(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
+			(property "Description" "CAP CER 10UF 10V X7T 0603"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -72,7 +72,7 @@
 					)
 				)
 			)
-			(property "MPN" "C0603C104Z4VACTU"
+			(property "MPN" "GRM188D71A106KA73D"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -105,7 +105,7 @@
 					)
 				)
 			)
-			(symbol "C_0.1uF_16V_0603_0_1"
+			(symbol "C_10uF_0-20V_0603_0_1"
 				(polyline
 					(pts
 						(xy -2.032 0.762) (xy 2.032 0.762)
@@ -131,7 +131,7 @@
 					)
 				)
 			)
-			(symbol "C_0.1uF_16V_0603_1_1"
+			(symbol "C_10uF_0-20V_0603_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.794)
@@ -171,7 +171,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:C_0.47uF_25V_0603"
+		(symbol "OEM:C_22uF_20-100V_1206"
 			(pin_numbers
 				(hide yes)
 			)
@@ -194,7 +194,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "C_0.47uF_25V"
+			(property "Value" "C_22uF"
 				(at 0.635 -2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -205,7 +205,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "OEM:C_0603_1608Metric"
+			(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 				(at 0.9652 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -216,7 +216,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R71E474KA12-01.pdf"
+			(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -227,7 +227,7 @@
 					)
 				)
 			)
-			(property "Description" "CAP CER 0.47UF 25V X7R 0603"
+			(property "Description" "CAP CER 22UF 25V X5R 1206"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -238,7 +238,7 @@
 					)
 				)
 			)
-			(property "MPN" "GRM188R71E474KA12D"
+			(property "MPN" "CL31A226KAHNNNE"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -271,7 +271,7 @@
 					)
 				)
 			)
-			(symbol "C_0.47uF_25V_0603_0_1"
+			(symbol "C_22uF_20-100V_1206_0_1"
 				(polyline
 					(pts
 						(xy -2.032 0.762) (xy 2.032 0.762)
@@ -297,7 +297,7 @@
 					)
 				)
 			)
-			(symbol "C_0.47uF_25V_0603_1_1"
+			(symbol "C_22uF_20-100V_1206_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.794)
@@ -549,183 +549,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:D_Schottky_100V_1A_SOD123W"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "D"
-				(at 0 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "D_100V_1A"
-				(at 0 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "OEM:SODFL3718X102N (D_Schottky_100V_1A_SMD - SS110LW)"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" "https://www.taiwansemi.com/assets/datasheet/pdf.php?pn=SS110LW"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "DIODE SCHOTTKY 100V 1A SOD123W"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "MPN" "SS110LW"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "diode Schottky"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "D_Schottky_100V_1A_SOD123W_0_1"
-				(polyline
-					(pts
-						(xy -1.905 0.635) (xy -1.905 1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -0.635 -1.27) (xy -0.635 -0.635)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 0) (xy -1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "D_Schottky_100V_1A_SOD123W_1_1"
-				(pin passive line
-					(at -3.81 0 0)
-					(length 2.54)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 3.81 0 180)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "OEM:R_200_0.1W_0603"
 			(pin_numbers
 				(hide yes)
@@ -877,46 +700,39 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "OEM:U_5V-Volt-Reg_TLV70450DBVR_SOT23-5"
+		(symbol "OEM:U_5V-Buck-Conv-AP63205WU-7-SOIC_05WU-7_DIO-M"
+			(pin_names
+				(offset 1.016)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U9"
-				(at 0 10.16 0)
+			(property "Reference" "U"
+				(at 15.5956 9.1186 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left bottom)
 				)
 			)
-			(property "Value" "TLV70450DBVR"
-				(at 0 7.62 0)
+			(property "Value" "AP63205WU-7"
+				(at 14.9606 6.5786 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left bottom)
 				)
 			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
-				(at 10.16 -92.38 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Datasheet" "http://www.ti.com/lit/gpn/tlv704"
-				(at 10.16 -192.38 0)
+			(property "Footprint" "OEM:SOIC_05WU-7_DIO-M"
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -924,11 +740,155 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left top)
+					(justify bottom)
 				)
 			)
-			(property "Description" "IC REG LINEAR 5V 150MA SOT23-5"
-				(at -13.97 2.54 0)
+			(property "Datasheet" "https://s3.amazonaws.com/snapeda/datasheet/AP63205WU-7_Diodes_Incorporated.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "Description" "Buck Switching Regulator IC Positive Fixed 5V 1 Output 2A SOT-23-6 Thin, TSOT-23-6"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "DATASHEET_URL" "https://s3.amazonaws.com/snapeda/datasheet/AP63205WU-7_Diodes_Incorporated.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "LINK" "https://www.digikey.com/en/products/detail/diodes-incorporated/AP63205WU-7/9858424"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "MANUFACTURER" "Diodes Incorporated"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "MPN" "AP63205WU-7"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "PRICE_EA" "0.91"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "Package" "SOT-23-6 Diodes Incorporated"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "ROHS" "Yes"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "SOURCE_URL" "https://www.snapeda.com/parts/AP63205WU-7/Diodes+Inc./view-part/"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "VENDOR" "Digikey"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "VPN" "AP63205WU-7DICT-ND"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "ki_keywords" "5V buck"
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -938,118 +898,163 @@
 					)
 				)
 			)
-			(property "MPN" "TLV70450DBVR"
-				(at 10.16 -792.38 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
+			(symbol "U_5V-Buck-Conv-AP63205WU-7-SOIC_05WU-7_DIO-M_0_0"
+				(polyline
+					(pts
+						(xy 7.62 5.08) (xy 7.62 -10.16)
 					)
-					(justify left top)
-				)
-			)
-			(symbol "U_5V-Volt-Reg_TLV70450DBVR_SOT23-5_1_1"
-				(rectangle
-					(start -8.89 5.08)
-					(end 8.89 -5.08)
 					(stroke
-						(width 0.254)
+						(width 0.1524)
 						(type default)
 					)
 					(fill
 						(type background)
 					)
 				)
-				(pin power_in line
-					(at 0 -10.16 90)
+				(pin passive line
+					(at 2.54 0 0)
 					(length 5.08)
-					(name "GND"
+					(name "FB"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 				)
-				(pin power_in line
-					(at -13.97 0 0)
+				(pin passive line
+					(at 2.54 -2.54 0)
 					(length 5.08)
-					(name "IN"
+					(name "EN"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 					(number "2"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 				)
-				(pin output line
-					(at 13.97 -2.54 180)
+				(pin passive line
+					(at 2.54 -5.08 0)
 					(length 5.08)
-					(name "OUT"
+					(name "VIN"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 					(number "3"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at 13.97 2.54 180)
+					(at 38.1 -5.08 180)
 					(length 5.08)
-					(name "NC_1"
+					(name "GND"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 					(number "4"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at 13.97 0 180)
+					(at 38.1 -2.54 180)
 					(length 5.08)
-					(name "NC_2"
+					(name "SW"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
 					)
 					(number "5"
 						(effects
 							(font
-								(size 1.27 1.27)
+								(size 1.016 1.016)
 							)
 						)
+					)
+				)
+				(pin passive line
+					(at 38.1 0 180)
+					(length 5.08)
+					(name "BST"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+			(symbol "U_5V-Buck-Conv-AP63205WU-7-SOIC_05WU-7_DIO-M_1_1"
+				(polyline
+					(pts
+						(xy 7.62 -10.16) (xy 33.02 -10.16)
+					)
+					(stroke
+						(width 0.1524)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy 33.02 5.08) (xy 7.62 5.08)
+					)
+					(stroke
+						(width 0.1524)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy 33.02 -10.16) (xy 33.02 5.08)
+					)
+					(stroke
+						(width 0.1524)
+						(type solid)
+					)
+					(fill
+						(type background)
 					)
 				)
 			)
@@ -1312,68 +1317,70 @@
 		(uuid "1868dc6f-6288-4021-80e5-10686c8cc44a")
 	)
 	(junction
-		(at 105.41 100.33)
+		(at 184.15 113.03)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "55d30573-0c73-474c-b678-c80082f39841")
+		(uuid "10177304-e3fa-44a0-a255-7ebdaa87f088")
 	)
 	(junction
-		(at 130.81 100.33)
+		(at 129.54 104.14)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "71bbe896-cda5-4b1e-a49b-80cd42cdc6e9")
+		(uuid "6fc09aba-c037-4b25-bdb2-0cce3c4c2b1a")
 	)
 	(junction
-		(at 127 100.33)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7c06bff6-5499-4da1-aa16-1bd0f7a76ed7")
-	)
-	(junction
-		(at 189.23 106.68)
+		(at 203.2 105.41)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "81806185-31d5-4c85-ab59-0ba937144256")
 	)
 	(junction
-		(at 170.18 102.87)
+		(at 184.15 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a1893962-541a-4088-8f7a-144870e7864b")
 	)
 	(junction
-		(at 167.64 102.87)
+		(at 184.15 120.65)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "b7a96730-401e-4033-9485-b0f61113dd5d")
+		(uuid "c624beac-9fd5-4955-821e-232ac59c70e7")
 	)
 	(junction
-		(at 189.23 102.87)
+		(at 116.84 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "dd5cdfc3-5ade-4322-8998-9d6a95a49811")
+	)
+	(junction
+		(at 203.2 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f9ed22bc-2a23-4657-b1b5-2fff0d992fab")
 	)
-	(no_connect
-		(at 163.83 97.79)
-		(uuid "3bf81fac-7587-4384-a0d0-66c155960c93")
-	)
-	(no_connect
-		(at 163.83 100.33)
-		(uuid "a7fbdddd-3db2-4031-80e9-8bb761799519")
-	)
 	(wire
 		(pts
-			(xy 146.05 82.55) (xy 130.81 82.55)
+			(xy 184.15 123.19) (xy 184.15 120.65)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0894023d-329c-4775-8190-cd119ae064de")
+		(uuid "0f3a8b50-f693-4e6f-8656-f66ae2ebadf5")
 	)
 	(wire
 		(pts
-			(xy 170.18 102.87) (xy 170.18 109.22)
+			(xy 132.08 101.6) (xy 129.54 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "126ed0c2-6cd4-4d01-96a1-53c5689162fa")
+	)
+	(wire
+		(pts
+			(xy 184.15 101.6) (xy 184.15 113.03)
 		)
 		(stroke
 			(width 0)
@@ -1383,87 +1390,47 @@
 	)
 	(wire
 		(pts
-			(xy 153.67 82.55) (xy 167.64 82.55)
+			(xy 116.84 104.14) (xy 129.54 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "28c62455-4266-4cae-81ce-094a5f8847ad")
+		(uuid "2561be4a-2a15-4c4c-9253-5fbfe358cf82")
 	)
 	(wire
 		(pts
-			(xy 105.41 100.33) (xy 95.25 100.33)
+			(xy 129.54 104.14) (xy 132.08 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3990e9f7-5bbd-4b73-bf50-7703f7c3eb7a")
+		(uuid "42881698-2d72-4814-93d9-88226219fddc")
 	)
 	(wire
 		(pts
-			(xy 127 111.76) (xy 127 114.3)
+			(xy 105.41 104.14) (xy 116.84 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3f4387cb-192d-4519-9ccf-8b049dd787c7")
+		(uuid "463e0eb6-5396-4511-9c92-5b3a9add035c")
 	)
 	(wire
 		(pts
-			(xy 149.86 110.49) (xy 149.86 113.03)
+			(xy 179.07 120.65) (xy 184.15 120.65)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "51dd43f9-322e-4124-8d66-1d6e6f9354cb")
+		(uuid "6a7b1d94-87fa-43fc-8b90-a7ec82266bf4")
 	)
 	(wire
 		(pts
-			(xy 105.41 100.33) (xy 105.41 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5c0dd172-0c5d-4ae8-9305-ebbd0f99287f")
-	)
-	(wire
-		(pts
-			(xy 163.83 102.87) (xy 167.64 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6657d688-bdc5-4823-8165-d20543d56ba0")
-	)
-	(wire
-		(pts
-			(xy 130.81 82.55) (xy 130.81 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6cd7ada0-7130-411e-8ead-b883a19555f1")
-	)
-	(wire
-		(pts
-			(xy 127 100.33) (xy 130.81 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7c7b1730-518d-4019-b0ed-32cad908426e")
-	)
-	(wire
-		(pts
-			(xy 170.18 102.87) (xy 189.23 102.87)
+			(xy 184.15 101.6) (xy 203.2 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1473,27 +1440,7 @@
 	)
 	(wire
 		(pts
-			(xy 130.81 100.33) (xy 135.89 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8fecf09d-9472-417d-a480-913cf444e014")
-	)
-	(wire
-		(pts
-			(xy 127 100.33) (xy 127 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9f9bc8c0-7989-48a6-9114-a3d21d61b2ea")
-	)
-	(wire
-		(pts
-			(xy 189.23 109.22) (xy 189.23 106.68)
+			(xy 203.2 107.95) (xy 203.2 105.41)
 		)
 		(stroke
 			(width 0)
@@ -1503,17 +1450,27 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 82.55) (xy 167.64 102.87)
+			(xy 184.15 113.03) (xy 189.23 113.03)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "beb303f1-00b1-4886-ad1e-8cb6d253d669")
+		(uuid "b7f58b14-fc04-4dc0-96ee-8d63259b9674")
 	)
 	(wire
 		(pts
-			(xy 189.23 102.87) (xy 199.39 102.87)
+			(xy 179.07 113.03) (xy 184.15 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd479897-629e-47cb-a790-67c0f3fcb784")
+	)
+	(wire
+		(pts
+			(xy 203.2 101.6) (xy 213.36 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1523,27 +1480,27 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 116.84) (xy 170.18 119.38)
+			(xy 184.15 120.65) (xy 189.23 120.65)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dae78803-f185-4ccd-a788-47d7695c43aa")
+		(uuid "cb4212b5-17e4-4cdb-ada7-478a913fc787")
 	)
 	(wire
 		(pts
-			(xy 127 100.33) (xy 105.41 100.33)
+			(xy 129.54 101.6) (xy 129.54 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e33ef9ab-9a44-4097-8b4f-262e21601b7c")
+		(uuid "ebab6108-3821-4b1d-91eb-700b0d4bcce8")
 	)
 	(wire
 		(pts
-			(xy 189.23 102.87) (xy 189.23 106.68)
+			(xy 203.2 101.6) (xy 203.2 105.41)
 		)
 		(stroke
 			(width 0)
@@ -1553,7 +1510,7 @@
 	)
 	(wire
 		(pts
-			(xy 167.64 102.87) (xy 170.18 102.87)
+			(xy 181.61 101.6) (xy 184.15 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1563,7 +1520,7 @@
 	)
 	(hierarchical_label "5V_buck_vin"
 		(shape input)
-		(at 95.25 100.33 180)
+		(at 105.41 104.14 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1574,7 +1531,7 @@
 	)
 	(hierarchical_label "5V_buck_vout"
 		(shape output)
-		(at 199.39 102.87 0)
+		(at 213.36 101.6 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1584,8 +1541,9 @@
 		(uuid "fd4b66c4-c7b1-410b-8d88-754b45b427e1")
 	)
 	(symbol
-		(lib_id "OEM:D_Schottky_100V_1A_SOD123W")
-		(at 149.86 82.55 0)
+		(lib_id "OEM:C_22uF_20-100V_1206")
+		(at 179.07 116.84 0)
+		(mirror y)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1593,30 +1551,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "14a45a82-6805-40cb-9381-d3af83420ada")
-		(property "Reference" "D10"
-			(at 149.5425 76.2 0)
+		(uuid "2233fe8f-09d5-4fca-82cd-21dd5f7cc218")
+		(property "Reference" "C16"
+			(at 175.26 115.5699 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "D_100V_1A"
-			(at 149.5425 78.74 0)
+		(property "Value" "C_22uF"
+			(at 175.26 118.1099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Footprint" "OEM:SODFL3718X102N (D_Schottky_100V_1A_SMD - SS110LW)"
-			(at 149.86 82.55 0)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 178.1048 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1626,8 +1585,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.taiwansemi.com/assets/datasheet/pdf.php?pn=SS110LW"
-			(at 149.86 82.55 0)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
+			(at 179.07 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1637,8 +1596,8 @@
 				)
 			)
 		)
-		(property "Description" "DIODE SCHOTTKY 100V 1A SOD123W"
-			(at 149.86 82.55 0)
+		(property "Description" "CAP CER 22UF 25V X5R 1206"
+			(at 179.07 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1648,8 +1607,8 @@
 				)
 			)
 		)
-		(property "MPN" "SS110LW"
-			(at 149.86 82.55 0)
+		(property "MPN" "CL31A226KAHNNNE"
+			(at 179.07 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1658,95 +1617,17 @@
 					(size 1.27 1.27)
 				)
 			)
+		)
+		(pin "1"
+			(uuid "7b6c55ee-235a-4ee3-9058-8900771ca612")
 		)
 		(pin "2"
-			(uuid "02469c35-75e6-4e36-94d1-43fb42990b10")
-		)
-		(pin "1"
-			(uuid "ca906f96-9912-4982-b38a-9477a6fd3244")
+			(uuid "9290d2e6-5389-4773-9917-b4892fc70538")
 		)
 		(instances
 			(project "lv_pdu"
 				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/184aa046-f559-410e-abf5-8a6622e1d918"
-					(reference "D10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 149.86 113.03 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1e418343-e4d0-4bb7-9024-c123ba8effd1")
-		(property "Reference" "#PWR052"
-			(at 149.86 119.38 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 149.86 118.11 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 149.86 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 149.86 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 149.86 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "652087f5-e572-42d4-af21-bee3ea5481d2")
-		)
-		(instances
-			(project "lv_pdu"
-				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/184aa046-f559-410e-abf5-8a6622e1d918"
-					(reference "#PWR052")
+					(reference "C16")
 					(unit 1)
 				)
 			)
@@ -1754,7 +1635,7 @@
 	)
 	(symbol
 		(lib_id "OEM:R_200_0.1W_0603")
-		(at 189.23 113.03 0)
+		(at 203.2 111.76 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1765,7 +1646,7 @@
 		(fields_autoplaced yes)
 		(uuid "260be8b1-bd23-4b8d-8895-d093ee3da81d")
 		(property "Reference" "R11"
-			(at 191.77 111.7599 0)
+			(at 205.74 110.4899 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1776,7 +1657,7 @@
 			)
 		)
 		(property "Value" "R_200"
-			(at 191.77 114.2999 0)
+			(at 205.74 113.0299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1787,7 +1668,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 187.452 113.03 90)
+			(at 201.422 111.76 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1798,7 +1679,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf"
-			(at 189.23 113.03 0)
+			(at 203.2 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1809,7 +1690,7 @@
 			)
 		)
 		(property "Description" "RES 200 OHM 1% 1/10W 0603"
-			(at 189.23 113.03 0)
+			(at 203.2 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1820,7 +1701,7 @@
 			)
 		)
 		(property "MPN" "WR06X2000FTL"
-			(at 189.23 113.03 0)
+			(at 203.2 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1846,8 +1727,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 189.23 124.46 0)
+		(lib_id "OEM:C_10uF_0-20V_0603")
+		(at 116.84 107.95 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1856,9 +1737,102 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "77b87909-0d92-4abe-8d1f-e218e3483e6c")
-		(property "Reference" "#PWR056"
-			(at 189.23 130.81 0)
+		(uuid "2b961be6-7701-43f0-b522-c1002a35521d")
+		(property "Reference" "C17"
+			(at 120.65 106.6799 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "C_10uF"
+			(at 120.65 109.2199 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 117.8052 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188D71A106KA73-01.pdf"
+			(at 116.84 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 10UF 10V X7T 0603"
+			(at 116.84 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "GRM188D71A106KA73D"
+			(at 116.84 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "451443f3-3e2b-4f5a-9e2d-536490b0f62c")
+		)
+		(pin "1"
+			(uuid "985a27cd-826d-4344-8f02-8a0c585bd969")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/184aa046-f559-410e-abf5-8a6622e1d918"
+					(reference "C17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 116.84 111.76 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3bd2acc8-ff4c-48d1-8291-89929584f246")
+		(property "Reference" "#PWR054"
+			(at 116.84 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1869,7 +1843,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 189.23 129.54 0)
+			(at 116.84 116.84 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1878,8 +1852,8 @@
 				)
 			)
 		)
-		(property "Footprint" "OEM:D_0805_2012Metric"
-			(at 189.23 124.46 0)
+		(property "Footprint" ""
+			(at 116.84 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1890,7 +1864,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 189.23 124.46 0)
+			(at 116.84 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1901,7 +1875,163 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 189.23 124.46 0)
+			(at 116.84 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2f098221-5a52-4c24-85e2-0d9e3b14a9b3")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/184aa046-f559-410e-abf5-8a6622e1d918"
+					(reference "#PWR054")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 167.64 104.14 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "502f0992-f5aa-4170-bc13-4542fff5fb42")
+		(property "Reference" "#PWR052"
+			(at 167.64 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 167.64 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 167.64 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 167.64 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 167.64 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "39b94c25-6c96-42ad-8fc7-976b4817be69")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/184aa046-f559-410e-abf5-8a6622e1d918"
+					(reference "#PWR052")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 203.2 123.19 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "77b87909-0d92-4abe-8d1f-e218e3483e6c")
+		(property "Reference" "#PWR056"
+			(at 203.2 129.54 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 203.2 128.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:D_0805_2012Metric"
+			(at 203.2 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 203.2 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 203.2 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1924,179 +2054,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 127 114.3 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8382ec32-ae68-4beb-b7d9-969caa9e91e6")
-		(property "Reference" "#PWR054"
-			(at 127 120.65 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 127 119.38 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OEM:C_0603_1608Metric"
-			(at 127 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 127 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 127 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "320b3ff1-1430-4c31-815d-4f0c3cf55b9e")
-		)
-		(instances
-			(project "lv_pdu"
-				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/184aa046-f559-410e-abf5-8a6622e1d918"
-					(reference "#PWR054")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "OEM:C_0.1uF_16V_0603")
-		(at 127 107.95 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9786b1dd-ec62-492d-8392-c771aa20de76")
-		(property "Reference" "C17"
-			(at 130.81 106.6799 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "C_0.1uF"
-			(at 130.81 109.2199 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 127.9652 111.76 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
-			(at 127 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
-			(at 127 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "C0603C104Z4VACTU"
-			(at 127 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "0525a2f6-c249-4570-aaa7-35d449d2387a")
-		)
-		(pin "2"
-			(uuid "988e5983-d801-46c4-9c03-0797072fa7a1")
-		)
-		(instances
-			(project "lv_pdu"
-				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/184aa046-f559-410e-abf5-8a6622e1d918"
-					(reference "C17")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "OEM_mkvii:TP_Hook_SMD")
-		(at 190.5 106.68 270)
+		(at 204.47 105.41 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2107,7 +2066,7 @@
 		(fields_autoplaced yes)
 		(uuid "9fcd0aa9-e7e1-4bbc-be16-de5123eec189")
 		(property "Reference" "TP4"
-			(at 195.58 105.4099 90)
+			(at 209.55 104.1399 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2118,7 +2077,7 @@
 			)
 		)
 		(property "Value" "TP_SMD"
-			(at 195.58 107.9499 90)
+			(at 209.55 106.6799 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2129,7 +2088,7 @@
 			)
 		)
 		(property "Footprint" "OEM:TP_Hook_SMD"
-			(at 186.69 106.68 0)
+			(at 200.66 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2140,7 +2099,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
-			(at 190.5 106.68 0)
+			(at 204.47 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2151,7 +2110,7 @@
 			)
 		)
 		(property "Description" "Test Point SMD Hook"
-			(at 190.5 106.68 0)
+			(at 204.47 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2162,7 +2121,7 @@
 			)
 		)
 		(property "MPN" "5019"
-			(at 190.5 106.68 0)
+			(at 204.47 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2185,8 +2144,8 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:U_5V-Volt-Reg_TLV70450DBVR_SOT23-5")
-		(at 149.86 100.33 0)
+		(lib_id "OEM:U_5V-Buck-Conv-AP63205WU-7-SOIC_05WU-7_DIO-M")
+		(at 129.54 99.06 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2195,9 +2154,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "a7a63167-5c9d-4720-bec3-448aa54bf571")
+		(uuid "aff8f9d0-e370-4dca-a5e5-3c9240a90f51")
 		(property "Reference" "U9"
-			(at 149.86 90.17 0)
+			(at 149.86 88.9 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2206,8 +2165,8 @@
 				)
 			)
 		)
-		(property "Value" "TLV70450DBVR"
-			(at 149.86 92.71 0)
+		(property "Value" "AP63205WU-7"
+			(at 149.86 91.44 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2216,8 +2175,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
-			(at 160.02 192.71 0)
+		(property "Footprint" "OEM:SOIC_05WU-7_DIO-M"
+			(at 129.54 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2225,11 +2184,11 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left top)
+				(justify bottom)
 			)
 		)
-		(property "Datasheet" "http://www.ti.com/lit/gpn/tlv704"
-			(at 160.02 292.71 0)
+		(property "Datasheet" "https://s3.amazonaws.com/snapeda/datasheet/AP63205WU-7_Diodes_Incorporated.pdf"
+			(at 129.54 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2237,11 +2196,11 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left top)
+				(justify bottom)
 			)
 		)
-		(property "Description" "IC REG LINEAR 5V 150MA SOT23-5"
-			(at 135.89 97.79 0)
+		(property "Description" "Buck Switching Regulator IC Positive Fixed 5V 1 Output 2A SOT-23-6 Thin, TSOT-23-6"
+			(at 129.54 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2249,10 +2208,11 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(justify bottom)
 			)
 		)
-		(property "MPN" "TLV70450DBVR"
-			(at 160.02 892.71 0)
+		(property "DATASHEET_URL" "https://s3.amazonaws.com/snapeda/datasheet/AP63205WU-7_Diodes_Incorporated.pdf"
+			(at 129.54 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2260,23 +2220,134 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left top)
+				(justify bottom)
 			)
 		)
-		(pin "5"
-			(uuid "ebac822d-9030-41b0-8677-2dd2a5383fdc")
+		(property "LINK" "https://www.digikey.com/en/products/detail/diodes-incorporated/AP63205WU-7/9858424"
+			(at 129.54 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "MANUFACTURER" "Diodes Incorporated"
+			(at 129.54 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "MPN" "AP63205WU-7"
+			(at 129.54 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "PRICE_EA" "0.91"
+			(at 129.54 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "Package" "SOT-23-6 Diodes Incorporated"
+			(at 129.54 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "ROHS" "Yes"
+			(at 129.54 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "SOURCE_URL" "https://www.snapeda.com/parts/AP63205WU-7/Diodes+Inc./view-part/"
+			(at 129.54 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "VENDOR" "Digikey"
+			(at 129.54 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
+		)
+		(property "VPN" "AP63205WU-7DICT-ND"
+			(at 129.54 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+			)
 		)
 		(pin "1"
-			(uuid "501b1fa7-ddb0-42c6-9aeb-4fe73e279abb")
+			(uuid "be02e7af-f942-4962-b73d-8243931ad631")
 		)
-		(pin "3"
-			(uuid "ef102eb2-e05a-4b3f-89fd-a525d8a5c16e")
+		(pin "5"
+			(uuid "da8dd0e5-235e-4aa1-9493-f2cf4fd68fe8")
 		)
-		(pin "2"
-			(uuid "186dbc52-9b7e-4d4e-808b-dae8b40257b7")
+		(pin "6"
+			(uuid "6688ebca-dc32-4172-82d5-56b9d939be95")
 		)
 		(pin "4"
-			(uuid "c36595e8-e3ee-4f7a-93e4-1b17035dd8f8")
+			(uuid "f750fd50-971e-4d49-aad3-b3a3ceaca4ce")
+		)
+		(pin "2"
+			(uuid "2059c2c7-a56d-4dbd-87b1-12fb60dff17b")
+		)
+		(pin "3"
+			(uuid "1fda7422-83dc-4aad-bb38-6ac7da0ae3af")
 		)
 		(instances
 			(project "lv_pdu"
@@ -2289,7 +2360,7 @@
 	)
 	(symbol
 		(lib_id "OEM:D_LED_Red_0805")
-		(at 189.23 120.65 90)
+		(at 203.2 119.38 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2300,7 +2371,7 @@
 		(fields_autoplaced yes)
 		(uuid "b98e7f52-fab9-4f12-b1cb-39cef8447b93")
 		(property "Reference" "D12"
-			(at 193.04 120.9674 90)
+			(at 207.01 119.6974 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2311,7 +2382,7 @@
 			)
 		)
 		(property "Value" "Green_LED"
-			(at 193.04 123.5074 90)
+			(at 207.01 122.2374 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2322,7 +2393,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_0805_2012Metric"
-			(at 189.23 120.65 0)
+			(at 203.2 119.38 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2333,7 +2404,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/Lite-On-LTST-C171KRKT.pdf"
-			(at 189.23 120.65 0)
+			(at 203.2 119.38 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2344,7 +2415,7 @@
 			)
 		)
 		(property "Description" "LED RED CLEAR SMD"
-			(at 189.23 120.65 0)
+			(at 203.2 119.38 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2355,7 +2426,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 189.23 120.65 0)
+			(at 203.2 119.38 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2366,7 +2437,7 @@
 			)
 		)
 		(property "MPN" "LTST-C171KRKT"
-			(at 189.23 120.65 0)
+			(at 203.2 119.38 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2393,7 +2464,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 170.18 119.38 0)
+		(at 184.15 123.19 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2404,7 +2475,7 @@
 		(fields_autoplaced yes)
 		(uuid "c10ba140-0ab5-4654-92ab-ded3dd063542")
 		(property "Reference" "#PWR053"
-			(at 170.18 125.73 0)
+			(at 184.15 129.54 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2415,7 +2486,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 170.18 124.46 0)
+			(at 184.15 128.27 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2425,7 +2496,7 @@
 			)
 		)
 		(property "Footprint" "OEM:C_0603_1608Metric"
-			(at 170.18 119.38 0)
+			(at 184.15 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2436,7 +2507,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 170.18 119.38 0)
+			(at 184.15 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2447,7 +2518,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 170.18 119.38 0)
+			(at 184.15 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2470,8 +2541,8 @@
 		)
 	)
 	(symbol
-		(lib_id "OEM:C_0.47uF_25V_0603")
-		(at 170.18 113.03 0)
+		(lib_id "OEM:C_22uF_20-100V_1206")
+		(at 189.23 116.84 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2480,9 +2551,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "c15761c6-c4c8-4ec4-a518-132db2cbd1d9")
-		(property "Reference" "C16"
-			(at 173.99 111.7599 0)
+		(uuid "da3ecd40-28aa-4524-b6e3-caa67f090c29")
+		(property "Reference" "C32"
+			(at 193.04 115.5699 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2492,8 +2563,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C_0.47uF"
-			(at 173.99 114.2999 0)
+		(property "Value" "C_22uF"
+			(at 193.04 118.1099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2503,8 +2574,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 171.1452 116.84 0)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 190.1952 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2514,8 +2585,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R71E474KA12-01.pdf"
-			(at 170.18 113.03 0)
+		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
+			(at 189.23 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2525,8 +2596,8 @@
 				)
 			)
 		)
-		(property "Description" "CAP CER 0.47UF 25V X7R 0603"
-			(at 170.18 113.03 0)
+		(property "Description" "CAP CER 22UF 25V X5R 1206"
+			(at 189.23 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2536,8 +2607,8 @@
 				)
 			)
 		)
-		(property "MPN" "GRM188R71E474KA12D"
-			(at 170.18 113.03 0)
+		(property "MPN" "CL31A226KAHNNNE"
+			(at 189.23 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2546,17 +2617,17 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(pin "2"
-			(uuid "fc269770-b513-4356-8e71-c88ba23a8be9")
 		)
 		(pin "1"
-			(uuid "717ba438-9cc6-4607-86d8-d7071d40fd72")
+			(uuid "e65a3aaf-eb70-4597-b7ab-da4eb65e344f")
+		)
+		(pin "2"
+			(uuid "f24a5896-d54f-4633-ab5a-03d651de97a4")
 		)
 		(instances
 			(project "lv_pdu"
 				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/184aa046-f559-410e-abf5-8a6622e1d918"
-					(reference "C16")
+					(reference "C32")
 					(unit 1)
 				)
 			)

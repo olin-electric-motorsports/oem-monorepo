@@ -5,6 +5,172 @@
 	(uuid "7071792e-f38f-442b-9439-3688340c5528")
 	(paper "A4")
 	(lib_symbols
+		(symbol "OEM:C_0.1uF_0-20V_0603"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_0.1uF"
+				(at 0.635 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0.9652 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "C0603C104Z4VACTU"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C_0.1uF_0-20V_0603_0_1"
+				(polyline
+					(pts
+						(xy -2.032 0.762) (xy 2.032 0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_0.1uF_0-20V_0603_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OEM:C_10uF_0-20V_0603"
 			(pin_numbers
 				(hide yes)
@@ -549,6 +715,255 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "OEM:L_4.7uH"
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "L"
+				(at 16.51 6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "L_4.7uH"
+				(at 16.51 3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "OEM:L_4.7uH"
+				(at 16.51 -96.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Datasheet" "https://componentsearchengine.com/Datasheets/1/NRS5020T4R7MMGJ.pdf"
+				(at 16.51 -196.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Description" "TAIYO YUDEN - NRS5020T4R7MMGJ - POWER INDUCTOR, 2A, 20%, 37MHZ"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Height" "2"
+				(at 16.51 -396.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Manufacturer_Name" "TAIYO YUDEN"
+				(at 16.51 -496.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Manufacturer_Part_Number" "NRS5020T4R7MMGJ"
+				(at 16.51 -596.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Mouser Part Number" "963-NRS5020T4R7MMGJ"
+				(at 16.51 -696.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/TAIYO-YUDEN/NRS5020T4R7MMGJ?qs=PzICbMaShUf1vyqPZzn0eg%3D%3D"
+				(at 16.51 -796.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Arrow Part Number" "NRS5020T4R7MMGJ"
+				(at 16.51 -896.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Arrow Price/Stock" "https://www.arrow.com/en/products/nrs5020t4r7mmgj/taiyo-yuden"
+				(at 16.51 -996.19 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "ki_keywords" "inductor,fixed,4.7uH"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "L_4.7uH_1_1"
+				(arc
+					(start 5.08 0)
+					(mid 6.35 1.219)
+					(end 7.62 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 7.62 0)
+					(mid 8.89 1.219)
+					(end 10.16 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 10.16 0)
+					(mid 11.43 1.219)
+					(end 12.7 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 12.7 0)
+					(mid 13.97 1.219)
+					(end 15.24 0)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 20.32 0 180)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OEM:R_200_0.1W_0603"
 			(pin_numbers
 				(hide yes)
@@ -709,26 +1124,24 @@
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U"
-				(at 15.5956 9.1186 0)
+			(property "Reference" "U9"
+				(at 20.32 10.16 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left bottom)
 				)
 			)
 			(property "Value" "AP63205WU-7"
-				(at 14.9606 6.5786 0)
+				(at 20.32 7.62 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left bottom)
 				)
 			)
 			(property "Footprint" "OEM:SOIC_05WU-7_DIO-M"
@@ -912,7 +1325,7 @@
 					)
 				)
 				(pin passive line
-					(at 2.54 0 0)
+					(at 38.1 -5.08 180)
 					(length 5.08)
 					(name "FB"
 						(effects
@@ -966,7 +1379,7 @@
 					)
 				)
 				(pin passive line
-					(at 38.1 -5.08 180)
+					(at 20.32 -15.24 90)
 					(length 5.08)
 					(name "GND"
 						(effects
@@ -1295,7 +1708,7 @@
 	)
 	(rectangle
 		(start 69.85 71.12)
-		(end 228.6 135.89)
+		(end 241.3 135.89)
 		(stroke
 			(width 0)
 			(type default)
@@ -1317,50 +1730,72 @@
 		(uuid "1868dc6f-6288-4021-80e5-10686c8cc44a")
 	)
 	(junction
-		(at 184.15 113.03)
+		(at 189.23 110.49)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "10177304-e3fa-44a0-a255-7ebdaa87f088")
 	)
 	(junction
-		(at 129.54 104.14)
+		(at 184.15 99.06)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6c7193cc-a1b0-4e2b-9366-e713fccf1f1c")
+	)
+	(junction
+		(at 111.76 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6fc09aba-c037-4b25-bdb2-0cce3c4c2b1a")
 	)
 	(junction
-		(at 203.2 105.41)
+		(at 208.28 102.87)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "81806185-31d5-4c85-ab59-0ba937144256")
 	)
 	(junction
-		(at 184.15 101.6)
+		(at 189.23 99.06)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a1893962-541a-4088-8f7a-144870e7864b")
 	)
 	(junction
-		(at 184.15 120.65)
+		(at 189.23 118.11)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c624beac-9fd5-4955-821e-232ac59c70e7")
 	)
 	(junction
-		(at 116.84 104.14)
+		(at 99.06 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "dd5cdfc3-5ade-4322-8998-9d6a95a49811")
 	)
 	(junction
-		(at 203.2 101.6)
+		(at 157.48 99.06)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "eef5f923-4928-4206-9369-2a1f6a6ebb4a")
+	)
+	(junction
+		(at 208.28 99.06)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f9ed22bc-2a23-4657-b1b5-2fff0d992fab")
 	)
 	(wire
 		(pts
-			(xy 184.15 123.19) (xy 184.15 120.65)
+			(xy 181.61 99.06) (xy 184.15 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "01bfb4e0-dabd-4f6b-9eba-ac3eef72bdde")
+	)
+	(wire
+		(pts
+			(xy 189.23 120.65) (xy 189.23 118.11)
 		)
 		(stroke
 			(width 0)
@@ -1370,7 +1805,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 101.6) (xy 129.54 101.6)
+			(xy 114.3 99.06) (xy 111.76 99.06)
 		)
 		(stroke
 			(width 0)
@@ -1380,7 +1815,7 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 101.6) (xy 184.15 113.03)
+			(xy 189.23 99.06) (xy 189.23 110.49)
 		)
 		(stroke
 			(width 0)
@@ -1390,7 +1825,7 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 104.14) (xy 129.54 104.14)
+			(xy 99.06 101.6) (xy 111.76 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1400,7 +1835,17 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 104.14) (xy 132.08 104.14)
+			(xy 184.15 99.06) (xy 189.23 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3b4a6129-47a7-4dbb-9f29-b1c335bfe252")
+	)
+	(wire
+		(pts
+			(xy 111.76 101.6) (xy 114.3 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1410,7 +1855,7 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 104.14) (xy 116.84 104.14)
+			(xy 87.63 101.6) (xy 99.06 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1420,7 +1865,7 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 120.65) (xy 184.15 120.65)
+			(xy 184.15 118.11) (xy 189.23 118.11)
 		)
 		(stroke
 			(width 0)
@@ -1430,7 +1875,27 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 101.6) (xy 203.2 101.6)
+			(xy 149.86 99.06) (xy 157.48 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7e3dd954-c892-45c7-88e9-6b604b991695")
+	)
+	(wire
+		(pts
+			(xy 184.15 101.6) (xy 184.15 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "81488e94-6ee1-40e0-b276-235d53c43ddd")
+	)
+	(wire
+		(pts
+			(xy 189.23 99.06) (xy 208.28 99.06)
 		)
 		(stroke
 			(width 0)
@@ -1440,7 +1905,17 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 107.95) (xy 203.2 105.41)
+			(xy 157.48 99.06) (xy 161.29 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9a29aa3b-f785-4afb-b217-a57775bc8c1b")
+	)
+	(wire
+		(pts
+			(xy 208.28 105.41) (xy 208.28 102.87)
 		)
 		(stroke
 			(width 0)
@@ -1450,7 +1925,7 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 113.03) (xy 189.23 113.03)
+			(xy 189.23 110.49) (xy 194.31 110.49)
 		)
 		(stroke
 			(width 0)
@@ -1460,7 +1935,7 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 113.03) (xy 184.15 113.03)
+			(xy 184.15 110.49) (xy 189.23 110.49)
 		)
 		(stroke
 			(width 0)
@@ -1470,7 +1945,27 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 101.6) (xy 213.36 101.6)
+			(xy 149.86 91.44) (xy 149.86 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bfdb959f-414c-4e3b-9df7-e8d82230c5f3")
+	)
+	(wire
+		(pts
+			(xy 157.48 91.44) (xy 157.48 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c7098bd2-43fb-4244-9b83-77c04bc87aed")
+	)
+	(wire
+		(pts
+			(xy 208.28 99.06) (xy 218.44 99.06)
 		)
 		(stroke
 			(width 0)
@@ -1480,7 +1975,7 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 120.65) (xy 189.23 120.65)
+			(xy 189.23 118.11) (xy 194.31 118.11)
 		)
 		(stroke
 			(width 0)
@@ -1490,7 +1985,17 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 101.6) (xy 129.54 104.14)
+			(xy 149.86 101.6) (xy 184.15 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e33375da-627a-4595-9693-0d6a0721efde")
+	)
+	(wire
+		(pts
+			(xy 111.76 99.06) (xy 111.76 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1500,7 +2005,7 @@
 	)
 	(wire
 		(pts
-			(xy 203.2 101.6) (xy 203.2 105.41)
+			(xy 208.28 99.06) (xy 208.28 102.87)
 		)
 		(stroke
 			(width 0)
@@ -1508,19 +2013,9 @@
 		)
 		(uuid "f6c784a8-42cb-4589-9316-9b6a12a5d121")
 	)
-	(wire
-		(pts
-			(xy 181.61 101.6) (xy 184.15 101.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fff3e1a5-63e8-4d9b-9ec3-22c855c5fd57")
-	)
 	(hierarchical_label "5V_buck_vin"
 		(shape input)
-		(at 105.41 104.14 180)
+		(at 87.63 101.6 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1531,7 +2026,7 @@
 	)
 	(hierarchical_label "5V_buck_vout"
 		(shape output)
-		(at 213.36 101.6 0)
+		(at 218.44 99.06 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1542,7 +2037,7 @@
 	)
 	(symbol
 		(lib_id "OEM:C_22uF_20-100V_1206")
-		(at 179.07 116.84 0)
+		(at 184.15 114.3 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -1553,7 +2048,7 @@
 		(dnp no)
 		(uuid "2233fe8f-09d5-4fca-82cd-21dd5f7cc218")
 		(property "Reference" "C16"
-			(at 175.26 115.5699 0)
+			(at 180.34 113.0299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1564,7 +2059,7 @@
 			)
 		)
 		(property "Value" "C_22uF"
-			(at 175.26 118.1099 0)
+			(at 180.34 115.5699 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1575,7 +2070,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
-			(at 178.1048 120.65 0)
+			(at 183.1848 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1586,7 +2081,7 @@
 			)
 		)
 		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
-			(at 179.07 116.84 0)
+			(at 184.15 114.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1597,7 +2092,7 @@
 			)
 		)
 		(property "Description" "CAP CER 22UF 25V X5R 1206"
-			(at 179.07 116.84 0)
+			(at 184.15 114.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1608,7 +2103,7 @@
 			)
 		)
 		(property "MPN" "CL31A226KAHNNNE"
-			(at 179.07 116.84 0)
+			(at 184.15 114.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1635,7 +2130,7 @@
 	)
 	(symbol
 		(lib_id "OEM:R_200_0.1W_0603")
-		(at 203.2 111.76 0)
+		(at 208.28 109.22 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1646,7 +2141,7 @@
 		(fields_autoplaced yes)
 		(uuid "260be8b1-bd23-4b8d-8895-d093ee3da81d")
 		(property "Reference" "R11"
-			(at 205.74 110.4899 0)
+			(at 210.82 107.9499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1657,7 +2152,7 @@
 			)
 		)
 		(property "Value" "R_200"
-			(at 205.74 113.0299 0)
+			(at 210.82 110.4899 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1668,7 +2163,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 201.422 111.76 90)
+			(at 206.502 109.22 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1679,7 +2174,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/317/1/ASC_WR.pdf"
-			(at 203.2 111.76 0)
+			(at 208.28 109.22 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1690,7 +2185,7 @@
 			)
 		)
 		(property "Description" "RES 200 OHM 1% 1/10W 0603"
-			(at 203.2 111.76 0)
+			(at 208.28 109.22 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1701,7 +2196,7 @@
 			)
 		)
 		(property "MPN" "WR06X2000FTL"
-			(at 203.2 111.76 0)
+			(at 208.28 109.22 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1728,7 +2223,7 @@
 	)
 	(symbol
 		(lib_id "OEM:C_10uF_0-20V_0603")
-		(at 116.84 107.95 0)
+		(at 99.06 105.41 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1739,7 +2234,7 @@
 		(fields_autoplaced yes)
 		(uuid "2b961be6-7701-43f0-b522-c1002a35521d")
 		(property "Reference" "C17"
-			(at 120.65 106.6799 0)
+			(at 102.87 104.1399 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1750,7 +2245,7 @@
 			)
 		)
 		(property "Value" "C_10uF"
-			(at 120.65 109.2199 0)
+			(at 102.87 106.6799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1761,7 +2256,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 117.8052 111.76 0)
+			(at 100.0252 109.22 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1772,7 +2267,7 @@
 			)
 		)
 		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188D71A106KA73-01.pdf"
-			(at 116.84 107.95 0)
+			(at 99.06 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1783,7 +2278,7 @@
 			)
 		)
 		(property "Description" "CAP CER 10UF 10V X7T 0603"
-			(at 116.84 107.95 0)
+			(at 99.06 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1794,7 +2289,7 @@
 			)
 		)
 		(property "MPN" "GRM188D71A106KA73D"
-			(at 116.84 107.95 0)
+			(at 99.06 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1821,7 +2316,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 116.84 111.76 0)
+		(at 99.06 109.22 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1832,7 +2327,7 @@
 		(fields_autoplaced yes)
 		(uuid "3bd2acc8-ff4c-48d1-8291-89929584f246")
 		(property "Reference" "#PWR054"
-			(at 116.84 118.11 0)
+			(at 99.06 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1843,7 +2338,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 116.84 116.84 0)
+			(at 99.06 114.3 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1853,7 +2348,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 116.84 111.76 0)
+			(at 99.06 109.22 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1864,7 +2359,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 116.84 111.76 0)
+			(at 99.06 109.22 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1875,7 +2370,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 116.84 111.76 0)
+			(at 99.06 109.22 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1899,7 +2394,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 167.64 104.14 0)
+		(at 132.08 111.76 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1910,7 +2405,7 @@
 		(fields_autoplaced yes)
 		(uuid "502f0992-f5aa-4170-bc13-4542fff5fb42")
 		(property "Reference" "#PWR052"
-			(at 167.64 110.49 0)
+			(at 132.08 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1921,7 +2416,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 167.64 109.22 0)
+			(at 132.08 116.84 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1931,7 +2426,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 167.64 104.14 0)
+			(at 132.08 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1942,7 +2437,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 167.64 104.14 0)
+			(at 132.08 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1953,7 +2448,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 167.64 104.14 0)
+			(at 132.08 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1976,8 +2471,174 @@
 		)
 	)
 	(symbol
+		(lib_id "OEM:L_4.7uH")
+		(at 161.29 99.06 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7581ab9a-616d-423b-971c-047eb1efd32d")
+		(property "Reference" "L4"
+			(at 171.45 92.71 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "L_4.7uH"
+			(at 171.45 95.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "OEM:L_4.7uH"
+			(at 177.8 195.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Datasheet" "https://componentsearchengine.com/Datasheets/1/NRS5020T4R7MMGJ.pdf"
+			(at 177.8 295.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Description" "TAIYO YUDEN - NRS5020T4R7MMGJ - POWER INDUCTOR, 2A, 20%, 37MHZ"
+			(at 161.29 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Height" "2"
+			(at 177.8 495.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Manufacturer_Name" "TAIYO YUDEN"
+			(at 177.8 595.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Manufacturer_Part_Number" "NRS5020T4R7MMGJ"
+			(at 177.8 695.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Mouser Part Number" "963-NRS5020T4R7MMGJ"
+			(at 177.8 795.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/TAIYO-YUDEN/NRS5020T4R7MMGJ?qs=PzICbMaShUf1vyqPZzn0eg%3D%3D"
+			(at 177.8 895.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Arrow Part Number" "NRS5020T4R7MMGJ"
+			(at 177.8 995.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/nrs5020t4r7mmgj/taiyo-yuden"
+			(at 177.8 1095.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "1"
+			(uuid "91eca0ff-ccc7-4fa4-a9fd-e7b3dc6c58f8")
+		)
+		(pin "2"
+			(uuid "0e32ec19-89e8-44a7-a4c7-f1ef108afd09")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/184aa046-f559-410e-abf5-8a6622e1d918"
+					(reference "L4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
-		(at 203.2 123.19 0)
+		(at 208.28 120.65 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1988,7 +2649,7 @@
 		(fields_autoplaced yes)
 		(uuid "77b87909-0d92-4abe-8d1f-e218e3483e6c")
 		(property "Reference" "#PWR056"
-			(at 203.2 129.54 0)
+			(at 208.28 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1999,7 +2660,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 203.2 128.27 0)
+			(at 208.28 125.73 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2009,7 +2670,7 @@
 			)
 		)
 		(property "Footprint" "OEM:D_0805_2012Metric"
-			(at 203.2 123.19 0)
+			(at 208.28 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2020,7 +2681,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 203.2 123.19 0)
+			(at 208.28 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2031,7 +2692,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 203.2 123.19 0)
+			(at 208.28 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2055,7 +2716,7 @@
 	)
 	(symbol
 		(lib_id "OEM_mkvii:TP_Hook_SMD")
-		(at 204.47 105.41 270)
+		(at 209.55 102.87 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2066,7 +2727,7 @@
 		(fields_autoplaced yes)
 		(uuid "9fcd0aa9-e7e1-4bbc-be16-de5123eec189")
 		(property "Reference" "TP4"
-			(at 209.55 104.1399 90)
+			(at 214.63 101.5999 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2077,7 +2738,7 @@
 			)
 		)
 		(property "Value" "TP_SMD"
-			(at 209.55 106.6799 90)
+			(at 214.63 104.1399 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2088,7 +2749,7 @@
 			)
 		)
 		(property "Footprint" "OEM:TP_Hook_SMD"
-			(at 200.66 105.41 0)
+			(at 205.74 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2099,7 +2760,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/datasheet/3/201/1/5019.PDF"
-			(at 204.47 105.41 0)
+			(at 209.55 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2110,7 +2771,7 @@
 			)
 		)
 		(property "Description" "Test Point SMD Hook"
-			(at 204.47 105.41 0)
+			(at 209.55 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2121,7 +2782,7 @@
 			)
 		)
 		(property "MPN" "5019"
-			(at 204.47 105.41 0)
+			(at 209.55 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2145,7 +2806,7 @@
 	)
 	(symbol
 		(lib_id "OEM:U_5V-Buck-Conv-AP63205WU-7-SOIC_05WU-7_DIO-M")
-		(at 129.54 99.06 0)
+		(at 111.76 96.52 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2156,7 +2817,7 @@
 		(fields_autoplaced yes)
 		(uuid "aff8f9d0-e370-4dca-a5e5-3c9240a90f51")
 		(property "Reference" "U9"
-			(at 149.86 88.9 0)
+			(at 132.08 86.36 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2166,7 +2827,7 @@
 			)
 		)
 		(property "Value" "AP63205WU-7"
-			(at 149.86 91.44 0)
+			(at 132.08 88.9 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2176,7 +2837,7 @@
 			)
 		)
 		(property "Footprint" "OEM:SOIC_05WU-7_DIO-M"
-			(at 129.54 99.06 0)
+			(at 111.76 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2188,7 +2849,7 @@
 			)
 		)
 		(property "Datasheet" "https://s3.amazonaws.com/snapeda/datasheet/AP63205WU-7_Diodes_Incorporated.pdf"
-			(at 129.54 99.06 0)
+			(at 111.76 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2200,7 +2861,7 @@
 			)
 		)
 		(property "Description" "Buck Switching Regulator IC Positive Fixed 5V 1 Output 2A SOT-23-6 Thin, TSOT-23-6"
-			(at 129.54 99.06 0)
+			(at 111.76 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2212,7 +2873,7 @@
 			)
 		)
 		(property "DATASHEET_URL" "https://s3.amazonaws.com/snapeda/datasheet/AP63205WU-7_Diodes_Incorporated.pdf"
-			(at 129.54 99.06 0)
+			(at 111.76 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2224,7 +2885,7 @@
 			)
 		)
 		(property "LINK" "https://www.digikey.com/en/products/detail/diodes-incorporated/AP63205WU-7/9858424"
-			(at 129.54 99.06 0)
+			(at 111.76 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2236,7 +2897,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Diodes Incorporated"
-			(at 129.54 99.06 0)
+			(at 111.76 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2248,7 +2909,7 @@
 			)
 		)
 		(property "MPN" "AP63205WU-7"
-			(at 129.54 99.06 0)
+			(at 111.76 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2260,7 +2921,7 @@
 			)
 		)
 		(property "PRICE_EA" "0.91"
-			(at 129.54 99.06 0)
+			(at 111.76 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2272,7 +2933,7 @@
 			)
 		)
 		(property "Package" "SOT-23-6 Diodes Incorporated"
-			(at 129.54 99.06 0)
+			(at 111.76 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2284,7 +2945,7 @@
 			)
 		)
 		(property "ROHS" "Yes"
-			(at 129.54 99.06 0)
+			(at 111.76 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2296,7 +2957,7 @@
 			)
 		)
 		(property "SOURCE_URL" "https://www.snapeda.com/parts/AP63205WU-7/Diodes+Inc./view-part/"
-			(at 129.54 99.06 0)
+			(at 111.76 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2308,7 +2969,7 @@
 			)
 		)
 		(property "VENDOR" "Digikey"
-			(at 129.54 99.06 0)
+			(at 111.76 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2320,7 +2981,7 @@
 			)
 		)
 		(property "VPN" "AP63205WU-7DICT-ND"
-			(at 129.54 99.06 0)
+			(at 111.76 96.52 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2360,7 +3021,7 @@
 	)
 	(symbol
 		(lib_id "OEM:D_LED_Red_0805")
-		(at 203.2 119.38 90)
+		(at 208.28 116.84 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2371,7 +3032,7 @@
 		(fields_autoplaced yes)
 		(uuid "b98e7f52-fab9-4f12-b1cb-39cef8447b93")
 		(property "Reference" "D12"
-			(at 207.01 119.6974 90)
+			(at 212.09 117.1574 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2382,7 +3043,7 @@
 			)
 		)
 		(property "Value" "Green_LED"
-			(at 207.01 122.2374 90)
+			(at 212.09 119.6974 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2393,7 +3054,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_0805_2012Metric"
-			(at 203.2 119.38 0)
+			(at 208.28 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2404,7 +3065,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.com/catalog/specsheets/Lite-On-LTST-C171KRKT.pdf"
-			(at 203.2 119.38 0)
+			(at 208.28 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2415,7 +3076,7 @@
 			)
 		)
 		(property "Description" "LED RED CLEAR SMD"
-			(at 203.2 119.38 0)
+			(at 208.28 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2426,7 +3087,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 203.2 119.38 0)
+			(at 208.28 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2437,7 +3098,7 @@
 			)
 		)
 		(property "MPN" "LTST-C171KRKT"
-			(at 203.2 119.38 0)
+			(at 208.28 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2464,7 +3125,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 184.15 123.19 0)
+		(at 189.23 120.65 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2475,7 +3136,7 @@
 		(fields_autoplaced yes)
 		(uuid "c10ba140-0ab5-4654-92ab-ded3dd063542")
 		(property "Reference" "#PWR053"
-			(at 184.15 129.54 0)
+			(at 189.23 127 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2486,7 +3147,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 184.15 128.27 0)
+			(at 189.23 125.73 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2496,7 +3157,7 @@
 			)
 		)
 		(property "Footprint" "OEM:C_0603_1608Metric"
-			(at 184.15 123.19 0)
+			(at 189.23 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2507,7 +3168,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 184.15 123.19 0)
+			(at 189.23 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2518,7 +3179,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 184.15 123.19 0)
+			(at 189.23 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2542,7 +3203,7 @@
 	)
 	(symbol
 		(lib_id "OEM:C_22uF_20-100V_1206")
-		(at 189.23 116.84 0)
+		(at 194.31 114.3 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2553,7 +3214,7 @@
 		(fields_autoplaced yes)
 		(uuid "da3ecd40-28aa-4524-b6e3-caa67f090c29")
 		(property "Reference" "C32"
-			(at 193.04 115.5699 0)
+			(at 198.12 113.0299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2564,7 +3225,7 @@
 			)
 		)
 		(property "Value" "C_22uF"
-			(at 193.04 118.1099 0)
+			(at 198.12 115.5699 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2575,7 +3236,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
-			(at 190.1952 120.65 0)
+			(at 195.2752 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2586,7 +3247,7 @@
 			)
 		)
 		(property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/658/CL31A226KAHNNNE_Spec.pdf"
-			(at 189.23 116.84 0)
+			(at 194.31 114.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2597,7 +3258,7 @@
 			)
 		)
 		(property "Description" "CAP CER 22UF 25V X5R 1206"
-			(at 189.23 116.84 0)
+			(at 194.31 114.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2608,7 +3269,7 @@
 			)
 		)
 		(property "MPN" "CL31A226KAHNNNE"
-			(at 189.23 116.84 0)
+			(at 194.31 114.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2628,6 +3289,97 @@
 			(project "lv_pdu"
 				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/184aa046-f559-410e-abf5-8a6622e1d918"
 					(reference "C32")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OEM:C_0.1uF_0-20V_0603")
+		(at 153.67 91.44 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "de6506a2-acc0-402f-ac8f-69fe9ae3abb5")
+		(property "Reference" "C33"
+			(at 153.67 83.82 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "C_0.1uF"
+			(at 153.67 86.36 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+			(at 157.48 90.4748 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.mouser.com/datasheet/3/72/1/KEM_C1005_Y5V_SMD.pdf"
+			(at 153.67 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CAP CER 0.1UF 16V Y5V 0603"
+			(at 153.67 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C0603C104Z4VACTU"
+			(at 153.67 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "a72ae49d-9711-41ce-926d-3ca3de822935")
+		)
+		(pin "1"
+			(uuid "ea54c373-6f85-4b9d-84cc-e9e1e33bca0d")
+		)
+		(instances
+			(project "lv_pdu"
+				(path "/b54112f2-5a8c-4f44-84e1-ee3234409d0b/b38d43ea-a7cc-4608-a8cd-81bb88a8718a/184aa046-f559-410e-abf5-8a6622e1d918"
+					(reference "C33")
 					(unit 1)
 				)
 			)
